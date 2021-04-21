@@ -1,48 +1,63 @@
 ---
-title: Omówienie usługi Azure Industrial IoT
-description: Ten artykuł zawiera omówienie usługi IoT rzeczy. Wyjaśniono w nim składniki usługi Shop i zabezpieczenia związane z produkcją w IIoT.
+title: Omówienie przemysłowego IoT na platformie Azure
+description: Ten artykuł zawiera omówienie przemysłowego IoT. Objaśnia ona łączność i składniki zabezpieczeń w sieci IIoT.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: overview
 ms.date: 3/22/2021
-ms.openlocfilehash: 940391d26b5a8455fef01c8094cd08e05ab51290
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce582f810f483f2e5d3fdda2c3379ecad3842d51
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104787950"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813276"
 ---
-# <a name="what-is-industrial-iot-iiot"></a>Co to jest przemysł IoT (IIoT)?
+# <a name="what-is-industrial-iot-iiot"></a>Co to jest przemysłowe IoT (IIoT)?
 
-IIoT (przemysłowe Internet rzeczy) zwiększa efektywność przemysłową dzięki zastosowaniu IoT w branży produkcyjnej.
+![Przemysłowe IoT](media/overview-what-is-Industrial-IoT/icon-255-px.png)
 
-![Rzeczy przemysłowe](media/overview-what-is-Industrial-IoT/icon-255-px.png)
+Microsoft Azure Industrial Internet rzeczy (IIoT) to pakiet modułów i usług platformy Azure, które integrują możliwości chmury z podłogami w sklepach przemysłowych i produkcyjnych. Korzystając ze standardowych w branży otwartych interfejsów, takich jak ujednolicona architektura [OPC UA (Open Platform Communications Unified Architecture),](https://opcfoundation.org/about/opc-technologies/opc-ua/)usługa Azure IIoT zapewnia możliwość integracji danych z zasobów i czujników — w tym tych, które już działają w fabryce — z chmurą platformy Azure. Dzięki temu dane w chmurze mogą być używane szybciej i elastyczniej jako informacje zwrotne do opracowywania transformacyjnych procesów biznesowych i przemysłowych.
 
-## <a name="improve-industrial-efficiencies"></a>Poprawa efektywności przemysłowej
-Zwiększ produktywność operacyjną i zyskowność dzięki usłudze Azure Industrial IoT. Skrócenie czasochłonnego procesu uzyskiwania dostępu do zasobów w lokacji. Łączenie i monitorowanie sprzętu i urządzeń przemysłowych w chmurze — w tym na maszynach, które już działają w fabryce fabryki. Analizuj dane IoT w celu uzyskania szczegółowych informacji, które pomogą zwiększyć wydajność całej lokacji.
+## <a name="discover-register-and-manage-your-industrial-assets-with-azure"></a>Odnajdywanie i rejestrowanie zasobów przemysłowych na platformie Azure oraz zarządzanie nimi
+
+Usługa Azure Industrial IoT umożliwia operatorom zakładów odnajdywanie serwerów z obsługą OPC UA w sieci fabrycznej i rejestrowanie ich w Azure IoT Hub. Personel operacyjny może subskrybować i reagować na zdarzenia w fabryce z dowolnego miejsca na świecie, odbierać alerty i alarmy oraz reagować na nie w czasie rzeczywistym.
+
+IIoT udostępnia zestaw mikrousług, które implementują funkcje OPC UA. Interfejsy API REST mikrousług odzwierciedlają usługi OPC UA po stronie brzegowej. Są one zabezpieczone przy użyciu uwierzytelniania OAUTH i autoryzacji Azure Active Directory (AAD). Dzięki temu aplikacje w chmurze mogą przeglądać przestrzenie adresowe serwera lub zmienne odczytu/zapisu i wykonywać metody przy użyciu protokołu HTTPS i prostych ładunków JSON OPC UA. Usługi brzegowe są implementowane jako Azure IoT Edge i uruchamiane lokalnie. Mikrousługi w chmurze są implementowane jako mikrousługi ASP.NET z interfejsem REST i uruchamiane w zarządzanych usługach Azure Kubernetes Services lub autonomicznie w Azure App Service. W przypadku usług brzegowych i usług w chmurze technologia IIoT udostępnia wstępnie sbudowaną kontenery platformy Docker w Microsoft Container Registry (MCR), co usuwa ten krok dla klienta. Usługi brzegowe i usługi w chmurze są używane wzajemnie i muszą być używane razem. IIoT udostępnia również łatwe w użyciu skrypty wdrażania, które umożliwiają wdrożenie całej platformy za pomocą jednego polecenia.
+
+Ponadto interfejsy API REST mogą być używane z dowolnym językiem programowania za pośrednictwem jego ujawnionej specyfikacji open API (Swagger). Oznacza to, że podczas integrowania usługi OPC UA z rozwiązaniami do zarządzania chmurą deweloperzy mogą wybrać technologię, która odpowiada ich umiejętnościom, zainteresowania i architekturze. Na przykład programista internetowy pełnego stosu, który opracowuje aplikację dla pulpitu nawigacyjnego alarmów i zdarzeń, może napisać logikę do reagowania na zdarzenia w języku JavaScript lub TypeScript bez konieczności stosowania zestawu SDK OPC UA, C, C++, Java lub C#.
+
+## <a name="manage-certificates-and-trust-groups"></a>Zarządzanie certyfikatami i grupami zaufania
+
+Usługa Azure Industrial IoT zarządza certyfikatami aplikacji OPC UA i listami zaufania maszyn i systemów sterowania w fabryce, aby zapewnić bezpieczeństwo komunikacji klienta OPC UA z serwerem. Ogranicza to, który klient może rozmawiać z którym serwerem. Magazyn kluczy prywatnych i podpisywanie certyfikatów jest wspierany przez program Azure Key Vault, który obsługuje zabezpieczenia sprzętowe (HSM).
 
 ## <a name="industrial-iot-components"></a>Przemysłowe składniki IoT
 
-**Urządzenia IoT Edge** Urządzenie IoT Edge składa się ze środowiska uruchomieniowego Edge i modułów brzegowych. 
-- *Moduły brzegowe* są kontenerami platformy Docker, które są najmniejszą jednostką obliczeniową, taką jak OPC Publisher i OPC. 
-- *Urządzenie brzegowe* służy do wdrażania takich modułów, które działają jako mediator między serwerem OPC UA i IoT Hub w chmurze. Więcej informacji na temat IoT Edge znajduje się [tutaj](https://azure.microsoft.com/services/iot-edge/).
+Rozwiązania Azure IIoT są zbudowane na podstawie określonych składników. Są to m.in. następujące.
 
-**IoT Hub** IoT Hub pełni rolę centralnego centrum komunikatów na potrzeby komunikacji dwukierunkowej między aplikacją IoT a zarządzanymi urządzeniami. Jest to otwarta i elastyczna platforma w chmurze jako usługa, która obsługuje zestawy SDK typu open source i wiele protokołów. Przeczytaj więcej na temat IoT Hub [tym miejscu](https://azure.microsoft.com/services/iot-hub/).
+- **Co najmniej jedna Azure IoT Hub.**
+- **IoT Edge urządzeń.**
+- **Przemysłowe moduły brzegowe.**
 
-**Moduły brzegowe przemysłowe**
-- *Wydawca OPC*: Wydawca OPC działa w IoT Edge. Łączy się on z serwerami OPC UA i publikuje dane telemetryczne kodowane JSON z tych serwerów w formacie OPC UA "pub/Sub" na platformie Azure IoT Hub. Mogą być używane wszystkie protokoły transportowe obsługiwane przez zestaw SDK klienta IoT Hub platformy Azure, np. HTTPS, AMQP i MQTT.
-- *OPC bliźniaczy*: OPCa z mikrousług, które używają Azure IoT Edge i IoT Hub do łączenia chmur i sieci fabrycznej. Przędza OPCa zapewnia odnajdywanie, rejestrację i zdalne sterowanie urządzeniami przemysłowymi za poorednictwem interfejsów API REST. OPC bliźniaczy nie wymaga zestawu SDK OPC Unified Architecture (OPC UA). Niezależny od język programowania i może być uwzględniony w przepływie pracy bezserwerowym.
-- *Odnajdywanie*: moduł odnajdywania reprezentowany przez tożsamość odnajdowania zapewnia usługi odnajdywania na krawędzi, które obejmują odnajdowanie serwera OPC UA. Jeśli odnajdywanie jest skonfigurowane i włączone, moduł wyśle wyniki sondy skanowania za pośrednictwem IoT Edge i IoT Hub ścieżkę telemetrii do usługi dołączania. Usługa przetwarza wyniki i aktualizuje wszystkie powiązane tożsamości w rejestrze.
+### <a name="iot-hub"></a>Usługa IoT Hub
+[Azure IoT Hub]( działa jako centralne centrum komunikatów do bezpiecznej, dwukierunkowej komunikacji między dowolną aplikacją https://azure.microsoft.com/services/iot-hub/ IoT i urządzeniami, które zarządza. Jest to otwarta i elastyczna platforma jako usługa w chmurze (PaaS), która obsługuje zestawy SDK typu open source i wiele protokołów. 
 
+Zbieranie danych przemysłowych i biznesowych na IoT Hub umożliwia bezpieczne przechowywanie danych, przeprowadzanie analiz biznesowych i dotyczących wydajności oraz generowanie na ich podstawie raportów. Można również stosować Microsoft Azure i narzędzia, takie jak [Power BI](https://powerbi.microsoft.com), do skonsolidowanych danych.
 
-**Odkrywanie i rejestrowanie zasobów przemysłowych oraz zarządzanie nimi przy użyciu platformy Azure** Usługa Azure Industrial IoT umożliwia operatorom zakładu odnajdywanie serwerów z obsługą OPC UA w sieci fabrycznej i rejestrowanie ich w usłudze Azure IoT Hub. Pracownicy operacyjni mogą subskrybować lub reagować na zdarzenia w fabryce fabryki z dowolnego miejsca na świecie. Interfejsy API REST mikrousług są dublowane po stronie usługi OPC UA. Są one zabezpieczone przy użyciu uwierzytelniania OAUTH i autoryzacji obsługiwanej przez Azure Active Directory (AAD). Dzięki temu aplikacje w chmurze mogą przeglądać przestrzenie adresowe serwera lub zmienne odczytu/zapisu oraz wykonywać metody przy użyciu protokołu HTTPS i prostych ładunków JSON OPC UA.
+### <a name="iot-edge-devices"></a>IoT Edge urządzeń
+Usługi [brzegowe są](https://azure.microsoft.com/services/iot-edge/) implementowane jako Azure IoT Edge i uruchamiane lokalnie. Mikrousługi w chmurze są implementowane jako mikrousługi ASP.NET z interfejsem REST i uruchamiane w zarządzanych usługach Azure Kubernetes Services lub autonomicznie w Azure App Service. W przypadku usług brzegowych i usług w chmurze firma Microsoft dostarcza wstępnie sbudowaną kontenery platformy Docker w Microsoft Container Registry (MCR), usuwając ten krok dla klienta. Usługi brzegowe i usługi w chmurze są wzajemnie używane i muszą być używane razem. Oferujemy również łatwe w użyciu skrypty wdrażania, które umożliwiają wdrożenie całej platformy za pomocą jednego polecenia.
+
+Urządzenie IoT Edge składa się ze środowiska uruchomieniowego usługi Edge i modułów brzegowych.
+- **Moduły usługi Edge** to kontenery platformy Docker, które są najmniejszą jednostką obliczeniową, na przykład Wydawca OPC i Bliźniacze reprezentacji OPC. 
+- **Urządzenie brzegowe** służy do wdrażania takich modułów, które pełnią rolę między serwerem OPC UA a IoT Hub w chmurze.
+
+### <a name="industrial-edge-modules"></a>Przemysłowe moduły brzegowe
+- **Wydawca OPC:** wydawca OPC działa wewnątrz IoT Edge. Łączy się ona z serwerami OPC UA i publikuje dane telemetryczne zakodowane w formacie JSON z tych serwerów w formacie OPC UA "Pub/Sub" Azure IoT Hub. Można używać wszystkich protokołów transportu obsługiwanych przez zestaw SDK klienta Azure IoT Hub, np. HTTPS, AMQP i MQTT.
+- **Bliźniacze reprezentacji OPC:** Bliźniacze reprezentacji OPC składa się z mikrousług, które używają Azure IoT Edge i IoT Hub do łączenia chmury z siecią fabryki. Bliźniaczą reprezentacji OPC zapewnia odnajdywanie, rejestrację i zdalne sterowanie urządzeniami przemysłowymi za pośrednictwem interfejsów API REST. Bliźniacze reprezentacji OPC nie wymaga zestawu SDK OPC Unified Architecture (OPC UA). Jest on niezależny od języka programowania i może być uwzględniony w bez serwerach przepływu pracy.
+- **Odnajdywanie:** moduł odnajdywania reprezentowany przez tożsamość odnajdywania udostępnia usługi odnajdywania na brzegu sieci, w tym odnajdowanie serwera OPC UA. Jeśli odnajdywanie zostanie skonfigurowane i włączone, moduł wyśle wyniki sondy skanowania za pośrednictwem ścieżki IoT Edge i IoT Hub do usługi dołączania. Usługa przetwarza wyniki i aktualizuje wszystkie powiązane tożsamości w rejestrze.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy wiesz już, co to jest przemysł IoT, możesz zapoznać się z informacjami na temat platformy IoT i wydawcy OPC:
+Teraz, gdy już wiesz, czym jest przemysłowe IoT, możesz przeczytać o przemysłowej platformie IoT i wydawcy OPC:
 
 > [!div class="nextstepaction"]
-> [Co to jest platforma IoT w przemyśle?](overview-what-is-industrial-iot-platform.md)
-
-> [!div class="nextstepaction"]
-> [Co to jest Wydawca OPC?](overview-what-is-opc-publisher.md)
+> [Co to jest wydawca OPC?](overview-what-is-opc-publisher.md)

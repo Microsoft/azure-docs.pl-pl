@@ -1,46 +1,46 @@
 ---
-title: Informacje na temat obsługi aktualizacji urządzeń odłączonych za pomocą połączonej pamięci podręcznej Microsoft | Microsoft Docs
+title: Opis obsługi aktualizacji odłączonych urządzeń przy użyciu usługi Microsoft Connected Cache | Microsoft Docs
 titleSuffix: Device Update for Azure IoT Hub
-description: Informacje o obsłudze aktualizacji urządzenia odłączonego przy użyciu połączonej pamięci podręcznej firmy Microsoft
+description: Opis obsługi aktualizacji odłączonych urządzeń przy użyciu usługi Microsoft Connected Cache
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e2b27934f58402ecfb7dabf5560dc43e45f3f7dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e216d42ff1f279d87e657126514fcfb50960f806
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101679545"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811908"
 ---
-# <a name="understand-support-for-disconnected-device-updates"></a>Omówienie obsługi aktualizacji odłączonych urządzeń
+# <a name="understand-support-for-disconnected-device-updates"></a>Opis obsługi aktualizacji odłączonych urządzeń
 
-W przypadku niejawnego scenariusza z bramą co najmniej jedno urządzenie może przekazać swoje wiadomości za pomocą jednego urządzenia bramy, które utrzymuje połączenie z usługą Azure IoT Hub. W takich przypadkach urządzenia podrzędne mogą nie mieć łączności z Internetem lub nie mogą pobierać zawartości z Internetu. Moduł IoT Edge w wersji zapoznawczej połączonej pamięci podręcznej firmy Microsoft udostępnia aktualizacje urządzeń dla klientów platformy Azure IoT Hub z możliwością inteligentnej pamięci podręcznej, która umożliwia korzystanie z opartych na obrazach i opartych na pakietach aktualizacji urządzeń opartych na systemie operacyjnym Linux i IoT Edge bramy (podrzędne urządzenia IoT), a także pomaga zaoszczędzić przepustowość dla aktualizacji urządzeń dla klientów usługi Azure IoT Hub.
+W scenariuszu przezroczystej bramy co najmniej jedno urządzenie może przekazywać komunikaty za pośrednictwem jednego urządzenia bramy, które utrzymuje połączenie z Azure IoT Hub. W takich przypadkach urządzenia podrzędne mogą nie mieć łączności z Internetem lub mogą nie mieć możliwości pobierania zawartości z Internetu. Moduł IoT Edge microsoft Connected Cache w wersji zapoznawczej zapewnia klientom usługi Azure IoT Hub funkcję inteligentnej pamięci podręcznej w sieci, która umożliwia oparte na obrazach i pakietach aktualizacje urządzeń opartych na systemie operacyjnym Linux za bramą i bramą IoT Edge (podrzędne urządzenia IoT), a także pomoże zaoszczędzić przepustowość aktualizacji urządzeń dla klientów korzystających z usługi Azure IoT Hub.
 
-## <a name="how-does-microsoft-connected-cache-preview-for-device-update-for-azure-iot-hub-work"></a>Jak działa wersja zapoznawcza pamięci podręcznej Microsoft Connect dla aktualizacji urządzenia dla platformy Azure IoT Hub?
+## <a name="how-does-microsoft-connected-cache-preview-for-device-update-for-azure-iot-hub-work"></a>Jak działa usługa Microsoft Connected Cache w wersji zapoznawczej dla aktualizacji Azure IoT Hub urządzenia?
 
-Połączona pamięć podręczna firmy Microsoft to inteligentna, przejrzysta pamięć podręczna dla zawartości opublikowanej dla usługi Azure IoT Hub Content i można ją dostosować do zawartości w pamięci podręcznej z innych źródeł, takich jak repozytoria pakietów. Połączona pamięć podręczna firmy Microsoft jest zimną pamięcią podręczną, która jest podgrzewana przez żądania klientów dotyczące dokładnych zakresów plików wymaganych przez klienta optymalizacji dostarczania i nie zawiera wstępnej zawartości. Na diagramie i opisie krok po kroku wyjaśniono, jak działa połączona pamięć podręczna firmy Microsoft w ramach aktualizacji urządzenia dla infrastruktury IoT Hub platformy Azure.
+Microsoft Connected Cache Preview to inteligentna, przezroczysta pamięć podręczna dla zawartości opublikowanej dla aktualizacji urządzenia dla zawartości usługi Azure IoT Hub i można ją dostosować do pamięci podręcznej zawartości z innych źródeł, takich jak repozytoria pakietów. Microsoft Connected Cache to zimna pamięć podręczna, która jest rozgrzewana przez żądania klientów dotyczące dokładnych zakresów plików żądanych przez klienta Optymalizacja dostarczania i nie zawiera wstępnej zawartości iniekcyjnej. Na poniższym diagramie i opisie krok po kroku wyjaśniono, jak usługa Microsoft Connected Cache działa w ramach aktualizacji urządzenia dla Azure IoT Hub infrastruktury.
 
 >[!Note]
->W przypadku definiowania tego przepływu zakłada się, że brama IoT Edge ma łączność z Internetem. W przypadku scenariusza IoT Edge podrzędnej (zagnieżdżona krawędź) scenariusz "Content Delivery Network" (CDN) może być uznawany za MCC hostowaną w nadrzędnej bramie IoT Edge.
+>Podczas definiowania tego przepływu przyjęto założenie, że brama IoT Edge ma łączność z Internetem. W scenariuszu bramy IoT Edge podrzędnej (zagnieżdżona brama brzegowa) "Content Delivery Network" (CDN) można uznać za mcc hostowaną w bramie nadrzędnej IoT Edge wirtualnej.
 
-  :::image type="content" source="media/connected-cache-overview/disconnected-device-update.png" alt-text="Odłączono aktualizację urządzenia" lightbox="media/connected-cache-overview/disconnected-device-update.png":::
+  :::image type="content" source="media/connected-cache-overview/disconnected-device-update.png" alt-text="Aktualizacja odłączonego urządzenia" lightbox="media/connected-cache-overview/disconnected-device-update.png":::
 
-1. Połączona pamięć podręczna firmy Microsoft jest wdrażana jako moduł IoT Edge na serwerze Premium.
-2. Aktualizacja urządzenia dla klientów usługi Azure IoT Hub jest skonfigurowana do pobierania zawartości z połączonej pamięci podręcznej firmy Microsoft na podstawie atrybutu GatewayHostName parametrów połączenia urządzenia dla urządzeń typu liść IoT **lub** parent_hostname ustawionych w pliku config. toml dla IoT Edge urządzeń podrzędnych.
-3. Aktualizacja urządzenia dla klientów usługi Azure IoT Hub w obu przypadkach Odbieraj aktualizacje poleceń pobierania zawartości z aktualizacji urządzenia dla usługi Azure IoT Hub i Żądaj aktualizacji zawartości w połączonej pamięci podręcznej firmy Microsoft, a nie w sieci CDN. Domyślnie połączona pamięć podręczna firmy Microsoft jest skonfigurowana do nasłuchiwania na porcie http 80, a klient optymalizacji dostarczania wysyła żądanie zawartości na porcie 80, dlatego element nadrzędny musi być skonfigurowany do nasłuchiwania na tym porcie.  W tej chwili jest obsługiwany tylko protokół http.
-4. Serwer połączonej pamięci podręcznej firmy Microsoft pobiera zawartość z usługi CDN, umieszcza ją w lokalnej pamięci podręcznej przechowywanej na dysku i dostarcza zawartość do aktualizacji urządzenia dla klienta IoT Hub platformy Azure.
+1. Usługa Microsoft Connected Cache jest wdrażana jako IoT Edge modułu na serwerze on-on-on-onm.
+2. Aktualizacja urządzenia dla klientów usługi Azure IoT Hub jest skonfigurowana do pobierania zawartości z usługi Microsoft Connected Cache na podstawie atrybutu GatewayHostName parametrów połączenia urządzenia dla urządzeń liści IoT LUB parent_hostname ustawionych w pliku config.toml dla urządzeń IoT Edge podrzędnego. 
+3. W obu przypadkach klienci aktualizacji Azure IoT Hub urządzeń otrzymują polecenia pobierania zawartości aktualizacji z usługi Device Update for Azure IoT Hub i żądają aktualizacji zawartości do usługi Microsoft Connected Cache zamiast usługi CDN. Domyślnie usługa Microsoft Connected Cache jest skonfigurowana do nasłuchiwać na porcie HTTP 80, a klient usługi Optymalizacja dostarczania wysyła żądanie zawartości na porcie 80, więc element nadrzędny musi być skonfigurowany do nasłuchiwać na tym porcie.  Obecnie obsługiwany jest tylko protokół HTTP.
+4. Serwer microsoft Connected Cache pobiera zawartość z sieci CDN, iniekuje swoją lokalną pamięć podręczną przechowywaną na dysku i dostarcza zawartość do aktualizacji urządzenia dla Azure IoT Hub klienta.
    
 >[!Note]
->W przypadku korzystania z aktualizacji opartych na pakiecie serwer połączonej pamięci podręcznej firmy Microsoft zostanie skonfigurowany przez administratora z wymaganą nazwą hosta pakietu.
+>W przypadku korzystania z aktualizacji opartych na pakietach Connected Cache Microsoft zostanie skonfigurowany przez administratora z wymaganą nazwą hosta pakietu.
 
-5. Kolejne żądania od innych aktualizacji urządzeń dla klientów IoT Hub platformy Azure dla tej samej zawartości aktualizacji będą teraz dostępne w pamięci podręcznej i połączonej pamięci podręcznej firmy Microsoft nie będą wysyłane żądania do sieci CDN dla tej samej zawartości.
+5. Kolejne żądania od innych klientów usługi Device Update dla klientów usługi Azure IoT Hub dotyczące tej samej zawartości aktualizacji będą teraz pochodzić z pamięci podręcznej, Connected Cache microsoft Connected Cache nie będzie żądać tej samej zawartości do sieci CDN.
 
-### <a name="supporting-industrial-iot-iiot-with-parentchild-hosting-scenarios"></a>Wspieranie usługi przemysł IoT (IIoT) z scenariuszami hostingu nadrzędny/podrzędny
+### <a name="supporting-industrial-iot-iiot-with-parentchild-hosting-scenarios"></a>Obsługa przemysłowego IoT (IIoT) w scenariuszach hostingu nadrzędnego/podrzędnego
 
-Gdy brama IoT Edge podrzędnej lub podrzędna hostuje serwer połączonej pamięci podręcznej firmy Microsoft, zostanie on skonfigurowany do żądania aktualizacji zawartości z bramy IoT Edge nadrzędnego, który hostuje serwer połączonej pamięci podręcznej firmy Microsoft. Jest to wymagane dla możliwie największej liczby poziomów przed osiągnięciem nadrzędnej bramy IoT Edge hostowania serwera połączonej pamięci podręcznej firmy Microsoft, który ma dostęp do Internetu. Z serwera połączonego z Internetem z usługi CDN jest wymagana zawartość z punktu widzenia zawartości dostarczanej z powrotem do podrzędnej bramy IoT Edge, która początkowo zażądała zawartości. Zawartość będzie przechowywana na dysku na każdym poziomie.
+Jeśli brama podrzędna lub podrzędna IoT Edge hostuje serwer Microsoft Connected Cache, zostanie skonfigurowana do żądania aktualizacji zawartości z nadrzędnej bramy IoT Edge hostowania serwera Microsoft Connected Cache. Jest to wymagane dla tak wielu poziomów, jak to konieczne przed dotarciem do nadrzędnej bramy IoT Edge hostującym serwer microsoft Connected Cache z dostępem do Internetu. Na serwerze połączonym z Internetem zawartość jest żądana od sieci CDN, w tym momencie zawartość jest dostarczana z powrotem do bramy podrzędnej usługi IoT Edge, która pierwotnie zażądała zawartości. Zawartość będzie przechowywana na dysku na każdym poziomie.
 
-## <a name="access-to-the-microsoft-connected-cache-preview-for-device-update-for-azure-iot-hub"></a>Dostęp do wersji zapoznawczej połączonej pamięci podręcznej firmy Microsoft dla aktualizacji urządzenia dla platformy Azure IoT Hub
+## <a name="access-to-the-microsoft-connected-cache-preview-for-device-update-for-azure-iot-hub"></a>Dostęp do wersji zapoznawczej usługi Microsoft Connected Cache aktualizacji urządzenia dla Azure IoT Hub
 
-Moduł IoT Edge połączonej pamięci podręcznej firmy Microsoft jest wydawany w wersji zapoznawczej dla klientów, którzy wdrażają rozwiązania przy użyciu aktualizacji urządzenia dla platformy Azure IoT Hub. Dostęp do wersji zapoznawczej odbywa się według zaproszenia. [Zażądaj dostępu](https://aka.ms/MCCForDeviceUpdateForIoT) do wersji zapoznawczej połączonej pamięci podręcznej firmy Microsoft dla aktualizacji urządzenia IoT Wyłącz i podaj żądane informacje, jeśli chcesz uzyskać dostęp do modułu.
+Moduł Microsoft Connected Cache IoT Edge jest wydany jako wersja zapoznawcza dla klientów, którzy wdrażają rozwiązania przy użyciu aktualizacji urządzenia na potrzeby Azure IoT Hub. Dostęp do wersji zapoznawczej można uzyskać za pomocą zaproszenia. [Zażądaj](https://aka.ms/MCCForDeviceUpdateForIoT) dostępu do usługi Microsoft Connected Cache (wersja zapoznawcza) dla aktualizacji urządzenia dla IoT i podaj żądane informacje, jeśli chcesz uzyskać dostęp do modułu.

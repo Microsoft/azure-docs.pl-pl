@@ -4,12 +4,12 @@ description: Opisuje kolejki utraconych komunikatów w Azure Service Bus. Servic
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6293a3a9a760ece137644578d8ee7dccebc63d95
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773229"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812376"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Omówienie Service Bus utraconych komunikatów
 
@@ -36,7 +36,7 @@ Liczbę komunikatów DLQ można również uzyskać za pomocą polecenia interfej
 ## <a name="moving-messages-to-the-dlq"></a>Przenoszenie komunikatów do biblioteki DLQ
 Istnieje kilka działań w Service Bus, które powodują wypychanie komunikatów do biblioteki DLQ z poziomu samego aparatu obsługi komunikatów. Aplikacja może również jawnie przenosić komunikaty do biblioteki DLQ. Następujące dwie właściwości (przyczyna utraconych wiadomości i opis utraconych wiadomości) są dodawane do komunikatów utraconych. Aplikacje mogą definiować własne kody dla właściwości przyczyny utraconych informacji, ale system ustawia następujące wartości.
 
-| Przyczyna utraconych danych | Opis błędu utraconych komunikatów |
+| Przyczyna utraconych utraconych danych | Opis błędu utraconych komunikatów |
 | --- | --- |
 |HeaderSizeExceeded |Przekroczono limit przydziału rozmiaru dla tego strumienia. |
 |TTLExpiredException |Komunikat wygasł i został uznany za utracony. Aby uzyskać [szczegółowe informacje, zobacz sekcję](#time-to-live) Czas do transmisji na żywo. |
@@ -62,7 +62,7 @@ Oprócz funkcji utraconych komunikatów dostarczanych przez system aplikacje mog
 Komunikaty będą wysyłane do kolejki utraconych wiadomości transferu w następujących warunkach:
 
 - Komunikat przechodzi przez więcej niż cztery kolejki lub tematy, które są [połączone łańcuchem](service-bus-auto-forwarding.md).
-- Kolejka lub temat docelowy jest wyłączona lub usunięta.
+- Kolejka docelowa lub temat jest wyłączona lub usunięta.
 - Kolejka lub temat docelowy przekracza maksymalny rozmiar jednostki.
 
 ## <a name="path-to-the-dead-letter-queue"></a>Ścieżka do kolejki utraconych wiadomości
@@ -75,8 +75,4 @@ Dostęp do kolejki utraconych wiadomości można uzyskać przy użyciu następuj
 
 
 ## <a name="next-steps"></a>Następne kroki
-
-Aby uzyskać więcej informacji na Service Bus kolejkach, zobacz następujące artykuły:
-
-* [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Porównanie kolejek i kolejek Service Bus Azure](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Zobacz [Enable dead lettering for a queue or subscription](enable-dead-letter.md) (Włączanie utraconych komunikatów dla kolejki lub subskrypcji), aby dowiedzieć się więcej o różnych sposobach konfigurowania utraconych wiadomości podczas **wygasania** komunikatów.

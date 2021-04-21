@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f76b2811531b49c9312a02a581e876f9ef569a2a
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 95ab5917779a73b7221a5b431126164aef88b494
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750972"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812124"
 ---
 # <a name="data-encryption-models"></a>Modele szyfrowania danych
 
@@ -102,7 +102,7 @@ W przypadku operacji korzystających z kluczy szyfrowania tożsamości usługi m
 Aby uzyskać klucz do użycia podczas szyfrowania lub odszyfrowywania danych magazynowane, tożsamość usługi, która będzie działać jako wystąpienie usługi Resource Manager musi mieć klucz UnwrapKey (w celu uzyskania klucza do odszyfrowania) i WrapKey (aby wstawić klucz do magazynu kluczy podczas tworzenia nowego klucza).
 
 >[!NOTE]
->Aby uzyskać więcej informacji na Key Vault autoryzacji, zobacz stronę zabezpieczania magazynu kluczy w Azure Key Vault [dokumentacji usługi](../../key-vault/general/security-overview.md).
+>Aby uzyskać więcej informacji na Key Vault autoryzacji, zobacz stronę zabezpieczania magazynu kluczy w Azure Key Vault [dokumentacji usługi](../../key-vault/general/security-features.md).
 
 **Zalety**
 

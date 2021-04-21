@@ -1,104 +1,107 @@
 ---
-title: Omówienie nadmiarowej wysokiej dostępności strefy przy użyciu Azure Database for MySQL elastyczny serwer
-description: Dowiedz się więcej o pojęciach nadmiarowej wysokiej dostępności strefy z Azure Database for MySQL elastyczny serwer
+title: Omówienie strefowo nadmiarowej wysokiej dostępności z Azure Database for MySQL elastycznym
+description: Poznaj pojęcia związane z strefowo nadmiarową wysoką dostępnością z Azure Database for MySQL elastycznym
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 6629beacb5c3edc6fe1d21509051b915c0894479
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5b5e1491d7f76cd4cff76d0c9a1af4daa49fa483
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109696"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813006"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Pojęcia dotyczące wysokiej dostępności w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
+# <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Pojęcia dotyczące wysokiej dostępności w Azure Database for MySQL elastycznym (wersja zapoznawcza)
 
 > [!IMPORTANT] 
-> Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
+> Azure Database for MySQL — serwer elastyczny jest obecnie w publicznej wersji zapoznawczej.
 
-Azure Database for MySQL elastyczny serwer (wersja zapoznawcza) umożliwia konfigurowanie wysokiej dostępności z automatycznym trybem failover przy użyciu opcji **nadmiarowej** wysokiej dostępności strefy. W przypadku wdrożenia w konfiguracji strefowo nadmiarowej serwer elastyczny automatycznie aprowizuje replikę rezerwową i zarządza nią w innej strefie dostępności. Przy użyciu replikacji na poziomie magazynu dane są **synchronicznie replikowane** do serwera rezerw w strefie pomocniczej w celu włączenia zerowej utraty danych po przejściu do trybu failover. Tryb failover jest w pełni niewidoczny dla aplikacji klienckiej i nie wymaga żadnych akcji użytkownika. Serwer rezerwy nie jest dostępny dla żadnej operacji odczytu lub zapisu, ale jest to pasywne wstrzymywanie, aby włączyć szybką pracę w trybie failover. Czasy pracy w trybie failover zazwyczaj należą do zakresu od 60-120 sekund.
+Azure Database for MySQL elastyczny serwer (wersja zapoznawcza) umożliwia konfigurowanie wysokiej dostępności z automatycznym trybem failover przy użyciu opcji **strefowo nadmiarowej** wysokiej dostępności. W przypadku wdrożenia w konfiguracji strefowo nadmiarowej serwer elastyczny automatycznie aprowizuje replikę rezerwową i zarządza nią w innej strefie dostępności. Przy użyciu replikacji na poziomie magazynu dane są **replikowane synchronicznie** na serwer rezerwowy w strefie pomocniczej, aby umożliwić zerowy spadek danych po pracy w trybie failover. Trybu failover jest w pełni niewidoczny dla aplikacji klienckiej i nie wymaga żadnych akcji użytkownika. Serwer rezerwowy nie jest dostępny dla żadnych operacji odczytu lub zapisu, ale jest rezerwą pasywną w celu włączenia szybkiego trybu failover. Czasy pracy w przypadku trybu failover zazwyczaj wahają się od 60 do 120 sekund.
 
-Konfiguracja nadmiarowej strefy o wysokiej dostępności umożliwia automatyczne przełączanie w tryb failover podczas planowanych zdarzeń, takich jak operacje obliczeniowe skalowania przez użytkownika, a także niezaplanowanych zdarzeń, takich jak błędy sprzętu i oprogramowania, awarie sieci, a nawet niepowodzenia strefy dostępności.
+Konfiguracja strefowo nadmiarowej wysokiej dostępności umożliwia automatyczne pracę w trybie failover podczas planowanych zdarzeń, takich jak zainicjowane przez użytkownika operacje obliczeniowe na dużą skalę, oraz nieplanowane zdarzenia, takie jak podstawowe błędy sprzętu i oprogramowania, awarie sieci, a nawet awarie stref dostępności.
 
-:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Widok strefy nadmiarowej wysokiej dostępności":::
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="widok strefowo nadmiarowej wysokiej dostępności":::
 
 ## <a name="zone-redundancy-architecture"></a>Architektura nadmiarowości strefy
 
-Serwer podstawowy jest wdrażany w regionie i określonej strefie dostępności. Po wybraniu wysokiej dostępności serwer repliki zapasowej z taką samą konfiguracją jak serwer podstawowy jest automatycznie wdrażany, w tym z warstwą obliczeniową, rozmiarem obliczeń, rozmiarem magazynu i konfiguracją sieci. Dane dziennika są synchronicznie replikowane do repliki gotowości w celu zapewnienia zerowej utraty danych w przypadku awarii. Automatyczne kopie zapasowe, migawki i kopie zapasowe dzienników są wykonywane z serwera podstawowej bazy danych. 
+Serwer podstawowy jest wdrażany w regionie i określonej strefie dostępności. W przypadku wyboru wysokiej dostępności automatycznie wdrażany jest serwer repliki rezerwowej z taką samą konfiguracją jak serwer podstawowy, w tym warstwa obliczeniowa, rozmiar obliczeniowy, rozmiar magazynu i konfiguracja sieci. Dane dziennika są replikowane synchronicznie do repliki rezerwowej w celu zapewnienia zerowej utraty danych w przypadku awarii. Automatyczne kopie zapasowe, zarówno migawki, jak i kopie zapasowe dzienników, są wykonywane z podstawowego serwera bazy danych. 
 
-Kondycja HA jest stale monitorowana i raportowana na stronie Przegląd.
+Kondycja ha ha jest stale monitorowana i raportowany na stronie przeglądu.
 
 Poniżej wymieniono różne stany replikacji:
 
 | **Stan** | **Opis** |
 | :----- | :------ |
-| <b>NotEnabled | Strefa o nadmiarowej dostępności nie jest włączona |
+| <b>NotEnabled | Strefowo nadmiarowa ha nie jest włączona |
 | <b>CreatingStandby | W procesie tworzenia nowego stanu wstrzymania |
-| <b>ReplicatingData | Po utworzeniu w stanie gotowości zostanie wystawiony serwer podstawowy. |
-| <b>FailingOver | Serwer bazy danych jest w trakcie przełączenia w tryb failover z serwera podstawowego do stanu wstrzymania. |
-| <b>Dobra kondycja | Strefowo nadmiarowy HA jest w stałym stanie i w dobrej kondycji. |
-| <b>RemovingStandby | W oparciu o akcję użytkownika replika rezerwy jest w trakcie usuwania.| 
+| <b>ReplicatingData | Po utworzeniu rezerwy nadrobić zaległości z serwerem podstawowym. |
+| <b>Pracy awaryjnej | Serwer bazy danych jest w trakcie pracy w trybie pracy w trybie pracy w trybie online z serwera podstawowego do rezerwowego. |
+| <b>Dobra kondycja | Strefowo nadmiarowa ha jest w stanie stabilnym i w dobrej kondycji. |
+| <b>RemovingStandby | W oparciu o akcję użytkownika replika rezerwowa jest w trakcie usuwania.| 
 
 ## <a name="advantages"></a>Zalety
 
-Poniżej przedstawiono niektóre zalety korzystania z funkcji HA o nadmiarowości strefy: 
+Oto niektóre zalety korzystania z funkcji ha ha nadmiarowości strefy: 
 
-- Replika wstrzymania jest wdrażana w ramach dokładnej konfiguracji maszyny wirtualnej, takiej jak rdzeni wirtualnych, Storage, ustawienia sieci (Sieć wirtualna, Zapora) itp.
-- Możliwość usunięcia repliki rezerwy poprzez wyłączenie wysokiej dostępności.
-- Automatyczne kopie zapasowe są oparte na migawkach, wykonywane z podstawowego serwera bazy danych i przechowywane w strefie nadmiarowej magazynu.
-- W przypadku przełączenia w tryb failover Azure Database for MySQL elastyczny serwer jest automatycznie przełączona w tryb pracy awaryjnej na replikę w celu zapewnienia wysokiej dostępności. Konfiguracja wysokiej dostępności monitoruje serwer podstawowy i przywraca go z powrotem do trybu online.
-- Klienci zawsze łączą się z serwerem podstawowej bazy danych.
-- W przypadku awarii bazy danych lub awarii węzła, ponowne uruchomienie jest podejmowane najpierw w tym samym węźle. Jeśli to się nie powiedzie, zostanie wyzwolona automatyczna praca awaryjna.
+- Replika rezerwowa jest wdrażana w dokładnie takiej samej konfiguracji maszyny wirtualnej jak podstawowa, takiej jak rdzenie wirtualne, magazyn, ustawienia sieciowe (sieć wirtualna, zapora) itp.
+- Możliwość usunięcia repliki rezerwowej przez wyłączenie wysokiej dostępności.
+- Automatyczne kopie zapasowe są oparte na migawkach, wykonywane z podstawowego serwera bazy danych i przechowywane w magazynie strefowo nadmiarowym.
+- W przypadku pracy w trybie failover Azure Database for MySQL serwer elastyczny automatycznie przechodzi w tryb failover do repliki rezerwowej, jeśli jest włączona wysoka dostępność. Konfiguracja wysokiej dostępności monitoruje serwer podstawowy i powraca do trybu online.
+- Klienci zawsze łączą się z podstawowym serwerem bazy danych.
+- W przypadku awarii bazy danych lub awarii węzła próba ponownego uruchomienia jest podejmowana najpierw w tym samym węźle. Jeśli to się nie powiedzie, zostanie wyzwolony automatyczny tryb failover.
 - Możliwość ponownego uruchomienia serwera w celu pobrania wszelkich zmian parametrów serwera statycznego.
 
-## <a name="steady-state-operations"></a>Operacje o stałym stanie
+## <a name="steady-state-operations"></a>Operacje w stanie stabilnym
 
-Aplikacje są połączone z serwerem podstawowym przy użyciu nazwy serwera bazy danych. Informacje o replice gotowości nie są ujawniane w celu uzyskania dostępu bezpośredniego. Zatwierdzenia i zapisy są potwierdzane aplikacji dopiero po utrwaleniu plików dziennika zarówno na dysku serwera podstawowego, jak i w replice rezerwowej w sposób synchroniczny. Ze względu na to, że to dodatkowe wymaganie dotyczące rundy, aplikacje mogą oczekiwać na podwyższony czas oczekiwania na zapisy i zatwierdzenia. Możesz monitorować kondycję wysokiej dostępności w portalu.
+Aplikacje są połączone z serwerem podstawowym przy użyciu nazwy serwera bazy danych. Informacje o repliki rezerwowej nie są udostępniane w celu uzyskania bezpośredniego dostępu. Zatwierdzenia i zapis są potwierdzane w aplikacji tylko wtedy, gdy pliki dziennika są utrwalane zarówno na dysku serwera podstawowego, jak i w replice rezerwowej w sposób synchroniczny. Ze względu na to dodatkowe wymaganie dotyczące rundy aplikacje mogą oczekiwać podwyższonego opóźnienia operacji zapisu i zatwierdzeń. Kondycję wysokiej dostępności można monitorować w portalu.
 
 ## <a name="failover-process"></a>Proces trybu failover 
-W celu zapewnienia ciągłości biznesowej należy przeprowadzić proces pracy awaryjnej dla planowanych i nieplanowanych zdarzeń. 
+Aby zapewnić ciągłość działalności biznesowej, musisz mieć proces trybu failover dla planowanych i nieplanowanych zdarzeń. 
 
 ### <a name="planned-events"></a>Zdarzenia planowane
 
-Zdarzenia planowanych przestojów obejmują działania zaplanowane przez platformę Azure, takie jak okresowe aktualizacje oprogramowania, uaktualnienia wersji pomocniczej lub inicjowane przez klientów, takie jak skalowanie operacji obliczeniowych i skalowania. Wszystkie te zmiany są najpierw stosowane do repliki w stanie wstrzymania. W tym czasie aplikacje będą nadal uzyskiwać dostęp do serwera podstawowego. Po zaktualizowaniu repliki w celu przełączenia na serwer podstawowy są opróżniane, zostanie wyzwolone przełączenie w tryb failover, który aktywuje replikę rezerwy jako podstawową z tą samą nazwą serwera bazy danych przez zaktualizowanie rekordu DNS. Połączenia klienckie są rozłączone i muszą ponownie nawiązać połączenie i mogą wznowić swoje operacje. Nowy serwer rezerwy jest ustanowiony w tej samej strefie co stary element podstawowy. Należy oczekiwać, że ogólny czas pracy awaryjnej to 60-120 s. 
+Zdarzenia planowanych przestojów obejmują działania zaplanowane przez platformę Azure, takie jak okresowe aktualizacje oprogramowania, uaktualnienia wersji pomocniczej lub inicjowane przez klientów, takie jak skalowanie operacji obliczeniowych i skalowania magazynu. Wszystkie te zmiany są najpierw stosowane do repliki rezerwowej. W tym czasie aplikacje nadal mają dostęp do serwera podstawowego. Po zaktualizowaniu repliki rezerwowej połączenia serwera podstawowego są opróżniane, wyzwalany jest tryb failover, który aktywuje replikę rezerwową jako replikę podstawową o tej samej nazwie serwera bazy danych przez zaktualizowanie rekordu DNS. Połączenia klientów są rozłączone i muszą ponownie nawiązać połączenie i mogą wznowić swoje operacje. Nowy serwer rezerwowy jest ustalany w tej samej strefie co stary serwer podstawowy. Łączny czas pracy w przypadku trybu failover powinien wynosić 60–120 s. 
 
 >[!NOTE]
-> W przypadku operacji skalowania obliczeń skaluje pomocniczy serwer repliki, a następnie serwer podstawowy. Nie ma żadnych przełączeń do trybu failover.
+> W przypadku operacji skalowania obliczeń skalujemy pomocniczy serwer repliki, po którym następuje serwer podstawowy. Nie jest zaangażowane żadne trybu failover.
 
-### <a name="failover-process---unplanned-events"></a>Proces trybu failover — niezaplanowanych zdarzeń
-Nieplanowane przestoje usługi obejmują błędy oprogramowania, które dotyczą błędów infrastruktury, takich jak obliczenia, Sieć, awarie magazynu, lub wpływ na dostępność bazy danych. W przypadku niedostępności bazy danych replikacja do repliki w stanie wstrzymania jest poważna, a replika rezerwy jest aktywowana jako podstawowa baza danych. System DNS jest aktualizowany, a następnie klienci ponownie nawiązują połączenie z serwerem bazy danych i wznawiają operacje. Ogólny czas przejścia w tryb failover powinien trwać 60-120 s. Jednak w zależności od działania w podstawowym serwerze baz danych w czasie pracy w trybie failover, takim jak duże transakcje i czas odzyskiwania, praca awaryjna może trwać dłużej.
+### <a name="failover-process---unplanned-events"></a>Proces trybu failover — zdarzenia nieplanowane
+Nieplanowane przestoje usługi obejmują błędy oprogramowania, które lub błędy infrastruktury, takie jak obliczenia, sieć, awarie magazynu lub awarie zasilania, mają wpływ na dostępność bazy danych. W przypadku niedostępności bazy danych replikacja do repliki rezerwowej zostanie zerowana, a replika rezerwowa zostanie aktywowana jako podstawowa baza danych. System DNS jest aktualizowany, a klienci ponownie nawiązają połączenie z serwerem bazy danych i wznawiają swoje operacje. Łączny czas pracy w przypadku trybu failover powinien potrwać 60–120 s. Jednak w zależności od aktywności na podstawowym serwerze bazy danych w czasie pracy w trybie failover, takiej jak duże transakcje i czas odzyskiwania, tryb failover może trwać dłużej.
 
-## <a name="schedule-maintenance-window"></a>Zaplanuj okno obsługi 
+### <a name="forced-failover"></a>Wymuszone trybu failover
+Azure Database for MySQL wymuszonego trybu failover umożliwia ręczne wymuś trybu failover, co umożliwia przetestowanie funkcji ze scenariuszami aplikacji i pomaga przygotować się na wypadek awarii. Wymuszone przełączenie w tryb failover powoduje przełączenie serwera rezerwowego na serwer podstawowy przez wyzwolenie trybu failover, które aktywuje rezerwową replikę, aby stała się serwerem podstawowym o tej samej nazwie serwera bazy danych przez zaktualizowanie rekordu DNS. Oryginalny serwer podstawowy zostanie ponownie uruchomiony i przełączony do repliki rezerwowej. Połączenia klienta są rozłączone i muszą zostać ponownie nawiązać połączenie, aby wznowić swoje operacje. W zależności od bieżącego obciążenia i ostatniego punktu kontrolnego będzie mierzony całkowity czas pracy w awarii. Ogólnie rzecz biorąc, oczekiwana jest od 60 do 120 s.
 
-Elastyczne serwery oferują możliwość planowania konserwacji, w którym można wybrać 30-minutowy okno w ciągu dnia preferencji, w którym działa konserwacja platformy Azure, np. poprawki lub uaktualnienia wersji pomocniczej. W przypadku elastycznych serwerów skonfigurowanych pod kątem wysokiej dostępności te działania konserwacyjne są wykonywane najpierw w odniesieniu do repliki w stanie wstrzymania. 
+## <a name="schedule-maintenance-window"></a>Okno konserwacji harmonogramu 
+
+Serwery elastyczne oferują możliwość planowania konserwacji, w ramach której można wybrać 30-minutowe okno w jeden dzień zgodnie z preferencjami, podczas którego będzie odbywać się konserwacja platformy Azure, taka jak stosowanie poprawek lub uaktualnienia wersji pomocniczej. W przypadku serwerów elastycznych skonfigurowanych z wysoką dostępnością te działania konserwacyjne są najpierw wykonywane na replice rezerwowej. 
 
 ## <a name="point-in-time-restore"></a>Przywracanie do określonego momentu 
-Ponieważ serwer elastyczny jest skonfigurowany w ramach wysokiej dostępności synchronicznie replikuje dane, serwer rezerwy jest aktualny z serwerem podstawowym. Wszelkie błędy użytkownika na podstawowym — takie jak przypadkowe upuszczenie tabeli lub nieprawidłowe aktualizacje są wiernie replikowane do stanu wstrzymania. W związku z tym nie można użyć funkcji wstrzymywania do odzyskania z takich błędów logicznych. Aby odzyskać z tych błędów logicznych, należy wykonać przywracanie do punktu w czasie w prawo, zanim wystąpi błąd. Podczas przywracania bazy danych skonfigurowanej z wysoką dostępnością przy użyciu funkcji elastycznego przywracania do punktu w czasie na serwerze jest przywracany nowy serwer bazy danych jako nowy elastyczny serwer z nazwą dostarczoną przez użytkownika. Następnie można wyeksportować obiekt z serwera bazy danych i zaimportować go do produkcyjnego serwera bazy danych. Podobnie, jeśli chcesz sklonować serwer bazy danych na potrzeby testowania i programowania, lub chcesz przywrócić do innych celów, możesz wybrać najnowszy punkt przywracania lub niestandardowy punkt przywracania. Operacja przywracania tworzy elastyczny serwer o pojedynczej strefie.
+Ponieważ serwer elastyczny jest skonfigurowany w wysokiej dostępności synchronicznie replikuje dane, serwer rezerwowy jest aktualny z serwerem podstawowym. Wszelkie błędy użytkownika w podstawowym — takie jak przypadkowe usunięcie tabeli lub nieprawidłowe aktualizacje są replikowane do stanu wstrzymania. W związku z tym nie można użyć rezerwy, aby odzyskać dane po takich błędach logicznych. Aby odzyskać dane po tych błędach logicznych, należy wykonać przywracanie do punktu w czasie bezpośrednio przed jego wystąpieniam. Korzystając z funkcji przywracania do punktu w czasie serwera elastycznego, podczas przywracania bazy danych skonfigurowanej z wysoką dostępnością nowy serwer bazy danych jest przywracany jako nowy serwer elastyczny o nazwie podanej przez użytkownika. Następnie możesz wyeksportować obiekt z serwera bazy danych i zaimportować go na serwer produkcyjnej bazy danych. Podobnie, jeśli chcesz sklonować serwer bazy danych w celach testowych i programistów lub chcesz przywrócić do innych celów, możesz wybrać najnowszy punkt przywracania lub niestandardowy punkt przywracania. Operacja przywracania tworzy serwer elastyczny z jedną strefą.
 
-## <a name="mitigate-downtime"></a>Eliminowanie przestojów 
-Jeśli nie korzystasz z funkcji HA o nadmiarowości strefy, musisz nadal mieć możliwość ograniczenia przestoju aplikacji. Planowanie przestojów usługi, takich jak zaplanowane poprawki, wersje pomocnicze lub operacje zainicjowane przez użytkownika, można wykonać w ramach zaplanowanych okien obsługi. Planowane przestoje usługi, takie jak zaplanowane poprawki, uaktualnienia wersji pomocniczej lub operacje zainicjowane przez użytkownika, takie jak skalowanie obliczeniowe, wiążą się z przestojem. Aby zmniejszyć wpływ aplikacji na zainicjowane przez platformę Azure zadania konserwacji, można zaplanować ich zaplanowanie w ciągu dnia tygodnia i czas, który najmniej ma wpływ na aplikację. 
+## <a name="mitigate-downtime"></a>Ograniczanie przestoju 
+Jeśli nie używasz funkcji nadmiarowości strefy HA, nadal musisz mieć możliwość ograniczenia przestoju aplikacji. W ramach zaplanowanych okien obsługi można zaplanować przestoje usługi, takie jak zaplanowane poprawki, uaktualnienia wersji pomocniczej lub operacje inicjowane przez użytkownika. Planowane przestoje usługi, takie jak zaplanowane poprawki, uaktualnienia wersji pomocniczej lub operacje inicjowane przez użytkownika, takie jak skalowanie zasobów obliczeniowych, są przestojem. Aby ograniczyć wpływ aplikacji na zadania konserwacji inicjowane przez platformę Azure, możesz zaplanować je w ciągu dnia tygodnia i o godzinie, co najmniej wpływa na aplikację. 
 
-W przypadku nieplanowanych przestojów, takich jak awaria bazy danych lub awaria serwera, zmieniony serwer zostanie ponownie uruchomiony w ramach tej samej strefy. Chociaż rzadko ma to wpływ na całą strefę, możesz przywrócić bazę danych w innej strefie w regionie. 
+W przypadku nieplanowanych zdarzeń przestojów, takich jak awaria bazy danych lub awaria serwera, na którym ma to wpływ, serwer jest ponownie uruchamiany w tej samej strefie. Mimo że występuje to rzadko, jeśli ma to wpływ na całą strefę, możesz przywrócić bazę danych w innej strefie w regionie. 
 
-## <a name="things-to-know-with-zone-redundancy"></a>Elementy, które należy znać przy użyciu nadmiarowości stref 
+## <a name="things-to-know-with-zone-redundancy"></a>Co należy wiedzieć z nadmiarowością strefy 
 
-Poniżej przedstawiono kilka zagadnień, które należy wziąć pod uwagę w przypadku korzystania z wysokiej dostępności nadmiarowości strefy: 
+Poniżej podano kilka kwestii, które należy wziąć pod uwagę w przypadku korzystania z wysokiej dostępności nadmiarowości strefy: 
 
-- Wysoką dostępność można ustawić **tylko** w czasie elastycznego tworzenia serwera.
-- Wysoka dostępność nie jest obsługiwana w warstwie obliczeniowej z możliwością naliczania.
-- Ze względu na replikację synchroniczną do innej strefy dostępności serwer podstawowej bazy danych może mieć podwyższony czas oczekiwania na zapis i zatwierdzenie.
-- Nie można użyć repliki rezerwowej dla zapytań tylko do odczytu.
-- W zależności od działania na serwerze podstawowym w momencie przejścia w tryb failover może upłynąć nawet 60-120 sekund lub dłużej do ukończenia pracy w trybie failover.
-- Ponowne uruchomienie podstawowego serwera bazy danych w celu pobrania zmian parametrów statycznych spowoduje również ponowne uruchomienie repliki gotowości.
-- Konfigurowanie replik odczytu dla serwerów nadmiarowych o wysokiej dostępności nie jest obsługiwane.
-- Konfigurowanie zadań zarządzania inicjowanych przez klienta nie można zautomatyzować podczas zarządzanego okna obsługi.
-- Planowane zdarzenia, takie jak skalowanie obliczeniowe i wersje pomocnicze, odbywają się jednocześnie zarówno na poziomie podstawowym, jak i w stanie wstrzymania. 
+- Wysoką dostępność można **ustawić** tylko podczas elastycznego czasu tworzenia serwera.
+- Wysoka dostępność nie jest obsługiwana w warstwie obliczeniowej z możliwością serii.
+- Z powodu replikacji synchronicznej do innej strefy dostępności podstawowy serwer bazy danych może mieć podwyższony poziom opóźnienia zapisu i zatwierdzania.
+- Repliki rezerwowej nie można używać w przypadku zapytań tylko do odczytu.
+- W zależności od aktywności na serwerze podstawowym w czasie pracy w awarii ukończenie trybu failover może potrwać do 60–120 sekund lub dłużej.
+- Ponowne uruchomienie podstawowego serwera bazy danych w celu pobrania zmian parametrów statycznych powoduje również ponowne uruchomienie repliki rezerwowej.
+- Konfigurowanie replik do odczytu dla strefowo nadmiarowych serwerów wysokiej dostępności nie jest obsługiwane.
+- Konfigurowanie zadań zarządzania zainicjowanych przez klienta nie może być zautomatyzowane podczas zarządzanego okna obsługi.
+- Planowane zdarzenia, takie jak skalowanie obliczeń i uaktualnienia wersji pomocniczej, są w tym samym czasie zarówno w trybie podstawowym, jak i rezerwy. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Informacje o [ciągłości działania firmy](./concepts-business-continuity.md)
-- Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
-- Informacje na temat [tworzenia kopii zapasowych i odzyskiwania](./concepts-backup-restore.md)
+- Dowiedz się więcej [o ciągłości działania](./concepts-business-continuity.md)
+- Dowiedz się więcej o [strefowo nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
+- Dowiedz się więcej o [kopii zapasowej i odzyskiwaniu](./concepts-backup-restore.md)

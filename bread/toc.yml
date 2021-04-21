@@ -470,7 +470,7 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: Wystąpienie zarządzane dla serwera Apache Cassandra
+    - name: Wystąpienie zarządzane dla systemu Apache Cassandra
       tocHref: /azure/managed-instance-apache-cassandra/
       topicHref: /azure/managed-instance-apache-cassandra/
     - name: Magazyn
@@ -864,6 +864,9 @@
         - name: Pliki
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction
+        - name: Usługa File Sync
+          tocHref: /azure/storage/file-sync/
+          topicHref: /azure/storage/file-sync/file-sync-introduction
         - name: Kolejki
           tocHref: /azure/storage/queues/
           topicHref: /azure/storage/queues/storage-queues-introduction

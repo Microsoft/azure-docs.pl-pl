@@ -10,28 +10,29 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 4298b291e5d183c31d30a548751599aeb3746c47
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 35d813b6dfedbd7f76a88713757ce83c2644ff95
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534617"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813150"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Korzystanie z usługi Azure API Management z wewnętrzną siecią wirtualną
-Za pomocą sieci wirtualnych platformy Azure usługa Azure API Management może zarządzać interfejsami API niedostępnymi w Internecie. Dostępnych jest wiele technologii sieci VPN do nawiązaniu połączenia. API Management można wdrożyć w dwóch głównych trybach w sieci wirtualnej:
+Dzięki sieciom wirtualnym platformy Azure API Management zarządzać interfejsami API niedostępnymi w Internecie. Do nawiązaniu połączenia jest dostępnych wiele technologii sieci VPN. API Management można wdrożyć w dwóch głównych trybach w sieci wirtualnej:
 * Zewnętrzna
 * Wewnętrzny
 
-Podczas API Management w trybie wewnętrznej sieci wirtualnej wszystkie punkty końcowe usługi (brama serwera proxy, portal deweloperów, zarządzanie bezpośrednie i git) są widoczne tylko w sieci wirtualnej, do których kontrolujesz dostęp. Żaden z punktów końcowych usługi nie jest zarejestrowany na publicznym serwerze DNS.
+Podczas API Management w trybie wewnętrznej sieci wirtualnej wszystkie punkty końcowe usługi (brama serwera proxy, portal deweloperów, bezpośrednie zarządzanie i usługa Git) są widoczne tylko w sieci wirtualnej, do których kontrolujesz dostęp. Żaden z punktów końcowych usługi nie jest zarejestrowany na publicznym serwerze DNS.
 
 > [!NOTE]
 > Ponieważ nie ma żadnych wpisów DNS dla punktów końcowych usługi, te punkty końcowe nie będą dostępne, dopóki [system DNS](#apim-dns-configuration) nie zostanie skonfigurowany dla sieci wirtualnej.
 
 Korzystając API Management w trybie wewnętrznym, można osiągnąć następujące scenariusze:
 
-* Zapewnianie bezpiecznego dostępu do interfejsów API hostowanych w prywatnym centrum danych przez inne firmy poza nim przy użyciu połączeń typu lokacja-lokacja lub Azure ExpressRoute sieci VPN.
-* Włącz scenariusze chmury hybrydowej, ujawniając oparte na chmurze interfejsy API i lokalne interfejsy API za pośrednictwem wspólnej bramy.
-* Zarządzanie interfejsami API hostowanych w wielu lokalizacjach geograficznych przy użyciu jednego punktu końcowego bramy.
+* Zapewnianie bezpiecznego dostępu do interfejsów API hostowanych w prywatnym centrum danych przez osoby trzecie poza nim przy użyciu połączeń typu lokacja-lokacja lub Azure ExpressRoute sieci VPN.
+* Włącz scenariusze chmury hybrydowej, ujawniając interfejsy API oparte na chmurze i lokalne interfejsy API za pośrednictwem wspólnej bramy.
+* Zarządzanie interfejsami API hostowanych w wielu lokalizacjach geograficznych przy użyciu pojedynczego punktu końcowego bramy.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,7 +50,7 @@ Aby wykonać kroki opisane w tym artykule, musisz mieć:
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
-Gdy usługa API Management jest wdrażana w sieci wirtualnej, używana jest lista portów, która musi zostać otwarta. [](./api-management-using-with-vnet.md#required-ports) 
+Gdy usługa API Management jest wdrożona w sieci wirtualnej, jest używana lista portów i należy je otworzyć. [](./api-management-using-with-vnet.md#required-ports) 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Tworzenie API Management w wewnętrznej sieci wirtualnej
 Usługa API Management w wewnętrznej sieci wirtualnej jest hostowana za podstawową wersją SKU wewnętrznego równoważenia obciążenia, jeśli usługa jest tworzona przy użyciu interfejsu API klienta w wersji 2020-12-01. W przypadku usługi utworzonej z klientami z interfejsem API w wersji 2021-01-01-preview i z publicznym adresem IP z subskrypcji klienta jest ona hostowana za wewnętrzną standardową wersją SKU usługi równoważenia obciążenia. Aby uzyskać więcej informacji, [zobacz Azure Load Balancer SKU](../load-balancer/skus.md).
@@ -85,10 +86,10 @@ Możesz również włączyć łączność z siecią wirtualną przy użyciu nast
 * Azure PowerShell cmdlet — [tworzenie](/powershell/module/az.apimanagement/new-azapimanagement) lub [aktualizowanie](/powershell/module/az.apimanagement/update-azapimanagementregion) wystąpienia API Management w sieci wirtualnej
 
 ## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Konfiguracja dns
-Gdy API Management jest w trybie zewnętrznej sieci wirtualnej, usługa DNS jest zarządzana przez platformę Azure. W przypadku trybu wewnętrznej sieci wirtualnej musisz zarządzać własnym systemem DNS. Zalecaną opcją jest Azure DNS strefy prywatnej i łączenie jej z siecią wirtualną, w API Management w których wdrożono usługę. Dowiedz [się, jak skonfigurować strefę prywatną w Azure DNS](../dns/private-dns-getstarted-portal.md).
+Gdy API Management jest w trybie zewnętrznej sieci wirtualnej, usługa DNS jest zarządzana przez platformę Azure. W przypadku trybu wewnętrznej sieci wirtualnej musisz zarządzać własną usługą DNS. Zalecaną opcją Azure DNS skonfigurowanie strefy prywatnej i połączenie jej z siecią API Management wirtualnej. Dowiedz się, [jak skonfigurować strefę prywatną w Azure DNS](../dns/private-dns-getstarted-portal.md).
 
 > [!NOTE]
-> API Management usługa nie nasłuchuje żądań pochodzących z adresów IP. Odpowiada tylko na żądania na nazwę hosta skonfigurowaną w punktach końcowych usługi. Te punkty końcowe obejmują bramę, Azure Portal i portal deweloperów, punkt końcowy zarządzania bezpośredniego i usługę Git.
+> API Management usługa nie nasłuchuje żądań pochodzących z adresów IP. Odpowiada tylko na żądania na nazwę hosta skonfigurowaną w punktach końcowych usługi. Te punkty końcowe obejmują bramę, Azure Portal portal deweloperów, punkt końcowy zarządzania bezpośredniego i usługę Git.
 
 ### <a name="access-on-default-host-names"></a>Dostęp do domyślnych nazw hostów
 Podczas tworzenia usługi API Management o nazwie "contosointernalvnet" domyślnie konfigurowane są następujące punkty końcowe usługi:
@@ -103,7 +104,7 @@ Podczas tworzenia usługi API Management o nazwie "contosointernalvnet" domyśln
 
    * Git: contosointernalvnet.scm.azure-api.net
 
-Aby uzyskać dostęp do API Management końcowych usługi, możesz utworzyć maszynę wirtualną w podsieci podłączonej do sieci wirtualnej, w której API Management jest wdrażana. Zakładając, że wewnętrzny wirtualny adres IP usługi to 10.1.0.5, można mapować plik hosts %SystemDrive%\drivers\etc\hosts w następujący sposób:
+Aby uzyskać dostęp do tych API Management końcowych usługi, możesz utworzyć maszynę wirtualną w podsieci połączonej z siecią wirtualną, w której API Management jest wdrażana. Przy założeniu, że wewnętrzny wirtualny adres IP usługi to 10.1.0.5, można mapować plik hosts %SystemDrive%\drivers\etc\hosts w następujący sposób:
 
    * 10.1.0.5 contosointernalvnet.azure-api.net
 
@@ -137,7 +138,7 @@ Jeśli używasz niestandardowego serwera DNS w sieci wirtualnej, możesz równie
 ## <a name="related-content"></a><a name="related-content"> </a>Powiązana zawartość
 Więcej informacji można znaleźć w następujących artykułach:
 * [Typowe problemy z konfiguracją sieci podczas konfigurowania usługi Azure API Management w sieci wirtualnej][Common network configuration problems]
-* [Sieć wirtualna : często zadawane pytania](../virtual-network/virtual-networks-faq.md)
+* [Sieć wirtualna często zadawane pytania](../virtual-network/virtual-networks-faq.md)
 * [Tworzenie rekordu w systemie DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png

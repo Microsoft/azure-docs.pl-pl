@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z tożsamości zarządzanych na platformie Azure API Management | Microsoft Docs
-description: Informacje o sposobie tworzenia tożsamości przypisanych do systemu i przypisanych do użytkownika w API Management przy użyciu szablonu Azure Portal, programu PowerShell i Menedżer zasobów.
+title: Korzystanie z tożsamości zarządzanych w usłudze Azure API Management | Microsoft Docs
+description: Dowiedz się, jak tworzyć tożsamości przypisane przez system i przypisane przez użytkownika w programie API Management przy użyciu Azure Portal, programu PowerShell i Resource Manager szablonu.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,43 +11,44 @@ ms.workload: integration
 ms.topic: article
 ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 40ee196f53af040e4099fb344de5488109ce001b
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521547"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812250"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure API Management
 
-W tym artykule pokazano, jak utworzyć zarządzaną tożsamość wystąpienia usługi Azure API Management i jak uzyskać dostęp do innych zasobów. Zarządzana tożsamość wygenerowana przez usługę Azure Active Directory (Azure AD) umożliwia API Managementemu wystąpieniu i bezpieczny dostęp do innych zasobów chronionych przez usługę Azure AD, takich jak Azure Key Vault. Platforma Azure zarządza tą tożsamością, więc nie trzeba dostarczać ani obracać żadnych wpisów tajnych. Aby uzyskać więcej informacji o tożsamościach zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md).
+W tym artykule pokazano, jak utworzyć tożsamość zarządzaną dla wystąpienia usługi Azure API Management oraz jak uzyskać dostęp do innych zasobów. Tożsamość zarządzana wygenerowana przez usługę Azure Active Directory (Azure AD) umożliwia wystąpieniu usługi API Management łatwy i bezpieczny dostęp do innych zasobów chronionych przez usługę Azure AD, takich jak Azure Key Vault. Platforma Azure zarządza tą tożsamością, dzięki czemu nie trzeba aprowizować ani obracać żadnych wpisów tajnych. Aby uzyskać więcej informacji na temat tożsamości zarządzanych, zobacz [Co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 
-Do wystąpienia API Management można przyznać dwa typy tożsamości:
+Możesz przyznać dwa typy tożsamości do API Management wystąpienia:
 
-- *Tożsamość przypisana do systemu* jest powiązana z usługą i jest usuwana, jeśli usługa zostanie usunięta. Usługa może mieć tylko jedną tożsamość przypisaną do systemu.
-- *Tożsamość przypisana przez użytkownika* to autonomiczny zasób platformy Azure, który można przypisać do usługi. Usługa może mieć wiele tożsamości przypisanych do użytkownika.
+- Tożsamość *przypisana przez system jest* powiązana z usługą i usuwana w przypadku usunięcia usługi. Usługa może mieć tylko jedną tożsamość przypisaną przez system.
+- Tożsamość *przypisana przez użytkownika to* autonomiczny zasób platformy Azure, który można przypisać do usługi. Usługa może mieć wiele tożsamości przypisanych przez użytkownika.
 
 ## <a name="create-a-system-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez system
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Aby skonfigurować tożsamość zarządzaną w Azure Portal, należy najpierw utworzyć wystąpienie API Management, a następnie włączyć funkcję.
+Aby skonfigurować tożsamość zarządzaną w Azure Portal, najpierw utworzysz wystąpienie API Management, a następnie włączysz tę funkcję.
 
-1. Utwórz wystąpienie API Management w portalu, jak zwykle. Przejdź do niego w portalu.
-2. Wybierz pozycję **zarządzane tożsamości**.
-3. Na karcie **przypisana przez system** Przełącz pozycję **stan** na wartość **włączone**. Wybierz pozycję **Zapisz**.
+1. Utwórz API Management w portalu w zwykły sposób. Przejdź do niego w portalu.
+2. Wybierz **pozycję Tożsamości zarządzane.**
+3. Na karcie **Przypisano system** przełącz pozycję **Stan** na **Wł.**. Wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Wybory umożliwiające włączenie tożsamości zarządzanej przypisanej do systemu" border="true":::
+    :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Opcje włączania tożsamości zarządzanej przypisanej przez system" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Poniższe kroki przeprowadzą Cię przez proces tworzenia wystąpienia API Management i przypisywania go do tożsamości przy użyciu Azure PowerShell. 
+W poniższych krokach przedstawiono sposób tworzenia API Management i przypisywania do niego tożsamości przy użyciu Azure PowerShell. 
 
-1. W razie konieczności Zainstaluj Azure PowerShell, korzystając z instrukcji w [przewodniku Azure PowerShell](/powershell/azure/install-az-ps). Następnie uruchom polecenie `Connect-AzAccount` , aby utworzyć połączenie z platformą Azure.
+1. W razie potrzeby zainstaluj Azure PowerShell, korzystając z instrukcji w Azure PowerShell [przewodniku.](/powershell/azure/install-az-ps) Następnie uruchom , `Connect-AzAccount` aby utworzyć połączenie z platformą Azure.
 
-2. Użyj poniższego kodu, aby utworzyć wystąpienie. Aby uzyskać więcej przykładów użycia Azure PowerShell z wystąpieniem API Management, zobacz [API Management przykładów programu PowerShell](powershell-samples.md).
+2. Użyj następującego kodu, aby utworzyć wystąpienie. Aby uzyskać więcej przykładów użycia programu Azure PowerShell z wystąpieniem API Management, zobacz [API Management przykłady programu PowerShell.](powershell-samples.md)
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -69,7 +70,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia wystąpienia API Manag
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
-Można utworzyć wystąpienie API Management z tożsamością, dołączając następującą właściwość w definicji zasobu:
+Możesz utworzyć wystąpienie API Management tożsamości, uwzględniając następującą właściwość w definicji zasobu:
 
 ```json
 "identity" : {
@@ -77,7 +78,7 @@ Można utworzyć wystąpienie API Management z tożsamością, dołączając nas
 }
 ```
 
-Ta właściwość informuje platformę Azure, aby utworzyć tożsamość dla wystąpienia API Management i zarządzać nią.
+Ta właściwość nakazuje platformie Azure utworzenie tożsamości i zarządzanie tą tożsamością API Management wystąpienia.
 
 Na przykład kompletny szablon Azure Resource Manager może wyglądać następująco:
 
@@ -106,7 +107,7 @@ Na przykład kompletny szablon Azure Resource Manager może wyglądać następuj
 }
 ```
 
-Po utworzeniu wystąpienia ma ono następujące dodatkowe właściwości:
+Po utworzeniu wystąpienie ma następujące dodatkowe właściwości:
 
 ```json
 "identity": {
@@ -116,27 +117,27 @@ Po utworzeniu wystąpienia ma ono następujące dodatkowe właściwości:
 }
 ```
 
-`tenantId`Właściwość identyfikuje dzierżawę usługi Azure AD, do której należy tożsamość. `principalId`Właściwość jest unikatowym identyfikatorem nowej tożsamości wystąpienia. W ramach usługi Azure AD nazwa główna usługi ma taką samą nazwę, która została nadana API Management wystąpieniu.
+Właściwość `tenantId` określa dzierżawę usługi Azure AD, do której należy tożsamość. Właściwość `principalId` jest unikatowym identyfikatorem nowej tożsamości wystąpienia. W usłudze Azure AD nazwa główna usługi ma tę samą nazwę, która została nadana API Management wystąpienia.
 
 > [!NOTE]
-> Wystąpienie API Management może mieć zarówno tożsamości przypisane do systemu, jak i przypisane przez użytkownika. W tym przypadku właściwość będzie `type` `SystemAssigned,UserAssigned` .
+> Wystąpienie API Management może mieć jednocześnie tożsamości przypisane przez system i przez użytkownika. W tym przypadku `type` właściwością będzie `SystemAssigned,UserAssigned` .
 
-## <a name="supported-scenarios-using-system-assigned-identity"></a>Obsługiwane scenariusze przy użyciu tożsamości przypisanej do systemu
+## <a name="supported-scenarios-using-system-assigned-identity"></a>Obsługiwane scenariusze z użyciem tożsamości przypisanej przez system
 
 ### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Uzyskaj niestandardowy certyfikat TLS/SSL dla wystąpienia API Management z Azure Key Vault
-Można użyć tożsamości przypisanej do systemu API Management wystąpienia, aby pobrać niestandardowe certyfikaty TLS/SSL przechowywane w Azure Key Vault. Następnie można przypisać te certyfikaty do domen niestandardowych w wystąpieniu API Management. Należy pamiętać o następujących kwestiach:
+Tożsamość przypisana przez system wystąpienia usługi API Management umożliwia pobieranie niestandardowych certyfikatów protokołu TLS/SSL przechowywanych w Azure Key Vault. Następnie możesz przypisać te certyfikaty do domen niestandardowych w API Management wystąpienia. Należy pamiętać o następujących kwestiach:
 
-- Typem zawartości wpisu tajnego musi być *Application/x-PKCS12*.
-- Użyj punktu końcowego tajnego certyfikatu Key Vault, który zawiera wpis tajny.
+- Klucz tajny musi mieć typ zawartości *application/x-pkcs12.*
+- Użyj punktu końcowego Key Vault tajnego certyfikatu, który zawiera klucz tajny.
 
 > [!Important]
-> Jeśli nie podano wersji tego obiektu certyfikatu, program API Management automatycznie uzyska nowszą wersję certyfikatu w ciągu czterech godzin od jego zaktualizowania w Key Vault.
+> Jeśli nie poświadczeń wersji obiektu certyfikatu, program API Management automatycznie uzyska nowszą wersję certyfikatu w ciągu czterech godzin po jego zaktualizowaniu w Key Vault.
 
-Poniższy przykład przedstawia szablon Azure Resource Manager, który zawiera następujące kroki:
+W poniższym przykładzie pokazano Azure Resource Manager szablonu, który zawiera następujące kroki:
 
-1. Utwórz wystąpienie API Management z tożsamością zarządzaną.
-2. Zaktualizuj zasady dostępu wystąpienia Azure Key Vault i zezwól na wystąpienie API Management, aby uzyskać z niego wpisy tajne.
-3. Zaktualizuj wystąpienie API Management, ustawiając niestandardową nazwę domeny za pośrednictwem certyfikatu z wystąpienia Key Vault.
+1. Utwórz wystąpienie API Management przy użyciu tożsamości zarządzanej.
+2. Zaktualizuj zasady dostępu do wystąpienia Azure Key Vault i zezwalaj wystąpieniu API Management na uzyskanie z niego wpisów tajnych.
+3. Zaktualizuj API Management, ustawiając niestandardową nazwę domeny za pomocą certyfikatu z Key Vault wystąpienia.
 
 ```json
 {
@@ -260,48 +261,48 @@ Poniższy przykład przedstawia szablon Azure Resource Manager, który zawiera n
 }
 ```
 
-### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Uwierzytelnianie na zapleczu przy użyciu tożsamości API Management
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Uwierzytelnianie w zadumieniu przy użyciu tożsamości API Management danych
 
-Można użyć tożsamości przypisanej do systemu do uwierzytelniania na zapleczu za pomocą zasad [uwierzytelniania zarządzanych tożsamości](api-management-authentication-policies.md#ManagedIdentity) .
+Tożsamość przypisana przez system umożliwia uwierzytelnianie w zakładzie za pomocą zasad [tożsamości zarządzanej uwierzytelniania.](api-management-authentication-policies.md#ManagedIdentity)
 
 ### <a name="connect-to-azure-resources-behind-ip-firewall-using-system-assigned-managed-identity"></a><a name="apim-as-trusted-service"></a>Nawiązywanie połączenia z zasobami platformy Azure za zaporą IP przy użyciu tożsamości zarządzanej przypisanej przez system
 
 
-API Management to zaufana usługa firmy Microsoft do następujących zasobów. Umożliwia to usłudze łączenie się z następującymi zasobami za zaporą. Po jawnie przypisaniu odpowiedniej roli platformy Azure do [zarządzanej tożsamości przypisanej do systemu](../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu zakres dostępu dla tego wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości.
+API Management to zaufana usługa firmy Microsoft dla następujących zasobów. Dzięki temu usługa może łączyć się z następującymi zasobami za zaporą. Po jawnego przypisaniu odpowiedniej roli platformy Azure do przypisanej przez [system](../active-directory/managed-identities-azure-resources/overview.md) tożsamości zarządzanej dla tego wystąpienia zasobu zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do tożsamości zarządzanej.
 
 
 |Usługa platformy Azure | Link|
 |---|---|
-|Azure Storage | [Zaufane — dostęp do platformy Azure — magazyn](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
-|Usługa Azure Service Bus | [Zaufane — dostęp do platformy Azure — Service-Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
-|Centrum zdarzeń Azure | [Trused — dostęp do platformy Azure — centrum zdarzeń](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+|Azure Storage | [Zaufany dostęp do usługi Azure Storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Usługa Azure Service Bus | [Zaufany dostęp do usługi azure-service-bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
+|Centrum zdarzeń Azure | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika
 
 > [!NOTE]
-> Można skojarzyć wystąpienie API Management z maksymalnie 10 tożsamościami zarządzanymi przez użytkownika.
+> Wystąpienie zarządzane API Management można skojarzyć z maksymalnie 10 tożsamościami zarządzanymi przypisanymi przez użytkownika.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzyć wystąpienie API Management, a następnie włączyć funkcję.
+Aby skonfigurować tożsamość zarządzaną w portalu, najpierw utworzysz wystąpienie API Management a następnie włączysz tę funkcję.
 
-1. Utwórz wystąpienie API Management w portalu, jak zwykle. Przejdź do niego w portalu.
-2. Wybierz pozycję **zarządzane tożsamości**.
-3. Na karcie **przypisane przez użytkownika** wybierz pozycję **Dodaj**.
+1. Utwórz API Management w portalu w zwykły sposób. Przejdź do niego w portalu.
+2. Wybierz **pozycję Tożsamości zarządzane.**
+3. Na karcie **Przypisano użytkownika** wybierz pozycję **Dodaj**.
 4. Wyszukaj utworzoną wcześniej tożsamość i wybierz ją. Wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Wybory dotyczące włączania tożsamości zarządzanej przypisanej przez użytkownika" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Opcje włączania tożsamości zarządzanej przypisanej przez użytkownika" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Poniższe kroki przeprowadzą Cię przez proces tworzenia wystąpienia API Management i przypisywania go do tożsamości przy użyciu Azure PowerShell. 
+W poniższych krokach przedstawiono sposób tworzenia API Management i przypisywania do niego tożsamości przy użyciu Azure PowerShell. 
 
-1. W razie konieczności Zainstaluj Azure PowerShell, korzystając z instrukcji w [przewodniku Azure PowerShell](/powershell/azure/install-az-ps). Następnie uruchom polecenie `Connect-AzAccount` , aby utworzyć połączenie z platformą Azure.
+1. W razie potrzeby zainstaluj Azure PowerShell, korzystając z instrukcji w Azure PowerShell [przewodniku.](/powershell/azure/install-az-ps) Następnie uruchom , `Connect-AzAccount` aby utworzyć połączenie z platformą Azure.
 
-2. Użyj poniższego kodu, aby utworzyć wystąpienie. Aby uzyskać więcej przykładów użycia Azure PowerShell z wystąpieniem API Management, zobacz [API Management przykładów programu PowerShell](powershell-samples.md).
+2. Użyj następującego kodu, aby utworzyć wystąpienie. Aby uzyskać więcej przykładów użycia programu Azure PowerShell z wystąpieniem API Management, zobacz [API Management przykłady programu PowerShell.](powershell-samples.md)
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -316,7 +317,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia wystąpienia API Manag
     New-AzApiManagement -ResourceGroupName $resourceGroupName -Location $location -Name $apiManagementName -Organization contoso -AdminEmail admin@contoso.com -Sku Consumption -UserAssignedIdentity $userIdentities
     ```
 
-3. Zaktualizuj istniejącą usługę, aby przypisać tożsamość do usługi:
+3. Zaktualizuj istniejącą usługę, aby przypisać do usługi tożsamość:
 
     ```azurepowershell-interactive
     # Get an API Management instance
@@ -332,7 +333,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia wystąpienia API Manag
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
-Można utworzyć wystąpienie API Management z tożsamością, dołączając następującą właściwość w definicji zasobu:
+Możesz utworzyć wystąpienie API Management tożsamości, uwzględniając następującą właściwość w definicji zasobu:
 
 ```json
 "identity": {
@@ -343,7 +344,7 @@ Można utworzyć wystąpienie API Management z tożsamością, dołączając nas
 }
 ```
 
-Dodanie typu przypisanego przez użytkownika informuje platformę Azure, aby używała tożsamości przypisanej do użytkownika określonego dla danego wystąpienia.
+Dodanie typu przypisanego przez użytkownika nakazuje platformie Azure użycie tożsamości przypisanej przez użytkownika określonej dla wystąpienia.
 
 Na przykład kompletny szablon Azure Resource Manager może wyglądać następująco:
 
@@ -378,7 +379,7 @@ Na przykład kompletny szablon Azure Resource Manager może wyglądać następuj
 }
 ```
 
-Gdy usługa zostanie utworzona, ma następujące dodatkowe właściwości:
+Po utworzeniu usługi ma ona następujące dodatkowe właściwości:
 
 ```json
 "identity": {
@@ -392,45 +393,45 @@ Gdy usługa zostanie utworzona, ma następujące dodatkowe właściwości:
 }
 ```
 
-`principalId`Właściwość jest unikatowym identyfikatorem tożsamości, która jest używana do administrowania usługą Azure AD. `clientId`Właściwość jest unikatowym identyfikatorem nowej tożsamości aplikacji używanej do określania tożsamości, która ma być używana podczas wywołań środowiska uruchomieniowego.
+Właściwość `principalId` jest unikatowym identyfikatorem tożsamości używanej do administrowania usługą Azure AD. Właściwość jest unikatowym identyfikatorem nowej tożsamości aplikacji, która służy do określania tożsamości do użycia podczas `clientId` wywołań środowiska uruchomieniowego.
 
 > [!NOTE]
-> Wystąpienie API Management może mieć zarówno tożsamości przypisane do systemu, jak i przypisane przez użytkownika. W tym przypadku właściwość będzie `type` `SystemAssigned,UserAssigned` .
+> Wystąpienie API Management może mieć jednocześnie tożsamości przypisane przez system i przez użytkownika. W tym przypadku `type` właściwością będzie `SystemAssigned,UserAssigned` .
 
-## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Obsługiwane scenariusze przy użyciu tożsamości zarządzanej przypisanej przez użytkownika
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Obsługiwane scenariusze z użyciem tożsamości zarządzanej przypisanej przez użytkownika
 
 ### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Uzyskaj niestandardowy certyfikat TLS/SSL dla wystąpienia API Management z Azure Key Vault
-Możesz użyć dowolnej tożsamości przypisanej do użytkownika, aby ustanowić relację zaufania między wystąpieniem API Management i magazynem kluczy. Tego zaufania można następnie użyć do pobrania niestandardowych certyfikatów protokołu TLS/SSL przechowywanych w Azure Key Vault. Następnie można przypisać te certyfikaty do domen niestandardowych w wystąpieniu API Management. 
+Możesz użyć dowolnej tożsamości przypisanej przez użytkownika, aby ustanowić relację zaufania między wystąpieniem API Management i wystąpieniem usługi KeyVault. Tego zaufania można następnie użyć do pobrania niestandardowych certyfikatów protokołu TLS/SSL przechowywanych w Azure Key Vault. Następnie możesz przypisać te certyfikaty do domen niestandardowych w API Management wystąpienia. 
 
 Należy pamiętać o następujących kwestiach:
 
-- Typem zawartości wpisu tajnego musi być *Application/x-PKCS12*.
-- Użyj punktu końcowego tajnego certyfikatu Key Vault, który zawiera wpis tajny.
+- Klucz tajny musi mieć typ zawartości *application/x-pkcs12.*
+- Użyj punktu końcowego Key Vault tajnego certyfikatu, który zawiera klucz tajny.
 
 > [!Important]
-> Jeśli nie podano wersji tego obiektu certyfikatu, program API Management automatycznie uzyska nowszą wersję certyfikatu w ciągu czterech godzin od jego zaktualizowania w Key Vault.
+> Jeśli nie poświadczeń wersji obiektu certyfikatu, program API Management automatycznie uzyska nowszą wersję certyfikatu w ciągu czterech godzin po jego zaktualizowaniu w Key Vault.
 
-Aby uzyskać pełny szablon, zobacz [API Management z użyciem protokołu SSL opartego na magazynie kluczy przy użyciu tożsamości przypisanej do użytkownika](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+Aby uzyskać kompletny szablon, zobacz API Management z protokołem SSL opartym na [programie KeyVault przy użyciu tożsamości przypisanej przez użytkownika.](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json)
 
-W tym szablonie zostaną wdrożone następujące narzędzia:
+W tym szablonie wdrożysz:
 
 * Usługa Azure API Management
-* Tożsamość przypisana przez użytkownika zarządzanego przez platformę Azure
-* Magazyn kluczy platformy Azure do przechowywania certyfikatu SSL/TLS
+* Tożsamość przypisana przez użytkownika zarządzanego na platformie Azure
+* Usługa Azure KeyVault do przechowywania certyfikatu SSL/TLS
 
 Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
 
-### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Uwierzytelnianie na zapleczu przy użyciu tożsamości przypisanej do użytkownika
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Uwierzytelnianie w zadumieniu przy użyciu tożsamości przypisanej przez użytkownika
 
-Możesz użyć tożsamości przypisanej do użytkownika do uwierzytelniania na zapleczu, korzystając z zasad [uwierzytelniania zarządzanych tożsamości](api-management-authentication-policies.md#ManagedIdentity) .
+Tożsamości przypisanej przez użytkownika można użyć do uwierzytelniania w założyeniu za pomocą zasad [tożsamości zarządzanej uwierzytelniania.](api-management-authentication-policies.md#ManagedIdentity)
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>Usuwanie tożsamości
 
-Tożsamość przypisaną przez system można usunąć, wyłączając tę funkcję za pomocą portalu lub szablonu Azure Resource Manager w taki sam sposób, w jaki został utworzony. Tożsamości przypisane do użytkownika można usuwać pojedynczo. Aby usunąć wszystkie tożsamości, ustaw typ tożsamości na `"None"` .
+Tożsamość przypisaną przez system można usunąć, wyłączając funkcję za pośrednictwem portalu lub szablonu Azure Resource Manager w taki sam sposób, w jaki został utworzony. Tożsamości przypisane przez użytkownika można usuwać indywidualnie. Aby usunąć wszystkie tożsamości, ustaw typ tożsamości na `"None"` .
 
-Usunięcie tożsamości przypisanej do systemu w ten sposób spowoduje również usunięcie jej z usługi Azure AD. Tożsamości przypisane do systemu są również automatycznie usuwane z usługi Azure AD po usunięciu wystąpienia API Management.
+Usunięcie w ten sposób tożsamości przypisanej przez system spowoduje również usunięcie jej z usługi Azure AD. Tożsamości przypisane przez system są również automatycznie usuwane z usługi Azure AD po API Management wystąpienia.
 
 Aby usunąć wszystkie tożsamości przy użyciu szablonu Azure Resource Manager, zaktualizuj tę sekcję:
 
@@ -441,14 +442,14 @@ Aby usunąć wszystkie tożsamości przy użyciu szablonu Azure Resource Manager
 ```
 
 > [!Important]
-> Jeśli wystąpienie API Management jest skonfigurowane przy użyciu niestandardowego certyfikatu protokołu SSL z Key Vault i podjęto próbę wyłączenia tożsamości zarządzanej, żądanie zakończy się niepowodzeniem.
+> Jeśli wystąpienie API Management skonfigurowano przy użyciu niestandardowego certyfikatu SSL z usługi Key Vault i spróbujesz wyłączyć tożsamość zarządzaną, żądanie nie powiedzie się.
 >
-> Możesz odblokować siebie, przełączając certyfikat Azure Key Vault na wbudowany certyfikat zakodowany, a następnie wyłączając zarządzaną tożsamość. Aby uzyskać więcej informacji, zobacz [Konfigurowanie nazwy domeny niestandardowej](configure-custom-domain.md).
+> Możesz się odblokować, przełączając się z certyfikatu Azure Key Vault na certyfikat zakodowany w tekście, a następnie wyłączając tożsamość zarządzaną. Aby uzyskać więcej informacji, zobacz [Konfigurowanie nazwy domeny niestandardowej](configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat zarządzanych tożsamości dla zasobów platformy Azure:
+Dowiedz się więcej o tożsamościach zarządzanych dla zasobów platformy Azure:
 
-* [Jakie są zarządzane tożsamości dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md)
+* [Co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 * [Szablony usługi Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
-* [Uwierzytelnianie przy użyciu tożsamości zarządzanej w zasadach](./api-management-authentication-policies.md#ManagedIdentity)
+* [Uwierzytelnianie za pomocą tożsamości zarządzanej w zasadach](./api-management-authentication-policies.md#ManagedIdentity)

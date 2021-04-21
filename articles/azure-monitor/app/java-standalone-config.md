@@ -1,28 +1,28 @@
 ---
 title: Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
-description: Jak skonfigurować Application Insights Azure Monitor dla języka Java
+description: Jak skonfigurować środowisko Azure Monitor Application Insights dla języka Java
 ms.topic: conceptual
 ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 997a4e115f8632544b2f73aef498d40dceb0d459
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b78aaa659598e6eb58841c5cef0c209daaced5e0
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449974"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811980"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
 > [!WARNING]
-> **W przypadku uaktualniania programu z wersji zapoznawczej 3,0**
+> **W przypadku uaktualniania z wersji 3.0 (wersja zapoznawcza)**
 >
-> Dokładnie Przejrzyj wszystkie opcje konfiguracji, ponieważ struktura JSON została całkowicie zmieniona, oprócz samej nazwy pliku, która wystąpiła tylko małymi literami.
+> Przejrzyj dokładnie wszystkie poniższe opcje konfiguracji, ponieważ struktura JSON została całkowicie zmieniona, oprócz samej nazwy pliku, która zawierała tylko małe litery.
 
-## <a name="connection-string-and-role-name"></a>Parametry połączenia i nazwa roli
+## <a name="connection-string-and-role-name"></a>Connection string and role name (Ciąg połączenia i nazwa roli)
 
-Parametry połączenia i nazwa roli to najczęściej używane ustawienia, które należy wykonać, aby rozpocząć:
+Do rozpoczęcia pracy potrzebne są najpopularniejsze ustawienia parametrów połączenia i nazwy roli:
 
 ```json
 {
@@ -33,26 +33,26 @@ Parametry połączenia i nazwa roli to najczęściej używane ustawienia, które
 }
 ```
 
-Parametry połączenia są wymagane, a nazwa roli jest ważna za każdym razem, gdy wysyłasz dane z różnych aplikacji do tego samego Application Insightsgo zasobu.
+Wymagane są ciągi połączenia, a nazwa roli jest ważna za każdym razem, gdy wysyłasz dane z różnych aplikacji do tego samego Application Insights zasobów.
 
-Poniżej znajdziesz więcej szczegółów i dodatkowe opcje konfiguracji.
+Więcej szczegółów i dodatkowe opcje konfiguracji można znaleźć poniżej.
 
 ## <a name="configuration-file-path"></a>Ścieżka pliku konfiguracji
 
-Domyślnie Application Insights Java 3,0 oczekuje, że plik konfiguracji jest nazwany `applicationinsights.json` i znajduje się w tym samym katalogu co `applicationinsights-agent-3.0.3.jar` .
+Domyślnie program Application Insights Java 3.0 oczekuje, że plik konfiguracji będzie mieć nazwę i będzie się znajdował w tym samym katalogu co `applicationinsights.json` `applicationinsights-agent-3.0.3.jar` program .
 
-Ścieżkę do pliku konfiguracji można określić przy użyciu opcji
+Możesz określić własną ścieżkę pliku konfiguracji przy użyciu jednej z tych opcji
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE` Zmienna środowiskowa lub
-* `applicationinsights.configuration.file` Właściwość systemu Java
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE` zmienna środowiskowa, lub
+* `applicationinsights.configuration.file` Właściwość systemowa języka Java
 
-W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.3.jar` znajduje się lokalizacja.
+Jeśli określisz ścieżkę względną, zostanie ona rozpoznana względem katalogu, w `applicationinsights-agent-3.0.3.jar` którym się znajduje.
 
 ## <a name="connection-string"></a>Parametry połączenia
 
-Parametry połączenia są wymagane. Parametry połączenia można znaleźć w zasobie Application Insights:
+Wymagane są ciągi połączenia. Możesz znaleźć swoje parametrów połączenia w zasobie Application Insights zasobów:
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights parametry połączenia":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights parametrów połączenia":::
 
 
 ```json
@@ -61,13 +61,13 @@ Parametry połączenia są wymagane. Parametry połączenia można znaleźć w z
 }
 ```
 
-Parametry połączenia można również ustawić przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_CONNECTION_STRING` (która będzie mieć pierwszeństwo przed parametrami połączenia określonymi w konfiguracji JSON).
+Możesz również ustawić ciąg połączenia przy użyciu zmiennej środowiskowej (która będzie miała pierwszeństwo przed ciągami połączenia określonymi `APPLICATIONINSIGHTS_CONNECTION_STRING` w konfiguracji JSON).
 
-Ustawienie parametrów połączenia spowoduje wyłączenie agenta Java.
+Ustawienie parametrów połączenia spowoduje wyłączenie agenta języka Java.
 
 ## <a name="cloud-role-name"></a>Nazwa roli w chmurze
 
-Nazwa roli w chmurze służy do etykietowania składnika na mapie aplikacji.
+Nazwa roli w chmurze jest używana do oznaczania składnika na mapie aplikacji.
 
 Jeśli chcesz ustawić nazwę roli w chmurze:
 
@@ -79,15 +79,15 @@ Jeśli chcesz ustawić nazwę roli w chmurze:
 }
 ```
 
-Jeśli nazwa roli chmury nie jest ustawiona, nazwa zasobu Application Insights zostanie użyta do etykietowania składnika na mapie aplikacji.
+Jeśli nie ustawiono nazwy roli w chmurze, Application Insights nazwa zasobu będzie używana do oznaczania składnika na mapie aplikacji.
 
-Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_NAME` (która będzie mieć pierwszeństwo przed nazwą roli chmury określoną w konfiguracji JSON).
+Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej (która będzie miała pierwszeństwo przed nazwą roli w chmurze określoną `APPLICATIONINSIGHTS_ROLE_NAME` w konfiguracji JSON).
 
 ## <a name="cloud-role-instance"></a>Wystąpienie roli w chmurze
 
-Nazwa maszyny jest wartością domyślną wystąpienia roli chmury.
+Domyślnie wystąpienie roli w chmurze ma nazwę maszyny.
 
-Jeśli chcesz ustawić inną rolę w chmurze, a nie nazwę komputera:
+Jeśli chcesz ustawić wystąpienie roli w chmurze na coś innego, a nie nazwę komputera:
 
 ```json
 {
@@ -98,16 +98,16 @@ Jeśli chcesz ustawić inną rolę w chmurze, a nie nazwę komputera:
 }
 ```
 
-Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_INSTANCE` (która będzie mieć pierwszeństwo przed wystąpieniem roli w chmurze określonym w konfiguracji JSON).
+Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej środowiskowej (która będzie miała pierwszeństwo przed wystąpieniem roli w chmurze określonym `APPLICATIONINSIGHTS_ROLE_INSTANCE` w konfiguracji JSON).
 
 ## <a name="sampling"></a>Próbkowanie
 
-Próbkowanie jest przydatne, jeśli zachodzi potrzeba obniżenia kosztów.
-Próbkowanie jest wykonywane jako funkcja w IDENTYFIKATORze operacji (znanym także jako identyfikator śledzenia), dzięki czemu ten sam Identyfikator operacji będzie zawsze powodował tę samą decyzję o próbkowaniu. Dzięki temu nie będzie można pobrać części transakcji rozproszonej próbkowanej w czasie, gdy inne części tego elementu są próbkowane.
+Próbkowanie jest przydatne, jeśli chcesz obniżyć koszty.
+Próbkowanie jest wykonywane jako funkcja na identyfikatorze operacji (nazywanym również identyfikatorem śledzenia), dzięki czemu ten sam identyfikator operacji zawsze będzie skutkować taką samą decyzją próbkowania. Dzięki temu nie będzie można pobrać części transakcji rozproszonej próbkowane w podczas gdy inne jego części są próbkowane.
 
-Jeśli na przykład ustawisz próbkowanie do 10%, zobaczysz tylko 10% transakcji, ale każdy z nich będzie miał pełne szczegółowe informacje o transakcjach.
+Jeśli na przykład ustawisz próbkowanie na 10%, zobaczysz tylko 10% transakcji, ale każda z tych 10% będzie mieć pełne szczegóły transakcji.
 
-Oto przykład sposobu ustawiania próbkowania w celu przechwycenia około **1/3 wszystkich transakcji** — upewnij się, że ustawiono częstotliwość próbkowania poprawną dla przypadku użycia:
+Oto przykład sposobu ustawienia próbkowania w celu przechwycenia około **1/3** wszystkich transakcji — upewnij się, że ustawiono częstotliwość próbkowania poprawną dla Twojego przypadku użycia:
 
 ```json
 {
@@ -117,25 +117,25 @@ Oto przykład sposobu ustawiania próbkowania w celu przechwycenia około **1/3 
 }
 ```
 
-Możesz również ustawić procent próbkowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (która następnie ma pierwszeństwo przed próbką próbki określoną w konfiguracji JSON).
+Możesz również ustawić wartość procentową próbkowania przy użyciu zmiennej środowiskowej (która będzie miała pierwszeństwo przed procentem próbkowania określonym `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` w konfiguracji JSON).
 
 > [!NOTE]
-> W polu procent próbkowania wybierz wartość procentową zbliżoną do 100/N, gdzie N jest liczbą całkowitą. Obecnie próbkowanie nie obsługuje innych wartości.
+> Dla wartości procentowej próbkowania wybierz wartość procentową, która jest bliska 100/N, gdzie N jest liczbą całkowitą. Obecnie próbkowanie nie obsługuje innych wartości.
 
-## <a name="sampling-overrides-preview"></a>Przesłaniania próbek (wersja zapoznawcza)
+## <a name="sampling-overrides-preview"></a>Przesłonięcia próbkowania (wersja zapoznawcza)
 
-Ta funkcja jest dostępna w wersji zapoznawczej, rozpoczynając od 3.0.3.
+Ta funkcja jest dostępna w wersji zapoznawczej, począwszy od wersji 3.0.3.
 
-Przesłaniania próbek umożliwiają przesłonięcie [domyślnego procentu próbkowania](#sampling), na przykład:
-* Ustaw wartość procent próbkowania na 0 (lub niewielką wartość), aby sprawdzić kondycję.
-* Ustaw wartość procent próbkowania na 0 (lub niewielką wartość) dla wywołań zależności.
-* Ustaw wartość procentową próbkowania na 100 dla ważnego typu żądania (np.), mimo że `/login` domyślne próbkowanie jest skonfigurowane jako mniejsze.
+Przesłonięcia próbkowania umożliwiają zastąpienie [domyślnego procentu próbkowania,](#sampling)na przykład:
+* Ustaw wartość procentową próbkowania na 0 (lub niewielką wartość) dla hałaśliwych kontroli kondycji.
+* Ustaw wartość procentową próbkowania na 0 (lub niewielką wartość) dla hałaśliwych wywołań zależności.
+* Ustaw wartość procentową próbkowania na 100 dla ważnego typu żądania (np. ), nawet jeśli próbkowanie domyślne jest skonfigurowane `/login` na wartość niższą.
 
-Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [zastąpień pobierania próbek](./java-standalone-sampling-overrides.md) .
+Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [przesłonięcia próbkowania.](./java-standalone-sampling-overrides.md)
 
 ## <a name="jmx-metrics"></a>Metryki JMX
 
-Jeśli chcesz zebrać pewne dodatkowe metryki JMX:
+Jeśli chcesz zebrać dodatkowe metryki JMX:
 
 ```json
 {
@@ -154,13 +154,13 @@ Jeśli chcesz zebrać pewne dodatkowe metryki JMX:
 }
 ```
 
-`name` to nazwa metryki, która zostanie przypisana do tej metryki JMX (może być dowolna).
+`name` to nazwa metryki, która zostanie przypisana do tej metryki JMX (może to być wszystko).
 
-`objectName` jest [nazwą obiektu](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) komponentu JMX, który chcesz zebrać.
+`objectName` to [nazwa obiektu](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) JMX MBean, który chcesz zebrać.
 
-`attribute` to nazwa atrybutu w JMX MBean, który ma zostać zebrany.
+`attribute` to nazwa atrybutu wewnątrz zestawu JMX MBean, który chcesz zebrać.
 
-Obsługiwane są wartości liczbowe i logiczne metryki JMX. Metryki logiczne JMX są mapowane na `0` wartość false, a `1` dla wartości true.
+Obsługiwane są wartości liczbowe i logiczne metryk JMX. Metryki logiczne JMX są mapowane na wartość `0` false i `1` wartość true.
 
 ## <a name="custom-dimensions"></a>Wymiary niestandardowe
 
@@ -175,35 +175,35 @@ Jeśli chcesz dodać wymiary niestandardowe do wszystkich danych telemetrycznych
 }
 ```
 
-`${...}` można go użyć do odczytu wartości z określonej zmiennej środowiskowej podczas uruchamiania.
+`${...}` Może służyć do odczytu wartości z określonej zmiennej środowiskowej podczas uruchamiania.
 
 > [!NOTE]
-> Rozpoczynając od wersji 3.0.2, jeśli dodasz niestandardowy wymiar o nazwie `service.version` , wartość zostanie zapisana w `application_Version` kolumnie w tabeli dzienników Application Insights, a nie jako wymiar niestandardowy.
+> Począwszy od wersji 3.0.2, jeśli dodasz wymiar niestandardowy o nazwie , wartość będzie przechowywana w kolumnie w tabeli dzienników Application Insights, a nie jako wymiar `service.version` `application_Version` niestandardowy.
 
 ## <a name="telemetry-processors-preview"></a>Procesory telemetrii (wersja zapoznawcza)
 
 Ta funkcja jest dostępna w wersji zapoznawczej.
 
-Umożliwia konfigurowanie reguł, które będą stosowane do żądania, zależności i danych telemetrycznych śledzenia, na przykład:
- * Maskowanie danych poufnych
+Umożliwia konfigurowanie reguł, które będą stosowane do żądań, zależności i danych telemetrycznych śledzenia, na przykład:
+ * Maskowanie poufnych danych
  * Warunkowe dodawanie wymiarów niestandardowych
- * Zaktualizuj nazwę zakresu, która jest używana do agregowania podobnej telemetrii w Azure Portal.
- * Porzuć określone atrybuty zakresu, aby kontrolować koszty pozyskiwania.
+ * Zaktualizuj nazwę zakresu, która jest używana do agregowania podobnych danych telemetrycznych w Azure Portal.
+ * Porzuć określone atrybuty span, aby kontrolować koszty pozyskiwania.
 
-Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors.md) .
+Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją procesora telemetrii.](./java-standalone-telemetry-processors.md)
 
 > [!NOTE]
-> Jeśli chcesz porzucić konkretne (całkowite) zakresy kontroli kosztów pozyskiwania, zobacz [zastępowanie próbek](./java-standalone-sampling-overrides.md).
+> Jeśli chcesz usunąć określone (całe) zakresy w celu kontrolowania kosztu pozyskiwania, zobacz [przesłonięcia próbkowania](./java-standalone-sampling-overrides.md).
 
-## <a name="auto-collected-logging"></a>Rejestrowanie z autozbieraniem
+## <a name="auto-collected-logging"></a>Automatyczne zbieranie rejestrowania
 
-Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane z autogromadzeniem.
+Log4j, Logback i java.util.logging są automatycznie instrumentowane, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane automatycznie.
 
-Rejestrowanie jest przechwytywane tylko wtedy, gdy jest ono najpierw zgodne z poziomem skonfigurowanym dla struktury rejestrowania, a drugi, również spełnia poziom skonfigurowany dla Application Insights.
+Rejestrowanie jest przechwytywane tylko wtedy, gdy najpierw spełnia poziom skonfigurowany dla struktury rejestrowania, a po drugie, również spełnia poziom skonfigurowany dla Application Insights.
 
-Na przykład jeśli struktura rejestrowania jest skonfigurowana do rejestrowania `WARN` (i powyżej) z pakietu `com.example` , a Application Insights jest skonfigurowana do przechwytywania `INFO` (i powyżej), wówczas Application Insights będzie przechwytywać tylko `WARN` (i powyżej) z pakietu `com.example` .
+Jeśli na przykład twoja platforma rejestrowania jest skonfigurowana do rejestrowania (i powyżej) z pakietu , Application Insights jest skonfigurowana do przechwytywania (i powyżej), program Application Insights przechwyci tylko `WARN` `com.example` `INFO` `WARN` (i powyżej) z pakietu `com.example` .
 
-Domyślny poziom skonfigurowany dla Application Insights ma wartość `INFO` . Jeśli chcesz zmienić ten poziom:
+Domyślny poziom skonfigurowany dla Application Insights to `INFO` . Jeśli chcesz zmienić ten poziom:
 
 ```json
 {
@@ -215,36 +215,36 @@ Domyślny poziom skonfigurowany dla Application Insights ma wartość `INFO` . J
 }
 ```
 
-Możesz również ustawić poziom przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (która będzie mieć pierwszeństwo przed poziomem określonym w konfiguracji JSON).
+Poziom można również ustawić przy użyciu zmiennej środowiskowej (która będzie miała pierwszeństwo przed poziomem określonym `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` w konfiguracji JSON).
 
-Są to prawidłowe `level` wartości, które można określić w `applicationinsights.json` pliku oraz jak są one zgodne z poziomami rejestrowania w różnych strukturach rejestrowania:
+Są to prawidłowe wartości, które można określić w pliku i jak odpowiadają one poziomom rejestrowania w `level` `applicationinsights.json` różnych platformach rejestrowania:
 
-| poziom             | Log4J  | Logback | LIP     |
+| poziom             | Log4j  | Logback (Logback) | LIP     |
 |-------------------|--------|---------|---------|
 | WYŁ.               | WYŁ.    | WYŁ.     | WYŁ.     |
-| KRYTYCZN             | KRYTYCZN  | BŁĄD   | WAŻNY  |
-| BŁĄD (lub poważny) | BŁĄD  | BŁĄD   | WAŻNY  |
-| WARN (lub ostrzeżenie) | WYOWIETLON   | WYOWIETLON    | OSTRZEŻENIE |
-| INFORMACJE              | INFORMACJE   | INFORMACJE    | INFORMACJE    |
-| SYGNATUR            | DEBUGUJ  | DEBUGUJ   | SYGNATUR  |
-| Debugowanie (lub szczegółowe)   | DEBUGUJ  | DEBUGUJ   | ZAKTUALIZOWA    |
-| DOKŁADNIEJSZ             | DEBUGUJ  | DEBUGUJ   | DOKŁADNIEJSZ   |
-| TRACE (lub FINEST) | TRACE  | TRACE   | FINEST  |
+| Śmiertelne             | Śmiertelne  | BŁĄD   | Ciężkie  |
+| BŁĄD (lub POWAŻNY) | BŁĄD  | BŁĄD   | Ciężkie  |
+| OSTRZEGAJ (lub OSTRZEŻENIE) | Ostrzec   | Ostrzec    | OSTRZEŻENIE |
+| Informacji              | Informacji   | Informacji    | Informacji    |
+| Config            | DEBUGUJ  | DEBUGUJ   | Config  |
+| DEBUG (lub FINE)   | DEBUGUJ  | DEBUGUJ   | Dobrze    |
+| Drobniejsze             | DEBUGUJ  | DEBUGUJ   | Drobniejsze   |
+| TRACE (LUB ŚLEDZENIA) | TRACE  | TRACE   | Najlepszych  |
 | ALL               | ALL    | ALL     | ALL     |
 
 > [!NOTE]
-> Jeśli obiekt wyjątku zostanie przekazana do rejestratora, komunikat dziennika (i szczegóły obiektu wyjątku) będzie wyświetlany w Azure Portal w `exceptions` tabeli zamiast `traces` tabeli.
+> Jeśli obiekt wyjątku zostanie przekazany do rejestratora, komunikat dziennika (i szczegóły obiektu wyjątku) będzie wyświetlany w Azure Portal tabeli, a nie `exceptions` `traces` tabeli.
 
-## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Zbierane metryki Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Automatycznie zbierane metryki mikrometrów (w tym metryki Spring Boot metryki metryk)
 
-Jeśli aplikacja używa [Micrometer](https://micrometer.io), metryki, które są wysyłane do rejestru globalnego Micrometer, są zbierane na podstawie autodostrajania.
+Jeśli aplikacja używa [parametru Micrometer,](https://micrometer.io)metryki, które są wysyłane do rejestru globalnego Micrometer, są zbierane automatycznie.
 
-Ponadto, jeśli aplikacja korzysta z [uruchamiającego uruchamianie sprężynowe](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), metryki skonfigurowane przez siłownik rozruchu sprężyny są również zbierane domyślnie.
+Ponadto jeśli aplikacja używa [parametru Spring Boot,](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)metryki skonfigurowane za pomocą Spring Boot szybki są również zbierane automatycznie.
 
-Aby wyłączyć autozbieranie metryk Micrometer (w tym metryki uruchamiającego uruchamianie sprężynowe):
+Aby wyłączyć automatyczne zbieranie metryk mikrometrycznych (w tym metryk Spring Boot metryki metryk:
 
 > [!NOTE]
-> Metryki niestandardowe są rozliczane osobno i mogą generować dodatkowe koszty. Sprawdź szczegółowe [Informacje o cenach](https://azure.microsoft.com/pricing/details/monitor/). Aby wyłączyć metryki siłownika Micrometer i sprężyny, Dodaj poniższą konfigurację do pliku konfiguracji.
+> Metryki niestandardowe są rozliczane oddzielnie i mogą generować dodatkowe koszty. Sprawdź szczegółowe informacje [o cenach.](https://azure.microsoft.com/pricing/details/monitor/) Aby wyłączyć metryki Micrometer i Spring Metric, dodaj do pliku konfiguracji poniżej konfigurację.
 
 ```json
 {
@@ -256,13 +256,13 @@ Aby wyłączyć autozbieranie metryk Micrometer (w tym metryki uruchamiającego 
 }
 ```
 
-## <a name="auto-collected-azure-sdk-telemetry"></a>Pobrana Funkcja telemetrii zestawu Azure SDK
+## <a name="auto-collected-azure-sdk-telemetry-preview"></a>Automatycznie zbierane dane telemetryczne zestawu Azure SDK (wersja zapoznawcza)
 
-Ta funkcja jest dostępna w wersji zapoznawczej.
+Wiele najnowszych bibliotek zestawu Azure SDK emituje dane telemetryczne (zobacz [pełną listę](./java-in-process-agent.md#azure-sdks-preview)).
 
-Wiele najnowszych bibliotek zestawu Azure SDK emituje dane telemetryczne.
+Od wersji Application Insights Java 3.0.3 można włączyć przechwytywanie tej telemetrii.
 
-Począwszy od wersji 3.0.3 można włączyć zbieranie danych telemetrii:
+Jeśli chcesz włączyć tę funkcję:
 
 ```json
 {
@@ -277,11 +277,11 @@ Począwszy od wersji 3.0.3 można włączyć zbieranie danych telemetrii:
 ```
 
 Tę funkcję można również włączyć przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
-(który będzie miał pierwszeństwo przed włączonym określone w konfiguracji JSON).
+(która będzie miała pierwszeństwo przed włączoną określoną w konfiguracji JSON).
 
-## <a name="suppressing-specific-auto-collected-telemetry"></a>Pomijanie określonych autozbieranych danych telemetrycznych
+## <a name="suppressing-specific-auto-collected-telemetry"></a>Pomijanie określonych automatycznie zbieranych danych telemetrycznych
 
-Rozpoczynając od wersji 3.0.3, można pominąć określoną funkcję automatycznej zebranej telemetrii przy użyciu następujących opcji konfiguracji:
+Począwszy od wersji 3.0.3, określone automatycznie zbierane dane telemetryczne mogą być pomijane przy użyciu tych opcji konfiguracji:
 
 ```json
 {
@@ -314,7 +314,7 @@ Rozpoczynając od wersji 3.0.3, można pominąć określoną funkcję automatycz
 }
 ```
 
-Można również pominąć te instrumenty przy użyciu tych zmiennych środowiskowych:
+Możesz również pominąć te instrumentacje przy użyciu tych zmiennych środowiskowych:
 
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
@@ -325,13 +325,13 @@ Można również pominąć te instrumenty przy użyciu tych zmiennych środowisk
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
 
-(który będzie miał pierwszeństwo przed włączonym określone w konfiguracji JSON).
+(która będzie miała pierwszeństwo przed włączoną określoną w konfiguracji JSON).
 
-> Zwróć uwagę, jeśli szukasz bardziej precyzyjnych kontroli, np. Aby pominąć niektóre wywołania Redis, ale nie wszystkie wywołania Redis, zobacz [przesłaniania próbkowania](./java-standalone-sampling-overrides.md).
+> UWAGA Jeśli szukasz bardziej szczegółowej kontroli, np. w celu pominięcia niektórych wywołań redis, ale nie wszystkich wywołań redis, zobacz przesłonięcia [próbkowania](./java-standalone-sampling-overrides.md).
 
 ## <a name="heartbeat"></a>Puls
 
-Domyślnie Application Insights Java 3,0 wysyła metrykę pulsu co 15 minut. Jeśli używasz metryki pulsu do wyzwalania alertów, możesz zwiększyć częstotliwość tego pulsu:
+Domyślnie program Application Insights Java 3.0 wysyła metrykę pulsu co 15 minut. Jeśli używasz metryki pulsu do wyzwalania alertów, możesz zwiększyć częstotliwość tego pulsu:
 
 ```json
 {
@@ -342,11 +342,11 @@ Domyślnie Application Insights Java 3,0 wysyła metrykę pulsu co 15 minut. Je�
 ```
 
 > [!NOTE]
-> Nie można zwiększyć interwału do dłużej niż 15 minut, ponieważ dane pulsu są również używane do śledzenia użycia Application Insights.
+> Nie można zwiększyć interwału do dłuższego niż 15 minut, ponieważ dane pulsu są również używane do śledzenia Application Insights danych.
 
-## <a name="http-proxy"></a>Serwer proxy HTTP
+## <a name="http-proxy"></a>HTTP Proxy
 
-Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośrednio z Application Insights (zobacz [adresy IP używane przez Application Insights](./ip-addresses.md)), można skonfigurować Application Insights Java 3,0 do korzystania z serwera proxy http:
+Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośrednio z usługą Application Insights (zobacz Adresy IP używane przez usługę [Application Insights),](./ip-addresses.md)możesz skonfigurować środowisko Application Insights Java 3.0 do używania serwera proxy HTTP:
 
 ```json
 {
@@ -357,15 +357,15 @@ Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośre
 }
 ```
 
-Application Insights Java 3,0 odnoszą się również do globalnych `-Dhttps.proxyHost` i, `-Dhttps.proxyPort` Jeśli są ustawione.
+Application Insights Java 3.0 również respektuje globalne `-Dhttps.proxyHost` i jeśli są one `-Dhttps.proxyPort` ustawione.
 
-## <a name="metric-interval"></a>Interwał metryk
+## <a name="metric-interval"></a>Interwał metryki
 
 Ta funkcja jest dostępna w wersji zapoznawczej.
 
 Domyślnie metryki są przechwytywane co 60 sekund.
 
-Począwszy od wersji 3.0.3 można zmienić ten interwał:
+Począwszy od wersji 3.0.3, można zmienić ten interwał:
 
 ```json
 {
@@ -375,37 +375,37 @@ Począwszy od wersji 3.0.3 można zmienić ten interwał:
 }
 ```
 
-To ustawienie ma zastosowanie do wszystkich tych metryk:
+To ustawienie dotyczy wszystkich tych metryk:
 
-* Domyślne liczniki wydajności, np. procesor CPU i pamięć
-* Domyślne metryki niestandardowe, np. czas wyrzucania elementów bezużytecznych
-* Skonfigurowane metryki JMX ([patrz powyżej](#jmx-metrics))
-* Metryki Micrometer ([patrz powyżej](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
+* Domyślne liczniki wydajności, np. procesor i pamięć
+* Domyślne metryki niestandardowe, np. chronometraż wyrzucania elementów bezużytecznych
+* Skonfigurowane metryki JMX[(patrz powyżej](#jmx-metrics))
+* Metryki mikrometry[(patrz powyżej](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
 
 
-[//]: # "Uwaga Obsługa OpenTelemetry jest w prywatnej wersji zapoznawczej do momentu, gdy interfejs API OpenTelemetry osiągnie 1,0"
+[//]: # "UWAGA Obsługa usługi OpenTelemetry jest w prywatnej wersji zapoznawczej, dopóki interfejs API OpenTelemetry nie osiągnie wersji 1.0"
 
-[//]: # "Obsługa # # w przypadku wersji pre-1,0 interfejsu API OpenTelemetry"
+[//]: # "Obsługa ## wersji interfejsu API OpenTelemetry w wersjach 1.0"
 
-[//]: # "Obsługa wersji pre-1,0 interfejsu API OpenTelemetry jest zgodą, ponieważ interfejs API OpenTelemetry nie jest jeszcze stabilny"
-[//]: # "w związku z tym każda wersja agenta obsługuje tylko specjalne wersje 1,0 interfejsu API OpenTelemetry"
-[//]: # "(to ograniczenie nie zostanie zastosowane po wydaniu interfejsu API OpenTelemetry 1,0)."
+[//]: # "Obsługa interfejsu API OpenTelemetry w wersjach wcześniejszych niż 1.0 jest opt-in, ponieważ interfejs API OpenTelemetry nie jest jeszcze stabilny"
+[//]: # "i dlatego każda wersja agenta obsługuje tylko określone wersje interfejsu API OpenTelemetry starsze niż 1.0"
+[//]: # "(to ograniczenie nie będzie stosowane po zwolnieniu interfejsu API OpenTelemetry 1.0)."
 
-[//]: # "plik JSON &quot;&quot; &quot;"
+[//]: # "'''json"
 [//]: # "{"
-[//]: # "  \"wersja zapoznawcza \" : {"
+[//]: # "  \"wersja \" zapoznawcza: {"
 [//]: # "    \"openTelemetryApiSupport \" : true"
 [//]: # "  }"
 [//]: # "}"
 [//]: # "```"
 
-## <a name="self-diagnostics"></a>Samodiagnostyka
+## <a name="self-diagnostics"></a>Samodzielna diagnostyka
 
-"Samodiagnostyka" odnosi się do rejestrowania wewnętrznego z Application Insights Java 3,0.
+"Samodzielna diagnostyka" odnosi się do rejestrowania wewnętrznego z Application Insights Java 3.0.
 
-Ta funkcja może być przydatna w przypadku wykrywania trendów i diagnozowania problemów Application Insights samego siebie.
+Ta funkcja może być przydatna do wyszukiwania i diagnozowania problemów z Application Insights się.
 
-Domyślnie program Application Insights dzienniki Java 3,0 na poziomie `INFO` zarówno do pliku, `applicationinsights.log` jak i konsoli programu, odpowiadającej tej konfiguracji:
+Domyślnie dzienniki Application Insights Java 3.0 na poziomie pliku i konsoli, co `INFO` `applicationinsights.log` odpowiada tej konfiguracji:
 
 ```json
 {
@@ -421,21 +421,21 @@ Domyślnie program Application Insights dzienniki Java 3,0 na poziomie `INFO` za
 }
 ```
 
-`destination` może być jedną z `file` , `console` lub `file+console` .
+`destination` Może to być jeden z `file` , `console` lub `file+console` .
 
-`level` może być jedną z `OFF` , `ERROR` ,,, `WARN` `INFO` `DEBUG` lub `TRACE` .
+`level` może być jednym z `OFF` , , , , , lub `ERROR` `WARN` `INFO` `DEBUG` `TRACE` .
 
-`path` może być ścieżką bezwzględną lub względną. Ścieżki względne są rozwiązywane względem katalogu, gdzie się `applicationinsights-agent-3.0.3.jar` znajduje.
+`path` może być ścieżką bezwzględną lub względną. Ścieżki względne są rozpoznawane względem katalogu, w `applicationinsights-agent-3.0.3.jar` którym się znajduje.
 
-`maxSizeMb` jest maksymalnym rozmiarem pliku dziennika przed przekazaniem go.
+`maxSizeMb` to maksymalny rozmiar pliku dziennika przed jego przewęchem.
 
-`maxHistory` to liczba rzutowanych plików dziennika (oprócz bieżącego pliku dziennika).
+`maxHistory` to liczba przewróconych plików dziennika, które są zachowywane (oprócz bieżącego pliku dziennika).
 
-Rozpoczynając od wersji 3.0.2, można również ustawić samodiagnostykę `level` przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (która następnie będzie mieć pierwszeństwo przed poziomem samodiagnostyki określonym w konfiguracji JSON).
+Począwszy od wersji 3.0.2, można również ustawić samodzielną diagnostykę przy użyciu zmiennej środowiskowej (która będzie miała pierwszeństwo przed poziomem samodzielnej diagnostyki określonym w konfiguracji `level` `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` JSON).
 
 ## <a name="an-example"></a>Przykład
 
-Jest to tylko przykład pokazujący, jak wygląda plik konfiguracji z wieloma składnikami.
+Jest to tylko przykład, aby pokazać, jak wygląda plik konfiguracji z wieloma składnikami.
 Skonfiguruj określone opcje w zależności od potrzeb.
 
 ```json
