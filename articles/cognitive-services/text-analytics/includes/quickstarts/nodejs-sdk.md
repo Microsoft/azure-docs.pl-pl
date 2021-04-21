@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3640a03f8ac814fec2823a761e651ab386438c5c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 72ca331546d53f85ca82f33ec6a02558d91f1c1e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327660"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765109"
 ---
 <a name="HOLTop"></a>
 
@@ -52,7 +52,7 @@ mkdir myapp
 cd myapp
 ```
 
-Uruchom polecenie `npm init` , aby utworzyć aplikację node z `package.json` plikiem . 
+Uruchom polecenie `npm init` , aby utworzyć aplikację node z `package.json` plikiem. 
 
 ```console
 npm init
@@ -105,7 +105,7 @@ const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-anal
 
 ---
 
-Utwórz zmienne dla klucza i punktu końcowego platformy Azure zasobu.
+Utwórz zmienne dla punktu końcowego i klucza platformy Azure zasobu.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
@@ -114,9 +114,9 @@ const key = '<paste-your-text-analytics-key-here>';
 const endpoint = '<paste-your-text-analytics-endpoint-here>';
 ```
 
-## <a name="object-model"></a>Model obiektów
+## <a name="object-model"></a>Model obiektu
 
-Klient analiza tekstu to `TextAnalyticsClient` obiekt, który uwierzytelnia się na platformie Azure przy użyciu twojego klucza. Klient udostępnia kilka metod analizowania tekstu w postaci pojedynczego ciągu lub partii.
+Klient analiza tekstu jest `TextAnalyticsClient` obiektem, który uwierzytelnia się na platformie Azure przy użyciu twojego klucza. Klient udostępnia kilka metod analizowania tekstu w postaci pojedynczego ciągu lub partii.
 
 Tekst jest wysyłany do interfejsu API jako lista , które są obiektami zawierającymi kombinację `documents` atrybutów , i w zależności od `dictionary` `id` `text` `language` użytej metody. Atrybut `text` przechowuje tekst do przeanalizowania w pochodzeniu , a atrybut może być `language` `id` dowolną wartością. 
 
@@ -128,7 +128,7 @@ Obiekt odpowiedzi to lista zawierająca informacje o analizie dla każdego dokum
 * [Analiza tonacji](#sentiment-analysis) 
 * [Wyszukiwanie opinii](#opinion-mining)
 * [Wykrywanie języka](#language-detection)
-* [Rozpoznawanie jednostek nazwanych](#named-entity-recognition-ner)
+* [Rozpoznawanie nazwanych jednostek](#named-entity-recognition-ner)
 * [Łączenie jednostek](#entity-linking)
 * Dane osobowe
 * [Wyodrębnianie kluczowych fraz](#key-phrase-extraction)
@@ -157,7 +157,7 @@ const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCrede
 
 # <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
 
-Utwórz tablicę ciągów zawierającą dokument, który chcesz przeanalizować. Wywołaj metodę `analyzeSentiment()` klienta i pobierz zwrócony `SentimentBatchResult` obiekt . Iteruj po liście wyników i wydrukuj identyfikator każdego dokumentu z wynikami ufności na poziomie dokumentu. Dla każdego dokumentu wynik zawiera tonacji na poziomie zdania wraz z przesunięciami, długością i wynikami ufności.
+Utwórz tablicę ciągów zawierającą dokument, który chcesz przeanalizować. Wywołaj metodę `analyzeSentiment()` klienta i pobierz zwrócony `SentimentBatchResult` obiekt . Iteruj po liście wyników i wydrukuj identyfikator każdego dokumentu na poziomie dokumentu z wynikami ufności. Dla każdego dokumentu wynik zawiera tonacji na poziomie zdania wraz z przesunięciami, długością i wynikami ufności.
 
 ```javascript
 async function sentimentAnalysis(client){
@@ -203,7 +203,7 @@ ID: 0
 
 ### <a name="opinion-mining"></a>Wyszukiwanie opinii
 
-Aby wykonać analizę tonacji przy użyciu wyszukiwania opinii, utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj metodę klienta `analyzeSentiment()` z flagą dodawania opcji `includeOpinionMining: true` i pobierz zwrócony `SentimentBatchResult` obiekt. Iteruj po liście wyników i wydrukuj identyfikator każdego dokumentu na poziomie dokumentu z wynikami ufności. Dla każdego dokumentu wynik zawiera nie tylko tonacji na poziomie zdania, jak powyżej, ale także tonacji na poziomie aspektu i opinii.
+Aby wykonać analizę tonacji przy użyciu wyszukiwania opinii, utwórz tablicę ciągów zawierającą dokument, który chcesz przeanalizować. Wywołaj metodę klienta `analyzeSentiment()` z flagą dodawania opcji `includeOpinionMining: true` i pobierz zwrócony `SentimentBatchResult` obiekt. Iteruj po liście wyników i wydrukuj identyfikator każdego dokumentu na poziomie dokumentu z wynikami ufności. Dla każdego dokumentu wynik zawiera nie tylko tonacji na poziomie zdania, jak powyżej, ale także tonacji na poziomie aspektu i opinii.
 
 ```javascript
 async function sentimentAnalysisWithOpinionMining(client){
@@ -333,7 +333,7 @@ ID: 0
 
 # <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
 
-Utwórz tablicę ciągów zawierającą dokument, który chcesz przeanalizować. Wywołaj metodę `detectLanguage()` klienta i pobierz zwrócony . `DetectLanguageResultCollection` Następnie iteruj wyniki i wydrukuj identyfikator każdego dokumentu przy użyciu odpowiedniego języka podstawowego.
+Utwórz tablicę ciągów zawierającą dokument, który chcesz przeanalizować. Wywołaj metodę klienta `detectLanguage()` i pobierz zwrócony . `DetectLanguageResultCollection` Następnie iteruj wyniki i wydrukuj identyfikator każdego dokumentu przy użyciu odpowiedniego języka podstawowego.
 
 ```javascript
 async function languageDetection(client) {
@@ -362,7 +362,7 @@ ID: 0
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 
-Utwórz tablicę ciągów zawierającą dokument, który chcesz przeanalizować. Wywołaj metodę `detectLanguage()` klienta i pobierz zwrócony . `DetectLanguageResultCollection` Następnie iteruj wyniki i wydrukuj identyfikator każdego dokumentu przy użyciu odpowiedniego języka podstawowego.
+Utwórz tablicę ciągów zawierającą dokument, który chcesz przeanalizować. Wywołaj metodę klienta `detectLanguage()` i pobierz zwrócony . `DetectLanguageResultCollection` Następnie iteruj wyniki i wydrukuj identyfikator każdego dokumentu przy użyciu odpowiedniego języka podstawowego.
 
 ```javascript
 async function languageDetection(client) {
@@ -710,10 +710,9 @@ ID: 0
 
 # <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
 
-> [!CAUTION]
-> Aby korzystać z operacji analizy, należy użyć zasobu analiza tekstu z warstwą cenową Standardowa (S).  
+[!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
 
-Utwórz nową funkcję o nazwie `analyze_example()` , która wywołuje funkcję `beginAnalyze()` . Wynikiem będzie długotrwała operacja, która zostanie sondowana w celu wyszukiwania wyników.
+Utwórz nową funkcję `analyze_example()` o nazwie , która wywołuje funkcję `beginAnalyze()` . Wynikiem będzie długotrwała operacja, która zostanie sondowana w celu wyszukiwania wyników.
 
 ```javascript
 async function analyze_example(client) {
@@ -768,7 +767,7 @@ The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53
         - Entity Paul Allen of type Person
 ```
 
-Za pomocą operacji Analizowanie można również wykrywać dane pii, rozpoznawać połączone jednostki i wyodrębniać frazy kluczowe. Zapoznaj się z tematem Analyze samples for JavaScript and TypeScript (Analizowanie przykładów [dla języków JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript) [i TypeScript)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) w witrynie GitHub.
+Możesz również użyć operacji Analizuj, aby wykrywać dane pii, rozpoznawać połączone jednostki i wyodrębniać frazy kluczowe. Zapoznaj się z tematem Analyze samples for JavaScript and TypeScript (Analizowanie przykładów dla języków [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript) [i TypeScript) w](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) witrynie GitHub.
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 

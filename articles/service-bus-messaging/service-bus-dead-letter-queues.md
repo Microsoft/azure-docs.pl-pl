@@ -1,72 +1,72 @@
 ---
-title: Service Bus kolejek utraconych wiadomości | Microsoft Docs
-description: Opisuje kolejki utraconych wiadomości w Azure Service Bus. Kolejki Service Bus i subskrypcje tematów zapewniają pomocniczą podkolejkę o nazwie Kolejka utraconych wiadomości.
+title: Service Bus kolejki utraconych | Microsoft Docs
+description: Opisuje kolejki utraconych komunikatów w Azure Service Bus. Service Bus i subskrypcje tematów zapewniają dodatkową kolejkę podrzędną nazywaną kolejką utraconych wiadomości.
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 6459c8edd03427357810c1ad30161e87c18e059c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304328"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773229"
 ---
-# <a name="overview-of-service-bus-dead-letter-queues"></a>Przegląd Service Busych kolejek utraconych
+# <a name="overview-of-service-bus-dead-letter-queues"></a>Omówienie Service Bus utraconych komunikatów
 
-Kolejki Azure Service Bus i subskrypcje tematów zapewniają pomocniczą podkolejkę o nazwie *Kolejka utraconych wiadomości* (DLQ). Kolejka utraconych wiadomości nie musi być jawnie utworzona i nie może być usunięta ani zarządzana niezależnie od jednostki głównej.
+Azure Service Bus i subskrypcje tematu zapewniają dodatkową kolejkę, nazywaną kolejką utraconych komunikatów (DLQ, *dead-letter queue).* Kolejki utraconych wiadomości nie trzeba jawnie tworzyć i nie można jej usunąć ani zarządzać niezależnie od jednostki głównej.
 
-W tym artykule opisano kolejki utraconych wiadomości w Service Bus. Większość dyskusji przedstawiono w [przykładowej kolejce utraconych wiadomości](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/DeadletterQueue) w witrynie GitHub.
+W tym artykule opisano kolejki utraconych komunikatów w Service Bus. Większość dyskusji można zilustrować w przykładzie [Dead-Letter queues (Kolejki utraconych komunikatów)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/DeadletterQueue) w witrynie GitHub.
  
 ## <a name="the-dead-letter-queue"></a>Kolejka utraconych wiadomości
 
-Kolejka utraconych wiadomości polega na zapełnieniu komunikatów, których nie można dostarczyć do żadnego odbiorcy ani komunikatów, których nie można przetworzyć. Następnie można usunąć wiadomości z DLQ i sprawdzić. Aplikacja może, z pomocą operatora, poprawić problemy i ponownie przesłać komunikat, należy zarejestrować fakt, że wystąpił błąd i podjąć działania naprawcze. 
+Kolejka utraconych wiadomości ma na celu przechowywania komunikatów, których nie można dostarczyć do żadnego odbiornika ani komunikatów, których nie można przetworzyć. Komunikaty można następnie usunąć z biblioteki DLQ i sprawdzić. Aplikacja może, za pomocą operatora, rozwiązać problemy i ponownie przesłać komunikat, rejestrować fakt wystąpienia błędu i podjąć działania naprawcze. 
 
-Z punktu widzenia interfejsu API i protokołu DLQ jest głównie podobne do każdej innej kolejki, z tą różnicą, że komunikaty mogą być przesyłane tylko za pośrednictwem operacji utraconej jednostki nadrzędnej. Ponadto nie zaobserwowano czasu wygaśnięcia i nie można martwić się o wiadomość z DLQ. Kolejka utraconych wiadomości w pełni obsługuje dostarczanie z blokadą i operacje transakcyjne.
+Z perspektywy interfejsu API i protokołu dlq jest w większości podobny do każdej innej kolejki, z tą różnicą, że komunikaty mogą być przesyłane tylko za pośrednictwem operacji utraconych jednostek nadrzędnych. Ponadto nie zaobserwowano czasu życia i nie można utracić komunikatu z biblioteki DLQ. Kolejka utraconych wiadomości w pełni obsługuje dostarczanie z blokadą wglądu i operacje transakcyjne.
 
-Nie istnieje automatyczne czyszczenie DLQ. Komunikaty pozostają w DLQ, dopóki nie zostaną jawnie pobrane z DLQ i zakończone komunikatem utraconych wiadomości.
+Nie ma automatycznego czyszczenia biblioteki DLQ. Komunikaty pozostają w dlq do momentu jawnego pobrania ich z biblioteki DLQ i ukończenia utraconych komunikatów.
 
 
 ## <a name="dlq-message-count"></a>Liczba komunikatów DLQ
-Nie jest możliwe uzyskanie liczby komunikatów w kolejce utraconych danych na poziomie tematu. Wynika to z faktu, że komunikaty nie znajdują się na poziomie tematu, chyba że Service Bus zgłasza błąd wewnętrzny. Zamiast tego, gdy nadawca wysyła komunikat do tematu, komunikat jest przekazywany do subskrypcji tematu w milisekundach, co oznacza, że nie znajduje się już na poziomie tematu. W związku z tym można zobaczyć komunikaty w DLQ skojarzone z subskrypcją dla tematu. W poniższym przykładzie **eksplorator Service Bus** pokazuje, że w DLQ dla subskrypcji "test1" znajdują się obecnie 62 komunikaty. 
+Nie można uzyskać liczby komunikatów w kolejce utraconych wiadomości na poziomie tematu. Wynika to z tego, że komunikaty nie są wyświetlane na poziomie tematu, Service Bus zgłasza błąd wewnętrzny. Zamiast tego, gdy nadawca wysyła komunikat do tematu, komunikat jest przesyłany dalej do subskrypcji tematu w ciągu milisekund i w związku z tym nie znajduje się już na poziomie tematu. W związku z tym komunikaty są wyświetlane w często zadawanych pytaniach skojarzonych z subskrypcją tematu. W poniższym przykładzie **Service Bus Explorer,** że obecnie w dlq dla subskrypcji "test1" istnieją 62 komunikaty. 
 
 ![Liczba komunikatów DLQ](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Liczbę komunikatów DLQ można także uzyskać za pomocą polecenia interfejsu CLI platformy Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show) . 
+Liczbę komunikatów DLQ można również uzyskać za pomocą polecenia interfejsu wiersza polecenia platformy Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show) . 
 
-## <a name="moving-messages-to-the-dlq"></a>Przeniesienie komunikatów do DLQ
-Istnieje kilka działań w Service Bus, które powodują wypychanie komunikatów do DLQ z poziomu samego aparatu obsługi komunikatów. Aplikacja może również jawnie przenosić komunikaty do DLQ. Do komunikatów utraconych są dodawane następujące dwie właściwości (przyczyna utraconych wiadomości i opis utraconych wiadomości). Aplikacje mogą definiować własne kody dla właściwości Przyczyna utraconych wiadomości, ale system ustawia następujące wartości.
+## <a name="moving-messages-to-the-dlq"></a>Przenoszenie komunikatów do biblioteki DLQ
+Istnieje kilka działań w Service Bus, które powodują wypychanie komunikatów do biblioteki DLQ z poziomu samego aparatu obsługi komunikatów. Aplikacja może również jawnie przenosić komunikaty do biblioteki DLQ. Następujące dwie właściwości (przyczyna utraconych wiadomości i opis utraconych wiadomości) są dodawane do komunikatów utraconych. Aplikacje mogą definiować własne kody dla właściwości przyczyny utraconych informacji, ale system ustawia następujące wartości.
 
-| Przyczyna utraconych wiadomości | Opis błędu utraconych wiadomości |
+| Przyczyna utraconych danych | Opis błędu utraconych komunikatów |
 | --- | --- |
 |HeaderSizeExceeded |Przekroczono limit przydziału rozmiaru dla tego strumienia. |
-|TTLExpiredException |Komunikat wygasł i został uznany za utracony. Aby uzyskać szczegółowe informacje, zobacz sekcję [Time to Live](#time-to-live) . |
+|TTLExpiredException |Komunikat wygasł i został uznany za utracony. Aby uzyskać [szczegółowe informacje, zobacz sekcję](#time-to-live) Czas do transmisji na żywo. |
 |Identyfikator sesji ma wartość null. |Jednostka z obsługą sesji nie pozwala na komunikat, którego identyfikator sesji ma wartość null. |
-|MaxTransferHopCountExceeded | Maksymalna liczba dozwolonych przeskoków podczas przekazywania między kolejkami. Wartość jest równa 4. |
-| MaxDeliveryCountExceededExceptionMessage | Nie można użyć komunikatu po osiągnięciu maksymalnej liczby prób dostarczenia. Aby uzyskać szczegółowe informacje, zobacz sekcję [Maximum Delivery Count](#maximum-delivery-count) . |
+|MaxTransferHopCountExceeded | Maksymalna liczba dozwolonych przeskoków podczas przekazywania między kolejkami. Wartość jest ustawiona na 4. |
+| MaxDeliveryCountExceededExceptionMessage | Nie można zużyć komunikatu po maksymalnej próbie dostarczenia. Aby uzyskać [szczegółowe informacje, zobacz sekcję Maksymalna liczba](#maximum-delivery-count) dostaw. |
 
 ## <a name="maximum-delivery-count"></a>Maksymalna liczba dostaw
-Istnieje limit liczby prób dostarczenia komunikatów dla kolejek i subskrypcji Service Bus. Wartość domyślna to 10. Za każdym razem, gdy komunikat został dostarczony w ramach blokady wglądu, ale został jawnie porzucony lub blokada wygasła, liczba dostaw w komunikacie jest zwiększana. Gdy liczba dostaw przekracza limit, komunikat jest przenoszony do DLQ. Przyczyna utraconych wiadomości dla komunikatu w DLQ jest ustawiona na: MaxDeliveryCountExceeded. Nie można wyłączyć tego zachowania, ale Maksymalna liczba dostaw można ustawić na dużą liczbę.
+Istnieje limit liczby prób dostarczenia komunikatów dla Service Bus i subskrypcji. Wartość domyślna to 10. Za każdym razem, gdy komunikat został dostarczony z blokadą podglądu, ale został jawnie porzucony lub blokada wygasła, liczba dostaw dla komunikatu jest zwiększana. Gdy liczba dostaw przekroczy limit, komunikat zostanie przeniesiony do dlq. Przyczyna utraconych komunikatów w DLQ jest ustawiona na: MaxDeliveryCountExceeded. Tego zachowania nie można wyłączyć, ale maksymalną liczbę dostaw można ustawić na dużą liczbę.
 
 ## <a name="time-to-live"></a>Czas wygaśnięcia
-Po włączeniu obsługi utraconych wiadomości w kolejkach lub subskrypcjach wszystkie komunikaty wygasające są przenoszone do DLQ. Kod przyczyny utraconych wiadomości jest ustawiany na: TTLExpiredException.
+Po włączeniu utraconych komunikatów w kolejkach lub subskrypcjach wszystkie wygasające komunikaty są przenoszone do biblioteki DLQ. Kod przyczyny utraconych liter jest ustawiony na: TTLExpiredException.
 
-Wygasłe komunikaty są przeczyszczane i przenoszone do DLQ, gdy istnieje co najmniej jeden aktywny odbiornik ściągający z kolejki głównej lub subskrypcji. Odroczone komunikaty nie zostaną również przeczyszczone i przeniesione do kolejki utraconych wiadomości po ich wygaśnięciu. To zachowanie jest celowe.
+Wygasłe komunikaty są przeczyszczane i przenoszone do biblioteki DLQ tylko wtedy, gdy istnieje co najmniej jeden aktywny odbiornik ściągający z głównej kolejki lub subskrypcji. Odroczone komunikaty również nie zostaną przeczyszone i przeniesione do kolejki utraconych wiadomości po ich wygaśnięciu. To zachowanie jest celowe.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Błędy podczas przetwarzania reguł subskrypcji
-Po włączeniu utraconych wiadomości na wyjątkach oceny filtru wszystkie błędy występujące podczas wykonywania reguły filtru SQL subskrypcji są przechwytywane w DLQ wraz z komunikatem o błędzie. Nie należy używać tej opcji w środowisku produkcyjnym, w którym nie wszystkie typy komunikatów mają Subskrybenci.
+Jeśli włączysz utracony komunikat o wyjątkach oceny filtru, wszystkie błędy występujące podczas wykonywania reguły filtru SQL subskrypcji są przechwytywane w bazie danych DLQ wraz z komunikatem o błędzie. Nie używaj tej opcji w środowisku produkcyjnym, w którym nie wszystkie typy komunikatów mają subskrybentów.
 
-## <a name="application-level-dead-lettering"></a>Utraconych wiadomości na poziomie aplikacji
-Oprócz funkcji utraconych wiadomości dostarczonych przez system aplikacje mogą jawnie odrzucać nieakceptowane wiadomości za pomocą DLQ. Mogą one zawierać komunikaty, których nie można prawidłowo przetworzyć z powodu wszelkiego rodzaju problemów z systemem, komunikatów, które przechowują źle sformułowane ładunki, lub komunikatów, które nie są uwierzytelniane, gdy jest używany jakiś schemat zabezpieczeń na poziomie wiadomości.
+## <a name="application-level-dead-lettering"></a>Utraconych na poziomie aplikacji
+Oprócz funkcji utraconych komunikatów dostarczanych przez system aplikacje mogą używać biblioteki DLQ do jawnego odrzucania nieakceptowalnych komunikatów. Mogą one zawierać komunikaty, których nie można prawidłowo przetworzyć ze względu na problem systemowy, komunikaty, które zawierają źle sformułowane ładunki, lub komunikaty, które nie mogą zostać uwierzytelnione, gdy jest używany schemat zabezpieczeń na poziomie komunikatów.
 
-## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Utracono martwe scenariusze w scenariuszach Prześlij dalej lub Wyślij za pomocą
-Komunikaty będą wysyłane do kolejki przesyłania utraconych wiadomości w następujących warunkach:
+## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Utraconych wiadomości w scenariuszach ForwardTo lub SendVia
+Komunikaty będą wysyłane do kolejki utraconych wiadomości transferu w następujących warunkach:
 
-- Komunikat przechodzi przez więcej niż cztery kolejki lub tematy, które są [powiązane ze sobą](service-bus-auto-forwarding.md).
-- Kolejka docelowa lub temat jest wyłączony lub usunięty.
-- Docelowa Kolejka lub temat przekracza maksymalny rozmiar jednostki.
+- Komunikat przechodzi przez więcej niż cztery kolejki lub tematy, które są [połączone łańcuchem](service-bus-auto-forwarding.md).
+- Kolejka lub temat docelowy jest wyłączona lub usunięta.
+- Kolejka lub temat docelowy przekracza maksymalny rozmiar jednostki.
 
 ## <a name="path-to-the-dead-letter-queue"></a>Ścieżka do kolejki utraconych wiadomości
-Możesz uzyskać dostęp do kolejki utraconych wiadomości za pomocą następującej składni:
+Dostęp do kolejki utraconych wiadomości można uzyskać przy użyciu następującej składni:
 
 ```
 <queue path>/$deadletterqueue
@@ -76,8 +76,7 @@ Możesz uzyskać dostęp do kolejki utraconych wiadomości za pomocą następuj�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji o Service Bus kolejkach, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na Service Bus kolejkach, zobacz następujące artykuły:
 
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Porównanie kolejek platformy Azure i kolejek Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
+* [Porównanie kolejek i kolejek Service Bus Azure](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

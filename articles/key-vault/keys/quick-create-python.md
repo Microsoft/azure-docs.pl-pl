@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 7c2e1a54861e47ba8009078ba718fba4fc738f0d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 2c15090551ad9d84282f65925ff9c2cfbab7e14f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750324"
+ms.locfileid: "107773355"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Szybki start: biblioteka klienta Azure Key Vault kluczy sieciowych dla języka Python
 
@@ -96,7 +96,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="create-the-sample-code"></a>Tworzenie przykładowego kodu
 
-Biblioteka Azure Key Vault klienta dla języka Python umożliwia zarządzanie kluczami kryptograficznymi. Poniższy przykład kodu pokazuje, jak utworzyć klienta, ustawić klucz, pobrać klucz i usunąć klucz.
+Biblioteka Azure Key Vault klienta dla języka Python umożliwia zarządzanie kluczami kryptograficznymi. W poniższym przykładzie kodu pokazano, jak utworzyć klienta, ustawić klucz, pobrać klucz i usunąć klucz.
 
 Utwórz plik o *nazwie kv_keys.py zawierający* ten kod.
 
@@ -179,7 +179,7 @@ Aby odczytać klucz z Key Vault, użyj [get_key](/python/api/azure-keyvault-keys
 retrieved_key = client.get_key(keyName)
  ```
 
-Możesz również sprawdzić, czy klucz został ustawiony za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show).
+Możesz również sprawdzić, czy klucz został ustawiony za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show).
 
 ### <a name="delete-a-key"></a>Usuń klucz
 
@@ -192,7 +192,7 @@ deleted_key = poller.result()
 
 Metoda `begin_delete_key` jest asynchroniczna i zwraca obiekt poller. Wywołanie metody `result` pollera czeka na jego ukończenie.
 
-Możesz sprawdzić, czy klucz został usunięty, za pomocą polecenia [az keyvault key](/cli/azure/keyvault/key?#az-keyvault-key-show)show interfejsu wiersza polecenia platformy Azure.
+Możesz sprawdzić, czy klucz został usunięty, za pomocą polecenia [az keyvault key](/cli/azure/keyvault/key?#az_keyvault_key_show)show interfejsu wiersza polecenia platformy Azure.
 
 Po usunięciu klucz pozostaje w stanie usuniętym, ale można go odzyskać przez jeden czas. Jeśli ponownie uruchamiasz kod, użyj innej nazwy klucza.
 

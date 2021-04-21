@@ -1,5 +1,5 @@
 ---
-title: Hostowanie wielu witryn sieci Web przy użyciu interfejsu wiersza polecenia
+title: Hostuj wiele witryn internetowych przy użyciu interfejsu wiersza polecenia
 titleSuffix: Azure Application Gateway
 description: Dowiedz się, jak utworzyć bramę aplikacji hostującą wiele witryn internetowych przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: application-gateway
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 350962aed89d04c5508e7b2c50e8a838cd5a7174
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb924ab1f8947fefc83ed35a409628a576fad4b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566150"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772683"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>tworzenie bramy aplikacji hostującej wiele witryn internetowych przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Za pomocą interfejsu wiersza polecenia platformy Azure podczas tworzenia [bramy aplikacji](overview.md) możesz [skonfigurować hostowanie wielu witryn internetowych](multiple-site-overview.md). W tym artykule opisano Definiowanie pul adresów zaplecza przy użyciu zestawów skalowania maszyn wirtualnych. Następnie, bazując na należących do Ciebie domenach, skonfigurujesz odbiorniki i reguły, aby się upewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach. W tym artykule przyjęto założenie, że posiadasz wiele domen i używasz przykładowych *\. contoso.com www* i *www \. fabrikam.com*.
+Za pomocą interfejsu wiersza polecenia platformy Azure podczas tworzenia [bramy aplikacji](overview.md) możesz [skonfigurować hostowanie wielu witryn internetowych](multiple-site-overview.md). W tym artykule zdefinisz pule adresów zaplecza przy użyciu zestawów skalowania maszyn wirtualnych. Następnie, bazując na należących do Ciebie domenach, skonfigurujesz odbiorniki i reguły, aby się upewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach. W tym artykule założono, że jesteś właścicielem wielu domen i korzystasz z przykładów *www \. contoso.com* *i www \. fabrikam.com.*
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -29,15 +29,15 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 * Tworzenie zestawów skalowania maszyn wirtualnych z pulami zaplecza
 * Tworzenie rekordu CNAME w domenie
 
-:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Application Gateway wiele lokacji":::
+:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Wiele lokacji Application Gateway":::
 
-Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Jeśli wolisz, możesz wykonać tę procedurę przy [użyciu](tutorial-multiple-sites-powershell.md)Azure PowerShell .
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Tworzenie bramy aplikacji
 
-Aby utworzyć bramę aplikacji, możesz użyć polecenia [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create). Podczas tworzenia bramy aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure należy podać informacje o konfiguracji, takie jak pojemność, jednostka SKU i ustawienia protokołu HTTP. Brama aplikacji jest przypisywana do wcześniej utworzonej podsieci *myAGSubnet* i adresu *myAGPublicIPAddress*. 
+Aby utworzyć bramę aplikacji, możesz użyć polecenia [az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create). Podczas tworzenia bramy aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure należy podać informacje o konfiguracji, takie jak pojemność, jednostka SKU i ustawienia protokołu HTTP. Brama aplikacji jest przypisywana do wcześniej utworzonej podsieci *myAGSubnet* i adresu *myAGPublicIPAddress*. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -105,7 +105,7 @@ Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplika
 
 ### <a name="add-the-backend-pools"></a>Dodawanie pul zaplecza
 
-Dodaj pule zaplecza, które są konieczne do przechowywania serwerów zaplecza za pomocą polecenia [AZ Network Application-Gateway Address-Pool Create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
+Dodaj pule zaplecza, które są potrzebne do zawierania serwerów zaplecza, za pomocą [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az_network_application_gateway_address-pool_create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -120,11 +120,11 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>Dodawanie odbiorników
 
-Dodaj detektory, które są konieczne do kierowania ruchem za pomocą polecenia [AZ Network Application-Gateway HTTP-Listener Create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+Dodaj odbiorniki, które są potrzebne do rozsyłania ruchu, używając [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create).
 
 >[!NOTE]
-> W przypadku jednostki SKU Application Gateway lub WAF v2 można także skonfigurować maksymalnie 5 nazw hostów na odbiornik i można użyć symboli wieloznacznych w nazwie hosta. Aby uzyskać więcej informacji, zobacz [symbole wieloznaczne nazw hostów w odbiorniku](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Aby użyć wielu nazw hostów i symboli wieloznacznych w odbiorniku przy użyciu interfejsu wiersza polecenia platformy Azure, musisz użyć `--host-names` zamiast `--host-name` . Nazwy hostów można wymienić na pięć nazw hostów jako wartości rozdzielane znakami. Na przykład `--host-names "*.contoso.com *.fabrikam.com"`
+> Za Application Gateway SKU lub WAF v2 można również skonfigurować maksymalnie 5 nazw hostów na odbiornik i używać symboli wieloznacznych w nazwie hosta. Zobacz nazwy [hostów z symbolami wieloznacznymi w odbiorniku,](multiple-site-overview.md#wildcard-host-names-in-listener-preview) aby uzyskać więcej informacji.
+>Aby użyć wielu nazw hostów i symboli wieloznacznych w odbiorniku przy użyciu interfejsu wiersza polecenia platformy Azure, należy użyć `--host-names` polecenia zamiast `--host-name` . W przypadku nazw hostów można wspomnieć maksymalnie o pięciu nazwach hostów jako wartościach rozdzielonych spacjami. Na przykład `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,9 +146,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Dodawanie reguł routingu
 
-Reguły są przetwarzane w kolejności, w jakiej są wyświetlane. Ruch jest kierowany przy użyciu pierwszej reguły, która jest zgodna niezależnie od specyfiki. Na przykład jeśli na tym samym porcie utworzono dwie reguły: jedną przy użyciu odbiornika podstawowego, a drugą przy użyciu odbiornika obejmującego wiele witryn, reguła z odbiornikiem obejmującym wiele witryn musi znajdować się przed regułą z odbiornikiem podstawowym, aby funkcja reguły obejmującej wiele witryn działała zgodnie z oczekiwaniami. 
+Reguły są przetwarzane w podanej kolejności. Ruch jest przekierowyny przy użyciu pierwszej reguły, która pasuje niezależnie od specyfiki. Na przykład jeśli na tym samym porcie utworzono dwie reguły: jedną przy użyciu odbiornika podstawowego, a drugą przy użyciu odbiornika obejmującego wiele witryn, reguła z odbiornikiem obejmującym wiele witryn musi znajdować się przed regułą z odbiornikiem podstawowym, aby funkcja reguły obejmującej wiele witryn działała zgodnie z oczekiwaniami. 
 
-W tym przykładzie utworzysz dwie nowe reguły i usuniesz regułę domyślną utworzoną podczas wdrażania bramy aplikacji. Regułę możesz dodać przy użyciu polecenia [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+W tym przykładzie utworzysz dwie nowe reguły i usuniesz regułę domyślną utworzoną podczas wdrażania bramy aplikacji. Regułę możesz dodać przy użyciu polecenia [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -225,7 +225,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Tworzenie rekordu CNAME w domenie
 
-Po utworzeniu bramy aplikacji z publicznym adresem IP można pobrać adres DNS i użyć go w celu utworzenia rekordu CNAME w domenie. Aby uzyskać adres DNS bramy aplikacji, możesz użyć polecenia [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Skopiuj wartość *fqdn* ustawienia DNSSettings i użyj jej jako wartości tworzonego rekordu CNAME. 
+Po utworzeniu bramy aplikacji z publicznym adresem IP można pobrać adres DNS i użyć go w celu utworzenia rekordu CNAME w domenie. Aby uzyskać adres DNS bramy aplikacji, możesz użyć polecenia [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Skopiuj wartość *fqdn* ustawienia DNSSettings i użyj jej jako wartości tworzonego rekordu CNAME. 
 
 ```azurecli-interactive
 az network public-ip show \

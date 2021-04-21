@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ecbc76651f09a9b4f2bde01c733cace5037f5fd4
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: ebfeee2828b3a36f9cf47891f8aea6d889db85bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738832"
+ms.locfileid: "107763581"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Dodawanie aktualizacji do aktualizacji urządzenia dla IoT Hub
 Dowiedz się, jak dodać nową aktualizację do aktualizacji urządzenia na IoT Hub.
@@ -19,7 +19,7 @@ Dowiedz się, jak dodać nową aktualizację do aktualizacji urządzenia na IoT 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Dostęp do aplikacji IoT Hub z włączoną aktualizacją urządzenia IoT Hub .](create-device-update-account.md) 
-* Urządzenie IoT (lub symulator) aprowizowane dla aktualizacji urządzenia w IoT Hub.
+* Urządzenie IoT (lub symulator) zaaprowizowane [do aktualizacji urządzenia w](device-update-agent-provisioning.md) IoT Hub.
 * [Program PowerShell 5](/powershell/scripting/install/installing-powershell) lub nowszy (obejmuje instalacje systemów Linux, macOS i Windows)
 * Obsługiwane przeglądarki:
   * [Microsoft Edge](https://www.microsoft.com/edge)
@@ -30,7 +30,7 @@ Dowiedz się, jak dodać nową aktualizację do aktualizacji urządzenia na IoT 
 
 ## <a name="obtain-an-update-for-your-devices"></a>Uzyskiwanie aktualizacji dla urządzeń
 
-Teraz, po skonfigurowaniu [aktualizacji urządzenia,](create-device-update-account.md)możesz zaktualizować urządzenia. Następnie będą potrzebne rzeczywiste pliki aktualizacji, które zostaną wdrożone na tych urządzeniach.
+Po skonfigurowaniu aktualizacji urządzenia i aprowizowania urządzeń potrzebne będą pliki aktualizacji, które będą wdrażane na tych urządzeniach.
 
 Jeśli urządzenia zostały zakupione od producentów OEM lub integratora rozwiązań, ta organizacja najprawdopodobniej udostępni pliki aktualizacji bez konieczności tworzenia aktualizacji. Skontaktuj się z producentami OEM lub integratorem rozwiązań, aby dowiedzieć się, jak mogą oni udostępnić aktualizacje.
 
@@ -44,7 +44,7 @@ Jeśli jeszcze tego nie zrobiono, zapoznaj się z podstawowymi pojęciami [impor
 
 2. Utwórz plik tekstowy **o nazwie AduUpdate.psm1** w katalogu, w którym znajduje się plik obrazu aktualizacji lub plik manifestu APT. Następnie otwórz polecenie cmdlet programu PowerShell [AduUpdate.psm1,](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) skopiuj zawartość do pliku tekstowego, a następnie zapisz plik tekstowy.
 
-3. W programie PowerShell przejdź do katalogu, w którym utworzono polecenie cmdlet programu PowerShell z kroku 2. Użyj poniższej opcji Kopiowania, a następnie wklej ją w programie PowerShell, aby uruchomić polecenia:
+3. W programie PowerShell przejdź do katalogu, w którym utworzono polecenie cmdlet programu PowerShell z kroku 2. Użyj poniższej opcji Kopiowania, a następnie wklej ją do programu PowerShell, aby uruchomić polecenia:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -67,7 +67,7 @@ Jeśli jeszcze tego nie zrobiono, zapoznaj się z podstawowymi pojęciami [impor
     | Parametr | Opis |
     | --------- | ----------- |
     | deviceManufacturer | Producent urządzenia, dla których aktualizacja jest zgodna, na przykład z contoso. Musi _odpowiadać właściwości urządzenia_ [producenta](./device-update-plug-and-play.md#device-properties).
-    | deviceModel | Model urządzenia, z który aktualizacja jest zgodna, na przykład z tosterem. Musi być zgodne _z właściwością_ [urządzenia modelu](./device-update-plug-and-play.md#device-properties).
+    | deviceModel | Model urządzenia, z który aktualizacja jest zgodna, na przykład z tosterem. Musi _odpowiadać właściwości_ [urządzenia modelu](./device-update-plug-and-play.md#device-properties).
     | updateProvider | Jednostka, która tworzy aktualizację lub jest za nie bezpośrednio odpowiedzialna. Często będzie to nazwa firmy.
     | updateName | Identyfikator klasy aktualizacji. Klasa może być wszystkim, co wybierzesz. Często będzie to nazwa urządzenia lub modelu.
     | updateVersion | Numer wersji odróżnia tę aktualizację od innych, które mają ten sam dostawca i nazwę. Nie jest zgodne z wersją pojedynczego składnika oprogramowania na urządzeniu (ale może, jeśli wybierzesz).
@@ -146,7 +146,7 @@ Przykład:
 
    :::image type="content" source="media/import-update/storage-account.png" alt-text="Konto magazynu" lightbox="media/import-update/storage-account.png":::
 
-7. Jeśli kontener został już utworzony, możesz go użyć ponownie. (W przeciwnym razie wybierz pozycję "+ Kontener", aby utworzyć nowy kontener magazynu na aktualizacje).  Wybierz kontener, który chcesz użyć, a następnie kliknij pozycję "Wybierz".
+7. Jeśli kontener został już utworzony, możesz go użyć ponownie. (W przeciwnym razie wybierz pozycję "+ Kontener", aby utworzyć nowy kontener magazynu dla aktualizacji).  Wybierz kontener, który chcesz użyć, a następnie kliknij pozycję "Wybierz".
 
    :::image type="content" source="media/import-update/container.png" alt-text="Wybieranie kontenera" lightbox="media/import-update/container.png":::
 

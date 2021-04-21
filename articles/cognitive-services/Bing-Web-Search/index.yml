@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 title: Dokumentacja interfejsu API wyszukiwania Bing
-summary: Interfejsy API wyszukiwania Bing pozwalają tworzyć aplikacje i usługi połączone z Internetem, które znajdują strony internetowe, obrazy, wiadomości, lokalizacje i inne dane bez reklam.
+summary: 'Interfejsy API wyszukiwania Bing pozwalają tworzyć aplikacje i usługi połączone z Internetem, które znajdują strony internetowe, obrazy, wiadomości, lokalizacje i inne dane bez reklam.'
 brand: azure
 metadata:
   title: Dokumentacja interfejsu API wyszukiwania Bing
   titleSuffix: Azure Cognitive Services
-  description: Interfejsy API wyszukiwania Bing pozwalają tworzyć aplikacje i usługi połączone z Internetem, które znajdują strony internetowe, obrazy, wiadomości, lokalizacje i inne dane bez reklam.
+  description: 'Interfejsy API wyszukiwania Bing pozwalają tworzyć aplikacje i usługi połączone z Internetem, które znajdują strony internetowe, obrazy, wiadomości, lokalizacje i inne dane bez reklam.'
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: bing-web-search
@@ -14,357 +14,351 @@ metadata:
   author: aahill
   ms.author: aahi
   ms.date: 11/06/2019
-  ms.openlocfilehash: cf7d3b916006990e9b13d0afc60d1d72cf2474dd
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
-  ms.translationtype: MT
-  ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102499037"
 highlightedContent:
   items:
-  - title: Porównanie interfejsów API wyszukiwania Bing
-    itemType: overview
-    url: bing-api-comparison.md
-  - title: Dzielenie wyników wyszukiwania na strony
-    itemType: how-to-guide
-    url: paging-search-results.md
-  - title: Wymagania dotyczące użycia i wyświetlania
-    itemType: reference
-    url: use-display-requirements.md
-  - title: Szczegóły cennika interfejsu API
-    itemType: reference
-    url: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/
+    - title: Porównanie interfejsów API wyszukiwania Bing
+      itemType: overview
+      url: bing-api-comparison.md
+    - title: Dzielenie wyników wyszukiwania na strony
+      itemType: how-to-guide
+      url: paging-search-results.md
+    - title: Wymagania dotyczące użycia i wyświetlania
+      itemType: reference
+      url: use-display-requirements.md
+    - title: Szczegóły cennika interfejsu API
+      itemType: reference
+      url: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/'
 conceptualContent:
   title: Rozpoczęcie pracy
-  summary: Zacznij uzyskiwać wyniki wyszukiwania z Internetu, wybierając jeden z dostępnych poniżej interfejsów API.
+  summary: 'Zacznij uzyskiwać wyniki wyszukiwania z Internetu, wybierając jeden z dostępnych poniżej interfejsów API.'
   items:
-  - title: Wyszukiwanie w sieci Web (Bing)
-    links:
-    - url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
-      itemType: quickstart
-      text: Korzystanie z języka C#
-    - url: ./quickstarts/client-libraries.md?pivots=programming-language-java
-      itemType: quickstart
-      text: Korzystanie z języka Java
-    - url: ./quickstarts/client-libraries.md?pivots=programming-language-javascript
-      itemType: quickstart
-      text: Korzystanie z języka JavaScript
-    - url: ./quickstarts/client-libraries.md?pivots=programming-language-python
-      itemType: quickstart
-      text: Korzystanie z języka Python
-    - url: tutorial-bing-web-search-single-page-app.md
-      itemType: tutorial
-      text: Tworzenie jednostronicowej aplikacji internetowej
-    footerLink:
-      url: overview.md
-      text: Zobacz więcej
-  - title: Interfejs API wyszukiwania niestandardowego Bing
-    links:
-    - text: Tworzenie wystąpienia wyszukiwania niestandardowego
-      itemType: quickstart
-      url: ../bing-custom-search/quick-start.md
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-java
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-python
-    - text: Tworzenie jednostronicowej aplikacji internetowej
-      itemType: tutorial
-      url: ../bing-custom-search/tutorials/custom-search-web-page.md
-    footerLink:
-      url: ../bing-custom-search/overview.md
-      text: Zobacz więcej
-  - title: Wyszukiwanie obrazów w usłudze Bing
-    links:
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-java
-    - text: Korzystanie z języka JavaScript
-      itemType: quickstart
-      url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-python
-    - text: Tworzenie jednostronicowej aplikacji internetowej
-      itemType: tutorial
-      url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
-    footerLink:
-      url: ../bing-image-search/overview.md
-      text: Zobacz więcej
-  - title: Interfejs API wyszukiwania jednostek Bing
-    links:
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-java
-    - text: Korzystanie z języka JavaScript
-      itemType: quickstart
-      url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-python
-    - text: Tworzenie jednostronicowej aplikacji internetowej
-      itemType: tutorial
-      url: ../bing-entities-search/tutorial-bing-entities-search-single-page-app.md
-    footerLink:
-      url: ../bing-entities-search/overview.md
-      text: Zobacz więcej
-  - title: Interfejs API wyszukiwania wiadomości Bing
-    links:
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-java
-    - text: Korzystanie z języka JavaScript
-      itemType: quickstart
-      url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-python
-    - text: Tworzenie jednostronicowej aplikacji internetowej
-      itemType: tutorial
-      url: ../bing-news-search/tutorial-bing-news-search-single-page-app.md
-    footerLink:
-      url: ../bing-news-search/search-the-web.md
-      text: Zobacz więcej
-  - title: Interfejs API wyszukiwania wideo Bing
-    links:
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-java
-    - text: Korzystanie z języka JavaScript
-      itemType: quickstart
-      url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-python
-    - text: Tworzenie jednostronicowej aplikacji internetowej
-      itemType: tutorial
-      url: ../Bing-Video-Search/tutorial-bing-video-search-single-page-app.md
-    footerLink:
-      url: ../Bing-Video-Search/overview.md
-      text: Zobacz więcej
-  - title: Interfejs API wyszukiwania wizualnego Bing
-    links:
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-java
-    - text: Korzystanie z języka JavaScript
-      itemType: quickstart
-      url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-python
-    - text: Przycinanie i wyszukiwanie obszaru obrazu
-      itemType: tutorial
-      url: ../bing-visual-search/tutorial-visual-search-crop-area-results.md
-    footerLink:
-      url: ../bing-visual-search/overview.md
-      text: Zobacz więcej
-  - title: Interfejs API automatycznego sugerowania Bing
-    links:
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-autosuggest/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: Korzystanie z języka Go
-      itemType: quickstart
-      url: ../Bing-Autosuggest/quickstarts/client-libraries.md?pivots=programming-language-go
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../Bing-Autosuggest/quickstarts/java.md
-    - text: Korzystanie ze środowiska Node.js
-      itemType: quickstart
-      url: ../Bing-Autosuggest/quickstarts/nodejs.md
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../Bing-Autosuggest/quickstarts/python.md
-    - text: Tworzenie jednostronicowej aplikacji internetowej
-      itemType: quickstart
-      url: ../Bing-Autosuggest/tutorials/autosuggest.md
-    footerLink:
-      url: ../Bing-Autosuggest/get-suggested-search-terms.md
-      text: Zobacz więcej
-  - title: Interfejs API sprawdzania pisowni Bing
-    links:
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-spell-check/sdk-quickstart-spell-check.md
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../bing-spell-check/quickstarts/java.md
-    - text: Korzystanie ze środowiska Node.js
-      itemType: quickstart
-      url: ../bing-spell-check/quickstarts/nodejs.md
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../bing-spell-check/quickstarts/python.md
-    - text: Tworzenie jednostronicowej aplikacji internetowej
-      itemType: tutorial
-      url: ../bing-spell-check/tutorials/spellcheck.md
-    footerLink:
-      url: ../bing-spell-check/overview.md
-      text: Zobacz więcej
-  - title: Interfejs API wyszukiwania lokalnych firm
-    links:
-    - text: Korzystanie z języka C#
-      itemType: quickstart
-      url: ../bing-local-business-search/quickstarts/local-quickstart.md
-    - text: Korzystanie z języka Java
-      itemType: quickstart
-      url: ../bing-local-business-search/quickstarts/local-search-java-quickstart.md
-    - text: Korzystanie ze środowiska Node.js
-      itemType: quickstart
-      url: ../bing-local-business-search/quickstarts/local-search-node-quickstart.md
-    - text: Korzystanie z języka Python
-      itemType: quickstart
-      url: ../bing-local-business-search/quickstarts/local-search-python-quickstart.md
-    footerLink:
-      url: ../bing-local-business-search/overview.md
-      text: Zobacz więcej
+    - title: Wyszukiwanie w sieci Web (Bing)
+      links:
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+          itemType: quickstart
+          text: Korzystanie z języka C#
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-java
+          itemType: quickstart
+          text: Korzystanie z języka Java
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-javascript
+          itemType: quickstart
+          text: Korzystanie z języka JavaScript
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-python
+          itemType: quickstart
+          text: Korzystanie z języka Python
+        - url: tutorial-bing-web-search-single-page-app.md
+          itemType: tutorial
+          text: Tworzenie jednostronicowej aplikacji internetowej
+      footerLink:
+        url: overview.md
+        text: Zobacz więcej
+    - title: Interfejs API wyszukiwania niestandardowego Bing
+      links:
+        - text: Tworzenie wystąpienia wyszukiwania niestandardowego
+          itemType: quickstart
+          url: ../bing-custom-search/quick-start.md
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-python
+        - text: Tworzenie jednostronicowej aplikacji internetowej
+          itemType: tutorial
+          url: ../bing-custom-search/tutorials/custom-search-web-page.md
+      footerLink:
+        url: ../bing-custom-search/overview.md
+        text: Zobacz więcej
+    - title: Wyszukiwanie obrazów w usłudze Bing
+      links:
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Korzystanie z języka JavaScript
+          itemType: quickstart
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-python
+        - text: Tworzenie jednostronicowej aplikacji internetowej
+          itemType: tutorial
+          url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
+      footerLink:
+        url: ../bing-image-search/overview.md
+        text: Zobacz więcej
+    - title: Interfejs API wyszukiwania jednostek Bing
+      links:
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Korzystanie z języka JavaScript
+          itemType: quickstart
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-python
+        - text: Tworzenie jednostronicowej aplikacji internetowej
+          itemType: tutorial
+          url: ../bing-entities-search/tutorial-bing-entities-search-single-page-app.md
+      footerLink:
+        url: ../bing-entities-search/overview.md
+        text: Zobacz więcej
+    - title: Interfejs API wyszukiwania wiadomości Bing
+      links:
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Korzystanie z języka JavaScript
+          itemType: quickstart
+          url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-python
+        - text: Tworzenie jednostronicowej aplikacji internetowej
+          itemType: tutorial
+          url: ../bing-news-search/tutorial-bing-news-search-single-page-app.md
+      footerLink:
+        url: ../bing-news-search/search-the-web.md
+        text: Zobacz więcej
+    - title: Interfejs API wyszukiwania wideo Bing
+      links:
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Korzystanie z języka JavaScript
+          itemType: quickstart
+          url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-python
+        - text: Tworzenie jednostronicowej aplikacji internetowej
+          itemType: tutorial
+          url: ../Bing-Video-Search/tutorial-bing-video-search-single-page-app.md
+      footerLink:
+        url: ../Bing-Video-Search/overview.md
+        text: Zobacz więcej
+    - title: Interfejs API wyszukiwania wizualnego Bing
+      links:
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Korzystanie z języka JavaScript
+          itemType: quickstart
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-python
+        - text: Przycinanie i wyszukiwanie obszaru obrazu
+          itemType: tutorial
+          url: ../bing-visual-search/tutorial-visual-search-crop-area-results.md
+      footerLink:
+        url: ../bing-visual-search/overview.md
+        text: Zobacz więcej
+    - title: Interfejs API automatycznego sugerowania Bing
+      links:
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-autosuggest/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Korzystanie z języka Go
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/client-libraries.md?pivots=programming-language-go
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/java.md
+        - text: Korzystanie ze środowiska Node.js
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/nodejs.md
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/python.md
+        - text: Tworzenie jednostronicowej aplikacji internetowej
+          itemType: quickstart
+          url: ../Bing-Autosuggest/tutorials/autosuggest.md
+      footerLink:
+        url: ../Bing-Autosuggest/get-suggested-search-terms.md
+        text: Zobacz więcej
+    - title: Interfejs API sprawdzania pisowni Bing
+      links:
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-spell-check/sdk-quickstart-spell-check.md
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../bing-spell-check/quickstarts/java.md
+        - text: Korzystanie ze środowiska Node.js
+          itemType: quickstart
+          url: ../bing-spell-check/quickstarts/nodejs.md
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../bing-spell-check/quickstarts/python.md
+        - text: Tworzenie jednostronicowej aplikacji internetowej
+          itemType: tutorial
+          url: ../bing-spell-check/tutorials/spellcheck.md
+      footerLink:
+        url: ../bing-spell-check/overview.md
+        text: Zobacz więcej
+    - title: Interfejs API wyszukiwania lokalnych firm
+      links:
+        - text: Korzystanie z języka C#
+          itemType: quickstart
+          url: ../bing-local-business-search/quickstarts/local-quickstart.md
+        - text: Korzystanie z języka Java
+          itemType: quickstart
+          url: ../bing-local-business-search/quickstarts/local-search-java-quickstart.md
+        - text: Korzystanie ze środowiska Node.js
+          itemType: quickstart
+          url: ../bing-local-business-search/quickstarts/local-search-node-quickstart.md
+        - text: Korzystanie z języka Python
+          itemType: quickstart
+          url: ../bing-local-business-search/quickstarts/local-search-python-quickstart.md
+      footerLink:
+        url: ../bing-local-business-search/overview.md
+        text: Zobacz więcej
 additionalContent:
   sections:
-  - title: Dokumentacja
-    items:
-    - title: Interfejs API REST w wersji 7
-      links:
-      - text: Wyszukiwanie w sieci Web (Bing)
-        url: /rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference
-      - text: Wyszukiwanie niestandardowe Bing
-        url: /rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
-      - text: Wyszukiwanie obrazów w usłudze Bing
-        url: /rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference
-      - text: Wyszukiwanie jednostek Bing
-        url: /rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference
-      - text: Wyszukiwanie wiadomości (Bing)
-        url: /rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference
-      - text: Wyszukiwanie klipów wideo w usłudze Bing
-        url: /rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference
-      - text: Wyszukiwanie wizualne Bing
-        url: /rest/api/cognitiveservices/bingvisualsearch/images
-      - text: Automatyczne sugerowanie Bing
-        url: /rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference
-      - text: Sprawdzanie pisowni Bing
-        url: /rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference
-      - text: Wyszukiwanie lokalnych firm w usłudze Bing
-        url: ../bing-local-business-search/local-search-reference.md
-    - title: Zestaw SDK .NET
-      links:
-      - text: Wyszukiwanie w sieci Web (Bing)
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-web-search-api-readme
-      - text: Wyszukiwanie niestandardowe Bing
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme
-      - text: Wyszukiwanie jednostek Bing
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-entity-search-api-readme
-      - text: Wyszukiwanie obrazów w usłudze Bing
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-image-search-readme
-      - text: Wyszukiwanie wiadomości (Bing)
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-news-search-readme
-      - text: Wyszukiwanie klipów wideo w usłudze Bing
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-video-search-readme
-      - text: Wyszukiwanie wizualne Bing
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-visual-search-readme
-      - text: Sprawdzanie pisowni Bing
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme
-      - text: Automatyczne sugerowanie Bing
-        url: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme
-    - title: Zestaw SDK Java
-      links:
-      - text: Wyszukiwanie w sieci Web (Bing)
-        url: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
-      - text: Wyszukiwanie niestandardowe Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
-      - text: Wyszukiwanie jednostek Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi
-      - text: Wyszukiwanie obrazów w usłudze Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingimagesearch
-      - text: Wyszukiwanie wiadomości (Bing)
-        url: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
-      - text: Wyszukiwanie klipów wideo w usłudze Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingvideosearch
-      - text: Wyszukiwanie wizualne Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
-      - text: Sprawdzanie pisowni Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingspellcheck
-      - text: Automatyczne sugerowanie Bing
-        url: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
-    - title: Zestaw SDK dla języka Python
-      links:
-      - text: Wyszukiwanie w sieci Web (Bing)
-        url: /python/api/overview/azure/cognitiveservices/bing-web-search-api-readme
-      - text: Wyszukiwanie niestandardowe Bing
-        url: /python/api/overview/azure/cognitiveservices/bing-custom-search-readme
-      - text: Niestandardowe wyszukiwanie obrazów Bing
-        url: /python/api/overview/azure/cognitiveservices/bing-custom-image-search-readme
-      - text: Wyszukiwanie jednostek Bing
-        url: /python/api/overview/azure/cognitiveservices/bing-entity-search-api-readme
-      - text: Wyszukiwanie obrazów w usłudze Bing
-        url: /python/api/overview/azure/cognitiveservices/bing-image-search-readme
-      - text: Wyszukiwanie wiadomości (Bing)
-        url: /python/api/overview/azure/cognitiveservices/bing-news-search-readme
-      - text: Wyszukiwanie klipów wideo w usłudze Bing
-        url: /python/api/overview/azure/cognitiveservices/bing-video-search-readme
-      - text: Wyszukiwanie wizualne Bing
-        url: /python/api/overview/azure/cognitiveservices/bing-visual-search-readme
-      - text: Sprawdzanie pisowni Bing
-        url: /python/api/overview/azure/cognitiveservices/spellcheck
-    - title: Zestaw SDK dla platformy Node.js
-      links:
-      - text: Wyszukiwanie w sieci Web (Bing)
-        url: /javascript/api/@azure/cognitiveservices-websearch/
-      - text: Wyszukiwanie niestandardowe Bing
-        url: /javascript/api/@azure/cognitiveservices-customsearch/
-      - text: Wyszukiwanie jednostek Bing
-        url: /javascript/api/@azure/cognitiveservices-entitysearch/
-      - text: Wyszukiwanie obrazów w usłudze Bing
-        url: /javascript/api/@azure/cognitiveservices-imagesearch/
-      - text: Wyszukiwanie wiadomości (Bing)
-        url: /javascript/api/@azure/cognitiveservices-newssearch/
-      - text: Wyszukiwanie klipów wideo w usłudze Bing
-        url: /javascript/api/@azure/cognitiveservices-videosearch/
-      - text: Wyszukiwanie wizualne Bing
-        url: /javascript/api/@azure/cognitiveservices-visualsearch/
-      - text: Sprawdzanie pisowni Bing
-        url: /javascript/api/@azure/cognitiveservices-spellcheck/
-      - text: Automatyczne sugerowanie Bing
-        url: /javascript/api/@azure/cognitiveservices-autosuggest/
-    - title: Zestaw SDK dla języka Go
-      links:
-      - text: Wyszukiwanie w sieci Web (Bing)
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch
-      - text: Wyszukiwanie niestandardowe Bing
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
-      - text: Wyszukiwanie jednostek Bing
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch
-      - text: Wyszukiwanie obrazów w usłudze Bing
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch
-      - text: Wyszukiwanie wiadomości (Bing)
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
-      - text: Wyszukiwanie klipów wideo w usłudze Bing
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch
-      - text: Sprawdzanie pisowni Bing
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck
-      - text: Automatyczne sugerowanie Bing
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
-    - title: Inne
-      links:
-      - text: Azure PowerShell
-        url: /powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services
-      - text: Interfejs wiersza polecenia platformy Azure
-        url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+    - title: Dokumentacja
+      items:
+        - title: Interfejs API REST w wersji 7
+          links:
+            - text: Wyszukiwanie w sieci Web (Bing)
+              url: /rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference
+            - text: Wyszukiwanie niestandardowe Bing
+              url: /rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
+            - text: Wyszukiwanie obrazów w usłudze Bing
+              url: /rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference
+            - text: Wyszukiwanie jednostek Bing
+              url: /rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference
+            - text: Wyszukiwanie wiadomości (Bing)
+              url: /rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference
+            - text: Wyszukiwanie klipów wideo w usłudze Bing
+              url: /rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference
+            - text: Wyszukiwanie wizualne Bing
+              url: /rest/api/cognitiveservices/bingvisualsearch/images
+            - text: Automatyczne sugerowanie Bing
+              url: /rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference
+            - text: Sprawdzanie pisowni Bing
+              url: /rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference
+            - text: Wyszukiwanie lokalnych firm w usłudze Bing
+              url: ../bing-local-business-search/local-search-reference.md
+        - title: Zestaw SDK .NET
+          links:
+            - text: Wyszukiwanie w sieci Web (Bing)
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-web-search-api-readme
+            - text: Wyszukiwanie niestandardowe Bing
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme
+            - text: Wyszukiwanie jednostek Bing
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-entity-search-api-readme
+            - text: Wyszukiwanie obrazów w usłudze Bing
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-image-search-readme
+            - text: Wyszukiwanie wiadomości (Bing)
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-news-search-readme
+            - text: Wyszukiwanie klipów wideo w usłudze Bing
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-video-search-readme
+            - text: Wyszukiwanie wizualne Bing
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-visual-search-readme
+            - text: Sprawdzanie pisowni Bing
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme
+            - text: Automatyczne sugerowanie Bing
+              url: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme
+        - title: Zestaw SDK Java
+          links:
+            - text: Wyszukiwanie w sieci Web (Bing)
+              url: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
+            - text: Wyszukiwanie niestandardowe Bing
+              url: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
+            - text: Wyszukiwanie jednostek Bing
+              url: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi
+            - text: Wyszukiwanie obrazów w usłudze Bing
+              url: /java/api/overview/azure/cognitiveservices/client/bingimagesearch
+            - text: Wyszukiwanie wiadomości (Bing)
+              url: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
+            - text: Wyszukiwanie klipów wideo w usłudze Bing
+              url: /java/api/overview/azure/cognitiveservices/client/bingvideosearch
+            - text: Wyszukiwanie wizualne Bing
+              url: /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
+            - text: Sprawdzanie pisowni Bing
+              url: /java/api/overview/azure/cognitiveservices/client/bingspellcheck
+            - text: Automatyczne sugerowanie Bing
+              url: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
+        - title: Zestaw SDK dla języka Python
+          links:
+            - text: Wyszukiwanie w sieci Web (Bing)
+              url: /python/api/overview/azure/cognitiveservices/bing-web-search-api-readme
+            - text: Wyszukiwanie niestandardowe Bing
+              url: /python/api/overview/azure/cognitiveservices/bing-custom-search-readme
+            - text: Niestandardowe wyszukiwanie obrazów Bing
+              url: /python/api/overview/azure/cognitiveservices/bing-custom-image-search-readme
+            - text: Wyszukiwanie jednostek Bing
+              url: /python/api/overview/azure/cognitiveservices/bing-entity-search-api-readme
+            - text: Wyszukiwanie obrazów w usłudze Bing
+              url: /python/api/overview/azure/cognitiveservices/bing-image-search-readme
+            - text: Wyszukiwanie wiadomości (Bing)
+              url: /python/api/overview/azure/cognitiveservices/bing-news-search-readme
+            - text: Wyszukiwanie klipów wideo w usłudze Bing
+              url: /python/api/overview/azure/cognitiveservices/bing-video-search-readme
+            - text: Wyszukiwanie wizualne Bing
+              url: /python/api/overview/azure/cognitiveservices/bing-visual-search-readme
+            - text: Sprawdzanie pisowni Bing
+              url: /python/api/overview/azure/cognitiveservices/spellcheck
+        - title: Zestaw SDK dla platformy Node.js
+          links:
+            - text: Wyszukiwanie w sieci Web (Bing)
+              url: /javascript/api/@azure/cognitiveservices-websearch/
+            - text: Wyszukiwanie niestandardowe Bing
+              url: /javascript/api/@azure/cognitiveservices-customsearch/
+            - text: Wyszukiwanie jednostek Bing
+              url: /javascript/api/@azure/cognitiveservices-entitysearch/
+            - text: Wyszukiwanie obrazów w usłudze Bing
+              url: /javascript/api/@azure/cognitiveservices-imagesearch/
+            - text: Wyszukiwanie wiadomości (Bing)
+              url: /javascript/api/@azure/cognitiveservices-newssearch/
+            - text: Wyszukiwanie klipów wideo w usłudze Bing
+              url: /javascript/api/@azure/cognitiveservices-videosearch/
+            - text: Wyszukiwanie wizualne Bing
+              url: /javascript/api/@azure/cognitiveservices-visualsearch/
+            - text: Sprawdzanie pisowni Bing
+              url: /javascript/api/@azure/cognitiveservices-spellcheck/
+            - text: Automatyczne sugerowanie Bing
+              url: /javascript/api/@azure/cognitiveservices-autosuggest/
+        - title: Zestaw SDK dla języka Go
+          links:
+            - text: Wyszukiwanie w sieci Web (Bing)
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch'
+            - text: Wyszukiwanie niestandardowe Bing
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch'
+            - text: Wyszukiwanie jednostek Bing
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch'
+            - text: Wyszukiwanie obrazów w usłudze Bing
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch'
+            - text: Wyszukiwanie wiadomości (Bing)
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch'
+            - text: Wyszukiwanie klipów wideo w usłudze Bing
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch'
+            - text: Sprawdzanie pisowni Bing
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck'
+            - text: Automatyczne sugerowanie Bing
+              url: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest'
+        - title: Inne
+          links:
+            - text: Azure PowerShell
+              url: /powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services
+            - text: Interfejs wiersza polecenia platformy Azure
+              url: /cli/azure/cognitiveservices#az_cognitiveservices_list

@@ -3,22 +3,22 @@ title: Tożsamości zarządzane dla zasobów platformy Azure za pomocą Service 
 description: W tym artykule opisano sposób używania tożsamości zarządzanych do uzyskiwania dostępu Azure Service Bus jednostkami (kolejkami, tematami i subskrypcjami).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: cac254ef6b57f1878620b1e3ca30e757d7f39a88
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0558e00ac7e8ce67d2e5194b02d2de06f2d38ff1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529470"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785437"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Uwierzytelnianie tożsamości zarządzanej za pomocą Azure Active Directory dostępu do Azure Service Bus zasobów
 [Tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) to funkcja między platformami Azure, która umożliwia tworzenie bezpiecznej tożsamości skojarzonej z wdrożeniem, w ramach którego działa kod aplikacji. Następnie możesz skojarzyć ją z rolami kontroli dostępu, które przyznają niestandardowe uprawnienia dostępu do określonych zasobów platformy Azure wymaganych przez aplikację.
 
-Za pomocą tożsamości zarządzanych platforma Azure zarządza tą tożsamością środowiska uruchomieniowego. Nie musisz przechowywać ani chronić kluczy dostępu w kodzie aplikacji ani konfiguracji, ani dla samej tożsamości, ani dla zasobów, do których musisz uzyskać dostęp. Aplikacja Service Bus uruchomiona wewnątrz aplikacji usługi Azure App Service lub na maszynie wirtualnej z włączoną obsługą jednostek zarządzanych dla zasobów platformy Azure nie musi obsługiwać reguł i kluczy sygnatur dostępu współdzielonego ani żadnych innych tokenów dostępu. Aplikacja klienacyjna potrzebuje tylko adresu punktu końcowego przestrzeni nazw Service Bus Messaging. Gdy aplikacja nawiązuje połączenie, Service Bus kontekst zarządzanej jednostki z klientem w operacji przedstawionej w przykładzie w dalszej części tego artykułu. Po skojarzoną z tożsamością zarządzaną klient Service Bus może wykonać wszystkie autoryzowane operacje. Autoryzacja jest udzielana przez skojarzenie jednostki zarządzanej z Service Bus rolami. 
+Za pomocą tożsamości zarządzanych platforma Azure zarządza tą tożsamością środowiska uruchomieniowego. Nie musisz przechowywać ani chronić kluczy dostępu w kodzie aplikacji ani konfiguracji dla samej tożsamości ani dla zasobów, do których chcesz uzyskać dostęp. Aplikacja Service Bus klienta uruchomiona wewnątrz aplikacji Azure App Service lub na maszynie wirtualnej z włączoną obsługą jednostek zarządzanych dla zasobów platformy Azure nie musi obsługiwać reguł i kluczy sygnatur dostępu współdzielonego ani żadnych innych tokenów dostępu. Aplikacja klienacyjna potrzebuje tylko adresu punktu końcowego przestrzeni nazw Service Bus Messaging. Gdy aplikacja nawiązuje połączenie, Service Bus powiąże kontekst jednostki zarządzanej z klientem w operacji, która jest pokazana w przykładzie w dalszej części tego artykułu. Po skojarzoną z tożsamością zarządzaną klient Service Bus może wykonać wszystkie autoryzowane operacje. Autoryzacja jest udzielana przez skojarzenie zarządzanej jednostki z Service Bus ról. 
 
 ## <a name="overview"></a>Omówienie
 Gdy podmiot zabezpieczeń (użytkownik, grupa lub aplikacja) próbuje uzyskać dostęp do jednostki Service Bus, żądanie musi być autoryzowane. W usłudze Azure AD dostęp do zasobu jest procesem dwuetapowym. 
 
- 1. Najpierw uwierzytelniana jest tożsamość podmiotu zabezpieczeń i jest zwracany token OAuth 2.0. Nazwa zasobu do żądania tokenu to `https://servicebus.azure.net` .
+ 1. Najpierw uwierzytelniana jest tożsamość podmiotu zabezpieczeń i zwracany jest token OAuth 2.0. Nazwa zasobu do żądania tokenu to `https://servicebus.azure.net` .
  1. Następnie token jest przekazywany jako część żądania do usługi Service Bus w celu autoryzowania dostępu do określonego zasobu.
 
 Krok uwierzytelniania wymaga, aby żądanie aplikacji zawierało token dostępu OAuth 2.0 w czasie wykonywania. Jeśli aplikacja działa w ramach jednostki platformy Azure, takiej jak maszyna wirtualna platformy Azure, zestaw skalowania maszyn wirtualnych lub aplikacja funkcji platformy Azure, może uzyskać dostęp do zasobów przy użyciu tożsamości zarządzanej. 
@@ -36,16 +36,16 @@ Gdy rola platformy Azure jest przypisana do podmiotu zabezpieczeń usługi Azure
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Wbudowane role platformy Azure dla Azure Service Bus
 Na Azure Service Bus zarządzanie przestrzeniami nazw i wszystkimi powiązanymi zasobami za pośrednictwem interfejsu Azure Portal i interfejsu API zarządzania zasobami platformy Azure jest już chronione przy użyciu modelu RBAC platformy Azure. Platforma Azure udostępnia poniższe wbudowane role platformy Azure do autoryzowania dostępu do Service Bus nazw:
 
-- [Azure Service Bus danych:](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner)umożliwia dostęp do danych Service Bus przestrzeni nazw i jej jednostek (kolejek, tematów, subskrypcji i filtrów)
-- [Azure Service Bus data sender (Nadawca danych):](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender)ta rola umożliwia wysyłanie dostępu do Service Bus nazw i jej jednostek.
-- [Azure Service Bus Data Receiver:](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver)ta rola umożliwia uzyskanie dostępu do Service Bus nazw i jej jednostek. 
+- [Azure Service Bus właściciela danych:](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner)umożliwia dostęp do danych Service Bus przestrzeni nazw i jej jednostek (kolejek, tematów, subskrypcji i filtrów)
+- [Azure Service Bus Data Sender:](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender)użyj tej roli, aby udzielić dostępu do wysyłania Service Bus przestrzeni nazw i jej jednostek.
+- [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): ta rola umożliwia uzyskanie dostępu do Service Bus nazw i jej jednostek. 
 
 ## <a name="resource-scope"></a>Zakres zasobu 
 Przed przypisaniem roli platformy Azure do podmiotu zabezpieczeń określ zakres dostępu, który powinien mieć podmiot zabezpieczeń. Najlepsze rozwiązania określają, że zawsze najlepiej jest przyznać tylko najwęższy możliwy zakres.
 
 Na poniższej liście opisano poziomy, na których można określić zakres dostępu do Service Bus zasobów, począwszy od najwęższych zakresów:
 
-- **Kolejka,** **temat** lub **subskrypcja:** przypisanie roli ma zastosowanie do określonej Service Bus jednostki. Obecnie usługa Azure Portal nie obsługuje przypisywania użytkowników/grup/tożsamości zarządzanych do Service Bus platformy Azure na poziomie subskrypcji. Oto przykład użycia polecenia interfejsu wiersza polecenia platformy Azure: [az-role-assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) w celu przypisania tożsamości do Service Bus platformy Azure: 
+- **Kolejka,** **temat** lub **subskrypcja:** przypisanie roli ma zastosowanie do określonej Service Bus jednostki. Obecnie usługa Azure Portal nie obsługuje przypisywania użytkowników/grup/tożsamości zarządzanych do Service Bus platformy Azure na poziomie subskrypcji. Oto przykład użycia polecenia interfejsu wiersza polecenia platformy Azure: [az-role-assignment-create](/cli/azure/role/assignment?#az_role_assignment_create) w celu przypisania tożsamości do Service Bus platformy Azure: 
 
     ```azurecli
     az role assignment create \
@@ -53,9 +53,9 @@ Na poniższej liście opisano poziomy, na których można określić zakres dost
         --assignee $assignee_id \
         --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
     ```
-- **Service Bus nazw:** przypisanie roli obejmuje całą topologię Service Bus przestrzeni nazw i skojarzoną z nią grupą odbiorców.
+- **Service Bus nazw:** przypisanie roli obejmuje całą topologię Service Bus w przestrzeni nazw i do skojarzonej z nią grupy odbiorców.
 - **Grupa zasobów:** Przypisanie roli ma zastosowanie do wszystkich Service Bus zasobów w grupie zasobów.
-- **Subskrypcja:** Przypisanie roli ma zastosowanie do Service Bus zasobów we wszystkich grupach zasobów w subskrypcji.
+- **Subskrypcja:** Przypisanie roli ma zastosowanie do wszystkich Service Bus zasobów we wszystkich grupach zasobów w subskrypcji.
 
 > [!NOTE]
 > Pamiętaj, że propagacja przypisań ról platformy Azure może potrwać do pięciu minut. 
@@ -97,23 +97,23 @@ Po włączeniu tego ustawienia nowa tożsamość usługi jest tworzona w usłudz
 Teraz przypisz tę tożsamość usługi do roli w wymaganym zakresie w Service Bus zasobów.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Aby przypisać role platformy Azure przy użyciu Azure Portal
-Aby przypisać rolę do Service Bus nazw, przejdź do przestrzeni nazw w Azure Portal. Wyświetl ustawienia Access Control (Zarządzanie dostępem i dostępem i dostępem) dla zasobu i postępuj zgodnie z tymi instrukcjami, aby zarządzać przypisaniami ról:
+Aby przypisać rolę do Service Bus nazw, przejdź do przestrzeni nazw w Azure Portal. Wyświetl ustawienia Access Control (IAM) dla zasobu i postępuj zgodnie z tymi instrukcjami, aby zarządzać przypisaniami ról:
 
 > [!NOTE]
 > Poniższe kroki przypisz rolę tożsamości usługi do twojej Service Bus nazw. Możesz wykonać te same kroki, aby przypisać rolę w innych obsługiwanych zakresach (grupa zasobów i subskrypcja). 
 > 
 > [Utwórz przestrzeń nazw Service Bus Messaging,](service-bus-create-namespace-portal.md) jeśli jej nie masz. 
 
-1. W Azure Portal przejdź do swojej Service Bus nazw i wyświetl **Przegląd** dla przestrzeni nazw. 
+1. W Azure Portal przejdź do swojej Service Bus nazw i wyświetl **przegląd** dla przestrzeni nazw. 
 1. Wybierz **Access Control (IAM)** w menu po lewej stronie, aby wyświetlić ustawienia kontroli dostępu dla Service Bus nazw.
 1.  Wybierz **kartę Przypisania ról,** aby wyświetlić listę przypisań ról.
 3.  Wybierz **pozycję Dodaj**, a następnie wybierz pozycję Dodaj **przypisanie roli.**
 4.  Na stronie **Dodawanie przypisania roli** wykonaj następujące kroki:
-    1. W **przypadku** roli wybierz Service Bus, którą chcesz przypisać. W tym przykładzie jest to Azure Service Bus **danych.**
+    1. W **przypadku** roli wybierz Service Bus, którą chcesz przypisać. W tym przykładzie jest to **Azure Service Bus danych.**
     1. W polu **Przypisz dostęp do** wybierz pozycję **App Service** obszarze **Tożsamość zarządzana przypisana przez system.** 
     1. Wybierz **subskrypcję,** w której utworzono tożsamość zarządzaną dla aplikacji internetowej.
     1. Wybierz tożsamość **zarządzaną** dla utworzonej aplikacji internetowej. Domyślna nazwa tożsamości jest taka sama jak nazwa aplikacji internetowej. 
-    1. Następnie wybierz pozycję **Zapisz**.
+    1. Następnie wybierz pozycję **Zapisz.**
         
         ![Strona Dodawania przypisania roli](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
 

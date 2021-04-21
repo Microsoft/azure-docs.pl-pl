@@ -1,45 +1,45 @@
 ---
-title: 'Samouczek: Zarządzanie kopią zapasową SAP HANA DB przy użyciu interfejsu wiersza polecenia'
-description: W tym samouczku dowiesz się, jak zarządzać kopiami zapasowymi SAP HANA baz danych uruchomionych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: 'Samouczek: zarządzanie kopiami SAP HANA DB przy użyciu interfejsu wiersza polecenia'
+description: Z tego samouczka dowiesz się, jak zarządzać kopiami zapasową baz danych SAP HANA działających na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8baf7f2589cd7d9054911516253b49253397871
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7090701e3642fd9703737060e0876c8bbfc27994
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713290"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765183"
 ---
-# <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: zarządzanie bazami danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: zarządzanie bazami SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza poleceń lub skryptów. W tej dokumentacji szczegółowo opisano sposób zarządzania kopią zapasową bazy danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Te kroki można również wykonać przy użyciu [Azure Portal](./sap-hana-db-manage.md).
+Interfejs wiersza polecenia platformy Azure służy do tworzenia zasobów platformy Azure i zarządzania nimi z wiersza polecenia lub za pośrednictwem skryptów. W tej dokumentacji szczegółowo opisano sposób zarządzania kopią zapasową bazy SAP HANA wirtualnej platformy Azure — a wszystko to za pomocą interfejsu wiersza polecenia platformy Azure. Te kroki można również wykonać przy użyciu [Azure Portal](./sap-hana-db-manage.md).
 
-Użyj [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) do uruchamiania poleceń interfejsu wiersza polecenia.
+Użyj [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) polecenia do uruchamiania poleceń interfejsu wiersza polecenia.
 
 Po ukończeniu tego samouczka będziesz wiedzieć, jak wykonać następujące czynności:
 
 > [!div class="checklist"]
 >
 > * Monitorowanie zadań tworzenia kopii zapasowej i przywracania
-> * Chroń nowe bazy danych dodane do wystąpienia SAP HANA
-> * Zmiana zasad
+> * Ochrona nowych baz danych dodanych do SAP HANA danych
+> * Zmienianie zasad
 > * Zatrzymywanie ochrony
-> * Wznów ochronę
+> * Wznawianie ochrony
 
-Jeśli utworzono [kopię zapasową bazy danych SAP HANA na platformie Azure przy użyciu interfejsu wiersza polecenia](tutorial-sap-hana-backup-cli.md) , aby utworzyć kopię zapasową bazy danych SAP HANA, wówczas używasz następujących zasobów:
+Jeśli używasz funkcji back up an [SAP HANA database in Azure](tutorial-sap-hana-backup-cli.md) using CLI to back up your SAP HANA database (Kopię zapasową bazy danych na platformie Azure przy użyciu interfejsu wiersza polecenia) używasz następujących zasobów:
 
-* Grupa zasobów o nazwie *saphanaResourceGroup*
+* grupa zasobów o nazwie *saphanaResourceGroup*
 * magazyn o nazwie *saphanaVault*
-* chroniony kontener o nazwie *VMAppContainer; Obliczenia; saphanaResourceGroup; saphanaVM*
-* kopia zapasowa bazy danych/elementu o nazwie *saphanadatabase; HXE; HXE*
-* zasoby w regionie *westus2*
+* chroniony kontener o nazwie *VMAppContainer; Compute;saphanaResourceGroup;saphanaVM*
+* baza danych kopii zapasowej/element o *nazwie saphanadatabase;hxe;hxe*
+* zasoby w *regionie westus2*
 
-Interfejs wiersza polecenia platformy Azure ułatwia zarządzanie SAP HANA bazą danych działającą na maszynie wirtualnej platformy Azure, której kopia zapasowa została utworzona przy użyciu Azure Backup. Ten samouczek zawiera szczegółowe informacje dotyczące operacji zarządzania.
+Interfejs wiersza polecenia platformy Azure ułatwia zarządzanie bazą danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure, dla których jest back up up using Azure Backup. Ten samouczek zawiera szczegółowe informacje o każdej operacji zarządzania.
 
 ## <a name="monitor-backup-and-restore-jobs"></a>Monitorowanie zadań tworzenia kopii zapasowej i przywracania
 
-Aby monitorować ukończone lub aktualnie uruchomione zadania (kopia zapasowa lub przywracanie), użyj polecenia [AZ Backup Job list](/cli/azure/backup/job#az-backup-job-list) . Interfejs wiersza polecenia umożliwia również [zawieszenie aktualnie uruchomionego zadania](/cli/azure/backup/job#az-backup-job-stop) lub [zaczekanie na ukończenie zadania](/cli/azure/backup/job#az-backup-job-wait).
+Aby monitorować ukończone lub aktualnie uruchomione zadania (tworzenie kopii zapasowej lub przywracanie), użyj polecenia cmdlet [az backup job list.](/cli/azure/backup/job#az_backup_job_list) Interfejs wiersza polecenia umożliwia również [wstrzymanie aktualnie uruchomionego zadania lub](/cli/azure/backup/job#az_backup_job_stop) zaczekaj [na ukończenie zadania.](/cli/azure/backup/job#az_backup_job_wait)
 
 ```azurecli-interactive
 az backup job list --resource-group saphanaResourceGroup \
@@ -58,9 +58,9 @@ ccdb4dce-8b15-47c5-8c46-b0985352238f  Backup (Full)          Completed   hxe [hx
 F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   hxe [hxehost]   2019-12-03T05:44:51.081607+00:00
 ```
 
-## <a name="change-policy"></a>Zmień zasady
+## <a name="change-policy"></a>Zmienianie zasad
 
-Aby zmienić zasady źródłowe SAP HANA konfiguracji kopii zapasowej, należy użyć polecenia [AZ Backup Policy Set](/cli/azure/backup/policy#az-backup-policy-set) . Parametr name w tym poleceniu cmdlet odwołuje się do elementu kopii zapasowej, którego zasady chcemy zmienić. W tym samouczku zastąpią zasady naszej bazy danych SAP HANA *saphanadatabase; HXE; HXE* nową zasadą *newsaphanaPolicy*. Nowe zasady można utworzyć za pomocą polecenia [AZ Backup Policy Create](/cli/azure/backup/policy#az-backup-policy-create) .
+Aby zmienić zasady bazowe konfiguracji SAP HANA kopii zapasowej, użyj polecenia cmdlet [az backup policy set.](/cli/azure/backup/policy#az_backup_policy_set) Parametr name w tym polecenia cmdlet odwołuje się do elementu kopii zapasowej, którego zasady chcemy zmienić. W tym samouczku zastąpimy zasady bazy danych SAP HANA *saphanadatabase;hxe;hxe* nowymi zasadami *newsaphanaPolicy.* Nowe zasady można tworzyć za pomocą [polecenia cmdlet az backup policy create.](/cli/azure/backup/policy#az_backup_policy_create)
 
 ```azurecli-interactive
 az backup item set policy --resource-group saphanaResourceGroup \
@@ -78,16 +78,16 @@ Name                                  Resource Group
 cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 ```
 
-## <a name="create-incremental-backup-policy"></a>Tworzenie zasad przyrostowej kopii zapasowej
+## <a name="create-incremental-backup-policy"></a>Tworzenie zasad tworzenia przyrostowych kopii zapasowych
 
-Aby utworzyć zasady przyrostowej kopii zapasowej, uruchom polecenie [AZ Backup Policy Create](/cli/azure/backup/policy#az_backup_policy_create) z następującymi parametrami:
+Aby utworzyć zasady przyrostowej kopii zapasowej, wykonaj [polecenie az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) z następującymi parametrami:
 
-* **--Backup-Management-Type** — obciążenie platformy Azure
-* **--obciążenia-typ** -SAPHana
-* **--name** — Nazwa zasad
-* **--Policy** -JSON z odpowiednimi szczegółami dotyczącymi harmonogramu i przechowywania
-* **--Grupa zasobów grupy** zasobów magazynu
-* **--Magazyn-nazwa** — nazwa magazynu
+* **--backup-management-type** — obciążenie platformy Azure
+* **--workload-type** — SAPHana
+* **--name** — nazwa zasad
+* **--policy** — plik JSON z odpowiednimi szczegółami harmonogramu i przechowywania
+* **--resource-group** - Grupa zasobów magazynu
+* **--vault-name** — nazwa magazynu
 
 Przykład:
 
@@ -95,7 +95,7 @@ Przykład:
 az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
 ```
 
-Przykładowy kod JSON (sappolicy.json):
+Przykładowy kod JSON (sappolicy.jssię):
 
 ```json
   "eTag": null,
@@ -232,9 +232,9 @@ Przykładowy kod JSON (sappolicy.json):
 } 
 ```
 
-Po pomyślnym utworzeniu zasad dane wyjściowe polecenia będą wyświetlać kod JSON zasad, który został przesłany jako parametr podczas wykonywania polecenia.
+Po pomyślnym utworzeniu zasad dane wyjściowe polecenia będą wyświetlać kod JSON zasad przekazany jako parametr podczas wykonywania polecenia.
 
-Aby określić żądaną częstotliwość tworzenia kopii zapasowych i przechowywać przyrostowe kopie zapasowe, można zmodyfikować następującą sekcję zasad.
+Możesz zmodyfikować następującą sekcję zasad, aby określić żądaną częstotliwość tworzenia kopii zapasowych i przechowywanie przyrostowych kopii zapasowych.
 
 Na przykład:
 
@@ -269,10 +269,10 @@ Na przykład:
 
 Przykład:
 
-Jeśli chcesz mieć przyrostowe kopie zapasowe tylko w sobotę i zachować je przez 60 dni, wprowadź następujące zmiany zasad:
+Jeśli chcesz mieć przyrostowe kopie zapasowe tylko w sobotę i przechowywać je przez 60 dni, w zasadach należy wprowadzić następujące zmiany:
 
-* Aktualizuj liczbę **retentionDuration** na 60 dni
-* Określ tylko soboty jako **ScheduleRunDays**
+* Liczba **okresów przechowywania** aktualizacji do 60 dni
+* Określ wartość **ScheduleRunDays** tylko w sobotę
 
 ```json
  {
@@ -298,11 +298,11 @@ Jeśli chcesz mieć przyrostowe kopie zapasowe tylko w sobotę i zachować je pr
 }
 ```
 
-## <a name="protect-new-databases-added-to-an-sap-hana-instance"></a>Chroń nowe bazy danych dodane do wystąpienia SAP HANA
+## <a name="protect-new-databases-added-to-an-sap-hana-instance"></a>Ochrona nowych baz danych dodanych do SAP HANA danych
 
-[Zarejestrowanie wystąpienia SAP HANA z magazynem Recovery Services](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatycznie odnajduje wszystkie bazy danych w tym wystąpieniu.
+[Zarejestrowanie wystąpienia SAP HANA w magazynie usługi Recovery Services](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatycznie odnajduje wszystkie bazy danych w tym wystąpieniu.
 
-Jednak w przypadkach, gdy nowe bazy danych są dodawane do wystąpienia SAP HANA później, użyj polecenia [AZ Backup Protected-Item Initialize](/cli/azure/backup/protectable-item#az-backup-protectable-item-initialize) . To polecenie cmdlet umożliwia odnalezienie nowych baz danych, które zostały dodane.
+Jednak w przypadkach, gdy nowe bazy danych zostaną później dodane do SAP HANA, użyj polecenia cmdlet [az backup protectable-item.](/cli/azure/backup/protectable-item#az_backup_protectable_item_initialize) To polecenie cmdlet odnajduje dodane nowe bazy danych.
 
 ```azurecli-interactive
 az backup protectable-item initialize --resource-group saphanaResourceGroup \
@@ -311,7 +311,7 @@ az backup protectable-item initialize --resource-group saphanaResourceGroup \
     --workload-type SAPHANA
 ```
 
-Następnie użyj polecenia [AZ Backup Protect-Item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) , aby wyświetlić listę wszystkich baz danych, które zostały odnalezione w wystąpieniu SAP HANA. Ta lista nie obejmuje jednak tych baz danych, na których została już skonfigurowana kopia zapasowa. Po znalezieniu kopii zapasowej bazy danych programu zapoznaj się z  [tematem Włączanie kopii zapasowej w bazie danych SAP HANA](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
+Następnie użyj polecenia [cmdlet az backup protectable-item list,](/cli/azure/backup/protectable-item#az_backup_protectable_item_list) aby wyświetlić listę wszystkich baz danych, które zostały odnalezione w SAP HANA wystąpieniu. Ta lista nie obejmuje jednak baz danych, na których skonfigurowano już tworzenie kopii zapasowych. Po odnalezioniu bazy danych do tworzenia kopii zapasowej zapoznaj się z tematem Enable backup on SAP HANA database (Włączanie tworzenia kopii zapasowej [w SAP HANA bazy danych).](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database)
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -320,7 +320,7 @@ az backup protectable-item list --resource-group saphanaResourceGroup \
     --output table
 ```
 
-Nowa baza danych, dla której chcesz utworzyć kopię zapasową, zostanie wyświetlona na tej liście, która będzie wyglądać następująco:
+Nowa baza danych, której kopię zapasową chcesz wrócić, zostanie wyświetlona na tej liście. Będzie ona wyglądać następująco:
 
 ```output
 Name                            Protectable Item Type    ParentName    ServerName    IsProtected
@@ -330,24 +330,24 @@ saphanadatabase;hxe;systemdb    SAPHanaDatabase          HXE           hxehost  
 saphanadatabase;hxe;newhxe      SAPHanaDatabase          HXE           hxehost       NotProtected
 ```
 
-## <a name="stop-protection-for-an-sap-hana-database"></a>Zatrzymaj ochronę bazy danych SAP HANA
+## <a name="stop-protection-for-an-sap-hana-database"></a>Zatrzymywanie ochrony bazy danych SAP HANA danych
 
-Można zatrzymać ochronę bazy danych SAP HANA na kilka sposobów:
+Ochronę bazy danych SAP HANA można zatrzymać na kilka sposobów:
 
 * Zatrzymanie wszystkich przyszłych zadań tworzenia kopii zapasowych i usunięcie wszystkich punktów odzyskiwania.
 * Zatrzymaj wszystkie przyszłe zadania tworzenia kopii zapasowej i pozostaw punkty odzyskiwania bez zmian.
 
-Jeśli zdecydujesz się na pozostawienie punktów odzyskiwania, pamiętaj o następujących szczegółach:
+Jeśli zdecydujesz się opuścić punkty odzyskiwania, pamiętaj o tych szczegółach:
 
-* Wszystkie punkty odzyskiwania pozostaną nienaruszone, a całe oczyszczanie zostanie zatrzymane po zatrzymaniu ochrony z zachowaniem danych.
-* Zostanie naliczona opłata za chronione wystąpienie i zużyty magazyn.
-* Jeśli usuniesz źródło danych bez zatrzymywania kopii zapasowych, nowe kopie zapasowe zakończą się niepowodzeniem.
+* Wszystkie punkty odzyskiwania pozostaną nienaruszone na zawsze, a całe przycinanie zostanie zatrzymane po zatrzymaniu ochrony z zachowaniem danych.
+* Zostanie naliczona opłata za wystąpienie chronione i zużyty magazyn.
+* Jeśli usuniesz źródło danych bez zatrzymywania tworzenia kopii zapasowych, tworzenie nowych kopii zapasowych nie powiedzie się.
 
-Przyjrzyjmy się poszczególnym sposobom, aby zatrzymywać ochronę bardziej szczegółowo.
+Przyjrzyjmy się każdemu ze sposobów zatrzymania ochrony bardziej szczegółowo.
 
 ### <a name="stop-protection-with-retain-data"></a>Zatrzymanie ochrony z zachowaniem danych
 
-Aby zatrzymać ochronę przy zachowaniu danych, należy użyć polecenia [AZ Backup Protection Disable](/cli/azure/backup/protection#az-backup-protection-disable) .
+Aby zatrzymać ochronę z zachowaniem danych, użyj [polecenia cmdlet az backup protection disable.](/cli/azure/backup/protection#az_backup_protection_disable)
 
 ```azurecli-interactive
 az backup protection disable --resource-group saphanaResourceGroup \
@@ -366,11 +366,11 @@ Name                                  ResourceGroup
 g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-Aby sprawdzić stan tej operacji, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+Aby sprawdzić stan tej operacji, użyj [polecenia cmdlet az backup job show.](/cli/azure/backup/job#az_backup_job_show)
 
-### <a name="stop-protection-without-retain-data"></a>Zatrzymaj ochronę bez zachowywania danych
+### <a name="stop-protection-without-retain-data"></a>Zatrzymywanie ochrony bez zachowania danych
 
-Aby zatrzymać ochronę bez zachowywania danych, należy użyć polecenia [AZ Backup Protection Disable](/cli/azure/backup/protection#az-backup-protection-disable) .
+Aby zatrzymać ochronę bez zachowania danych, użyj [polecenia cmdlet az backup protection disable.](/cli/azure/backup/protection#az_backup_protection_disable)
 
 ```azurecli-interactive
 az backup protection disable --resource-group saphanaResourceGroup \
@@ -390,13 +390,13 @@ Name                                  ResourceGroup
 g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-Aby sprawdzić stan tej operacji, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+Aby sprawdzić stan tej operacji, użyj [polecenia cmdlet az backup job show.](/cli/azure/backup/job#az_backup_job_show)
 
-## <a name="resume-protection"></a>Wznów ochronę
+## <a name="resume-protection"></a>Wznawianie ochrony
 
-Po zatrzymaniu ochrony bazy danych SAP HANA z zachowaniem Zachowaj dane można później wznowić ochronę. Jeśli nie zachowasz kopii zapasowej danych, nie będziesz w stanie wznowić ochrony.
+Po zatrzymaniu ochrony bazy danych SAP HANA z zachowaniem danych można później wznowić ochronę. Jeśli nie zachowasz danych kopii zapasowej, nie będzie można wznowić ochrony.
 
-Aby wznowić ochronę, użyj polecenia [AZ Backup Protection Resume](/cli/azure/backup/protection#az-backup-protection-resume) .
+Aby wznowić ochronę, użyj [polecenia cmdlet az backup protection resume.](/cli/azure/backup/protection#az_backup_protection_resume)
 
 ```azurecli-interactive
 az backup protection resume --resource-group saphanaResourceGroup \
@@ -414,10 +414,10 @@ Name                                  ResourceGroup
 b2a7f108-1020-4529-870f-6c4c43e2bb9e  saphanaResourceGroup
 ```
 
-Aby sprawdzić stan tej operacji, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+Aby sprawdzić stan tej operacji, użyj [polecenia cmdlet az backup job show.](/cli/azure/backup/job#az_backup_job_show)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się, jak utworzyć kopię zapasową bazy danych SAP HANA działającej na maszynie wirtualnej platformy Azure przy użyciu Azure Portal, zobacz [bazy danych SAP HANA kopii zapasowych na maszynach wirtualnych](./backup-azure-sap-hana-database.md)
+* Aby dowiedzieć się, jak utworzyć kopię zapasową bazy danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure przy użyciu maszyny Azure Portal, zobacz Backup [SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md) (Tworzenie kopii zapasowych baz danych na maszynach wirtualnych platformy Azure)
 
-* Aby dowiedzieć się, jak zarządzać kopią zapasową bazy danych SAP HANA działającej na maszynie wirtualnej platformy Azure przy użyciu Azure Portal, zobacz [Zarządzanie kopiami zapasowymi baz danych SAP HANA na maszynie wirtualnej platformy Azure](./sap-hana-db-manage.md)
+* Aby dowiedzieć się, jak zarządzać kopią zapasową bazy danych SAP HANA działającej na maszynie wirtualnej platformy Azure przy użyciu programu Azure Portal, zobacz Manage [Backed up SAP HANA databases on Azure VM](./sap-hana-db-manage.md) (Zarządzanie kopiami zapasową baz danych na maszynie wirtualnej platformy Azure)

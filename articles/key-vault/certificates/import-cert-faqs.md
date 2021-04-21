@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 39fe4e77d701f8e9311ea343c88eb3b905496680
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 97dfc2db837f728b8cb4ece9a064f99006c9996b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749244"
+ms.locfileid: "107767821"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Importowanie certyfikatów Azure Key Vault — często zadawane pytania
 
@@ -42,7 +42,7 @@ Nie, nie można wykonywać operacji na certyfikatach przy użyciu szablonu Azure
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Podczas importowania certyfikatu za pośrednictwem Azure Portal występuje błąd "Wystąpił problem". Jak można dokładniej zbadać ten temat?
      
-Aby wyświetlić bardziej opisowy błąd, zaimportuj plik certyfikatu przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) lub programu [PowerShell.](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate)
+Aby wyświetlić bardziej opisowy błąd, zaimportuj plik certyfikatu przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) lub programu [PowerShell.](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate)
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Jak rozwiązać problem "Typ błędu: odmowa dostępu lub brak autoryzacji użytkownika do importowania certyfikatu"?
     
@@ -68,7 +68,7 @@ Sprawdź, czy zawartość pliku PEM używa separatorów wierszy w stylu systemu 
 
 ### <a name="can-i-import-an-expired-certificate-to-azure-key-vault"></a>Czy mogę zaimportować wygasły certyfikat do Azure Key Vault?
     
-Nie, nie można zaimportować wygasłych certyfikatów PFX do Key Vault.
+Nie, wygasłych certyfikatów PFX nie można zaimportować do Key Vault.
 
 ### <a name="how-can-i-convert-my-certificate-to-the-proper-format"></a>Jak mogę przekonwertować certyfikat na odpowiedni format?
 
