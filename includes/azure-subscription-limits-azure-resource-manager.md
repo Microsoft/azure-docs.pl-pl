@@ -8,23 +8,23 @@ ms.topic: include
 ms.date: 03/15/2021
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 97d80e999ac61a2c2f8f561dc19213419014beb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f02b7f0f80cfb875cc6207b542db90607b379b67
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470995"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800107"
 ---
 | Zasób | Limit |
 | --- | --- |
-| Subskrypcje [skojarzone z dzierżawą Azure Active Directory](../articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) | Nieograniczona liczba |
-| [Współadministratorzy](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) na subskrypcję |Nieograniczona liczba |
-| [Grupy zasobów](../articles/azure-resource-manager/management/overview.md) na subskrypcję |980 |
-| Rozmiar żądania interfejsu API Azure Resource Manager |4 194 304 bajty |
+| Subskrypcje [skojarzone z dzierżawą Azure Active Directory dzierżawy](../articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) | Nieograniczona liczba |
+| [Współadministratorzy na](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) subskrypcję |Nieograniczona liczba |
+| [Grupy zasobów na](../articles/azure-resource-manager/management/overview.md) subskrypcję |980 |
+| Azure Resource Manager żądania interfejsu API |4 194 304 bajty |
 | Tagi na subskrypcję<sup>1</sup> |50 |
-| Obliczenia unikatowych tagów na subskrypcję<sup>1</sup> | 80 000 |
-| [Wdrożenia na poziomie subskrypcji](../articles/azure-resource-manager/templates/deploy-to-subscription.md) na lokalizację | 800<sup>2</sup> |
+| Obliczenia unikatowych tagów na<sup>subskrypcję 1</sup> | 80 000 |
+| [Wdrożenia na poziomie subskrypcji na](../articles/azure-resource-manager/templates/deploy-to-subscription.md) lokalizację | 800<sup>2</sup> |
 
-<sup>1</sup> Możesz zastosować do 50 tagów bezpośrednio do subskrypcji. Jednak subskrypcja może zawierać nieograniczoną liczbę tagów, które są stosowane do grup zasobów i zasobów w ramach subskrypcji. Liczba tagów dla zasobu lub grupy zasobów jest ograniczona do 50. Menedżer zasobów zwraca [listę unikatowych nazw tagów i wartości](/rest/api/resources/tags) w subskrypcji tylko wtedy, gdy liczba tagów wynosi 80 000 lub mniej. Nadal można znaleźć zasób według tagu, gdy liczba przekracza 80 000.
+<sup>1</sup> Do subskrypcji można zastosować maksymalnie 50 tagów. Subskrypcja może jednak zawierać nieograniczoną liczbę tagów, które są stosowane do grup zasobów i zasobów w ramach subskrypcji. Liczba tagów na zasób lub grupę zasobów jest ograniczona do 50. Resource Manager zwraca listę [unikatowych](/rest/api/resources/tags) nazw i wartości tagów w subskrypcji tylko wtedy, gdy liczba tagów wynosi 80 000 lub mniej. Nadal można znaleźć zasób według tagu, gdy liczba przekracza 80 000.
 
-<sup>2</sup> Jeśli osiągnięto limit 800 wdrożeń, należy usunąć wdrożenia, które nie są już potrzebne z historii. Aby usunąć wdrożenia na poziomie subskrypcji, użyj polecenie [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) lub [AZ Deployment sub Delete](/cli/azure/deployment/sub#az-deployment-sub-delete).
+<sup>2.</sup> W przypadku osiągnięcia limitu 800 wdrożeń usuń z historii wdrożenia, które nie są już potrzebne. Aby usunąć wdrożenia na poziomie subskrypcji, użyj [remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) lub [az deployment sub delete](/cli/azure/deployment/sub#az_deployment_sub_delete).
