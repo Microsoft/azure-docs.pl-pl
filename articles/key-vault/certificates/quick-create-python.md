@@ -8,18 +8,18 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b8f36d7490e24247f1f8482c9dece86b68015d73
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 598bbef0ceb24f3eb5932239a4146e1693521f24
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376107"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751332"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Szybki start: Azure Key Vault klienta certyfikatu dla języka Python
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Szybki start: Azure Key Vault klienta certyfikatów dla języka Python
 
-Wprowadzenie do biblioteki klienta Azure Key Vault certyfikatów dla języka Python. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Używając Key Vault do przechowywania certyfikatów, należy unikać przechowywania certyfikatów w kodzie, co zwiększa bezpieczeństwo aplikacji.
+Wprowadzenie do biblioteki klienta Azure Key Vault certyfikatów dla języka Python. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Używając Key Vault do przechowywania certyfikatów, unika się przechowywania certyfikatów w kodzie, co zwiększa bezpieczeństwo aplikacji.
 
-[Dokumentacja referencyjna interfejsu API](/python/api/overview/azure/keyvault-certificates-readme)  |  [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)  |  [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-certificates)
+[Dokumentacja referencyjna interfejsu API](/python/api/overview/azure/keyvault-certificates-readme)  |  [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)  |  [Pakiet (indeks pakietów języka Python)](https://pypi.org/project/azure-keyvault-certificates)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,7 +49,7 @@ Ten przewodnik Szybki start używa biblioteki tożsamości platformy Azure z int
 
 ### <a name="install-the-packages"></a>Instalowanie pakietów
 
-1. W terminalu lub wierszu polecenia utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w tece [Use Python virtual environments (Używanie](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments) środowisk wirtualnych języka Python)
+1. W terminalu lub wierszu polecenia utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w [tece Use Python virtual environments (Korzystanie](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments) ze środowisk wirtualnych języka Python)
 
 1. Zainstaluj bibliotekę Azure Active Directory tożsamości:
 
@@ -96,9 +96,9 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="create-the-sample-code"></a>Tworzenie przykładowego kodu
 
-Biblioteka Azure Key Vault klienta certyfikatów dla języka Python umożliwia zarządzanie certyfikatami. W poniższym przykładzie kodu pokazano, jak utworzyć klienta, ustawić certyfikat, pobrać certyfikat i usunąć certyfikat.
+Biblioteka Azure Key Vault klienta certyfikatów dla języka Python umożliwia zarządzanie certyfikatami. Poniższy przykład kodu pokazuje, jak utworzyć klienta, ustawić certyfikat, pobrać certyfikat i usunąć certyfikat.
 
-Utwórz plik o *nazwie kv_certificates.py zawierający* ten kod.
+Utwórz plik o *nazwie kv_certificates.py* zawierający ten kod.
 
 ```python
 import os
@@ -143,7 +143,7 @@ python kv_certificates.py
 ```
 
 - Jeśli wystąpią błędy uprawnień, upewnij się, że uruchomiono [ `az keyvault set-policy` polecenie](#grant-access-to-your-key-vault).
-- Ponowne uruchomienie kodu o tej samej nazwie klucza może spowodować błąd "(Konflikt) Certyfikat jest obecnie w stanie <name> usunięcia, ale można go odzyskać". Użyj innej nazwy klucza.
+- Ponowne uruchomienie kodu z taką samą nazwą klucza może spowodować błąd "(Konflikt) Certyfikat jest obecnie w stanie <name> usunięcia, ale można go odzyskać". Użyj innej nazwy klucza.
 
 ## <a name="code-details"></a>Szczegóły kodu
 
@@ -196,7 +196,7 @@ deleted_certificate = poller.result()
 
 Metoda `begin_delete_certificate` jest asynchroniczna i zwraca obiekt poller. Wywołanie metody `result` pollera czeka na jego ukończenie.
 
-Możesz sprawdzić, czy certyfikat został usunięty, za pomocą polecenia [az keyvault certificate](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show)show interfejsu wiersza polecenia platformy Azure.
+Możesz sprawdzić, czy certyfikat został usunięty, za pomocą polecenia [az keyvault certificate](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show)show interfejsu wiersza polecenia platformy Azure .
 
 Po usunięciu certyfikat pozostaje w stanie usuniętym, ale można go odzyskać przez jeden czas. Jeśli kod zostanie uruchomiony ponownie, użyj innej nazwy certyfikatu.
 
@@ -213,7 +213,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Następne kroki
 
 - [Omówienie usługi Azure Key Vault](../general/overview.md)
-- [Bezpieczny dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
+- [Bezpieczny dostęp do magazynu kluczy](../general/security-overview.md)
 - [Azure Key Vault dewelopera](../general/developers-guide.md)
 - [Key Vault omówienie zabezpieczeń](../general/security-overview.md)
 - [Uwierzytelnianie za pomocą Key Vault](../general/authentication.md)

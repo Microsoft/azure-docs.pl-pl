@@ -1,49 +1,48 @@
 ---
 title: Azure Key Vault dostępności i nadmiarowości — Azure Key Vault | Microsoft Docs
-description: Dowiedz się więcej o dostępności Azure Key Vault i nadmiarowości.
+description: Dowiedz się więcej Azure Key Vault o dostępności i nadmiarowości.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/28/2020
-ms.author: sudbalas
-ms.openlocfilehash: 27184e267bb0472dad6fc9176dfdeee68d5eae58
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 3c5afc92044fcb109bedd38298b0b027ebeb437d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611824"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749694"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Dostępność i nadmiarowość w usłudze Azure Key Vault
 
-Azure Key Vault funkcje wielu warstw nadmiarowości, aby upewnić się, że klucze i wpisy tajne pozostaną dostępne dla aplikacji, nawet jeśli poszczególne składniki usługi nie powiodą się.
+Azure Key Vault wiele warstw nadmiarowości, aby mieć pewność, że klucze i wpisy tajne pozostaną dostępne dla aplikacji nawet w przypadku awarii poszczególnych składników usługi.
 
 > [!NOTE]
-> Ten przewodnik ma zastosowanie do magazynów. Zarządzane pule modułów HSM używają różnych modeli wysokiej dostępności i odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [Przewodnik dotyczący odzyskiwania po awarii zarządzanego modułu HSM](../managed-hsm/disaster-recovery-guide.md) .
+> Ten przewodnik dotyczy magazynów. Zarządzane pule modułów HSM używają innego modelu wysokiej dostępności i odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [Przewodnik odzyskiwania po awarii zarządzanego modułu HSM.](../managed-hsm/disaster-recovery-guide.md)
 
-Zawartość Twojego magazynu kluczy jest replikowana w regionie i do regionu pomocniczego, co najmniej 150 kilometrów, ale w tej samej lokalizacji geograficznej, aby zachować wysoką trwałość kluczy i wpisów tajnych. Aby uzyskać szczegółowe informacje na temat określonych par regionów, zobacz wieloskładnikowe [regiony platformy Azure](../../best-practices-availability-paired-regions.md). Wyjątek w modelu regionów sparowanych to Brazylia Południowa, która umożliwia tylko utrzymanie danych rezydentnych w Brazylii Południowej. Brazylia Południowa używa magazynu Strefowo nadmiarowego (ZRS) do replikowania danych trzykrotnie w obrębie jednej lokalizacji/regionu. W przypadku usługi AKV Premium tylko 2 z 3 regionów są używane do replikowania danych z modułu HSM.  
+Zawartość magazynu kluczy jest replikowana w obrębie regionu i do regionu pomocniczego w odległości co najmniej 150 kilometrów, ale w tej samej lokalizacji geograficznej w celu zachowania wysokiej trwałości kluczy i wpisów tajnych. Aby uzyskać szczegółowe informacje o określonych parach regionów, zobacz [Sparowane regiony platformy Azure](../../best-practices-availability-paired-regions.md). Wyjątkiem od sparowanego modelu regionów jest Brazylia Południowa, która umożliwia tylko utrzymanie danych na terenie Brazylii Południowej. Brazylia Południowa używa magazynu strefowo nadmiarowego (ZRS) do trzykrotnego replikowania danych w obrębie jednej lokalizacji/regionu. W przypadku usługi AKV Premium do replikowania danych z modułów HSM są używane tylko 2 z 3 regionów.  
 
-Jeśli poszczególne składniki w ramach usługi magazynu kluczy zakończą się niepowodzeniem, alternatywne składniki w ramach regionu w celu zapewnienia obsługi żądania, aby upewnić się, że nie ma obniżenia funkcjonalności. Nie musisz podejmować żadnych działań w celu uruchomienia tego procesu, dzieje się on automatycznie i będzie on widoczny dla Ciebie.
+W przypadku awarii poszczególnych składników w usłudze Key Vault alternatywne składniki w kroku regionu w celu obsługi żądania w celu upewnienia się, że nie ma pogorszenia funkcjonalności. Aby rozpocząć ten proces, nie musisz nic tworzyć. Jest on automatycznie i będzie dla Ciebie niewidoczny.
 
-W rzadkich przypadkach, gdy cały region platformy Azure jest niedostępny, żądania Azure Key Vault w tym regionie są automatycznie kierowane (przełączone do trybu *failover*) do regionu pomocniczego, z wyjątkiem regionu Brazylia Południowa. Gdy region podstawowy jest dostępny ponownie, żądania są przekierowywane z powrotem (*powrót po awarii*) do regionu podstawowego. Ponownie nie trzeba podejmować żadnych działań, ponieważ dzieje się to automatycznie.
+W rzadkich przypadkach, gdy cały region świadczenia usługi Azure jest niedostępny, żądania kierowane do usługi Azure Key Vault w tym regionie są automatycznie kierowane (w *trybie failed over)* do regionu pomocniczego z wyjątkiem regionu Brazylia Południowa. Gdy region podstawowy jest ponownie dostępny, żądania są kierowane z powrotem (powrót *po awarii)* do regionu podstawowego. Ponownie nie musisz podjąć żadnych działań, ponieważ dzieje się to automatycznie.
 
-W regionie Brazylia Południowa należy zaplanować odzyskiwanie magazynów kluczy platformy Azure w scenariuszu awarii regionu. Aby utworzyć kopię zapasową magazynu kluczy platformy Azure i przywrócić go w wybranym regionie, wykonaj kroki opisane w [Azure Key Vault kopii zapasowej](backup.md). 
+W regionie Brazylia Południowa należy zaplanować odzyskiwanie magazynów kluczy platformy Azure w scenariuszu awarii regionu. Aby utworzyć kopię zapasową i przywrócić magazyn kluczy platformy Azure do wybranego regionu, wykonaj kroki opisane w te Azure Key Vault [kopii zapasowej](backup.md). 
 
-Dzięki temu projektowi o wysokiej dostępności Azure Key Vault nie wymaga przestojów w przypadku aktywności konserwacyjnej.
+Dzięki temu projektowi o wysokiej dostępności Azure Key Vault nie wymaga przestojów w działaniach konserwacyjnych.
 
 Należy pamiętać o kilku zastrzeżeniach:
 
-* W przypadku przejścia w tryb pracy awaryjnej w celu przełączenia usługi do trybu failover może upłynąć kilka minut. Żądania wykonywane w tym czasie przed przejściem do trybu failover mogą zakończyć się niepowodzeniem.
-* Jeśli używasz prywatnego linku do nawiązywania połączenia z magazynem kluczy, ponowne nawiązanie połączenia w przypadku przejścia w tryb failover może potrwać do 20 minut. 
-* Podczas pracy w trybie failover Magazyn kluczy jest w trybie tylko do odczytu. Żądania obsługiwane w tym trybie są następujące:
-  * Wyświetlanie listy certyfikatów
-  * Pobierz certyfikaty
+* W przypadku trybu failover w regionie może mi potrwać kilka minut, aby usługa przesiewała do trybu failover. Żądania, które są dokonywane w tym czasie przed rozpoczęciem pracy w trybu failover, mogą się nie powieść.
+* Jeśli używasz linku prywatnego do nawiązywania połączenia z magazynem kluczy, ponowne połączenie może zostać nawiązane ponownie w przypadku trybu failover po 20 minutach. 
+* Podczas pracy w trybie failover magazyn kluczy jest w trybie tylko do odczytu. Żądania obsługiwane w tym trybie to:
+  * Lista certyfikatów
+  * Uzyskiwanie certyfikatów
   * Wyświetlanie listy wpisów tajnych
-  * Pobierz wpisy tajne
-  * Klucze list
-  * Pobierz (właściwości z) kluczy
+  * Uzyskiwanie wpisów tajnych
+  * Lista kluczy
+  * Pobierz (właściwości) kluczy
   * Szyfrowanie
   * Odszyfrowywanie
   * Zawijanie
@@ -52,6 +51,6 @@ Należy pamiętać o kilku zastrzeżeniach:
   * Znak
   * Backup
 
-* Podczas pracy w trybie failover nie będzie można wprowadzać zmian w właściwościach magazynu kluczy. Nie będzie można zmieniać zasad dostępu ani konfiguracji i ustawień zapory.
+* Podczas trybu failover nie będzie można wprowadzać zmian właściwości magazynu kluczy. Nie będzie można zmienić ustawień i konfiguracji zasad dostępu ani zapory.
 
-* Po przejściu w tryb failover są dostępne wszystkie typy żądań (łącznie *z* żądaniami odczytu i zapisu).
+* Po powrocie po awarii wszystkie typy żądań  (w tym żądania odczytu i zapisu) są dostępne.

@@ -47,21 +47,19 @@
       href: best-practices.md
     - name: Zabezpieczenia
       items:
-        - name: Omówienie
+        - name: Funkcje zabezpieczeń
           href: security-overview.md
-        - name: Bezpieczny dostęp do magazynu kluczy
-          href: secure-your-key-vault.md
         - name: Podstawy uwierzytelniania przy użyciu usługi Key Vault
           href: authentication-fundamentals.md
-        - name: Środowiska zabezpieczeń i granice regionów geograficznych
+        - name: Security worlds and geographies (Lokalizacje geograficzne i lokalizacje zabezpieczeń)
           href: overview-security-worlds.md
         - name: Bezpieczeństwo sieci
           href: network-security.md
         - name: Punkt odniesienia zabezpieczeń platformy Azure dla usługi Key Vault
-          href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/context/context
+          href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
         - name: Kontrole zabezpieczeń usługi Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
-          href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+          href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
     - name: Funkcja rejestrowania usługi Azure Key Vault
       href: logging.md
     - name: Powiadomienia
@@ -181,7 +179,7 @@
       displayName: ARM
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
-      href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+      href: ../policy-reference.md?context=/azure/key-vault/general/context/context
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

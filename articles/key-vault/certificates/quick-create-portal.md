@@ -3,7 +3,6 @@ title: Przewodnik Szybki start platformy Azure — konfigurowanie i pobieranie c
 description: Przewodnik Szybki start przedstawiający sposób ustawienia i pobrania certyfikatu z usługi Azure Key Vault użyciu Azure Portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0a35f83286abe5ae33f6d3c44ee7b05faf692512
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: be138a0c97e02cace45a57d8d6b32d7c9aea83b7
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479223"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749982"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Szybki start: konfigurowanie i pobieranie certyfikatu z Azure Key Vault użyciu Azure Portal
 
@@ -30,12 +29,12 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-1. W menu Azure Portal lub **na** stronie głównej wybierz pozycję **Utwórz zasób.**
+1. W menu Azure Portal lub na **stronie** głównej wybierz pozycję Utwórz **zasób.**
 2. W polu Wyszukaj wprowadź **Key Vault**.
 3. Na liście wyników wybierz pozycję **Key Vault**.
 4. W sekcji Key Vault, wybierz przycisk **Utwórz**.
 5. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:
-    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku Szybki start **użyjemy usługi Example-Vault.** 
+    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku Szybki start **użyjemy example-vault**. 
     - **Subskrypcja**: wybierz subskrypcję.
     - W **obszarze Grupa zasobów** wybierz pozycję Utwórz **nową** i wprowadź nazwę grupy zasobów.
     - W menu rozwijanym **Lokalizacja** wybierz lokalizację.
@@ -88,5 +87,5 @@ Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie takż
 W tym przewodniku Szybki start utworzono Key Vault przechowywany w nim certyfikat. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
-- Zobacz [Azure Key Vault dewelopera](../general/developers-guide.md)
+- Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
 - Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fac2eb75d210a34f4c5cd50c4649921aadfcd5ee
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 43b0304ec6ac4266c3727990bf013c3dcfe523a3
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588500"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750252"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -111,17 +111,17 @@ W przypadku **nowych wersji** pomocniczych kubernetes:
   * Usługa AKS [używa Azure Advisor,](https://docs.microsoft.com/azure/advisor/advisor-overview) aby powiadamiać użytkowników, jeśli nowa wersja spowoduje problemy w klastrze z powodu przestarzałych interfejsów API. Azure Advisor jest również używana do powiadamiania użytkownika, jeśli obecnie nie ma pomocy technicznej.
   * Usługa AKS [](../service-health/service-health-overview.md) publikuje powiadomienie o kondycji usługi dostępne dla wszystkich użytkowników z dostępem do usługi AKS i portalu, a następnie wysyła wiadomość e-mail do administratorów subskrypcji z datami planowanego usunięcia wersji.
 
-    ````
-    To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-    ````
+    > [!NOTE]
+    > Aby dowiedzieć się, kto jest administratorem subskrypcji, lub aby go zmienić, zapoznaj się z [tematem Zarządzanie subskrypcjami platformy Azure.](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
+    
   * Użytkownicy mają **30 dni od** usunięcia wersji do uaktualnienia do obsługiwanej wersji pomocniczej, aby nadal otrzymywać pomoc techniczną.
 
 W przypadku **nowych wersji** poprawek kubernetes:
   * Ze względu na pilny charakter wersji poprawek można je wprowadzać do usługi, gdy tylko staną się dostępne.
   * Ogólnie rzecz biorąc, aKS nie informuje ogólnie o wydaniu nowych wersji poprawek. Jednak stale monitoruje i weryfikuje dostępne poprawki CVE w celu ich obsługi w UKS w terminowy sposób. Jeśli zostanie znaleziona poprawka krytyczna lub wymagana jest akcja użytkownika, usługę AKS powiadomi użytkowników o uaktualnieniu do nowo dostępnej poprawki.
-  * Użytkownicy mają **30 dni** od usunięcia wydania poprawki z aks, aby uaktualnić do obsługiwanej poprawki i nadal otrzymywać pomoc techniczną.
+  * Użytkownicy mają **30 dni** od usunięcia wydania poprawki z aks, aby uaktualnić ją do obsługiwanej poprawki i nadal otrzymywać pomoc techniczną.
 
-### <a name="supported-versions-policy-exceptions"></a>Wyjątki zasad obsługiwanych wersji
+### <a name="supported-versions-policy-exceptions"></a>Obsługiwane wersje wyjątków zasad
 
 AKS zastrzega sobie prawo do dodawania lub usuwania nowych/istniejących wersji z co najmniej jednym krytycznym błędem lub problemami z zabezpieczeniami, które mają wpływ na środowisko produkcyjne, bez wcześniejszego powiadomienia.
 
@@ -129,7 +129,7 @@ Określone wersje poprawek mogą być pomijane lub przyspieszane w zależności 
 
 ## <a name="azure-portal-and-cli-versions"></a>Azure Portal i interfejsu wiersza polecenia
 
-Podczas wdrażania klastra usługi AKS w portalu lub za pomocą interfejsu wiersza polecenia platformy Azure klaster domyślnie jest w wersji pomocniczej N-1 i najnowszej poprawce. Jeśli na przykład usługi AKS obsługują wersję *1.17.a,* *1.17.b,* *1.16.c,* *1.16.d,* *1.15.e* i *1.15.f,* wybrana domyślna wersja to *1.16.c.*
+Podczas wdrażania klastra usługi AKS w portalu lub za pomocą interfejsu wiersza polecenia platformy Azure klaster domyślnie jest w wersji pomocniczej N-1 i najnowszej poprawce. Jeśli na przykład usługi AKS obsługują *wersję 1.17.a,* *1.17.b,* *1.16.c,* *1.16.d,* *1.15.e* i *1.15.f,* wybrana domyślna wersja to *1.16.c.*
 
 Aby dowiedzieć się, jakie wersje są obecnie dostępne dla Twojej subskrypcji i regionu, użyj [polecenia az aks get-versions.][az-aks-get-versions] Poniższy przykład zawiera listę dostępnych wersji kubernetes dla *regionu EastUS:*
 
@@ -160,13 +160,13 @@ Zespół usługi AKS publikuje wstępne ogłoszenia z zaplanowanymi datami nowyc
 
 Począwszy od środowiska Kubernetes 1.19, społeczność open source rozszerzyła wsparcie [do 1 roku.](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/) AKS zobowiązuje się do włączania poprawek i obsługi dopasowywania zobowiązań nadrzędnych. W przypadku klastrów usługi AKS w wersji 1.19 lub większej będzie można uaktualnić program co najmniej raz w roku, aby pozostać w obsługiwanej wersji. 
 
-W przypadku wersji 1.18 lub starszej okres wsparcia technicznego wynosi 9 miesięcy, co wymaga uaktualnienia co 9 miesięcy w celu pozostania w obsługiwanej wersji. Regularnie testuj nowe wersje i przygotuj się do uaktualnienia do nowszej wersji, aby przechwycić najnowsze stabilne ulepszenia w ramach rozwiązania Kubernetes.
+W przypadku wersji 1.18 lub starszej okres wsparcia technicznego wynosi 9 miesięcy, co wymaga uaktualnienia co 9 miesięcy, aby zachować obsługiwaną wersję. Regularnie testuj nowe wersje i przygotuj się do uaktualnienia do nowszej wersji w celu przechwycenia najnowszych stabilnych ulepszeń w ramach rozwiązania Kubernetes.
 
 **Co się stanie, gdy użytkownik uaktualni klaster Kubernetes przy użyciu wersji pomocniczej, która nie jest obsługiwana?**
 
 Jeśli używasz wersji *n-3* lub starszej, oznacza to, że nie masz pomocy technicznej i zostanie poproszony o uaktualnienie. Po zakończeniu uaktualniania z wersji n-3 do n-2 wrócisz do naszych zasad pomocy technicznej. Na przykład:
 
-- Jeśli najstarsza obsługiwana wersja usługi AKS to *1.15.a i* masz wersję *1.14.b* lub starszą, nie masz pomocy technicznej.
+- Jeśli najstarsza obsługiwana wersja usługi AKS to *1.15.a* i masz wersję *1.14.b* lub starszą, nie masz pomocy technicznej.
 - Po pomyślnym uaktualnieniu z *wersji 1.14.b* do *wersji 1.15.a* lub wyższej wrócisz do naszych zasad pomocy technicznej.
 
 Obniżanie poziomu nie jest obsługiwane.
@@ -181,17 +181,17 @@ Ponadto usługa AKS nie zapewnia żadnych gwarancji środowiska uruchomieniowego
 
 **Co się stanie, gdy użytkownik skaluje klaster Kubernetes przy użyciu wersji pomocniczej, która nie jest obsługiwana?**
 
-W przypadku wersji drobnych, które nie są obsługiwane przez usługę AKS, skalowanie do zewnątrz lub do zewnątrz powinno nadal działać. Ponieważ nie ma żadnych Quality of Service, zalecamy uaktualnienie, aby przywrócić obsługę klastra.
+W przypadku wersji pomocniczych, które nie są obsługiwane przez usługę AKS, skalowanie do zewnątrz lub do zewnątrz powinno nadal działać. Ponieważ nie ma żadnych Quality of Service, zalecamy uaktualnienie w celu zapewnienia obsługi klastra.
 
 **Czy użytkownik może pozostać w wersji kubernetes na zawsze?**
 
-Jeśli klaster nie obsługuje więcej niż trzech (3) wersji drobnych i znaleziono zagrożenie bezpieczeństwa, platforma Azure proaktywnie kontaktuje się z Tobem w celu uaktualnienia klastra. Jeśli nie podejmiesz dalszych działań, platforma Azure zastrzega sobie prawo do automatycznego uaktualnienia klastra w Twoim imieniu.
+Jeśli klaster nie obsługuje więcej niż trzech (3) wersji pomocniczych i znaleziono ryzyko związane z zabezpieczeniami, platforma Azure proaktywnie kontaktuje się z Tobem w celu uaktualnienia klastra. Jeśli nie podejmiesz dalszych działań, platforma Azure zastrzega sobie prawo do automatycznego uaktualnienia klastra w Twoim imieniu.
 
 **Jaka wersja jest obsługiwana przez płaszczyznę sterowania, jeśli pula węzłów nie znajduje się w jednej z obsługiwanych wersji AKS?**
 
 Płaszczyzna sterowania musi znajdować się w oknie wersji ze wszystkich pul węzłów. Szczegółowe informacje na temat uaktualniania płaszczyzny sterowania lub pul węzłów można znaleźć w dokumentacji dotyczącej [uaktualniania pul węzłów.](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools)
 
-**Czy mogę pominąć wiele wersji usługi AKS podczas uaktualniania klastra?**
+**Czy można pominąć wiele wersji usługi AKS podczas uaktualniania klastra?**
 
 Podczas uaktualniania obsługiwanego klastra usługi AKS nie można pominąć wersji pomocniczej kubernetes. Na przykład uaktualnienia między:
   * *1.12.x*  ->  *1.13.x:* dozwolone.
@@ -199,18 +199,18 @@ Podczas uaktualniania obsługiwanego klastra usługi AKS nie można pominąć we
   * *1.12.x*  ->  *1.14.x:* niedozwolone.
 
 Aby uaktualnić z *wersji 1.12.x*  ->  *1.14.x:*
-1. Uaktualnij *z wersji 1.12.x*  ->  *1.13.x.*
+1. Uaktualnij *system z wersji 1.12.x*  ->  *1.13.x.*
 1. Uaktualnij *z wersji 1.13.x*  ->  *1.14.x.*
 
-Pomijanie wielu wersji można wykonać tylko podczas uaktualniania z nieobsługiwanej wersji z powrotem do obsługiwanej wersji. Na przykład możesz uaktualnić nieobsługiwaną platformę *1.10.x* do obsługiwanej *wersji 1.15.x.*
+Pomijanie wielu wersji można wykonać tylko podczas uaktualniania z nieobsługiwanej wersji z powrotem do obsługiwanej wersji. Na przykład można uaktualnić z nieobsługiwanej wersji *1.10.x* do obsługiwanej *wersji 1.15.x.*
 
 **Czy mogę utworzyć nowy klaster 1.xx.x w 30-dniowym oknie pomocy technicznej?**
 
-Nie. Gdy wersja jest przestarzała/usuwana, nie można utworzyć klastra z tej wersji. Wraz ze zmianą zaczniesz widzieć starą wersję usuniętą z listy wersji. Ten proces może potrwać do dwóch tygodni od ogłoszenia, stopniowo według regionu.
+Nie. Gdy wersja jest przestarzała/usunięta, nie można utworzyć klastra z tej wersji. Wraz ze zmianą zaczniesz widzieć starą wersję usuniętą z listy wersji. Ten proces może potrwać do dwóch tygodni od ogłoszenia, stopniowo według regionu.
 
-**Mam najnowszą przestarzałyą wersję. Czy nadal mogę dodawać nowe pule węzłów? Czy będzie trzeba uaktualnić?**
+**Jestem w nowej, przestarzałej wersji. Czy nadal mogę dodawać nowe pule węzłów? Czy będzie trzeba uaktualnić?**
 
-Nie. Nie będzie można dodawać pul węzłów przestarzałej wersji do klastra. Możesz dodać pule węzłów w nowej wersji. Może to jednak wymagać najpierw zaktualizowania płaszczyzny sterowania. 
+Nie. Nie będzie można dodawać pul węzłów w przestarzałej wersji do klastra. Możesz dodać pule węzłów nowej wersji. Może to jednak wymagać najpierw zaktualizowania płaszczyzny sterowania. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 61fcbfa9d40ebb26485ce8160fa3b011935ab4d6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4b7251be220c012ca51970863ac2eed55d46d711
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536319"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751152"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego synapse
 
@@ -65,11 +65,11 @@ Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy bę
 
 Po utworzeniu Azure Synapse obszar roboczy można otworzyć dwa Synapse Studio sposoby:
 
-* Otwórz obszar roboczy synapse w Azure Portal [,](https://portal.azure.com)w sekcji Przegląd obszaru  roboczego synapse wybierz pozycję Otwórz w Synapse Studio aplikacji. 
-* Przejdź do witryny `https://web.azuresynapse.net` i zaloguj się do obszaru roboczego.
+* Otwórz obszar roboczy synapse w Azure Portal ,  w sekcji [Przegląd](https://portal.azure.com)obszaru  roboczego synapse wybierz pozycję Otwórz w Synapse Studio aplikacji.
+* Przejdź do obszaru `https://web.azuresynapse.net` i zaloguj się do obszaru roboczego.
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>Umieść przykładowe dane na podstawowym koncie magazynu
-W tym przewodniku z wprowadzeniem użyjemy przykładowego zestawu danych dotyczących taksówek NYX o rozmiarze 100 tys. Zaczynamy od umieszczenia go na podstawowym koncie magazynu utworzonym dla obszaru roboczego.
+W tym przewodniku z wprowadzeniem użyjemy przykładowego zestawu danych o rozmiarze 100 000 taksówek w NYX. Zaczynamy od umieszczenia go na podstawowym koncie magazynu utworzonym dla obszaru roboczego.
 
 * Pobierz ten plik na komputer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * W Synapse Studio przejdź do centrum danych. 
@@ -77,6 +77,14 @@ W tym przewodniku z wprowadzeniem użyjemy przykładowego zestawu danych dotycz�
 * W kategorii **Azure Data Lake Storage Gen2** zostanie wyświetlony element o nazwie, na przykład **myworkspace ( Primary - contosolake )**.
 * Wybierz kontener o nazwie **użytkownicy (podstawowy).**
 * Wybierz **pozycję** Przekaż i `NYCTripSmall.parquet` wybierz pobrany plik.
+
+Jeden z przekazanych plików Parquet jest dostępny za pośrednictwem dwóch równoważnych URI:
+* `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
+* `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
+
+W przykładach, które zostały opisane w tym samouczku, pamiętaj, aby zastąpić nazwę **contosolake** w interfejsie użytkownika nazwą podstawowego konta magazynu wybranego dla obszaru roboczego.
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

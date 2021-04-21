@@ -1,31 +1,31 @@
 ---
 title: Przekształcanie danych na Azure IoT Central | Microsoft Docs
-description: Urządzenia IoT wysyłają dane w różnych formatach, które mogą wymagać przekształcenia. W tym artykule opisano sposób przekształcania danych zarówno w IoT Central, jak i na wy wychodzącym. Opisane scenariusze używają IoT Edge i Azure Functions.
+description: Urządzenia IoT wysyłają dane w różnych formatach, które mogą wymagać przekształcenia. W tym artykule opisano sposób przekształcania danych zarówno w IoT Central, jak i w drodze. W opisanych scenariuszach są IoT Edge i Azure Functions.
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7d9575bedbdce96ef59e9b1d77b9034162bc16bf
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6032300bd203db78e8cd147cf79300d6dcd9b1dc
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107730485"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751692"
 ---
 # <a name="transform-data-for-iot-central"></a>Przekształcanie danych na IoT Central
 
 *Ten temat dotyczy konstruktorów rozwiązań.*
 
-Urządzenia IoT wysyłają dane w różnych formatach. Aby używać danych urządzenia z aplikacją IoT Central, może być konieczne użycie przekształcenia w celu:
+Urządzenia IoT wysyłają dane w różnych formatach. Aby użyć danych urządzenia z aplikacją IoT Central, może być konieczne użycie przekształcenia w celu:
 
 - Upewnij się, że format danych jest zgodny z IoT Central aplikacji.
 - Konwertowanie jednostek.
-- Obliczanie nowych metryk.
+- Oblicza nowe metryki.
 - Wzbogacanie danych z innych źródeł.
 
-W tym artykule pokazano, jak przekształcać dane urządzenia poza obszarem IoT Central w przypadku danych przychodzących lub wychodzących.
+W tym artykule pokazano, jak przekształcić dane urządzenia poza obszarem IoT Central w przypadku danych przychodzących lub wychodzących.
 
 Na poniższym diagramie przedstawiono trzy trasy dla danych, które obejmują przekształcenia:
 
@@ -35,23 +35,23 @@ W poniższej tabeli przedstawiono trzy przykładowe typy przekształceń:
 
 | Transformacja | Opis | Przykład  | Uwagi |
 |------------------------|-------------|----------|-------|
-| Format komunikatu         | Konwertowanie na komunikaty JSON i manipulowanie nimi. | CSV do JSON  | W przypadku ruch przychodzący. IoT Central akceptuje tylko komunikaty JSON o wartości. Aby dowiedzieć się więcej, zobacz [Telemetria, właściwości i ładunki poleceń](concepts-telemetry-properties-commands.md). |
-| Obliczeń           | Funkcje matematyczne Azure Functions które można wykonywać. [](../../azure-functions/index.yml) | Konwersja jednostek ze stopni Fahrenheita na stopnie Celsjusza.  | Przekształć przy użyciu wzorca wychodzącego, aby wykorzystać skalowalny ruch przychodzący urządzenia za pośrednictwem bezpośredniego połączenia IoT Central. Przekształcanie danych umożliwia korzystanie z IoT Central, takich jak wizualizacje i zadania. |
-| Wzbogacanie komunikatów     | Wzbogacenia z zewnętrznych źródeł danych nie znaleziono we właściwościach urządzenia ani telemetrii. Aby dowiedzieć się więcej na temat wewnętrznych wzbogaceń, zobacz [Eksportowanie danych IoT do](howto-export-data.md) miejsc docelowych w chmurze przy użyciu eksportu danych | Dodawanie informacji o pogodzie do komunikatów przy użyciu danych lokalizacji z urządzeń. | Przekształć przy użyciu wzorca wychodzącego, aby wykorzystać skalowalny ruch przychodzący urządzenia za pośrednictwem bezpośredniego połączenia IoT Central. |
+| Format komunikatu         | Konwertowanie komunikatów JSON lub manipulowanie nimi. | Csv do JSON  | W przypadku danych przychodzących. IoT Central akceptuje tylko komunikaty JSON o wartości. Aby dowiedzieć się więcej, zobacz [Telemetria, właściwości i ładunki poleceń](concepts-telemetry-properties-commands.md). |
+| Obliczeń           | Funkcje matematyczne, [Azure Functions](../../azure-functions/index.yml) wykonywać. | Konwersja jednostek z Fahrenheita na stopnie Celsjusza.  | Przekształć przy użyciu wzorca wychodzącego, aby korzystać ze skalowalnego przychodzących urządzeń za pośrednictwem bezpośredniego połączenia IoT Central. Przekształcanie danych umożliwia korzystanie z IoT Central takich jak wizualizacje i zadania. |
+| Wzbogacanie komunikatów     | Wzbogacenia z zewnętrznych źródeł danych nie znaleziono we właściwościach urządzenia ani telemetrii. Aby dowiedzieć się więcej na temat wewnętrznych wzbogaceń, zobacz [Eksportowanie danych IoT do](howto-export-data.md) miejsc docelowych w chmurze przy użyciu eksportu danych | Dodawanie informacji o pogodzie do komunikatów przy użyciu danych lokalizacji z urządzeń. | Przekształć przy użyciu wzorca wychodzącego, aby korzystać ze skalowalnego przychodzących urządzeń za pośrednictwem bezpośredniego połączenia IoT Central. |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby wykonać kroki opisane w tym artykule, potrzebujesz aktywnej subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Do skonfigurowania rozwiązania potrzebna jest IoT Central aplikacji. Aby dowiedzieć się, jak utworzyć aplikację IoT Central, zobacz [Tworzenie Azure IoT Central aplikacji.](quick-deploy-iot-central.md)
+Aby skonfigurować rozwiązanie, potrzebujesz aplikacji IoT Central aplikacji. Aby dowiedzieć się, jak utworzyć aplikację IoT Central, zobacz [Tworzenie Azure IoT Central aplikacji.](quick-deploy-iot-central.md)
 
 ## <a name="data-transformation-at-ingress"></a>Przekształcanie danych przy wejechu
 
-Istnieją dwie opcje przekształcania danych urządzenia na wjechu:
+Istnieją dwie opcje przekształcania danych urządzenia w przypadku danych przychodzących:
 
-- **IoT Edge:** użyj modułu IoT Edge, aby przekształcić dane z urządzeń nadrzędnych przed wysłaniem danych do IoT Central aplikacji.
+- **IoT Edge:** użyj modułu IoT Edge, aby przekształcić dane z urządzeń dalszych przed wysłaniem danych do IoT Central aplikacji.
 
-- **IoT Central** urządzenia: mostek [](https://github.com/Azure/iotc-device-bridge) urządzenia IoT Central łączy inne chmury urządzeń IoT, takie jak Sigfox, Particle i The Things Network, z IoT Central. Mostek urządzeń używa funkcji platformy Azure do przekazywania danych i można dostosować funkcję do przekształcania danych urządzenia.
+- **IoT Central** urządzenia: mostek [](howto-build-iotc-device-bridge.md) urządzenia IoT Central łączy inne chmury urządzeń IoT, takie jak Sigfox, Particle i The Things Network, z IoT Central. Mostek urządzenia używa funkcji platformy Azure do przekazywania danych i można dostosować funkcję w celu przekształcania danych urządzenia.
 
 ### <a name="use-iot-edge-to-transform-device-data"></a>Przekształcanie danych IoT Edge przy użyciu IoT Edge
 

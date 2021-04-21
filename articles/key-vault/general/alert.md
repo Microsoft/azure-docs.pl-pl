@@ -1,216 +1,215 @@
 ---
 title: Azure Key Vault monitorowania i alertów | Microsoft Docs
-description: Utwórz pulpit nawigacyjny do monitorowania kondycji magazynu kluczy i konfigurowania alertów.
+description: Utwórz pulpit nawigacyjny, aby monitorować kondycję magazynu kluczy i konfigurować alerty.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/06/2020
-ms.author: sudbalas
-ms.openlocfilehash: 684c2f3bc7a15d7652ef271fd01872dc2149827d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: f8f9dd6d51b974ebd31804daf0402ca5535ffc92
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059602"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751584"
 ---
-# <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorowanie i zgłaszanie alertów dla Azure Key Vault
+# <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorowanie i alerty dotyczące Azure Key Vault
 
 ## <a name="overview"></a>Omówienie
 
-Po rozpoczęciu korzystania z magazynu kluczy do przechowywania własnych wpisów tajnych należy monitorować kondycję magazynu kluczy, aby upewnić się, że usługa działa zgodnie z oczekiwaniami. Po rozpoczęciu skalowania usługi liczba żądań wysyłanych do magazynu kluczy wzrośnie. Jest to możliwe, aby zwiększyć opóźnienie żądań i w skrajnych przypadkach, co spowoduje ograniczenie żądań, co wpłynie na wydajność usługi. Należy również otrzymywać alerty, jeśli Magazyn kluczy wysyła nietypową liczbę kodów błędów, dzięki czemu można szybko otrzymywać powiadomienia o wszelkich problemach z zasadami dostępu lub konfiguracją zapory. Ten dokument obejmuje następujące tematy:
+Po użyciu magazynu kluczy do przechowywania produkcyjnych wpisów tajnych należy monitorować kondycję magazynu kluczy, aby upewnić się, że usługa działa zgodnie z przeznaczeniem. Gdy zaczniesz skalować usługę, liczba żądań wysyłanych do magazynu kluczy wzrośnie. Może to zwiększyć opóźnienie żądań, a w skrajnych przypadkach spowodować ograniczenie żądań, co będzie miało wpływ na wydajność usługi. Musisz również być powiadamiany, jeśli magazyn kluczy wysyła nietypową liczbę kodów błędów, aby można było szybko powiadamiać o wszelkich problemach z zasadami dostępu lub konfiguracją zapory. Ten dokument obejmuje następujące tematy:
 
-+ Podstawowe metryki Key Vault do monitorowania
++ Podstawowe Key Vault do monitorowania
 + Jak skonfigurować metryki i utworzyć pulpit nawigacyjny
-+ Jak utworzyć alerty w określonych progach
++ Jak tworzyć alerty z określonymi progami
 
-Azure Monitor Key Vault łączy zarówno dzienniki, jak i metryki, aby zapewnić globalne rozwiązanie do monitorowania. [Dowiedz się więcej o Azure Monitor Key Vault tym miejscu](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
+Azure Monitor dla Key Vault łączy zarówno dzienniki, jak i metryki w celu zapewnienia globalnego rozwiązania do monitorowania. [Dowiedz się więcej o Azure Monitor dla Key Vault tutaj](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
 
-## <a name="basic-key-vault-metrics-to-monitor"></a>Podstawowe metryki Key Vault do monitorowania
+## <a name="basic-key-vault-metrics-to-monitor"></a>Podstawowe Key Vault do monitorowania
 
 + Dostępność magazynu  
 + Nasycenie magazynu 
 + Opóźnienie interfejsu API usługi 
-+ Całkowita liczba trafień interfejsu API usługi (filtrowanie według typu działania) 
-+ Kody błędów (filtrowanie według kodu stanu) 
++ Łączna liczba trafień interfejsu API usługi (filtruj według typu działania) 
++ Kody błędów (filtruj według kodu stanu) 
 
-**Dostępność magazynu** — ta Metryka powinna zawsze wynosić 100% to jest ważna Metryka do monitorowania, ponieważ może ona szybko pokazać, Jeśli Twój Magazyn kluczy napotkał awarię. 
+**Dostępność magazynu** — ta metryka powinna zawsze mieć wartość 100% i jest to ważna metryka do monitorowania, ponieważ może ona szybko pokazać, czy w magazynie kluczy wystąpiła błąd. 
 
-**Nasycenie magazynu** — liczba żądań na sekundę, które może obsłużyć Magazyn kluczy, zależy od typu wykonywanej operacji. Niektóre operacje magazynu mają niższą wartość progową żądań na sekundę. Ta Metryka agreguje całkowite użycie magazynu kluczy dla wszystkich typów operacji w celu uzyskania wartości procentowej, która wskazuje bieżące użycie magazynu kluczy. Aby uzyskać pełną listę limitów usługi magazynu kluczy, zobacz następujący dokument. [Limity usługi Azure Key Vault](service-limits.md)
+**Nasycenie** magazynu — liczba żądań na sekundę, które magazyn kluczy może obsługiwać, zależy od typu wykonywanej operacji. Niektóre operacje magazynu mają niższy próg żądań na sekundę. Ta metryka agreguje łączne użycie magazynu kluczy we wszystkich typach operacji, aby wymyślić wartość procentową, która wskazuje bieżące użycie magazynu kluczy. Aby uzyskać pełną listę limitów usługi Key Vault, zobacz następujący dokument. [Limity usługi Azure Key Vault](service-limits.md)
 
-**Opóźnienie interfejsu API usługi** — ta Metryka przedstawia średni czas oczekiwania wywołań magazynu kluczy mierzony przez usługę. Nie obejmuje czas zużyty przez klienta ani przez sieć między klientem i usługą.
+**Opóźnienie interfejsu API** usługi — ta metryka przedstawia średnie opóźnienie wywołań magazynu kluczy mierzone w usłudze. Nie obejmuje czasu używanego przez klienta ani przez sieć między klientem a usługą.
 
-**Całkowita liczba trafień interfejsu API** — ta Metryka przedstawia wszystkie wywołania w magazynie kluczy. Ułatwi to zidentyfikowanie aplikacji wywołujących Magazyn kluczy. 
+**Łączna liczba trafień** interfejsu API — ta metryka przedstawia wszystkie wywołania do magazynu kluczy. Pomoże to określić, które aplikacje wywołują magazyn kluczy. 
 
-**Kody błędów** — ta Metryka pokazuje, czy w magazynie kluczy występuje nietypowa ilość błędów. Aby zapoznać się z pełną listą kodów błędów i wskazówek dotyczących rozwiązywania problemów, zobacz następujący dokument. [Kody błędów interfejsu API REST Azure Key Vault](rest-error-codes.md)
+**Kody błędów** — ta metryka pokazuje, czy w magazynie kluczy występuje nietypowa liczba błędów. Aby uzyskać pełną listę kodów błędów i wskazówki dotyczące rozwiązywania problemów, zobacz następujący dokument. [Azure Key Vault błędów interfejsu API REST](rest-error-codes.md)
 
 ## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Jak skonfigurować metryki i utworzyć pulpit nawigacyjny
 
 1. Zaloguj się w witrynie Azure Portal
-2. Przejdź do Key Vault
-3. Wybierz **metryki** w obszarze **monitorowanie** 
+2. Przejdź do swojego Key Vault
+3. Wybierz **pozycję Metryki w** obszarze **Monitorowanie** 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu, który podświetla opcję metryki w sekcji monitorowanie.](../media/alert-1.png)
+> ![Zrzut ekranu przedstawiający opcję Metryki w sekcji Monitorowanie.](../media/alert-1.png)
 
-4. Zaktualizuj tytuł wykresu, który ma być widoczny na pulpicie nawigacyjnym. 
+4. Zaktualizuj tytuł wykresu do tego, co chcesz zobaczyć na pulpicie nawigacyjnym. 
 5. Wybierz zakres. W tym przykładzie wybierzemy pojedynczy magazyn kluczy. 
-6. Wybierz metrykę **ogólnej dostępności** **i agregacji** magazynu 
-7. Zaktualizuj zakres czasu do ostatnich 24 godzin i zaktualizuj poziom szczegółowości czasu do 1 minuty. 
+6. Wybierz ogólną **dostępność magazynu metryk i** średnią **agregacji** 
+7. Zaktualizuj zakres czasu na ostatnie 24 godziny i zaktualizuj poziom szczegółowości czasu na 1 minutę. 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający ogólną metrykę dostępności magazynu.](../media/alert-2.png)
+> ![Zrzut ekranu przedstawiający metrykę Ogólna dostępność magazynu.](../media/alert-2.png)
 
-8. Powtórz powyższe kroki w celu uzyskania nasycenia magazynu i metryk opóźnienia interfejsu API usługi. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , aby zapisać metryki na pulpicie nawigacyjnym. 
+8. Powtórz powyższe kroki dla metryk Nasycenie magazynu i Opóźnienie interfejsu API usługi. Wybierz **pozycję Przypnij** do pulpitu nawigacyjnego, aby zapisać metryki na pulpicie nawigacyjnym. 
 
 > [!IMPORTANT]
-> Wybierz pozycję "Przypnij do pulpitu nawigacyjnego" i Zapisz każdą skonfigurowaną metrykę. Jeśli opuścisz stronę i wrócisz do niej bez zapisywania, zmiany konfiguracji zostaną utracone. 
+> Wybierz pozycję "Przypnij do pulpitu nawigacyjnego" i zapisz każdą skonfigurowaną metrykę. Jeśli opuścisz stronę i wrócisz do niego bez zapisywania, zmiany konfiguracji zostaną utracone. 
 
-9. Aby monitorować wszystkie typy operacji w magazynie kluczy, użyj metryki **łącznej liczby trafień interfejsu API usługi** i wybierz pozycję **Zastosuj podział według typu działania**
-
-> [!div class="mx-imgBorder"]
-> ![Zrzut ekranu pokazujący przycisk Zastosuj podział.](../media/alert-3.png)
-
-10. Aby monitorować kody błędów w magazynie kluczy, użyj metryki **łącznej liczby wyników interfejsu API usługi** i wybierz pozycję **Zastosuj podział według typu działania**
+9. Aby monitorować wszystkie typy operacji w magazynie kluczy, użyj metryki Łączna liczba trafień interfejsu **API** usługi i wybierz pozycję Zastosuj **podział według typu działania**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający wybraną metrykę łącznej liczby wyników interfejsu API usługi.](../media/alert-4.png)
+> ![Zrzut ekranu przedstawiający przycisk Zastosuj podział.](../media/alert-3.png)
 
-Teraz masz pulpit nawigacyjny, który będzie wyglądać następująco. Możesz kliknąć trzy kropki w prawym górnym rogu każdego kafelka i można zmienić ich rozmiar i rozmiary, gdy jest to potrzebne. 
+10. Aby monitorować kody błędów w magazynie kluczy, użyj metryki Total Service API Results Metric (Łączna liczba wyników **interfejsu API** usługi) i wybierz pozycję Apply **Splitting by Activity Type (Zastosuj podział według typu działania)**
 
-Po zapisaniu i opublikowaniu pulpitu nawigacyjnego zostanie utworzony nowy zasób w ramach subskrypcji platformy Azure. Zobaczysz ją w dowolnym momencie, wyszukując "udostępniony pulpit nawigacyjny". 
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający wybraną metrykę Total Service API Results (Łączna liczba wyników interfejsu API usługi).](../media/alert-4.png)
+
+Teraz będziesz mieć pulpit nawigacyjny, który wygląda następująco. Możesz kliknąć 3 kropki w prawym górnym rogu każdego kafelka, aby zmienić rozmieszczenie kafelków i zmienić ich rozmiar zgodnie z potrzebami. 
+
+Po zapisaniu i opublikowaniu pulpitu nawigacyjnego utworzy on nowy zasób w subskrypcji platformy Azure. Będzie można go wyświetlić w dowolnym momencie, wyszukując "udostępniony pulpit nawigacyjny". 
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający opublikowany pulpit nawigacyjny.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Jak skonfigurować alerty na Key Vault 
 
-W tej sekcji opisano sposób konfigurowania alertów w magazynie kluczy, dzięki czemu można ostrzec zespół o konieczności podjęcia działań natychmiast, jeśli Magazyn kluczy jest w złej kondycji. Można skonfigurować alerty, które wysyłają wiadomości e-mail, najlepiej do zespołu DL, wyzwalają powiadomienia w usłudze Event Grid lub dzwonić lub wysyłają tekst do numeru telefonu. Możesz również wybrać alerty statyczne na podstawie ustalonej wartości lub alertu dynamicznego, który będzie powiadamiać o tym, czy monitorowana Metryka przekracza średni limit czasu magazynu kluczy określoną liczbę razy w określonym zakresie. 
+W tej sekcji opisano sposób konfigurowania alertów w magazynie kluczy, dzięki czemu można powiadamiać zespół o podjęciu natychmiastowej akcji, jeśli magazyn kluczy jest w złej kondycji. Możesz skonfigurować alerty, które wysyłają wiadomość e-mail, najlepiej do zespołu DL, wywołują powiadomienie usługi Event Grid lub dzwonią lub wysyłają wiadomość SMS na numer telefonu. Możesz również wybrać alerty statyczne oparte na stałej wartości lub alert dynamiczny, który będzie cię powiadamiać, jeśli monitorowana metryka przekroczy średni limit magazynu kluczy określoną liczbę razy w określonym zakresie czasu. 
 
 > [!IMPORTANT]
-> Należy pamiętać, że nowo skonfigurowane alerty mogą zacząć wysyłać powiadomienia do 10 minut. 
+> Pamiętaj, że rozpoczęcie wysyłania powiadomień przez nowo skonfigurowane alerty może potrwać do 10 minut. 
 
 ### <a name="configure-an-action-group"></a>Konfigurowanie grupy akcji 
 
 Grupa akcji to konfigurowalna lista powiadomień i właściwości.
 
 1. Zaloguj się w witrynie Azure Portal
-2. Wyszukaj **alerty** w polu wyszukiwania
-3. Wybierz pozycję **Zarządzaj akcjami**
+2. Wyszukiwanie **alertów** w polu wyszukiwania
+3. Wybieranie **opcji Zarządzaj akcjami**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu, który podświetla przycisk Zarządzaj akcjami.](../media/alert-6.png)
+> ![Zrzut ekranu przedstawiający przycisk Zarządzaj akcjami.](../media/alert-6.png)
 
-4. Wybierz pozycję **+ Dodaj grupę akcji**
-
-> [!div class="mx-imgBorder"]
-> ![Zrzut ekranu, który wyróżnia przycisk + Dodaj grupę akcji.](../media/alert-7.png)
-
-5. Wybierz **Typ akcji** dla grupy akcji. W tym przykładzie utworzymy alert e-mail.
+4. Wybierz **pozycję + Dodaj grupę akcji**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu, który wyróżnia pola niezbędne do dodania grupy akcji.](../media/alert-8.png)
+> ![Zrzut ekranu przedstawiający przycisk + Dodaj grupę akcji.](../media/alert-7.png)
+
+5. Wybierz typ **akcji dla** grupy akcji. W tym przykładzie utworzymy alert e-mail.
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu pokazujący, co jest potrzebne do dodania alertu e-mail lub wiadomości SMS.](../media/alert-9.png)
+> ![Zrzut ekranu przedstawiający pola wymagane do dodania grupy akcji.](../media/alert-8.png)
 
-6. Kliknij przycisk **OK** w dolnej części strony. Grupa akcji została pomyślnie utworzona. 
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający, co jest potrzebne do dodania alertu e-mail lub wiadomości SMS.](../media/alert-9.png)
 
-Teraz, po skonfigurowaniu grupy akcji, skonfigurujemy progi alertów magazynu kluczy. 
+6. Kliknij przycisk **OK** w dolnej części strony. Pomyślnie utworzono grupę akcji. 
+
+Po skonfigurowaniu grupy akcji skonfigurujemy progi alertów magazynu kluczy. 
 
 ### <a name="configure-alert-thresholds"></a>Konfigurowanie progów alertów 
 
-1. Wybierz zasób magazynu kluczy w Azure Portal i wybierz pozycję **alerty** w obszarze **monitorowanie**
+1. Wybierz zasób magazynu kluczy w chmurze Azure Portal wybierz pozycję **Alerty w** obszarze **Monitorowanie**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający opcję menu alerty w sekcji monitorowanie.](../media/alert-10.png)
+> ![Zrzut ekranu przedstawiający opcję menu Alerty w sekcji Monitorowanie.](../media/alert-10.png)
 
-2. Wybierz **nową regułę alertu**
+2. Wybierz pozycję **Nowa reguła alertu**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu, na którym jest wyświetlany przycisk + Nowa reguła alertu.](../media/alert-11.png)
+> ![Zrzut ekranu przedstawiający przycisk + Nowa reguła alertu.](../media/alert-11.png)
 
-3. Wybierz zakres reguły alertu. Można wybrać pojedynczy magazyn lub wiele. 
+3. Wybierz zakres reguły alertu. Możesz wybrać pojedynczy magazyn lub wiele magazynów. 
 
 > [!IMPORTANT]
-> Należy pamiętać, że w przypadku wybrania wielu magazynów dla zakresu alertów wszystkie wybrane magazyny muszą znajdować się w tym samym regionie. Konieczne będzie skonfigurowanie osobnych reguł alertów dla magazynów w różnych regionach. 
+> Należy pamiętać, że w przypadku wybrania wielu magazynów dla zakresu alertów wszystkie wybrane magazyny muszą znajdować się w tym samym regionie. Należy skonfigurować oddzielne reguły alertów dla magazynów w różnych regionach. 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu pokazujący, jak można wybrać magazyn.](../media/alert-12.png)
+> ![Zrzut ekranu przedstawiający sposób wybierania magazynu.](../media/alert-12.png)
 
-4. Wybierz warunki dla alertów. Można wybrać dowolny z następujących sygnałów i zdefiniować logikę do tworzenia alertów. Zespół Key Vault zaleca skonfigurowanie następujących progów alertów. 
+4. Wybierz warunki dla alertów. Możesz wybrać dowolny z poniższych sygnałów i zdefiniować logikę dla alertów. Zespół Key Vault zaleca skonfigurowanie następujących progów alertów. 
 
-    + Dostępność Key Vault spadnie poniżej 100% (próg statyczny)
-    + Opóźnienie Key Vault jest większe niż 500 ms (próg statyczny) 
-    + Całkowite nasycenie magazynu jest większe niż 75% (próg statyczny) 
-    + Całkowite nasycenie magazynu przekracza średnią (próg dynamiczny)
-    + Łączna liczba kodów błędów wyższa niż średnia (próg dynamiczny) 
+    + Key Vault dostępność spada poniżej 100% (próg statyczny)
+    + Key Vault opóźnienie jest większe niż 500 m (próg statyczny) 
+    + Ogólne nasycenie magazynu jest większe niż 75% (próg statyczny) 
+    + Ogólne nasycenie magazynu przekracza średnią (próg dynamiczny)
+    + Łączna liczba kodów błędów większa niż średnia (próg dynamiczny) 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu pokazujący, gdzie wybierasz warunki dla alertów.](../media/alert-13.png)
+> ![Zrzut ekranu przedstawiający miejsce wybierania warunków dla alertów.](../media/alert-13.png)
 
-### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Przykład 1: Konfigurowanie progu alertu statycznego dla opóźnienia
+### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Przykład 1: Konfigurowanie statycznego progu alertu dla opóźnienia
 
-Wybierz **Ogólne opóźnienie interfejsu API usługi** jako nazwę sygnału
+Wybierz **pozycję Overall Service API Latency (Ogólne** opóźnienie interfejsu API usługi) jako nazwę sygnału
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający ogólną nazwę sygnału opóźnienia interfejsu API usługi.](../media/alert-14.png)
+> ![Zrzut ekranu przedstawiający nazwę sygnału Ogólne opóźnienie interfejsu API usługi.](../media/alert-14.png)
 
-Sprawdź następujące parametry konfiguracji.
+Zobacz następujące parametry konfiguracji.
 
 + Ustaw próg na **statyczny** 
-+ Ustaw operator na wartość **większą niż**
-+ Ustaw typ agregacji na wartość **średnia**
-+ Ustaw wartość progu na **500**
++ Ustaw operator na **większe niż**
++ Ustaw typ agregacji na **średnią**
++ Ustaw wartość progową na **500**
 + Ustaw okres agregacji na **5 minut**
 + Ustaw częstotliwość oceny na **1 minutę**
-+ Wybierz pozycję **gotowe**  
++ Wybierz pozycję **Gotowe**  
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu, który wyróżnia skonfigurowaną logikę alertów.](../media/alert-15.png)
+> ![Zrzut ekranu przedstawiający skonfigurowaną logikę alertów.](../media/alert-15.png)
 
 ### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Przykład 2: Konfigurowanie dynamicznego progu alertu dla nasycenia magazynu 
 
-Gdy używasz alertu dynamicznego, będziesz mieć możliwość wyświetlenia danych historycznych wybranego magazynu kluczy. Niebieski obszar reprezentuje średnie użycie magazynu kluczy. Czerwony obszar pokazuje skoki, które wywołały alert, pod warunkiem, że są spełnione inne kryteria konfiguracji alertów. Czerwona kropki pokazują wystąpienia naruszeń, w przypadku których kryteria alertu zostały spełnione w przedziale czasu. Można ustawić alert, aby uruchomić po określonej liczbie naruszeń w określonym czasie. Jeśli nie chcesz uwzględniać przeszłych danych, istnieje możliwość wykluczenia starych danych poniżej w ustawieniach zaawansowanych. 
+W przypadku korzystania z alertu dynamicznego można wyświetlić dane historyczne wybranego magazynu kluczy. Niebieski obszar reprezentuje średnie użycie magazynu kluczy. Czerwony obszar pokazuje skoki, które spowodowałyby wyzwolenie alertu, jeśli zostały spełnione inne kryteria w konfiguracji alertu. Czerwone kropki pokazują wystąpienia naruszeń, w których kryteria alertu zostały spełnione w zagregowanym oknie czasowym. Możesz ustawić alert do działania po określonej liczbie naruszeń w określonym czasie. Jeśli nie chcesz uwzględniać wcześniejszych danych, możesz wykluczyć stare dane poniżej w ustawieniach zaawansowanych. 
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający wykres całkowitego nasycenia magazynu.](../media/alert-16.png)
 
-Sprawdź następujące parametry konfiguracji.
+Zobacz następujące parametry konfiguracji.
 
-+ Ustaw próg na **dynamiczny** 
-+ Ustaw operator na wartość **większą niż**
-+ Ustaw typ agregacji na wartość **średnia**
-+ Ustaw wartość progową na **Średni**
++ Ustaw wartość progową na **dynamiczny** 
++ Ustaw operator na **wartość Większe niż**
++ Ustaw typ agregacji na **średnią**
++ Ustaw czułość progową na **średnią**
 + Ustaw okres agregacji na **5 minut**
 + Ustaw częstotliwość oceny na **1 minutę**
-+ **Opcjonalne** Skonfiguruj ustawienia zaawansowane 
-+ Wybierz pozycję **gotowe**
++ **Opcjonalne** Konfigurowanie ustawień zaawansowanych 
++ Wybierz pozycję **Gotowe**
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-17.png)
 
-5. Dodaj skonfigurowaną grupę akcji
+5. Dodawanie skonfigurowanej grupy akcji
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu pokazujący sposób dodawania grupy akcji.](../media/alert-18.png)
+> ![Zrzut ekranu przedstawiający sposób dodawania grupy akcji.](../media/alert-18.png)
 
 6. Włączanie alertu i przypisywanie ważności
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu pokazujący, gdzie włączyć alert i przypisać ważność.](../media/alert-19.png)
+> ![Zrzut ekranu przedstawiający miejsce włączenia alertu i przypisania ważności.](../media/alert-19.png)
 
 7. Tworzenie alertu 
 
 ### <a name="example-email-alert"></a>Przykładowy alert e-mail 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu, który wyróżnia informacje konieczne do skonfigurowania alertu e-mail.](../media/alert-20.png)
+> ![Zrzut ekranu przedstawiający informacje potrzebne do skonfigurowania alertu e-mail.](../media/alert-20.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Gratulacje, pomyślnie utworzono pulpit nawigacyjny monitorowania i skonfigurowano alerty dla magazynu kluczy. Po wykonaniu wszystkich powyższych czynności należy otrzymywać alerty e-mail, gdy Twój Magazyn kluczy spełnia skonfigurowane kryteria alertu. Przykład przedstawiono poniżej. Skorzystaj z narzędzi, które zostały skonfigurowane w tym artykule, aby aktywnie monitorować kondycję magazynu kluczy. 
+Gratulacje, udało Ci się utworzyć pulpit nawigacyjny monitorowania i skonfigurować alerty dla magazynu kluczy. Po zakończeniu wszystkich powyższych kroków alerty e-mail powinny być odbierane, gdy magazyn kluczy spełnia skonfigurowane kryteria alertu. Przykład przedstawiono poniżej. Użyj narzędzi, które zostały ustawione w tym artykule, aby aktywnie monitorować kondycję magazynu kluczy. 
 
 

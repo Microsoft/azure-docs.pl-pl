@@ -2,13 +2,13 @@
 title: Co nowego w programie Azure Defender dla IoT
 description: Ten artykuł zawiera informacje o nowościach w najnowszej wersji usługi Defender dla IoT.
 ms.topic: overview
-ms.date: 4/6/2021
-ms.openlocfilehash: df6a43dc68acd025b1c65877c65d1b7e947f210b
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 04/19/2021
+ms.openlocfilehash: da5358ccf0f69ca2ba8f5722b75889b6b7c92c07
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739390"
+ms.locfileid: "107752610"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Co nowego w programie Azure Defender dla IoT?
 
@@ -16,36 +16,82 @@ W tym artykule wymieniono nowe funkcje i ulepszenia funkcji usługi Defender dla
 
 Zauważyć funkcje są w wersji zapoznawczej. Postanowienia [uzupełniające dotyczące platformy Azure w](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczej obejmują dodatkowe postanowienia prawne dotyczące funkcji platformy Azure, które są w wersji beta, wersji zapoznawczej lub w inny sposób nie zostały jeszcze wydane jako ogólnie dostępne.
 
-## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Obsługa wersji i Azure Defender dla IoT 
+## <a name="april-2021"></a>Kwiecień 2021 r.
 
-Poniżej wymieniono obsługę, zasady zmiany istotnej dla usługi Defender dla IoT oraz wersje Azure Defender dla IoT, które są obecnie dostępne. 
+### <a name="work-with-automatic-threat-intelligence-updates-public-preview"></a>Praca z automatycznymi aktualizacjami analizy zagrożeń (publiczna wersja zapoznawcza)
 
-### <a name="servicing-information-and-timelines"></a>Informacje o obsłudze i osie czasu 
+Nowe pakiety analizy zagrożeń można teraz automatycznie wypychać do czujników połączonych z chmurą, gdy są one publikowane przez usługę Microsoft Defender dla IoT. Jest to uzupełnienie pobierania pakietów analizy zagrożeń, a następnie przekazywania ich do czujników.
 
-Firma Microsoft planuje wydania aktualizacji dla Azure Defender dla IoT nie mniej niż raz na kwartał. Każda ogólno dostępna wersja czujnika Azure Defender dla IoT i lokalna konsola zarządzania jest obsługiwana przez maksymalnie dziewięć miesięcy od jej wydania. Poprawki i nowe funkcje zostaną zastosowane do bieżącej wersji ga-ga, które są obecnie w pomocy technicznej i nie będą stosowane do starszych wersji gałę.
+Praca z aktualizacjami automatycznymi pomaga zmniejszyć nakłady pracy operacyjnej i zapewnić większe bezpieczeństwo. Włącz automatyczne aktualizowanie, dołączając czujnik połączony z chmurą w  portalu usługi Defender dla IoT z włączonym przełącznikiem Automatyczne aktualizacje analizy zagrożeń.
 
-### <a name="versions-and-support-dates"></a>Wersje i daty pomocy technicznej
+Jeśli chcesz przyjąć bardziej zachowawcze podejście do aktualizowania danych analizy zagrożeń, możesz ręcznie wypychać pakiety z portalu usługi Azure Defender dla IoT do czujników połączonych z chmurą tylko wtedy, gdy uważasz, że jest to wymagane.
+Dzięki temu można kontrolować, kiedy pakiet jest instalowany, bez konieczności pobierania, a następnie przekazywania go do czujników. Ręczne wypychanie aktualizacji do czujników ze strony witryn i czujników usługi Defender **dla** IoT.
 
-| Wersja | Data wydania | Data zakończenia pomocy technicznej |
-|--|--|--|
-| 10,0 | 01/2021 | 10/2021 |
+Możesz również przejrzeć następujące informacje o pakietach analizy zagrożeń:
+
+- Zainstalowana wersja pakietu
+- Tryb aktualizacji analizy zagrożeń 
+- Stan aktualizacji analizy zagrożeń
+
+### <a name="view-cloud-connected-sensor-information-public-preview"></a>Wyświetlanie informacji z czujników połączonych z chmurą (publiczna wersja zapoznawcza)
+
+Na stronie Witryny i czujniki wyświetl ważne informacje operacyjne dotyczące czujników połączonych **z chmurą.**
+
+- Zainstalowana wersja czujnika
+- Stan połączenia czujnika z chmurą.
+- Czas ostatniego wykrycia czujnika łączącego się z chmurą.
+
+### <a name="alert-api-enhancements"></a>Ulepszenia interfejsu API alertów
+
+Nowe pola są dostępne dla użytkowników pracujących z interfejsami API alertów.
+
+**Lokalna konsola zarządzania**
+
+- Adres źródłowy i docelowy
+- Instrukcje rozwiązania problemu
+- Nazwa czujnika zdefiniowana przez użytkownika
+- Nazwa strefy skojarzonej z czujnikiem 
+- Nazwa witryny skojarzonej z czujnikiem
+
+**Czujnik**
+
+- Adres źródłowy i docelowy
+- Instrukcje rozwiązania problemu
+
+Interfejs API w wersji 2 jest wymagany podczas pracy z nowymi polami.
+
+### <a name="features-delivered-as-generally-available-ga"></a>Funkcje dostarczane jako ogólnie dostępne
+
+Następujące funkcje były wcześniej dostępne w publicznej wersji zapoznawczej i są teraz ogólnie dostępne (ogólnie dostępne):
+
+- Czujnik — ulepszone niestandardowe reguły alertów
+- Lokalna konsola zarządzania — eksportowanie alertów
+- Dodawanie drugiego interfejsu sieciowego do lokalnej konsoli zarządzania
+- Konstruktor urządzenia — nowy mikro agent
+
 ## <a name="march-2021"></a>Marzec 2021 r.
 
 ### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Czujnik — rozszerzone niestandardowe reguły alertów (publiczna wersja zapoznawcza)
 
-Teraz można tworzyć niestandardowe reguły alertów na podstawie dnia, grupy dni i czasu wykrycia aktywności sieci.  Praca z warunkami reguły dnia i godziny jest przydatna, na przykład w przypadkach, gdy ważność alertu jest uzyskiwana przez czas wystąpienia zdarzenia alertu. Na przykład utwórz regułę niestandardową, która wyzwala alert o wysokiej ważności w przypadku wykrycia aktywności sieci w weekend lub wieczorami.
+Teraz można tworzyć niestandardowe reguły alertów na podstawie dnia, grupy dni i czasu wykrycia aktywności sieci.  Praca z warunkami reguły dnia i godziny jest przydatna, na przykład w przypadkach, w których ważność alertu jest uzyskiwana w czasie wystąpienia zdarzenia alertu. Na przykład utwórz regułę niestandardową, która wyzwala alert o wysokiej ważności, gdy zostanie wykryta aktywność sieci w weekend lub wieczorami.
 
-Ta funkcja jest dostępna na czujniku w wersji 10.2.
+Ta funkcja jest dostępna w czujniku w wersji 10.2.
 
 ### <a name="on-premises-management-console---export-alerts-public-preview"></a>Lokalna konsola zarządzania — eksportowanie alertów (publiczna wersja zapoznawcza)
 
-Informacje o alertach można teraz wyeksportować do pliku CSV z lokalnej konsoli zarządzania. Można eksportować informacje o wszystkich wykrytych alertach lub eksportować informacje na podstawie filtrowanych widoków.
+Informacje o alertach można teraz wyeksportować do pliku CSV z lokalnej konsoli zarządzania. Możesz wyeksportować informacje o wszystkich wykrytych alertach lub wyeksportować informacje na podstawie filtrowanych widoków.
 
 Ta funkcja jest dostępna w lokalnej konsoli zarządzania w wersji 10.2.
 
 ### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Dodawanie drugiego interfejsu sieciowego do lokalnej konsoli zarządzania (publiczna wersja zapoznawcza)
 
-Teraz możesz zwiększyć bezpieczeństwo wdrożenia, dodając drugi interfejs sieciowy do lokalnej konsoli zarządzania. Ta funkcja umożliwia lokalnemu zarządzaniu korzystanie z podłączonych czujników w jednej bezpiecznej sieci, a jednocześnie umożliwia użytkownikom dostęp do lokalnej konsoli zarządzania za pośrednictwem drugiego oddzielnego interfejsu sieciowego.
+Teraz możesz zwiększyć bezpieczeństwo wdrożenia, dodając drugi interfejs sieciowy do lokalnej konsoli zarządzania. Ta funkcja umożliwia zarządzanie lokalnemu połączeniu czujników w jednej bezpiecznej sieci, umożliwiając użytkownikom dostęp do lokalnej konsoli zarządzania za pośrednictwem drugiego oddzielnego interfejsu sieciowego.
+
+Ta funkcja jest dostępna w lokalnej konsoli zarządzania w wersji 10.2.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Dodawanie drugiego interfejsu sieciowego do lokalnej konsoli zarządzania (publiczna wersja zapoznawcza)
+
+Teraz możesz zwiększyć bezpieczeństwo wdrożenia, dodając drugi interfejs sieciowy do lokalnej konsoli zarządzania. Ta funkcja umożliwia zarządzanie lokalnemu połączeniu czujników w jednej bezpiecznej sieci, umożliwiając użytkownikom dostęp do lokalnej konsoli zarządzania za pośrednictwem drugiego oddzielnego interfejsu sieciowego.
 
 Ta funkcja jest dostępna w lokalnej konsoli zarządzania w wersji 10.2.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>Konstruktor urządzenia — nowy mikro agent (publiczna wersja zapoznawcza)
@@ -91,7 +137,7 @@ W przypadku nowych instalacji:
 
 #### <a name="password-recovery"></a>Odzyskiwanie hasła
   
-Czujnik i lokalna konsola zarządzania Użytkownicy administracyjni mogą teraz odzyskiwać hasła z poziomu Azure Defender dla IoT portal. Wcześniej odzyskiwanie hasła wymagało interwencji zespołu pomocy technicznej.
+Czujnik i lokalna konsola zarządzania Użytkownicy administracyjni mogą teraz odzyskiwać hasła z Azure Defender dla IoT portal. Wcześniej odzyskiwanie hasła wymagało interwencji zespołu pomocy technicznej.
 
 ### <a name="onboarding"></a>Dołączanie
 

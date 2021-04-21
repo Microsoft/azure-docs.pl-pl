@@ -100,6 +100,8 @@
       items:
         - name: Sesje komunikatów
           href: message-sessions.md
+        - name: Wykrywanie zduplikowanych komunikatów
+          href: duplicate-detection.md
         - name: Filtry tematów i akcje
           href: topic-filters.md
         - name: Przeglądanie komunikatów
@@ -206,8 +208,6 @@
           items:
             - name: Komunikaty pobrane z wyprzedzeniem
               href: service-bus-prefetch.md
-            - name: Wykrywanie zduplikowanych komunikatów
-              href: duplicate-detection.md
             - name: Odraczanie komunikatów
               href: message-deferral.md
             - name: Łączenie jednostek w łańcuchy z automatycznym przekazywaniem
@@ -236,6 +236,14 @@
           href: service-bus-integrate-with-rabbitmq.md
     - name: Zarządzanie
       items:
+        - name: Włączanie sesji dla kolejki lub subskrypcji
+          href: enable-message-sessions.md
+        - name: Włączanie wykrywania duplikatów dla kolejki lub tematu
+          href: enable-duplicate-detection.md
+        - name: Włączanie partycji dla kolejki lub tematu
+          href: enable-partitions.md
+        - name: Włączanie automatycznego przekazywania dalej dla kolejki lub subskrypcji
+          href: enable-auto-forward.md
         - name: Przechodzenie między regionami
           href: move-across-regions.md
         - name: Automatyczne aktualizowanie jednostek obsługi komunikatów

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 4/12/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 6007ec954682c0cb0ba20cbbf6b3621ead0bf7ff
-ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
+ms.openlocfilehash: 872faab688844278caac4c78ff8cd9ae72e46a4b
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107602106"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752790"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików organizacji w programie Azure Files przy zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć tyle pamięci podręcznych, ile potrzebujesz na całym świecie.
@@ -66,7 +66,7 @@ Aby rozwiązać ten problem, zainstaluj [aktualizację KB2919355 i](https://supp
 <a id="server-registration-missing-subscriptions"></a>**Rejestracja serwera nie zawiera wszystkich subskrypcji platformy Azure**  
 Podczas rejestrowania serwera przy użyciu ServerRegistration.exe subskrypcji brakuje subskrypcji po kliknięciu listy rozwijanej Subskrypcja platformy Azure.
 
-Ten problem występuje, ServerRegistration.exe pobierać subskrypcje tylko z pierwszych 5 dzierżaw usługi Azure AD. 
+Ten problem występuje, ServerRegistration.exe pobiera tylko subskrypcje z pierwszych 5 dzierżaw usługi Azure AD. 
 
 Aby zwiększyć limit dzierżawy rejestracji serwera na serwerze, utwórz wartość DWORD o nazwie ServerRegistrationTenantLimit w obszarze HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync o wartości większej niż 5.
 
@@ -109,37 +109,37 @@ Reset-StorageSyncServer
 > Jeśli serwer jest częścią klastra, możesz również usunąć rejestrację klastra za pomocą opcjonalnego parametru *Reset-StorageSyncServer -CleanClusterRegistration.*
 
 <a id="web-site-not-trusted"></a>**Podczas rejestrowania serwera widzę wiele odpowiedzi "witryna internetowa nie jest zaufana". Dlaczego?**  
-Ten problem występuje, gdy **rozszerzone Internet Explorer zabezpieczeń** serwera są włączone podczas rejestracji serwera. Aby uzyskać więcej informacji na temat poprawnego wyłączania zasad **zwiększonych zabezpieczeń Internet Explorer,** zobacz Przygotowanie systemu [Windows Server](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) do użycia z programem Azure File Sync i Jak [wdrożyć](storage-sync-files-deployment-guide.md)Azure File Sync .
+Ten problem występuje, gdy **rozszerzone Internet Explorer zabezpieczeń** aplikacji są włączone podczas rejestracji serwera. Aby uzyskać więcej informacji na temat poprawnego wyłączania zasad **zwiększonych zabezpieczeń Internet Explorer,** zobacz Przygotowanie systemu [Windows Server](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) do użycia z programem Azure File Sync i Jak [wdrożyć](storage-sync-files-deployment-guide.md)Azure File Sync .
 
 <a id="server-registration-missing"></a>**Serwer nie znajduje się na liście zarejestrowanych serwerów w Azure Portal**  
 Jeśli serwer nie znajduje się na liście w obszarze **Zarejestrowane serwery** dla usługi synchronizacji magazynu:
 1. Zaloguj się na serwerze, który chcesz zarejestrować.
-2. Otwórz Eksplorator plików, a następnie przejdź do katalogu instalacji agenta synchronizacji magazynu (domyślna lokalizacja to C:\Program Files\Azure\StorageSyncAgent). 
+2. Otwórz Eksplorator plików, a następnie przejdź do katalogu instalacyjnego agenta synchronizacji magazynu (domyślna lokalizacja to C:\Program Files\Azure\StorageSyncAgent). 
 3. Uruchom ServerRegistration.exe i ukończ kreatora, aby zarejestrować serwer w usłudze synchronizacji magazynu.
 
 ## <a name="sync-group-management"></a>Zarządzanie grupą synchronizacji
 
 ### <a name="cloud-endpoint-creation-errors"></a>Błędy tworzenia punktu końcowego w chmurze
 
-<a id="cloud-endpoint-using-share"></a>**Tworzenie punktu końcowego w chmurze kończy się niepowodzeniem z tym błędem: "Określony udział plików platformy Azure jest już w użyciu przez inny punkt końcowy cloudendpoint"**  
+<a id="cloud-endpoint-using-share"></a>**Tworzenie punktu końcowego w chmurze kończy się niepowodzeniem z tym błędem: "Określony udział plików platformy Azure jest już w użyciu przez inny punkt końcowy CloudEndpoint"**  
 Ten błąd występuje, jeśli udział plików platformy Azure jest już używany przez inny punkt końcowy w chmurze. 
 
 Jeśli widzisz ten komunikat, a udział plików platformy Azure nie jest obecnie w użyciu przez punkt końcowy w chmurze, wykonaj następujące kroki, aby wyczyścić metadane Azure File Sync udziału plików platformy Azure:
 
 > [!Warning]  
-> Usunięcie metadanych z udziału plików platformy Azure, który jest obecnie w użyciu przez punkt końcowy w chmurze, Azure File Sync operacje nie powiodą się. Jeśli następnie użyjemy tego udziału plików do synchronizacji w innej grupie synchronizacji, utrata danych dla plików w starej grupie synchronizacji jest prawie pewna.
+> Usunięcie metadanych w udziałach plików platformy Azure, które są obecnie w użyciu przez punkt końcowy w chmurze, powoduje niepowodzenie Azure File Sync plików. Jeśli następnie użyjemy tego udziału plików do synchronizacji w innej grupie synchronizacji, utrata danych dla plików w starej grupie synchronizacji będzie prawie pewna.
 
 1. W witrynie Azure Portal przejdź do udziału plików platformy Azure.  
 2. Kliknij prawym przyciskiem myszy udział plików platformy Azure, a następnie wybierz polecenie **Edytuj metadane.**
 3. Kliknij prawym przyciskiem myszy **pozycję SyncService,** a następnie wybierz polecenie **Usuń.**
 
 <a id="cloud-endpoint-authfailed"></a>**Tworzenie punktu końcowego w chmurze kończy się niepowodzeniem z tym błędem: "AuthorizationFailed"**  
-Ten błąd występuje, jeśli konto użytkownika nie ma wystarczających uprawnień do utworzenia punktu końcowego w chmurze. 
+Ten błąd występuje, gdy konto użytkownika nie ma wystarczających uprawnień do utworzenia punktu końcowego w chmurze. 
 
 Aby utworzyć punkt końcowy w chmurze, twoje konto użytkownika musi mieć następujące uprawnienia autoryzacji firmy Microsoft:  
 * Odczyt: uzyskiwanie definicji roli
 * Zapis: tworzenie lub aktualizowanie definicji roli niestandardowej
-* Odczyt: uzyskiwanie przypisania roli
+* Odczyt: Uzyskiwanie przypisania roli
 * Zapis: Tworzenie przypisania roli
 
 Następujące wbudowane role mają wymagane uprawnienia autoryzacji firmy Microsoft:  
@@ -176,16 +176,16 @@ Ten błąd występuje, ponieważ usługa Azure File Sync nie obsługuje punktów
     **compact /u /s**
 
 <a id="-2134376345"></a>**Tworzenie punktu końcowego serwera kończy się niepowodzeniem z tym błędem: "MgmtServerJobFailed" (kod błędu: -2134376345 lub 0x80C80067)**  
-Ten błąd występuje, gdy zostanie osiągnięty limit liczby punktów końcowych serwera. Usługa Azure File Sync obsługuje obecnie do 30 punktów końcowych serwera na serwer. Aby uzyskać więcej informacji, zobacz [Azure File Sync skalowania.](./storage-files-scale-targets.md#azure-file-sync-scale-targets)
+Ten błąd występuje, gdy zostanie osiągnięty limit liczby punktów końcowych serwera. Usługa Azure File Sync obsługuje obecnie do 30 punktów końcowych serwera na serwer. Aby uzyskać więcej informacji, zobacz [Azure File Sync skalowania docelowego](./storage-files-scale-targets.md#azure-file-sync-scale-targets).
 
 <a id="-2134376427"></a>**Tworzenie punktu końcowego serwera kończy się niepowodzeniem z tym błędem: "MgmtServerJobFailed" (kod błędu: -2134376427 lub 0x80c80015)**  
 Ten błąd występuje, gdy inny punkt końcowy serwera synchronizuje określoną ścieżkę punktu końcowego serwera. Usługa Azure File Sync nie obsługuje synchronizacji tego samego katalogu lub woluminu w wielu punktach końcowych serwera.
 
 <a id="-2160590967"></a>**Tworzenie punktu końcowego serwera kończy się niepowodzeniem z tym błędem: "MgmtServerJobFailed" (kod błędu: -2160590967 lub 0x80c80077)**  
-Ten błąd występuje, jeśli ścieżka punktu końcowego serwera zawiera oddzielone pliki warstwowe. Jeśli punkt końcowy serwera został niedawno usunięty, poczekaj na zakończenie czyszczenia oddzielonych plików warstwowych. Zdarzenie o identyfikatorze 6662 jest rejestrowane w dzienniku zdarzeń telemetrii po zakończeniu oddzielonego oczyszczania plików warstwowych. Identyfikator zdarzenia 6661 jest rejestrowany po ukończeniu oddzielonego oczyszczania plików warstwowych i ponownego tworzenia punktu końcowego serwera przy użyciu ścieżki. Jeśli tworzenie punktu końcowego serwera zakończy się niepowodzeniem po zakończeniu oczyszczania plików warstwowych lub jeśli nie można odnaleźć identyfikatora zdarzenia 6661 w dzienniku zdarzeń telemetrii z powodu przechowania dziennika zdarzeń, usuń oddzielone pliki warstwowe, wykonując kroki opisane w sekcji Pliki warstwowe nie są dostępne na serwerze po usunięciu punktu końcowego [serwera.](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)
+Ten błąd występuje, jeśli ścieżka punktu końcowego serwera zawiera oddzielone pliki warstwowe. Jeśli punkt końcowy serwera został niedawno usunięty, poczekaj na zakończenie czyszczenia oddzielonych plików warstwowych. Zdarzenie o identyfikatorze 6662 jest rejestrowane w dzienniku zdarzeń telemetrii po zakończeniu oddzielonego oczyszczania plików warstwowych. Zdarzenie o identyfikatorze 6661 jest rejestrowane po ukończeniu oddzielonego oczyszczania plików warstwowych i ponownego tworzenia punktu końcowego serwera przy użyciu ścieżki. Jeśli tworzenie punktu końcowego serwera zakończy się niepowodzeniem po zakończeniu oczyszczania plików warstwowych lub jeśli w dzienniku zdarzeń telemetrii nie można znaleźć identyfikatora zdarzenia 6661 z powodu przechowania dziennika zdarzeń, usuń oddzielone pliki warstwowe, wykonując kroki opisane w sekcji Pliki warstwowe nie są dostępne na serwerze po usunięciu punktu końcowego [serwera.](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)
 
-<a id="-2134347757"></a>**Usuwanie punktu końcowego serwera kończy się niepowodzeniem z powodu błędu: "MgmtServerJobExpired" (kod błędu: -2134347757 lub 0x80c87013)**  
-Ten błąd występuje wtedy, gdy serwer jest w trybie offline lub nie ma łączności sieciowej. Jeśli serwer nie jest już dostępny, wyrejestruj serwer w portalu, co spowoduje usunięcie punktów końcowych serwera. Aby usunąć punkty końcowe serwera, wykonaj kroki opisane w tece [Wyrejestruj serwer za](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)pomocą Azure File Sync .
+<a id="-2134347757"></a>**Usuwanie punktu końcowego serwera kończy się niepowodzeniem z powodu tego błędu: "MgmtServerJobExpired" (kod błędu: -2134347757 lub 0x80c87013)**  
+Ten błąd występuje wtedy, gdy serwer jest w trybie offline lub nie ma łączności sieciowej. Jeśli serwer nie jest już dostępny, wyrejestruj serwer w portalu, co spowoduje usunięcie punktów końcowych serwera. Aby usunąć punkty końcowe serwera, wykonaj kroki opisane w te [tematze Wyrejestruj serwer za](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)pomocą Azure File Sync .
 
 ### <a name="server-endpoint-health"></a>Kondycja punktu końcowego serwera
 
@@ -206,22 +206,22 @@ Set-AzStorageSyncServerEndpoint `
     -CloudTiering `
     -VolumeFreeSpacePercent 60
 ```
-<a id="server-endpoint-noactivity"></a>**Punkt końcowy serwera ma stan kondycji "Brak aktywności" lub "Oczekiwanie", a stan serwera w bloku zarejestrowanych serwerów to "Pojawia się w trybie offline"**  
+<a id="server-endpoint-noactivity"></a>**Stan kondycji punktu końcowego serwera to "Brak aktywności" lub "Oczekiwanie", a stan serwera w bloku zarejestrowanych serwerów to "Pojawia się w trybie offline"**  
 
 Ten problem może wystąpić, jeśli proces monitora synchronizacji magazynu (AzureStorageSyncMonitor.exe) nie jest uruchomiony lub serwer nie może uzyskać dostępu do Azure File Sync usługi.
 
 Na serwerze wyświetlanym jako "Pojawia się w trybie offline" w portalu sprawdź identyfikator zdarzenia 9301 w dzienniku zdarzeń telemetrii (w obszarze Aplikacje i usługi\Microsoft\FileSync\Agent w programie Podgląd zdarzeń), aby ustalić, dlaczego serwer nie może uzyskać dostępu do usługi Azure File Sync. 
 
-- Jeśli **getNextJob ukończone ze stanem: 0** jest rejestrowane, serwer może komunikować się z Azure File Sync usługi. 
+- Jeśli **getNextJob zakończone ze stanem: 0** jest rejestrowany, serwer może komunikować się z Azure File Sync usługi. 
     - Otwórz Menedżera zadań na serwerze i upewnij się, że proces programu Storage Sync Monitor (AzureStorageSyncMonitor.exe) jest uruchomiony. Jeśli proces nie jest uruchomiony, najpierw spróbuj uruchomić ponownie serwer. Jeśli ponowne uruchomienie serwera nie rozwiąże problemu, uaktualnij agenta usługi Azure File Sync do najnowszej [wersji](./storage-files-release-notes.md). 
 
 - Jeśli **ukończono getNextJob ze stanem: -2134347756,** serwer nie może komunikować się z usługą Azure File Sync z powodu konfiguracji zamówienia zapory, serwera proxy lub zestawu szyfrowania TLS. 
-    - Jeśli serwer znajduje się za zaporą, sprawdź, czy ruch wychodzący na port 443 jest dozwolony. Jeśli zapora ogranicza ruch do określonych domen, upewnij się, że domeny wymienione w dokumentacji [zapory](./storage-sync-files-firewall-and-proxy.md#firewall) są dostępne.
+    - Jeśli serwer znajduje się za zaporą, sprawdź, czy ruch wychodzący na port 443 jest dozwolony. Jeśli zapora ogranicza ruch do określonych domen, upewnij się, że domeny wymienione w [dokumentacji zapory](./storage-sync-files-firewall-and-proxy.md#firewall) są dostępne.
     - Jeśli serwer znajduje się za serwerem proxy, skonfiguruj ustawienia serwera proxy dla całej maszyny lub aplikacji, zgodnie z instrukcjami w dokumentacji serwera [proxy.](./storage-sync-files-firewall-and-proxy.md#proxy)
     - Użyj polecenia cmdlet Test-StorageSyncNetworkConnectivity, aby sprawdzić łączność sieciową z punktami końcowymi usługi. Aby dowiedzieć się więcej, zobacz [Testowanie łączności sieciowej z punktami końcowymi usługi](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
     - Jeśli kolejność mechanizmów szyfrowania TLS jest skonfigurowana na serwerze, można użyć zasad grupy lub polecenia cmdlet TLS, aby dodać zestawy szyfrowania:
-        - Aby użyć zasad grupy, zobacz Konfigurowanie kolejności [szyfrowania TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy)przy użyciu zasady grupy .
-        - Aby użyć poleceń cmdlet TLS, zobacz Konfigurowanie kolejności szyfrowania TLS za [pomocą poleceń cmdlet](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets)programu PowerShell dla usługi TLS.
+        - Aby użyć zasad grupy, zobacz Konfigurowanie kolejności [szyfrowania TLS przy użyciu zasady grupy](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Aby użyć poleceń cmdlet TLS, zobacz Konfigurowanie kolejności szyfrowania TLS za pomocą poleceń cmdlet programu PowerShell dla [usługi TLS.](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets)
     
         Azure File Sync obecnie obsługuje następujące pakiety szyfrowania dla protokołu TLS 1.2:  
         - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -240,7 +240,7 @@ Stan kondycji punktu końcowego serwera „Brak działania” oznacza, że punkt
 
 Aby sprawdzić bieżące działanie synchronizacji na serwerze, [Jak mogę monitorować postęp bieżącej sesji synchronizacji?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Punkt końcowy serwera może nie rejestrować aktywności synchronizacji przez kilka godzin z powodu usterki lub niewystarczających zasobów systemu. Sprawdź, czy zainstalowano najnowszą Azure File Sync [agenta.](./storage-files-release-notes.md) Jeśli problem będzie się powtarzać, otwórz wniosek o pomoc techniczną.
+Punkt końcowy serwera może nie rejestrować aktywności synchronizacji przez kilka godzin z powodu usterki lub niewystarczających zasobów systemowych. Sprawdź, czy zainstalowano najnowszą Azure File Sync [agenta.](./storage-files-release-notes.md) Jeśli problem będzie się powtarzać, otwórz wniosek o pomoc techniczną.
 
 > [!Note]  
 > Jeśli stan serwera w bloku zarejestrowanych serwerów to "Pojawia się w trybie offline", wykonaj kroki opisane w punkcie końcowym serwera ze stanem kondycji ["Brak aktywności" lub "Oczekiwanie", a](#server-endpoint-noactivity) stan serwera w bloku zarejestrowanych serwerów to sekcja "Pojawia się w trybie offline".
@@ -294,7 +294,7 @@ Czasami sesje synchronizacji ogólnie się nie powiodą lub mają niezerową war
 W grupie synchronizacji przejdź do punktu końcowego serwera, który jest problemem, i zapoznaj się z sekcją Działanie synchronizacji, aby zobaczyć liczbę plików przekazanych lub pobranych w bieżącej sesji synchronizacji. Pamiętaj, że ten stan zostanie opóźniony o około 5 minut. Jeśli sesja synchronizacji jest wystarczająco mała, aby mogła zostać zakończona w tym okresie, może nie zostać zgłoszona w portalu. 
 
 # <a name="server"></a>[Server](#tab/server) (Serwer)
-Sprawdź najnowsze zdarzenie 9302 w dzienniku telemetrii na serwerze (w witrynie Podgląd zdarzeń przejdź do folderu Dzienniki aplikacji i usług\Microsoft\FileSync\Agent\Telemetry). To zdarzenie wskazuje stan bieżącej sesji synchronizacji. Wartość TotalItemCount wskazuje liczbę plików do zsynchronizowania, AppliedItemCount — liczbę plików, które zostały zsynchronizowane do tej pory, oraz perItemErrorCount — liczbę plików, których nie można zsynchronizować (zobacz poniżej, aby dowiedzieć się, jak sobie z tym poradzić).
+Sprawdź najnowsze zdarzenie 9302 w dzienniku telemetrii na serwerze (w witrynie Podgląd zdarzeń przejdź do folderu Dzienniki aplikacji i usług\Microsoft\FileSync\Agent\Telemetry). To zdarzenie wskazuje stan bieżącej sesji synchronizacji. Wartość TotalItemCount wskazuje liczbę plików do zsynchronizowania, AppliedItemCount — liczbę plików, które zostały zsynchronizowane do tej pory, oraz wartość PerItemErrorCount — liczbę plików, których nie można zsynchronizować (zobacz poniżej, aby dowiedzieć się, jak sobie z tym poradzić).
 
 ```
 Replica Sync Progress. 
@@ -313,13 +313,13 @@ Dla każdego serwera w danej grupie synchronizacji upewnij się, że:
 - Znaczniki czasu ostatniej próby synchronizacji dla przekazywania i pobierania są aktualne.
 - Stanem przekazywania i pobierania jest zielony.
 - Pole Działanie synchronizacji zawiera niewiele plików do zsynchronizowania lub nie ma ich do zsynchronizowania.
-- Pole Pliki nie jest synchronizowane z wartością 0 zarówno w przypadku przekazywania, jak i pobierania.
+- Pole Pliki niesynchronizuj ma 0 zarówno w przypadku przekazywania, jak i pobierania.
 
 # <a name="server"></a>[Server](#tab/server) (Serwer)
 Przyjrzyj się ukończonym sesjom synchronizacji, które są oznaczone zdarzeniami 9102 w dzienniku zdarzeń telemetrii dla każdego serwera (w Podgląd zdarzeń przejdź do `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` . 
 
 1. Na dowolnym serwerze należy upewnić się, że ostatnie sesje przekazywania i pobierania zostały ukończone pomyślnie. W tym celu sprawdź, czy wartości HResult i PerItemErrorCount mają 0 dla przekazywania i pobierania (pole SyncDirection wskazuje, czy danej sesji jest sesja przekazywania czy pobierania). Pamiętaj, że jeśli nie widzisz ostatnio ukończonej sesji synchronizacji, prawdopodobnie trwa sesja synchronizacji, czego można oczekiwać, jeśli właśnie dodano lub zmodyfikowano dużą ilość danych.
-2. Gdy serwer jest w pełni aktualny z chmurą i nie ma żadnych zmian do zsynchronizowania w żadnym kierunku, zobaczysz puste sesje synchronizacji. Są one wskazywane przez zdarzenia przekazywania i pobierania, w których wszystkie pola Sync* (SyncFileCount, SyncDirCount, SyncTombstoneCount i SyncSizeBytes) mają wartość zero, co oznacza, że nie ma nic do zsynchronizowania. Należy pamiętać, że te puste sesje synchronizacji mogą nie występować na serwerach o wysokim poziomie zmian, ponieważ zawsze trzeba zsynchronizować coś nowego. Jeśli nie ma żadnych działań synchronizacji, powinny one występować co 30 minut. 
+2. Gdy serwer jest w pełni aktualny z chmurą i nie ma żadnych zmian do zsynchronizowania w żadnym kierunku, zobaczysz puste sesje synchronizacji. Są one wskazywane przez zdarzenia przekazywania i pobierania, w których wszystkie pola Sync* (SyncFileCount, SyncDirCount, SyncTombstoneCount i SyncSizeBytes) mają wartość zero, co oznacza, że nie ma nic do zsynchronizowania. Należy pamiętać, że te puste sesje synchronizacji mogą nie występować na serwerach o wysokim poziomie zmian, ponieważ zawsze jest coś nowego do zsynchronizowania. Jeśli nie ma żadnych działań synchronizacji, powinny one występować co 30 minut. 
 3. Jeśli wszystkie serwery są aktualne w chmurze, co oznacza, że ostatnie sesje przekazywania i pobierania są pustymi sesjami synchronizacji, możesz z rozsądnym pewnością powiedzieć, że cały system jest zsynchronizowany. 
     
 Należy pamiętać, że jeśli zmiany zostały wprowadzone bezpośrednio w udziałach plików platformy Azure, program Azure File Sync nie wykryje tej zmiany, dopóki nie zostanie wykonane wyliczenie zmiany, co następuje co 24 godziny. Istnieje możliwość, że serwer stwierdzi, że jest on aktualny w chmurze, gdy w rzeczywistości brakuje ostatnich zmian wprowadzonych bezpośrednio w udziałach plików platformy Azure. 
@@ -327,9 +327,9 @@ Należy pamiętać, że jeśli zmiany zostały wprowadzone bezpośrednio w udzia
 ---
 
 ### <a name="how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing"></a>Jak mogę sprawdzić, czy istnieją określone pliki lub foldery, które nie są synchronizowane?
-Jeśli wartość PerItemErrorCount na serwerze lub liczba plików niesynchronizowanych w portalu jest większa niż 0 dla danej sesji synchronizacji, oznacza to, że niektóre elementy nie są synchronizowane. Pliki i foldery mogą mieć właściwości, które uniemożliwiają ich synchronizację. Te cechy mogą być trwałe i wymagają jawnej akcji w celu wznowienia synchronizacji, na przykład usunięcia nieobsługiwanych znaków z nazwy pliku lub folderu. Mogą one również być przejściowe, co oznacza, że plik lub folder zostanie automatycznie wznowiony synchronizacji; Na przykład pliki z otwartymi dojściami będą automatycznie wznawiać synchronizację po zamknięciu pliku. Gdy aparat Azure File Sync wykryje taki problem, jest rejestr błędów, który może być analizowany w celu listy elementów, które obecnie nie są prawidłowo synchronizowane.
+Jeśli wartość PerItemErrorCount na serwerze lub liczba plików niesynchronizowanych w portalu jest większa niż 0 dla danej sesji synchronizacji, oznacza to, że niektóre elementy nie są synchronizowane. Pliki i foldery mogą mieć właściwości, które uniemożliwiają ich synchronizację. Te cechy mogą być trwałe i wymagają jawnej akcji w celu wznowienia synchronizacji, na przykład usunięcia nieobsługiwanych znaków z nazwy pliku lub folderu. Mogą również być przejściowe, co oznacza, że plik lub folder zostanie automatycznie wznowiony synchronizacji; Na przykład pliki z otwartymi dojściami będą automatycznie wznawiać synchronizację po zamknięciu pliku. Gdy aparat Azure File Sync wykryje taki problem, jest rejestr błędów, który może być analizowany w celu listy elementów, które obecnie nie są prawidłowo synchronizowane.
 
-Aby wyświetlić te błędy, uruchom skrypt programu **PowerShell** programuFileSyncErrorsReport.ps1(znajdujący się w katalogu instalacyjnym agenta agenta programu Azure File Sync), aby zidentyfikować pliki, których nie można zsynchronizować z powodu otwartych dojść, nieobsługiwanych znaków lub innych problemów. Pole ItemPath informuje o lokalizacji pliku w odniesieniu do głównego katalogu synchronizacji. Zapoznaj się z listą typowych błędów synchronizacji poniżej, aby uzyskać informacje o krokach korygowania.
+Aby wyświetlić te błędy, uruchom skrypt programu **PowerShell** programuFileSyncErrorsReport.ps1(znajdujący się w katalogu instalacyjnym agenta agenta programu Azure File Sync), aby zidentyfikować pliki, których nie można zsynchronizować z powodu otwartych dojść, nieobsługiwanych znaków lub innych problemów. Pole ItemPath informuje o lokalizacji pliku w odniesieniu do głównego katalogu synchronizacji. Zapoznaj się z listą typowych błędów synchronizacji poniżej, aby uzyskać instrukcje korygowania.
 
 > [!Note]  
 > Jeśli skrypt FileSyncErrorsReport.ps1 zwraca błąd "Nie znaleziono żadnych błędów plików" lub nie ma listy błędów 1 elementu dla grupy synchronizacji, przyczyną jest:
@@ -343,29 +343,29 @@ Aby wyświetlić te błędy, uruchom skrypt programu **PowerShell** programuFile
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Rozwiązywanie problemów z błędami synchronizacji plików/katalogów
 **Dziennik ItemResults — błędy synchronizacji 1 elementu**  
 
-| HRESULT | HRESULT (dziesiętna) | Ciąg błędu | Problem | Korekty |
+| HRESULT | HRESULT (dziesiętny) | Ciąg błędu | Problem | Korekty |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | Plik warstwowy na serwerze jest niedostępny. Ten problem występuje, gdy plik warstwowy nie został odwołany przed usunięciem punktu końcowego serwera. | Aby rozwiązać ten problem, zobacz Pliki warstwowe nie są dostępne na serwerze po [usunięciu punktu końcowego serwera](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Zmiany pliku lub katalogu nie można jeszcze zsynchronizować, ponieważ folder zależny nie jest jeszcze zsynchronizowany. Ten element zostanie zsynchronizowany po zsynchronizowaniu zmian zależnych. | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzać przez kilka dni, użyj skryptu programu FileSyncErrorsReport.ps1 PowerShell, aby ustalić, dlaczego folder zależny nie jest jeszcze zsynchronizowany. |
 | 0x80C8028A | -2134375798 | ECS_E_SYNC_CONSTRAINT_CONFLICT_ON_FAILED_DEPENDEE | Zmiany pliku lub katalogu nie można jeszcze zsynchronizować, ponieważ folder zależny nie jest jeszcze zsynchronizowany. Ten element zostanie zsynchronizowany po zsynchronizowaniu zmian zależnych. | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzać przez kilka dni, użyj skryptu programu FileSyncErrorsReport.ps1 PowerShell, aby ustalić, dlaczego folder zależny nie jest jeszcze zsynchronizowany. |
-| 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | Zmiany pliku lub katalogu nie można jeszcze zsynchronizować, ponieważ folder zależny nie jest jeszcze zsynchronizowany i sesja synchronizacji nie powiodła się. Ten element zostanie zsynchronizowany po zsynchronizowaniu zmian zależnych. | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzać, zbadaj błąd sesji synchronizacji. |
+| 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | Zmiany pliku lub katalogu nie można jeszcze zsynchronizować, ponieważ folder zależny nie jest jeszcze zsynchronizowany i sesja synchronizacji nie powiodła się. Ten element zostanie zsynchronizowany po zsynchronizowaniu zmian zależnych. | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzać, zbadaj niepowodzenie sesji synchronizacji. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Nazwa pliku lub katalogu jest nieprawidłowa. | Zmień nazwę pliku lub katalogu, który jest problemem. Aby [uzyskać więcej informacji,](?tabs=portal1%252cazure-portal#handling-unsupported-characters) zobacz Obsługa nieobsługiwanych znaków. |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | Nazwa pliku lub katalogu jest nieprawidłowa. | Zmień nazwę pliku lub katalogu, który jest problemem. Aby [uzyskać więcej informacji,](?tabs=portal1%252cazure-portal#handling-unsupported-characters) zobacz Obsługa nieobsługiwanych znaków. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Nie można zsynchronizować pliku, ponieważ jest on w użyciu. Plik zostanie zsynchronizowany, gdy nie będzie już używany. | Żadna akcja nie jest wymagana. Azure File Sync tworzy tymczasową migawkę usługi VSS raz dziennie na serwerze, aby synchronizować pliki z otwartymi dojściami. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Plik został zmieniony, ale zmiana nie została jeszcze wykryta przez synchronizację. Synchronizacja zostanie odzyskana po wykryciu tej zmiany. | Żadna akcja nie jest wymagana. |
 | 0x80070002 | -2147024894 | Error_file_not_found | Plik został usunięty, a synchronizacja nie wie o zmianie. | Żadna akcja nie jest wymagana. Synchronizacja zatrzyma rejestrowanie tego błędu, gdy wykrywanie zmian wykryje, że plik został usunięty. |
-| 0x80070003 | -2147942403 | ERROR_PATH_NOT_FOUND | Nie można zsynchronizować usunięcia pliku lub katalogu, ponieważ element został już usunięty w miejscu docelowym, a synchronizacja nie wie o zmianie. | Żadna akcja nie jest wymagana. Synchronizacja zatrzyma rejestrowanie tego błędu, gdy wykrywanie zmian zostanie uruchomiony w miejscu docelowym i synchronizacja wykryje, że element został usunięty. |
+| 0x80070003 | -2147942403 | ERROR_PATH_NOT_FOUND | Nie można zsynchronizować usunięcia pliku lub katalogu, ponieważ element został już usunięty w miejscu docelowym, a synchronizacja nie wie o zmianie. | Żadna akcja nie jest wymagana. Synchronizacja spowoduje zatrzymanie rejestrowania tego błędu, gdy wykrywanie zmian zostanie uruchomiony w miejscu docelowym i synchronizacja wykryje, że element został usunięty. |
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | Plik lub katalog został pominięty, ale zostanie zsynchronizowany podczas następnej sesji synchronizacji. Jeśli ten błąd jest zgłaszany podczas pobierania elementu, nazwa pliku lub katalogu jest bardziej niż prawdopodobna nieprawidłowa. | Jeśli ten błąd zostanie zgłoszony podczas przekazywania pliku, nie jest wymagana żadna akcja. Jeśli podczas pobierania pliku zostanie zgłoszony błąd, zmień nazwę pliku lub katalogu. Aby [uzyskać więcej informacji,](?tabs=portal1%252cazure-portal#handling-unsupported-characters) zobacz Obsługa nieobsługiwanych znaków. |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | Nie można zsynchronizować tworzenia pliku lub katalogu, ponieważ element już istnieje w miejscu docelowym, a synchronizacja nie wie o zmianie. | Żadna akcja nie jest wymagana. Usługa Sync przestanie rejestrować ten błąd, gdy wykrywanie zmian zostanie uruchomione w miejscu docelowym, a usługa Sync będzie mieć informacje o istnieniu nowego elementu. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Nie można zsynchronizować pliku, ponieważ osiągnięto limit udziału plików platformy Azure. | Aby rozwiązać ten problem, zobacz [sekcję](?tabs=portal1%252cazure-portal#-2134351810) Osiągnięto limit magazynu udziału plików platformy Azure w przewodniku rozwiązywania problemów. |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | Plik jest szyfrowany za pomocą nieobsługiwanego rozwiązania (takiego jak NTFS EFS). | Odszyfruj plik i użyj obsługiwanego rozwiązania do szyfrowania. Listę obsługiwanych rozwiązań można znaleźć w sekcji [Rozwiązania do szyfrowania](./storage-sync-files-planning.md#encryption) w przewodniku planowania. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | Plik znajduje się w folderze replikacji tylko do odczytu systemu plików DFS-R. | Plik znajduje się w folderze replikacji tylko do odczytu systemu plików DFS-R. Usługa Azure File Sync nie obsługuje punktów końcowych serwera w folderach replikacji tylko do odczytu usługi DFS-R. Aby uzyskać więcej informacji, zobacz [przewodnik planowania](./storage-sync-files-planning.md#distributed-file-system-dfs). |
-| 0x80070005 | -2147024891 | Error_access_denied | Plik ma stan oczekiwania na usunięcie. | Żadna akcja nie jest wymagana. Plik zostanie usunięty po zamknięciu wszystkich otwartych dojść do plików. |
+| 0x80070005 | -2147024891 | Error_access_denied | Plik ma stan oczekiwanie na usunięcie. | Żadna akcja nie jest wymagana. Plik zostanie usunięty po zamknięciu wszystkich otwartych dojść do plików. |
 | 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | Nie można zsynchronizować pliku, ponieważ ustawienia zapory i sieci wirtualnej na koncie magazynu są włączone, a serwer nie ma dostępu do konta magazynu. | Dodaj adres IP serwera lub sieć wirtualną, [](./storage-sync-files-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) korzystając z procedury opisanej w sekcji Konfigurowanie ustawień zapory i sieci wirtualnej w przewodniku wdrażania. |
 | 0x80c80243 | -2134375869 | ECS_E_SECURITY_DESCRIPTOR_SIZE_TOO_LARGE | Nie można zsynchronizować pliku, ponieważ rozmiar deskryptora zabezpieczeń przekracza limit 64 KiB. | Aby rozwiązać ten problem, usuń wpisy kontroli dostępu (ACE) w pliku w celu zmniejszenia rozmiaru deskryptora zabezpieczeń. |
 | 0x8000ffff | -2147418113 | E_unexpected | Nie można zsynchronizować pliku z powodu nieoczekiwanego błędu. | Jeśli błąd będzie się powtarzać przez kilka dni, otwórz sprawę pomocy technicznej. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Nie można zsynchronizować pliku, ponieważ jest on w użyciu. Plik zostanie zsynchronizowany, gdy nie będzie już używany. | Żadna akcja nie jest wymagana. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Plik został zmieniony podczas synchronizacji, więc należy go ponownie zsynchronizować. | Żadna akcja nie jest wymagana. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Plik został zmieniony podczas synchronizacji, dlatego należy go ponownie zsynchronizować. | Żadna akcja nie jest wymagana. |
 | 0x80070017 | -2147024873 | ERROR_CRC | Nie można zsynchronizować pliku z powodu błędu CRC. Ten błąd może wystąpić, jeśli plik warstwowy nie został odwołany przed usunięciem punktu końcowego serwera lub jeśli plik jest uszkodzony. | Aby rozwiązać ten problem, zobacz [Pliki](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) warstwowe nie są dostępne na serwerze po usunięciu punktu końcowego serwera w celu usunięcia oddzielonych plików warstwowych. Jeśli błąd będzie nadal występować po usunięciu oddzielonych plików warstwowych, uruchom [chkdsk](/windows-server/administration/windows-commands/chkdsk) na woluminie. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Nie można zsynchronizować pliku, ponieważ osiągnięto maksymalną liczbę plików konfliktów. Azure File Sync obsługuje 100 plików konfliktów na plik. Aby dowiedzieć się więcej na temat konfliktów plików, zobacz Azure File Sync [— często zadawane pytania.](./storage-files-faq.md#afs-conflict-resolution) | Aby rozwiązać ten problem, zmniejsz liczbę plików powodujących konflikt. Plik zostanie zsynchronizowany, gdy liczba plików powodujących konflikt będzie mniejsza niż 100. |
 
@@ -379,9 +379,10 @@ W poniższej tabeli przedstawiono wszystkie znaki Unicode, Azure File Sync nie s
 | Zestaw znaków | Liczba znaków |
 |---------------|-----------------|
 | 0x00000000 — 0x0000001F (znaki kontrolne) | 32 |
+| 0x0000FDD0 — 0x0000FDDD (formularze prezentacji arabskich-a) | 14 |
 | <ul><li>0x00000022 (cudzysłów)</li><li>0x0000002A (gwiazdka)</li><li>0x0000002F (ukośnik)</li><li>0x0000003A (dwukropek)</li><li>0x0000003C (mniejsze niż)</li><li>0x0000003E (większe niż)</li><li>0x0000003F (znak zapytania)</li><li>0x0000005C (ukośnik odwrotny)</li><li>0x0000007C (potok lub pasek)</li></ul> | 9 |
 | <ul><li>0x0004FFFE — 0x0004FFFF = 2 (noncharacter)</li><li>0x0008FFFE — 0x0008FFFF = 2 (noncharacter)</li><li>0x000CFFFE — 0x000CFFFF = 2 (noncharacter)</li><li>0x0010FFFE — 0x0010FFFF = 2 (noncharacter)</li></ul> | 8 |
-| <ul><li>0x0000009D (polecenie systemu operacyjnego osc)</li><li>0x00000090 (ciąg sterowania urządzenia dcs)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (ustawienie wstępne wysokiego oktetu)</li><li>0x0000007F (del delete)</li><li>0x0000008D (odwrotne źródło danych ri)</li></ul> | 6 |
+| <ul><li>0x0000009D (polecenie systemu operacyjnego osc)</li><li>0x00000090 (ciąg sterowania urządzenia dcs)</li><li>0x0000008F (ss3 pojedyncze przesunięcie trzy)</li><li>0x00000081 (ustawienie wstępne wysokiego oktetu)</li><li>0x0000007F (del delete)</li><li>0x0000008D (odwrotne źródło danych ri)</li></ul> | 6 |
 | 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (specjalne) | 4 |
 | Pliki lub katalogi z okresem | 1 |
 
@@ -462,11 +463,11 @@ Ten błąd występuje, ponieważ agent usługi Azure File Sync nie może uzyska�
 | Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c86044 |
-| **HRESULT (dziesiętna)** | -2134351804 |
+| **HRESULT (dziesiętny)** | -2134351804 |
 | **Ciąg błędu** | ECS_E_AZURE_AUTHORIZATION_FAILED |
 | **Wymagane korygowanie** | Tak |
 
-Ten błąd występuje, ponieważ Azure File Sync nie ma autoryzacji do uzyskiwania dostępu do udziału plików platformy Azure. Ten błąd można rozwiązać, wykonując następujące czynności:
+Ten błąd występuje, ponieważ Azure File Sync nie ma autoryzacji dostępu do udziału plików platformy Azure. Ten błąd można rozwiązać, wykonując następujące czynności:
 
 1. [Sprawdź, czy konto magazynu istnieje.](#troubleshoot-storage-account)
 2. [Upewnij się, że udział plików platformy Azure istnieje.](#troubleshoot-azure-file-share)
@@ -667,7 +668,7 @@ Ten błąd zazwyczaj występuje, ponieważ czas serwera jest niepoprawny. Jeśli
 | Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83078 |
-| **HRESULT (dziesiętna)** | -2134364040 |
+| **HRESULT (dziesiętny)** | -2134364040 |
 | **Ciąg błędu** | ECS_E_AUTH_SRV_CERT_EXPIRED |
 | **Wymagane korygowanie** | Tak |
 
@@ -679,7 +680,7 @@ Aby sprawdzić, czy certyfikat wygasł, wykonaj następujące czynności:
 
 Jeśli certyfikat uwierzytelniania klienta wygasł, wykonaj następujące czynności, aby rozwiązać ten problem:
 
-1. Sprawdź Azure File Sync zainstalowano agenta w wersji 4.0.1.0 lub nowszej.
+1. Sprawdź Azure File Sync czy zainstalowano agenta w wersji 4.0.1.0 lub nowszej.
 2. Uruchom na serwerze następujące polecenie programu PowerShell: 
 
     ```powershell
@@ -691,7 +692,7 @@ Jeśli certyfikat uwierzytelniania klienta wygasł, wykonaj następujące czynno
 | Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c80228 |
-| **HRESULT (dziesiętna)** | -2134375896 |
+| **HRESULT (dziesiętny)** | -2134375896 |
 | **Ciąg błędu** | ECS_E_AUTH_SRV_CERT_NOT_FOUND |
 | **Wymagane korygowanie** | Tak |
 
@@ -699,7 +700,7 @@ Ten błąd występuje, ponieważ nie znaleziono certyfikatu używanego do uwierz
 
 Aby rozwiązać ten problem, wykonaj następujące kroki:
 
-1. Sprawdź Azure File Sync zainstalowano agenta w wersji 4.0.1.0 lub nowszej.
+1. Sprawdź Azure File Sync czy zainstalowano agenta w wersji 4.0.1.0 lub nowszej.
 2. Uruchom na serwerze następujące polecenie programu PowerShell: 
 
     ```powershell
@@ -744,21 +745,21 @@ Ten błąd występuje, ponieważ wolumin jest pełny. Ten błąd często występ
 | **Ciąg błędu** | ECS_E_REPLICA_NOT_READY |
 | **Wymagane korygowanie** | Nie |
 
-Ten błąd występuje, ponieważ punkt końcowy w chmurze został utworzony z zawartością już istniejącą w udziałach plików platformy Azure. Azure File Sync przeskanować udział plików platformy Azure pod poszukiwaniu całej zawartości przed umożliwieniem punktowi końcowemu serwera kontynuowania synchronizacji początkowej.
+Ten błąd występuje, ponieważ punkt końcowy w chmurze został utworzony z zawartością już istniejącą w udziałach plików platformy Azure. Azure File Sync przeskanować udział plików platformy Azure pod poszukiwaniu całej zawartości przed umożliwieniem punktowi końcowemu serwera kontynuowania jego synchronizacji początkowej.
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Synchronizacja nie powiodła się z powodu problemów z wieloma poszczególnymi plikami.**  
 
 | Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8023b |
-| **HRESULT (dziesiętna)** | -2134375877 |
+| **HRESULT (dziesiętny)** | -2134375877 |
 | **Ciąg błędu** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Wymagane korygowanie** | Tak |
 
 | Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8021c |
-| **HRESULT (dziesiętna)** | -2134375908 |
+| **HRESULT (dziesiętny)** | -2134375908 |
 | **Ciąg błędu** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Wymagane korygowanie** | Tak |
 
@@ -801,7 +802,7 @@ Ten błąd występuje, ponieważ załadowana wersja sterownika filtru obsługi w
 | Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8004b |
-| **HRESULT (dziesiętna)** | -2134376373 |
+| **HRESULT (dziesiętny)** | -2134376373 |
 | **Ciąg błędu** | ECS_E_SERVICE_UNAVAILABLE |
 | **Wymagane korygowanie** | Nie |
 
@@ -834,7 +835,7 @@ Ten błąd występuje, ponieważ konto magazynu zostało przełączone w tryb fa
 | Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8020e |
-| **HRESULT (dziesiętna)** | -2134375922 |
+| **HRESULT (dziesiętny)** | -2134375922 |
 | **Ciąg błędu** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **Wymagane korygowanie** | Nie |
 
@@ -862,14 +863,14 @@ Gdy masz najnowszą wersję agenta, musisz udzielić aplikacji Microsoft.Storage
 | **Ciąg błędu** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
 | **Wymagane korygowanie** | Tak |
 
-Ten błąd występuje, gdy ustawienia zapory i sieci wirtualnej są włączone na koncie magazynu, a wyjątek "Zezwalaj zaufanym usługi firmy Microsoft na dostęp do tego konta magazynu" nie jest sprawdzany. Aby rozwiązać ten problem, wykonaj czynności opisane w sekcji [Konfigurowanie ustawień zapory i sieci wirtualnej](./storage-sync-files-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) w podręczniku wdrażania.
+Ten błąd występuje, gdy na koncie magazynu są włączone ustawienia zapory i sieci wirtualnej, a wyjątek "Zezwalaj zaufanej usługi firmy Microsoft na dostęp do tego konta magazynu" nie jest sprawdzany. Aby rozwiązać ten problem, wykonaj czynności opisane w sekcji [Konfigurowanie ustawień zapory i sieci wirtualnej](./storage-sync-files-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) w podręczniku wdrażania.
 
 <a id="-2147024891"></a>**Synchronizacja nie powiodła się, ponieważ uprawnienia w folderze informacji o woluminie systemowym są nieprawidłowe.**  
 
 | Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80070005 |
-| **HRESULT (dziesiętna)** | -2147024891 |
+| **HRESULT (dziesiętny)** | -2147024891 |
 | **Ciąg błędu** | Error_access_denied |
 | **Wymagane korygowanie** | Tak |
 
@@ -937,7 +938,7 @@ Ten błąd występuje, jeśli nazwa katalogu używanego jako ścieżka punktu ko
 
 Jeśli katalog został usunięty, wykonaj następujące kroki, aby usunąć istniejący punkt końcowy serwera i utworzyć nowy punkt końcowy serwera przy użyciu nowej ścieżki:
 
-1. Usuń punkt końcowy serwera w grupie synchronizacji, korzystając z procedury opisanej w tece [Usuwanie punktu końcowego serwera](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+1. Usuń punkt końcowy serwera w grupie synchronizacji, korzystając z procedury opisanej w te [tematze Usuwanie punktu końcowego serwera](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
 2. Utwórz nowy punkt końcowy serwera w grupie synchronizacji, korzystając z procedury opisanej w tece [Dodawanie punktu końcowego serwera](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Typowe kroki rozwiązywania problemów
@@ -1049,7 +1050,7 @@ if ($fileShare -eq $null) {
 1. Kliknij **kartę Przypisania ról,** aby wyświetlićlistę użytkowników i aplikacji (jednostki usługi), którzy mają dostęp do konta magazynu.
 1. Sprawdź, czy na liście z rolą Czytelnik i Dostęp do danych jest wyświetlana nazwa usługi **Microsoft.StorageSync** lub Hybrid **File Sync Service** (stara **nazwa** aplikacji). 
 
-    ![Zrzut ekranu przedstawiający jednostkę File Sync Usługi hybrydowej na karcie kontroli dostępu konta magazynu](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![Zrzut ekranu przedstawiający jednostkę usługi File Sync Service w trybie hybrydowym na karcie kontroli dostępu konta magazynu](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Jeśli na liście nie ma elementów **Microsoft.StorageSync** **lub Hybrid File Sync Service,** wykonaj następujące kroki:
 
@@ -1077,15 +1078,15 @@ Istnieją dwie ścieżki błędów w warstwie w chmurze:
 
 Istnieją dwie główne klasy błędów, które mogą wystąpić za pośrednictwem jednej ze ścieżek błędów:
 
-- Błędy magazynu w chmurze
-    - *Przejściowe problemy z dostępnością usługi Storage.* Aby uzyskać więcej informacji, zobacz [Umowa dotycząca poziomu usług (SLA) for Azure Storage (Umowa SLA) dla usługi Azure Storage.](https://azure.microsoft.com/support/legal/sla/storage/v1_2/)
+- Awarie magazynu w chmurze
+    - *Przejściowe problemy z dostępnością usługi storage.* Aby uzyskać więcej informacji, zobacz [Umowa dotycząca poziomu usług (SLA) for Azure Storage (Umowa SLA) dla usługi Azure Storage.](https://azure.microsoft.com/support/legal/sla/storage/v1_2/)
     - *Niedostępny udział plików platformy Azure.* Ten błąd występuje zwykle w przypadku usunięcia udziału plików platformy Azure, gdy jest on nadal punktem końcowym chmury w grupie synchronizacji.
     - *Niedostępne konto magazynu.* Ten błąd występuje zwykle w przypadku usunięcia konta magazynu, gdy nadal ma udział plików platformy Azure, który jest punktem końcowym chmury w grupie synchronizacji. 
 - Błędy serwera 
   - *Azure File Sync system plików (StorageSync.sys) nie jest ładowany.* Aby odpowiadać na żądania dotyczące warstw/odwoływania, Azure File Sync musi zostać załadowany filtr systemu plików. Filtr, który nie jest ładowany, może wystąpić z kilku powodów, ale najczęstszym powodem jest to, że administrator zwolnił go ręcznie. Filtr Azure File Sync systemu plików musi być ładowany przez cały czas, aby Azure File Sync prawidłowo działać.
   - Brakujący, uszkodzony lub w inny sposób uszkodzony *punkt ponownej ponownejanalizy.* Punkt ponownej ponownej dystrybucji to specjalna struktura danych w pliku, który składa się z dwóch części:
     1. Tag ponownej obsługi, który wskazuje systemowi operacyjnej, że filtr systemu plików Azure File Sync (StorageSync.sys) może wymagać pewnych działań na we/wy do pliku. 
-    2. Ponownie przeanalituj dane, co oznacza, że system plików filtruje URI pliku w skojarzonym punkcie końcowym w chmurze (udział plików platformy Azure). 
+    2. Ponownie przeanalizuj dane, co wskazuje systemowi plików filtrowanie URI pliku w skojarzonym punkcie końcowym w chmurze (udział plików platformy Azure). 
         
        Najczęstszym sposobem uszkodzenia punktu ponownej próby jest próba zmodyfikowania tagu lub jego danych przez administratora. 
   - *Problemy z łącznością sieciową.* Aby można było użyć warstwy lub odwołać pliku, serwer musi mieć łączność z Internetem.
@@ -1096,29 +1097,29 @@ W poniższych sekcjach opisano sposób rozwiązywania problemów z warstwami w c
 Aby monitorować działania obsługi warstw na serwerze, użyj identyfikatorów zdarzeń 9003, 9016 i 9029 w dzienniku zdarzeń telemetrii (w obszarze Aplikacje i usługi\Microsoft\FileSync\Agent w programie Podgląd zdarzeń).
 
 - Identyfikator zdarzenia 9003 zapewnia dystrybucję błędów dla punktu końcowego serwera. Na przykład Łączna liczba błędów, Kod błędu itp. Należy pamiętać, że jedno zdarzenie jest rejestrowane na kod błędu.
-- Identyfikator zdarzenia 9016 zawiera wyniki dla woluminu. Na przykład procent wolnego miejsca to, liczba plików w sesji, liczba plików, których nie udało się odjąć itd.
+- Identyfikator zdarzenia 9016 zawiera wyniki dla woluminu. Na przykład procent wolnego miejsca to, liczba plików w sesji zduchem, liczba plików, których nie udało się odjąć itd.
 - Zdarzenie o identyfikatorze 9029 zawiera informacje o sesji dla punktu końcowego serwera. Na przykład: Liczba plików, które podjęto próbę w sesji, Liczba plików w sesji z warstwami, Liczba plików, które są już warstwowe itp.
 
 ### <a name="how-to-monitor-recall-activity-on-a-server"></a>Jak monitorować aktywność odwołań na serwerze
-Aby monitorować aktywność odwoływania na serwerze, użyj identyfikatorów zdarzeń 9005, 9006, 9009 i 9059 w dzienniku zdarzeń telemetrii (zlokalizowanym w obszarze Aplikacje i usługi\Microsoft\FileSync\Agent w programie Podgląd zdarzeń).
+Aby monitorować aktywność odwoływania na serwerze, użyj identyfikatorów zdarzeń 9005, 9006, 9009 i 9059 w dzienniku zdarzeń telemetrii (w obszarze Aplikacje i usługi\Microsoft\FileSync\Agent w programie Podgląd zdarzeń).
 
 - Zdarzenie o identyfikatorze 9005 zapewnia niezawodność odwoływania dla punktu końcowego serwera. Na przykład Łączna liczba unikatowych plików, Łączna liczba unikatowych plików z nieudanym dostępem itp.
 - Zdarzenie o identyfikatorze 9006 zapewnia dystrybucję błędów przywoływu dla punktu końcowego serwera. Na przykład Łączna liczba żądań nieudanych, Kod błędu itp. Należy pamiętać, że jedno zdarzenie jest rejestrowane na kod błędu.
 - Zdarzenie o identyfikatorze 9009 zawiera informacje o sesji odwołania dla punktu końcowego serwera. Na przykład DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed itp.
-- Zdarzenie o identyfikatorze 9059 zapewnia dystrybucję odwołania aplikacji dla punktu końcowego serwera. Na przykład ShareId, Application Name i TotalEgressNetworkBytes.
+- Zdarzenie o identyfikatorze 9059 zapewnia dystrybucję odwołania aplikacji dla punktu końcowego serwera. Na przykład ShareId, Nazwa aplikacji i TotalEgressNetworkBytes.
 
 ### <a name="how-to-troubleshoot-files-that-fail-to-tier"></a>Jak rozwiązywać problemy z plikami, których warstwa nie powiodła się
 Jeśli nie można przesłonić warstwy Azure Files:
 
-1. W Podgląd zdarzeń telemetrii, operacyjne i diagnostyczne dzienniki zdarzeń znajdujące się w obszarze Aplikacje i usługi\Microsoft\FileSync\Agent. 
+1. W Podgląd zdarzeń przejrzyj dzienniki zdarzeń telemetrycznych, operacyjnych i diagnostycznych znajdujące się w obszarze Aplikacje i usługi\Microsoft\FileSync\Agent. 
    1. Sprawdź, czy pliki istnieją w udziałach plików platformy Azure.
 
       > [!NOTE]
       > Plik musi zostać zsynchronizowany z udziałem plików platformy Azure, zanim będzie można go podzielić na warstwy.
 
    2. Sprawdź, czy serwer ma łączność z Internetem. 
-   3. Sprawdź, Azure File Sync sterowników filtrów (StorageSync.sys i StorageSyncGuard.sys) są uruchomione:
-       - W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie `fltmc` . Sprawdź, czy StorageSync.sys i StorageSyncGuard.sys sterowników filtrów systemu plików.
+   3. Sprawdź, Azure File Sync sterowniki filtrów (StorageSync.sys i StorageSyncGuard.sys) są uruchomione:
+       - W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie `fltmc` . Sprawdź, czy StorageSync.sys i StorageSyncGuard.sys filtrów systemu plików.
 
 > [!NOTE]
 > Identyfikator zdarzenia 9003 jest rejestrowany raz na godzinę w dzienniku zdarzeń telemetrii, jeśli plik nie działa w warstwie (jedno zdarzenie jest rejestrowane na kod błędu). Sprawdź [sekcję Błędy obsługi warstw i korygowanie,](#tiering-errors-and-remediation) aby sprawdzić, czy dla kodu błędu znajdują się kroki korygowania.
@@ -1127,7 +1128,7 @@ Jeśli nie można przesłonić warstwy Azure Files:
 
 | HRESULT | HRESULT (dziesiętny) | Ciąg błędu | Problem | Korekty |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Nie można przesłonić pliku, ponieważ wstępne przekazywanie jest w toku. | Żadna akcja nie jest wymagana. Po zakończeniu początkowego przekazywania plik będzie warstwowy. |
+| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Warstwa pliku nie powiodła się, ponieważ wstępne przekazywanie jest w toku. | Żadna akcja nie jest wymagana. Po zakończeniu początkowego przekazywania plik będzie warstwowy. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | Nie można przewarstwowyć pliku, ponieważ jest on w użyciu. | Żadna akcja nie jest wymagana. Plik zostanie umieszczony w warstwie, gdy nie będzie już używany. |
 | 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | Nie można warstwować pliku, ponieważ został on wykluczony przez synchronizację. | Żadna akcja nie jest wymagana. Pliki na liście wykluczeń synchronizacji nie mogą być umieszczane w warstwie. |
 | 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | Nie można warstwy pliku, ponieważ nie znaleziono go na serwerze. | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzał, sprawdź, czy plik istnieje na serwerze. |
@@ -1142,14 +1143,14 @@ Jeśli nie można przesłonić warstwy Azure Files:
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Nie można podzielić pliku na warstwy, ponieważ nie został on zsynchronizowany z udziałem plików platformy Azure. | Żadna akcja nie jest wymagana. Plik zostanie umieszczony w warstwie po zsynchronizowaniu z udziałem plików platformy Azure. |
 | 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Nie można przefiltrować pliku, ponieważ sterownik filtru warstw w chmurze (storagesync.sys) nie jest uruchomiony. | Aby rozwiązać ten problem, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie: `fltmc load storagesync`<br>Jeśli nie można załadować sterownika filtru storagesync podczas uruchamiania polecenia fltmc, odinstaluj agenta Azure File Sync, uruchom ponownie serwer i ponownie zainstaluj Azure File Sync agenta. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Nie można przesłonić pliku z powodu niewystarczającej ilości miejsca na dysku na woluminie, na którym znajduje się punkt końcowy serwera. | Aby rozwiązać ten problem, zwolnij co najmniej 100 MB miejsca na dysku w woluminie, w którym znajduje się punkt końcowy serwera. |
-| 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Nie można podzielić pliku na warstwy, ponieważ nie został on zsynchronizowany z udziałem plików platformy Azure. | Żadna akcja nie jest wymagana. Plik zostanie umieszczony w warstwie po zsynchronizowaniu z udziałem plików platformy Azure. |
+| 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Nie można przedzielić pliku na warstwę, ponieważ nie został on zsynchronizowany z udziałem plików platformy Azure. | Żadna akcja nie jest wymagana. Plik zostanie umieszczony w warstwie po zsynchronizowaniu z udziałem plików platformy Azure. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | Nie można przesłonić pliku, ponieważ jest to nieobsługiwany punkt ponownej ponownej wersji. | Jeśli plik jest punktem ponownej analizy deduplikacji danych, wykonaj kroki opisane w [przewodniku planowania](./storage-sync-files-planning.md#data-deduplication), aby włączyć obsługę deduplikacji danych. Pliki z punktami ponownej analizy innymi niż deduplikacja danych nie są obsługiwane i nie będą umieszczane w warstwie.  |
 | 0x80c83052 | -2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | Nie można przesłonić pliku, ponieważ został zmodyfikowany. | Żadna akcja nie jest wymagana. Plik zostanie umieszczony w warstwie po zsynchronizowaniu zmodyfikowanego pliku z udziałem plików platformy Azure. |
 | 0x80c80269 | -2134375831 | ECS_E_GHOSTING_REPLICA_NOT_FOUND | Nie można przedzielić pliku na warstwę, ponieważ nie został on zsynchronizowany z udziałem plików platformy Azure. | Żadna akcja nie jest wymagana. Plik zostanie umieszczony w warstwie po zsynchronizowaniu z udziałem plików platformy Azure. |
 | 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | Warstwa pliku nie powiodła się z powodu problemu z siecią. | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzał, sprawdź łączność sieciową z udziałem plików platformy Azure. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Nie można przesłonić pliku, ponieważ został zmodyfikowany. | Żadna akcja nie jest wymagana. Plik zostanie umieszczony w warstwie po zsynchronizowaniu zmodyfikowanego pliku z udziałem plików platformy Azure. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Nie można przewarstwowować pliku, ponieważ został on zmodyfikowany. | Żadna akcja nie jest wymagana. Plik zostanie umieszczony w warstwie po zsynchronizowaniu zmodyfikowanego pliku z udziałem plików platformy Azure. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Nie można przesłonić pliku z powodu niewystarczających zasobów systemowych. | Jeśli błąd będzie się powtarzał, sprawdź, która aplikacja lub sterownik trybu jądra wyczerpuje zasoby systemowe. |
-| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Nie można przesłonić pliku z powodu błędu we/wy podczas zapisywania w bazie danych obsługi warstw w chmurze. | Jeśli błąd będzie się powtarzać, uruchom program chkdsk na woluminie i sprawdź sprzęt magazynu. |
+| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Nie można przesłonić pliku z powodu błędu we/wy podczas zapisywania do bazy danych obsługi warstw w chmurze. | Jeśli błąd będzie się powtarzać, uruchom program chkdsk na woluminie i sprawdź sprzęt magazynu. |
 | 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Nie można przewarstwowować pliku, ponieważ baza danych warstw w chmurze nie jest uruchomiona. | Aby rozwiązać ten problem, uruchom ponownie usługę lub serwer FileSyncSvc. Jeśli błąd będzie się powtarzać, uruchom program chkdsk na woluminie i sprawdź sprzęt magazynu. |
 
 
@@ -1160,7 +1161,7 @@ Jeśli nie można odwołać plików:
     1. Sprawdź, czy pliki istnieją w udziałach plików platformy Azure.
     2. Sprawdź, czy serwer ma łączność z Internetem. 
     3. Otwórz przystawkę Programu MMC usług i sprawdź, czy usługa agenta synchronizacji magazynu (FileSyncSvc) jest uruchomiona.
-    4. Sprawdź, Azure File Sync sterowników filtrów (StorageSync.sys i StorageSyncGuard.sys) są uruchomione:
+    4. Sprawdź, Azure File Sync sterowniki filtrów (StorageSync.sys i StorageSyncGuard.sys) są uruchomione:
         - W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie `fltmc` . Sprawdź, czy StorageSync.sys i StorageSyncGuard.sys filtrów systemu plików.
 
 > [!NOTE]
@@ -1172,9 +1173,9 @@ Jeśli nie można odwołać plików:
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | Nie można odwołać pliku z powodu przeoczania limitu czasu we/wy. Ten problem może wystąpić z kilku powodów: ograniczeń zasobów serwera, słabej łączności sieciowej lub problemu z usługą Azure Storage (na przykład z ograniczaniem przepustowości). | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzać przez kilka godzin, otwórz zgłoszenie do pomocy technicznej. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | Nie można odwołać pliku z powodu problemu z siecią.  | Jeśli błąd będzie się powtarzał, sprawdź łączność sieciową z udziałem plików platformy Azure. |
-| 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | Nie można odwołać pliku, ponieważ punkt końcowy serwera został usunięty. | Aby rozwiązać ten problem, zobacz Pliki warstwowe nie są dostępne na serwerze po [usunięciu punktu końcowego serwera.](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) |
+| 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | Nie można odwołać pliku, ponieważ punkt końcowy serwera został usunięty. | Aby rozwiązać ten problem, zobacz Pliki warstwowe nie są dostępne na serwerze po [usunięciu punktu końcowego serwera](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80070005 | -2147024891 | Error_access_denied | Nie można odwołać pliku z powodu błędu odmowy dostępu. Ten problem występuje, gdy ustawienia zapory i sieci wirtualnej na koncie magazynu są włączone, a serwer nie ma dostępu do konta magazynu. | Aby rozwiązać ten problem, dodaj adres IP serwera lub sieć [](./storage-sync-files-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) wirtualną, korzystając z procedury opisanej w sekcji Konfigurowanie ustawień zapory i sieci wirtualnej w przewodniku wdrażania. |
-| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Nie można odwołać pliku, ponieważ nie jest on dostępny w udziałach plików platformy Azure. | Aby rozwiązać ten problem, sprawdź, czy plik istnieje w udziale plików platformy Azure. Jeśli plik istnieje w udziałach plików platformy Azure, uaktualnij program do najnowszej Azure File Sync [wersji agenta.](./storage-files-release-notes.md#supported-versions) |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Nie można odwołać pliku, ponieważ nie jest on dostępny w udziałach plików platformy Azure. | Aby rozwiązać ten problem, sprawdź, czy plik istnieje w udziale plików platformy Azure. Jeśli plik istnieje w udziałach plików platformy Azure, uaktualnij program do najnowszej Azure File Sync [wersji agenta](./storage-files-release-notes.md#supported-versions). |
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Nie można odwołać pliku z powodu błędu autoryzacji na koncie magazynu. | Aby rozwiązać ten problem, [Azure File Sync ma dostęp do konta magazynu.](?tabs=portal1%252cazure-portal#troubleshoot-rbac) |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Nie można odwołać pliku, ponieważ udział plików platformy Azure jest niedostępny. | Sprawdź, czy udział plików istnieje i jest dostępny. Jeśli udział plików został usunięty i ponownie utworzony, wykonaj kroki opisane w sekcji Synchronizacja nie powiodło się, ponieważ udział plików platformy [Azure](?tabs=portal1%252cazure-portal#-2134375810) został usunięty i ponownie utworzony, aby usunąć i ponownie utworzyć grupę synchronizacji. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Nie można odwołać pliku z powodu niewystarczających zasobów systemowych. | Jeśli błąd będzie się powtarzał, sprawdź, która aplikacja lub sterownik trybu jądra wyczerpuje zasoby systemowe. |
@@ -1211,17 +1212,17 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 $orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
 $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 ```
-3. Zapisz plik wyjściowy OrphanTieredFiles.txt na wypadek, gdy pliki muszą zostać przywrócone z kopii zapasowej po ich usunięciu.
+3. Zapisz plik wyjściowy OrphanTieredFiles.txt, jeśli pliki muszą zostać przywrócone z kopii zapasowej po ich usunięciu.
 
 <a id="remove-orphaned"></a>**Jak usunąć oddzielone pliki warstwowe** 
 
 *Opcja 1. Usuwanie oddzielonych plików warstwowych*
 
-Ta opcja powoduje usunięcie oddzielonych plików warstwowych w systemie Windows Server, ale wymaga usunięcia punktu końcowego serwera, jeśli istnieje z powodu przerwy po upływie 30 dni lub połączenia z inną grupą synchronizacji. Konflikty plików wystąpią, jeśli pliki zostaną zaktualizowane w systemie Windows Server lub w udziałach plików platformy Azure przed odtworzeniem punktu końcowego serwera.
+Ta opcja powoduje usunięcie oddzielonych plików warstwowych w systemie Windows Server, ale wymaga usunięcia punktu końcowego serwera, jeśli istnieje z powodu po upływie 30 dni lub połączenia z inną grupą synchronizacji. Konflikty plików wystąpią, jeśli pliki zostaną zaktualizowane w systemie Windows Server lub w udziałach plików platformy Azure przed odtworzeniem punktu końcowego serwera.
 
 1. Sprawdź Azure File Sync czy zainstalowano agenta w wersji 5.1 lub nowszej.
 2. Tworzenie kopii zapasowej udziału plików platformy Azure i lokalizacji punktu końcowego serwera.
-3. Usuń punkt końcowy serwera w grupie synchronizacji (jeśli istnieje), korzystając z procedury opisanej w tece [Usuwanie punktu końcowego serwera.](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint)
+3. Usuń punkt końcowy serwera w grupie synchronizacji (jeśli istnieje), korzystając z procedury opisanej w tece [Usuwanie punktu końcowego serwera](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
 
 > [!Warning]  
 > Jeśli punkt końcowy serwera nie zostanie usunięty przed użyciem polecenia cmdlet Remove-StorageSyncOrphanedTieredFiles, usunięcie oddzielonego pliku warstwowego na serwerze spowoduje usunięcie pełnego pliku z udziału plików platformy Azure. 
@@ -1263,7 +1264,7 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 4. Zastąp oddzielone pliki warstwowe, kopiując pełny plik z udziału plików platformy Azure do systemu Windows Server.
 
 ### <a name="how-to-troubleshoot-files-unexpectedly-recalled-on-a-server"></a>Jak rozwiązywać problemy z plikami nieoczekiwanie przywoływanymi na serwerze  
-Oprogramowanie antywirusowe, kopia zapasowa i inne aplikacje, które odczytują dużą liczbę plików, powodują niezamierzone odwoływać się, chyba że respektują atrybut pominięcia trybu offline i pomijają odczytywanie zawartości tych plików. Pomijanie plików offline w przypadku produktów, które obsługują tę opcję, umożliwia uniknięcie niezamierzonych odwołań podczas operacji takich jak skanowanie antywirusowe lub zadania kopii zapasowej.
+Oprogramowanie antywirusowe, kopia zapasowa i inne aplikacje, które odczytują dużą liczbę plików, powodują niezamierzone odwoływki, chyba że respektują atrybut pominięcia trybu offline i pomijają odczytywanie zawartości tych plików. Pomijanie plików offline w przypadku produktów, które obsługują tę opcję, umożliwia uniknięcie niezamierzonych odwołań podczas operacji takich jak skanowanie antywirusowe lub zadania kopii zapasowej.
 
 Skonsultuj się z dostawcą oprogramowania, aby dowiedzieć się, w jaki sposób skonfigurować rozwiązanie tak, aby odczytywanie plików offline było pomijane.
 
@@ -1311,7 +1312,7 @@ W przypadku agenta w wersji 10 i starszych:
 1. Utwórz katalog, w którym zostaną zapisane dane wyjściowe AFSDiag (na przykład C:\Output).
     > [!NOTE]
     >Przed zebraniem dzienników usługa AFSDiag usunie całą zawartość w katalogu wyjściowym. Określ lokalizację wyjściową, która nie zawiera danych.
-2. Otwórz okno programu PowerShell z podwyższonym poziomem uprawnień, a następnie uruchom następujące polecenia (po każdym poleceniu naciśnij klawisz Enter):
+2. Otwórz okno programu PowerShell z podwyższonym poziomem uprawnień, a następnie uruchom następujące polecenia (naciśnij klawisz Enter po każdym poleceniu):
 
     ```powershell
     cd "c:\Program Files\Azure\StorageSyncAgent"

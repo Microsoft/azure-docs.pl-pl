@@ -1,8 +1,8 @@
-- name: Dokumentacja Cloud Services (obsługa rozszerzona)
+- name: Azure Cloud Services dokumentacji (rozszerzonej pomocy technicznej)
   href: index.yml
 - name: Omówienie
   items:
-    - name: Informacje o Cloud Services (obsługa rozszerzona)
+    - name: Informacje Cloud Services (rozszerzona pomoc techniczna)
       href: overview.md
     - name: Wymagania wstępne dotyczące wdrażania
       href: deploy-prerequisite.md
@@ -10,7 +10,7 @@
       href: cloud-services-model-and-package.md
 - name: Samouczki
   items:
-    - name: Wdrażanie usługi w chmurze — Portal
+    - name: Wdrażanie usługi w chmurze — portal
       href: deploy-portal.md
     - name: Wdrażanie usługi w chmurze — PowerShell
       href: deploy-powershell.md
@@ -35,17 +35,17 @@
       href: ../cloud-services/cloud-services-guestos-update-matrix.md?context=/azure/cloud-services-extended-support/context/context
     - name: Schemat XML
       items:
-        - name: Schemat XML csdef
+        - name: Schemat XML programu Csdef
           href: schema-csdef-file.md
         - name: Schemat LoadBalancerProbe
           href: schema-csdef-loadbalancerprobe.md
-        - name: Schemat roli
+        - name: Schemat WebRole
           href: schema-csdef-webrole.md
-        - name: Schemat rola procesu roboczego
+        - name: Schemat WorkerRole
           href: schema-csdef-workerrole.md
         - name: Schemat NetworkTrafficRules
           href: schema-csdef-networktrafficrules.md
-        - name: Cscfg schematu XML
+        - name: Schemat XML Cscfg
           href: schema-cscfg-file.md
         - name: Schemat roli
           href: schema-cscfg-role.md
@@ -53,7 +53,7 @@
           href: schema-cscfg-networkconfiguration.md
 - name: Instrukcje
   items:
-    - name: Migrowanie do Cloud Services (obsługa rozszerzona)
+    - name: Migrowanie do Azure Cloud Services (rozszerzona pomoc techniczna)
       items:
         - name: Omówienie migracji
           href: in-place-migration-overview.md
@@ -65,23 +65,23 @@
           href: in-place-migration-powershell.md
         - name: Typowe błędy i znane problemy
           href: in-place-migration-common-errors.md
-    - name: Zastosuj rozszerzenia
+    - name: Stosowanie rozszerzeń
       items:
-        - name: Zastosuj rozszerzenie Pulpit zdalny
+        - name: Stosowanie Pulpit zdalny rozszerzenia
           href: enable-rdp.md
-        - name: Zastosuj rozszerzenie funkcji wad
+        - name: Stosowanie rozszerzenia WAD
           href: enable-wad.md
     - name: Włączanie alertów
       href: enable-alerts.md
-    - name: Konfiguruj skalowanie
+    - name: Konfigurowanie skalowania
       href: configure-scaling.md
     - name: Certyfikaty
       href: certificates-and-key-vault.md
-    - name: Generowanie szablonu ARM przy użyciu portalu
+    - name: Generowanie szablonu usługi ARM przy użyciu portalu
       href: generate-template-portal.md
-    - name: Wymiana dwóch usług w chmurze
+    - name: Zamiana wdrożeń usług w chmurze
       href: swap-cloud-service.md
-    - name: Przesłoń szczegóły jednostki SKU
+    - name: Przesłanianie szczegółów sku
       href: override-sku.md
     - name: Rozwiązywanie problemów
       items:
@@ -93,21 +93,21 @@
   items:
     - name: Przykładowe szablony
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
-    - name: Utwórz nową usługę w chmurze
+    - name: Tworzenie nowej usługi w chmurze
       href: sample-create-cloud-service.md
-    - name: Pobierz szczegóły usługi w chmurze
+    - name: Uzyskiwanie szczegółów usługi w chmurze
       href: sample-get-cloud-service.md
-    - name: Zresetuj usługę w chmurze
+    - name: Resetowanie usługi w chmurze
       href: sample-reset-cloud-service.md
 - name: Odwołanie
   items:
     - name: Przykładowe pliki wdrożenia
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
-    - name: AZ. CloudService — moduł
+    - name: Moduł Az.CloudService
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: Polecenia cmdlet programu PowerShell
       href: /powershell/module/az.cloudservice/#cloudservice
-    - name: Dokumentacja szablonu ARM
+    - name: Dokumentacja szablonu usługi Resource Manager
       href: /azure/templates/microsoft.compute/cloudservices
     - name: REST
       href: /rest/api/compute/cloudservices

@@ -1,50 +1,49 @@
 ---
-title: Key Vault monitorowania z Azure Event Grid
-description: Subskrybowanie zdarzeń Key Vault za pomocą Azure Event Grid
+title: Monitorowanie Key Vault za pomocą Azure Event Grid
+description: Używanie Azure Event Grid do subskrybowania Key Vault zdarzeń
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fb6d57bb84f4a3b4c5c138be9306489191bfce8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90087440"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753366"
 ---
-# <a name="monitoring-key-vault-with-azure-event-grid"></a>Key Vault monitorowania z Azure Event Grid
+# <a name="monitoring-key-vault-with-azure-event-grid"></a>Monitorowanie Key Vault za pomocą Azure Event Grid
 
-Key Vault integracja z usługą Event Grid umożliwia użytkownikom otrzymywanie powiadomień o zmianie stanu wpisu tajnego przechowywanego w magazynie kluczy. Zmiana stanu jest definiowana jako klucz tajny, który wkrótce wygaśnie (30 dni przed wygaśnięciem), klucz tajny, który wygasł, lub wpis tajny, który ma dostępną nową wersję. Obsługiwane są powiadomienia dla wszystkich trzech typów tajnych (kluczy, certyfikatów i wpisów tajnych).
+Key Vault z usługą Event Grid umożliwia użytkownikom powiadomienie o zmianie stanu klucza tajnego przechowywanego w magazynie kluczy. Zmiana stanu jest definiowana jako klucz tajny, który ma wygasnąć (30 dni przed wygaśnięciem), klucz tajny, który wygasł, lub klucz tajny, który ma dostępną nową wersję. Obsługiwane są powiadomienia dla wszystkich trzech typów kluczy tajnych (klucz, certyfikat i klucz tajny).
 
-Aplikacje mogą reagować na te zdarzenia przy użyciu nowoczesnych architektur bezserwerowych, bez potrzeby skomplikowanego kodu lub kosztownych i nieefektywnych usług sondowania. Zdarzenia są wypychane za pomocą [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) do obsługi zdarzeń, takich jak [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)lub nawet do własnego elementu webhook i płacisz tylko za to, czego używasz. Aby uzyskać informacje o cenach, zobacz [Cennik usługi Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
+Aplikacje mogą reagować na te zdarzenia przy użyciu nowoczesnych architektur bez serwera bez konieczności stosowania skomplikowanego kodu lub kosztownych i nieefektywnych usług sondowania. Zdarzenia są wypychane Azure Event Grid do programów obsługi zdarzeń, takich jak [Azure Functions,](https://azure.microsoft.com/services/functions/) [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), lub nawet do własnego modułu webhook, i płacisz tylko za to, czego używasz. [](https://azure.microsoft.com/services/event-grid/) Aby uzyskać informacje o cenach, zobacz [Event Grid cennik.](https://azure.microsoft.com/pricing/details/event-grid/)
 
-## <a name="key-vault-events-and-schemas"></a>Key Vault zdarzenia i schematy
+## <a name="key-vault-events-and-schemas"></a>Key Vault zdarzeń i schematów
 
-Funkcja Event Grid używa [subskrypcji zdarzeń](../../event-grid/concepts.md#event-subscriptions) do kierowania komunikatów o zdarzeniach do subskrybentów. Zdarzenia Key Vault zawierają wszystkie informacje potrzebne do reagowania na zmiany danych. Można zidentyfikować zdarzenie Key Vault, ponieważ właściwość eventType rozpoczyna się od "Microsoft. kluczy.
+Event Grid używa [subskrypcji zdarzeń do](../../event-grid/concepts.md#event-subscriptions) rozsyłania komunikatów o zdarzeniach do subskrybentów. Key Vault zawierają wszystkie informacje potrzebne do reagowania na zmiany w danych. Możesz zidentyfikować zdarzenie Key Vault, ponieważ właściwość eventType rozpoczyna się od "Microsoft.KeyVault".
 
-Aby uzyskać więcej informacji, zobacz [schemat zdarzeń Key Vault](../../event-grid/event-schema-key-vault.md).
+Aby uzyskać więcej informacji, zobacz [Key Vault schematu zdarzeń.](../../event-grid/event-schema-key-vault.md)
 
 > [!WARNING]
-> Zdarzenia powiadomień są wyzwalane tylko w nowych wersjach kluczy tajnych, kluczy i certyfikatów i należy najpierw subskrybować zdarzenie w magazynie kluczy, aby otrzymywać te powiadomienia.
+> Zdarzenia powiadomień są wyzwalane tylko w nowych wersjach wpisów tajnych, kluczy i certyfikatów. Aby otrzymywać te powiadomienia, należy najpierw zasubskrybować zdarzenie w magazynie kluczy.
 
-## <a name="practices-for-consuming-events"></a>Praktyki związane z zużywaniem zdarzeń
+## <a name="practices-for-consuming-events"></a>Rozwiązania dotyczące konsumowania zdarzeń
 
-Aplikacje, które obsługują zdarzenia Key Vault, powinny spełniać kilka zalecanych praktyk:
+Aplikacje, które obsługują Key Vault zdarzeń, powinny postępować zgodnie z kilkoma zalecanymi rozwiązaniami:
 
-* Można skonfigurować wiele subskrypcji, aby kierować zdarzenia do tego samego programu obsługi zdarzeń. Ważne jest, aby nie przyjmować zdarzeń z konkretnego źródła, ale w celu sprawdzenia tematu komunikatu, aby upewnić się, że pochodzi on z magazynu kluczy, którego oczekujesz.
-* Podobnie Sprawdź, czy typ zdarzenia jest przygotowana do przetworzenia i nie zakładaj, że wszystkie zdarzenia, które otrzymujesz, są oczekiwanymi typami.
-* Ignoruj pola, które nie są zrozumiałe.  Ta metoda pomaga w zachowaniu odporności na nowe funkcje, które mogą zostać dodane w przyszłości.
-* Użyj prefiksu "podmiot" i dopasowania sufiksu, aby ograniczyć zdarzenia do określonego zdarzenia.
+* Wiele subskrypcji można skonfigurować do przekierowywu zdarzeń do tej samej procedury obsługi zdarzeń. Ważne jest, aby nie zakładać, że zdarzenia pochodzą z określonego źródła, ale aby sprawdzić temat komunikatu, aby upewnić się, że pochodzi on z oczekiwanego magazynu kluczy.
+* Podobnie sprawdź, czy typ eventType jest gotowy do przetwarzania i nie zakładaj, że wszystkie odbierane zdarzenia będą typami, których oczekujesz.
+* Ignoruj pola, których nie rozumiesz.  Takie rozwiązanie pomoże zapewnić odporność na nowe funkcje, które mogą zostać dodane w przyszłości.
+* Użyj dopasowania prefiksu i sufiksu "podmiot", aby ograniczyć zdarzenia do określonego zdarzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd Azure Key Vault](overview.md)
+- [Azure Key Vault omówienie](overview.md)
 - [Omówienie usługi Azure Event Grid](../../event-grid/overview.md)
-- Instrukcje: [kierowanie zdarzeń Key Vault do elementu Runbook usługi Automation](event-grid-tutorial.md).
-- Instrukcje: [otrzymywanie wiadomości e-mail po zmianie wpisu tajnego magazynu kluczy](event-grid-logicapps.md)
-- [Schemat zdarzeń Azure Event Grid dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)
-- [Przegląd Azure Automation](../../automation/index.yml)
+- Przewodnik: [przekieruj zdarzenia Key Vault do runbook usługi Automation.](event-grid-tutorial.md)
+- Dzieje się tak: [otrzymywanie wiadomości e-mail po zmianie klucza tajnego magazynu kluczy](event-grid-logicapps.md)
+- [Azure Event Grid zdarzeń dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)
+- [Azure Automation omówienie](../../automation/index.yml)

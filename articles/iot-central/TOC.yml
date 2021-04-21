@@ -67,7 +67,7 @@
           href: core/tutorial-create-telemetry-rules.md
         - name: Eksplorowanie interfejsów API usługi IoT Central
           href: /learn/modules/manage-iot-central-apps-with-rest-api/
-    - name: Rozwiązania branżowe
+    - name: Rozwiązania specyficzne dla branży
       items:
         - name: Retail
           items:
@@ -137,7 +137,7 @@
       href: core/overview-iot-central-solution-builder.md
     - name: Podręcznik administratora
       href: core/overview-iot-central-admin.md
-    - name: Podręcznik operatora
+    - name: Przewodnik operatora
       href: core/overview-iot-central-operator.md
     - name: Co to są szablony aplikacji?
       href: core/concepts-app-templates.md
@@ -171,7 +171,7 @@
           items:
             - name: Omówienie
               href: government/overview-iot-central-government.md
-            - name: Architektura monitorowania połączonych strat
+            - name: Architektura połączonego monitorowania strat
               href: government/concepts-connectedwastemanagement-architecture.md
             - name: Architektura monitorowania zużycia wody
               href: government/concepts-waterconsumptionmonitoring-architecture.md
@@ -217,8 +217,6 @@
           href: core/howto-connect-ruuvi.md
         - name: Przygotowywanie i łączenie urządzenia Rigado Cascade 500
           href: core/howto-connect-rigado-cascade-500.md
-        - name: Łączenie innych chmur IoT
-          href: core/howto-build-iotc-device-bridge.md
     - name: Tworzenie zintegrowanych rozwiązań
       items:
         - name: Dodawanie kafelków do pulpitu nawigacyjnego
@@ -235,7 +233,7 @@
           href: core/howto-export-data.md
         - name: Eksportowanie danych do lokalizacji docelowych w chmurze (starsza wersja)
           href: core/howto-export-data-legacy.md
-        - name: Przekształcanie danych na Azure IoT Central
+        - name: Przekształcanie danych
           href: core/howto-transform-data.md
         - name: Używanie przepływów pracy do integracji z innymi usługami
           href: core/howto-configure-rules-advanced.md
@@ -245,6 +243,8 @@
           href: core/howto-create-custom-analytics.md
         - name: Wizualizacja danych w usłudze Power BI
           href: core/howto-connect-powerbi.md
+        - name: Łączenie innych chmur IoT
+          href: core/howto-build-iotc-device-bridge.md
         - name: Łączenie aplikacji z usługami Dynamics 365 Field Services
           href: government/how-to-configure-connected-field-services.md
     - name: Zarządzanie urządzeniami

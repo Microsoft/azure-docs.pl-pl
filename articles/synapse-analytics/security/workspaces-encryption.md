@@ -1,6 +1,6 @@
 ---
-title: Szyfrowanie analizy Synapse Azure
-description: Artykuł objaśniający szyfrowanie w usłudze Azure Synapse Analytics
+title: Azure Synapse Analytics szyfrowania
+description: Artykuł wyjaśniacy szyfrowanie w Azure Synapse Analytics
 author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -8,88 +8,88 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4bc59a9bd5299698bff9949aaaa881fbdf385ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ddafb0e76799e3d8011232534c505f97c79b22e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100526276"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751134"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Szyfrowanie obszarów roboczych usługi Azure Synapse Analytics
 
 W tym artykule opisano:
-* Szyfrowanie danych magazynowanych w obszarach roboczych Synapse Analytics.
-* Konfiguracja obszarów roboczych Synapse, aby włączyć szyfrowanie przy użyciu klucza zarządzanego przez klienta.
+* Szyfrowanie danych w spoczynku w Synapse Analytics roboczych.
+* Konfiguracja obszarów roboczych usługi Synapse w celu włączenia szyfrowania przy użyciu klucza zarządzanego przez klienta.
 * Zarządzanie kluczami używanymi do szyfrowania danych w obszarach roboczych.
 
-## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych
+## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych w spoczynku
 
-Kompletne rozwiązanie do szyfrowania w czasie spoczynku gwarantuje, że dane nigdy nie są utrwalane w postaci niezaszyfrowanej. Podwójne szyfrowanie danych w spoczynku zmniejsza zagrożenie przy użyciu dwóch oddzielnych warstw szyfrowania, aby chronić przed naruszeniem jakichkolwiek pojedynczych warstw. Usługa Azure Synapse Analytics oferuje drugą warstwę szyfrowania danych w obszarze roboczym z kluczem zarządzanym przez klienta. Ten klucz jest chroniony w [Azure Key Vault](../../key-vault/general/overview.md), co umożliwia przejęcie na własność zarządzania kluczami i rotacją.
+Kompletne rozwiązanie do szyfrowania danych w spoczynku gwarantuje, że dane nigdy nie są utrwalane w postaci niezaszyfrowej. Podwójne szyfrowanie danych w spoczynku ogranicza zagrożenia związane z dwiema oddzielnymi warstwami szyfrowania w celu ochrony przed naruszeniami zabezpieczeń dowolnej pojedynczej warstwy. Azure Synapse Analytics oferuje drugą warstwę szyfrowania danych w obszarze roboczym przy użyciu klucza zarządzanego przez klienta. Ten klucz jest zabezpieczony w Azure Key Vault [,](../../key-vault/general/overview.md)co pozwala przejąć na własność zarządzanie kluczami i ich rotację.
 
-Pierwsza warstwa szyfrowania usług platformy Azure jest włączona z kluczami zarządzanymi na platformie. Domyślnie dyski platformy Azure i dane na kontach usługi Azure Storage są szyfrowane automatycznie. Dowiedz się więcej o tym, jak szyfrowanie jest używane w Microsoft Azure w [omówieniu usługi Azure Encryption](../../security/fundamentals/encryption-overview.md).
+Pierwsza warstwa szyfrowania dla usług platformy Azure jest włączona przy użyciu kluczy zarządzanych przez platformę. Domyślnie dyski i dane platformy Azure na kontach usługi Azure Storage są automatycznie szyfrowane podczas magazynowania. Aby dowiedzieć się więcej na temat sposobu szyfrowania w usłudze Microsoft Azure, zobacz [Omówienie usługi Azure Encryption.](../../security/fundamentals/encryption-overview.md)
 
-## <a name="azure-synapse-encryption"></a>Szyfrowanie Synapse platformy Azure
+## <a name="azure-synapse-encryption"></a>Azure Synapse szyfrowania
 
-Ta sekcja pomoże lepiej zrozumieć, w jaki sposób szyfrowanie kluczy zarządzane przez klienta jest włączone i wymuszane w obszarach roboczych Synapse. To szyfrowanie używa istniejących kluczy lub nowych kluczy generowanych w Azure Key Vault. Pojedynczy klucz służy do szyfrowania wszystkich danych w obszarze roboczym. Obszary robocze Synapse obsługują klucze RSA z kluczami o rozmiarach bajtów 2048 i 3072.
+Ta sekcja pomoże Ci lepiej zrozumieć, w jaki sposób szyfrowanie kluczy zarządzane przez klienta jest włączone i wymuszane w obszarach roboczych usługi Synapse. To szyfrowanie używa istniejących lub nowych kluczy wygenerowanych w Azure Key Vault. Pojedynczy klucz służy do szyfrowania wszystkich danych w obszarze roboczym. Obszary robocze synapse obsługują klucze RSA z kluczami o rozmiarze 2048 i 3072 bajtów.
 
 > [!NOTE]
-> Obszary robocze Synapse nie obsługują szyfrowania przy użyciu kluczy kryptografii Elliptic-Curve (ECC).
+> Obszary robocze synapse nie obsługują szyfrowania przy użyciu Elliptic-Curve kryptografii (ECC).
 
-Dane w następujących składnikach Synapse są szyfrowane za pomocą klucza zarządzanego przez klienta skonfigurowanego na poziomie obszaru roboczego:
+Dane w następujących składnikach usługi Synapse są szyfrowane przy użyciu klucza zarządzanego przez klienta skonfigurowanego na poziomie obszaru roboczego:
 * Pule SQL
  * Dedykowane pule SQL
- * Pule SQL bezserwerowe
+ * Bez serwera pul SQL
 * Pule platformy Apache Spark
-* Azure Data Factory środowiska Integration Runtime, potoków, zestawów danych.
+* Azure Data Factory środowiska Integration Runtime, potoki, zestawy danych.
 
 ## <a name="workspace-encryption-configuration"></a>Konfiguracja szyfrowania obszaru roboczego
 
-Obszary robocze można skonfigurować tak, aby włączyć podwójne szyfrowanie z kluczem zarządzanym przez klienta w momencie tworzenia obszaru roboczego. Wybierz opcję "Włącz podwójne szyfrowanie przy użyciu klucza zarządzanego przez klienta" na karcie "zabezpieczenia" podczas tworzenia nowego obszaru roboczego. Możesz wprowadzić identyfikator URI identyfikatora klucza lub wybrać z listy magazynów kluczy w **tym samym regionie** , w którym znajduje się obszar roboczy. Sam Key Vault musi mieć **włączoną ochronę przed czyszczeniem**.
+Obszary robocze można skonfigurować tak, aby podczas tworzenia obszaru roboczego włączały podwójne szyfrowanie za pomocą klucza zarządzanego przez klienta. Wybierz opcję "Włącz podwójne szyfrowanie przy użyciu klucza zarządzanego przez klienta" na karcie "Zabezpieczenia" podczas tworzenia nowego obszaru roboczego. Możesz wprowadzić identyfikator URI identyfikatora klucza lub wybrać z listy magazynów kluczy w tym **samym regionie** co obszar roboczy. Sama Key Vault musi mieć **włączoną ochronę przed przeczyszczaniem.**
 
 > [!IMPORTANT]
-> Nie można zmienić ustawienia konfiguracji podwójnego szyfrowania po utworzeniu obszaru roboczego.
+> Ustawienia konfiguracji podwójnego szyfrowania nie można zmienić po utworzeniu obszaru roboczego.
 
-:::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="Ten diagram przedstawia opcję, która musi zostać wybrana, aby umożliwić obszarowi roboczemu podwójne szyfrowanie z kluczem zarządzanym przez klienta.":::
+:::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="Na tym diagramie przedstawiono opcję, która należy wybrać, aby włączyć podwójne szyfrowanie obszaru roboczego przy użyciu klucza zarządzanego przez klienta.":::
 
-### <a name="key-access-and-workspace-activation"></a>Dostęp do klucza i aktywacja obszaru roboczego
+### <a name="key-access-and-workspace-activation"></a>Aktywacja dostępu do klucza i obszaru roboczego
 
-Model szyfrowania Azure Synapse z kluczami zarządzanymi przez klienta obejmuje obszar roboczy z dostępem do kluczy w Azure Key Vault do szyfrowania i odszyfrowywania w razie potrzeby. Klucze są dostępne dla obszaru roboczego za pomocą zasad dostępu lub [Azure Key Vault dostępu RBAC](../../key-vault/general/rbac-guide.md). Podczas udzielania uprawnień przy użyciu zasad dostępu Azure Key Vault wybierz opcję ["tylko aplikacja"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) podczas tworzenia zasad (Wybierz zarządzaną tożsamość obszaru roboczego i nie dodawaj jej jako autoryzowaną aplikację).
+Model Azure Synapse szyfrowania za pomocą kluczy zarządzanych przez klienta obejmuje obszar roboczy, który uzyskuje dostęp do kluczy w u Azure Key Vault w celu szyfrowania i odszyfrowywania zgodnie z potrzebami. Klucze są dostępne dla obszaru roboczego za pośrednictwem zasad dostępu lub Azure Key Vault [RBAC.](../../key-vault/general/rbac-guide.md) Podczas udzielania uprawnień za pośrednictwem zasad dostępu usługi Azure Key Vault wybierz opcję ["Tylko aplikacja"](../../key-vault/general/security-overview.md#key-vault-authentication-options) podczas tworzenia zasad (wybierz tożsamość zarządzaną obszaru roboczego i nie dodawaj jej jako autoryzowanej aplikacji).
 
- Aby można było aktywować obszar roboczy, tożsamość zarządzana obszaru roboczego musi mieć przyznane uprawnienia wymagane w magazynie kluczy. Ta stopniowa podejście do aktywacji obszaru roboczego gwarantuje, że dane w obszarze roboczym są szyfrowane za pomocą klucza zarządzanego przez klienta. Należy pamiętać, że szyfrowanie można włączyć lub wyłączyć dla dedykowanych pul SQL-dla każdej puli nie jest domyślnie włączona obsługa szyfrowania.
+ Tożsamość zarządzana obszaru roboczego musi mieć przyznane uprawnienia, których potrzebuje w magazynie kluczy, zanim będzie można aktywować obszar roboczy. Takie etapowe podejście do aktywacji obszaru roboczego zapewnia, że dane w obszarze roboczym są szyfrowane przy użyciu klucza zarządzanego przez klienta. Należy pamiętać, że szyfrowanie można włączyć lub wyłączyć dla dedykowanych pul SQL — każda pula nie jest domyślnie włączona dla szyfrowania.
 
 #### <a name="permissions"></a>Uprawnienia
 
-Aby można było szyfrować lub odszyfrowywać dane przechowywane, tożsamość zarządzana w obszarze roboczym musi mieć następujące uprawnienia:
+Aby szyfrować lub odszyfrowywać dane w spoczynku, tożsamość zarządzana obszaru roboczego musi mieć następujące uprawnienia:
 * WrapKey (aby wstawić klucz do Key Vault podczas tworzenia nowego klucza).
-* UnwrapKey (Aby uzyskać klucz do odszyfrowania).
+* Odszyfruj klucz (aby uzyskać klucz do odszyfrowywania).
 * Pobierz (aby odczytać publiczną część klucza)
 
 #### <a name="workspace-activation"></a>Aktywacja obszaru roboczego
 
-Po utworzeniu obszaru roboczego (z włączonym podwójnym szyfrowaniem) pozostanie w stanie "oczekiwanie" do momentu pomyślnego aktywacji. Aby można było w pełni korzystać ze wszystkich funkcji, należy aktywować obszar roboczy. Można na przykład utworzyć nową dedykowaną pulę SQL po pomyślnym zakończeniu aktywacji. Udziel obszarowi roboczemu dostępu do tożsamości zarządzanej do magazynu kluczy i kliknij link aktywacja w obszarze roboczym Azure Portal baner. Po pomyślnym zakończeniu aktywacji obszar roboczy jest gotowy do użycia z gwarancją, że wszystkie dane w niej są chronione kluczem zarządzanym przez klienta. Jak wspomniano wcześniej, Magazyn kluczy musi mieć włączoną ochronę przed przeczyszczeniem, aby aktywacja powiodła się.
+Po utworzeniu obszaru roboczego (z włączonym podwójnym szyfrowaniem) pozostanie on w stanie "Oczekiwanie", dopóki aktywacja nie powiedzie się. Obszar roboczy należy aktywować, aby można było w pełni korzystać z wszystkich funkcji. Na przykład nową dedykowaną pulę SQL można utworzyć tylko po zakończeniu aktywacji. Przyznaj tożsamości zarządzanej obszaru roboczego dostęp do magazynu kluczy, a następnie kliknij link aktywacji w obszarze roboczym Azure Portal transparentu. Po pomyślnym zakończeniu aktywacji obszar roboczy jest gotowy do użycia z gwarancją, że wszystkie dane w nim są chronione za pomocą klucza zarządzanego przez klienta. Jak wspomniano wcześniej, aby aktywacja powiodła się, magazyn kluczy musi mieć włączoną ochronę przed przeczyszczaniem.
 
-:::image type="content" source="./media/workspaces-encryption/workspace-activation.png" alt-text="Ten diagram przedstawia transparent z linkiem aktywacji dla obszaru roboczego.":::
+:::image type="content" source="./media/workspaces-encryption/workspace-activation.png" alt-text="Na tym diagramie przedstawiono transparent z linkiem aktywacji dla obszaru roboczego.":::
 
 
-### <a name="manage-the-workspace-customer-managed-key"></a>Zarządzanie obszarem roboczym z kluczem zarządzanym przez klienta 
+### <a name="manage-the-workspace-customer-managed-key"></a>Zarządzanie kluczem zarządzanym przez klienta obszaru roboczego 
 
-Można zmienić klucz zarządzany przez klienta używany do szyfrowania danych ze strony **szyfrowanie** w Azure Portal. Tutaj możesz wybrać nowy klucz przy użyciu identyfikatora klucza lub wybrać z magazynów kluczy, do których masz dostęp, w tym samym regionie, w którym znajduje się obszar roboczy. W przypadku wybrania klucza w innym magazynie kluczy niż poprzednio używane, Udziel uprawnienia "Pobierz", "Zawijanie" i "odpakowywanie" dla nowego magazynu kluczy. Obszar roboczy sprawdzi swój dostęp do nowego magazynu kluczy, a wszystkie dane w obszarze roboczym zostaną ponownie zaszyfrowane przy użyciu nowego klucza.
+Klucz zarządzany przez klienta używany do szyfrowania danych można zmienić na stronie **Szyfrowanie** w Azure Portal. W tym miejscu możesz również wybrać nowy klucz przy użyciu identyfikatora klucza lub wybrać magazyny kluczy, do których masz dostęp w tym samym regionie co obszar roboczy. Jeśli wybierzesz klucz w innym magazynie kluczy niż używany wcześniej, przyznaj tożsamości zarządzanej obszaru roboczego uprawnienia "Pobierz", "Opakuj" i "Odpakuj" w nowym magazynie kluczy. Obszar roboczy zweryfikuje swój dostęp do nowego magazynu kluczy, a wszystkie dane w obszarze roboczym zostaną ponownie zaszyfrowane przy użyciu nowego klucza.
 
-:::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="Ten diagram przedstawia sekcję szyfrowanie obszaru roboczego w Azure Portal.":::
+:::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="Na tym diagramie przedstawiono sekcję Szyfrowanie obszaru roboczego w Azure Portal.":::
 
 >[!IMPORTANT]
->Podczas zmiany klucza szyfrowania obszaru roboczego należy zachować klucz do momentu zastąpienia go w obszarze roboczym nowym kluczem. Pozwala to na odszyfrowywanie danych przy użyciu starego klucza przed ponownym zaszyfrowaniem go przy użyciu nowego klucza.
+>Podczas zmieniania klucza szyfrowania obszaru roboczego należy zachować klucz, dopóki nie zastąpisz go w obszarze roboczym nowym kluczem. Ma to na celu umożliwienie odszyfrowywania danych przy użyciu starego klucza, zanim zostanie on ponownie zaszyfrowany przy użyciu nowego klucza.
 
-Zasady magazynów kluczy platformy Azure na potrzeby automatycznego, okresowego obrotu kluczy lub akcji w kluczach mogą spowodować utworzenie nowych kluczowych wersji. Można wybrać ponowne zaszyfrowanie wszystkich danych w obszarze roboczym przy użyciu najnowszej wersji aktywnego klucza. Aby-ponownie zaszyfrować, Zmień klucz w Azure Portal na klucz tymczasowy, a następnie przełącz się z powrotem do klucza, który ma być używany do szyfrowania. Przykładowo w celu zaktualizowania szyfrowania danych przy użyciu najnowszej wersji usługi Active Key Klucz1 Zmień klucz zarządzany przez klienta na klucz tymczasowy, klucz2. Poczekaj na zakończenie szyfrowania z klucz2. Następnie Przełącz ponownie klucz zarządzany przez klienta z powrotem do Klucz1 — dane w obszarze roboczym zostaną zaszyfrowane przy użyciu najnowszej wersji programu Klucz1.
+Zasady usługi Azure Key Vault dotyczące automatycznej, okresowej rotacji kluczy lub akcji na kluczach mogą spowodować utworzenie nowych wersji kluczy. Możesz ponownie zaszyfrować wszystkie dane w obszarze roboczym przy użyciu najnowszej wersji aktywnego klucza. Aby ponownie zaszyfrować, zmień klucz w Azure Portal na klucz tymczasowy, a następnie wróć do klucza, który ma być używany do szyfrowania. Aby na przykład zaktualizować szyfrowanie danych przy użyciu najnowszej wersji klucza aktywnego Klucz1, zmień klucz zarządzany przez klienta obszaru roboczego na klucz tymczasowy Klucz2. Poczekaj na zakończenie szyfrowania za pomocą klucza Key2. Następnie przełącz klucz zarządzany przez klienta obszaru roboczego z powrotem na klucz Key1-data w obszarze roboczym zostanie ponownie zaszyfrowany przy użyciu najnowszej wersji klucza Key1.
 
 > [!NOTE]
-> Usługa Azure Synapse Analytics aktywnie pracuje nad dodawaniem funkcji, aby automatycznie ponownie szyfrować dane po utworzeniu nowych wersji kluczy. Do momentu udostępnienia tej funkcji, aby zapewnić spójność w obszarze roboczym, należy wymusić ponowne szyfrowanie danych przy użyciu powyższego procesu.
+> Azure Synapse Analytics aktywnie pracuje nad dodawaniem funkcji automatycznego ponownego szyfrowania danych po utworzeniu nowych wersji kluczy. Dopóki ta funkcja nie będzie dostępna, aby zapewnić spójność w obszarze roboczym, wymusz ponowne szyfrowanie danych przy użyciu procesu opisanego powyżej.
 
-#### <a name="sql-transparent-data-encryption-with-service-managed-keys"></a>Transparent Data Encryption SQL z kluczami zarządzanymi przez usługę
+#### <a name="sql-transparent-data-encryption-with-service-managed-keys"></a>Program SQL Transparent Data Encryption kluczami zarządzanymi przez usługę
 
-Program SQL Transparent Data Encryption (TDE) jest dostępny dla dedykowanych pul SQL w obszarach roboczych, dla których *nie* włączono szyfrowania podwójnego. W tym typie obszaru roboczego klucz zarządzany przez usługę jest używany w celu zapewnienia podwójnego szyfrowania danych w dedykowanych pulach SQL. TDE z kluczem zarządzanym przez usługę można włączyć lub wyłączyć dla indywidualnych dedykowanych pul SQL.
+Program SQL Transparent Data Encryption (TDE) jest dostępny dla dedykowanych pul SQL w obszarach roboczych, w których *nie* włączono podwójnego szyfrowania. W tym typie obszaru roboczego klucz zarządzany przez usługę jest używany do zapewnienia podwójnego szyfrowania danych w dedykowanych pulach SQL. Funkcję TDE z kluczem zarządzanym przez usługę można włączyć lub wyłączyć dla poszczególnych dedykowanych pul SQL.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zaimplementuj ochronę szyfrowania dla obszarów roboczych Synapse za pomocą wbudowanych zasad platformy Azure](../policy-reference.md)
+[Implementowanie ochrony szyfrowania dla obszarów roboczych usługi Synapse przy użyciu wbudowanych zasad platformy Azure](../policy-reference.md)
 

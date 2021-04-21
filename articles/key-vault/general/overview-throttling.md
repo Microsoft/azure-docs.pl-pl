@@ -1,69 +1,68 @@
 ---
 title: Wskazówki dotyczące ograniczania usługi Azure Key Vault
-description: Funkcja ograniczania Key Vault ogranicza liczbę współbieżnych wywołań, aby zapobiec nadmiernemu użyciu zasobów.
+description: Key Vault ogranicza liczbę współbieżnych wywołań, aby zapobiec nadużytce zasobów.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7a215b53f673a7414f1b3662f519de5c26faaa9d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175757"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749539"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Wskazówki dotyczące ograniczania usługi Azure Key Vault
 
-Ograniczanie to proces inicjowany, który ogranicza liczbę współbieżnych wywołań do usługi platformy Azure, aby zapobiec nadmiernemu wykorzystaniu zasobów. Azure Key Vault (AKV) został zaprojektowany z myślą o obsłudze dużej liczby żądań. W przypadku przeprowadzenia przeciążonej liczby żądań ograniczanie żądań klientów pomaga zapewnić optymalną wydajność i niezawodność usługi AKV.
+Ograniczanie przepustowości to inicjowany przez Ciebie proces, który ogranicza liczbę współbieżnych wywołań do usługi platformy Azure, aby zapobiec przekroczeniom zasobów. Azure Key Vault (AKV) jest przeznaczony do obsługi dużej liczby żądań. W przypadku wystąpienia ogromnej liczby żądań ograniczenie żądań klienta pomaga zachować optymalną wydajność i niezawodność usługi AKV.
 
-Limity ograniczania są różne w zależności od scenariusza. Na przykład jeśli wykonujesz dużą liczbę operacji zapisu, możliwość ograniczania przepustowości jest wyższa niż w przypadku wykonywania operacji odczytu.
+Limity ograniczania różnią się w zależności od scenariusza. Jeśli na przykład wykonujesz dużą liczbę operacji zapisu, możliwość ograniczenia jest większa niż w przypadku wykonywania tylko operacji odczytu.
 
-## <a name="how-does-key-vault-handle-its-limits"></a>Jak Key Vault obsługiwać limity?
+## <a name="how-does-key-vault-handle-its-limits"></a>Jak Key Vault obsługuje swoje limity?
 
-Limity usługi w Key Vault uniemożliwiają niewłaściwe użycie zasobów i zapewniają jakość usługi dla wszystkich klientów Key Vault. W przypadku przekroczenia progu usługi Key Vault ogranicza wszelkie dalsze żądania od tego klienta przez pewien czas, zwraca kod stanu HTTP 429 (zbyt wiele żądań) i żądanie kończy się niepowodzeniem. Żądania zakończone niepowodzeniem, które zwracają 429 nie są wliczane do limitów ograniczania wydajności śledzonych przez Key Vault. 
+Limity usługi w Key Vault zapobiec niewłaściwemu użyciu zasobów i zapewnić jakość usługi dla wszystkich klientów Key Vault usługi. Po przekroczeniu progu usługi program Key Vault ogranicza wszelkie dalsze żądania od tego klienta przez określony czas, zwraca kod stanu HTTP 429 (zbyt wiele żądań), a żądanie kończy się niepowodzeniem. Żądania nieudane, które zwracają liczbę 429, nie są wliczane do limitów ograniczania śledzone przez Key Vault. 
 
-Key Vault pierwotnie zaprojektowano, aby służyć do przechowywania i pobierania wpisów tajnych w czasie wdrażania.  Świat został rozwijający, a Key Vault jest używany w czasie wykonywania w celu przechowywania i pobierania wpisów tajnych, a często aplikacje i usługi chcą używać Key Vault, takich jak baza danych.  Bieżące limity nie obsługują stawek o dużej przepływności.
+Key Vault została pierwotnie zaprojektowana do przechowywania i pobierania wpisów tajnych w czasie wdrażania.  Świat ewoluował, a Key Vault są używane w czasie rzeczywistym do przechowywania i pobierania wpisów tajnych, a często aplikacje i usługi chcą używać Key Vault jak bazy danych.  Bieżące limity nie obsługują wysokiej przepływności.
 
-Key Vault został pierwotnie utworzony z limitami określonymi w [limitach usługi Azure Key Vault](service-limits.md).  Aby zmaksymalizować Key Vault dzięki stawkom za użycie usługi Put, poniżej przedstawiono kilka zalecanych wytycznych/najlepszych rozwiązań dotyczących maksymalizowania przepływności:
-1. Upewnij się, że nastąpiło ograniczenie wydajności.  Klient musi przestrzegać zasad wycofywania wykładniczego dla 429 i upewnić się, że wykonujesz ponowną próbę zgodnie z poniższymi wskazówkami.
-1. Podziel ruch Key Vault między wiele magazynów a różnymi regionami.   Użyj oddzielnego magazynu dla każdej domeny zabezpieczeń/dostępności.   Jeśli masz pięć aplikacji, z których każda znajduje się w dwóch regionach, zalecamy 10 magazynów zawierających wpisy tajne unikatowe dla aplikacji i regionu.  Limit całej subskrypcji dla wszystkich typów transakcji jest pięciu razy większy niż pojedynczy limit magazynu kluczy. Na przykład usługi HSM — inne transakcje na subskrypcję są ograniczone do 5 000 transakcji w ciągu 10 sekund na subskrypcję. Rozważ buforowanie wpisu tajnego w ramach usługi lub aplikacji, aby zmniejszyć RPS pliku bezpośrednio do magazynu kluczy i/lub obsłużyć ruch na podstawie serii.  Możesz również podzielić ruch między różnymi regionami, aby zminimalizować opóźnienia i korzystać z innej subskrypcji/magazynu.  Nie wysyłaj więcej niż limitu subskrypcji do usługi Key Vault w jednym regionie platformy Azure.
-1. Buforowanie kluczy tajnych pobieranych z Azure Key Vault w pamięci i wielokrotnego użytku z pamięci, gdy jest to możliwe.  Odczytaj Azure Key Vault tylko wtedy, gdy buforowana kopia przestanie działać (na przykład, ponieważ została obrócona na źródło). 
-1. Key Vault jest zaprojektowana dla własnych wpisów tajnych usług.   Jeśli przechowujesz wpisy tajne klientów (szczególnie w przypadku scenariuszy magazynu kluczy o wysokiej przepływności), Rozważ umieszczenie kluczy w bazie danych lub koncie magazynu przy użyciu szyfrowania i przechowywanie tylko klucza głównego w Azure Key Vault.
-1. Szyfrowanie, zawijanie i weryfikowanie operacji w kluczu publicznym może być wykonywane bez dostępu do Key Vault, co zmniejsza ryzyko ograniczania przepustowości, ale również zwiększa niezawodność (o ile materiał klucza publicznego jest prawidłowo buforowany).
-1. Jeśli używasz Key Vault do przechowywania poświadczeń dla usługi, sprawdź, czy usługa obsługuje uwierzytelnianie usługi Azure AD w celu bezpośredniego uwierzytelniania. Zmniejsza to obciążenie Key Vault, zwiększa niezawodność i upraszcza kod, ponieważ Key Vault może teraz używać tokenu usługi Azure AD.  Wiele usług zostało przeniesionych do korzystania z uwierzytelniania usługi Azure AD.  Zapoznaj się z bieżącą listą [usług, która obsługuje zarządzane tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
-1. Rozważ rozłożenie obciążenia/wdrożenia w dłuższym czasie, aby zachować w ramach bieżących limitów RPS pliku.
-1. Jeśli aplikacja składa się z wielu węzłów, które muszą odczytywać te same tajne dane, należy rozważyć użycie wzorca wentylatorów, gdzie jedna jednostka odczytuje wpis tajny z Key Vault, a następnie wymusić między wszystkimi węzłami.   Buforuj pobrane wpisy tajne tylko w pamięci.
-Jeśli okaże się, że powyższy kod nadal nie spełnia Twoich potrzeb, Wypełnij poniższą tabelę i skontaktuj się z nami, aby określić, jakie dodatkowe możliwości można dodać (przykład poniżej w celach ilustracyjnych).
+Key Vault pierwotnie utworzono z limitami określonymi w limitach [Azure Key Vault usługi](service-limits.md).  Aby zmaksymalizować wydajność Key Vault użyciu stawek za pomocą put, poniżej znajdują się zalecane wskazówki/najlepsze rozwiązania dotyczące maksymalizowania przepływności:
+1. Upewnij się, że masz ograniczenia przepustowości.  Klient musi honorować zasady wykładniczego odgałęzienia dla komputerów 429 i upewnić się, że ponowne próby są robisz zgodnie z poniższymi wskazówkami.
+1. Podziel ruch Key Vault między wiele magazynów i różnych regionów.   Użyj oddzielnego magazynu dla każdej domeny zabezpieczeń/dostępności.   Jeśli masz pięć aplikacji, z których każda znajduje się w dwóch regionach, zalecamy po 10 magazynów zawierających wpisy tajne unikatowe dla aplikacji i regionu.  Limit dla wszystkich typów transakcji dla całej subskrypcji jest pięciokrotnie ograniczany dla poszczególnych magazynów kluczy. Na przykład transakcje modułu HSM na subskrypcję są ograniczone do 5000 transakcji w ciągu 10 sekund na subskrypcję. Rozważ buforowanie klucza tajnego w usłudze lub aplikacji, aby również zmniejszyć liczbę rps bezpośrednio do magazynu kluczy i/lub obsłużyć ruch oparty na skokach.  Możesz również podzielić ruch między różne regiony, aby zminimalizować opóźnienie i użyć innej subskrypcji/magazynu.  Nie wysyłaj więcej niż limit subskrypcji do usługi Key Vault w jednym regionie platformy Azure.
+1. Buforowanie wpisów tajnych pobieranych z Azure Key Vault w pamięci i ponowne używanie ich z pamięci zawsze, gdy jest to możliwe.  Odczyt z kopii Azure Key Vault tylko wtedy, gdy kopia w pamięci podręcznej przestanie działać (np. ponieważ obraca się w źródle). 
+1. Key Vault jest przeznaczony dla Twoich wpisów tajnych usług.   Jeśli przechowujesz wpisy tajne klientów (szczególnie w przypadku scenariuszy magazynu kluczy o wysokiej przepływności), rozważ umieszczenie kluczy w bazie danych lub koncie magazynu z szyfrowaniem i przechowywanie tylko klucza głównego w magazynie Azure Key Vault.
+1. Szyfruj, opakuj i sprawdzaj, czy operacje na kluczach publicznych mogą być wykonywane bez dostępu do usługi Key Vault, co nie tylko zmniejsza ryzyko ograniczania przepustowości, ale także zwiększa niezawodność (o ile materiał klucza publicznego jest prawidłowo buforowany).
+1. Jeśli używasz usługi Key Vault do przechowywania poświadczeń dla usługi, sprawdź, czy ta usługa obsługuje uwierzytelnianie usługi Azure AD w celu bezpośredniego uwierzytelnienia. Zmniejsza to obciążenie Key Vault, zwiększa niezawodność i upraszcza kod, ponieważ Key Vault teraz używać tokenu usługi Azure AD.  Wiele usług przeniosło się na usługę przy użyciu uwierzytelniania usługi Azure AD.  Zobacz bieżącą listę na stronie [Usługi, które obsługują tożsamości zarządzane dla zasobów platformy Azure.](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)
+1. Rozważ rozłożenie obciążenia/wdrożenia na dłuższy czas, aby utrzymać bieżące limity RPS.
+1. Jeśli aplikacja składa się z wielu węzłów, które muszą odczytywać te same tajne dane, rozważ użycie wzorca fan out, w którym jedna jednostka odczytuje klucz tajny z magazynu Key Vault i przechyła do wszystkich węzłów.   Buforuj pobrane wpisy tajne tylko w pamięci.
+Jeśli stwierdzisz, że powyższe informacje nadal nie spełniają Twoich potrzeb, wypełnij tabelę poniżej i skontaktuj się z nami, aby określić, jaka dodatkowa pojemność może zostać dodana (przykład przedstawiono poniżej tylko w celach ilustrujących).
 
-| Nazwa magazynu | Region magazynu | Typ obiektu (klucz tajny, klucz lub certyfikat) | Operacje: * | Typ klucza | Długość lub krzywa klucza | Klucz HSM?| Wymagany RPS pliku stanu | Wymagany RPS pliku szczytu |
+| Nazwa magazynu | Region magazynu | Typ obiektu (wpis tajny, klucz lub certyfikat) | Operation(s)* | Typ klucza | Długość klucza lub krzywa | Klucz HSM?| Wymagany czas rps stanu stałego | Potrzebna szczytowa wartość RPS |
 |--|--|--|--|--|--|--|--|--|
 | https://mykeyvault.vault.azure.net/ | | Klucz | Znak | EC | P-256 | Nie | 200 | 1000 |
 
 \* Aby uzyskać pełną listę możliwych wartości, zobacz [Azure Key Vault operacji](/rest/api/keyvault/key-operations).
 
-W przypadku zatwierdzenia dodatkowej pojemności należy zwrócić uwagę na następujące kwestie w wyniku wzrostu pojemności:
-1. Zmiany modelu spójności danych. Gdy magazyn jest dozwolony na liście z dodatkową przepływność, usługa Key Vault gwarancja spójności danych usług (niezbędna do spełnienia wyższego RPS pliku woluminu, ponieważ nie można zatrzymać podstawowej usługi magazynu platformy Azure).  W Nutshell:
-  1. **Bez zezwolenia na listę**: usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) natychmiast w kolejnych wywołaniach (np. SecretGet, znak.
-  1. **Z opcją Zezwalaj na listę**: usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) w ciągu 60 sekund w kolejnych wywołaniach (np. SecretGet, znak.
-1. Kod klienta musi przestrzegać zasad wycofywania dla 429 ponownych prób. Kod klienta wywołujący usługę Key Vault nie może natychmiast ponowić próby Key Vault żądań, gdy odbierze kod odpowiedzi 429.  Wskazówki dotyczące ograniczania przepustowości Azure Key Vault opublikowane w tym miejscu zalecają zastosowanie wykładniczej wycofywania podczas otrzymywania kodu odpowiedzi HTTP 429.
+Jeśli dodatkowa pojemność zostanie zatwierdzona, należy pamiętać o następujących związku ze wzrostem pojemności:
+1. Zmiany modelu spójności danych. Gdy magazyn zostanie wymieniony na liście z dodatkową pojemnością przepływności, spójność danych usługi Key Vault gwarantuje zmiany (niezbędne do spełnienia wymagań dotyczących większej liczby rps, ponieważ podstawowa usługa Azure Storage nie nadączy za zmianami).  W skrócie:
+  1. **Bez zezwalania na** wyświetlanie: Key Vault będzie odzwierciedlać wyniki operacji zapisu (np. SecretSet, CreateKey) natychmiast w kolejnych wywołaniach (np. SecretGet, KeySign).
+  1. **Z listą zezwalania:** usługa Key Vault będzie odzwierciedlać wyniki operacji zapisu (np. SecretSet, CreateKey) w ciągu 60 sekund w kolejnych wywołaniach (np. SecretGet, KeySign).
+1. Kod klienta musi honorować zasady powrotu dla 429 ponownych prób. Kod klienta wywołujący usługę Key Vault nie może natychmiast ponawiać Key Vault żądań po otrzymaniu kodu odpowiedzi 429.  Wskazówki Azure Key Vault ograniczania przepływności opublikowane w tym miejscu zalecają stosowanie wykładniczego odejmowania podczas odbierania kodu odpowiedzi HTTP 429.
 
 Jeśli masz prawidłowy przypadek biznesowy dla wyższych limitów ograniczania przepustowości, skontaktuj się z nami.
 
-## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Jak ograniczyć swoją aplikację w odpowiedzi na limity usług
+## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Jak ograniczać aplikację w odpowiedzi na limity usługi
 
-Poniżej przedstawiono **najlepsze rozwiązania** , które należy zaimplementować w przypadku dławienia usługi:
+Poniżej przedstawiono **najlepsze rozwiązania, które** należy zaimplementować, gdy usługa jest ograniczona:
 - Zmniejsz liczbę operacji na żądanie.
 - Zmniejsz częstotliwość żądań.
 - Unikaj natychmiastowych ponownych prób. 
     - Wszystkie żądania są naliczane względem limitów użycia.
 
-Podczas implementowania obsługi błędów aplikacji należy użyć kodu błędu HTTP 429 w celu wykrycia potrzeby ograniczenia przepustowości po stronie klienta. Jeśli żądanie kończy się niepowodzeniem z kodem błędu HTTP 429, nadal występuje limit usługi platformy Azure. Kontynuuj używanie zalecanej metody ograniczania przepustowości po stronie klienta, ponawianie próby żądania do momentu jego pomyślnego przeprowadzenia.
+Podczas implementowania obsługi błędów aplikacji użyj kodu błędu HTTP 429, aby wykryć potrzebę ograniczania przepustowości po stronie klienta. Jeśli żądanie ponownie zakończy się niepowodzeniem z kodem błędu HTTP 429, nadal napotykasz limit usług platformy Azure. Kontynuuj korzystanie z zalecanej metody ograniczania przepustowości po stronie klienta, ponawiając żądanie do momentu jego powodzenia.
 
-Kod implementujący wykładniczy wycofywania jest przedstawiony poniżej. 
+Poniżej przedstawiono kod, który implementuje wykładniczego odgałęzienie. 
 ```
 SecretClientOptions options = new SecretClientOptions()
     {
@@ -82,20 +81,20 @@ SecretClientOptions options = new SecretClientOptions()
 ```
 
 
-Używanie tego kodu w aplikacji klienckiej w języku C# jest proste. 
+Użycie tego kodu w aplikacji klienta w języku C# jest proste. 
 
 ### <a name="recommended-client-side-throttling-method"></a>Zalecana metoda ograniczania przepustowości po stronie klienta
 
-W przypadku błędu HTTP o kodzie 429 Rozpocznij ograniczanie klienta przy użyciu podejścia wykładniczego wycofywania:
+W kodzie błędu HTTP 429 rozpocznij ograniczanie klienta przy użyciu metody wykładniczego odgałęzienia:
 
-1. Oczekiwanie 1 sekundy, żądanie ponowienia próby
-2. Jeśli nadal ograniczono limit czasu oczekiwania na 2 sekundy, ponów próbę
-3. Jeśli nadal ograniczono limit czasu oczekiwania na 4 sekundy, żądanie ponowienia próby
-4. Jeśli nadal ograniczono limit czasu, zaczekaj 8 sekund, a następnie ponów próbę
-5. Jeśli nadal ograniczono limit czasu, odczekaj 16 sekund, żądanie ponowienia próby
+1. Poczekaj 1 sekundę, ponów żądanie
+2. Jeśli nadal ograniczenie przepływu oczekiwania trwa 2 sekundy, spróbuj ponownie wykonać żądanie
+3. Jeśli nadal ograniczono czas oczekiwania przez 4 sekundy, spróbuj ponownie wykonać żądanie
+4. Jeśli nadal ograniczono czas oczekiwania przez 8 sekund, spróbuj ponownie wykonać żądanie
+5. Jeśli nadal ograniczenie przepływu oczekiwania trwa 16 sekund, spróbuj ponownie wykonać żądanie
 
-W tym momencie nie należy otrzymywać kodów odpowiedzi HTTP 429.
+W tym momencie nie powinny być dostępne kody odpowiedzi HTTP 429.
 
 ## <a name="see-also"></a>Zobacz też
 
-Aby uzyskać bardziej szczegółowe ukierunkowanie ograniczania przepływności na Microsoft Cloud, zobacz [Ograniczanie poziomu wzorca](/azure/architecture/patterns/throttling).
+Aby uzyskać bardziej szczegółowe informacje na temat ograniczania przepustowości w chmurze firmy Microsoft, zobacz [Throttling Pattern (Wzorzec ograniczania przepustowości).](/azure/architecture/patterns/throttling)

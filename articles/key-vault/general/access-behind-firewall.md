@@ -1,25 +1,24 @@
 ---
-title: Dostęp Key Vault za zaporą Azure Key Vault | Microsoft Docs
-description: Dowiedz się więcej na temat portów, hostów lub adresów IP, które należy otworzyć, aby umożliwić aplikacji klienckiej magazynu kluczy za zaporą w celu uzyskania dostępu do magazynu kluczy.
+title: Dostęp Key Vault za zaporą — Azure Key Vault | Microsoft Docs
+description: Dowiedz się więcej o portach, hostach lub adresach IP do otwarcia, aby umożliwić aplikacji klienckiej magazynu kluczy za zaporą dostęp do magazynu kluczy.
 services: key-vault
 author: amitbapat
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 04/15/2021
 ms.author: ambapat
-ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57a89128ab5223264db43e5d59428dc7e6d23ec9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93289174"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751638"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Uzyskiwanie dostępu do usługi Azure Key Vault za zaporą
 
-## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Jakie porty, hosty lub adresy IP należy otworzyć, aby umożliwić aplikacji klienckiej magazynu kluczy za zaporę w celu uzyskania dostępu do magazynu kluczy?
+## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Jakie porty, hosty lub adresy IP należy otworzyć, aby umożliwić aplikacji klienckiej magazynu kluczy za zaporą dostęp do magazynu kluczy?
 
 Aby uzyskać dostęp do magazynu kluczy, aplikacja kliencka magazynu kluczy musi uzyskać dostęp do wielu punktów końcowych dla różnych funkcji:
 
@@ -31,7 +30,7 @@ W zależności od konfiguracji i środowiska istnieją pewne odstępstwa.
 
 ## <a name="ports"></a>Porty
 
-Cały ruch do magazynu kluczy dla wszystkich trzech funkcji (uwierzytelnianie, zarządzanie i dostęp do warstwy danych) odbywa się przez protokół HTTPS: port 443. Jednak w przypadku listy CRL może czasami wystąpić ruch za pośrednictwem protokołu HTTP (port 80). Klienci, którzy obsługują protokół OCSP, nie powinni uzyskiwać dostępu do listy CRL, ale mogą czasami dotrzeć do programu [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) .  
+Cały ruch do magazynu kluczy dla wszystkich trzech funkcji (uwierzytelnianie, zarządzanie i dostęp do warstwy danych) odbywa się przez protokół HTTPS: port 443. Jednak w przypadku listy CRL może czasami wystąpić ruch za pośrednictwem protokołu HTTP (port 80). Klienci, którzy obsługują usługę OCSP, nie powinni docierać do listy CRL, ale mogą czasami dotrzeć do [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) .  
 
 ## <a name="authentication"></a>Authentication
 
@@ -39,8 +38,8 @@ W celu uwierzytelnienia aplikacja kliencka usługi Key Vault będzie musiała uz
 
 | Typ nazwy głównej | Punkt końcowy:port |
 | --- | --- |
-| Użytkownik korzystający z konta Microsoft<br> (na przykład user@hotmail.com) |**Globalne**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Administracja USA platformy Azure:**<br> login.microsoftonline.us:443<br><br>**Azure (Niemcy):**<br> login.microsoftonline.de:443<br><br> oraz <br>login.live.com:443 |
-| Nazwa główna użytkownika lub jednostka usługi przy użyciu konta służbowego z usługą Azure AD (na przykład user@contoso.com) |**Globalne**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Administracja USA platformy Azure:**<br> login.microsoftonline.us:443<br><br>**Azure (Niemcy):**<br> login.microsoftonline.de:443 |
+| Użytkownik korzystający z konta Microsoft<br> (na przykład user@hotmail.com) |**Globalne:**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure (Niemcy):**<br> login.microsoftonline.de:443<br><br> oraz <br>login.live.com:443 |
+| Nazwa główna użytkownika lub jednostka usługi przy użyciu konta służbowego z usługą Azure AD (na przykład user@contoso.com) |**Globalne:**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure (Niemcy):**<br> login.microsoftonline.de:443 |
 | Nazwa główna użytkownika lub jednostka usługi przy użyciu konta służbowego i punkt końcowy usług Active Directory Federation Services (AD FS) lub inny federacyjny punkt końcowy (na przykład user@contoso.com) |Wszystkie punkty końcowe dla konta służbowego oraz punkty końcowe usług AD FS lub inne federacyjne punkty końcowe |
 
 Istnieją inne możliwe złożone scenariusze. Aby uzyskać dodatkowe informacje, zapoznaj się z artykułami [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-vs-authorization.md) (Przepływ uwierzytelniania w usłudze Azure Active Directory), [Integrating Applications with Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) (Integrowanie aplikacji za pomocą usługi Azure Active Directory) i [Protokoły uwierzytelniania usługi Active Directory](/previous-versions/azure/dn151124(v=azure.100)).  
@@ -51,8 +50,8 @@ Aby zarządzać usługą Key Vault (akcje CRUD i ustawianie zasad dostępu), apl
 
 | Typ operacji | Punkt końcowy:port |
 | --- | --- |
-| Operacje warstwy kontroli usługi Key Vault<br> za pośrednictwem usługi Azure Resource Manager |**Globalne**<br> management.azure.com:443<br><br> **Chińska wersja platformy Azure:**<br> management.chinacloudapi.cn:443<br><br> **Administracja USA platformy Azure:**<br> management.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> management.microsoftazure.de:443 |
-| Microsoft Graph API |**Globalne**<br> graph.microsoft.com:443<br><br> **Chińska wersja platformy Azure:**<br> graph.chinacloudapi.cn:443<br><br> **Administracja USA platformy Azure:**<br> graph.microsoft.com:443<br><br> **Azure (Niemcy):**<br> graph.cloudapi.de:443 |
+| Operacje warstwy kontroli usługi Key Vault<br> za pośrednictwem usługi Azure Resource Manager |**Globalne:**<br> management.azure.com:443<br><br> **Chińska wersja platformy Azure:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> management.microsoftazure.de:443 |
+| Microsoft Graph API |**Globalne:**<br> graph.microsoft.com:443<br><br> **Chińska wersja platformy Azure:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> graph.microsoft.com:443<br><br> **Azure (Niemcy):**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operacje usługi Key Vault
 
@@ -60,11 +59,11 @@ We wszystkich przypadkach operacji kryptograficznych na obiektach (kluczach i wp
 
 | Typ operacji | Punkt końcowy:port |
 | --- | --- |
-| Operacje, takie jak operacje kryptograficzne na kluczach, tworzenie, odczytywanie, aktualizowanie i usuwanie kluczy oraz wpisów tajnych, ustawianie lub pobieranie tagów i innych atrybutów obiektów magazynu kluczy (klucze lub wpisy tajne) |**Globalne**<br> &lt;nazwa_magazynu&gt;.vault.azure.net:443<br><br> **Chińska wersja platformy Azure:**<br> &lt;nazwa_magazynu&gt;.vault.azure.cn:443<br><br> **Administracja USA platformy Azure:**<br> &lt;nazwa_magazynu&gt;.vault.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> &lt;nazwa_magazynu&gt;.vault.microsoftazure.de:443 |
+| Operacje, takie jak operacje kryptograficzne na kluczach, tworzenie, odczytywanie, aktualizowanie i usuwanie kluczy oraz wpisów tajnych, ustawianie lub pobieranie tagów i innych atrybutów obiektów magazynu kluczy (klucze lub wpisy tajne) |**Globalne:**<br> &lt;nazwa_magazynu&gt;.vault.azure.net:443<br><br> **Chińska wersja platformy Azure:**<br> &lt;nazwa_magazynu&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;nazwa_magazynu&gt;.vault.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> &lt;nazwa_magazynu&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>Zakresy adresów IP
 
-Usługa Key Vault używa innych zasobów platformy Azure, takich jak infrastruktura PaaS. W związku z tym nie jest możliwe podanie konkretnego zakresu adresów IP, których będą używać punkty końcowe usługi Key Vault w określonym czasie. Jeśli zapora obsługuje tylko zakresy adresów IP, zapoznaj się z tematem Microsoft Azureymi zakresami adresów IP centrum danych dostępnymi w:
+Usługa Key Vault używa innych zasobów platformy Azure, takich jak infrastruktura PaaS. W związku z tym nie jest możliwe podanie konkretnego zakresu adresów IP, których będą używać punkty końcowe usługi Key Vault w określonym czasie. Jeśli zapora obsługuje tylko zakresy adresów IP, zapoznaj się z dokumentami Microsoft Azure Zakresy adresów IP centrum danych dostępne pod adresem:
 * [Publiczne](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
 * [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
 * [Niemcy](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
@@ -74,4 +73,4 @@ Authentication and Identity (w ramach usługi Azure Active Directory) to usługa
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli masz pytania dotyczące Key Vault, odwiedź [stronę pytań&Microsoft pytań i odpowiedzi na Azure Key Vault](/answers/topics/azure-key-vault.html).
+Jeśli masz pytania dotyczące Key Vault, odwiedź stronę pytania usługi [Microsoft Q&pytania](/answers/topics/azure-key-vault.html)dla Azure Key Vault .
