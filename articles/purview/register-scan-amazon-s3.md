@@ -1,457 +1,457 @@
 ---
-title: Jak skanować pakiety usługi Amazon S3
-description: Ten przewodnik zawiera opis szczegółowych informacji o sposobie skanowania zasobników usługi Amazon S3.
+title: Jak skanować zasobniki usługi Amazon S3
+description: W tym przewodniku opisano szczegółowe informacje dotyczące skanowania zasobników usługi Amazon S3.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 04/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: a0559028192b0a99aeffd45a3b2896f9c9d159be
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 75a7cba1e47509e3186ab519d0d8ca82dd315373
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310204"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815526"
 ---
-# <a name="azure-purview-connector-for-amazon-s3"></a>Łącznik usługi Azure kontrolą dla systemu Amazon S3
+# <a name="azure-purview-connector-for-amazon-s3"></a>Łącznik Azure Purview dla usługi Amazon S3
 
-Ten przewodnik zawiera informacje na temat sposobu korzystania z usługi Azure kontrolą w celu skanowania danych niestrukturalnych przechowywanych obecnie w pakietach w warstwie Standardowa Amazon S3 i wykrywania, jakie typy informacji poufnych istnieją w danych. W tym przewodniku opisano również sposób identyfikowania zasobników usługi Amazon S3, w których dane są obecnie przechowywane, aby ułatwić ochronę informacji i zgodność danych.
+Ten przewodnik zawiera wyjaśnienie, jak używać usługi Azure Purview do skanowania danych bez struktury przechowywanych obecnie w standardowych zasobnikach usługi Amazon S3 i odnajdywania typów poufnych informacji w danych. W tym przewodniku opisano również sposób identyfikowania zasobników usługi Amazon S3, w których dane są obecnie przechowywane w celu zapewnienia łatwej ochrony informacji i zapewnienia zgodności danych.
 
-W przypadku tej usługi Użyj kontrolą, aby zapewnić konto Microsoft z bezpiecznym dostępem do AWS, gdzie będzie działać skaner kontrolą. Skaner kontrolą korzysta z tego dostępu do zasobników usługi Amazon S3 do odczytywania danych, a następnie raportuje wyniki skanowania, w tym tylko metadane i klasyfikacje, z powrotem do platformy Azure. Korzystając z klasyfikacji kontrolą i etykietowania raportów, można analizować i przeglądać wyniki skanowania danych.
+W przypadku tej usługi użyj programu Purview, aby zapewnić konto Microsoft dostępu do usług AWS, na których zostanie uruchomiony skaner Purview. Skaner Purview używa tego dostępu do zasobników usługi Amazon S3 do odczytywania danych, a następnie raportuje wyniki skanowania, w tym tylko metadane i klasyfikację, na platformę Azure. Raporty klasyfikacji i etykietowania programu Purview mogą analizować i przeglądać wyniki skanowania danych.
 
-W tym przewodniku krok po kroku znajdziesz więcej informacji na temat dodawania zasobników usługi Amazon S3 jako zasobów kontrolą i tworzenia skanowania danych usługi Amazon S3.
+W tym przewodniku dowiesz się, jak dodać zasobniki usługi Amazon S3 jako zasoby programu Purview i utworzyć skanowanie danych usługi Amazon S3.
 
-## <a name="purview-scope-for-amazon-s3"></a>Kontrolą zakres dla usługi Amazon S3
+## <a name="purview-scope-for-amazon-s3"></a>Zakres purview dla usługi Amazon S3
 
-Poniższy zakres dotyczy rejestrowania i skanowania zasobników usługi Amazon S3 jako kontrolą źródła danych.
+Poniższy zakres jest specyficzny dla rejestrowania i skanowania zasobników usługi Amazon S3 jako źródeł danych Purview.
 
 |Zakres  |Opis  |
 |---------|---------|
-|**Limity danych**     |    Usługa skaner kontrolą obsługuje obecnie skanowanie zasobników usługi Amazon S3 dla maksymalnie 100 GB danych na dzierżawcę.     |
-|**Typy plików**     | Usługa skaner kontrolą obsługuje obecnie następujące typy plików: <br><br>. avro,. csv,. doc,. docm,. docx,. dot,. JSON,. ODP,. ods,. ODT,. Orc,. Parquet,. PDF,. pot,. PPS,. ppsx,. ppt,. pptm,. pptx,. PSV,. SSV,. tsv,. txt,. xlc,. xls,. xlsb,. xlsm,. xlsx,. XML        |
-|**Regiony**     | Łącznik kontrolą dla usługi Amazon S3 jest obecnie wdrażany tylko w regionach **AWS USA (Ohio)** i **Europa (Frankfurt)** . <br><br>Aby uzyskać więcej informacji, zobacz [regiony magazynu i skanowania](#storage-and-scanning-regions).   |
+|**Limity danych**     |    Usługa skanera Purview obecnie obsługuje skanowanie zasobników usługi Amazon S3 w celu przechowywania do 100 GB danych na dzierżawę.     |
+|**Typy plików**     | Usługa skanera Purview obsługuje obecnie następujące typy plików: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .ppt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlsx, .xlt, .xml        |
+|**Regiony**     | Łącznik Purview dla usługi Amazon S3 jest obecnie wdrażany tylko w regionach **AWS Wschodnie stany USA (Ohio)** i **Europa (Londyn).** <br><br>Aby uzyskać więcej informacji, zobacz [Storage and scanning regions (Przechowywanie i skanowanie regionów).](#storage-and-scanning-regions)   |
 |     |         |
 
-Aby uzyskać więcej informacji, zobacz udokumentowane limity kontrolą w:
+Aby uzyskać więcej informacji, zobacz udokumentowane limity programu Purview w:
 
-- [Zarządzanie przydziałami i zwiększanie przydziałów zasobów za pomocą usługi Azure kontrolą](how-to-manage-quotas.md)
-- [Obsługiwane źródła danych i typy plików w usłudze Azure kontrolą](sources-and-scans.md)
-- [Używanie prywatnych punktów końcowych dla konta usługi kontrolą](catalog-private-link.md)
-### <a name="storage-and-scanning-regions"></a>Obszary magazynu i skanowania
+- [Zarządzanie i zwiększanie limitów przydziału zasobów za pomocą usługi Azure Purview](how-to-manage-quotas.md)
+- [Obsługiwane źródła danych i typy plików w usłudze Azure Purview](sources-and-scans.md)
+- [Używanie prywatnych punktów końcowych dla konta usługi Purview](catalog-private-link.md)
+### <a name="storage-and-scanning-regions"></a>Regiony magazynowania i skanowania
 
-W poniższej tabeli zawarto mapy regionów, w których dane są przechowywane w regionie, w którym byłyby skanowane przez usługę Azure kontrolą.
+W poniższej tabeli mapowane są regiony, w których są przechowywane dane, na region, w którym będą skanowane przez usługę Azure Purview.
 
 > [!IMPORTANT]
-> Klienci będą obciążani opłatami za wszystkie powiązane opłaty za transfer danych zgodnie z regionem ich przedziału.
+> Klienci zostaną naliczone opłaty za wszystkie powiązane opłaty za transfer danych zgodnie z regionem ich zasobnika.
 >
 
 | Region magazynu | Region skanowania |
 | ------------------------------- | ------------------------------------- |
 | Wschodnie stany USA (Ohio)                  | Wschodnie stany USA (Ohio)                        |
-| Wschodnie stany USA (N. Wirginia           | Wschodnie stany USA (Ohio) lub Wschodnie stany USA (N. Wirginia                       |
-| Zachodnie stany USA (N. Obywateli         | Wschodnie stany USA (Ohio)                        |
+| Wschodnie usa (N. Wirginia)           | Wschodnie usa (N. Wirginia)                       |
+| Zachodnie stany USA (N. Kalifornia)         | Wschodnie stany USA (Ohio)                        |
 | Zachodnie stany USA (Oregon)                | Wschodnie stany USA (Ohio)                        |
-| Afryka (Przylądek)              | Europa (Frankfurt)                    |
-| Azja i Pacyfik (Hongkong SAR)        | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
-| Azja i Pacyfik (Mumbaj)           | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
-| Azja i Pacyfik (Osaka — lokalna)      | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
-| Azja i Pacyfik (Seul)            | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
-| Azja i Pacyfik (Singapur)        | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
-| Azja i Pacyfik (Sydney)           | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                  |
-| Azja i Pacyfik (Tokio)            | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                 |
-| Kanada (środkowe)                | Wschodnie stany USA (Ohio)                        |
-| Chiny (Pekin)                 | Nieobsługiwane                    |
+| Afryka (Kapsztad)              | Europa (Zabłocie)                    |
+| Azja i Pacyfik (Hongkong)        | Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Mumbaj)           | Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Osaka-Local)      | Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Seul)            | Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Singapur)        | Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Sydney)           | Azja i Pacyfik (Sydney)                  |
+| Azja i Pacyfik (Tokio)            | Azja i Pacyfik (Sydney)                 |
+| Kanada (środkowa)                | Wschodnie stany USA (Ohio)                        |
+| Chiny (Waszyngton)                 | Nieobsługiwane                    |
 | Chiny (Ningxia)                 | Nieobsługiwane                   |
-| Europa (Frankfurt)              | Europa (Frankfurt)                    |
-| Europa (Irlandia)                | Europa (Frankfurt) lub Europa (Irlandia)                   |
-| Europa (Londyn)                 | Europa (Frankfurt) lub Europa (Irlandia)                   |
-| Europa (Mediolan)                  | Europa (Frankfurt)                    |
-| Europa (Paryż)                  | Europa (Frankfurt)                    |
-| Europa (Sztokholm)              | Europa (Frankfurt)                    |
-| Bliski Wschód (Bahrajn)           | Europa (Frankfurt)                    |
-| Ameryka Południowa (so Paulo)       | Wschodnie stany USA (Ohio)                        |
+| Europa (Zabłocie)              | Europa (Zabłocie)                    |
+| Europa (Irlandia)                | Europa (Irlandia)                   |
+| Europa (Londyn)                 | Europa (Irlandia)                   |
+| Europa (Zabłocie)                  | Europa (Zabłocie)                    |
+| Europa (Paryż)                  | Europa (Zabłocie)                    |
+| Europa (Włochy)              | Europa (Zabłocie)                    |
+| Bliski Wschód (Azja)           | Europa (Zabłocie)                    |
+| Ameryka Południowa (São Paulo)       | Wschodnie stany USA (Ohio)                        |
 | | |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że zostały wykonane następujące wymagania wstępne przed dodaniem zasobników usługi Amazon S3 jako kontrolą źródła danych i skanowania danych S3.
+Przed dodaniem zasobników usługi Amazon S3 jako źródeł danych Purview i skanowaniem danych S3 upewnij się, że zostały spełnione następujące wymagania wstępne.
 
 > [!div class="checklist"]
-> * Musisz być administratorem źródła danych usługi Azure kontrolą.
-> * [Utwórz konto kontrolą](#create-a-purview-account) , jeśli jeszcze go nie masz
-> * [Utwórz poświadczenie kontrolą dla skanowania przedziału AWS](#create-a-purview-credential-for-your-aws-bucket-scan)
-> * [Utwórz nową rolę AWS do użycia z usługą kontrolą](#create-a-new-aws-role-for-purview)
-> * [Konfigurowanie skanowania dla zaszyfrowanych zasobników usługi Amazon S3](#configure-scanning-for-encrypted-amazon-s3-buckets)(jeśli dotyczy)
-> * W przypadku dodawania zasobników jako zasobów kontrolą potrzebne są wartości [AWS ARN](#retrieve-your-new-role-arn), [datazasobnika](#retrieve-your-amazon-s3-bucket-name)i czasami [Identyfikator konta AWS](#locate-your-aws-account-id).
+> * Musisz być administratorem źródła danych usługi Azure Purview.
+> * [Utwórz konto programu Purview,](#create-a-purview-account) jeśli jeszcze go nie masz
+> * [Tworzenie poświadczeń programu Purview dla skanowania zasobnika usług AWS](#create-a-purview-credential-for-your-aws-bucket-scan)
+> * [Tworzenie nowej roli AWS do użycia z usługą Purview](#create-a-new-aws-role-for-purview)
+> * [Konfigurowanie skanowania w celu zaszyfrowania zasobników usługi Amazon S3,](#configure-scanning-for-encrypted-amazon-s3-buckets)jeśli ma to zastosowanie
+> * Podczas dodawania zasobników jako zasobów programu Purview potrzebne będą wartości [](#retrieve-your-amazon-s3-bucket-name)nazwy magazynu ARN usług [AWS,](#retrieve-your-new-role-arn)nazwy zasobnika, a czasami identyfikatora konta [AWS.](#locate-your-aws-account-id)
 
-### <a name="create-a-purview-account"></a>Utwórz konto kontrolą
+### <a name="create-a-purview-account"></a>Tworzenie konta programu Purview
 
-- **Jeśli masz już konto kontrolą,** możesz kontynuować konfigurację wymaganą do obsługi AWS S3. Zacznij od [utworzenia poświadczenia kontrolą dla skanowania](#create-a-purview-credential-for-your-aws-bucket-scan)przedziału AWS.
+- **Jeśli masz już konto usługi Purview,** możesz kontynuować konfiguracje wymagane do obsługi usług AWS S3. Rozpocznij od [utworzenia poświadczeń programu Purview dla skanowania zasobnika usług AWS.](#create-a-purview-credential-for-your-aws-bucket-scan)
 
-- **Jeśli musisz utworzyć konto kontrolą,** postępuj zgodnie z instrukcjami w temacie [Tworzenie wystąpienia konta usługi Azure kontrolą](create-catalog-portal.md). Po utworzeniu konta Wróć tutaj, aby zakończyć konfigurację i rozpocząć korzystanie z łącznika kontrolą dla usługi Amazon S3.
+- **Jeśli musisz utworzyć konto programu Purview,** postępuj zgodnie z instrukcjami w tesłudze Tworzenie wystąpienia konta [usługi Azure Purview.](create-catalog-portal.md) Po utworzeniu konta wróć tutaj, aby ukończyć konfigurację i rozpocząć korzystanie z łącznika purview dla usługi Amazon S3.
 
-### <a name="create-a-purview-credential-for-your-aws-bucket-scan"></a>Utwórz poświadczenie kontrolą dla skanowania przedziału AWS
+### <a name="create-a-purview-credential-for-your-aws-bucket-scan"></a>Tworzenie poświadczeń programu Purview dla skanowania zasobnika usług AWS
 
-W tej procedurze opisano sposób tworzenia nowego poświadczenia kontrolą do użycia podczas skanowania przedziałów AWS.
+W tej procedurze opisano sposób tworzenia nowego poświadczenia programu Purview do użycia podczas skanowania zasobników usług AWS.
 
 > [!TIP]
-> Podczas [konfigurowania skanowania](#create-a-scan-for-one-or-more-amazon-s3-buckets)można także utworzyć nowe poświadczenie w trakcie procesu. W takim przypadku w polu **Credential (poświadczenia** ) wybierz pozycję **New (nowy**).
+> Podczas konfigurowania skanowania możesz również utworzyć nowe poświadczenie w [trakcie procesu](#create-a-scan-for-one-or-more-amazon-s3-buckets). W takim przypadku w polu **Poświadczenie** wybierz pozycję **Nowy.**
 >
 
-1. W programie kontrolą przejdź do **centrum zarządzania** i w obszarze **zabezpieczenia i dostęp** wybierz pozycję **poświadczenia**.
+1. W aplikacji Purview przejdź do **Centrum zarządzania** i w obszarze Zabezpieczenia **i dostęp** wybierz **pozycję Poświadczenia.**
 
-1. Wybierz pozycję **Nowy**, a następnie w okienku **nowe poświadczenie** , które pojawia się po prawej stronie, użyj następujących pól, aby utworzyć poświadczenia kontrolą:
+1. Wybierz **pozycję** Nowy i w okienku **Nowe poświadczenia,** które zostanie wyświetlone po prawej stronie, użyj następujących pól, aby utworzyć poświadczenia programu Purview:
 
     |Pole |Opis  |
     |---------|---------|
-    |**Nazwa**     |Wprowadź zrozumiałą nazwę dla tego poświadczenia lub użyj wartości domyślnej.        |
-    |**Opis**     |Wprowadź opcjonalny opis dla tego poświadczenia, na przykład `Used to scan the tutorial S3 buckets`         |
-    |**Metoda uwierzytelniania**     |Wybierz pozycję **role ARN**, ponieważ używasz roli ARN do uzyskiwania dostępu do Twojego zasobnika.         |
-    |**Identyfikator konto Microsoft**     |Kliknij, aby skopiować tę wartość do Schowka. Użyj tej wartości jako **identyfikatora konto Microsoft** podczas [tworzenia roli ARN w AWS](#create-a-new-aws-role-for-purview).           |
-    |**Identyfikator zewnętrzny**     |Kliknij, aby skopiować tę wartość do Schowka. Użyj tej wartości jako **identyfikatora zewnętrznego** podczas [tworzenia roli ARN w AWS.](#create-a-new-aws-role-for-purview)        |
-    |**ARN roli**     | Po [utworzeniu roli usługi Amazon IAM](#create-a-new-aws-role-for-purview)przejdź do swojej roli w obszarze IAM, skopiuj wartość **ARN roli** i wprowadź ją tutaj. Na przykład: `arn:aws:iam::284759281674:role/S3Role`. <br><br>Aby uzyskać więcej informacji, zobacz artykuł [pobieranie nowej roli ARN](#retrieve-your-new-role-arn). |
+    |**Nazwa**     |Wprowadź znaczącą nazwę dla tego poświadczenia lub użyj wartości domyślnej.        |
+    |**Opis**     |Wprowadź opcjonalny opis tego poświadczenia, na przykład `Used to scan the tutorial S3 buckets`         |
+    |**Metoda uwierzytelniania**     |Wybierz pozycję Role ARN (Rola **ARN),** ponieważ używasz roli ARN do uzyskiwania dostępu do zasobnika.         |
+    |**konto Microsoft identyfikator**     |Kliknij, aby skopiować tę wartość do schowka. Użyj tej wartości jako **identyfikatora konto Microsoft podczas** tworzenia roli [ARN na platformie AWS.](#create-a-new-aws-role-for-purview)           |
+    |**Identyfikator zewnętrzny**     |Kliknij, aby skopiować tę wartość do schowka. Użyj tej wartości jako identyfikatora **zewnętrznego** podczas [tworzenia roli ARN na platformie AWS.](#create-a-new-aws-role-for-purview)        |
+    |**Role ARN**     | Po utworzeniu [roli usługi Amazon IAM](#create-a-new-aws-role-for-purview)przejdź do swojej roli w obszarze IAM, skopiuj wartość Role **ARN** i wprowadź ją tutaj. Na przykład: `arn:aws:iam::284759281674:role/S3Role`. <br><br>Aby uzyskać więcej informacji, zobacz [Pobieranie nowej funkcji ARN roli](#retrieve-your-new-role-arn). |
     | | |
 
-    Wybierz pozycję **Utwórz** po zakończeniu tworzenia poświadczenia.
+    Po **zakończeniu** tworzenia poświadczeń wybierz pozycję Utwórz.
 
-1. Jeśli jeszcze tego nie zrobiono, skopiuj i Wklej wartości **konto Microsoft Identyfikator** i **Identyfikator zewnętrzny** do użycia podczas [tworzenia nowej roli AWS dla kontrolą](#create-a-new-aws-role-for-purview), która jest następnym krokiem.
+1. Jeśli nie zostało to jeszcze skopiowane, skopiuj i wklej wartości **identyfikatorów konto Microsoft** i **Identyfikator** zewnętrzny do użycia podczas tworzenia nowej roli AWS dla programu [Purview](#create-a-new-aws-role-for-purview), co jest następnym krokiem.
 
-Aby uzyskać więcej informacji o poświadczeniach kontrolą, zobacz [poświadczenia dla uwierzytelniania źródłowego na platformie Azure kontrolą](manage-credentials.md).
+Aby uzyskać więcej informacji na temat poświadczeń programu Purview, zobacz Credentials for source authentication in Azure Purview (Poświadczenia [do uwierzytelniania źródłowego w usłudze Azure Purview).](manage-credentials.md)
 
-### <a name="create-a-new-aws-role-for-purview"></a>Utwórz nową rolę AWS dla kontrolą
+### <a name="create-a-new-aws-role-for-purview"></a>Tworzenie nowej roli AWS dla aplikacji Purview
 
-Ta procedura wymaga wprowadzenia wartości identyfikatora konta platformy Azure i zewnętrznego identyfikatora podczas tworzenia roli AWS.
+Ta procedura wymaga wprowadzenia wartości dla identyfikatora konta platformy Azure i identyfikatora zewnętrznego podczas tworzenia roli platformy AWS.
 
-Jeśli te wartości nie są dostępne, należy je najpierw znaleźć w [poświadczeniu kontrolą](#create-a-purview-credential-for-your-aws-bucket-scan).
+Jeśli nie masz tych wartości, zlokalizuj je najpierw w [poświadczeniu programu Purview.](#create-a-purview-credential-for-your-aws-bucket-scan)
 
-**Aby znaleźć identyfikator konta Microsoft i identyfikator zewnętrzny**:
+**Aby zlokalizować identyfikator konta Microsoft i identyfikator zewnętrzny:**
 
-1. W programie kontrolą przejdź do   >  **poświadczeń zabezpieczenia i dostęp** do centrum zarządzania  >  .
+1. W aplikacji Purview przejdź do strony **Zabezpieczenia centrum zarządzania** i uzyskaj dostęp  >  **do**  >  **poświadczeń**.
 
-1. Wybierz poświadczenie [utworzone dla skanowania](#create-a-purview-credential-for-your-aws-bucket-scan)przedziału AWS, a następnie na pasku narzędzi wybierz pozycję **Edytuj**.
+1. Wybierz poświadczenia utworzone na [podstawie skanowania zasobnika usług AWS,](#create-a-purview-credential-for-your-aws-bucket-scan)a następnie na pasku narzędzi wybierz pozycję **Edytuj**.
 
-1. W okienku **Edytuj poświadczenia** , które pojawia się po prawej stronie, skopiuj wartości **konto Microsoft Identyfikator** i **Identyfikator zewnętrzny** do oddzielnego pliku lub poproś ich o wklejenie do odpowiedniego pola w AWS.
+1. W **okienku** Edytowanie poświadczeń, które jest wyświetlane po prawej stronie, skopiuj wartości **identyfikatorów konto Microsoft i** **Identyfikator** zewnętrzny do oddzielnego pliku lub przydają się one do wklejania do odpowiedniego pola na platformie AWS.
 
     Na przykład:
 
-    [![Znajdź wartości identyfikatora konto Microsoft i identyfikatora zewnętrznego. ](./media/register-scan-amazon-s3/locate-account-id-external-id.png)](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
+    [![Zlokalizuj konto Microsoft identyfikatorów i identyfikatorów zewnętrznych. ](./media/register-scan-amazon-s3/locate-account-id-external-id.png)](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
 
 
-**Aby utworzyć rolę AWS dla kontrolą**:
+**Aby utworzyć rolę AWS dla aplikacji Purview:**
 
-1.  Otwórz konsolę **Amazon Web Services** i w obszarze **zabezpieczenia, tożsamość i zgodność** wybierz pozycję **IAM**.
+1.  Otwórz **konsolę Amazon Web Services,** a następnie w obszarze **Zabezpieczenia, tożsamość i zgodność** wybierz pozycję **IAM**.
 
-1. Wybierz pozycję **role** , a następnie **Utwórz rolę**.
+1. Wybierz **pozycję Role,** a następnie **pozycję Utwórz rolę.**
 
-1. Wybierz **inne konto AWS**, a następnie wprowadź następujące wartości:
+1. Wybierz **pozycję Another AWS account (Inne konto AWS),** a następnie wprowadź następujące wartości:
 
     |Pole  |Opis  |
     |---------|---------|
     |**Identyfikator konta**     |    Wprowadź identyfikator konta Microsoft. Na przykład: `615019938638`     |
-    |**Identyfikator zewnętrzny**     |   W obszarze Opcje wybierz pozycję **Wymagaj zewnętrznego identyfikatora..**., a następnie wprowadź identyfikator zewnętrzny w wydzielonym polu. <br>Na przykład: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
+    |**Identyfikator zewnętrzny**     |   W obszarze opcji wybierz **pozycję Wymagaj identyfikatora zewnętrznego...,** a następnie wprowadź identyfikator zewnętrzny w wyznaczonym polu. <br>Na przykład: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
 
     Na przykład:
 
-    ![Dodaj identyfikator konta Microsoft do konta AWS.](./media/register-scan-amazon-s3/aws-create-role-amazon-s3.png)
+    ![Dodaj identyfikator konta Microsoft do konta platformy AWS.](./media/register-scan-amazon-s3/aws-create-role-amazon-s3.png)
 
-1. W obszarze **Utwórz rolę > Dołącz zasady uprawnień** , odfiltruj uprawnienia wyświetlane do poziomu **S3**. Wybierz pozycję **AmazonS3ReadOnlyAccess**, a następnie wybierz pozycję **Next (dalej): Tagi**.
+1. W obszarze **Tworzenie roli > Dołącz** zasady uprawnień odfiltruj wyświetlane uprawnienia do usługi **S3.** Wybierz **pozycję AmazonS3ReadOnlyAccess,** a następnie wybierz pozycję **Dalej: Tagi**.
 
-    ![Wybierz zasady ReadOnlyAccess dla nowej roli skanowania usługi Amazon S3.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
+    ![Wybierz zasady ReadOnlyAccess dla nowej roli skanowania Amazon S3.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
 
     > [!IMPORTANT]
-    > Zasady **AmazonS3ReadOnlyAccess** zapewniają minimalne uprawnienia wymagane do skanowania pakietów S3 i mogą zawierać również inne uprawnienia.
+    > Zasady **AmazonS3ReadOnlyAccess** zapewniają minimalne uprawnienia wymagane do skanowania zasobników usługi S3 i mogą również obejmować inne uprawnienia.
     >
-    >Aby zastosować tylko minimalne uprawnienia wymagane do skanowania przedziałów, Utwórz nowe zasady z uprawnieniami wymienionymi w [minimalnych uprawnieniach dla zasad AWSymi](#minimum-permissions-for-your-aws-policy), w zależności od tego, czy chcesz skanować pojedynczy zasobnik czy wszystkie zasobniki na koncie. 
+    >Aby zastosować tylko minimalne uprawnienia wymagane do skanowania zasobników, utwórz nowe zasady z uprawnieniami wymienionymi w tece Minimalne uprawnienia dla zasad [usług AWS](#minimum-permissions-for-your-aws-policy)w zależności od tego, czy chcesz przeskanować pojedynczy zasobnik, czy wszystkie zasobniki na koncie. 
     >
     >Zastosuj nowe zasady do roli zamiast **AmazonS3ReadOnlyAccess.**
 
-1. W obszarze **Dodaj Tagi (opcjonalnie)** można opcjonalnie utworzyć tag zrozumiały dla nowej roli. Przydatne Tagi umożliwiają organizowanie, śledzenie i kontrolowanie dostępu dla każdej roli, którą utworzysz.
+1. W **obszarze Dodaj tagi (opcjonalnie)** możesz opcjonalnie utworzyć znaczący tag dla tej nowej roli. Przydatne tagi umożliwiają organizowanie, śledzenie i kontrolowanie dostępu dla każdej tworzyć roli.
 
-    W razie potrzeby wprowadź nowy klucz i wartość dla tagu. Gdy wszystko będzie gotowe, lub jeśli chcesz pominąć ten krok, wybierz kolejno pozycje **Dalej: przegląd** , aby przejrzeć szczegóły roli i ukończyć tworzenie roli.
+    Wprowadź nowy klucz i wartość tagu zgodnie z potrzebami. Gdy wszystko będzie gotowe lub jeśli chcesz pominąć ten krok, wybierz pozycję **Dalej:** Przegląd, aby przejrzeć szczegóły roli i ukończyć tworzenie roli.
 
-    ![Dodaj tag zrozumiały, aby zorganizować, śledzić lub kontrolować dostęp dla nowej roli.](./media/register-scan-amazon-s3/add-tag-new-role.png)
+    ![Dodaj znaczący tag do organizowania, śledzenia lub kontrolowania dostępu dla nowej roli.](./media/register-scan-amazon-s3/add-tag-new-role.png)
 
-1. W obszarze **Recenzja** wykonaj następujące czynności:
+1. W obszarze **Przegląd** wykonaj następujące czynności:
 
-    - W polu **Nazwa roli** wprowadź zrozumiałą nazwę roli
-    - W polu **Opis roli** wprowadź opcjonalny opis, aby zidentyfikować cel roli
-    - W sekcji **zasady** upewnij się, że odpowiednie zasady (**AmazonS3ReadOnlyAccess**) są dołączone do roli.
+    - W **polu Nazwa roli** wprowadź znaczącą nazwę roli
+    - W **polu Opis** roli wprowadź opcjonalny opis, aby zidentyfikować przeznaczenie roli
+    - W sekcji **Zasady** upewnij się, że do roli są dołączone poprawne zasady **(AmazonS3ReadOnlyAccess).**
 
-    Następnie wybierz pozycję **Utwórz rolę** , aby ukończyć proces.
+    Następnie wybierz **pozycję Utwórz rolę,** aby ukończyć proces.
 
     Na przykład:
 
     ![Przejrzyj szczegóły przed utworzeniem roli.](./media/register-scan-amazon-s3/review-role.png)
 
 
-### <a name="configure-scanning-for-encrypted-amazon-s3-buckets"></a>Konfigurowanie skanowania dla zaszyfrowanych zasobników usługi Amazon S3
+### <a name="configure-scanning-for-encrypted-amazon-s3-buckets"></a>Konfigurowanie skanowania w celu zaszyfrowania zasobników usługi Amazon S3
 
-Zasobniki AWS obsługują wiele typów szyfrowania. W przypadku zasobników korzystających z szyfrowania **AWS-KMS** do włączenia skanowania wymagana jest specjalna konfiguracja.
+Zasobniki usług AWS obsługują wiele typów szyfrowania. W przypadku zasobników, które używają **szyfrowania AWS-KMS,** do włączenia skanowania jest wymagana specjalna konfiguracja.
 
 > [!NOTE]
-> W przypadku zasobników, które używają szyfrowania AES-256 lub AWS-KMS S3, Pomiń tę sekcję i Kontynuuj [pobieranie nazwy pakietu Amazon S3](#retrieve-your-amazon-s3-bucket-name).
+> W przypadku zasobników, które nie korzystają z szyfrowania, szyfrowania AES-256 lub AWS-KMS S3, pomiń tę sekcję i przejdź do sekcji Pobieranie nazwy zasobnika [Usługi Amazon S3.](#retrieve-your-amazon-s3-bucket-name)
 >
 
 **Aby sprawdzić typ szyfrowania używany w zasobnikach usługi Amazon S3:**
 
-1. W AWS przejdź do **magazynu**  >  **S3** > i wybierz pozycję **zasobniki** z menu po lewej stronie.
+1. Na platformie AWS przejdź do pozycji **Storage**  >  **S3** > wybierz pozycję **Zasobniki** z menu po lewej stronie.
 
-    ![Wybierz kartę Amazon S3 zasobników.](./media/register-scan-amazon-s3/check-encryption-type-buckets.png)
+    ![Wybierz kartę Zasobniki usługi Amazon S3.](./media/register-scan-amazon-s3/check-encryption-type-buckets.png)
 
-1. Wybierz zasobnik, który chcesz sprawdzić. Na stronie Szczegóły zasobnika wybierz kartę **Właściwości** i przewiń w dół do **domyślnego obszaru szyfrowania** .
+1. Wybierz zasobnik, który chcesz sprawdzić. Na stronie szczegółów zasobnika wybierz **kartę Właściwości** i przewiń w dół do obszaru **Domyślne** szyfrowanie.
 
-    - Jeśli wybrany zasobnik jest skonfigurowany dla wszystkiego, ale AWS z szyfrowaniem **usługi KMS** , w tym jeśli domyślne szyfrowanie dla przedziału jest **wyłączone**, pomiń pozostałą część tej procedury i Kontynuuj [pobieranie nazwy pakietu Amazon S3](#retrieve-your-amazon-s3-bucket-name).
+    - Jeśli wybrany zasobnik jest skonfigurowany dla czegokolwiek oprócz szyfrowania **AWS-KMS,** w tym jeśli domyślne szyfrowanie zasobnika ma wartość **Wyłączone,** pomiń pozostałą część tej procedury i kontynuuj pobieranie nazwy zasobnika [Amazon S3.](#retrieve-your-amazon-s3-bucket-name)
 
-    - Jeśli wybrany zasobnik jest skonfigurowany pod kątem szyfrowania **AWS-KMS** , Kontynuuj zgodnie z poniższym opisem, aby dodać nowe zasady, które umożliwiają skanowanie zasobnika przy użyciu niestandardowego szyfrowania **AWS-KMS** .
+    - Jeśli wybrany zasobnik jest skonfigurowany do szyfrowania **AWS-KMS,** kontynuuj zgodnie z poniższym opisem, aby dodać nowe zasady, które umożliwiają skanowanie zasobnika za pomocą niestandardowego szyfrowania **AWS-KMS.**
 
     Na przykład:
 
-    ![Wyświetlanie zasobnika usługi Amazon S3 skonfigurowanego za pomocą AWS — szyfrowanie usługi KMS](./media/register-scan-amazon-s3/default-encryption-buckets.png)
+    ![Wyświetlanie zasobnika usługi Amazon S3 skonfigurowanego z szyfrowaniem AWS-KMS](./media/register-scan-amazon-s3/default-encryption-buckets.png)
 
 **Aby dodać nowe zasady umożliwiające skanowanie zasobnika przy użyciu niestandardowego szyfrowania AWS-KMS:**
 
-1. W AWS przejdź do **usług usługi**  >   **IAM**  >   i wybierz pozycję **Utwórz zasady**.
+1. Na platformie AWS przejdź do **opcji Services**  >   IAM Policies (Zasady **IAM**  >   **usług)** i wybierz **pozycję Create policy (Utwórz zasady).**
 
-1. Na karcie **Tworzenie**  >  **edytora wizualnego** zasad Zdefiniuj zasady przy użyciu następujących wartości:
+1. Na karcie **Tworzenie zasad**  >  **Edytor wizualizacji** zdefiniuj zasady przy użyciu następujących wartości:
 
     |Pole  |Opis  |
     |---------|---------|
-    |**Usługa**     |  Wprowadź i wybierz pozycję **KMS**.       |
-    |**Akcje**     | W obszarze **poziom dostępu** wybierz pozycję **Zapisz** , aby rozwinąć sekcję **zapis** .<br>Po rozwinięciu wybierz tylko opcję **odszyfrowania** .        |
-    |**Zasoby**     |Wybierz określony zasób lub **wszystkie zasoby**.         |
+    |**Usługa**     |  Wprowadź i wybierz **pozycję KMS**.       |
+    |**Akcje**     | W **obszarze Poziom dostępu** wybierz pozycję **Zapis,** aby rozwinąć **sekcję** Zapis.<br>Po rozwinięciu wybierz tylko opcję **Odszyfruj.**        |
+    |**Zasoby**     |Wybierz określony zasób lub **pozycję Wszystkie zasoby.**         |
     | | |
 
-    Gdy skończysz, wybierz pozycję **Przejrzyj zasady** , aby kontynuować.
+    Gdy wszystko będzie gotowe, wybierz pozycję **Przejrzyj zasady,** aby kontynuować.
 
-    ![Utwórz zasady do skanowania przedziału za pomocą szyfrowania AWS-KMS.](./media/register-scan-amazon-s3/create-policy-kms.png)
+    ![Utwórz zasady skanowania zasobnika przy użyciu szyfrowania AWS-KMS.](./media/register-scan-amazon-s3/create-policy-kms.png)
 
-1. Na stronie **Przegląd zasad** wprowadź nazwę opisową zasad i opcjonalny opis, a następnie wybierz pozycję **Utwórz zasady**.
+1. Na stronie **Przeglądanie zasad** wprowadź zrozumiałą nazwę zasad i opcjonalny opis, a następnie wybierz pozycję **Utwórz zasady.**
 
     Nowo utworzone zasady zostaną dodane do listy zasad.
 
 1. Dołącz nowe zasady do roli dodanej do skanowania.
 
-    1. Przejdź z powrotem do strony role **mapy IAM**  >   i wybierz rolę, która została dodana [wcześniej](#create-a-new-aws-role-for-purview).
+    1. Wróć do strony **Role IAM**  >   i wybierz wcześniej dodaną [rolę.](#create-a-new-aws-role-for-purview)
 
-    1. Na karcie **uprawnienia** wybierz pozycję **Dołącz zasady**.
+    1. Na karcie **Uprawnienia** wybierz pozycję **Dołącz zasady.**
 
-        ![Na karcie uprawnienia roli wybierz pozycję Dołącz zasady.](./media/register-scan-amazon-s3/iam-attach-policies.png)
+        ![Na karcie Uprawnienia swojej roli wybierz pozycję Dołącz zasady.](./media/register-scan-amazon-s3/iam-attach-policies.png)
 
-    1. Na stronie **Dołącz uprawnienia** Wyszukaj i wybierz nowo utworzone zasady. Wybierz pozycję **Dołącz zasady** , aby dołączyć zasady do roli.
+    1. Na stronie **Dołączanie uprawnień** wyszukaj i wybierz nowe zasady utworzone powyżej. Wybierz **pozycję Dołącz zasady,** aby dołączyć zasady do roli.
 
-        Strona **Podsumowanie** zostanie zaktualizowana o nowe zasady dołączone do Twojej roli.
+        Strona **Podsumowanie** zostanie zaktualizowana, a nowe zasady zostaną dołączone do Twojej roli.
 
-        ![Wyświetl zaktualizowaną stronę podsumowania zawierającą nowe zasady dołączone do roli.](./media/register-scan-amazon-s3/attach-policy-role.png)
+        ![Wyświetl zaktualizowaną stronę Podsumowanie z nowymi zasadami dołączonymi do roli.](./media/register-scan-amazon-s3/attach-policy-role.png)
 
-### <a name="retrieve-your-new-role-arn"></a>Pobierz nową rolę ARN
+### <a name="retrieve-your-new-role-arn"></a>Pobieranie nowej funkcji ARN roli
 
-Musisz zarejestrować rolę AWS ARN i skopiować ją do kontrolą podczas [tworzenia skanowania dla zasobnika usługi Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
+Podczas tworzenia skanowania zasobnika [Usługi Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets)należy zarejestrować rolę ARN platformy AWS i skopiować ją do programu Purview.
 
 **Aby pobrać rolę ARN:**
 
-1. W obszarze Role **zarządzania tożsamościami i dostępem AWS (IAM)**  >   Wyszukaj i wybierz nową rolę [utworzoną dla kontrolą](#create-a-purview-credential-for-your-aws-bucket-scan).
+1. W obszarze Role zarządzania tożsamościami i dostępem **(IAM)** usług AWS wyszukaj i wybierz nową rolę  >   utworzoną [dla programu Purview.](#create-a-purview-credential-for-your-aws-bucket-scan)
 
-1. Na stronie **Podsumowanie** roli wybierz przycisk **Kopiuj do schowka** z prawej strony **roli ARN** wartość.
+1. Na stronie Podsumowanie **roli** wybierz przycisk Kopiuj do **schowka** po prawej stronie **wartości role ARN.**
 
-    ![Skopiuj wartość ARN roli do Schowka.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
+    ![Skopiuj wartość ARN roli do schowka.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. Wklej tę wartość w bezpiecznej lokalizacji, która jest gotowa do użycia podczas [tworzenia skanowania dla zasobnika usługi Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
+1. Wklej tę wartość w bezpiecznej lokalizacji, gotowej do użycia podczas tworzenia [skanowania zasobnika usługi Amazon S3.](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 ### <a name="retrieve-your-amazon-s3-bucket-name"></a>Pobieranie nazwy zasobnika usługi Amazon S3
 
-Musisz mieć nazwę pakietu Amazon S3, aby skopiować go do kontrolą podczas [tworzenia skanowania dla zasobnika Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets)
+Nazwa zasobnika usługi Amazon S3 będzie potrzebna do skopiowania go do aplikacji Purview podczas tworzenia skanowania [zasobnika usługi Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 **Aby pobrać nazwę zasobnika:**
 
-1. W AWS przejdź do **magazynu**  >  **S3** > i wybierz pozycję **zasobniki** z menu po lewej stronie.
+1. Na platformie AWS przejdź do pozycji **Storage**  >  **S3** > wybierz pozycję **Zasobniki** z menu po lewej stronie.
 
-    ![Wyświetl kartę Amazon S3 przedziały.](./media/register-scan-amazon-s3/check-encryption-type-buckets.png)
+    ![Wyświetl kartę Zasobniki usługi Amazon S3.](./media/register-scan-amazon-s3/check-encryption-type-buckets.png)
 
-1. Wyszukaj i wybierz swój zasobnik, aby wyświetlić stronę szczegóły zasobnika, a następnie skopiuj nazwę zasobnika do Schowka.
+1. Wyszukaj i wybierz zasobnik, aby wyświetlić stronę szczegółów zasobnika, a następnie skopiuj nazwę zasobnika do schowka.
 
     Na przykład:
 
-    ![Pobierz i skopiuj adres URL przedziału S3.](./media/register-scan-amazon-s3/retrieve-bucket-url-amazon.png)
+    ![Pobierz i skopiuj adres URL zasobnika S3.](./media/register-scan-amazon-s3/retrieve-bucket-url-amazon.png)
 
-    Wklej nazwę przedziału w bezpiecznym pliku i Dodaj `s3://` do niej prefiks, aby utworzyć wartość, którą należy wprowadzić podczas konfigurowania przedziału jako zasób kontrolą.
+    Wklej nazwę zasobnika w bezpiecznym pliku i dodaj do niego prefiks, aby utworzyć wartość, która należy wprowadzić podczas konfigurowania zasobnika jako zasobu `s3://` programu Purview.
 
     Na przykład: `s3://purview-tutorial-bucket`
 
 > [!NOTE]
-> Tylko poziom główny zasobnika jest obsługiwany jako źródło danych kontrolą. Na przykład następujący adres URL, który zawiera podfolder, *nie* jest obsługiwany: `s3://purview-tutorial-bucket/view-data`
+> Tylko poziom główny zasobnika jest obsługiwany jako źródło danych Purview. Na przykład następujący adres URL, który zawiera podfolder, *nie jest* obsługiwany: `s3://purview-tutorial-bucket/view-data`
 >
 
-### <a name="locate-your-aws-account-id"></a>Znajdź identyfikator konta AWS
+### <a name="locate-your-aws-account-id"></a>Lokalizowanie identyfikatora konta usług AWS
 
-Musisz mieć identyfikator konta AWS, aby zarejestrować swoje konto AWS jako źródło danych kontrolą wraz ze wszystkimi swoimi zasobnikami.
+Identyfikator konta usług AWS będzie potrzebny do zarejestrowania konta usług AWS jako źródła danych Purview wraz ze wszystkimi jego zasobnikami.
 
-Identyfikator konta AWS jest IDENTYFIKATORem używanym do logowania się do konsoli AWS. Można go również znaleźć po zalogowaniu się na pulpicie nawigacyjnym mapy IAM, po lewej stronie w obszarze Opcje nawigacji i u góry, jako numeryczna część adresu URL logowania:
+Identyfikator konta usług AWS jest identyfikatorem, za pomocą których logujesz się do konsoli usług AWS. Można go również znaleźć po zalogowaniu się na pulpicie nawigacyjnym IAM, po lewej stronie pod opcjami nawigacji i u góry jako numeryczną część adresu URL logowania:
 
 Na przykład:
 
-![Pobierz swój identyfikator konta AWS.](./media/register-scan-amazon-s3/aws-locate-account-id.png)
+![Pobierz identyfikator konta usług AWS.](./media/register-scan-amazon-s3/aws-locate-account-id.png)
 
 
-## <a name="add-a-single-amazon-s3-bucket-as-a-purview-resource"></a>Dodaj pojedynczy zasobnik usługi Amazon S3 jako zasób kontrolą
+## <a name="add-a-single-amazon-s3-bucket-as-a-purview-resource"></a>Dodawanie pojedynczego zasobnika usługi Amazon S3 jako zasobu purview
 
-Użyj tej procedury, jeśli masz tylko pojedynczy zasobnik S3, który chcesz zarejestrować, aby kontrolą jako źródło danych, lub jeśli masz wiele zasobników na koncie AWS, ale nie chcesz rejestrować wszystkich z nich w usłudze kontrolą.
+Użyj tej procedury, jeśli masz tylko jeden zasobnik S3, który chcesz zarejestrować w aplikacji Purview jako źródło danych, lub jeśli masz wiele zasobników na koncie usług AWS, ale nie chcesz rejestrować ich wszystkich w aplikacji Purview.
 
-**Aby dodać zasobnik**: 
+**Aby dodać zasobnik:** 
 
-1. Uruchom Portal kontrolą przy użyciu dedykowanego łącznika kontrolą dla adresu URL usługi Amazon S3. Ten adres URL został dostarczony przez zespół zarządzający produktem usługi Amazon S3 kontrolą Connector.
+1. Uruchom portal Purview przy użyciu dedykowanego łącznika Purview dla adresu URL usługi Amazon S3. Ten adres URL został dostarczony przez zespół zarządzania produktem łącznika Amazon S3 Purview.
 
-    ![Uruchom Portal kontrolą.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
+    ![Uruchom portal Programu Purview.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Przejdź do strony **źródła** usługi Azure kontrolą i wybierz pozycję **zarejestruj** ![ Rejestr ikona.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3**  >  **Kontynuuj**.
+1. Przejdź do strony Źródła **usługi** Azure Purview i wybierz **ikonę Zarejestruj** ![ się.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3**  >  **Kontynuuj**.
 
-    ![Dodaj pakiet Amazon AWS jako źródło danych kontrolą.](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
+    ![Dodaj zasobnik amazon AWS jako źródło danych Purview.](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
 
     > [!TIP]
-    > Jeśli masz wiele [kolekcji](manage-data-sources.md#manage-collections) i chcesz dodać dane z usługi Amazon S3 do określonej kolekcji, wybierz **Widok mapy** w prawym górnym rogu, a następnie wybierz ikonę Zarejestruj  ![ rejestr.](./media/register-scan-amazon-s3/register-button.png) w kolekcji.
+    > Jeśli masz wiele [kolekcji](manage-data-sources.md#manage-collections) i chcesz dodać usługę Amazon  S3 do określonej kolekcji, wybierz widok Mapy w prawym górnym rogu, a następnie wybierz ikonę **Zarejestruj.** ![](./media/register-scan-amazon-s3/register-button.png) wewnątrz kolekcji.
     >
 
-1. W otwartym okienku **Rejestr sources (Amazon S3)** wprowadź następujące informacje:
+1. W **okienku Rejestrowanie źródeł (Amazon S3)** wprowadź następujące informacje:
 
     |Pole  |Opis  |
     |---------|---------|
-    |**Nazwa**     |Wprowadź zrozumiałą nazwę lub użyj podanej wartości domyślnej.         |
-    |**Adres URL zasobnika**     | Wprowadź adres URL przedziału AWS, używając następującej składni:   `s3://<bucketName>`     <br><br>**Uwaga**: Upewnij się, że używasz tylko głównego poziomu przedziału bez podfolderów. Aby uzyskać więcej informacji, zobacz [pobieranie nazwy zasobnika usługi Amazon S3](#retrieve-your-amazon-s3-bucket-name). |
-    |**Wybierz kolekcję** |Jeśli wybrano opcję zarejestrowania źródła danych z kolekcji, ta kolekcja już znajduje się na liście. <br><br>Wybierz inną kolekcję w razie potrzeby, **Brak** do przypisania **kolekcji lub Utwórz nową kolekcję** teraz. <br><br>Aby uzyskać więcej informacji na temat kolekcji kontrolą, zobacz [Zarządzanie źródłami danych w usłudze Azure kontrolą](manage-data-sources.md#manage-collections).|
+    |**Nazwa**     |Wprowadź znaczącą nazwę lub użyj podanej wartości domyślnej.         |
+    |**Adres URL zasobnika**     | Wprowadź adres URL zasobnika usługi AWS przy użyciu następującej składni:   `s3://<bucketName>`     <br><br>**Uwaga:** Upewnij się, że używasz tylko poziomu głównego zasobnika, bez żadnych podfolderów. Aby uzyskać więcej informacji, zobacz [Pobieranie nazwy zasobnika Usługi Amazon S3.](#retrieve-your-amazon-s3-bucket-name) |
+    |**Wybieranie kolekcji** |Jeśli wybrano opcję zarejestrowania źródła danych w kolekcji, ta kolekcja jest już wymieniona. <br><br>Wybierz inną kolekcję zgodnie z potrzebami,  wybierz pozycję **Brak,** aby nie przypisać kolekcji, lub pozycję Nowa, aby utworzyć nową kolekcję. <br><br>Aby uzyskać więcej informacji na temat kolekcji purview, zobacz [Manage data sources in Azure Purview (Zarządzanie źródłami danych w usłudze Azure Purview).](manage-data-sources.md#manage-collections)|
     | | |
 
-    Gdy skończysz, wybierz pozycję **Zakończ** , aby zakończyć rejestrację.
+    Gdy wszystko będzie gotowe, wybierz pozycję **Zakończ,** aby ukończyć rejestrację.
 
-Kontynuuj [Tworzenie skanowania dla co najmniej jednego zasobnika usługi Amazon S3.](#create-a-scan-for-one-or-more-amazon-s3-buckets).
+Przejdź do [tematu Tworzenie skanowania dla co najmniej jednego zasobnika usługi Amazon S3.](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## <a name="add-an-amazon-account-as-a-purview-resource"></a>Dodaj konto Amazon jako zasób kontrolą
+## <a name="add-an-amazon-account-as-a-purview-resource"></a>Dodawanie konta Amazon jako zasobu purview
 
-Użyj tej procedury, jeśli masz wiele zasobników S3 na koncie Amazon i chcesz zarejestrować wszystkie te elementy jako kontrolą źródła danych.
+Użyj tej procedury, jeśli masz wiele zasobników S3 na koncie Amazon i chcesz zarejestrować wszystkie z nich jako źródła danych Purview.
 
-Podczas [konfigurowania skanowania](#create-a-scan-for-one-or-more-amazon-s3-buckets)można wybrać konkretne przedziały, które mają zostać przeskanowane, jeśli nie chcesz skanować ich wszystkie jednocześnie.
+Podczas [konfigurowania skanowania](#create-a-scan-for-one-or-more-amazon-s3-buckets)będzie można wybrać określone zasobniki do przeskanowania, jeśli nie chcesz skanować ich wszystkich razem.
 
-**Aby dodać konto Amazon**:
-1. Uruchom Portal kontrolą przy użyciu dedykowanego łącznika kontrolą dla adresu URL usługi Amazon S3. Ten adres URL został dostarczony przez zespół zarządzający produktem usługi Amazon S3 kontrolą Connector.
+**Aby dodać konto Amazon:**
+1. Uruchom portal Purview przy użyciu dedykowanego łącznika Purview dla adresu URL usługi Amazon S3. Ten adres URL został dostarczony przez zespół zarządzania produktem łącznika Amazon S3 Purview.
 
-    ![Uruchom łącznik dla dedykowanego portalu usługi Amazon S3 kontrolą](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
+    ![Launch Connector for Amazon S3 dedicated Purview portal (Uruchamianie łącznika dla dedykowanego portalu Purview usługi Amazon S3)](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Przejdź do strony **źródła** usługi Azure kontrolą i wybierz pozycję **zarejestruj** ![ Rejestr ikona.](./media/register-scan-amazon-s3/register-button.png) > **Konta**  >  usługi Amazon **Kontynuuj**.
+1. Przejdź do strony Źródła **usługi** Azure Purview i wybierz **ikonę Zarejestruj** ![ się.](./media/register-scan-amazon-s3/register-button.png) > **Konta Amazon**  >  **Kontynuuj**.
 
-    ![Dodaj konto Amazon jako źródło danych kontrolą.](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
+    ![Dodaj konto Amazon jako źródło danych Purview.](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
 
     > [!TIP]
-    > Jeśli masz wiele [kolekcji](manage-data-sources.md#manage-collections) i chcesz dodać dane z usługi Amazon S3 do określonej kolekcji, wybierz **Widok mapy** w prawym górnym rogu, a następnie wybierz ikonę Zarejestruj  ![ rejestr.](./media/register-scan-amazon-s3/register-button.png) w kolekcji.
+    > Jeśli masz wiele [kolekcji](manage-data-sources.md#manage-collections) i chcesz dodać usługę Amazon  S3 do określonej kolekcji, wybierz widok Mapy w prawym górnym rogu, a następnie wybierz ikonę **Zarejestruj.** ![](./media/register-scan-amazon-s3/register-button.png) wewnątrz kolekcji.
     >
 
-1. W otwartym okienku **Rejestr sources (Amazon S3)** wprowadź następujące informacje:
+1. W **okienku Rejestrowanie źródeł (Amazon S3)** wprowadź następujące informacje:
 
     |Pole  |Opis  |
     |---------|---------|
-    |**Nazwa**     |Wprowadź zrozumiałą nazwę lub użyj podanej wartości domyślnej.         |
-    |**Identyfikator konta AWS**     | Wprowadź identyfikator konta AWS. Aby uzyskać więcej informacji, zobacz [lokalizowanie identyfikatora konta usługi AWS](#locate-your-aws-account-id)|
-    |**Wybierz kolekcję** |Jeśli wybrano opcję zarejestrowania źródła danych z kolekcji, ta kolekcja już znajduje się na liście. <br><br>Wybierz inną kolekcję w razie potrzeby, **Brak** do przypisania **kolekcji lub Utwórz nową kolekcję** teraz. <br><br>Aby uzyskać więcej informacji na temat kolekcji kontrolą, zobacz [Zarządzanie źródłami danych w usłudze Azure kontrolą](manage-data-sources.md#manage-collections).|
+    |**Nazwa**     |Wprowadź znaczącą nazwę lub użyj podanej wartości domyślnej.         |
+    |**Identyfikator konta usług AWS**     | Wprowadź identyfikator konta usług AWS. Aby uzyskać więcej informacji, zobacz [Lokalizowanie identyfikatora konta usług AWS](#locate-your-aws-account-id)|
+    |**Wybieranie kolekcji** |Jeśli wybrano opcję zarejestrowania źródła danych z kolekcji, ta kolekcja jest już wymieniona. <br><br>Wybierz inną kolekcję zgodnie z potrzebami,  **pozycję Brak,** aby nie przypisać kolekcji, lub pozycję Nowa, aby teraz utworzyć nową kolekcję. <br><br>Aby uzyskać więcej informacji na temat kolekcji purview, zobacz Manage data sources in Azure Purview (Zarządzanie [źródłami danych w usłudze Azure Purview).](manage-data-sources.md#manage-collections)|
     | | |
 
-    Gdy skończysz, wybierz pozycję **Zakończ** , aby zakończyć rejestrację.
+    Gdy wszystko będzie gotowe, wybierz pozycję **Zakończ,** aby ukończyć rejestrację.
 
-Kontynuuj [Tworzenie skanowania dla co najmniej jednego zasobnika usługi Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
+Przejdź do [tematu Tworzenie skanowania dla co najmniej jednego zasobnika usługi Amazon S3.](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 ## <a name="create-a-scan-for-one-or-more-amazon-s3-buckets"></a>Tworzenie skanowania dla co najmniej jednego zasobnika usługi Amazon S3
 
-Po dodaniu zasobników jako kontrolą źródła danych można skonfigurować skanowanie do uruchamiania w zaplanowanych odstępach czasu lub natychmiast.
+Po dodaniu zasobników jako źródeł danych programu Purview można skonfigurować skanowanie do uruchamiania w zaplanowanych odstępach czasu lub natychmiast.
 
-1. Przejdź do obszaru **źródła** usługi Azure kontrolą, a następnie wykonaj jedną z następujących czynności:
+1. Przejdź do obszaru Źródła **usługi** Azure Purview, a następnie wykonaj jedną z następujących czynności:
 
-    - W **widoku mapy** wybierz pozycję **Nowy Skanuj** ![ nową ikonę skanowania.](./media/register-scan-amazon-s3/new-scan-button.png) w polu Źródło danych.
-    - W **widoku listy** Umieść kursor nad wierszem źródła danych, a następnie wybierz pozycję **nowe Skanuj** ![ nową ikonę skanowania. ](./media/register-scan-amazon-s3/new-scan-button.png)
+    - W widoku **mapy wybierz** pozycję Nowe **skanowanie Ikona** Nowego ![ skanowania.](./media/register-scan-amazon-s3/new-scan-button.png) w polu źródła danych.
+    - W widoku **Lista umieść** wskaźnik myszy na wierszu źródła danych, a następnie wybierz pozycję **Nowe skanowanie** Ikona ![ nowego skanowania. ](./media/register-scan-amazon-s3/new-scan-button.png) .
 
-1. W okienku **Skanuj...** , które jest otwierane po prawej stronie, Zdefiniuj następujące pola, a następnie wybierz pozycję **Kontynuuj**:
+1. W **okienku Skanuj...,** które zostanie otwarte po prawej stronie, zdefiniuj następujące pola, a następnie wybierz pozycję **Kontynuuj:**
 
     |Pole  |Opis  |
     |---------|---------|
     |**Nazwa**     |  Wprowadź zrozumiałą nazwę skanowania lub użyj wartości domyślnej.       |
-    |**Typ** |Wyświetlane tylko wtedy, gdy dodano konto AWS, z uwzględnieniem wszystkich zasobników. <br><br>Bieżące opcje obejmują tylko **wszystkie** usługi  >  **Amazon S3**. Bądź na bieżąco, aby dowiedzieć się więcej o opcjach umożliwiających wybranie macierzy pomocy technicznej kontrolą. |
-    |**Poświadczenie**     |  Wybierz poświadczenie kontrolą z rolą ARN. <br><br>**Porada**: Jeśli chcesz teraz utworzyć nowe poświadczenie, wybierz pozycję **Nowy**. Aby uzyskać więcej informacji, zobacz [Tworzenie poświadczeń kontrolą dla skanowania](#create-a-purview-credential-for-your-aws-bucket-scan)przedziału AWS.     |
-    | **Amazon S3**    |   Wyświetlane tylko wtedy, gdy dodano konto AWS, z uwzględnieniem wszystkich zasobników. <br><br>Wybierz co najmniej jeden zasobnik do skanowania lub **Wybierz pozycję Wszystkie** , aby skanować wszystkie zasobniki na koncie.      |
+    |**Typ** |Wyświetlane tylko w przypadku dodania konta usług AWS ze wszystkimi zasobnikami. <br><br>Bieżące opcje obejmują tylko **wszystkie usługi**  >  **Amazon S3.** Bądź na bieżąco, aby uzyskać więcej opcji do wyboru w przypadku rozszerzania macierzy obsługi aplikacji Purview. |
+    |**Poświadczenie**     |  Wybierz poświadczenie Purview z twoją rolą ARN. <br><br>**Porada:** Jeśli chcesz utworzyć nowe poświadczenie w tej chwili, wybierz pozycję **Nowy.** Aby uzyskać więcej informacji, zobacz Create a Purview credential for your AWS bucket scan (Tworzenie poświadczeń [programu Purview dla skanowania zasobnika usług AWS).](#create-a-purview-credential-for-your-aws-bucket-scan)     |
+    | **Amazon S3**    |   Wyświetlane tylko w przypadku dodania konta usług AWS ze wszystkimi dołączonymi zasobnikami. <br><br>Wybierz co najmniej jeden zasobnik do skanowania lub wybierz pozycję **Zaznacz** wszystko, aby przeskanować wszystkie zasobniki na koncie.      |
     | | |
 
-    Kontrolą automatycznie sprawdza, czy rola ARN jest prawidłowa i czy przedziały i obiekty w zasobnikach są dostępne, a następnie kontynuuje się w przypadku pomyślnego nawiązania połączenia.
+    Program Purview automatycznie sprawdza, czy rola ARN jest prawidłowa oraz czy zasobniki i obiekty w zasobnikach są dostępne, a następnie kontynuują pracę w przypadku powodzenia połączenia.
 
     > [!TIP]
-    > Aby wprowadzić różne wartości i przetestować połączenie przed kontynuowaniem, wybierz pozycję **Test connection** w prawym dolnym rogu przed wybraniem pozycji **Kontynuuj**.
+    > Aby wprowadzić różne wartości i przetestować połączenie samodzielnie przed kontynuowaniem, wybierz pozycję **Test connection** u dołu po prawej stronie przed wybraniem **przycisku Kontynuuj.**
     >
 
-1. W okienku **Wybierz zestaw reguł skanowania** wybierz zestaw reguł domyślnych **AmazonS3** lub wybierz opcję **Nowy skan zestawu** reguł, aby utworzyć nowy niestandardowy zestaw reguł. Po wybraniu zestawu reguł Wybierz pozycję **Kontynuuj**.
+1. W **okienku Wybierz zestaw reguł** skanowania wybierz domyślny zestaw reguł **usługi AmazonS3** lub wybierz pozycję **Nowy** zestaw reguł skanowania, aby utworzyć nowy niestandardowy zestaw reguł. Po wybraniu zestawu reguł wybierz pozycję **Kontynuuj.**
 
-    Jeśli wybierzesz opcję utworzenia nowego niestandardowego zestawu reguł skanowania, użyj kreatora do zdefiniowania następujących ustawień:
+    Jeśli wybierzesz opcję utworzenia nowego niestandardowego zestawu reguł skanowania, użyj kreatora, aby zdefiniować następujące ustawienia:
 
     |Pane  |Opis  |
     |---------|---------|
-    |**Nowy zestaw reguł skanowania** /<br>**Opis reguły skanowania**    |   Wprowadź zrozumiałą nazwę i opcjonalny opis dla zestawu reguł      |
-    |**Wybierz typy plików**     | Zaznacz wszystkie typy plików, które chcesz dołączyć do skanowania, a następnie wybierz pozycję **Kontynuuj**.<br><br>Aby dodać nowy typ pliku, wybierz pozycję **nowy typ pliku** i Zdefiniuj następujące elementy: <br>-Rozszerzenie pliku, które chcesz dodać <br>— Opcjonalny opis  <br>-Czy zawartość pliku ma niestandardowy ogranicznik, czy też jest typem pliku systemowego. Następnie wprowadź niestandardowy ogranicznik lub wybierz typ pliku systemowego. <br><br>Wybierz pozycję **Utwórz** , aby utworzyć niestandardowy typ pliku.     |
-    |**Wybierz reguły klasyfikacji**     |   Przejdź do i wybierz reguły klasyfikacji, które mają być uruchamiane w zestawie danych.      |
+    |**Nowy zestaw reguł skanowania** /<br>**Opis reguły skanowania**    |   Wprowadź znaczącą nazwę i opcjonalny opis zestawu reguł      |
+    |**Wybieranie typów plików**     | Wybierz wszystkie typy plików, które chcesz uwzględnić podczas skanowania, a następnie wybierz pozycję **Kontynuuj.**<br><br>Aby dodać nowy typ pliku, wybierz pozycję **Nowy typ pliku** i zdefiniuj następujące elementy: <br>- Rozszerzenie pliku, które chcesz dodać <br>— Opcjonalny opis  <br>- Określa, czy zawartość pliku ma niestandardowy ogranicznik, czy jest typem pliku systemowego. Następnie wprowadź niestandardowy ogranicznik lub wybierz systemowy typ pliku. <br><br>Wybierz **pozycję Utwórz,** aby utworzyć niestandardowy typ pliku.     |
+    |**Wybieranie reguł klasyfikacji**     |   Przejdź do i wybierz reguły klasyfikacji, które chcesz uruchomić w zestawie danych.      |
     |     |         |
 
-    Wybierz pozycję **Utwórz** , gdy skończysz, aby utworzyć zestaw reguł.
+    Gdy **wszystko** będzie gotowe, wybierz pozycję Utwórz, aby utworzyć zestaw reguł.
 
-1. W okienku **Ustawianie wyzwalacza skanowania** wybierz jedną z następujących opcji, a następnie wybierz pozycję **Kontynuuj**:
+1. W **okienku Ustawianie wyzwalacza skanowania** wybierz jedną z następujących opcji, a następnie wybierz pozycję **Kontynuuj:**
 
-    - **Cyklicznie** skonfigurować harmonogram skanowania cyklicznego
-    - **Raz** , aby skonfigurować skanowanie, które zaczyna się od razu
+    - **Cykliczne** konfigurowanie harmonogramu skanowania cyklicznego
+    - **Raz,** aby skonfigurować skanowanie, które rozpoczyna się natychmiast
 
-1. W okienku **przeglądanie skanowania** Sprawdź szczegóły skanowania, aby upewnić się, że są poprawne, a następnie wybierz opcję **Zapisz** lub **Zapisz i uruchom** w przypadku wybrania **raz** w poprzednim okienku.
+1. W **okienku Przeglądanie** skanowania sprawdź szczegóły skanowania, aby potwierdzić, że  są poprawne, a  następnie wybierz pozycję Zapisz lub Zapisz i **uruchom,** jeśli w poprzednim okienku wybrano pozycję Raz.
 
     > [!NOTE]
-    > Po uruchomieniu skanowania może potrwać do 24 godzin. Po uruchomieniu każdego skanowania będzie można przejrzeć **raporty usługi Insights** i przeszukać katalog 24 godziny.
+    > Po jego zakończeniu skanowanie może potrwać do 24 godzin. Będziesz mieć możliwość przejrzenia  raportów szczegółowych informacji i przeszukania katalogu 24 godziny po każdym skanowaniu.
     >
 
-Aby uzyskać więcej informacji, zobacz [Eksplorowanie wyników skanowania kontrolą](#explore-purview-scanning-results).
+Aby uzyskać więcej informacji, zobacz [Explore Purview scanning results (Eksplorowanie wyników skanowania w aplikacji Purview).](#explore-purview-scanning-results)
 
-## <a name="explore-purview-scanning-results"></a>Poznaj wyniki skanowania kontrolą
+## <a name="explore-purview-scanning-results"></a>Eksplorowanie wyników skanowania w aplikacji Purview
 
-Po zakończeniu skanowania kontrolą w pakietach usługi Amazon S3 przejdź do szczegółów w obszarze **źródła** kontrolą, aby wyświetlić historię skanowania.
+Po zakończeniu skanowania programu Purview w zasobnikach usługi Amazon S3 przejdź do szczegółów w obszarze Źródła programu **Purview,** aby wyświetlić historię skanowania.
 
-Wybierz źródło danych, aby wyświetlić jego szczegóły, a następnie wybierz kartę **skanowania** , aby wyświetlić wszystkie aktualnie uruchomione lub zakończone skanowania.
-Jeśli dodano konto AWS z wieloma zasobnikami, historia skanowania dla każdego przedziału jest pokazywana w ramach konta.
+Wybierz źródło danych, aby wyświetlić jego  szczegóły, a następnie wybierz kartę Skany, aby wyświetlić wszystkie aktualnie uruchomione lub ukończone skanowania.
+Jeśli dodano konto usług AWS z wieloma zasobnikami, historia skanowania dla każdego zasobnika jest wyświetlana w ramach konta.
 
 Na przykład:
 
-![Pokaż skanowania przedziału S3 w środowisku AWS w ramach źródła konta AWS.](./media/register-scan-amazon-s3/account-scan-history.png)
+![Pokaż skanowania zasobników usług AWS S3 w źródle konta AWS.](./media/register-scan-amazon-s3/account-scan-history.png)
 
-Skorzystaj z innych obszarów kontrolą, aby uzyskać szczegółowe informacje o zawartości, w tym w zasobnikach usługi Amazon S3:
+Użyj innych obszarów aplikacji Purview, aby dowiedzieć się więcej o zawartości w twoim obszarze danych, w tym o zasobnikach usługi Amazon S3:
 
-- **Przeszukaj kontrolą Data Catalog** i odfiltruj określony zasobnik. Na przykład:
+- **Wyszukaj katalog danych Purview i** odfiltruj go, aby uzyskać określony zasobnik. Na przykład:
 
-    ![Wyszukaj w wykazie zasoby AWS S3.](./media/register-scan-amazon-s3/search-catalog-screen-aws.png)
+    ![Wyszukaj w wykazie zasoby usług AWS S3.](./media/register-scan-amazon-s3/search-catalog-screen-aws.png)
 
-- **Wyświetlaj szczegółowe raporty** , aby wyświetlić statystyki dotyczące klasyfikacji, etykiet informacji o poufności, typów plików oraz więcej szczegółowych informacji o zawartości.
+- **Wyświetlanie raportów szczegółowych** informacji w celu wyświetlenia statystyk klasyfikacji, etykiet czułości, typów plików i innych szczegółów dotyczących zawartości.
 
-    Wszystkie raporty kontrolą Insights obejmują wyniki skanowania usługi Amazon S3, a także pozostałe wyniki ze źródeł danych platformy Azure. W razie potrzeby do opcji filtrowania raportu Dodano dodatkowy typ zasobu **Amazon S3** .
+    Wszystkie raporty usługi Purview Insight zawierają wyniki skanowania usługi Amazon S3 oraz pozostałe wyniki ze źródeł danych platformy Azure. Jeśli ma to zastosowanie, do opcji filtrowania raportów dodano dodatkowy typ zasobu **Amazon S3.**
 
-    Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure kontrolą](concept-insights.md).
+    Aby uzyskać więcej informacji, zobacz Understand Insights in Azure Purview (Informacje [o szczegółowych informacjach w usłudze Azure Purview).](concept-insights.md)
 
-## <a name="minimum-permissions-for-your-aws-policy"></a>Minimalne uprawnienia dla zasad AWSymi
+## <a name="minimum-permissions-for-your-aws-policy"></a>Minimalne uprawnienia dla zasad usług AWS
 
-Domyślna procedura [tworzenia roli AWS](#create-a-new-aws-role-for-purview) do użycia podczas skanowania pakietów S3 przy użyciu zasad **AmazonS3ReadOnlyAccess** .
+Domyślna procedura tworzenia [roli AWS](#create-a-new-aws-role-for-purview) dla aplikacji Purview do użycia podczas skanowania zasobników S3 korzysta z zasad **AmazonS3ReadOnlyAccess.**
 
-Zasady **AmazonS3ReadOnlyAccess** zapewniają minimalne uprawnienia wymagane do skanowania pakietów S3 i mogą zawierać również inne uprawnienia.
+Zasady **AmazonS3ReadOnlyAccess** zapewniają minimalne uprawnienia wymagane do skanowania zasobników usługi S3 i mogą również obejmować inne uprawnienia.
 
-Aby zastosować tylko minimalne uprawnienia wymagane do skanowania przedziałów, Utwórz nowe zasady z uprawnieniami wymienionymi w poniższych sekcjach, w zależności od tego, czy chcesz skanować pojedynczy zasobnik czy wszystkie zasobniki na Twoim koncie.
+Aby zastosować tylko minimalne uprawnienia wymagane do skanowania zasobników, utwórz nowe zasady z uprawnieniami wymienionymi w poniższych sekcjach, w zależności od tego, czy chcesz przeskanować pojedynczy zasobnik, czy wszystkie zasobniki na koncie.
 
 Zastosuj nowe zasady do roli zamiast **AmazonS3ReadOnlyAccess.**
 
-### <a name="individual-buckets"></a>Poszczególne zasobniki
+### <a name="individual-buckets"></a>Pojedyncze zasobniki
 
-Podczas skanowania pojedynczych zasobników S3 minimalne uprawnienia AWS obejmują:
+Podczas skanowania poszczególnych zasobników S3 minimalne uprawnienia usługi AWS obejmują:
 
 - `GetBucketLocation`
 - `GetBucketPublicAccessBlock`
 - `GetObject`
 - `ListBucket`
 
-Upewnij się, że zdefiniujesz zasób z określoną nazwą zasobnika. Na przykład:
+Pamiętaj, aby zdefiniować zasób o określonej nazwie zasobnika. Na przykład:
 
 ```json
 {
@@ -480,7 +480,7 @@ Upewnij się, że zdefiniujesz zasób z określoną nazwą zasobnika. Na przykł
 
 ### <a name="all-buckets-in-your-account"></a>Wszystkie zasobniki na Twoim koncie
 
-Podczas skanowania wszystkich zasobników na koncie AWS minimalne uprawnienia AWS obejmują:
+Podczas skanowania wszystkich zasobników na koncie usług AWS minimalne uprawnienia usługi AWS obejmują:
 
 - `GetBucketLocation`
 - `GetBucketPublicAccessBlock`
@@ -488,7 +488,7 @@ Podczas skanowania wszystkich zasobników na koncie AWS minimalne uprawnienia AW
 - `ListAllMyBuckets`
 - `ListBucket`.
 
-Upewnij się, że zasób został zdefiniowany za pomocą symbolu wieloznacznego. Na przykład:
+Pamiętaj, aby zdefiniować zasób z symbolami wieloznacznymi. Na przykład:
 
 ```json
 {
@@ -518,7 +518,7 @@ Upewnij się, że zasób został zdefiniowany za pomocą symbolu wieloznacznego.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o raportach usługi Azure kontrolą Insights:
+Dowiedz się więcej o raportach usługi Azure Purview Insight:
 
 > [!div class="nextstepaction"]
 > [Opis analizy w usłudze Azure Purview](concept-insights.md)

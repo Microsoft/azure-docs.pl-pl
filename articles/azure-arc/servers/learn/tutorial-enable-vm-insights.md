@@ -1,74 +1,74 @@
 ---
-title: Samouczek — monitorowanie maszyny hybrydowej za pomocą Azure Monitor dla maszyn wirtualnych
+title: Samouczek — monitorowanie maszyny hybrydowej za pomocą Azure Monitor szczegółowych informacji o maszynie wirtualnej
 description: Dowiedz się, jak zbierać i analizować dane z maszyny hybrydowej w Azure Monitor.
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: 409ad0976e02e42e385e22a103cfc06af5a4f3f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: f59ad448440110e2c5e6dd1fa1b2858d9cf42e91
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587697"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834268"
 ---
-# <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Samouczek: monitorowanie maszyny hybrydowej za pomocą Azure Monitor dla maszyn wirtualnych
+# <a name="tutorial-monitor-a-hybrid-machine-with-vm-insights"></a>Samouczek: monitorowanie maszyny hybrydowej za pomocą szczegółowych informacji o maszynie wirtualnej
 
-[Azure monitor](../overview.md) może zbierać dane bezpośrednio z maszyn hybrydowych do obszaru roboczego log Analytics w celu uzyskania szczegółowej analizy i korelacji. Zazwyczaj pociąga to za sobą zainstalowanie [agenta log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) na maszynie przy użyciu skryptu, ręcznie lub zautomatyzowanej metody zgodnie ze standardami zarządzania konfiguracją. Serwery z włączonymi łukiemmi zostały ostatnio wprowadzone, aby zainstalować Log Analytics i [rozszerzenia maszyny wirtualnej](../manage-vm-extensions.md) agenta zależności dla systemów Windows i Linux, umożliwiając Azure monitor zbieranie danych z maszyn wirtualnych spoza platformy Azure.
+[Azure Monitor](../../../azure-monitor/overview.md) zbierać dane bezpośrednio z maszyn hybrydowych do obszaru roboczego usługi Log Analytics w celu szczegółowej analizy i korelacji. Zazwyczaj wiąże się to z zainstalowaniem agenta [usługi Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) na maszynie przy użyciu skryptu, ręcznie lub automatycznie zgodnie ze standardami zarządzania konfiguracją. Serwery z obsługą usługi Arc niedawno wprowadzono [](../manage-vm-extensions.md) obsługę instalowania rozszerzeń maszyn wirtualnych usługi Log Analytics i agenta zależności dla systemów Windows i Linux, umożliwiając usłudze [VM Insights](../../../azure-monitor/vm/vminsights-overview.md) zbieranie danych z maszyn wirtualnych spoza platformy Azure.
 
-W tym samouczku pokazano, jak skonfigurować i zbierać dane z maszyn z systemem Linux lub Windows przez włączenie Azure Monitor dla maszyn wirtualnych po uproszczonym zestawie kroków, co usprawni pracę i trwa krótszy czas.  
+W tym samouczku pokazano, jak skonfigurować i zbierać dane z maszyn z systemem Linux lub Windows, włączając szczegółowe informacje o maszynach wirtualnych, korzystając z uproszczonego zestawu kroków, co usprawnia środowisko pracy i zajmuje krótszy czas.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Funkcjonalność rozszerzenia maszyny wirtualnej jest dostępna tylko na liście [obsługiwanych regionów](../overview.md#supported-regions).
+* Funkcja rozszerzenia maszyny wirtualnej jest dostępna tylko na liście [obsługiwanych regionów.](../overview.md#supported-regions)
 
-* Zobacz [obsługiwane systemy operacyjne](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że system operacyjny serwerów, który jest włączany, jest obsługiwany przez Azure monitor dla maszyn wirtualnych.
+* Zobacz [Obsługiwane systemy operacyjne,](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) aby upewnić się, że włączanie systemu operacyjnego serwerów jest obsługiwane przez szczegółowe informacje o maszynach wirtualnych.
 
-* Zapoznaj się z wymaganiami dotyczącymi zapory dla agenta Log Analytics dostępnego w [omówieniu log Analytics Agent](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). Agent Azure Monitor dla maszyn wirtualnych zależności mapy nie przesyła samych danych i nie wymaga żadnych zmian w zaporach ani portach.
+* Zapoznaj się z wymaganiami zapory dla agenta usługi Log Analytics dostępnymi w [przeglądzie agenta usługi Log Analytics.](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements) Agent zależności mapowania szczegółowych informacji o maszynie wirtualnej nie przesyła żadnych danych i nie wymaga żadnych zmian w zaporach ani portach.
 
 ## <a name="sign-in-to-azure-portal"></a>Logowanie do witryny Azure Portal
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="enable-azure-monitor-for-vms"></a>Włącz Azure Monitor dla maszyn wirtualnych
+## <a name="enable-vm-insights"></a>Włączanie szczegółowych informacji o maszynach wirtualnych
 
-1. Uruchom usługę Azure Arc w Azure Portal, klikając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **maszyny — Azure Arc**.
+1. Uruchom usługę Azure Arc w chmurze, Azure Portal pozycję **Wszystkie** usługi, a następnie wyszukując i wybierając pozycję Maszyny **— Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Wyszukiwanie serwerów z obsługą usługi Arc we wszystkich usługach" border="false":::
 
-1. Na stronie **automaty usługi Azure Arc** wybierz przyłączoną maszynę utworzoną w artykule [Szybki Start](quick-enable-hybrid-vm.md) .
+1. Na stronie **Maszyny — Azure Arc** wybierz połączną maszynę utworzoną w artykule [Szybki](quick-enable-hybrid-vm.md) start.
 
-1. W okienku po lewej stronie w sekcji **monitorowanie** wybierz pozycję **szczegółowe informacje** , a następnie **Włącz**.
+1. W lewym okienku w sekcji **Monitorowanie** wybierz pozycję **Szczegółowe informacje,** a następnie pozycję **Włącz.**
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Wybierz opcję szczegółowe dane z menu po lewej stronie" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Wybieranie opcji Szczegółowe informacje z menu po lewej stronie" border="false":::
 
-1. Na stronie dołączania do usługi Azure Monitor **Insights** zostanie wyświetlony monit o utworzenie obszaru roboczego. W tym samouczku nie zalecamy wybierania istniejącego obszaru roboczego Log Analytics, jeśli już istnieje. Wybierz wartość domyślną, która jest obszarem roboczym z unikatową nazwą w tym samym regionie, w którym zarejestrowano maszynę dołączoną. Ten obszar roboczy został utworzony i skonfigurowany.
+1. Na stronie Azure Monitor **Insights Onboarding** (Dołączanie usługi Insights) zostanie wyświetlony monit o utworzenie obszaru roboczego. W tym samouczku nie zalecamy wybierania istniejącego obszaru roboczego usługi Log Analytics, jeśli już go masz. Wybierz wartość domyślną, czyli obszar roboczy o unikatowej nazwie w tym samym regionie, w którym znajduje się zarejestrowana połączona maszyna. Ten obszar roboczy zostanie utworzony i skonfigurowany automatycznie.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Włącz stronę Azure Monitor dla maszyn wirtualnych" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Strona włączania szczegółowych informacji o maszynie wirtualnej" border="false":::
 
-1. Komunikaty o stanie są odbierane podczas konfigurowania. Ten proces trwa kilka minut, ponieważ rozszerzenia są zainstalowane na podłączonej maszynie.
+1. Podczas konfigurowania są wyświetlane komunikaty o stanie. Ten proces trwa kilka minut, ponieważ rozszerzenia są instalowane na połączonej maszynie.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Włącz Azure Monitor dla maszyn wirtualnych komunikat o stanie postępu" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Komunikat o stanie włączania wglądu w szczegółowe dane maszyny wirtualnej" border="false":::
 
-    Po zakończeniu otrzymasz komunikat informujący, że maszyna została pomyślnie dołączona, a szczegółowe informacje zostały pomyślnie wdrożone.
+    Po zakończeniu zostanie wyświetlony komunikat informujący o tym, że maszyna została pomyślnie do dostania i szczegółowe informacje zostały pomyślnie wdrożone.
 
 ## <a name="view-data-collected"></a>Wyświetlanie zebranych danych
 
-Po zakończeniu wdrażania i konfiguracji wybierz pozycję **szczegółowe informacje**, a następnie wybierz kartę **wydajność** . Na karcie wydajność zostanie wyświetlona wybrana grupa liczników wydajności zebranych z systemu operacyjnego gościa maszyny. Przewiń w dół, aby wyświetlić więcej liczników, a następnie przesuń wskaźnik myszy na wykres, aby wyświetlić średnią i percentylość wykonywaną od momentu, kiedy rozszerzenie maszyny wirtualnej Log Analytics zostało zainstalowane na komputerze.
+Po zakończeniu wdrażania i konfiguracji wybierz pozycję **Szczegółowe informacje,** a następnie wybierz **kartę** Wydajność. Na karcie Wydajność znajduje się grupa wybranych liczników wydajności zebranych z systemu operacyjnego gościa maszyny. Przewiń w dół, aby wyświetlić więcej liczników, i przesuń wskaźnik myszy na graf, aby wyświetlić średnie i percentyły wykonane od czasu zainstalowania rozszerzenia maszyny wirtualnej usługi Log Analytics na maszynie.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Azure Monitor dla maszyn wirtualnych wykresy wydajnościowe dla wybranej maszyny" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Wykresy wydajności szczegółowych informacji o maszynie wirtualnej dla wybranej maszyny" border="false":::
 
-Wybierz pozycję **Mapuj** , aby otworzyć funkcję Maps, która pokazuje procesy działające na maszynie i ich zależności. Wybierz pozycję **Właściwości** , aby otworzyć okienko właściwości, jeśli nie jest jeszcze otwarte.
+Wybierz **pozycję Mapuj,** aby otworzyć funkcję mapy, która pokazuje procesy uruchomione na maszynie i ich zależności. Wybierz **pozycję** Właściwości, aby otworzyć okienko właściwości, jeśli nie zostało jeszcze otwarte.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Mapa Azure Monitor dla maszyn wirtualnych dla wybranej maszyny" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Mapa szczegółowych informacji o maszynie wirtualnej dla wybranej maszyny" border="false":::
 
-Rozwiń procesy dla maszyny. Wybierz jeden z procesów, aby wyświetlić jego szczegóły i wyróżnić jego zależności.
+Rozwiń procesy dla swojej maszyny. Wybierz jeden z procesów, aby wyświetlić jego szczegóły i wyróżnić jego zależności.
 
-Ponownie wybierz maszynę, a następnie wybierz pozycję **zdarzenia dziennika**. Zostanie wyświetlona lista tabel, które są przechowywane w obszarze roboczym Log Analytics dla maszyny. Ta lista będzie się różnić w zależności od tego, czy używasz komputera z systemem Windows lub Linux. Wybierz tabelę **zdarzeń** . Tabela **zdarzeń** zawiera wszystkie zdarzenia z dziennika zdarzeń systemu Windows. Log Analytics otwiera z prostym zapytaniem do pobrania zebranych wpisów dziennika zdarzeń.
+Wybierz ponownie maszynę, a następnie wybierz pozycję **Zdarzenia dziennika.** Zostanie wyświetlona lista tabel przechowywanych w obszarze roboczym usługi Log Analytics dla maszyny. Ta lista będzie się różnić w zależności od tego, czy używasz maszyny z systemem Windows, czy Linux. Wybierz **tabelę** Event (Zdarzenia). Tabela **Event** zawiera wszystkie zdarzenia z dziennika zdarzeń systemu Windows. Zostanie otwarta usługa Log Analytics z prostym zapytaniem w celu pobrania zebranych wpisów dziennika zdarzeń.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat Azure Monitor, zapoznaj się z następującym artykułem:
+Aby dowiedzieć się więcej o Azure Monitor, zapoznaj się z następującym artykułem:
 
 > [!div class="nextstepaction"]
 > [Omówienie usługi Azure Monitor](../../../azure-monitor/overview.md)

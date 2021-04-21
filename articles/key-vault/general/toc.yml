@@ -48,10 +48,10 @@
     - name: Zabezpieczenia
       items:
         - name: Funkcje zabezpieczeń
-          href: security-overview.md
+          href: security-features.md
         - name: Podstawy uwierzytelniania przy użyciu usługi Key Vault
           href: authentication-fundamentals.md
-        - name: Security worlds and geographies (Lokalizacje geograficzne i lokalizacje zabezpieczeń)
+        - name: Security worlds and geographies (Światy zabezpieczeń i lokalizacje geograficzne)
           href: overview-security-worlds.md
         - name: Bezpieczeństwo sieci
           href: network-security.md

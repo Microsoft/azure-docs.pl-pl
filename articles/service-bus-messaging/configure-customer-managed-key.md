@@ -1,28 +1,28 @@
 ---
 title: Konfigurowanie własnego klucza do szyfrowania danych Azure Service Bus danych w spoczynku
-description: Ten artykuł zawiera informacje na temat sposobu konfigurowania własnego klucza do szyfrowania Azure Service Bus danych.
+description: Ten artykuł zawiera informacje na temat sposobu konfigurowania własnego klucza na Azure Service Bus danych.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 88de4ccc2c6997622540664dc15b21f052df622a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: de716b9f14191ba057c83a060104e64937c4192a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788591"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816012"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania Azure Service Bus danych w spoczynku przy użyciu Azure Portal
 Azure Service Bus Premium zapewnia szyfrowanie danych magazynowych za pomocą usługi Azure szyfrowanie usługi Storage (Azure SSE). Service Bus Premium używa usługi Azure Storage do przechowywania danych. Wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli używasz własnego klucza (nazywanego również kluczem Bring Your Own Key (BYOK) lub kluczem zarządzanym przez klienta, dane są nadal szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft, ale dodatkowo klucz zarządzany przez firmę Microsoft zostanie zaszyfrowany przy użyciu klucza zarządzanego przez klienta. Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania kluczy zarządzanych przez firmę Microsoft. Włączenie funkcji BYOK jest procesem instalacji jeden raz w przestrzeni nazw.
 
 Istnieją pewne zastrzeżenia do klucza zarządzanego przez klienta dotyczące szyfrowania po stronie usługi. 
-- Ta funkcja jest obsługiwana przez [Azure Service Bus Premium.](service-bus-premium-messaging.md) Nie można jej włączyć dla przestrzeni nazw w Service Bus warstwie Standardowa.
+- Ta funkcja jest obsługiwana przez [Azure Service Bus Premium.](service-bus-premium-messaging.md) Nie można go włączyć dla warstwy Standardowa Service Bus przestrzeni nazw.
 - Szyfrowanie można włączyć tylko dla nowych lub pustych przestrzeni nazw. Jeśli przestrzeń nazw zawiera jakiekolwiek kolejki lub tematy, operacja szyfrowania nie powiedzie się.
 
-Możesz użyć Azure Key Vault do zarządzania kluczami i inspekcji użycia klucza. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć interfejsów API Azure Key Vault do generowania kluczy. Aby uzyskać więcej informacji na Azure Key Vault, zobacz [Co to jest Azure Key Vault?](../key-vault/general/overview.md)
+Możesz użyć Azure Key Vault do zarządzania kluczami i inspekcji użycia klucza. Możesz utworzyć własne klucze i przechowywać je w magazynie kluczy lub użyć interfejsów API Azure Key Vault do generowania kluczy. Aby uzyskać więcej informacji o Azure Key Vault, zobacz [Co to jest Azure Key Vault?](../key-vault/general/overview.md)
 
 W tym artykule pokazano, jak skonfigurować magazyn kluczy przy użyciu kluczy zarządzanych przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz Szybki [start:](../key-vault/general/quick-create-portal.md)tworzenie magazynu Azure Key Vault użyciu Azure Portal .
 
 > [!IMPORTANT]
-> Używanie kluczy zarządzanych przez klienta z Azure Service Bus wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to:  **Usuwanie nie softowe** **i nie przeczyszczaj**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+> Używanie kluczy zarządzanych przez klienta Azure Service Bus wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to:  **Usuwanie nie softowe** **i nie przeczyszczaj**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Włączanie kluczy zarządzanych przez klienta
 Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następujące kroki:
@@ -70,7 +70,7 @@ Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarz�
     > [!IMPORTANT]
     > Jeśli chcesz używać klucza zarządzanego przez klienta wraz z odzyskiwaniem po awarii geograficznych, zapoznaj się z tą sekcją. 
     >
-    > Aby włączyć szyfrowanie klucza zarządzanego przez firmę [](../key-vault/general/security-overview.md) Microsoft za pomocą klucza zarządzanego przez klienta, zasady dostępu są ustawiane dla tożsamości zarządzanej usługi Service Bus w określonym usłudze Azure KeyVault. Zapewnia to kontrolowany dostęp do usługi Azure KeyVault z Azure Service Bus nazw.
+    > Aby włączyć szyfrowanie klucza zarządzanego przez firmę [](../key-vault/general/security-features.md) Microsoft za pomocą klucza zarządzanego przez klienta, zasady dostępu są ustawiane dla tożsamości zarządzanej usługi Service Bus w określonym usłudze Azure KeyVault. Zapewnia to kontrolowany dostęp do usługi Azure KeyVault z Azure Service Bus nazw.
     >
     > W związku z tym:
     > 
@@ -91,7 +91,7 @@ Klucz w magazynie kluczy można obrócić przy użyciu mechanizmu rotacji usług
 
 ## <a name="revoke-access-to-keys"></a>Odwoływanie dostępu do kluczy
 
-Odwołanie dostępu do kluczy szyfrowania nie spowoduje przeczyszczania danych z Service Bus. Nie można jednak uzyskać dostępu do danych z Service Bus nazw. Klucz szyfrowania można odwołać za pomocą zasad dostępu lub przez usunięcie klucza. Dowiedz się więcej o zasadach dostępu i zabezpieczaniu magazynu kluczy z [bezpiecznego dostępu do magazynu kluczy.](../key-vault/general/security-overview.md)
+Odwołanie dostępu do kluczy szyfrowania nie spowoduje przeczyszczania danych z Service Bus. Nie można jednak uzyskać dostępu do danych z Service Bus nazw. Klucz szyfrowania można odwołać za pomocą zasad dostępu lub przez usunięcie klucza. Dowiedz się więcej o zasadach dostępu i zabezpieczaniu magazynu kluczy z [bezpiecznego dostępu do magazynu kluczy.](../key-vault/general/security-features.md)
 
 Po odwołaniu klucza szyfrowania usługa Service Bus w zaszyfrowanej przestrzeni nazw stanie się niedziałała. Jeśli dostęp do klucza jest włączony lub usunięty klucz zostanie przywrócony, usługa Service Bus wybierze klucz, aby można było uzyskać dostęp do danych z zaszyfrowanej Service Bus nazw.
 
@@ -107,9 +107,9 @@ Poniżej przedstawiono więcej informacji:
     
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>Włączanie szyfrowania przy użyciu Resource Manager szablonu
-W tej sekcji przedstawiono sposób wykonywania następujących zadań przy użyciu **Azure Resource Manager szablonów**. 
+W tej sekcji pokazano, jak wykonać następujące zadania przy **użyciu Azure Resource Manager szablonów**. 
 
-1. Utwórz przestrzeń **nazw Service Bus** Premium przy użyciu tożsamości **usługi zarządzanej.**
+1. Utwórz przestrzeń **nazw usługi Service Bus** Premium przy użyciu tożsamości usługi **zarządzanej.**
 2. Utwórz magazyn **kluczy i** przyznaj tożsamości usługi dostęp do magazynu kluczy. 
 3. Zaktualizuj przestrzeń Service Bus przy użyciu informacji o magazynie kluczy (klucz/wartość). 
 
@@ -117,7 +117,7 @@ W tej sekcji przedstawiono sposób wykonywania następujących zadań przy użyc
 ### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Tworzenie przestrzeni nazw usługi Service Bus Premium przy użyciu tożsamości usługi zarządzanej
 W tej sekcji pokazano, jak utworzyć przestrzeń nazw Azure Service Bus tożsamości usługi zarządzanej przy użyciu szablonu Azure Resource Manager programu PowerShell. 
 
-1. Utwórz szablon Azure Resource Manager, aby utworzyć przestrzeń nazw Service Bus w warstwie Premium z tożsamością usługi zarządzanej. Nazwij plik: **CreateServiceBusPremiumNamespace.jsna**: 
+1. Utwórz szablon Azure Resource Manager, aby utworzyć Service Bus w warstwie Premium z tożsamością usługi zarządzanej. Nazwij plik: **CreateServiceBusPremiumNamespace.jsna**: 
 
     ```json
     {
@@ -165,7 +165,7 @@ W tej sekcji pokazano, jak utworzyć przestrzeń nazw Azure Service Bus tożsamo
        }
     }
     ```
-2. Utwórz plik parametrów szablonu o nazwie : **CreateServiceBusPremiumNamespaceParams.jsna stronie**. 
+2. Utwórz plik parametrów szablonu o nazwie : **CreateServiceBusPremiumNamespaceParams.jsna .** 
 
     > [!NOTE]
     > Zastąp następujące wartości: 
@@ -194,9 +194,9 @@ W tej sekcji pokazano, jak utworzyć przestrzeń nazw Azure Service Bus tożsamo
     $ServiceBusNamespaceId = $outputs.Outputs["serviceBusNamespaceId"].value
     ```
  
-### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>Udzielanie Service Bus przestrzeni nazw do magazynu kluczy
+### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>Udzielanie Service Bus tożsamości przestrzeni nazw do magazynu kluczy
 
-1. Uruchom następujące polecenie, aby utworzyć magazyn kluczy z włączoną ochroną przed **przeczyszczaniem** i **usuwaniem nie soft-delete.** 
+1. Uruchom następujące polecenie, aby utworzyć magazyn kluczy z włączoną ochroną przed **przeczyszczaniem** **i usuwaniem nie soft-delete.** 
 
     ```powershell
     New-AzureRmKeyVault -Name "{keyVaultName}" -ResourceGroupName {RGName}  -Location "{location}" -EnableSoftDelete -EnablePurgeProtection    
@@ -204,12 +204,12 @@ W tej sekcji pokazano, jak utworzyć przestrzeń nazw Azure Service Bus tożsamo
     
     (OR)
     
-    Uruchom następujące polecenie, aby zaktualizować **istniejący magazyn kluczy.** Określ wartości nazw grup zasobów i magazynu kluczy przed uruchomieniem polecenia. 
+    Uruchom następujące polecenie, aby zaktualizować **istniejący magazyn kluczy.** Przed uruchomieniem polecenia określ wartości dla grupy zasobów i nazw magazynu kluczy. 
     
     ```powershell
     ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
     ``` 
-2. Ustaw zasady dostępu magazynu kluczy, aby tożsamość zarządzana Service Bus może uzyskać dostęp do wartości klucza w magazynie kluczy. Użyj identyfikatora przestrzeni nazw Service Bus z poprzedniej sekcji. 
+2. Ustaw zasady dostępu magazynu kluczy tak, aby tożsamość zarządzana Service Bus może uzyskać dostęp do wartości klucza w magazynie kluczy. Użyj identyfikatora przestrzeni nazw Service Bus z poprzedniej sekcji. 
 
     ```powershell
     $identity = (Get-AzureRmResource -ResourceId $ServiceBusNamespaceId -ExpandProperties).Identity
@@ -223,9 +223,9 @@ Do tej pory zostały wykonane następujące czynności:
 1. Utworzono przestrzeń nazw Premium z tożsamością zarządzaną.
 2. Utwórz magazyn kluczy i przyznaj tożsamości zarządzanej dostęp do magazynu kluczy. 
 
-W tym kroku zaktualizujemy przestrzeń nazw Service Bus przy użyciu informacji o magazynie kluczy. 
+W tym kroku zaktualizujemy przestrzeń nazw usługi Service Bus informacjami o magazynie kluczy. 
 
-1. Utwórz plik JSON o **UpdateServiceBusNamespaceWithEncryption.jso następującej** zawartości: 
+1. Utwórz plik JSON o **UpdateServiceBusNamespaceWithEncryption.jso** następującej zawartości: 
 
     ```json
     {
@@ -288,7 +288,7 @@ W tym kroku zaktualizujemy przestrzeń nazw Service Bus przy użyciu informacji 
     }
     ``` 
 
-2. Utwórz plik parametrów szablonu: **UpdateServiceBusNamespaceWithEncryptionParams.jsna stronie**.
+2. Utwórz plik parametrów szablonu:UpdateServiceBusNamespaceWithEncryptionParams.js **na stronie**.
 
     > [!NOTE]
     > Zastąp następujące wartości: 

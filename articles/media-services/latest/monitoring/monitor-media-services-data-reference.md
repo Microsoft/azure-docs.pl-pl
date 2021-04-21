@@ -1,5 +1,5 @@
 ---
-title: Informacje o monitorowaniu Media Services danych
+title: Informacje Media Services monitorowania
 description: Ważne materiały referencyjne potrzebne podczas monitorowania Media Services
 author: IngridAtMicrosoft
 ms.author: inhenkel
@@ -8,81 +8,52 @@ ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 8908fd1acc64fb180121ac0b6a4dc38ce5a02572
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 4e4c65966ec8a6a5b47d5f68596f6d2d496fda17
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121170"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835510"
 ---
-# <a name="monitoring-media-services-data-reference"></a>Informacje o monitorowaniu Media Services danych
+# <a name="monitoring-media-services-data-reference"></a>Informacje Media Services monitorowania
 
-W tym artykule omówiono dane, które są przydatne do monitorowania Media Services. Aby uzyskać więcej informacji na temat wszystkich metryk platformy obsługiwanych w Azure Monitor, przejrzyj [obsługiwane metryki z Azure monitor](../../../azure-monitor/essentials/metrics-supported.md).
+W tym artykule omykamy dane, które są przydatne do monitorowania Media Services. Aby uzyskać więcej informacji na temat wszystkich metryk platformy obsługiwanych w programie Azure Monitor, zapoznaj się z tematem [Obsługiwane metryki za pomocą Azure Monitor.](../../../azure-monitor/essentials/metrics-supported.md)
 
-## <a name="media-services-metrics"></a>Metryki Media Services
+## <a name="media-services-metrics"></a>Media Services metryki
 
-Metryki są zbierane w regularnych odstępach czasu, niezależnie od tego, czy wartość jest zmieniana. Są one przydatne w przypadku alertów, ponieważ mogą być próbkowane często, a alert może być uruchamiany szybko z stosunkowo prostą logiką.
+Metryki są zbierane w regularnych odstępach czasu niezależnie od tego, czy wartość się zmienia. Są one przydatne w przypadku alertów, ponieważ mogą być często próbkowane, a alert można szybko wyzbić przy użyciu stosunkowo prostej logiki.
+
 
 Media Services obsługuje metryki monitorowania dla następujących zasobów:
 
-* Konto
-* Punkt końcowy przesyłania strumieniowego
+|Typ metryki | Dostawca zasobów/przestrzeń nazw typu<br/> i link do poszczególnych metryk |
+|-------|-----|
+| Media Services ogólne | [Ogólne](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices) |
+| Wydarzenia na żywo | [Microsoft.Media/mediaservices/liveEvents](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesliveevents) 
+| Punkty końcowe przesyłania strumieniowego | [Microsoft.Media/mediaservices/streamingEndpoints,](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints)które są istotne dla interfejsu [API REST punktów końcowych przesyłania strumieniowego.](/rest/api/media/streamingendpoints) 
 
-### <a name="account"></a>Konto
 
-Można monitorować następujące metryki konta.
+Należy również przejrzeć [limity przydziału i limity kont.](../limits-quotas-constraints-reference.md)
 
-|Nazwa metryki|Nazwa wyświetlana|Opis|
-|---|---|---|
-|AssetCount|Liczba zasobów|Zasoby na Twoim koncie.|
-|AssetQuota|Przydział zasobów|Przydział zasobów na koncie.|
-|AssetQuotaUsedPercentage|Procent użycia przydziału zasobów|Wartość procentowa przydziału zasobów jest już używana.|
-|ContentKeyPolicyCount|Liczba zasad dotyczących kluczy zawartości|Zasady kluczy zawartości na Twoim koncie.|
-|ContentKeyPolicyQuota|Przydział zasad dotyczących kluczy zawartości|Przydział zasad kluczy zawartości na Twoim koncie.|
-|ContentKeyPolicyQuotaUsedPercentage|Procent użycia przydziału zasad klucza zawartości|Wartość procentowa przydziału zasad klucza zawartości już użyta.|
-|StreamingPolicyCount|Liczba zasad przesyłania strumieniowego|Zasady przesyłania strumieniowego na Twoim koncie.|
-|StreamingPolicyQuota|Limit przydziału zasad przesyłania strumieniowego|Przekroczono limit przydziału zasad przesyłania strumieniowego na Twoim koncie.|
-|StreamingPolicyQuotaUsedPercentage|Procent użycia limitu przydziału zasad przesyłania strumieniowego|Wartość procentowa przydziału zasad przesyłania strumieniowego już używana.|
 
-Należy również sprawdzić [przydziały i limity kont](../limits-quotas-constraints-reference.md).
+## <a name="metric-dimensions"></a>Wymiary metryki
 
-### <a name="streaming-endpoint"></a>Punkt końcowy przesyłania strumieniowego
-
-Następujące metryki [punktów końcowych przesyłania strumieniowego](/rest/api/media/streamingendpoints) Media Services są obsługiwane:
-
-|Nazwa metryki|Nazwa wyświetlana|Opis|
-|---|---|---|
-|Żądania|Żądania|Zapewnia łączną liczbę żądań HTTP obsłużonych przez punkt końcowy przesyłania strumieniowego.|
-|Ruch wychodzący|Ruch wychodzący|Całkowita liczba bajtów wychodzących na minutę na punkt końcowy przesyłania strumieniowego.|
-|SuccessE2ELatency|Pomyślne zakończenie oczekiwania|Czas trwania od momentu, gdy punkt końcowy przesyłania strumieniowego otrzymał żądanie do momentu wysłania ostatniego bajtu odpowiedzi.|
-|Użycie procesora| | Użycie procesora dla punktów końcowych przesyłania strumieniowego w warstwie Premium. Te dane nie są dostępne dla standardowych punktów końcowych przesyłania strumieniowego. |
-|Przepustowość ruchu wychodzącego | | Przepustowość w bitach na sekundę.|
-
-## <a name="metric-dimensions"></a>Wymiary metryk
-
-Aby uzyskać więcej informacji na temat wymiarów metryk, zobacz [wielowymiarowe metryki](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+Aby uzyskać więcej informacji na temat wymiarów metryk, zobacz [Metryki wielowymiarowe](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 <!--**PLACEHOLDER** for dimensions table.-->
+OutputFormat, HttpStatusCode, ErrorCode, TrackName
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
 
-## <a name="media-services-diagnostic-logs"></a>Media Services dzienników diagnostycznych
+## <a name="media-services-resource-logs"></a>Media Services zasobów
 
-Dzienniki diagnostyczne zapewniają rozbudowane i częste dane dotyczące operacji zasobu platformy Azure. Aby uzyskać więcej informacji, zobacz [jak zbierać i zużywać dane dzienników z zasobów platformy Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
+Dzienniki zasobów zawierają rozbudowane i częste dane dotyczące działania zasobu platformy Azure. Aby uzyskać więcej informacji, zobacz [Jak zbierać dane dzienników](../../../azure-monitor/essentials/platform-logs-overview.md)z zasobów platformy Azure i korzystać z tych danych.
 
-Media Services obsługuje następujące dzienniki diagnostyczne:
-
-* Dostarczanie klucza
-
-### <a name="key-delivery"></a>Dostarczanie klucza
-
-|Nazwa|Opis|
-|---|---|
-|Żądanie usługi dostarczania kluczy|Dzienniki pokazujące informacje o żądaniu usługi dostarczania kluczy. Aby uzyskać więcej informacji, zobacz [schematy](monitor-media-services-data-reference.md).|
+Media Services obsługuje następujące dzienniki zasobów: [Microsoft.Media/mediaservices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
 
 ## <a name="schemas"></a>Schematy
 
-Aby uzyskać szczegółowy opis schematu dzienników diagnostycznych najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników diagnostycznych platformy Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
+Aby uzyskać szczegółowy opis schematu dzienników diagnostycznych najwyższego poziomu, zobacz Obsługiwane usługi, schematy i kategorie [dla dzienników diagnostycznych platformy Azure.](../../../azure-monitor/essentials/resource-logs-schema.md)
 
 ## <a name="key-delivery-log-schema-properties"></a>Właściwości schematu dziennika dostarczania kluczy
 
@@ -91,14 +62,14 @@ Te właściwości są specyficzne dla schematu dziennika dostarczania kluczy.
 |Nazwa|Opis|
 |---|---|
 |keyId|Identyfikator żądanego klucza.|
-|keyType|Może to być jedna z następujących wartości: "Clear" (bez szyfrowania), "FairPlay", "PlayReady" lub "Widevine".|
+|Keytype|Może to być jedna z następujących wartości: "Clear" (bez szyfrowania), "FairPlay", "PlayReady" lub "Widevine".|
 |policyName|Nazwa Azure Resource Manager zasad.|
-|Obiektu TokenType|Typ tokenu.|
+|Tokentype|Typ tokenu.|
 |statusMessage|Komunikat o stanie.|
 
 ### <a name="example"></a>Przykład
 
-Właściwości schematu żądań dostarczenia klucza.
+Właściwości schematu kluczowych żądań dostarczania.
 
 ```json
 {
@@ -159,7 +130,7 @@ Właściwości schematu żądań dostarczenia klucza.
 ```
 
 >[!NOTE]
-> Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
+> Widevine to usługa dostarczana przez firmę Google Inc. podlegając warunkiom świadczenia usług i zasadom ochrony prywatności firmy Google, Inc.
 
 ## <a name="next-steps"></a>Następne kroki
 

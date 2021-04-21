@@ -1,48 +1,113 @@
 ---
 title: Azure Service Bus — liczba komunikatów
-description: Pobierz liczbę wiadomości przechowywanych w kolejkach i subskrypcjach za pomocą Azure Resource Manager oraz interfejsów API Azure Service Bus NamespaceManager.
+description: Pobieranie liczby komunikatów w kolejkach i subskrypcjach przy użyciu Azure Resource Manager i interfejsów API Azure Service Bus NamespaceManager.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d0e1a7a5c6eb0b281b4e6ac08135f41f28ecbec8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5fc7211673badfde664d77128f9d79523926ccc9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85341266"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814614"
 ---
-# <a name="message-counters"></a>Liczniki komunikatów
+# <a name="get-message-counters"></a>Uzyskiwanie liczników komunikatów
+W tym artykule przedstawiono różne sposoby uzyskiwania następujących liczników komunikatów dla kolejki lub subskrypcji. Znajomość liczby aktywnych komunikatów przydaje się do określenia, czy kolejka tworzy zaległości wymagające większej liczby zasobów do przetwarzania niż aktualnie wdrożona. 
 
-Liczbę wiadomości przechowywanych w kolejkach i subskrypcjach można pobrać przy użyciu Azure Resource Manager oraz interfejsów API Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) w .NET Framework SDK.
+| Licznik | Opis |
+| ----- | ---------- | 
+| ActiveMessageCount | Liczba komunikatów w kolejce lub subskrypcji, które są aktywne i są gotowe do dostarczenia. |
+| ScheduledMessageCount | Liczba komunikatów w zaplanowanym stanie. |
+| DeadLetterMessageCount | Liczba komunikatów w kolejce utraconych wiadomości. |
+| TransferMessageCount | Liczba komunikatów oczekujących na przeniesienie do innej kolejki lub tematu. |
+| TransferDeadLetterMessageCount | Liczba komunikatów, których nie można przenieść do innej kolejki lub tematu i które zostały przeniesione do kolejki utraconych wiadomości transferu. |
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-W programie PowerShell można uzyskać licznik w następujący sposób:
-
-```powershell
-(Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
-```
-
-## <a name="message-count-details"></a>Szczegóły liczby komunikatów
-
-Znajomość liczby aktywnych komunikatów jest przydatna w ustaleniu, czy kolejka kompiluje zaległości, które wymagają więcej zasobów do przetworzenia niż aktualnie wdrożone. Następujące szczegóły licznika są dostępne w klasie [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) :
-
--   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): komunikaty w kolejce lub subskrypcji, które znajdują się w stanie aktywnym i gotowe do dostarczenia.
--   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): komunikaty w kolejce utraconych wiadomości.
--   [ScheduledMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.scheduledmessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ScheduledMessageCount): komunikaty w stanie zaplanowanym.
--   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): komunikaty, które nie zostały przeniesione do innej kolejki lub tematu i zostały przeniesione do kolejki utraconych wiadomości.
--   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): komunikaty oczekujące na przeniesienie do innej kolejki lub tematu.
-
-Jeśli aplikacja chce skalować zasoby na podstawie długości kolejki, należy to zrobić z mierzonym tempem. Pozyskiwanie liczników komunikatów jest kosztowną operacją wewnątrz brokera komunikatów i wykonuje ją często bezpośrednio i niekorzystnie wpływa na wydajność jednostki.
+Jeśli aplikacja chce skalować zasoby na podstawie długości kolejki, powinna to zrobić w mierzonym tempie. Pozyskiwanie liczników komunikatów jest kosztowną operacją wewnątrz brokera komunikatów i często wykonywane bezpośrednio i niekorzystnie wpływa na wydajność jednostki.
 
 > [!NOTE]
-> Komunikaty wysyłane do tematu Service Bus są przekazywane do subskrypcji dla tego tematu. W związku z tym liczba aktywnych komunikatów w samym temacie to 0, ponieważ te komunikaty zostały pomyślnie przekazane do subskrypcji. Pobierz liczbę komunikatów w subskrypcji i sprawdź, czy jest ona większa od 0. Mimo że wyświetlane są komunikaty w ramach subskrypcji, są one przechowywane w magazynie należącym do tematu. 
+> Komunikaty wysyłane do tematu Service Bus są przekazywane do subskrypcji dla tego tematu. Dlatego liczba aktywnych komunikatów w samym temacie wynosi 0, ponieważ te komunikaty zostały pomyślnie przekazane do subskrypcji. Pobierz liczbę komunikatów w subskrypcji i sprawdź, czy jest ona większa niż 0. Mimo że komunikaty są wyświetlane w ramach subskrypcji, są one w rzeczywistości przechowywane w magazynie należącym do tematu. Jeśli przyjrzysz się subskrypcjom, będą one miały niezerową liczbę komunikatów (co dodaje do 323 MB miejsca dla całej jednostki).
 
-Jeśli przeszukiwane są subskrypcje, mogą one mieć różną od zera liczbę wiadomości (co powoduje dodanie do 323MB miejsca dla całej jednostki).
+
+## <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
+Przejdź do przestrzeni nazw i wybierz kolejkę. Zobaczysz liczniki komunikatów na **stronie Przegląd** kolejki.
+
+:::image type="content" source="./media/message-counters/queue-overview.png" alt-text="Liczniki komunikatów na stronie przeglądu kolejki":::
+
+Przejdź do przestrzeni nazw, wybierz temat, a następnie wybierz subskrypcję tematu. Zobaczysz liczniki komunikatów na **stronie Przegląd** kolejki.
+
+:::image type="content" source="./media/message-counters/subscription-overview.png" alt-text="Liczniki komunikatów na stronie przeglądu subskrypcji":::
+
+## <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+Użyj polecenia [`az servicebus queue show`](/cli/azure/servicebus/queue#az_servicebus_queue_show) , aby uzyskać szczegóły liczby komunikatów dla kolejki, jak pokazano w poniższym przykładzie. 
+
+```azurecli-interactive
+az servicebus queue show --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --name myqueue \
+    --query countDetails
+```
+
+Oto przykładowe dane wyjściowe:
+
+```bash
+ActiveMessageCount    DeadLetterMessageCount    ScheduledMessageCount    TransferMessageCount    TransferDeadLetterMessageCount
+--------------------  ------------------------  -----------------------  ----------------------  --------------------------------
+0                     0                         0                        0                       0
+```
+
+Użyj polecenia [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show) , aby uzyskać szczegóły liczby komunikatów dla subskrypcji, jak pokazano w poniższym przykładzie. 
+
+```azurecli-interactive
+az servicebus topic subscription show --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --topic-name mytopic \
+    --name mysub \
+    --query countDetails
+```
+
+## <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
+Za pomocą programu PowerShell można uzyskać szczegóły liczby komunikatów dla kolejki w następujący sposób:
+
+```azurepowershell-interactive
+$queueObj=Get-AzServiceBusQueue -ResourceGroup myresourcegroup `
+                    -NamespaceName mynamespace `
+                    -QueueName myqueue 
+
+$queueObj.CountDetails
+```
+
+Oto przykładowe dane wyjściowe:
+
+```bash
+ActiveMessageCount             : 7
+DeadLetterMessageCount         : 1
+ScheduledMessageCount          : 3
+TransferMessageCount           : 0
+TransferDeadLetterMessageCount : 0
+```
+
+Szczegóły liczby komunikatów dla subskrypcji można uzyskać w następujący sposób:
+
+```azurepowershell-interactive
+$topicObj= Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+                -NamespaceName mynamespace `
+                -TopicName mytopic `
+                -SubscriptionName mysub
+
+$topicObj.CountDetails
+```
+
+Zwrócony `MessageCountDetails` obiekt ma następujące właściwości: `ActiveMessageCount` , , , , `DeadLetterMessageCount` `ScheduledMessageCount` `TransferDeadLetterMessageCount` `TransferMessageCount` . 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat Service Bus Messaging, zobacz następujące tematy:
+Wypróbuj przykłady w wybranego języku, aby poznać Azure Service Bus funkcji. 
 
-* [Kolejki, tematy i subskrypcje usługi Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Jak używać tematów i subskrypcji usługi Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Azure Service Bus biblioteki klienta dla języka Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus biblioteki klienta dla języka Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus biblioteki klienta dla języka JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus biblioteki klienta dla języka TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Przykłady azure.Messaging.ServiceBus dla platformy .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+
+Poniżej znajdują się przykłady dla starszych bibliotek klienta .NET i Java:
+- [Microsoft.Azure.ServiceBus samples for .NET (Przykłady microsoft.Azure.ServiceBus dla platformy .NET)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [przykłady azure-servicebus dla języka Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)

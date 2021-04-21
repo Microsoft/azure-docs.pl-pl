@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 5e4ec2749cec8444382e2b6e7c856e74c57ebb59
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7cfa2059cc03b96db39183cfa5056c9934a02290
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777171"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814356"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Najlepsze rozwiązania dotyczące korzystania z Key Vault
 
@@ -24,7 +24,7 @@ Naszym zaleceniem jest użycie magazynu na aplikację na środowisko (dewelopers
 
 ## <a name="control-access-to-your-vault"></a>Kontrola dostępu do magazynu
 
-Azure Key Vault to usługa w chmurze, która zabezpiecza klucze szyfrowania i wpisy tajne, takie jak certyfikaty, parametry połączenia i hasła. Ponieważ te dane są poufne i krytyczne dla działalności firmy, należy zabezpieczyć dostęp do magazynów kluczy, zezwalając tylko autoryzowanym aplikacjom i użytkownikom. Ten [artykuł](security-overview.md) zawiera omówienie modelu Key Vault dostępu. Wyjaśniono w nim uwierzytelnianie i autoryzację oraz opisano sposób zabezpieczania dostępu do magazynów kluczy.
+Azure Key Vault to usługa w chmurze, która zabezpiecza klucze szyfrowania i wpisy tajne, takie jak certyfikaty, parametry połączenia i hasła. Ponieważ te dane są poufne i krytyczne dla działalności firmy, należy zabezpieczyć dostęp do magazynów kluczy, zezwalając tylko autoryzowanym aplikacjom i użytkownikom. Ten [artykuł](security-features.md) zawiera omówienie modelu Key Vault dostępu. Wyjaśniono w nim uwierzytelnianie i autoryzację oraz opisano sposób zabezpieczania dostępu do magazynów kluczy.
 
 Sugestie podczas kontrolowania dostępu do magazynu są następujące:
 1. Blokowanie dostępu do subskrypcji, grupy zasobów i magazynów kluczy (RBAC) platformy Azure

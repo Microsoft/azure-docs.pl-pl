@@ -3,12 +3,12 @@ title: Konfigurowanie własnego klucza do szyfrowania danych Azure Event Hubs da
 description: Ten artykuł zawiera informacje na temat sposobu konfigurowania własnego klucza na Azure Event Hubs danych.
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: e3dd7cb1158294102d9bfe67629c80ae01ccdd17
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 33587812121051d93aa8b939c3df70530ba65c5e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775191"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812448"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania Azure Event Hubs danych w spoczynku przy użyciu Azure Portal
 Azure Event Hubs szyfrowanie danych magazynowych za pomocą usługi Azure szyfrowanie usługi Storage (Azure SSE). Usługa Event Hubs używa usługi Azure Storage do przechowywania danych. Wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli używasz własnego klucza (nazywanego również kluczem Bring Your Own Key (BYOK) lub kluczem zarządzanym przez klienta, dane są nadal szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft, ale dodatkowo klucz zarządzany przez firmę Microsoft zostanie zaszyfrowany przy użyciu klucza zarządzanego przez klienta. Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania kluczy zarządzanych przez firmę Microsoft. Włączenie funkcji BYOK jest procesem instalacji jeden raz w przestrzeni nazw.
@@ -52,25 +52,25 @@ Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarz�
     1. Aby utworzyć nowy klucz, wybierz pozycję **Generuj/Zaimportuj** z menu **Klucze** w obszarze **Ustawienia**.
         
         ![Wybierz przycisk Wygeneruj/Zaimportuj](./media/configure-customer-managed-key/select-generate-import.png)
-    1. Dla **opcji** **ustaw wartość Generuj** i nadaj kluczowi nazwę.
+    1. Ustaw **ustawienie Opcje** na **generowanie** i nadaj kluczowi nazwę.
 
         ![Utwórz klucz](./media/configure-customer-managed-key/create-key.png) 
     1. Teraz możesz wybrać ten klucz do skojarzenia z Event Hubs nazw w celu szyfrowania z listy rozwijanej. 
 
         ![Wybieranie klucza z magazynu kluczy](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-    1. Wprowadź szczegóły klucza, a następnie kliknij pozycję **Wybierz**. Umożliwi to szyfrowanie klucza zarządzanego przez firmę Microsoft za pomocą klucza (klucza zarządzanego przez klienta). 
+    1. Wypełnij szczegóły klucza, a następnie kliknij pozycję **Wybierz**. Umożliwi to szyfrowanie klucza zarządzanego przez firmę Microsoft przy użyciu klucza (klucza zarządzanego przez klienta). 
 
 
 ## <a name="rotate-your-encryption-keys"></a>Obracanie kluczy szyfrowania
-Klucz w magazynie kluczy można obrócić przy użyciu mechanizmu rotacji usługi Azure Key Vault. W celu zautomatyzowania rotacji kluczy można również ustawić daty aktywacji i wygaśnięcia. Usługa Event Hubs wykryje nowe wersje kluczy i rozpocznie ich automatyczne używanie.
+Klucz można obrócić w magazynie kluczy przy użyciu mechanizmu rotacji usługi Azure Key Vault. W celu zautomatyzowania rotacji kluczy można również ustawić daty aktywacji i wygaśnięcia. Usługa Event Hubs wykryje nowe wersje kluczy i zacznie z nich korzystać automatycznie.
 
 ## <a name="revoke-access-to-keys"></a>Odwoływanie dostępu do kluczy
-Odwołanie dostępu do kluczy szyfrowania nie spowoduje przeczyszczania danych z Event Hubs. Nie można jednak uzyskać dostępu do danych z Event Hubs nazw. Klucz szyfrowania można odwołać za pomocą zasad dostępu lub przez usunięcie klucza. Dowiedz się więcej o zasadach dostępu i zabezpieczaniu magazynu kluczy z [bezpiecznego dostępu do magazynu kluczy.](../key-vault/general/security-overview.md)
+Odwołanie dostępu do kluczy szyfrowania nie spowoduje przeczyszczania danych z Event Hubs. Nie można jednak uzyskać dostępu do danych z Event Hubs nazw. Klucz szyfrowania można odwołać za pomocą zasad dostępu lub usuwając klucz. Dowiedz się więcej o zasadach dostępu i zabezpieczaniu magazynu kluczy z [bezpiecznego dostępu do magazynu kluczy.](../key-vault/general/security-features.md)
 
 Po odwołaniu klucza szyfrowania usługa Event Hubs w zaszyfrowanej przestrzeni nazw stanie się niedziałała. Jeśli dostęp do klucza jest włączony lub klucz usuwania zostanie przywrócony, usługa Event Hubs wybierze klucz, aby można było uzyskać dostęp do danych z zaszyfrowanej Event Hubs nazw.
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurowanie dzienników diagnostycznych 
-Ustawienie dzienników diagnostycznych dla przestrzeni nazw z włączoną usługą BYOK zapewnia wymagane informacje o operacjach. Te dzienniki można włączyć, a następnie przesyłać strumieniowo do centrum zdarzeń lub analizować za pomocą analizy dzienników albo przesyłać strumieniowo do magazynu w celu wykonania dostosowanych analiz. Aby dowiedzieć się więcej na temat dzienników diagnostycznych, zobacz [Overview of Azure Diagnostic logs (Omówienie dzienników diagnostycznych platformy Azure).](../azure-monitor/essentials/platform-logs-overview.md)
+Ustawienie dzienników diagnostycznych dla przestrzeni nazw z włączoną usługą BYOK zapewnia wymagane informacje o operacjach. Te dzienniki można włączyć, a następnie przesyłać strumieniowo do centrum zdarzeń, analizować za pomocą analizy dzienników lub przesyłać strumieniowo do magazynu w celu wykonania dostosowanych analiz. Aby dowiedzieć się więcej na temat dzienników diagnostycznych, zobacz [Overview of Azure Diagnostic logs (Omówienie dzienników diagnostycznych platformy Azure).](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="enable-user-logs"></a>Włączanie dzienników użytkowników
 Wykonaj następujące kroki, aby włączyć dzienniki dla kluczy zarządzanych przez klienta.
@@ -402,14 +402,14 @@ Poniżej przedstawiono typowe kody błędów, które należy szukać, gdy szyfro
 | Usuń członkostwo roli usługi AAD z podmiotu zabezpieczeń usługi AAD, który przyznał uprawnienia do opakowywania/odpakowywania | 403 |  Niedostępne |
 | Usuwanie klucza szyfrowania z magazynu kluczy | 404 | Niedostępne |
 | Usuwanie magazynu kluczy | 404 | Niedostępność (przy założeniu, że włączono usuwanie nie soft-delete, co jest ustawieniem wymaganym). |
-| Zmiana okresu ważności klucza szyfrowania tak, aby wygasł | 403 |   Niedostępne  |
-| Zmiana NBF (nie wcześniej), tak aby klucz szyfrowania klucza nie był aktywny | 403 | Niedostępne  |
-| Wybranie opcji **Zezwalaj na usługi MSFT** dla zapory magazynu kluczy lub blokowanie w inny sposób dostępu sieciowego do magazynu kluczy z kluczem szyfrowania | 403 | Niedostępne |
+| Zmiana okresu ważności klucza szyfrowania w taki sposób, aby wygasł | 403 |   Niedostępne  |
+| Zmiana NBF (nie wcześniej), aby klucz szyfrowania klucza nie był aktywny | 403 | Niedostępne  |
+| Wybranie opcji **Zezwalaj na usługi MSFT dla** zapory magazynu kluczy lub w inny sposób blokującej dostęp sieciowy do magazynu kluczy z kluczem szyfrowania | 403 | Niedostępne |
 | Przenoszenie magazynu kluczy do innej dzierżawy | 404 | Niedostępne |  
 | Sporadyczne problemy z siecią lub błąd DNS/AAD/MSI |  | Dostępne przy użyciu klucza szyfrowania danych w pamięci podręcznej |
 
 > [!IMPORTANT]
-> Aby włączyć funkcję geo-DR w przestrzeni nazw korzystającej z szyfrowania BYOK, pomocnicza przestrzeń nazw do parowania musi znajdować się w dedykowanym klastrze i musi mieć w nim przypisaną przez system tożsamość zarządzaną. Aby dowiedzieć się więcej, zobacz [Tożsamości zarządzane dla zasobów platformy Azure.](../active-directory/managed-identities-azure-resources/overview.md)
+> Aby włączyć funkcję geograficznego drgowania w przestrzeni nazw korzystającej z szyfrowania BYOK, pomocnicza przestrzeń nazw do parowania musi znajdować się w dedykowanym klastrze i musi mieć w nim włączoną tożsamość zarządzaną przypisaną przez system. Aby dowiedzieć się więcej, zobacz [Tożsamości zarządzane dla zasobów platformy Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:

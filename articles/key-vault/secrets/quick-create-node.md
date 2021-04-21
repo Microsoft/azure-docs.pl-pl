@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d8f20f598243754e3fd39f649e7c84d55b64817
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 90e505a4d505cc52920f1c7727afb321f4eda462
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751674"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814158"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Szybki start: Azure Key Vault tajnej biblioteki klienta dla języka JavaScript (wersja 4)
 
@@ -285,6 +285,6 @@ W tym przewodniku Szybki start utworzono magazyn kluczy, przechowywano klucz taj
 
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
 - Zapoznaj się z [omówieniem Azure Key Vault tajnych](about-secrets.md)
-- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/security-overview.md)
+- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/security-features.md)
 - Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
-- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)
+- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-features.md)

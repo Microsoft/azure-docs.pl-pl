@@ -33,7 +33,7 @@
           href: quickstart-standalone-agent-binary-installation.md
         - name: Tworzenie bliźniaczej reprezentacji modułu mikro agenta usługi Defender IoT (wersja zapoznawcza)
           href: quickstart-create-micro-agent-module-twin.md
-        - name: Tworzenie mikro agenta usługi Defender for IoT na podstawie kodu źródłowego (wersja zapoznawcza)
+        - name: Tworzenie mikro agenta usługi Defender dla IoT na podstawie kodu źródłowego (wersja zapoznawcza)
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
         - name: Konfigurowanie usługi Defender-IoT-micro-agent dla Azure RTOS
@@ -156,7 +156,7 @@
               href: how-to-define-global-user-access-control.md
               displayName: 'business unit, site, region, user'
         - name: Sterowanie monitorowanym ruchem
-          displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
+          displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets,  WMI, active, probing, scanning, switch'
           href: how-to-control-what-traffic-is-monitored.md
         - name: Zarządzanie czujnikami z lokalnej konsoli zarządzania
           displayName: 'disconnect, connect, activation file, sensor backup'

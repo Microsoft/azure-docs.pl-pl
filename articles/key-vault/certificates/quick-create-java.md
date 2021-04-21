@@ -8,12 +8,12 @@ ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: c064a35ac6136d728f75b65379c543149cc8189d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 47b15c857f6f0c8c4d8f377ee4ecdcca74e88e0f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750036"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818577"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Szybki start: Azure Key Vault klienta certyfikatów dla języka Java (certyfikaty)
 Wprowadzenie do biblioteki klienta Azure Key Vault Certificate dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
@@ -272,4 +272,4 @@ W tym przewodniku Szybki start utworzono magazyn kluczy, utworzono certyfikat, p
 
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
 - Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
-- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/security-overview.md)
+- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/security-features.md)

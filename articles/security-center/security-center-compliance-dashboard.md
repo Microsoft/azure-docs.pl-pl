@@ -1,24 +1,18 @@
 ---
 title: 'Samouczek: sprawdzanie zgodności z przepisami — Azure Security Center'
 description: 'Samouczek: dowiedz się, jak poprawić zgodność z przepisami przy użyciu Azure Security Center.'
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: c8ac9079321e47a1e6d9b8689be46bf55bdd4243
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739012"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834619"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Samouczek: poprawa zgodności z przepisami
 
@@ -135,14 +129,15 @@ Na przykład możesz chcieć wysłać wiadomość Security Center e-mail do okre
 - [Jak pobrać raport z danymi zgodności w formacie innym niż PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
 - [Jak utworzyć wyjątki dla niektórych zasad na pulpicie nawigacyjnym zgodności z przepisami?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
 - [Jakie Azure Defender lub licencje są potrzebne do korzystania z pulpitu nawigacyjnego zgodności z przepisami?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+- [Jak mogę, którego testu porównawczego lub standardu użyć?](#how-do-i-know-which-benchmark-or-standard-to-use)
 
 ### <a name="what-standards-are-supported-in-the-compliance-dashboard"></a>Jakie standardy są obsługiwane na pulpicie nawigacyjnym zgodności?
 Domyślnie pulpit nawigacyjny zgodności z przepisami pokazuje test porównawczy zabezpieczeń platformy Azure. Test porównawczy zabezpieczeń platformy Azure to wytyczne firmy Microsoft dotyczące najlepszych rozwiązań dotyczących zabezpieczeń i zgodności, które są specyficzne dla platformy Azure, oparte na wspólnych platformach zgodności. Dowiedz się więcej z wprowadzenia [do testu porównawczego zabezpieczeń platformy Azure.](../security/benchmarks/introduction.md)
 
 Aby śledzić zgodność z innymi standardami, musisz jawnie dodać je do pulpitu nawigacyjnego.
  
-Możesz dodać standardy, takie jak Azure CIS 1.1.0 (nowe), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, UK Official i UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP i PCI-DSS 3.2.1.  
- 
+Możesz dodać inne standardy, takie jak Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, UK Official i UK NHS, HIPAA, Canada Federal PBMM, ISO 27001, SOC2-TSP i PCI-DSS 3.2.1.  
+
 Więcej standardów zostanie dodanych do pulpitu nawigacyjnego i uwzględnionych w informacjach dotyczących dostosowywania zestawu standardów na pulpicie [nawigacyjnym zgodności z przepisami.](update-regulatory-compliance-packages.md)
 
 ### <a name="why-do-some-controls-appear-grayed-out"></a>Dlaczego niektóre kontrolki są wyszarowane?
@@ -154,7 +149,7 @@ Niektóre kontrolki są wyszarowane. Te kontrolki nie mają żadnych Security Ce
 Aby dostosować pulpit nawigacyjny zgodności z przepisami i skoncentrować się tylko na odpowiednich dla Ciebie standardach, możesz usunąć wszystkie wyświetlane standardy prawne, które nie są istotne dla Twojej organizacji. Aby usunąć standard, wykonaj instrukcje z [tematu Usuwanie standardu z pulpitu nawigacyjnego.](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard)
 
 ### <a name="i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard"></a>Sugerowane zmiany zostały wprowadzone na podstawie rekomendacji, ale nie są one odzwierciedlane na pulpicie nawigacyjnym
-Po podjęciu akcji w celu rozwiązania zaleceń poczekaj 12 godzin, aby zobaczyć zmiany w danych dotyczących zgodności. Oceny są uruchamiane co około 12 godzin, więc wpływ na dane zgodności będzie można zobaczyć dopiero po uruchomieniu ocen.
+Po podjęciu akcji w celu rozwiązania zaleceń poczekaj 12 godzin, aby zobaczyć zmiany w danych zgodności. Oceny są uruchamiane co około 12 godzin, więc wpływ na dane zgodności będzie można zobaczyć dopiero po uruchomieniu ocen.
  
 ### <a name="what-permissions-do-i-need-to-access-the-compliance-dashboard"></a>Jakich uprawnień potrzebuję, aby uzyskać dostęp do pulpitu nawigacyjnego zgodności?
 Aby wyświetlić dane zgodności, musisz mieć co **najmniej** dostęp czytelnika do danych zgodności zasad; Dlatego sam czytelnik zabezpieczeń nie wystarczy. Jeśli jesteś czytelnikiem globalnym subskrypcji, to też wystarczy.
@@ -195,20 +190,25 @@ W przypadku innych zasad można utworzyć wyłączenie bezpośrednio w zasadach,
 Jeśli dowolny z pakietów usługi Azure Defender jest włączony dla dowolnego typu zasobów platformy Azure, masz dostęp do pulpitu nawigacyjnego zgodności z przepisami wraz ze wszystkimi jego danymi w Security Center.
 
 
+### <a name="how-do-i-know-which-benchmark-or-standard-to-use"></a>Jak mogę, którego testu porównawczego lub standardu użyć?
+[Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) (ASB) to kanoniczny zestaw zaleceń dotyczących zabezpieczeń i najlepszych rozwiązań zdefiniowanych przez firmę Microsoft, zgodny z wspólnymi platformami kontroli zgodności, w tym [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) i [NIST SP 800-53.](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) Usługa ASB jest bardzo kompleksowym testem porównawczym i została zaprojektowana w celu rekomendacji najbardziej aktualnych możliwości zabezpieczeń szerokiego zakresu usług platformy Azure. Zalecamy korzystanie z usługi ASB klientom, którzy chcą zmaksymalizować stan zabezpieczeń i mieć możliwość dostosowania ich stanu zgodności do standardów branżowych.
 
+Test [porównawczy CIS](https://www.cisecurity.org/benchmark/azure/) jest autorstwa niezależnej jednostki — Center for Internet Security (CIS) — i zawiera zalecenia dotyczące podzbioru podstawowych usług platformy Azure. Pracujemy z CIS, aby upewnić się, że ich rekomendacje są aktualne z najnowszymi ulepszeniami na platformie Azure, ale czasami wpadają w tyle i stają się nieaktualne. Niemniej jednak niektórzy klienci lubi używać tego celu, czyli oceny innej firmy z CIS jako początkowego i podstawowego planu bazowego zabezpieczeń.
+
+Ponieważ wydaliśmy test porównawczy zabezpieczeń platformy Azure, wielu klientów zdecydowało się przeprowadzić migrację do niej jako zamiennik testów porównawczych CIS.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku za pomocą pulpitu nawigacyjnego Security Center zgodności z przepisami w celu:
+W tym samouczku o tym, jak używać pulpitu nawigacyjnego zgodności Security Center do celów:
 
 > [!div class="checklist"]
 > * Wyświetlanie i monitorowanie stanu zgodności w odniesieniu do ważnych dla Ciebie standardów i przepisów.
 > * Zwiększanie stanu zgodności przez wprowadzanie w życie odpowiednich rekomendacji i obserwowanie poprawy oceny zgodności.
 
-Pulpit nawigacyjny zgodności z przepisami może znacznie uprościć proces zgodności i znacznie zmniejszyć czas wymagany na zebranie dowodów zgodności dla środowiska platformy Azure, środowiska hybrydowego i wielochmurowego.
+Pulpit nawigacyjny zgodności z przepisami może znacznie uprościć proces zgodności i znacznie zmniejszyć czas wymagany do zebrania dowodów zgodności dla środowiska platformy Azure, środowiska hybrydowego i środowiska wielochmurowego.
 
 Aby dowiedzieć się więcej, zobacz następujące powiązane strony:
 
-- [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym](update-regulatory-compliance-packages.md) zgodności z przepisami — dowiedz się, jak wybrać standardy wyświetlane na pulpicie nawigacyjnym zgodności z przepisami. 
-- [Zarządzanie zaleceniami Azure Security Center](security-center-recommendations.md) — dowiedz się, jak używać zaleceń w usłudze Security Center, aby chronić zasoby platformy Azure.
+- [Dostosowywanie zestawu standardów na pulpicie](update-regulatory-compliance-packages.md) nawigacyjnym zgodności z przepisami — dowiedz się, jak wybrać standardy wyświetlane na pulpicie nawigacyjnym zgodności z przepisami. 
+- [Zarządzanie zaleceniami zabezpieczeń w Azure Security Center](security-center-recommendations.md) — dowiedz się, jak używać zaleceń w usłudze Security Center, aby chronić zasoby platformy Azure.

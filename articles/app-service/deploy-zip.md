@@ -4,13 +4,13 @@ description: Dowiedz się, jak wdrożyć aplikację w Azure App Service pomocą 
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: fe906a63a681515d401d005bf3357a4e7218ae66
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 9f59576ea66b72a492e1e6c665a51258861842dd
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771429"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833023"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Wdrażanie aplikacji w Azure App Service za pomocą pliku ZIP lub WAR
 
@@ -44,9 +44,9 @@ Powyższy punkt końcowy nie działa w tym momencie App Services Linux. Zamiast 
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Wdrażanie pliku ZIP przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Wd wdrażaj przekazany plik ZIP w aplikacji internetowej za pomocą polecenia [az webapp deployment source config-zip.](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip)  
+Wdeń przekazany plik ZIP do aplikacji internetowej za pomocą polecenia [az webapp deployment source config-zip.](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip)  
 
-Poniższy przykład wdraża przekazany plik ZIP. W przypadku korzystania z lokalnej instalacji interfejsu wiersza polecenia platformy Azure określ ścieżkę do lokalnego pliku ZIP dla polecenia `--src` .
+Poniższy przykład umożliwia wdrożenie przekazanego pliku ZIP. W przypadku korzystania z lokalnej instalacji interfejsu wiersza polecenia platformy Azure określ ścieżkę do lokalnego pliku ZIP dla programu `--src` .
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src clouddrive/<filename>.zip
@@ -54,7 +54,7 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 
 To polecenie wdraża pliki i katalogi z pliku ZIP do domyślnego folderu aplikacji App Service (`\home\site\wwwroot`) i ponownie uruchamia aplikację.
 
-Domyślnie aparat wdrażania zakłada, że plik ZIP jest gotowy do uruchomienia w stanie gotowości i nie uruchamia automatyzacji kompilacji. Aby włączyć tę samą automatyzację kompilacji co we wdrożeniu [usługi Git,](deploy-local-git.md)ustaw ustawienie aplikacji, uruchamiając następujące polecenie w Cloud Shell `SCM_DO_BUILD_DURING_DEPLOYMENT` : [](https://shell.azure.com)
+Domyślnie aparat wdrażania zakłada, że plik ZIP jest gotowy do uruchomienia w stanie gotowości i nie uruchamia automatyzacji kompilacji. Aby włączyć tę samą automatyzację kompilacji co we wdrożeniu [usługi Git,](deploy-local-git.md)ustaw ustawienie aplikacji, uruchamiając następujące polecenie w `SCM_DO_BUILD_DURING_DEPLOYMENT` [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -68,11 +68,11 @@ Więcej informacji zawiera [dokumentacja aparatu Kudu](https://github.com/projec
 
 Aby wdrożyć plik WAR w App Service, wyślij żądanie POST na adres `https://<app-name>.scm.azurewebsites.net/api/wardeploy` . Żądanie POST musi zawierać plik WAR w treści wiadomości. Poświadczenia wdrażania dla aplikacji są podawane w żądaniu za pomocą podstawowego uwierzytelniania HTTP.
 
-Zawsze używaj `/api/wardeploy` podczas wdrażania plików WAR. Ten interfejs API spowoduje rozwinięcie pliku WAR i umieść go na udostępnionym dysku plików. korzystanie z innych interfejsów API wdrażania może spowodować niespójne zachowanie. 
+Zawsze używaj `/api/wardeploy` podczas wdrażania plików WAR. Ten interfejs API rozwinie plik WAR i umieść go na udostępnionym dysku plików. korzystanie z innych interfejsów API wdrażania może spowodować niespójne zachowanie. 
 
-Do uwierzytelniania PODSTAWOWEGO protokołu HTTP potrzebne są poświadczenia App Service wdrożenia. Aby dowiedzieć się, jak ustawić poświadczenia wdrożenia, zobacz [Set and reset user-level credentials](deploy-configure-credentials.md#userscope)(Ustawianie i resetowanie poświadczeń na poziomie użytkownika).
+Do uwierzytelniania HTTP BASIC potrzebne są poświadczenia App Service wdrożenia. Aby dowiedzieć się, jak ustawić poświadczenia wdrożenia, zobacz [Set and reset user-level credentials](deploy-configure-credentials.md#userscope)(Ustawianie i resetowanie poświadczeń na poziomie użytkownika).
 
-### <a name="with-curl"></a>Z cURL
+### <a name="with-curl"></a>Z listą cURL
 
 W poniższym przykładzie użyto narzędzia cURL do wdrożenia pliku war. Zastąp symbole zastępcze `<username>` , `<war-file-path>` i `<app-name>` . Po wyświetleniu monitu przez program cURL wpisz hasło.
 
