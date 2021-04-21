@@ -1,20 +1,20 @@
 ---
-title: Tworzenie funkcji języka C# przy użyciu wiersza polecenia — Azure Functions
-description: Dowiedz się, jak utworzyć funkcję języka C# z poziomu wiersza polecenia, a następnie opublikować projekt lokalny na potrzeby hostingu bezserwerowego w Azure Functions.
+title: Tworzenie funkcji języka C# z wiersza polecenia — Azure Functions
+description: Dowiedz się, jak utworzyć funkcję języka C# z wiersza polecenia, a następnie opublikować lokalny projekt w hostingu bez serwera w Azure Functions.
 ms.date: 10/03/2020
 ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a78abea5bcc5925cb2e137d918c7217ae92b118e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d03f8c820e0a8b6a19394649db66f8028b62781
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044327"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768799"
 ---
-# <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka C# na platformie Azure z poziomu wiersza polecenia
+# <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji języka C# na platformie Azure z wiersza polecenia
 
 > [!div class="op_single_selector" title1="Wybierz język funkcji: "]
 > - [C#](create-first-function-cli-csharp-ieux.md)
@@ -24,90 +24,90 @@ ms.locfileid: "102044327"
 > - [Python](create-first-function-cli-python.md)
 > - [TypeScript](create-first-function-cli-typescript.md)
 
-W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji opartej na bibliotece klasy C#, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go na <abbr title="Środowisko obliczeniowe środowiska uruchomieniowego, w którym wszystkie szczegóły serwera są niewidoczne dla deweloperów aplikacji, co upraszcza proces wdrażania kodu i zarządzania nim.">praca bezserwerowa</abbr> Środowisko programu <abbr title="Usługa platformy Azure, która zapewnia nieekonomiczne środowisko obliczeniowe dla aplikacji.">Azure Functions</abbr>.
+W tym artykule użyjemy narzędzi wiersza polecenia, aby utworzyć funkcję klasy języka C# opartą na bibliotece, która odpowiada na żądania HTTP. Po przetestowaniu kodu lokalnie należy go wdrożyć w <abbr title="Środowisko obliczeniowe środowiska uruchomieniowego, w którym wszystkie szczegóły serwera są niewidoczne dla deweloperów aplikacji, co upraszcza proces wdrażania kodu i zarządzania nimi.">praca bezserwerowa</abbr> środowisko <abbr title="Usługa platformy Azure, która zapewnia ekonomiczne bez serwera środowisko obliczeniowe dla aplikacji.">Azure Functions</abbr>.
 
-W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+Wykonanie kroków tego przewodnika Szybki start wiąże się z niewielkim kosztem konta platformy Azure o wartości kilku centów lub mniej.
 
-Istnieje również oparta na [Visual Studio Code wersja](create-first-function-vs-code-csharp.md) tego artykułu.
+Istnieje również wersja [Visual Studio Code tego](create-first-function-vs-code-csharp.md) artykułu oparta na języku.
 
-## <a name="1-prepare-your-environment"></a>1. Przygotuj środowisko
+## <a name="1-prepare-your-environment"></a>1. Przygotowywanie środowiska
 
-+ Pobierz platformę Azure <abbr title="Profil, który przechowuje informacje o rozliczeniach dotyczące użycia platformy Azure.">account</abbr> z aktywnym <abbr title="Podstawowa struktura organizacyjna, w której zarządzane są zasoby na platformie Azure, zwykle skojarzone z osobą lub działem w organizacji.">subskrypcja</abbr>. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ Uzyskiwanie konta platformy Azure <abbr title="Profil, który przechowuje informacje rozliczeniowe dotyczące użycia platformy Azure.">account</abbr> z aktywną <abbr title="Podstawowa struktura organizacyjna, w której zarządzasz zasobami na platformie Azure, zwykle skojarzona z jednostką lub działem w organizacji.">subskrypcja</abbr>. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ Zainstaluj [zestaw .NET Core SDK 3,1](https://www.microsoft.com/net/download)
++ Instalowanie [zestaw .NET Core SDK 3.1](https://www.microsoft.com/net/download)
 
-+ Zainstaluj program [Azure Functions Core Tools](functions-run-local.md#v2) w wersji 3. x.
++ Zainstaluj [Azure Functions Core Tools](functions-run-local.md#v2) wersji 3.x.
 
-+ Albo <abbr title="Zestaw wieloplatformowych narzędzi wiersza polecenia do pracy z zasobami platformy Azure z lokalnego komputera deweloperskiego, alternatywą dla korzystania z Azure Portal.">Interfejs wiersza polecenia platformy Azure</abbr> lub <abbr title="Moduł programu PowerShell, który udostępnia polecenia do pracy z zasobami platformy Azure z lokalnego komputera deweloperskiego, jako alternatywę dla korzystania z Azure Portal.">Azure PowerShell</abbr> w przypadku tworzenia zasobów platformy Azure:
++ Albo <abbr title="Zestaw międzyplatformowych narzędzi wiersza polecenia do pracy z zasobami platformy Azure z lokalnego komputera dewelopera jako alternatywa dla korzystania z Azure Portal.">Interfejs wiersza polecenia platformy Azure</abbr> lub <abbr title="Moduł programu PowerShell, który udostępnia polecenia do pracy z zasobami platformy Azure z lokalnego komputera dewelopera, jako alternatywę dla korzystania z Azure Portal.">Azure PowerShell</abbr> do tworzenia zasobów platformy Azure:
 
-    + [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2,4 lub nowszej.
+    + [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2.4 lub nowszej.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) w wersji 5,0 lub nowszej.
+    + [Azure PowerShell](/powershell/azure/install-az-ps) wersji 5.0 lub nowszej.
 
 ---
 
-### <a name="2-verify-prerequisites"></a>2. Sprawdź wymagania wstępne
+### <a name="2-verify-prerequisites"></a>2. Weryfikowanie wymagań wstępnych
 
 Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wiersza polecenia platformy Azure, czy Azure PowerShell do tworzenia zasobów platformy Azure:
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-+ W terminalu lub oknie poleceń Uruchom polecenie, `func --version` Aby sprawdzić, czy <abbr title="Zestaw narzędzi wiersza polecenia do pracy z Azure Functions na komputerze lokalnym.">Azure Functions Core Tools</abbr> są w wersji 3. x.
++ W terminalu lub oknie polecenia uruchom polecenie , `func --version` aby sprawdzić, czy <abbr title="Zestaw narzędzi wiersza polecenia do pracy z Azure Functions na komputerze lokalnym.">Azure Functions Core Tools</abbr> to wersja 3.x.
 
-+ **Uruchom** `az --version` Aby sprawdzić, czy wersja interfejsu wiersza polecenia platformy Azure to 2,4 lub nowszej.
++ **Uruchom** `az --version` Aby sprawdzić, czy interfejs wiersza polecenia platformy Azure jest w wersji 2.4 lub nowszej.
 
-+ **Uruchom** `az login` Aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
++ **Uruchom** `az login` aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
 
-+ **Uruchom** `dotnet --list-sdks` Aby sprawdzić, czy zainstalowano zestaw .NET Core SDK w wersji 3.1. x
++ **Uruchom** `dotnet --list-sdks` aby sprawdzić, zestaw .NET Core SDK zainstalowana wersja 3.1.x
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+**Uruchom** `func --version` Aby sprawdzić, czy Azure Functions Core Tools jest w wersji 3. x.
++**Uruchom** `func --version` Aby sprawdzić, czy Azure Functions Core Tools są w wersji 3.x.
 
-+ **Uruchom** `(Get-Module -ListAvailable Az).Version` i sprawdź wersję 5,0 lub nowszą. 
++ **Uruchom** `(Get-Module -ListAvailable Az).Version` i sprawdź wersję 5.0 lub nowszą. 
 
-+ **Uruchom** `Connect-AzAccount` Aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
++ **Uruchom** `Connect-AzAccount` aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
 
-+ **Uruchom** `dotnet --list-sdks` Aby sprawdzić, czy zainstalowano zestaw .NET Core SDK w wersji 3.1. x
++ **Uruchom** `dotnet --list-sdks` aby sprawdzić, zestaw .NET Core SDK jest zainstalowana wersja 3.1.x
 
 ---
 
-## <a name="3-create-a-local-function-project"></a>3. Utwórz projekt funkcji lokalnej
+## <a name="3-create-a-local-function-project"></a>3. Tworzenie lokalnego projektu funkcji
 
-W tej sekcji utworzysz lokalną <abbr title="Kontener logiczny dla jednej lub kilku funkcji, które mogą być wdrażane i zarządzane wspólnie.">Projekt Azure Functions</abbr> w języku C#. Każda funkcja w projekcie odpowiada określonej <abbr title="Zdarzenie, które wywołuje kod funkcji, taki jak żądanie HTTP, komunikat kolejki lub określony czas.">uruchamiać</abbr>.
+W tej sekcji utworzysz lokalną <abbr title="Kontener logiczny dla co najmniej jednej funkcji, która może być wdrażana i zarządzana razem.">Azure Functions projektu</abbr> w języku C#. Każda funkcja w projekcie odpowiada na określoną <abbr title="Zdarzenie, które wywołuje kod funkcji, takie jak żądanie HTTP, komunikat w kolejce lub określony czas.">Wyzwalacz</abbr>.
 
-1. Uruchom `func init` polecenie, aby utworzyć projekt Functions w folderze o nazwie *LocalFunctionProj* z określonym środowiskiem uruchomieniowym:  
+1. Uruchom polecenie `func init` , aby utworzyć projekt funkcji w folderze o nazwie *LocalFunctionProj z* określonym środowiskiem uruchomieniowym:  
 
     ```csharp
     func init LocalFunctionProj --dotnet
     ```
 
-1. **Uruchom** "CD LocalFunctionProj", aby przejść do <abbr title="Ten folder zawiera różne pliki dla projektu, w tym pliki konfiguracji o nazwie local.settings.jsi host.jsna. Ponieważ local.settings.json może zawierać wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku. gitignore.">Folder projektu</abbr>.
+1. **Uruchom** "cd LocalFunctionProj", aby przejść do <abbr title="Ten folder zawiera różne pliki projektu, w tym pliki konfiguracji o local.settings.jsi host.jsna. Ponieważ local.settings.jsmoże zawierać wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku .gitignore.">Folder projektu</abbr>.
 
     ```console
     cd LocalFunctionProj
     ```
     <br/>
 
-1. Dodaj funkcję do projektu za pomocą następującego polecenia:
+1. Dodaj funkcję do projektu przy użyciu następującego polecenia:
     
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ``` 
     `--name`Argument jest unikatową nazwą funkcji (HttpExample).
 
-    `--template`Argument określa wyzwalacz funkcji (http).
+    Argument `--template` określa wyzwalacz funkcji (HTTP).
 
     
     <br/>   
     <details>  
-    <summary><strong>Opcjonalne: kod dla HttpExample. cs</strong></summary>  
+    <summary><strong>Opcjonalnie: kod dla httpExample.cs</strong></summary>  
     
-    *HttpExample. cs* zawiera `Run` metodę, która odbiera dane żądania w `req` zmiennej, jest identyfikatorem [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) , który jest uzupełniony o **HttpTriggerAttribute**, który definiuje zachowanie wyzwalacza.
+    *Plik HttpExample.cs* zawiera metodę, która odbiera dane żądania w zmiennej , jest elementem HttpRequest, który jest dekorowany za pomocą wartości `Run` `req` **HttpTriggerAttribute,** [](/dotnet/api/microsoft.aspnetcore.http.httprequest) która definiuje zachowanie wyzwalacza.
 
     :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
         
-    Zwracany obiekt to element [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) , który zwraca komunikat odpowiedzi jako [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) lub [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=csharp).  
+    Obiekt zwracany jest [elementem ActionResult,](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) który zwraca komunikat odpowiedzi w następujący sposób: [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) lub [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Aby dowiedzieć się więcej, [zobacz Azure Functions http triggers and bindings (Wyzwalacze](./functions-bindings-http-webhook.md?tabs=csharp)i powiązania HTTP).  
     </details>
 
 <br/>
@@ -116,13 +116,13 @@ W tej sekcji utworzysz lokalną <abbr title="Kontener logiczny dla jednej lub ki
 
 ## <a name="4-run-the-function-locally"></a>4. Uruchom funkcję lokalnie
 
-1. Uruchom funkcję przez uruchomienie lokalnego hosta Azure Functions środowiska uruchomieniowego z folderu *LocalFunctionProj* :
+1. Uruchom funkcję przez uruchomienie lokalnego Azure Functions uruchomieniowego z folderu *LocalFunctionProj:*
 
     ```
     func start
     ```
 
-    W kierunku końca danych wyjściowych powinny być wyświetlane następujące wiersze: 
+    Pod koniec danych wyjściowych powinny pojawić się następujące wiersze: 
 
     <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
     ...
@@ -139,25 +139,25 @@ W tej sekcji utworzysz lokalną <abbr title="Kontener logiczny dla jednej lub ki
 
     <br/>
     <details>
-    <summary><strong>Nie widzę HttpExample w danych wyjściowych</strong></summary>
+    <summary><strong>Nie widzę w danych wyjściowych programu HttpExample</strong></summary>
 
-    Jeśli HttpExample nie pojawia się, prawdopodobnie uruchomiono hosta spoza folderu głównego projektu. W takim przypadku użyj <kbd>kombinacji klawiszy CTRL + C</kbd> , aby zatrzymać hosta, przejdź do folderu głównego projektu i ponownie uruchom poprzednie polecenie.
+    Jeśli nie zostanie wyświetlony przykład HttpExample, prawdopodobnie uruchomiliśmy hosta spoza folderu głównego projektu. W takim przypadku użyj <kbd>klawiszy Ctrl+C,</kbd> aby zatrzymać hosta, przejść do folderu głównego projektu i ponownie uruchomić poprzednie polecenie.
     </details>
 
-1. Skopiuj adres URL funkcji **HttpExample** z tego danych wyjściowych do przeglądarki i dołącz ciąg zapytania **? name =<YOUR_NAME>**, wprowadzając pełny adres URL, taki jak **http://localhost:7071/api/HttpExample?name=Functions** . W przeglądarce powinien zostać wyświetlony komunikat podobny do **funkcji Hello**:
+1. Skopiuj adres URL funkcji **HttpExample** z tych danych wyjściowych do przeglądarki i dołącz ciąg zapytania **?name=<YOUR_NAME>**, dzięki czemu pełny adres URL, taki jak **http://localhost:7071/api/HttpExample?name=Functions** . W przeglądarce powinien zostać wyświetlony komunikat, taki **jak Hello Functions:**
 
-    ![Wynik funkcji uruchomionej lokalnie w przeglądarce](../../includes/media/functions-run-function-test-local-cli/function-test-local-browser.png)
+    ![Wynik działania funkcji lokalnie w przeglądarce](../../includes/media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
 
-1. Wybierz  <kbd>kombinację klawiszy CTRL + C</kbd> i wybierz pozycję <kbd>y</kbd> , aby zatrzymać host funkcji.
+1. Naciśnij  <kbd>klawisze Ctrl+C</kbd> i wybierz <kbd>pozycję y,</kbd> aby zatrzymać hosta funkcji.
 
 <br/>
 
 ---
     
-## <a name="5-create-supporting-azure-resources-for-your-function"></a>5. Utwórz obsługę zasobów platformy Azure dla swojej funkcji
+## <a name="5-create-supporting-azure-resources-for-your-function"></a>5. Tworzenie zasobów obsługi platformy Azure dla funkcji
 
-Aby można było wdrożyć kod funkcji na platformie Azure, należy utworzyć <abbr title="Logiczny kontener dla powiązanych zasobów platformy Azure, którymi można zarządzać jako jednostką.">grupa zasobów</abbr>, a <abbr title="Konto, które zawiera wszystkie obiekty danych usługi Azure Storage. Konto magazynu zapewnia unikatową przestrzeń nazw dla danych magazynu.">konto magazynu</abbr>i a <abbr title="Zasób w chmurze, który obsługuje funkcje bezserwerowe na platformie Azure, która zapewnia podstawowe środowisko obliczeniowe, w którym uruchamiane są funkcje.">Aplikacja funkcji</abbr> za pomocą następujących poleceń:
+Przed wdrożeniem kodu funkcji na platformie Azure należy utworzyć <abbr title="Kontener logiczny dla powiązanych zasobów platformy Azure, które można zarządzać jako jednostką.">grupa zasobów</abbr>A <abbr title="Konto, które zawiera wszystkie obiekty danych usługi Azure Storage. Konto magazynu zapewnia unikatową przestrzeń nazw dla danych magazynu.">konto magazynu</abbr>, i <abbr title="Zasób w chmurze, który hostuje funkcje bez serwera na platformie Azure, który zapewnia bazowe środowisko obliczeniowe, w którym są uruchamiane funkcje.">aplikacja funkcji</abbr> za pomocą następujących poleceń:
 
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się do platformy Azure:
 
@@ -175,7 +175,7 @@ Aby można było wdrożyć kod funkcji na platformie Azure, należy utworzyć <a
 
     ---
 
-1. Utwórz grupę zasobów o nazwie `AzureFunctionsQuickstart-rg` w `westeurope` regionie. 
+1. Utwórz grupę zasobów o `AzureFunctionsQuickstart-rg` nazwie w `westeurope` regionie . 
 
     # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -183,7 +183,7 @@ Aby można było wdrożyć kod funkcji na platformie Azure, należy utworzyć <a
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
 
-    Polecenie [AZ Group Create](/cli/azure/group#az-group-create) tworzy grupę zasobów. Zazwyczaj tworzysz grupę zasobów i zasoby w <abbr title="Odniesienia geograficzne do określonego centrum danych platformy Azure, w którym są przydzielono zasoby.">region</abbr> w najbliższej postaci, używając dostępnego regionu zwróconego przez `az account list-locations` polecenie.
+    Polecenie [az group create](/cli/azure/group#az_group_create) tworzy grupę zasobów. Zazwyczaj tworzysz grupę zasobów i zasoby w <abbr title="Geograficzne odwołanie do określonego centrum danych platformy Azure, w którym są przydzielane zasoby.">region</abbr> w pobliżu, używając dostępnego regionu zwróconego z `az account list-locations` polecenia .
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -194,9 +194,9 @@ Aby można było wdrożyć kod funkcji na platformie Azure, należy utworzyć <a
 
     ---
 
-    Nie można hostować aplikacji systemu Linux i Windows w tej samej grupie zasobów. Jeśli masz istniejącą grupę zasobów o nazwie `AzureFunctionsQuickstart-rg` przy użyciu aplikacji funkcji systemu Windows lub aplikacji sieci Web, musisz użyć innej grupy zasobów.
+    Nie można hostowania aplikacji systemów Linux i Windows w tej samej grupie zasobów. Jeśli masz istniejącą grupę zasobów o nazwie z aplikacją funkcji lub aplikacją internetową systemu `AzureFunctionsQuickstart-rg` Windows, musisz użyć innej grupy zasobów.
     
-1. Utwórz konto usługi Azure Storage ogólnego przeznaczenia w swojej grupie zasobów i regionie:
+1. Utwórz konto usługi Azure Storage ogólnego przeznaczenia w grupie zasobów i regionie:
 
     # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -214,11 +214,11 @@ Aby można było wdrożyć kod funkcji na platformie Azure, należy utworzyć <a
 
     ---
 
-    Zamień na `<STORAGE_NAME>` nazwę, która jest odpowiednia dla Ciebie i <abbr title="Nazwa musi być unikatowa dla wszystkich kont magazynu używanych przez wszystkich klientów platformy Azure globalnie. Można na przykład użyć kombinacji nazwy prywatnej lub firmowej, nazwy aplikacji i identyfikatora numerycznego, jak w contosobizappstorage20">unikatowa w usłudze Azure Storage</abbr>. Nazwy muszą zawierać od 3 do 24 znaków cyfry i małe litery. `Standard_LRS` Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcje](storage-considerations.md#storage-account-requirements).
+    Zastąp `<STORAGE_NAME>` nazwą, która jest odpowiednia dla Ciebie, i <abbr title="Nazwa musi być unikatowa dla wszystkich kont magazynu używanych globalnie przez wszystkich klientów platformy Azure. Na przykład można użyć kombinacji nazwy osobistej lub firmowej, nazwy aplikacji i identyfikatora liczbowego, jak w przypadku contosobizappstorage20">unikatowa w usłudze Azure Storage</abbr>. Nazwy muszą zawierać od trzech do 24 znaków tylko cyfry i małe litery. `Standard_LRS`Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcję .](storage-considerations.md#storage-account-requirements)
 
 
 1. Utwórz aplikację funkcji na platformie Azure.
-**Zamień** "<STORAGE_NAME> * * z nazwą w poprzednim kroku.
+**Zamień** "<STORAGE_NAME>** nazwą w poprzednim kroku.
 **Zamień** "<APP_NAME>" z globalnie unikatową nazwą.
 
     # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -237,32 +237,32 @@ Aby można było wdrożyć kod funkcji na platformie Azure, należy utworzyć <a
     
     ---
     
-    Zamień `<STORAGE_NAME>` na nazwę konta użytego w poprzednim kroku.
+    Zastąp `<STORAGE_NAME>` nazwą konta użytego w poprzednim kroku.
 
-    Zamień `<APP_NAME>` na <abbr title="Nazwa, która musi być unikatowa dla wszystkich klientów platformy Azure globalnie. Można na przykład użyć kombinacji nazwy prywatnej lub organizacji, nazwy aplikacji i identyfikatora liczbowego, tak jak w contoso-bizapp-Func-20.">Unikatowa nazwa</abbr>. `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
+    `<APP_NAME>`Zamień na <abbr title="Nazwa, która musi być unikatowa w skali globalnej dla wszystkich klientów platformy Azure. Można na przykład użyć kombinacji nazwy osobistej lub organizacji, nazwy aplikacji i identyfikatora liczbowego, jak w przypadku contoso-bizapp-func-20.">unikatowa nazwa</abbr>. `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
 
     <br/>
     <details>
-    <summary><strong>Jaki jest koszt zasobów zainicjowanych na platformie Azure?</strong></summary>
+    <summary><strong>Jaki jest koszt zasobów aprowowanych na platformie Azure?</strong></summary>
 
-    To polecenie tworzy aplikację funkcji działającą w określonym środowisku uruchomieniowym języka zgodnie z [planem zużycia Azure Functions](consumption-plan.md), który jest bezpłatny dla nakładu pracy w tym miejscu. Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
+    To polecenie tworzy aplikację funkcji uruchamianą w określonym środowisku uruchomieniowym języka w ramach [planu Azure Functions Consumption](consumption-plan.md), który jest bezpłatny dla ilości użycia naliczonego w tym miejscu. Polecenie aplikuje również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą której można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitorowanie Azure Functions](functions-monitoring.md). Wystąpienie nie poniesie żadnych kosztów, dopóki nie zostanie aktywowane.
     </details>
 
 <br/>
 
 ---
 
-## <a name="6-deploy-the-function-project-to-azure"></a>6. Wdróż projekt funkcji na platformie Azure
+## <a name="6-deploy-the-function-project-to-azure"></a>6. Wdrażanie projektu funkcji na platformie Azure
 
 
-**Kopiuj** "Func Azure funtionapp Publish <APP_NAME> w terminalu **Zastąp** `<APP_NAME>` nazwą swojej aplikacji.
+**Kopiuj** " func azure funtionapp publish <APP_NAME> into your terminal **Replace** with the name of your app (Opublikuj w terminalu zastąp `<APP_NAME>` nazwą swojej aplikacji).
 **Uruchom**
 
 ```console
 func azure functionapp publish <APP_NAME>
 ```
 
-`publish`Polecenie wyświetla wyniki podobne do następujących danych wyjściowych (obcięty dla prostoty):
+Polecenie wyświetla wyniki podobne do następujących danych wyjściowych `publish` (obciętych dla uproszczenia):
 
 <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
 ...
@@ -285,9 +285,9 @@ Functions in msdocs-azurefunctions-qs:
 
 ---
 
-## <a name="7-invoke-the-function-on-azure"></a>7. wywołaj funkcję na platformie Azure
+## <a name="7-invoke-the-function-on-azure"></a>7. Wywoływanie funkcji na platformie Azure
 
-Skopiuj pełny **adres URL wywołania** pokazywany w danych wyjściowych `publish` polecenia na pasku adresu przeglądarki. **Dołącz** parametr zapytania **&Name = Functions**. 
+Skopiuj pełny adres **URL wywołania** widoczny w danych wyjściowych polecenia na pasek `publish` adresu przeglądarki. **Dołącz** parametr zapytania, **&name=Functions.** 
 
 ![Dane wyjściowe funkcji uruchamianej na platformie Azure w przeglądarce](../../includes/media/functions-run-remote-azure-cli/function-test-cloud-browser.png)
 
@@ -295,11 +295,11 @@ Skopiuj pełny **adres URL wywołania** pokazywany w danych wyjściowych `publis
 
 ---
 
-## <a name="8-clean-up-resources"></a>8. Wyczyść zasoby
+## <a name="8-clean-up-resources"></a>8. Czyszczenie zasobów
 
-Jeśli chcesz przejść do [następnego kroku](#next-steps) i dodać dane wyjściowe kolejki usługi Azure Storage <abbr title="Deklaratywne połączenie między funkcją i innymi zasobami. Powiązanie danych wejściowych zawiera dane do funkcji; powiązanie danych wyjściowych udostępnia dane z funkcji do innych zasobów.">powiązanie</abbr>Zachowaj wszystkie Twoje zasoby w miarę kompilowania już wykonanej pracy.
+Jeśli przejdź do następnego [kroku i](#next-steps) dodasz dane wyjściowe kolejki usługi Azure Storage <abbr title="Deklaratywne połączenie między funkcją i innymi zasobami. Powiązanie wejściowe dostarcza dane do funkcji; Powiązanie wyjściowe dostarcza dane z funkcji do innych zasobów.">powiązanie</abbr>, zachowaj wszystkie zasoby na miejscu, ponieważ będziesz tworzyć na podstawie już wykonanej pracy.
 
-W przeciwnym razie użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć ponoszenia dalszych kosztów.
+W przeciwnym razie użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć dodatkowych kosztów.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

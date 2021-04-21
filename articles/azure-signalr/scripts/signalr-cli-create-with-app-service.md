@@ -1,6 +1,6 @@
 ---
-title: Tworzenie usługi sygnalizującej za pomocą App Service przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Użyj interfejsu wiersza polecenia platformy Azure do utworzenia usługi sygnalizującej z App Service. Uzyskaj informacje na temat wszystkich poleceń interfejsu wiersza polecenia dla usługi Azure Signal.
+title: Tworzenie aplikacji SignalR Service pomocą App Service interfejsu wiersza polecenia platformy Azure
+description: Użyj interfejsu wiersza polecenia platformy Azure, aby SignalR Service za pomocą App Service. Poznaj wszystkie polecenia interfejsu wiersza polecenia dla Azure SignalR Service.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 673a3583b1ec80fb3ad61ec35a1786a59939f6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6e2484dc7fffdcecb64ef3b3afa3a7a4343d29c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563328"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787309"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Tworzenie usługi SignalR Service za pomocą usługi App Service
 
@@ -23,7 +23,7 @@ Ten przykładowy skrypt tworzy nowy zasób usługi Azure SignalR Service, który
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -80,12 +80,12 @@ Każde polecenie w tabeli stanowi link do dokumentacji polecenia. W tym skrypcie
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Tworzy zasób usługi Azure SignalR Service. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Wyświetla listę kluczy, które będą używane przez Twoją aplikację przy wypychaniu w czasie rzeczywistym aktualizacji zawartości za pomocą usługi SignalR. |
-| [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Tworzy plan usługi Azure App Service do hostowania aplikacji internetowych. |
-| [az webapp create](/cli/azure/webapp#az-webapp-create) | Tworzy aplikację internetową platformy Azure za pomocą planu hostingu usługi App Service. |
-| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Dodaje nowe ustawienie aplikacji dla aplikacji internetowej. To ustawienie aplikacji umożliwia przechowywanie parametrów połączenia usługi SignalR. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az signalr create](/cli/azure/signalr#az_signalr_create) | Tworzy zasób usługi Azure SignalR Service. |
+| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | Wyświetla listę kluczy, które będą używane przez Twoją aplikację przy wypychaniu w czasie rzeczywistym aktualizacji zawartości za pomocą usługi SignalR. |
+| [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi Azure App Service do hostowania aplikacji internetowych. |
+| [az webapp create](/cli/azure/webapp#az_webapp_create) | Tworzy aplikację internetową platformy Azure za pomocą planu hostingu usługi App Service. |
+| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Dodaje nowe ustawienie aplikacji dla aplikacji internetowej. To ustawienie aplikacji umożliwia przechowywanie parametrów połączenia usługi SignalR. |
 
 ## <a name="next-steps"></a>Następne kroki
 

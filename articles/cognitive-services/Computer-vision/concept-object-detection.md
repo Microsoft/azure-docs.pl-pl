@@ -1,7 +1,7 @@
 ---
 title: Wykrywanie obiektów — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Poznaj koncepcje związane z funkcją wykrywania obiektów dotyczącą interfejs API przetwarzania obrazów i limitów.
+description: Poznaj pojęcia związane z funkcją wykrywania obiektów interfejsu API przetwarzanie obrazów — użycie i limity.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4269209017ecc0afa740bc3ed56cbdcbd915201e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a705a4134ec22d1cb14406cab4491f2af9177b48
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96533846"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768001"
 ---
-# <a name="detect-common-objects-in-images"></a>Wykrywanie typowych obiektów w obrazach
+# <a name="detect-common-objects-in-images"></a>Wykrywanie typowych obiektów na obrazach
 
-Wykrywanie obiektów jest podobne do [tagowania](concept-tagging-images.md), ale interfejs API zwraca współrzędne pola ograniczenia (w pikselach) dla każdego znalezionego obiektu. Na przykład jeśli na obrazie znajduje się pies, kot i osoba, operacja wykrywania utworzy listę tych obiektów wraz z ich współrzędnymi na obrazie. Korzystając z tej funkcji, można przetwarzać relacje między obiektami w obrazie. Umożliwia również określenie, czy istnieje wiele wystąpień tego samego tagu w obrazie.
+Wykrywanie obiektów jest podobne do [tagowania](concept-tagging-images.md), ale interfejs API zwraca współrzędne pola granicy (w pikselach) dla każdego znalezionego obiektu. Na przykład jeśli na obrazie znajduje się pies, kot i osoba, operacja wykrywania utworzy listę tych obiektów wraz z ich współrzędnymi na obrazie. Ta funkcja umożliwia przetwarzanie relacji między obiektami na obrazie. Pozwala również określić, czy istnieje wiele wystąpień tego samego tagu na obrazie.
 
-Interfejs API wykrywania stosuje Tagi na podstawie obiektów lub elementów życia zidentyfikowanych w obrazie. Obecnie nie ma żadnej formalnej relacji między taksonomią tagowania a taksonomią wykrywania obiektów. W przypadku poziomu koncepcyjnego interfejs API wykrywania odnajduje tylko obiekty i rzeczy, w których interfejs API tagów może również zawierać warunki kontekstowe, takie jak "wewnętrzne", które nie mogą być lokalizowane przy użyciu pól ograniczenia.
+Interfejs API wykrywania stosuje tagi na podstawie obiektów lub istot żywych zidentyfikowanych na obrazie. Obecnie nie ma formalnej relacji między taksonomią tagowania a taksonomią wykrywania obiektów. Na poziomie koncepcyjnym interfejs API wykrywania znajduje tylko obiekty i istoty żywych, a interfejs API tagów może również zawierać kontekstowe terminy, takie jak "pomieszczeniu", których nie można zlokalizowane za pomocą pól ograniczonych.
 
 ## <a name="object-detection-example"></a>Przykład wykrywania obiektów
 
-Następująca odpowiedź JSON ilustruje, co przetwarzanie obrazów zwraca podczas wykrywania obiektów w przykładowym obrazie.
+Następująca odpowiedź JSON ilustruje, przetwarzanie obrazów zwraca podczas wykrywania obiektów na przykładzie obrazu.
 
-![Kobieta przy użyciu urządzenia Surface firmy Microsoft w kuchni](./Images/windows-kitchen.jpg)
+![Kobieta korzystająca z urządzenia Microsoft Surface w kuchni](./Images/windows-kitchen.jpg)
 
 ```json
 {
@@ -89,14 +89,14 @@ Następująca odpowiedź JSON ilustruje, co przetwarzanie obrazów zwraca podcza
 
 ## <a name="limitations"></a>Ograniczenia
 
-Ważne jest, aby zauważyć ograniczenia wykrywania obiektów, aby uniknąć lub wyeliminować efekty fałszywych negatywnych (nieodebranych obiektów) i szczegółowych informacji.
+Ważne jest, aby zwrócić uwagę na ograniczenia wykrywania obiektów, aby uniknąć lub ograniczyć skutki wyników fałszywie ujemnych (pominiętych obiektów) i ograniczonych szczegółów.
 
 * Obiekty zwykle nie są wykrywane, jeśli są małe (mniej niż 5% obrazu).
-* Obiekty zwykle nie są wykrywane, jeśli są ułożone blisko siebie (na przykład stos płyt).
-* Obiekty nie są rozróżniane przez nazwy marki lub produktów (na przykład różne rodzaje wyniesień Można jednak uzyskać informacje o marce z obrazu za pomocą funkcji [wykrywania marki](concept-brand-detection.md) .
+* Obiekty zwykle nie są wykrywane, jeśli są ze sobą ściśle ułożone (np. stos na talerze).
+* Obiekty nie różnią się nazwami marki ani produktów (na przykład różnymi typami sod na półce sklepowej). Informacje o marce można jednak uzyskać z obrazu przy użyciu funkcji [wykrywania marki.](concept-brand-detection.md)
 
 ## <a name="use-the-api"></a>Używanie interfejsu API
 
-Funkcja wykrywania obiektów jest częścią usługi [Analizowanie obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) interfejsu API. Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Objects` w parametrze zapytania **visualFeatures** . Po otrzymaniu pełnej odpowiedzi JSON należy po prostu przeanalizować ciąg dla zawartości `"objects"` sekcji.
+Funkcja wykrywania obiektów jest częścią interfejsu API [analizowanie obrazów](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API. Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Objects` w **parametrze zapytania visualFeatures.** Następnie, gdy otrzymasz pełną odpowiedź JSON, po prostu prze analizuj ciąg zawartości `"objects"` sekcji.
 
-* [Szybki Start: przetwarzanie obrazów interfejsów API REST lub bibliotek klienckich](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Szybki start: przetwarzanie obrazów API REST lub bibliotek klienckich](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

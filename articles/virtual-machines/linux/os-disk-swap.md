@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0c9b0c1948dc4ecef74cd78ec1736803a0c0b4bc
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 85d6350a36e62ace8f1922d30493d0f1d448d315
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497374"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765939"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-azure-cli"></a>Zmienianie dysku systemu operacyjnego używanego przez maszynę wirtualną platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -47,7 +47,7 @@ az vm stop \
 ```
 
 
-Użyj [az vm update](/cli/azure/vm#az-vm-update) z pełnym identyfikatorem zasobu nowego dysku dla `--osdisk` parametru 
+Użyj [parametru az vm update](/cli/azure/vm#az_vm_update) z pełnym identyfikatorem zasobu nowego `--osdisk` dysku 
 
 ```azurecli-interactive 
 az vm update \

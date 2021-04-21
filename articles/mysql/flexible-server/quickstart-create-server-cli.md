@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie serwera — interfejs wiersza polecenia platformy Azure-Azure Database for MySQL-elastyczny serwer'
-description: W tym przewodniku szybki start opisano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć Azure Database for MySQL elastyczny serwer w grupie zasobów platformy Azure.
+title: 'Szybki start: tworzenie serwera — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL — serwer elastyczny'
+description: W tym przewodniku Szybki start opisano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć Azure Database for MySQL elastyczny serwer w grupie zasobów platformy Azure.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -8,37 +8,37 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a63c6f074178794db38b47950e176dd729344a54
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 7addfc3a0d91b85c4d63afa4ee6a55b5202c3855
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492732"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770241"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Szybki Start: Tworzenie Azure Database for MySQL elastycznego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Szybki start: tworzenie serwera elastycznego Azure Database for MySQL interfejsu wiersza polecenia platformy Azure
 
-W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) w [Azure Cloud Shell](https://shell.azure.com) utworzyć Azure Database for MySQL elastyczny serwer w ciągu pięciu minut. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+W tym przewodniku Szybki start pokazano, jak za pomocą poleceń interfejsu wiersza polecenia platformy [Azure](/cli/azure/get-started-with-azure-cli) Azure Cloud Shell utworzyć Azure Database for MySQL elastyczny serwer w ciągu pięciu minut. [](https://shell.azure.com) Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 > [!IMPORTANT] 
 > Azure Database for MySQL elastyczny serwer jest obecnie w publicznej wersji zapoznawczej
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
-[Azure Cloud Shell](../../cloud-shell/overview.md) to bezpłatna interaktywna powłoka, za pomocą której można wykonać kroki opisane w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie.
+Ta [Azure Cloud Shell](../../cloud-shell/overview.md) to bezpłatna interaktywna powłoka, za pomocą których można wykonać kroki opisane w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie.
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również otworzyć Cloud Shell na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz pozycję **Kopiuj** , aby skopiować bloki kodu, wklej je do Cloud Shell i wybierz **klawisz ENTER** , aby go uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również otworzyć Cloud Shell na osobnej karcie przeglądarki, przechodząc do strony [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz **pozycję** Kopiuj, aby skopiować bloki kodu, wklej je do Cloud Shell i wybierz klawisz **Enter,** aby go uruchomić.
 
-Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli wolisz zainstalować interfejs wiersza polecenia i używać go lokalnie, ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz zalogować się na swoje konto za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) . Zanotuj Właściwość **ID** , która odwołuje się do **identyfikatora subskrypcji** dla Twojego konta platformy Azure.
+Musisz zalogować się do swojego konta przy użyciu [polecenia az login.](/cli/azure/reference-index#az_login) **Zanotuj właściwość id,** która odnosi się do **identyfikatora subskrypcji** dla konta platformy Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Wybierz określoną subskrypcję na koncie za pomocą polecenia [AZ Account Set](/cli/azure/account#az-account-set) . Zanotuj wartość **identyfikatora** z polecenia **AZ login** Output to use jako wartość argumentu **Subscription** w poleceniu. Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Aby uzyskać całą subskrypcję, użyj [AZ Account List](/cli/azure/account#az-account-list).
+Wybierz określoną subskrypcję w ramach swojego konta za [pomocą polecenia az account set.](/cli/azure/account#az_account_set) Zanotuj wartość **identyfikatora z** danych wyjściowych polecenia **az login,** która ma być wartością **argumentu** subskrypcji w poleceniu . Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Aby uzyskać całą subskrypcję, użyj [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>
@@ -46,27 +46,27 @@ az account set --subscription <subscription id>
 
 ## <a name="create-a-flexible-server"></a>Tworzenie serwera elastycznego
 
-Utwórz [grupę zasobów platformy Azure](../../azure-resource-manager/management/overview.md) za pomocą `az group create` polecenia, a następnie utwórz w tej grupie zasobów elastyczny serwer MySQL. Należy podać unikatową nazwę. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `eastus2`.
+Utwórz [grupę zasobów platformy Azure za](../../azure-resource-manager/management/overview.md) pomocą polecenia , a następnie utwórz elastyczny serwer `az group create` MySQL w tej grupie zasobów. Należy podać unikatową nazwę. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `eastus2`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location eastus2
 ```
 
-Utwórz elastyczny serwer przy użyciu `az mysql flexible-server create` polecenia. Serwer może zawierać wiele baz danych. Następujące polecenie tworzy serwer przy użyciu wartości domyślnych usługi i z [lokalnego kontekstu](/cli/azure/local-context)interfejsu wiersza polecenia platformy Azure: 
+Utwórz serwer elastyczny za pomocą `az mysql flexible-server create` polecenia . Serwer może zawierać wiele baz danych. Następujące polecenie tworzy serwer przy użyciu wartości domyślnych i wartości usługi z lokalnego kontekstu interfejsu wiersza [polecenia platformy](/cli/azure/local-context)Azure: 
 
 ```azurecli-interactive
 az mysql flexible-server create
 ```
 
-Utworzony serwer ma następujące atrybuty: 
-- Automatycznie wygenerowana nazwa serwera, nazwa użytkownika administratora, hasło administratora, nazwę grupy zasobów (jeśli nie została jeszcze określona w kontekście lokalnym) i w tej samej lokalizacji, w której znajduje się grupa zasobów 
-- Ustawienia domyślne usługi dla pozostałych konfiguracji serwera: warstwa obliczeniowa (z możliwością przetwarzania), rozmiar obliczeń/jednostka SKU (B1MS), okres przechowywania kopii zapasowych (7 dni) i wersja programu MySQL (5,7)
-- Domyślną metodą połączenia jest dostęp prywatny (Integracja sieci wirtualnej) z automatycznie wygenerowaną siecią wirtualną i podsiecią
+Utworzony serwer ma poniższe atrybuty: 
+- Automatycznie wygenerowana nazwa serwera, nazwa użytkownika administratora, hasło administratora, nazwa grupy zasobów (jeśli nie została jeszcze określona w kontekście lokalnym) i w tej samej lokalizacji co grupa zasobów 
+- Wartości domyślne usługi dla pozostałych konfiguracji serwera: warstwa obliczeniowa (z możliwością serii), rozmiar obliczeniowy/jednostkę SKU (B1MS), okres przechowywania kopii zapasowych (7 dni) i wersja programu MySQL (5.7)
+- Domyślną metodą łączności jest dostęp prywatny (integracja z siecią wirtualną) z automatycznie wygenerowaną siecią wirtualną i podsiecią
 
 > [!NOTE] 
-> Nie można zmienić metody łączności po utworzeniu serwera. Na przykład jeśli wybrano opcję *dostęp prywatny (Integracja z siecią wirtualną)* podczas tworzenia, nie można zmienić *dostępu publicznego (dozwolone adresy IP)* po utworzeniu. Zdecydowanie zalecamy utworzenie serwera z dostępem prywatnym, aby bezpiecznie uzyskać dostęp do serwera przy użyciu integracji sieci wirtualnej. Dowiedz się więcej o prywatnym dostępie w [artykule pojęcia](./concepts-networking.md).
+> Metody łączności nie można zmienić po utworzeniu serwera. Na przykład w przypadku wyboru dostępu prywatnego *(integracja* z siecią wirtualną) podczas tworzenia nie można zmienić dostępu na Dostęp publiczny *(dozwolone adresy IP)* po utworzeniu. Zdecydowanie zalecamy utworzenie serwera z dostępem prywatnym, aby bezpiecznie uzyskać dostęp do serwera przy użyciu integracji z siecią wirtualną. Więcej informacji na temat dostępu prywatnego znajduje się w [artykule pojęcia](./concepts-networking.md).
 
-Jeśli chcesz zmienić ustawienia domyślne, zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. 
+Jeśli chcesz zmienić jakiekolwiek wartości domyślne, zapoznaj się [](/cli/azure/mysql/flexible-server) z dokumentacją interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. 
 
 Poniżej przedstawiono przykładowe dane wyjściowe: 
 
@@ -94,10 +94,10 @@ Make a note of your password. If you forget, you would have to reset your passwo
 }
 ```
 
-Jeśli chcesz zmienić ustawienia domyślne, zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. 
+Jeśli chcesz zmienić jakiekolwiek wartości domyślne, zapoznaj się [](/cli/azure/mysql/flexible-server) z dokumentacją interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. 
 
 ## <a name="create-a-database"></a>Tworzenie bazy danych
-Uruchom następujące polecenie, aby utworzyć bazę danych, **newdatabase** , jeśli jeszcze jej nie utworzono.
+Uruchom następujące polecenie, aby utworzyć bazę danych **newdatabase,** jeśli nie została jeszcze utworzona.
 
 ```azurecli-interactive
 az mysql flexible-server db create -d newdatabase
@@ -147,11 +147,11 @@ Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **a
 }
 ```
 
-## <a name="connect-and-test-the-connection-using-azure-cli"></a>Łączenie i testowanie połączenia przy użyciu interfejsu wiersza polecenia platformy Azure
+## <a name="connect-and-test-the-connection-using-azure-cli"></a>Nawiązywanie połączenia i testowanie go przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Azure Database for MySQL elastyczny serwer umożliwia nawiązanie połączenia z serwerem MySQL za pomocą polecenia interfejsu CLI platformy Azure ```az mysql flexible-server connect``` . To polecenie umożliwia testowanie łączności z serwerem bazy danych, tworzenie szybkiej bazy danych i uruchamianie zapytań bezpośrednio na serwerze bez konieczności instalowania mysql.exe lub MySQL Workbench.  Można również użyć polecenia Uruchom w trybie interaktywnym do uruchamiania wielu zapytań.
+Azure Database for MySQL elastyczny serwer umożliwia nawiązywanie połączenia z serwerem mysql za pomocą polecenia interfejsu wiersza polecenia ```az mysql flexible-server connect``` platformy Azure. To polecenie umożliwia przetestowanie łączności z serwerem bazy danych, utworzenie szybkiej bazy danych startowej i uruchamianie zapytań bezpośrednio na serwerze bez konieczności instalowania aplikacji mysql.exe lub MySQL Workbench.  Można również użyć uruchom polecenie w trybie interaktywnym do uruchamiania wielu zapytań.
 
-Uruchom następujący skrypt, aby przetestować i zweryfikować połączenie z bazą danych ze środowiska deweloperskiego.
+Uruchom następujący skrypt, aby przetestować i zweryfikować połączenie z bazą danych ze środowiska projektowego.
 
 ```azurecli-interactive
 az mysql flexible-server connect -n <servername> -u <username> -p <password> -d <databasename>
@@ -160,20 +160,20 @@ az mysql flexible-server connect -n <servername> -u <username> -p <password> -d 
 ```azurecli-interactive
 az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase
 ```
-W przypadku pomyślnego nawiązania połączenia powinny zostać wyświetlone następujące dane wyjściowe:
+Powinny zostać wyświetlony następujące dane wyjściowe dla pomyślnego połączenia:
 
 ```output
 Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Connecting to newdatabase database.
 Successfully connected to mysqldemoserver1.
 ```
-Jeśli nawiązanie połączenia nie powiodło się, wypróbuj następujące rozwiązania:
-- Sprawdź, czy na komputerze klienckim jest otwarty port 3306.
-- Jeśli nazwa użytkownika i hasło administratora serwera są poprawne
-- Jeśli skonfigurowano regułę zapory dla komputera klienckiego
-- Jeśli serwer został skonfigurowany z dostępem prywatnym w sieci wirtualnej, upewnij się, że komputer kliencki znajduje się w tej samej sieci wirtualnej.
+Jeśli połączenie nie powiodło się, wypróbuj następujące rozwiązania:
+- Sprawdź, czy port 3306 jest otwarty na komputerze klienckim.
+- jeśli nazwa użytkownika i hasło administratora serwera są poprawne
+- Jeśli skonfigurowano regułę zapory dla maszyny klienckiej
+- Jeśli skonfigurowano serwer z dostępem prywatnym w sieci wirtualnej, upewnij się, że maszyna klienta znajduje się w tej samej sieci wirtualnej.
 
-Uruchom następujące polecenie, aby wykonać pojedyncze zapytanie przy użyciu ```--querytext``` argumentu, ```-q``` .
+Uruchom następujące polecenie, aby wykonać pojedyncze zapytanie przy użyciu ```--querytext``` argumentu ```-q``` .
 
 ```azurecli-interactive
 az mysql flexible-server connect -n <server-name> -u <username> -p "<password>" -d <database-name> --querytext "<query text>"
@@ -183,17 +183,17 @@ az mysql flexible-server connect -n <server-name> -u <username> -p "<password>" 
 ```azurecli-interactive
 az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
 ```
-Aby dowiedzieć się więcej o korzystaniu z ```az mysql flexible-server connect``` polecenia, zapoznaj się z dokumentacją dotyczącą [połączeń i zapytań](connect-azure-cli.md) .
+Aby dowiedzieć się więcej na temat ```az mysql flexible-server connect``` używania polecenia , zapoznaj się z dokumentacją [dotyczącą nawiązywania połączeń i](connect-azure-cli.md) wykonywania zapytań.
 
-## <a name="connect-using-mysql-command-line-client"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia MySQL
+## <a name="connect-using-mysql-command-line-client"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia mysql
 
-Jeśli serwer elastyczny został utworzony przy użyciu dostępu prywatnego (Integracja z siecią wirtualną), należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do sieci wirtualnej utworzonej przy użyciu elastycznego serwera. Aby dowiedzieć się więcej, zobacz Konfigurowanie [dokumentacji dostępu prywatnego](how-to-manage-virtual-network-portal.md) .
+Jeśli serwer elastyczny został utworzony przy użyciu dostępu prywatnego (integracja z siecią wirtualną), musisz nawiązać połączenie z serwerem z zasobu w tej samej sieci wirtualnej co serwer. Możesz utworzyć maszynę wirtualną i dodać ją do sieci wirtualnej utworzonej za pomocą serwera elastycznego. Aby dowiedzieć się [więcej, zapoznaj](how-to-manage-virtual-network-portal.md) się z dokumentacją dotyczącą konfigurowania dostępu prywatnego.
 
-Jeśli serwer elastyczny został utworzony przy użyciu dostępu publicznego (dozwolone adresy IP), można dodać lokalny adres IP do listy reguł zapory na serwerze. Zapoznaj się z dokumentacją dotyczącą [tworzenia reguł zapory lub zarządzania nimi](how-to-manage-firewall-portal.md) , aby uzyskać wskazówki krok po kroku.
+Jeśli serwer elastyczny został utworzony przy użyciu dostępu publicznego (dozwolone adresy IP), możesz dodać lokalny adres IP do listy reguł zapory na serwerze. Zapoznaj [się z dokumentacją dotyczącą tworzenia reguł zapory lub zarządzania](how-to-manage-firewall-portal.md) nimi, aby uzyskać wskazówki krok po kroku.
 
-Aby nawiązać połączenie z serwerem ze środowiska lokalnego, można użyć opcji [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) lub [MySQL Workbench](./connect-workbench.md) . Azure Database for MySQL elastyczny serwer obsługuje łączenie aplikacji klienckich z usługą MySQL przy użyciu protokołu Transport Layer Security (TLS), wcześniej znanego jako Secure Sockets Layer (SSL). TLS jest standardowym protokołem, który zapewnia szyfrowane połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi, co pozwala na przestrzeganie wymagań dotyczących zgodności. Aby nawiązać połączenie z serwerem elastycznym MySQL, trzeba będzie pobrać [publiczny certyfikat SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) dla weryfikacji urzędu certyfikacji. Aby dowiedzieć się więcej na temat łączenia się z szyfrowanymi połączeniami lub wyłączania protokołu SSL, zapoznaj się z dokumentacją dotyczącą [Azure Database for MySQL łączenia z serwerem elastycznym z zaszyfrowaną](how-to-connect-tls-ssl.md)
+Możesz użyć aplikacji [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) [lub MySQL Workbench,](./connect-workbench.md) aby nawiązać połączenie z serwerem ze środowiska lokalnego. Azure Database for MySQL serwer elastyczny obsługuje łączenie aplikacji klienckich z usługą MySQL przy użyciu protokołu Transport Layer Security (TLS), wcześniej znanego jako Secure Sockets Layer (SSL). TLS to standardowy w branży protokół, który zapewnia szyfrowane połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi, dzięki czemu można spełnić wymagania dotyczące zgodności. Aby nawiązać połączenie z serwerem elastycznym MySQL, konieczne będzie pobranie publicznego [certyfikatu SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) w celu weryfikacji urzędu certyfikacji. Aby dowiedzieć się więcej na temat nawiązywania połączenia za pomocą szyfrowanych połączeń lub wyłączania protokołu SSL, zobacz dokumentację Nawiązywanie połączenia z serwerem Azure Database for MySQL — elastyczny [serwer z zaszyfrowanymi połączeniami.](how-to-connect-tls-ssl.md)
 
-Poniższy przykład pokazuje, jak nawiązać połączenie z serwerem elastycznym przy użyciu interfejsu wiersza polecenia MySQL. Najpierw należy zainstalować wiersz polecenia MySQL, jeśli nie został on jeszcze zainstalowany. Zostanie pobrany certyfikat DigiCertGlobalRootCA wymagany dla połączeń SSL. Aby wymusić weryfikację certyfikatu TLS/SSL, użyj ustawienia--SSL-Mode = wymagane parametry połączenia. Przekaż ścieżkę lokalnego pliku certyfikatu do parametru--SSL-ca. Zastąp wartości rzeczywistą nazwą serwera i hasłem.
+W poniższym przykładzie pokazano, jak nawiązać połączenie z serwerem elastycznym przy użyciu interfejsu wiersza polecenia mysql. Najpierw zainstaluj wiersz polecenia mysql, jeśli nie został jeszcze zainstalowany. Pobierz certyfikat DigiCertGlobalRootCA wymagany dla połączeń SSL. Użyj ustawienia --ssl-mode=REQUIRED parametrów połączenia, aby wymusić weryfikację certyfikatu TLS/SSL. Przekaż ścieżkę pliku certyfikatu lokalnego do parametru --ssl-ca. Zastąp wartości rzeczywistą nazwą serwera i hasłem.
 
 ```bash
 sudo apt-get install mysql-client
@@ -201,29 +201,29 @@ wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 
-Jeśli udostępniasz elastyczny serwer przy użyciu **dostępu publicznego**, możesz również użyć [Azure Cloud Shell](https://shell.azure.com/bash) , aby nawiązać połączenie z elastycznym serwerem przy użyciu wstępnie zainstalowanego klienta MySQL, jak pokazano poniżej:
+Jeśli serwer elastyczny został zaaprowizowany przy użyciu dostępu **publicznego,** możesz również użyć usługi [Azure Cloud Shell](https://shell.azure.com/bash) do nawiązania połączenia z serwerem elastycznym przy użyciu wstępnie zainstalowanego klienta mysql, jak pokazano poniżej:
 
-Aby można było używać Azure Cloud Shell do nawiązywania połączenia z serwerem elastycznym, należy zezwolić na dostęp sieciowy z Azure Cloud Shell do serwera elastycznego. Aby to osiągnąć, możesz przejść do bloku **Sieć** na Azure Portal dla serwera elastycznego MySQL, a następnie zaznaczyć pole wyboru w obszarze **Zapora** "Zezwalaj na dostęp publiczny z dowolnej usługi platformy Azure na platformie Azure do tego serwera", jak pokazano na poniższym zrzucie ekranu, a następnie kliknij przycisk Zapisz, aby zachować to ustawienie.
+Aby połączyć się Azure Cloud Shell serwerem elastycznym za pomocą usługi Azure Cloud Shell, należy zezwolić na dostęp sieciowy do serwera elastycznego. Aby to osiągnąć, możesz  przejść do bloku Sieć na serwerze elastycznym MySQL w usłudze Azure Portal i zaznacz pole wyboru w sekcji Zapora, która zawiera tekst "Zezwalaj na publiczny dostęp z dowolnej usługi platformy Azure na tym serwerze" jak pokazano na poniższym zrzucie ekranu, a następnie kliknij przycisk Zapisz, aby utrwalić to ustawienie. 
 
- > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="Zrzut ekranu pokazujący, jak zezwolić Azure Cloud Shell dostęp do elastycznego serwera MySQL na potrzeby konfiguracji sieci dostępu publicznego.":::
+ > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="Zrzut ekranu przedstawiający sposób zezwalania na Azure Cloud Shell serwera elastycznego MySQL w celu konfiguracji sieci dostępu publicznego.":::
  
  
 > [!NOTE]
-> Sprawdzanie **zezwalania na dostęp publiczny z dowolnej usługi platformy Azure na platformie Azure do tego serwera** powinno być używane tylko do celów deweloperskich i testowych. Konfiguruje zaporę tak, aby zezwalała na połączenia z adresów IP przypisanych do dowolnej usługi lub zasobu platformy Azure, w tym połączeń z subskrypcji innych klientów.
+> Sprawdzanie **zezwalania na publiczny dostęp z dowolnej usługi platformy Azure** na tym serwerze powinno być używane tylko do testowania lub testowania. Konfiguruje ona zaporę tak, aby zezwalała na połączenia z adresów IP przydzielonych do dowolnej usługi lub zasobu platformy Azure, w tym połączeń z subskrypcji innych klientów.
 
-Kliknij pozycję **Wypróbuj** , aby uruchomić Azure Cloud Shell i użyć poniższych poleceń, aby nawiązać połączenie z serwerem elastycznym. Użyj nazwy serwera, nazwy użytkownika i hasła w poleceniu. 
+Kliknij pozycję **Wypróbuj,** aby uruchomić Azure Cloud Shell i użyć następujących poleceń, aby nawiązać połączenie z serwerem elastycznym. Użyj nazwy serwera, nazwy użytkownika i hasła w poleceniu . 
 
 ```azurecli-interactive
 wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 > [!IMPORTANT]
-> Podczas nawiązywania połączenia z elastycznym serwerem przy użyciu Azure Cloud Shell należy użyć parametru--SSL = true, a nie--SSL-Mode = REQUIRED.
-> Główną przyczyną jest to, że Azure Cloud Shell jest dostarczany ze wstępnie zainstalowanym klientem mysql.exe z dystrybucji MariaDB, która wymaga parametru--SSL, podczas gdy klient MySQL z dystrybucji firmy Oracle wymaga protokołu SSL.
+> Podczas nawiązywania połączenia z serwerem elastycznym przy użyciu Azure Cloud Shell należy użyć parametru --ssl=true, a nie --ssl-mode=REQUIRED.
+> Główną przyczyną jest Azure Cloud Shell ze wstępnie zainstalowanym klientem programu mysql.exe z dystrybucji MariaDB, który wymaga parametru --ssl, a klient mysql z dystrybucji oracle wymaga parametru --ssl-mode.
 
-Jeśli zostanie wyświetlony następujący komunikat o błędzie podczas nawiązywania połączenia z elastycznym serwerem po poleceniu wcześniej, pominięto ustawienie reguły zapory przy użyciu opcji "Zezwalaj na dostęp publiczny z dowolnych usług platformy Azure na platformie Azure na ten serwer" lub opcja nie została zapisana. Ponów ustawienie zapory i spróbuj ponownie.
+Jeśli podczas nawiązywania połączenia z serwerem elastycznym po wcześniejszym poleceniu zostanie wyświetlony następujący komunikat o błędzie, oznacza to, że pominięto ustawienie reguły zapory przy użyciu wspomnianej wcześniej opcji "Zezwalaj na dostęp publiczny z dowolnej usługi platformy Azure na tym serwerze" lub opcja nie jest zapisywana. Ponów próbę ustawienia zapory i spróbuj ponownie.
 
-BŁĄD 2002 (HY000): nie można nawiązać połączenia z serwerem MySQL na <servername> (115)
+BŁĄD 2002 (HY000): Nie można nawiązać połączenia z serwerem MySQL na <servername> (115)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -233,7 +233,7 @@ Jeśli te zasoby nie są Ci potrzebne do pracy z innym przewodnikiem Szybki star
 az group delete --name myresourcegroup
 ```
 
-Jeśli po prostu chcesz usunąć jeden z nowo utworzonych serwerów, możesz uruchomić `az mysql server delete` polecenie.
+Jeśli chcesz usunąć jeden z nowo utworzonych serwerów, możesz uruchomić `az mysql server delete` polecenie .
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver
@@ -242,6 +242,6 @@ az mysql flexible-server delete --resource-group myresourcegroup --name mydemose
 ## <a name="next-steps"></a>Następne kroki
 
 >[!div class="nextstepaction"]
-> [Nawiązywanie połączenia i wykonywanie zapytań przy użyciu interfejsu wiersza polecenia](connect-azure-cli.md) 
->  platformy Azure [Nawiązywanie połączenia z serwerem elastycznym Azure Database for MySQL z połączeniami](how-to-connect-tls-ssl.md) 
->  szyfrowanymi [Tworzenie aplikacji sieci Web PHP (platformy laravel) za pomocą programu MySQL](tutorial-php-database-app.md)
+> [Nawiązywanie połączeń i wykonywanie zapytań przy użyciu interfejsu wiersza polecenia platformy Azure](connect-azure-cli.md) 
+>  [Nawiązywanie połączenia Azure Database for MySQL — elastyczny serwer z zaszyfrowanymi połączeniami](how-to-connect-tls-ssl.md) 
+>  [Tworzenie aplikacji internetowej w języku PHP (Laravel) przy użyciu programu MySQL](tutorial-php-database-app.md)

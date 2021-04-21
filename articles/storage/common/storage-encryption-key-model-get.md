@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: ef0f32ecc59bea6ee7a0f7ff12083fd2358c223c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 08bc36500bbd95633d1cb1d02bf10a7397401aa4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478917"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780123"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Określanie, który model klucza szyfrowania usługi Azure Storage jest w użyciu dla konta magazynu
 
@@ -40,11 +40,11 @@ Aby sprawdzić model szyfrowania dla konta magazynu przy użyciu Azure Portal, w
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. Wybierz ustawienie **Szyfrowanie** i zanotuj to ustawienie.
 
-Na poniższej ilustracji przedstawiono konto magazynu zaszyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft:
+Na poniższej ilustracji przedstawiono konto magazynu zaszyfrowane za pomocą kluczy zarządzanych przez firmę Microsoft:
 
 ![Wyświetlanie konta zaszyfrowanego przy użyciu kluczy zarządzanych przez firmę Microsoft](media/storage-encryption-key-model-get/microsoft-managed-encryption-key-setting-portal.png)
 
-Na poniższej ilustracji przedstawiono konto magazynu zaszyfrowane przy użyciu kluczy zarządzanych przez klienta:
+Na poniższej ilustracji przedstawiono konto magazynu szyfrowane przy użyciu kluczy zarządzanych przez klienta:
 
 ![Zrzut ekranu przedstawiający ustawienie klucza szyfrowania w Azure Portal](media/storage-encryption-key-model-get/customer-managed-encryption-key-setting-portal.png)
 
@@ -62,7 +62,7 @@ Jeśli wartość właściwości **KeySource** to , konto jest szyfrowane `Micros
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
 
-Aby sprawdzić model szyfrowania dla konta magazynu przy użyciu interfejsu wiersza polecenia platformy Azure, wywołaj [polecenie az storage account show,](/cli/azure/storage/account#az-storage-account-show) a następnie sprawdź właściwość **keySource** dla konta.
+Aby sprawdzić model szyfrowania dla konta magazynu przy użyciu interfejsu wiersza polecenia platformy Azure, wywołaj [polecenie az storage account show,](/cli/azure/storage/account#az_storage_account_show) a następnie sprawdź właściwość **keySource** dla konta.
 
 ```azurecli-interactive
 key_source=$(az storage account show \
@@ -72,7 +72,7 @@ key_source=$(az storage account show \
     --output tsv)
 ```
 
-Jeśli wartość właściwości **keySource** to , konto jest szyfrowane `Microsoft.Storage` przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli wartość właściwości **keySource** to , konto jest szyfrowane przy `Microsoft.Keyvault` użyciu kluczy zarządzanych przez klienta.
+Jeśli wartość właściwości **keySource** to , konto jest szyfrowane `Microsoft.Storage` przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli wartość właściwości **keySource** to , konto jest szyfrowane `Microsoft.Keyvault` przy użyciu kluczy zarządzanych przez klienta.
 
 ---
 

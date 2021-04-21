@@ -1,44 +1,44 @@
 ---
 title: Korzystanie z usługi Azure AD w usłudze Azure Kubernetes Service
-description: Dowiedz się, jak używać usługi Azure AD w usłudze Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak używać usługi Azure AD w Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 0e912de4cf3a9759abe4cb3df78255c0a9ba1557
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 3db9f8d895b4c13b5f969859f422e7b566722ffc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105868"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783075"
 ---
-# <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
+# <a name="aks-managed-azure-active-directory-integration"></a>Integracja aplikacji zarządzanych przez Azure Active Directory AKS
 
-Integracja z usługą Azure AD zarządzaną przez usługę AKS jest przeznaczona do uproszczenia środowiska integracji z usługą Azure AD, w przypadku których użytkownicy wcześniej musieli utworzyć aplikację kliencką, aplikację serwera i wymaganą dzierżawą usługi Azure AD w celu udzielenia uprawnień do odczytu katalogu. W nowej wersji dostawca zasobów AKS zarządza aplikacjami klienta i serwera.
+Integracja usługi Azure AD zarządzana przez usługę AKS została zaprojektowana w celu uproszczenia środowiska integracji usługi Azure AD, w którym użytkownicy wcześniej byli zobowiązani do utworzenia aplikacji klienckiej, aplikacji serwera i wymagali od dzierżawy usługi Azure AD przyznania uprawnień do odczytu katalogu. W nowej wersji dostawca zasobów usługi AKS zarządza aplikacjami klienta i serwera.
 
 ## <a name="azure-ad-authentication-overview"></a>Omówienie uwierzytelniania usługi Azure AD
 
-Administratorzy klastra mogą konfigurować Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów. Uwierzytelnianie usługi Azure AD jest udostępniane Klastrom AKS z OpenID Connect Connect. OpenID Connect Connect to warstwa tożsamości utworzona na podstawie protokołu OAuth 2,0. Aby uzyskać więcej informacji na temat OpenID Connect Connect, zapoznaj [się z dokumentacją dotyczącą otwartych identyfikatorów][open-id-connect].
+Administratorzy klastra mogą skonfigurować kontrolę dostępu opartą na rolach (RBAC) na platformie Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów. Uwierzytelnianie usługi Azure AD jest udostępniane klastrom usługi AKS za OpenID Connect. OpenID Connect to warstwa tożsamości zbudowana na podstawie protokołu OAuth 2.0. Aby uzyskać więcej informacji na OpenID Connect, zobacz [dokumentację programu Open ID Connect.][open-id-connect]
 
-Więcej informacji o przepływie integracji usługi Azure AD znajduje się w dokumentacji dotyczącej [pojęć dotyczących integracji Azure Active Directory](concepts-identity.md#azure-ad-integration).
+Dowiedz się więcej na temat przepływu integracji z usługą Azure AD [w dokumentacji Azure Active Directory integracji.](concepts-identity.md#azure-ad-integration)
 
 ## <a name="limitations"></a>Ograniczenia 
 
-* Nie można wyłączyć integracji usługi Azure AD zarządzanego przez usługę AKS
-* Zmiana zintegrowanego klastra usługi Azure AD zarządzanego przez usługę AKS na starszą wersję AAD nie jest obsługiwana
-* klastry z obsługą kontroli RBAC Kubernetes nie są obsługiwane w przypadku integracji z usługą Azure AD zarządzanej przez usługę AKS
-* Zmiana dzierżawy usługi Azure AD skojarzonej z integracją usługi Azure AD zarządzanego przez usługę AKS nie jest obsługiwana
+* Nie można wyłączyć integracji usługi Azure AD zarządzanej przez usługę AKS
+* Zmiana klastra zintegrowanego usługi Azure AD zarządzanego przez usługę AKS na starszą usługę AAD nie jest obsługiwana
+* Klastry bez kontroli RBAC na platformie Kubernetes nie są obsługiwane w przypadku integracji usługi Azure AD zarządzanej przez usługę AKS
+* Zmiana dzierżawy usługi Azure AD skojarzonej z integracją usługi Azure AD zarządzaną przez usługę AKS nie jest obsługiwana
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Interfejs wiersza polecenia platformy Azure w wersji 2.11.0 lub nowszej
-* Polecenia kubectl z minimalną wersją [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) lub [kubelogin](https://github.com/Azure/kubelogin)
-* Jeśli używasz [Helm](https://github.com/helm/helm), minimalna wersja Helm 3,3.
+* Kubectl z minimalną wersją [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) lub [kubelogin](https://github.com/Azure/kubelogin)
+* Jeśli używasz programu [Helm,](https://github.com/helm/helm)minimalna wersja narzędzia Helm to 3.3.
 
 > [!Important]
-> Musisz użyć polecenia kubectl z minimalną wersją 1.18.1 lub kubelogin. Różnica między wersjami pomocniczymi Kubernetes i polecenia kubectl nie powinna być większa niż 1. Jeśli nie używasz poprawnej wersji, zobaczysz problemy z uwierzytelnianiem.
+> Należy użyć kubectl z minimalną wersją 1.18.1 lub kubelogin. Różnica między wersjami pomocniczym kubernetes i kubectl nie powinna być większa niż wersja 1. Jeśli nie używasz poprawnej wersji, zauważysz problemy z uwierzytelnianiem.
 
-Aby zainstalować polecenia kubectl i kubelogin, użyj następujących poleceń:
+Aby zainstalować kubectl i kubelogin, użyj następujących poleceń:
 
 ```azurecli-interactive
 sudo az aks install-cli
@@ -46,11 +46,11 @@ kubectl version --client
 kubelogin --version
 ```
 
-Użyj [tych instrukcji](https://kubernetes.io/docs/tasks/tools/install-kubectl/) dla innych systemów operacyjnych.
+Użyj [tych instrukcji dla](https://kubernetes.io/docs/tasks/tools/install-kubectl/) innych systemów operacyjnych.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W przypadku klastra potrzebna jest grupa usługi Azure AD. Ta grupa jest wymagana jako grupa administratorów dla klastra, aby przyznać uprawnienia administratora klastra. Możesz użyć istniejącej grupy usługi Azure AD lub utworzyć nową. Zapisz identyfikator obiektu grupy usługi Azure AD.
+W przypadku klastra potrzebna jest grupa usługi Azure AD. Ta grupa jest potrzebna jako grupa administratorów dla klastra w celu udzielenia uprawnień administratora klastra. Możesz użyć istniejącej grupy usługi Azure AD lub utworzyć nową. Zanotuj identyfikator obiektu grupy usługi Azure AD.
 
 ```azurecli-interactive
 # List existing groups in the directory
@@ -64,9 +64,9 @@ Aby utworzyć nową grupę usługi Azure AD dla administratorów klastra, użyj 
 az ad group create --display-name myAKSAdminGroup --mail-nickname myAKSAdminGroup
 ```
 
-## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Tworzenie klastra AKS z włączoną usługą Azure AD
+## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Tworzenie klastra usługi AKS z włączoną usługą Azure AD
 
-Utwórz klaster AKS przy użyciu następujących poleceń interfejsu wiersza polecenia.
+Utwórz klaster usługi AKS przy użyciu następujących poleceń interfejsu wiersza polecenia.
 
 Utwórz grupę zasobów platformy Azure:
 
@@ -75,14 +75,14 @@ Utwórz grupę zasobów platformy Azure:
 az group create --name myResourceGroup --location centralus
 ```
 
-Utwórz klaster AKS i Włącz dostęp administracyjny do grupy usługi Azure AD
+Tworzenie klastra usługi AKS i włączanie dostępu administracyjnego dla grupy usługi Azure AD
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
 az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
 ```
 
-Pomyślne utworzenie klastra usługi Azure AD zarządzanego przez usługę AKS ma następującą sekcję w treści odpowiedzi
+Pomyślne utworzenie klastra usługi Azure AD zarządzanego przez usługę AKS zawiera następującą sekcję w treści odpowiedzi
 ```output
 "AADProfile": {
     "adminGroupObjectIds": [
@@ -96,20 +96,20 @@ Pomyślne utworzenie klastra usługi Azure AD zarządzanego przez usługę AKS m
   }
 ```
 
-Po utworzeniu klastra można rozpocząć uzyskiwanie do niego dostępu.
+Po utworzeniu klastra możesz rozpocząć uzyskiwanie do niego dostępu.
 
-## <a name="access-an-azure-ad-enabled-cluster"></a>Dostęp do klastra z obsługą usługi Azure AD
+## <a name="access-an-azure-ad-enabled-cluster"></a>Uzyskiwanie dostępu do klastra z obsługą usługi Azure AD
 
-Aby wykonać poniższe kroki, potrzebna jest wbudowana rola [użytkownika klastra usługi Azure Kubernetes](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) .
+Aby wykonać poniższe [kroki, Azure Kubernetes Service](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) wbudowaną rolę użytkownika klastra.
 
-Uzyskaj poświadczenia użytkownika w celu uzyskania dostępu do klastra:
+Pobierz poświadczenia użytkownika w celu uzyskania dostępu do klastra:
  
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 Postępuj zgodnie z instrukcjami, aby się zalogować.
 
-Aby wyświetlić węzły w klastrze, użyj polecenia polecenia kubectl Get nodes:
+Użyj polecenia kubectl get nodes, aby wyświetlić węzły w klastrze:
 
 ```azurecli-interactive
 kubectl get nodes
@@ -119,30 +119,30 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Konfigurowanie [kontroli dostępu opartej na rolach (Azure RBAC)](./azure-ad-rbac.md) na platformie Azure w celu skonfigurowania dodatkowych grup zabezpieczeń dla klastrów.
+Skonfiguruj [kontrolę dostępu opartą na rolach (RBAC)](./azure-ad-rbac.md) platformy Azure, aby skonfigurować dodatkowe grupy zabezpieczeń dla klastrów.
 
-## <a name="troubleshooting-access-issues-with-azure-ad"></a>Rozwiązywanie problemów z dostępem za pomocą usługi Azure AD
+## <a name="troubleshooting-access-issues-with-azure-ad"></a>Rozwiązywanie problemów z dostępem w usłudze Azure AD
 
 > [!Important]
-> Opisane poniżej kroki służą do pomijania normalnego uwierzytelniania grupy usługi Azure AD. Używaj ich tylko w sytuacji awaryjnej.
+> Poniższe kroki pomijają normalne uwierzytelnianie grupy usługi Azure AD. Należy ich używać tylko w sytuacjach awaryjnych.
 
-Jeśli użytkownik jest trwale zablokowany przez brak dostępu do prawidłowej grupy usługi Azure AD z dostępem do klastra, można nadal uzyskać poświadczenia administratora, aby uzyskać bezpośredni dostęp do klastra.
+Jeśli dostęp do prawidłowej grupy usługi Azure AD z dostępem do klastra zostanie trwale zablokowany, nadal możesz uzyskać poświadczenia administratora, aby uzyskać bezpośredni dostęp do klastra.
 
-Aby wykonać te czynności, musisz mieć dostęp do wbudowanej roli [administratora klastra usługi Azure Kubernetes](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) .
+Aby wykonać te kroki, musisz mieć dostęp do wbudowanej [Azure Kubernetes Service administratora](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) klastra.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
 
-## <a name="enable-aks-managed-azure-ad-integration-on-your-existing-cluster"></a>Włącz integrację usługi Azure AD zarządzaną przez usługę AKS w istniejącym klastrze
+## <a name="enable-aks-managed-azure-ad-integration-on-your-existing-cluster"></a>Włączanie integracji usługi Azure AD zarządzanej przez usługę AKS w istniejącym klastrze
 
-Możesz włączyć integrację usługi Azure AD zarządzaną przez usługę AKS w istniejącym klastrze z obsługą RBAC Kubernetes. Upewnij się, że grupa administratorów ma mieć uprawnienia dostępu do klastra.
+Możesz włączyć integrację usługi Azure AD zarządzaną przez usługę AKS w istniejącym klastrze Z obsługą kontroli RBAC na platformie Kubernetes. Upewnij się, że ustawiono grupę administratorów, aby zachować dostęp do klastra.
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]
 ```
 
-Pomyślne uaktywnienie klastra usługi Azure AD zarządzanego przez usługę AKS ma następującą sekcję w treści odpowiedzi
+Pomyślna aktywacja klastra usługi Azure AD zarządzanego przez usługę AKS zawiera następującą sekcję w treści odpowiedzi
 
 ```output
 "AADProfile": {
@@ -157,17 +157,17 @@ Pomyślne uaktywnienie klastra usługi Azure AD zarządzanego przez usługę AKS
   }
 ```
 
-Pobierz ponownie poświadczenia użytkownika, aby uzyskać dostęp do klastra, wykonując kroki opisane [tutaj][access-cluster].
+Pobierz ponownie poświadczenia użytkownika, aby uzyskać dostęp do klastra, zgodnie z instrukcjami w [tym miejscu.][access-cluster]
 
-## <a name="upgrading-to-aks-managed-azure-ad-integration"></a>Uaktualnianie do integracji z usługą Azure AD zarządzanego przez usługę AKS
+## <a name="upgrading-to-aks-managed-azure-ad-integration"></a>Uaktualnianie do integracji usługi Azure AD zarządzanej przez usługę AKS
 
-Jeśli klaster korzysta ze starszej integracji usługi Azure AD, możesz uaktualnić program do integracji z usługą Azure AD AKS.
+Jeśli klaster korzysta ze starszej integracji z usługą Azure AD, możesz uaktualnić go do integracji usługi Azure AD zarządzanej przez usługę AKS.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
 ```
 
-Pomyślne Migrowanie klastra usługi Azure AD zarządzanego przez usługę AKS ma następującą sekcję w treści odpowiedzi
+Pomyślna migracja klastra usługi Azure AD zarządzanego przez usługę AKS zawiera następującą sekcję w treści odpowiedzi
 
 ```output
 "AADProfile": {
@@ -182,37 +182,37 @@ Pomyślne Migrowanie klastra usługi Azure AD zarządzanego przez usługę AKS m
   }
 ```
 
-Jeśli chcesz uzyskać dostęp do klastra, wykonaj kroki opisane [tutaj][access-cluster].
+Jeśli chcesz uzyskać dostęp do klastra, wykonaj kroki opisane [tutaj.][access-cluster]
 
-## <a name="non-interactive-sign-in-with-kubelogin"></a>Logowanie nieinterakcyjne za pomocą kubelogin
+## <a name="non-interactive-sign-in-with-kubelogin"></a>Logowanie nieinterakcyjne przy użyciu usługi kubelogin
 
-Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, które nie są obecnie dostępne w polecenia kubectl. Możesz użyć, [`kubelogin`](https://github.com/Azure/kubelogin) Aby uzyskać dostęp do klastra przy użyciu logowania jednokrotnego podmiotu zabezpieczeń usługi.
+Istnieją pewne nieinterakcyjne scenariusze, takie jak potoki ciągłej integracji, które nie są obecnie dostępne w przypadku narzędzia kubectl. Za pomocą funkcji można uzyskać dostęp do klastra za pomocą logowania jednostki usługi [`kubelogin`](https://github.com/Azure/kubelogin) nieinterakcyjnej.
 
-## <a name="use-conditional-access-with-azure-ad-and-aks"></a>Korzystanie z dostępu warunkowego w usłudze Azure AD i AKS
+## <a name="use-conditional-access-with-azure-ad-and-aks"></a>Używanie dostępu warunkowego z usługami Azure AD i AKS
 
-Podczas integrowania usługi Azure AD z klastrem AKS można także korzystać z [dostępu warunkowego][aad-conditional-access] w celu kontrolowania dostępu do klastra.
+Podczas integrowania usługi Azure AD z klastrem [][aad-conditional-access] usługi AKS można również kontrolować dostęp do klastra za pomocą dostępu warunkowego.
 
 > [!NOTE]
-> Dostęp warunkowy usługi Azure AD jest możliwością Azure AD — wersja Premium.
+> Dostęp warunkowy usługi Azure AD to Azure AD — wersja Premium możliwości.
 
-Aby utworzyć przykładowe zasady dostępu warunkowego, które mają być używane z usługą AKS, wykonaj następujące czynności:
+Aby utworzyć przykładowe zasady dostępu warunkowego do użycia z usługą AKS, wykonaj następujące kroki:
 
-1. W górnej części Azure Portal Wyszukaj i wybierz pozycję Azure Active Directory.
-1. W menu dla Azure Active Directory po lewej stronie wybierz pozycję *aplikacje dla przedsiębiorstw*.
-1. W menu dla aplikacji dla przedsiębiorstw po lewej stronie wybierz pozycję *dostęp warunkowy*.
-1. W menu dla dostępu warunkowego po lewej stronie, wybierz pozycję *zasady* , a następnie *nowe zasady*.
+1. W górnej części strony Azure Portal wyszukaj i wybierz pozycję Azure Active Directory.
+1. W menu aplikacji Azure Active Directory po lewej stronie wybierz pozycję *Aplikacje dla przedsiębiorstw.*
+1. W menu aplikacji dla przedsiębiorstw po lewej stronie wybierz pozycję *Dostęp warunkowy.*
+1. W menu dostępu warunkowego po lewej stronie wybierz pozycję *Zasady, a* następnie *pozycję Nowe zasady.*
     :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Dodawanie zasad dostępu warunkowego":::
-1. Wprowadź nazwę zasad, takich jak *AKS-Policy*.
-1. Wybierz pozycję *Użytkownicy i grupy*, a następnie w obszarze *dołączanie* wybierz *pozycję Wybierz użytkowników i grupy*. Wybierz użytkowników i grupy, w których chcesz zastosować zasady. Na potrzeby tego przykładu wybierz grupę usługi Azure AD, która ma dostęp administracyjny do klastra.
-    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Wybieranie użytkowników lub grup w celu zastosowania zasad dostępu warunkowego":::
-1. Wybierz pozycję *aplikacje w chmurze lub akcje*, a następnie w obszarze *dołączanie* wybierz pozycję *Wybierz aplikacje*. Wyszukaj *usługę Azure Kubernetes* i wybierz pozycję *Azure Kubernetes Service AAD Server*.
-    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Wybieranie serwera usługi AD Kubernetes w celu zastosowania zasad dostępu warunkowego":::
-1. W obszarze *Kontrole dostępu* wybierz pozycję *Udziel*. Wybierz pozycję *Udziel dostępu* i *Wymagaj, aby urządzenie było oznaczone jako zgodne*.
-    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Wybieranie, aby zezwalać tylko na zgodne urządzenia dla zasad dostępu warunkowego":::
-1. W obszarze *Włączanie zasad* wybierz pozycję *włączone* i *Utwórz*.
+1. Wprowadź nazwę zasad, taką jak *aks-policy.*
+1. Wybierz *pozycję Użytkownicy i grupy,* a następnie w obszarze *Uwzględnij* *wybierz pozycję Wybierz użytkowników i grupy.* Wybierz użytkowników i grupy, do których chcesz zastosować zasady. W tym przykładzie wybierz tę samą grupę usługi Azure AD, która ma dostęp administracyjny do klastra.
+    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Wybieranie użytkowników lub grup do zastosowania zasad dostępu warunkowego":::
+1. Wybierz *pozycję Aplikacje w chmurze lub akcje*, a następnie w obszarze *Uwzględnij* wybierz pozycję Wybierz *aplikacje.* Wyszukaj pozycję *Azure Kubernetes Service* i wybierz *pozycję Azure Kubernetes Service AAD Server.*
+    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Wybieranie Azure Kubernetes Service AD Server do stosowania zasad dostępu warunkowego":::
+1. W obszarze *Kontrole dostępu* wybierz pozycję *Udziel*. Wybierz *pozycję U przyznaj dostęp,* a następnie pozycję *Wymagaj, aby urządzenie było oznaczone jako zgodne.*
+    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Wybranie opcji zezwalania tylko na zgodne urządzenia dla zasad dostępu warunkowego":::
+1. W *obszarze Włącz zasady* wybierz pozycję *Wł.,* a następnie *pozycję Utwórz.*
     :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="Włączanie zasad dostępu warunkowego":::
 
-Uzyskaj poświadczenia użytkownika, aby uzyskać dostęp do klastra, na przykład:
+Pobierz poświadczenia użytkownika, aby uzyskać dostęp do klastra, na przykład:
 
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
@@ -220,49 +220,49 @@ Uzyskaj poświadczenia użytkownika, aby uzyskać dostęp do klastra, na przykł
 
 Postępuj zgodnie z instrukcjami, aby się zalogować.
 
-Użyj `kubectl get nodes` polecenia, aby wyświetlić węzły w klastrze:
+Użyj polecenia `kubectl get nodes` , aby wyświetlić węzły w klastrze:
 
 ```azurecli-interactive
 kubectl get nodes
 ```
 
-Postępuj zgodnie z instrukcjami, aby zalogować się ponownie. Zwróć uwagę na komunikat o błędzie informujący, że logowanie zostało pomyślnie zakończone, ale administrator wymaga, aby urządzenie zażądało dostępu do tego zasobu przez usługę Azure AD.
+Postępuj zgodnie z instrukcjami, aby zalogować się ponownie. Zwróć uwagę, że jest wyświetlany komunikat o błędzie z informacją, że użytkownik został pomyślnie zalogowany, ale administrator wymaga, aby urządzenie żądające dostępu było zarządzane przez usługę Azure AD w celu uzyskania dostępu do zasobu.
 
-W Azure Portal przejdź do pozycji Azure Active Directory, wybierz pozycję *aplikacje dla przedsiębiorstw* , a następnie w obszarze *działania* wybierz pozycję *logowania*. Zwróć uwagę na wpis u góry ze *stanem* *Niepowodzenie* i *dostęp warunkowy* *sukcesu*. Wybierz wpis, a następnie wybierz pozycję *dostęp warunkowy* w obszarze *szczegóły*. Zwróć uwagę na to, że zasady dostępu warunkowego są wymienione na liście.
+W Azure Portal przejdź do Azure Active Directory, wybierz pozycję Aplikacje  dla przedsiębiorstw, a *następnie* w obszarze Działanie wybierz *pozycję Logowania.* Zwróć uwagę na wpis w  górnej części strony *ze stanem Niepowodzenie* i *dostępem warunkowym* *sukcesu.* Wybierz wpis, a następnie wybierz *pozycję Dostęp warunkowy w* pozycji *Szczegóły.* Zwróć uwagę, że na liście są wyświetlane zasady dostępu warunkowego.
 
-:::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Nieudany wpis logowania ze względu na zasady dostępu warunkowego":::
+:::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Nieudany wpis logowania z powodu zasad dostępu warunkowego":::
 
-## <a name="configure-just-in-time-cluster-access-with-azure-ad-and-aks"></a>Konfigurowanie dostępu just in Time do klastra za pomocą usługi Azure AD i AKS
+## <a name="configure-just-in-time-cluster-access-with-azure-ad-and-aks"></a>Konfigurowanie dostępu just in time do klastra za pomocą usług Azure AD i AKS
 
-Kolejną opcją dla kontroli dostępu do klastra jest użycie Privileged Identity Management (PIM) dla żądań just-in-Time.
+Inną opcją kontroli dostępu do klastra jest użycie Privileged Identity Management (PIM) dla żądań just in time.
 
 >[!NOTE]
-> PIM jest możliwością Azure AD — wersja Premium wymagającą jednostki SKU Premium P2. Więcej informacji o jednostkach SKU usługi Azure AD znajduje się w [przewodniku po cenach][aad-pricing].
+> Usługa PIM jest Azure AD — wersja Premium wymagającą sku SKU Premium P2. Aby uzyskać więcej informacji na temat jednostki SKU usługi Azure AD, zobacz [przewodnik po cenach][aad-pricing].
 
-Aby zintegrować żądania dostępu just in Time z klastrem AKS przy użyciu integracji usługi Azure AD zarządzanej przez usługę AKS, wykonaj następujące czynności:
+Aby zintegrować żądania dostępu just in time z klastrem AKS przy użyciu integracji usługi Azure AD zarządzanej przez usługę AKS, wykonaj następujące kroki:
 
-1. W górnej części Azure Portal Wyszukaj i wybierz pozycję Azure Active Directory.
-1. Zanotuj identyfikator dzierżawy, do którego odnosi się pozostała część tych instrukcji jak `<tenant-id>` :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="w przeglądarce internetowej, Azure Portal ekranie dla Azure Active Directory zostanie wyświetlony z WYRÓŻNIONym identyfikatorem dzierżawy.":::
-1. W menu dla Azure Active Directory po lewej stronie, w obszarze *Zarządzaj* Wybieranie *grup* , a następnie kliknij pozycję *Nowa grupa*.
-    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Wyświetla ekran Azure Portal grupy Active Directory z wyróżnioną opcją &quot;Nowa grupa&quot;.":::
-1. Upewnij się, że wybrano typ grupy *zabezpieczeń* , a następnie wprowadź nazwę grupy, taką jak *myJITGroup*. W obszarze *role usługi Azure AD można przypisać do tej grupy (wersja zapoznawcza)*, wybierz pozycję *tak*. Na koniec wybierz pozycję *Utwórz*.
-    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Wyświetla ekran tworzenia nowej grupy Azure Portal.":::
-1. Nastąpi powrót do strony *grup* . Wybierz nowo utworzoną grupę i zanotuj identyfikator obiektu, do którego odnosi się pozostała część tych instrukcji jako `<object-id>` .
-    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Wyświetla ekran Azure Portal dla grupy po prostu, wyróżnianie identyfikatora obiektu":::
-1. Wdróż klaster AKS z integracją usługi Azure AD zarządzanej za pomocą funkcji AKS przy użyciu `<tenant-id>` `<object-id>` wartości i z wcześniejszych:
+1. W górnej części strony Azure Portal wyszukaj i wybierz pozycję Azure Active Directory.
+1. Zanotuj identyfikator dzierżawy, określany w pozostałych instrukcjach jako W przeglądarce internetowej ekran usługi Azure Portal dla usługi Azure Active Directory jest wyświetlany z wyróżniony identyfikatorem `<tenant-id>` :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="dzierżawy.":::
+1. W menu aplikacji Azure Active Directory po lewej stronie w obszarze Zarządzanie *wybierz* pozycję *Grupy,* a następnie pozycję *Nowa grupa.*
+    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Wyświetla ekran Azure Portal grup usługi Active Directory z wyróżniona opcją &quot;Nowa grupa&quot;.":::
+1. Upewnij się, że wybrano opcję *Typ grupy* zabezpieczeń i wprowadź nazwę grupy, taką jak *myJITGroup.* W *obszarze Role usługi Azure AD można przypisać do tej grupy (wersja zapoznawcza)* wybierz pozycję *Tak.* Na koniec wybierz pozycję *Utwórz*.
+    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Pokazuje ekran Azure Portal tworzenia nowej grupy.":::
+1. Powrócisz do strony *Grupy.* Wybierz nowo utworzoną grupę i zanotuj identyfikator obiektu, który w pozostałych instrukcjach jest określany jako `<object-id>` .
+    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Wyświetla Azure Portal ekranu właśnie utworzonej grupy z wyróżnieniem identyfikatora obiektu":::
+1. Wdrażanie klastra AKS z integracją usługi Azure AD zarządzaną przez usługę AKS przy użyciu `<tenant-id>` wartości i z wcześniejszych `<object-id>` wersji:
     ```azurecli-interactive
     az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
     ```
-1. Wróć do Azure Portal, w menu dla *działania* po lewej stronie, wybierz pozycję *dostęp uprzywilejowany (wersja zapoznawcza)* i wybierz pozycję *Włącz dostęp uprzywilejowany*.
-    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="Zostanie wyświetlona strona uprzywilejowany dostęp do Azure Portal (wersja zapoznawcza) z wyróżnioną opcją &quot;Włącz dostęp uprzywilejowany&quot;":::
-1. Wybierz pozycję *Dodaj przypisania* , aby rozpocząć udzielanie dostępu.
-    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="Zostanie wyświetlony ekran uprzywilejowany dostęp (wersja zapoznawcza) Azure Portal. Opcja &quot;Dodaj przypisania&quot; została wyróżniona.":::
-1. Wybierz rolę *elementu członkowskiego* i wybierz użytkowników i grupy, do których chcesz udzielić dostępu do klastra. Te przypisania można modyfikować w dowolnym momencie przez administratora grupy. Gdy wszystko będzie gotowe do przejścia, wybierz pozycję *dalej*.
-    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="Zostanie wyświetlony ekran dodawaj przypisanie do Azure Portal, z przykładowym użytkownikiem wybranym do dodania jako element członkowski. Opcja &quot;Next&quot; została wyróżniona.":::
-1. Wybierz typ przypisania *aktywny*, żądany czas trwania i podaj uzasadnienie. Gdy wszystko będzie gotowe, wybierz pozycję *Przypisz*. Aby uzyskać więcej informacji na temat typów przypisań, zobacz [przypisywanie uprawnień do uprzywilejowanej grupy dostępu (wersja zapoznawcza) w Privileged Identity Management][aad-assignments].
-    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="Zostanie wyświetlony ekran Ustawienia Dodawanie przypisań Azure Portal. Wybrano typ przypisania &quot;aktywny&quot; i podano przykładowe uzasadnienie. Opcja &quot;Assign&quot; została wyróżniona.":::
+1. Po powrocie do Azure Portal w menu  Działanie po lewej stronie wybierz pozycję *Dostęp uprzywilejowany (wersja zapoznawcza)* i wybierz pozycję *Włącz dostęp uprzywilejowany.*
+    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="Zostanie Azure Portal strona dostępu uprzywilejowanego (wersja zapoznawcza) aplikacji z wyróżnionem oknie &quot;Włącz dostęp uprzywilejowany&quot;":::
+1. Wybierz *pozycję Dodaj przypisania,* aby rozpocząć udzielanie dostępu.
+    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="Po Azure Portal zostanie wyświetlony ekran Dostęp uprzywilejowany (wersja zapoznawcza). Opcja &quot;Dodaj przypisania&quot; jest wyróżniona.":::
+1. Wybierz rolę członka *, a* następnie wybierz użytkowników i grupy, którym chcesz udzielić dostępu do klastra. Te przypisania mogą być modyfikowane w dowolnym momencie przez administratora grupy. Gdy wszystko będzie gotowe do pracy, wybierz pozycję *Dalej.*
+    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="Zostanie Azure Portal ekran Dodawanie przypisań członkostwa z wybranym przykładowym użytkownikiem, który zostanie dodany jako członek. Opcja &quot;Dalej&quot; jest wyróżniona.":::
+1. Wybierz typ przypisania *Aktywny*, żądany czas trwania i podaj uzasadnienie. Gdy wszystko będzie gotowe do kontynuowania, wybierz pozycję *Przypisz*. Aby uzyskać więcej informacji na temat typów przypisań, zobacz Przypisywanie uprawnień do uprzywilejowanej grupy dostępu [(wersja zapoznawcza)][aad-assignments]w Privileged Identity Management .
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="Zostanie Azure Portal ekran Dodaj ustawienia przypisań. Wybierany jest typ przypisania &quot;Aktywny&quot; i podane zostało przykładowe uzasadnienie. Opcja &quot;Przypisz&quot; jest wyróżniona.":::
 
-Po wykonaniu przypisań Sprawdź, czy dostęp just in Time działa przez dostęp do klastra. Na przykład:
+Po przypisaniu sprawdź, czy dostęp just in time działa, korzystając z klastra. Na przykład:
 
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
@@ -270,13 +270,13 @@ Po wykonaniu przypisań Sprawdź, czy dostęp just in Time działa przez dostęp
 
 Postępuj zgodnie z instrukcjami, aby się zalogować.
 
-Użyj `kubectl get nodes` polecenia, aby wyświetlić węzły w klastrze:
+Użyj polecenia `kubectl get nodes` , aby wyświetlić węzły w klastrze:
 
 ```azurecli-interactive
 kubectl get nodes
 ```
 
-Zanotuj wymagania dotyczące uwierzytelniania i postępuj zgodnie z instrukcjami w celu uwierzytelnienia. Jeśli to się powiedzie, powinny pojawić się dane wyjściowe podobne do następujących:
+Zanotuj wymaganie dotyczące uwierzytelniania i postępuj zgodnie z instrukcjami w celu uwierzytelnienia. Jeśli to się powiedzie, powinny zostać wyświetlony dane wyjściowe podobne do następujących:
 
 ```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
@@ -288,21 +288,21 @@ aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli `kubectl get nodes` zwraca błąd podobny do poniższego:
+Jeśli `kubectl get nodes` zwraca błąd podobny do następującego:
 
 ```output
 Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a1-111111aaaaa" cannot list resource "nodes" in API group "" at the cluster scope
 ```
 
-Upewnij się, że administrator grupy zabezpieczeń przyznał *aktywne* przypisanie do konta.
+Upewnij się, że administrator grupy zabezpieczeń przypisał Twoje konto aktywne *przypisanie.*
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [integracji z usługą Azure RBAC na potrzeby autoryzacji Kubernetes][azure-rbac-integration]
-* Poznaj [integrację usługi Azure AD z usługą KUBERNETES RBAC][azure-ad-rbac].
-* Użyj [kubelogin](https://github.com/Azure/kubelogin) , aby uzyskać dostęp do funkcji uwierzytelniania platformy Azure, które nie są dostępne w polecenia kubectl.
-* Dowiedz się więcej o [pojęciach dotyczących tożsamości AKS i Kubernetes][aks-concepts-identity].
-* Użyj [szablonów Azure Resource Manager (ARM) ][aks-arm-template] do tworzenia klastrów z obsługą usługi Azure AD, które są zarządzane przez AKS.
+* Dowiedz się więcej [na temat integracji kontroli RBAC platformy Azure dla autoryzacji Kubernetes][azure-rbac-integration]
+* Dowiedz się więcej o [integracji usługi Azure AD z kontroli RBAC na platformie Kubernetes.][azure-ad-rbac]
+* Użyj [narzędzia kubelogin,](https://github.com/Azure/kubelogin) aby uzyskać dostęp do funkcji uwierzytelniania platformy Azure, które nie są dostępne w usłudze kubectl.
+* Dowiedz się więcej o [pojęciach związanych z tożsamościami WKS i Kubernetes.][aks-concepts-identity]
+* Użyj [Azure Resource Manager (ARM) do ][aks-arm-template] tworzenia klastrów usługi Azure AD zarządzanych przez usługę AKS.
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
@@ -315,11 +315,11 @@ Upewnij się, że administrator grupy zabezpieczeń przyznał *aktywne* przypisa
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

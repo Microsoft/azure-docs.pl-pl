@@ -1,6 +1,6 @@
 ---
-title: 'Interfejs wiersza polecenia: monitorowanie aplikacji przy użyciu dzienników serwera sieci Web'
-description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak monitorować aplikację za pomocą dzienników serwera sieci Web.
+title: 'Interfejs wiersza polecenia: monitorowanie aplikacji za pomocą dzienników serwera internetowego'
+description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do automatyzowania wdrażania aplikacji App Service zarządzania nimi. W tym przykładzie pokazano, jak monitorować aplikację za pomocą dzienników serwera internetowego.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9881a5f37c32849fc4f10acda8346510977e6b7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d8442179ecec72d47e770d823bbfd5795f5c4dc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97005790"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787705"
 ---
 # <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>Monitorowanie aplikacji usługi App Service za pomocą dzienników serwera internetowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,7 +24,7 @@ Ten przykładowy skrypt tworzy grupę zasobów, plan usługi App Service i aplik
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -38,11 +38,11 @@ Ten skrypt używa poniższych poleceń do tworzenia grupy zasobów, aplikacji us
 
 | Polecenie | Uwagi |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Tworzy plan usługi App Service. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Tworzy aplikację usługi App Service. |
-| [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) | Konfiguruje, które dzienniki aplikacji usługi App Service zostaną utrwalone. |
-| [`az webapp log download`](/cli/azure/webapp/log#az-webapp-log-download) | Pobiera dzienniki aplikacji usługi App Service na komputer lokalny. |
+| [`az group create`](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi App Service. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Tworzy aplikację usługi App Service. |
+| [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) | Konfiguruje, które dzienniki aplikacji usługi App Service zostaną utrwalone. |
+| [`az webapp log download`](/cli/azure/webapp/log#az_webapp_log_download) | Pobiera dzienniki aplikacji usługi App Service na komputer lokalny. |
 
 ## <a name="next-steps"></a>Następne kroki
 

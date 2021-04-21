@@ -1,26 +1,26 @@
 ---
-title: Użyj planowanej konserwacji klastra usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
+title: Używanie planowanej konserwacji dla klastra Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 titleSuffix: Azure Kubernetes Service
-description: Dowiedz się, jak używać planowanej konserwacji w usłudze Azure Kubernetes Service (AKS).
+description: Dowiedz się, jak używać planowanej konserwacji w Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: deeb8375e2c1d30a71b0791886362bfb045ef6d7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f1e0822e77d8466b1b9796041fbdba53c3f9c91f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727828"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782913"
 ---
-# <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Użyj planowanej konserwacji w celu zaplanowania okien obsługi dla klastra usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
+# <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Planowanie okien obsługi dla klastra usługi Azure Kubernetes Service (AKS) za pomocą planowanej konserwacji (wersja zapoznawcza)
 
-Klaster AKS ma regularne konserwacje wykonywane automatycznie. Domyślnie to działanie może wystąpić w dowolnym momencie. Planowana konserwacja pozwala zaplanować cotygodniowe okna obsługi, które zaktualizują płaszczyznę kontroli, a także polecenia-systemowe wystąpienia w wystąpieniu VMSS i minimalizują wpływ obciążeń. Po zaplanowaniu wszystkie czynności konserwacyjne zostaną wykonane w wybranym oknie. Możesz zaplanować co najmniej jedno cotygodniowe okna w klastrze, określając dzień lub zakres czasu w określonym dniu. Okna obsługi konfiguruje się za pomocą interfejsu wiersza polecenia platformy Azure.
+Klaster usługi AKS regularnie przeprowadza konserwację. Domyślnie ta praca może odbywać się w dowolnym momencie. Planowana konserwacja umożliwia zaplanowanie cotygodniowych okien obsługi, które aktualizują płaszczyznę sterowania, a także zasobniki kube-system w wystąpieniu usługi VMSS i minimalizują wpływ na obciążenie. Po zaplanowaniu cała konserwacja będzie mieć miejsce w wybranym oknie. Możesz zaplanować co najmniej jedno cotygodniowe okna w klastrze, określając dzień lub zakres czasu w określonym dniu. Okna obsługi są konfigurowane przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
+W tym artykule przyjęto założenie, że masz istniejący klaster usługi AKS. Jeśli potrzebujesz klastra usługi AKS, zobacz przewodnik Szybki start usługi AKS przy użyciu interfejsu wiersza polecenia platformy [Azure][aks-quickstart-cli] lub [interfejsu Azure Portal][aks-quickstart-portal].
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -28,13 +28,13 @@ W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli p
 
 W przypadku korzystania z planowanej konserwacji obowiązują następujące ograniczenia:
 
-- AKS rezerwuje prawo, aby przerwać te okna dla nieplanowanych/reaktywnych operacji konserwacji, które są pilne lub krytyczne.
-- Obecnie wykonywanie operacji konserwacyjnych jest uznawane za *najlepsze* i nie jest gwarantowane w określonym oknie.
+- Usługa AKS zastrzega sobie prawo do przerwania tych okien w przypadku nieplanowanych/reaktywnych operacji konserwacji, które są pilne lub krytyczne.
+- Obecnie wykonywanie operacji konserwacji jest uznawane za najbardziej *pracowisze* i nie ma gwarancji, że zostaną one wykonywane w określonym oknie.
 - Aktualizacje nie mogą być blokowane przez więcej niż siedem dni.
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
-Wymagany jest również *AKS — wersja zapoznawcza* interfejsu wiersza polecenia platformy Azure w wersji 0.5.4 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej AKS* , używając polecenie [AZ Extension Add][az-extension-add] . Lub zainstalować wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] .
+Potrzebne jest również rozszerzenie interfejsu wiersza polecenia platformy Azure *aks-preview* w wersji 0.5.4 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure *aks-preview* za pomocą [polecenia az extension add.][az-extension-add] Możesz też zainstalować wszystkie dostępne aktualizacje za pomocą [polecenia az extension update.][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,18 +44,18 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="allow-maintenance-on-every-monday-at-100am-to-200am"></a>Zezwalaj na konserwację w każdym poniedziałek o godzinie 1:10:00 do 2:10:00
+## <a name="allow-maintenance-on-every-monday-at-100am-to-200am"></a>Zezwalaj na konserwację w każdy poniedziałek od 1:00 do 2:00
 
-Aby dodać okno obsługi, możesz użyć `az aks maintenanceconfiguration add` polecenia.
+Aby dodać okno obsługi, możesz użyć `az aks maintenanceconfiguration add` polecenia .
 
 > [!IMPORTANT]
-> Planowane okna obsługi są określane w uniwersalnym czasie koordynowanym (UTC).
+> Okna planowanej konserwacji są określone w Uniwersalny czas koordynowany (UTC).
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 1
 ```
 
-Następujące przykładowe dane wyjściowe przedstawiają okno obsługi od 1:10:00 do 2:10:00 co poniedziałek.
+Następujące przykładowe dane wyjściowe pokazują okno obsługi od 1:00 do 2:00 w każdy poniedziałek.
 
 ```json
 {- Finished ..
@@ -76,15 +76,15 @@ Następujące przykładowe dane wyjściowe przedstawiają okno obsługi od 1:10:
 }
 ```
 
-Aby umożliwić konserwację w dowolnym momencie w ciągu dnia, Pomiń parametr *Start-Hour* . Na przykład następujące polecenie ustawia okno obsługi dla pełnego dnia każdego tygodnia:
+Aby umożliwić konserwację w dowolnym momencie w ciągu dnia, pomiń *parametr godzina rozpoczęcia.* Na przykład następujące polecenie ustawia okno obsługi dla całego dnia w każdy poniedziałek:
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday
 ```
 
-## <a name="add-a-maintenance-configuration-with-a-json-file"></a>Dodawanie konfiguracji konserwacji przy użyciu pliku JSON
+## <a name="add-a-maintenance-configuration-with-a-json-file"></a>Dodawanie konfiguracji konserwacji za pomocą pliku JSON
 
-Można również użyć pliku JSON Utwórz okno obsługi zamiast używać parametrów. Utwórz `test.json` plik o następującej zawartości:
+Możesz również użyć pliku JSON, aby utworzyć okno obsługi zamiast używać parametrów. Utwórz `test.json` plik o następującej zawartości:
 
 ```json
   {
@@ -113,7 +113,7 @@ Można również użyć pliku JSON Utwórz okno obsługi zamiast używać parame
 }
 ```
 
-Powyższy plik JSON określa okna obsługi każdego wtorku o 1:10:00-3:10:00 i każdą środę o godzinie 1:10:00-2:10:00 i w 6:10:00-7:10:00. Istnieje również wyjątek od *2021-05-26T03:00:00Z* do *2021-05-30T12:00:00Z* , gdy konserwacja nie jest dozwolona, nawet jeśli pokrywa się z oknem obsługi. Poniższe polecenie dodaje okna obsługi z programu `test.json` .
+Powyższy plik JSON określa okna obsługi w każdy wtorek o godzinie 1:00–3:00 i w każdą środę o 1:00–2:00 i o 6:00–7:00. Istnieje również wyjątek od *2021-05-26T03:00:00Z* do *2021-05-30T12:00:00Z,* w którym konserwacja nie jest dozwolona, nawet jeśli nakłada się na okno obsługi. Następujące polecenie dodaje okna obsługi z polecenia `test.json` .
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --config-file ./test.json
@@ -121,21 +121,21 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
 
 ## <a name="update-an-existing-maintenance-window"></a>Aktualizowanie istniejącego okna obsługi
 
-Aby zaktualizować istniejącą konfigurację konserwacji, użyj `az aks maintenanceconfiguration update` polecenia.
+Aby zaktualizować istniejącą konfigurację konserwacji, użyj `az aks maintenanceconfiguration update` polecenia .
 
 ```azurecli-interactive
 az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 1
 ```
 
-## <a name="list-all-maintenance-windows-in-an-existing-cluster"></a>Wyświetl listę wszystkich okien obsługi w istniejącym klastrze
+## <a name="list-all-maintenance-windows-in-an-existing-cluster"></a>Lista wszystkich okien obsługi w istniejącym klastrze
 
-Aby wyświetlić wszystkie bieżące okna konfiguracji konserwacji w klastrze AKS, użyj `az aks maintenanceconfiguration list` polecenia.
+Aby wyświetlić wszystkie bieżące okna konfiguracji konserwacji w klastrze usługi AKS, użyj `az aks maintenanceconfiguration list` polecenia .
 
 ```azurecli-interactive
 az aks maintenanceconfiguration list -g MyResourceGroup --cluster-name myAKSCluster
 ```
 
-W danych wyjściowych poniżej widać, że istnieją dwa okna obsługi skonfigurowane dla myAKSCluster. Jedno okno jest w poniedziałek o godzinie 1:10:00, a inne okno w piątek o godzinie 4:10:00.
+W poniższych danych wyjściowych widać, że istnieją dwa okna obsługi skonfigurowane dla myAKSCluster. Jedno okno jest w poniedziałek o godzinie 1:00, a drugie w piątek o 4:00.
 
 ```json
 [
@@ -174,15 +174,15 @@ W danych wyjściowych poniżej widać, że istnieją dwa okna obsługi skonfigur
 ]
 ```
 
-## <a name="show-a-specific-maintenance-configuration-window-in-an-aks-cluster"></a>Wyświetlanie określonego okna konfiguracji konserwacji w klastrze AKS
+## <a name="show-a-specific-maintenance-configuration-window-in-an-aks-cluster"></a>Wyświetlanie określonego okna konfiguracji konserwacji w klastrze usługi AKS
 
-Aby wyświetlić określone okno konfiguracji konserwacji w klastrze AKS, użyj `az aks maintenanceconfiguration show` polecenia.
+Aby wyświetlić konkretne okno konfiguracji konserwacji w klastrze usługi AKS, użyj `az aks maintenanceconfiguration show` polecenia .
 
 ```azurecli-interactive
 az aks maintenanceconfiguration show -g MyResourceGroup --cluster-name myAKSCluster --name default
 ```
 
-Następujące przykładowe dane wyjściowe pokazują okno obsługi dla *ustawień domyślnych*:
+Następujące przykładowe dane wyjściowe pokazują domyślne okno *obsługi*:
 
 ```json
 {
@@ -203,9 +203,9 @@ Następujące przykładowe dane wyjściowe pokazują okno obsługi dla *ustawie�
 }
 ```
 
-## <a name="delete-a-certain-maintenance-configuration-window-in-an-existing-aks-cluster"></a>Usuń niektóre okna konfiguracji konserwacji w istniejącym klastrze AKS
+## <a name="delete-a-certain-maintenance-configuration-window-in-an-existing-aks-cluster"></a>Usuwanie określonego okna konfiguracji konserwacji w istniejącym klastrze usługi AKS
 
-Aby usunąć niektóre okna konfiguracji konserwacji w klastrze AKS, użyj `az aks maintenanceconfiguration delete` polecenia.
+Aby usunąć określone okno konfiguracji konserwacji w klastrze usługi AKS, użyj `az aks maintenanceconfiguration delete` polecenia .
 
 ```azurecli-interactive
 az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name default
@@ -213,7 +213,7 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby rozpocząć Uaktualnianie klastra AKS, zobacz [Uaktualnianie klastra AKS][aks-upgrade]
+- Aby rozpocząć uaktualnianie klastra usługi AKS, zobacz [Uaktualnianie klastra usługi AKS][aks-upgrade]
 
 
 <!-- LINKS - Internal -->
@@ -221,10 +221,10 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
