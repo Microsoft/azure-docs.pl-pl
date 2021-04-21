@@ -5,13 +5,14 @@ ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom:
 - devx-track-java
+- devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a270f482438129b7b07506744bf3f9489b242900
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 910e19137873ed5c34584b3293ebd4248c5fe2f8
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787489"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831910"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji języka Java na platformie Azure z wiersza polecenia
 
@@ -99,7 +100,7 @@ W Azure Functions projekt funkcji jest kontenerem dla co najmniej jednej indywid
 
 1. Wpisz `Y` lub naciśnij klawisz Enter, aby potwierdzić.
 
-    Program Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, która w tym przykładzie to `fabrikam-functions` . 
+    Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, która w tym przykładzie to `fabrikam-functions` . 
 
 1. Przejdź do folderu projektu:
 
@@ -111,7 +112,7 @@ W Azure Functions projekt funkcji jest kontenerem dla co najmniej jednej indywid
 <details>
 <summary><strong>Co utworzono w folderze LocalFunctionProj?</strong></summary>
 
-Ten folder zawiera różne pliki projektu, takie jak *Function.java,* *FunctionTest.java* i *pom.xml*. Istnieją również pliki konfiguracji o nazwach [local.settings.jsna](functions-run-local.md#local-settings-file) ihost.js[na .](functions-host-json.md) Ponieważ *local.settings.jsmoże* zawierać wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku *gitignore.*
+Ten folder zawiera różne pliki projektu, takie jak *Function.java,* *FunctionTest.java* i *pom.xml*. Istnieją również pliki konfiguracji o nazwach [local.settings.jsna i](functions-run-local.md#local-settings-file)host.jsna [.](functions-host-json.md) Ponieważ *local.settings.jsmoże zawierać* wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku *.gitignore.*
 </details>
 
 <br/>
@@ -131,11 +132,11 @@ Archetyp generuje również test jednostkowy dla funkcji. W przypadku zmiany fun
 <details>
 <summary><strong>Kod dla pom.xml</strong></summary>
 
-Ustawienia zasobów platformy Azure utworzonych do hostowania aplikacji są definiowane w elemencie konfiguracji wtyczki z elementem **groupId** w wygenerowanym  `com.microsoft.azure` *pom.xml* pliku. Na przykład poniższy element konfiguracji instruuje wdrożenie oparte na programie Maven, aby utworzyć aplikację funkcji w `java-functions-group` grupie zasobów w `westus` <abbr title="Geograficzne odwołanie do określonego centrum danych platformy Azure, w którym są przydzielane zasoby.">region</abbr>. Sama aplikacja funkcji działa w systemie Windows hostowany w planie, który domyślnie jest planem użycia `java-functions-app-service-plan` bez serwera.
+Ustawienia zasobów platformy Azure utworzonych w celu  hostowania aplikacji są definiowane w elemencie konfiguracji wtyczki z **groupId** o nazwie w wygenerowanym `com.microsoft.azure` *pom.xml* pliku. Na przykład poniższy element konfiguracji instruuje wdrożenie oparte na programie Maven, aby utworzyć aplikację funkcji w `java-functions-group` grupie zasobów w `westus` <abbr title="Geograficzne odwołanie do określonego centrum danych platformy Azure, w którym są przydzielane zasoby.">region</abbr>. Sama aplikacja funkcji działa w systemie Windows hostowany w planie, który domyślnie jest bez użycia `java-functions-app-service-plan` serwera planem Zużycie.
 
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-107":::
 
-Możesz zmienić te ustawienia, aby kontrolować sposób tworzenia zasobów na platformie Azure, na przykład zmieniając ustawienia `runtime.os` z `windows` na przed `linux` początkowym wdrożeniem. Aby uzyskać pełną listę ustawień obsługiwanych przez wtyczkę Maven, zobacz [szczegóły konfiguracji](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+Możesz zmienić te ustawienia, aby kontrolować sposób tworzenia zasobów na platformie Azure, na przykład zmieniając z `runtime.os` `windows` na przed `linux` początkowym wdrożeniem. Aby uzyskać pełną listę ustawień obsługiwanych przez wtyczkę Maven, zobacz [szczegóły konfiguracji](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 </details>
 
 <br>
@@ -195,14 +196,14 @@ Aby utworzyć aplikację funkcji uruchamianą w systemie Linux zamiast w systemi
     az login
     ```
 
-    Polecenie [az login](/cli/azure/reference-index#az_login) umożliwia zalogowanie się do konta platformy Azure.
+    Polecenie [az login](/cli/azure/reference-index#az_login) loguje Cię do konta platformy Azure.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
     Connect-AzAccount
     ```
 
-    Polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) umożliwia wyłoślinie Cię na konto platformy Azure.
+    Polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) umożliwia wykonanie cię na koncie platformy Azure.
 
     ---
 
@@ -216,12 +217,12 @@ Aby utworzyć aplikację funkcji uruchamianą w systemie Linux zamiast w systemi
 
 <br/>
 <details>
-<summary><strong>Co jest tworzone na platformie Azure?</strong></summary>
+<summary><strong>Co utworzono na platformie Azure?</strong></summary>
 
-+ Grupa zasobów. Nazwane jako _java-functions-group_.
++ Grupa zasobów. Nazwana jako _java-functions-group_.
 + Konto magazynu. Wymagane przez funkcje. Nazwa jest generowana losowo na podstawie wymagań dotyczących nazwy konta magazynu.
 + Plan hostingu. Hosting bez serwera dla aplikacji funkcji w regionie _westus._ Nazwa to _java-functions-app-service-plan_.
-+ Aplikacja funkcji. Aplikacja funkcji to jednostka wdrażania i wykonywania funkcji. Nazwa jest generowana losowo na podstawie twojego _artifactId (artifactId)_ z losowo wygenerowaną liczbą.
++ Aplikacja funkcji. Aplikacja funkcji to jednostka wdrażania i wykonywania dla funkcji. Nazwa jest generowana losowo na podstawie twojego _artifactId_ i jest dołączana z losowo wygenerowaną liczbą.
 </details>
 
 <br>
@@ -229,17 +230,17 @@ Aby utworzyć aplikację funkcji uruchamianą w systemie Linux zamiast w systemi
 
 ## <a name="5-invoke-the-function-on-azure"></a>5. Wywoływanie funkcji na platformie Azure
 
-Ponieważ funkcja używa wyzwalacza HTTP, wywołujesz go, wysyłasz żądanie HTTP do jej adresu **URL** w przeglądarce lub za pomocą narzędzia takiego jak <abbr title="Narzędzie wiersza polecenia do generowania żądań HTTP do adresu URL; Zobacz https://curl.se/">curl</abbr>.
+Ponieważ funkcja używa wyzwalacza HTTP, wywołujesz go, wywołując go, wywołując żądanie HTTP na adres **URL** w przeglądarce lub za pomocą narzędzia, takiego jak <abbr title="Narzędzie wiersza polecenia do generowania żądań HTTP do adresu URL; Zobacz https://curl.se/">curl</abbr>.
 
 # <a name="browser"></a>[Przeglądarka](#tab/browser)
 
-Skopiuj pełny adres **URL wywołania** widoczny w danych wyjściowych polecenia na pasku adresu przeglądarki, dołączając parametr `publish` zapytania `&name=Functions` . W przeglądarce powinny być wyświetlane dane wyjściowe podobne do tych, które są wyświetlane podczas lokalnego działania funkcji.
+Skopiuj pełny adres **URL** wywołania widoczny w danych wyjściowych polecenia na pasku adresu `publish` przeglądarki, dołączając parametr zapytania `&name=Functions` . W przeglądarce powinny być wyświetlane podobne dane wyjściowe, jak w przypadku lokalnego działania funkcji.
 
 ![Dane wyjściowe funkcji uruchamianej na platformie Azure w przeglądarce](../../includes/media/functions-run-remote-azure-cli/function-test-cloud-browser.png)
 
 # <a name="curl"></a>[curl](#tab/curl)
 
-Uruchom [`curl`](https://curl.haxx.se/) z adresem URL **wywołania**, dołączając parametr `&name=Functions` . Dane wyjściowe polecenia powinny być tekstem "Hello Functions".
+Uruchom [`curl`](https://curl.haxx.se/) z adresem URL **wywołania**, dołączając parametr `&name=Functions` . Dane wyjściowe polecenia powinny mieć tekst "Hello Functions".
 
 ![Dane wyjściowe funkcji uruchamianej na platformie Azure przy użyciu narzędzia curl](../../includes/media/functions-run-remote-azure-cli/function-test-cloud-curl.png)
 
@@ -252,9 +253,9 @@ Uruchom [`curl`](https://curl.haxx.se/) z adresem URL **wywołania**, dołączaj
 
 ## <a name="6-clean-up-resources"></a>6. Czyszczenie zasobów
 
-Jeśli dodasz usługę Azure Storage [do](#next-steps) następnego kroku <abbr title="W usłudze Azure Storage oznacza skojarzenie funkcji z kolejką magazynu, aby można było tworzyć komunikaty w kolejce.">powiązanie wyjściowe kolejki</abbr>, zachowaj wszystkie zasoby na miejscu, ponieważ będziesz tworzyć na podstawie już wykonanej pracy.
+Jeśli dodasz usługę Azure Storage [do](#next-steps) następnego kroku <abbr title="W usłudze Azure Storage oznacza skojarzenie funkcji z kolejką magazynu, aby można było tworzyć komunikaty w kolejce.">powiązanie wyjściowe kolejki</abbr>, zachowaj wszystkie zasoby, ponieważ będziesz tworzyć na podstawie już wykonanej pracy.
 
-W przeciwnym razie użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć dodatkowych kosztów.
+W przeciwnym razie użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć ponoszenia dalszych kosztów.
 
  # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -276,4 +277,4 @@ Remove-AzResourceGroup -Name java-functions-group
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java)
+> [Łączenie z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java)

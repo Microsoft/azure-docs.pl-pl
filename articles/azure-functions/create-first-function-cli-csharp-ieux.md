@@ -6,13 +6,14 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
+- devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2d03f8c820e0a8b6a19394649db66f8028b62781
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fb287333ba8b0b4fc0bb35ce91d2e3113ff50e2b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768799"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831118"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji języka C# na platformie Azure z wiersza polecenia
 
@@ -68,7 +69,7 @@ Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wi
 
 + **Uruchom** `Connect-AzAccount` aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
 
-+ **Uruchom** `dotnet --list-sdks` aby sprawdzić, zestaw .NET Core SDK jest zainstalowana wersja 3.1.x
++ **Uruchom** `dotnet --list-sdks` aby sprawdzić, zestaw .NET Core SDK zainstalowana wersja 3.1.x
 
 ---
 
@@ -245,7 +246,7 @@ Przed wdrożeniem kodu funkcji na platformie Azure należy utworzyć <abbr title
     <details>
     <summary><strong>Jaki jest koszt zasobów aprowowanych na platformie Azure?</strong></summary>
 
-    To polecenie tworzy aplikację funkcji uruchamianą w określonym środowisku uruchomieniowym języka w ramach [planu Azure Functions Consumption](consumption-plan.md), który jest bezpłatny dla ilości użycia naliczonego w tym miejscu. Polecenie aplikuje również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą której można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitorowanie Azure Functions](functions-monitoring.md). Wystąpienie nie poniesie żadnych kosztów, dopóki nie zostanie aktywowane.
+    To polecenie tworzy aplikację funkcji uruchamianą w określonym środowisku uruchomieniowym języka w ramach [planu Azure Functions Consumption](consumption-plan.md), który jest bezpłatny dla ilości użycia naliczonego w tym miejscu. Polecenie aplikuje również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą której można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitorowanie Azure Functions](functions-monitoring.md). Wystąpienie nie ponosi żadnych kosztów, dopóki nie zostanie aktywowane.
     </details>
 
 <br/>
@@ -297,7 +298,7 @@ Skopiuj pełny adres **URL wywołania** widoczny w danych wyjściowych polecenia
 
 ## <a name="8-clean-up-resources"></a>8. Czyszczenie zasobów
 
-Jeśli przejdź do następnego [kroku i](#next-steps) dodasz dane wyjściowe kolejki usługi Azure Storage <abbr title="Deklaratywne połączenie między funkcją i innymi zasobami. Powiązanie wejściowe dostarcza dane do funkcji; Powiązanie wyjściowe dostarcza dane z funkcji do innych zasobów.">powiązanie</abbr>, zachowaj wszystkie zasoby na miejscu, ponieważ będziesz tworzyć na podstawie już wykonanej pracy.
+Jeśli dodasz dane wyjściowe [kolejki usługi](#next-steps) Azure Storage do następnego kroku <abbr title="Deklaratywne połączenie między funkcją i innymi zasobami. Powiązanie wejściowe dostarcza dane do funkcji; Powiązanie wyjściowe dostarcza dane z funkcji do innych zasobów.">powiązanie</abbr>, zachowaj wszystkie zasoby na miejscu, ponieważ będziesz tworzyć na podstawie już wykonanej pracy.
 
 W przeciwnym razie użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć dodatkowych kosztów.
 

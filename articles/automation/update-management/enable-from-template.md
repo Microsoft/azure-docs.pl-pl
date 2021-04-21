@@ -1,74 +1,75 @@
 ---
 title: Włączanie rozwiązania Update Management przy użyciu szablonu usługi Azure Resource Manager
-description: W tym artykule opisano, jak włączyć Update Management przy użyciu szablonu Azure Resource Manager.
+description: W tym artykule opisano sposób użycia szablonu Azure Resource Manager w celu włączenia Update Management.
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 95ef52acedc9171ba86110a665d08ea97c59bfbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 687c3d49f98fe6832d23dc1529a9761d862e0666
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575818"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830884"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Włączanie rozwiązania Update Management przy użyciu szablonu usługi Azure Resource Manager
 
-Aby włączyć funkcję Update Management Azure Automation w grupie zasobów, można użyć [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) . Ten artykuł zawiera przykładowy szablon, który automatyzuje następujące czynności:
+Możesz użyć szablonu [Azure Resource Manager,](../../azure-resource-manager/templates/template-syntax.md) aby włączyć funkcję Azure Automation Update Management w grupie zasobów. Ten artykuł zawiera przykładowy szablon, który automatyzuje następujące czynności:
 
-* Automatyzuje tworzenie obszaru roboczego Log Analytics Azure Monitor.
-* Automatyzuje tworzenie konta Azure Automation.
-* Łączy konto usługi Automation z obszarem roboczym Log Analytics.
-* Dodaje Przykładowe elementy Runbook automatyzacji do konta.
+* Automatyzuje tworzenie nowego obszaru roboczego Azure Monitor Log Analytics.
+* Automatyzuje tworzenie konta Azure Automation konta.
+* Łączy konto usługi Automation z obszarem roboczym usługi Log Analytics.
+* Dodaje do konta przykładowe podręczniki automatyzacji.
 * Włącza funkcję Update Management.
 
-Szablon nie automatyzuje włączania Update Management na co najmniej jednej platformie Azure lub na maszynach wirtualnych platformy Azure.
+Szablon nie automatyzuje włączania Update Management co najmniej jednej maszyny wirtualnej platformy Azure lub spoza platformy Azure.
 
-Jeśli masz już obszar roboczy Log Analytics i konto usługi Automation wdrożone w obsługiwanym regionie w ramach subskrypcji, nie są one połączone. Użycie tego szablonu spowoduje utworzenie linku i wdrożenie Update Management.
+Jeśli masz już obszar roboczy usługi Log Analytics i konto usługi Automation wdrożone w obsługiwanym regionie w ramach subskrypcji, nie są one połączone. Użycie tego szablonu pomyślnie tworzy link i wdraża Update Management.
 
 >[!NOTE]
->Tworzenie konta Uruchom jako usługi Automation nie jest obsługiwane w przypadku korzystania z szablonu ARM. Aby ręcznie utworzyć konto Uruchom jako w portalu lub przy użyciu programu PowerShell, zobacz [Tworzenie konta Uruchom jako](../create-run-as-account.md).
+>Tworzenie konta Uruchom jako usługi Automation nie jest obsługiwane w przypadku korzystania z szablonu usługi ARM. Aby ręcznie utworzyć konto Uruchom jako z portalu lub przy użyciu programu PowerShell, zobacz [Tworzenie konta Uruchom jako.](../create-run-as-account.md)
 
-Po wykonaniu tych kroków należy [skonfigurować ustawienia diagnostyczne](../automation-manage-send-joblogs-log-analytics.md) dla konta usługi Automation, aby wysyłać strumienie stanu zadań elementu Runbook i zadań do połączonego obszaru roboczego log Analytics.
+Po ukończeniu tych kroków [](../automation-manage-send-joblogs-log-analytics.md) należy skonfigurować ustawienia diagnostyczne dla konta usługi Automation w celu wysyłania stanu zadania i strumieni zadań runbook do połączonego obszaru roboczego usługi Log Analytics.
 
 ## <a name="api-versions"></a>Wersje interfejsu API
 
-W poniższej tabeli wymieniono wersje interfejsu API dla zasobów używanych w tym przykładzie.
+W poniższej tabeli wymieniono wersję interfejsu API dla zasobów używanych w tym przykładzie.
 
 | Zasób | Typ zasobu | Wersja interfejsu API |
 |:---|:---|:---|
-| [Workspace](/azure/templates/microsoft.operationalinsights/workspaces) | obszary robocze | 2020-03-01 — wersja zapoznawcza |
-| [Konto usługi Automation](/azure/templates/microsoft.automation/automationaccounts) | automatyzacja | 2020-01-13 — wersja zapoznawcza |
-| [Połączone usługi obszaru roboczego](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | obszary robocze | 2020-03-01 — wersja zapoznawcza |
-| [Rozwiązania](/azure/templates/microsoft.operationsmanagement/solutions) | rozwiązania | 2015-11-01 — wersja zapoznawcza |
+| [Workspace](/azure/templates/microsoft.operationalinsights/workspaces) | obszary robocze | 2020-03-01-preview |
+| [Konto usługi Automation](/azure/templates/microsoft.automation/automationaccounts) | automatyzacja | 2020-01-13-preview |
+| [Połączone usługi obszaru roboczego](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | obszary robocze | 2020-03-01-preview |
+| [Rozwiązania](/azure/templates/microsoft.operationsmanagement/solutions) | rozwiązania | 2015-11-01-preview |
 
 ## <a name="before-using-the-template"></a>Przed użyciem szablonu
 
-Szablon JSON jest skonfigurowany tak, aby monitował o:
+Szablon JSON jest skonfigurowany w celu monitowania o:
 
 * Nazwa obszaru roboczego.
-* Region, w którym ma zostać utworzony obszar roboczy.
+* Region, w których ma być utworzyć obszar roboczy.
 * Nazwa konta usługi Automation.
-* Region, w którym ma zostać utworzone konto usługi Automation.
+* Region, w których ma być utworzenia konto usługi Automation.
 
-Następujące parametry w szablonie mają ustawioną wartość domyślną Log Analytics obszarze roboczym:
+Następujące parametry w szablonie są ustawiane z wartością domyślną dla obszaru roboczego usługi Log Analytics:
 
-* Domyślna *jednostka SKU* to warstwa cenowa za GB wydaną w modelu cen z kwietnia 2018.
-* wartość domyślna *przechowywania* danych to 30 dni.
+* *Wartość domyślna* jednostki SKU to warstwa cenowa za GB wydana w modelu cenowym z kwietnia 2018 r.
+* *Wartość domyślna dla ustawienia dataRetention* to 30 dni.
 
 >[!WARNING]
->Jeśli chcesz utworzyć lub skonfigurować obszar roboczy Log Analytics w ramach subskrypcji, która została wybrana w modelu cen z kwietnia 2018, jedyną prawidłową Log Analytics warstwą cenową jest *PerGB2018*.
+>Jeśli chcesz utworzyć lub skonfigurować obszar roboczy usługi Log Analytics w subskrypcji, która wybrała model cenowy z kwietnia 2018 r., jedyną prawidłową warstwą cenową usługi Log Analytics jest *PerGB2018.*
 >
 
-Szablon JSON określa wartość domyślną dla innych parametrów, które mogą być używane jako Standardowa konfiguracja w danym środowisku. Szablon można przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md).
+Szablon JSON określa wartość domyślną dla innych parametrów, które prawdopodobnie będą używane jako standardowa konfiguracja w środowisku. Szablon można przechowywać na koncie usługi Azure Storage, aby uzyskać dostęp współdzielony w organizacji. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz Deploy resources with ARM templates and the Azure CLI (Wdrażanie zasobów za [pomocą szablonów usługi ARM i interfejsu wiersza polecenia platformy Azure).](../../azure-resource-manager/templates/deploy-cli.md)
 
-Jeśli dopiero zaczynasz Azure Automation i Azure Monitor, ważne jest zapoznanie się z poniższymi szczegółami konfiguracji. Mogą one pomóc uniknąć błędów podczas próby utworzenia, skonfigurowania i użycia obszaru roboczego Log Analytics połączonego z nowym kontem usługi Automation.
+Jeśli dopiero poznajemy Azure Automation i Azure Monitor, ważne jest, aby zrozumieć następujące szczegóły konfiguracji. Mogą one pomóc uniknąć błędów podczas próby utworzenia, skonfigurowania i użycia obszaru roboczego usługi Log Analytics połączonego z nowym kontem usługi Automation.
 
-* Zapoznaj się z [dodatkowymi szczegółami](../../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) , aby w pełni zrozumieć opcje konfiguracji obszaru roboczego, takie jak tryb kontroli dostępu, warstwa cenowa, przechowywanie i poziom rezerwacji pojemności.
+* Przejrzyj [dodatkowe szczegóły,](../../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) aby w pełni zrozumieć opcje konfiguracji obszaru roboczego, takie jak tryb kontroli dostępu, warstwa cenowa, przechowywanie i poziom rezerwacji pojemności.
 
-* Przejrzyj [mapowania obszaru roboczego](../how-to/region-mappings.md) , aby określić Obsługiwane regiony w tekście lub w pliku parametrów. Tylko niektóre regiony są obsługiwane na potrzeby łączenia obszaru roboczego Log Analytics i konta usługi Automation w ramach subskrypcji.
+* Przejrzyj [mapowania obszarów roboczych,](../how-to/region-mappings.md) aby określić obsługiwane regiony w tekście lub w pliku parametrów. Tylko niektóre regiony są obsługiwane w przypadku łączenia obszaru roboczego usługi Log Analytics i konta usługi Automation w ramach subskrypcji.
 
-* Jeśli dopiero zaczynasz korzystać z dzienników Azure Monitor i nie wdrożono już obszaru roboczego, zapoznaj się z tematem [wskazówki dotyczące projektowania obszaru roboczego](../../azure-monitor/logs/design-logs-deployment.md). Pomożemy Ci poznać kontrolę dostępu i zrozumieć strategie implementacji projektu, które zalecamy dla Twojej organizacji.
+* Jeśli nie wiesz już, jak Azure Monitor obszaru roboczego, zapoznaj się ze wskazówkami projektowania [obszaru roboczego.](../../azure-monitor/logs/design-logs-deployment.md) Pomoże ci to dowiedzieć się więcej na temat kontroli dostępu i poznać strategie implementacji projektu zalecane dla Twojej organizacji.
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
@@ -299,11 +300,11 @@ Jeśli dopiero zaczynasz Azure Automation i Azure Monitor, ważne jest zapoznani
     }
     ```
 
-2. Edytuj szablon w celu spełnienia wymagań. Rozważ utworzenie [pliku parametrów Menedżer zasobów](../../azure-resource-manager/templates/parameter-files.md) zamiast przekazywania parametrów jako wartości wbudowanych.
+2. Edytuj szablon, aby spełnić wymagania. Rozważ utworzenie pliku [Resource Manager parametrów zamiast](../../azure-resource-manager/templates/parameter-files.md) przekazywania parametrów jako wartości w tekście.
 
-3. Zapisz ten plik w folderze lokalnym jako **deployUMSolutiontemplate.js**.
+3. Zapisz ten plik w folderze lokalnym jakodeployUMSolutiontemplate.js **w folderze**.
 
-4. Wszystko jest teraz gotowe do wdrożenia tego szablonu. Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Po wyświetleniu monitu o nazwę obszaru roboczego i konta usługi Automation Podaj nazwę globalnie unikatową we wszystkich subskrypcjach platformy Azure.
+4. Wszystko jest teraz gotowe do wdrożenia tego szablonu. Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Po wyświetleniu monitu o nazwę obszaru roboczego i konta usługi Automation podaj nazwę, która jest globalnie unikatowa we wszystkich subskrypcjach platformy Azure.
 
     **Program PowerShell**
 
@@ -317,36 +318,36 @@ Jeśli dopiero zaczynasz Azure Automation i Azure Monitor, ważne jest zapoznani
     az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
-    Wdrożenie może potrwać kilka minut. Po zakończeniu zostanie wyświetlony komunikat podobny do następującego:
+    Wdrożenie może potrwać kilka minut. Po zakończeniu zostanie wyświetlony komunikat podobny do następującego, który zawiera wynik:
 
     ![Przykładowy wynik po zakończeniu wdrażania](media/enable-from-template/template-output.png)
 
-## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W Azure Portal Otwórz utworzone konto usługi Automation.
+2. W Azure Portal otwórz utworzone konto usługi Automation.
 
-3. W okienku po lewej stronie wybierz pozycję **elementy Runbook**. Na stronie **elementy Runbook** są wyświetlane trzy elementy Runbook samouczka utworzone przy użyciu konta usługi Automation.
+3. W okienku po lewej stronie wybierz pozycję **Runbook**. Na stronie **Runbook wymieniono** trzy samouczki runbook utworzone przy użyciu konta usługi Automation.
 
-    ![Elementy Runbook samouczka utworzone przy użyciu konta usługi Automation](../media/quickstart-create-automation-account-template/automation-sample-runbooks.png)
+    ![Samouczek dotyczący podręczników Runbook utworzonych przy użyciu konta usługi Automation](../media/quickstart-create-automation-account-template/automation-sample-runbooks.png)
 
-4. W okienku po lewej stronie wybierz pozycję **połączony obszar roboczy**. Na stronie **połączony obszar roboczy** zostanie wyświetlony obszar roboczy log Analytics określony wcześniej połączony z kontem usługi Automation.
+4. W okienku po lewej stronie wybierz pozycję **Połączony obszar roboczy.** Na stronie **Połączony obszar roboczy** jest on przedstawia określony wcześniej obszar roboczy usługi Log Analytics połączony z kontem usługi Automation.
 
-    ![Konto usługi Automation połączone z obszarem roboczym Log Analytics](../media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
+    ![Konto usługi Automation połączone z obszarem roboczym usługi Log Analytics](../media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
-5. W okienku po lewej stronie wybierz pozycję **Update Management**. Na stronie **Zarządzanie aktualizacjami** zostanie wyświetlona strona Ocena bez informacji w wyniku ich włączenia, a maszyny nie są skonfigurowane do zarządzania.
+5. W okienku po lewej stronie wybierz pozycję **Update Management.** Na **stronie Zarządzanie aktualizacjami** jest przedstawiana strona oceny bez żadnych informacji w wyniku tego, że zostały włączone, a maszyny nie są skonfigurowane do zarządzania.
 
-    ![Widok oceny funkcji Update Management](./media/enable-from-template/update-management-assessment-view.png)
+    ![Update Management oceny funkcji](./media/enable-from-template/update-management-assessment-view.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy nie są już potrzebne, Usuń rozwiązanie **aktualizacji** w obszarze roboczym log Analytics, Odłącz konto usługi Automation od obszaru roboczego, a następnie usuń konto usługi Automation i obszar roboczy.
+Gdy nie będą już potrzebne, usuń rozwiązanie **Updates** w obszarze roboczym usługi Log Analytics, odłącz konto usługi Automation od obszaru roboczego, a następnie usuń konto i obszar roboczy usługi Automation.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](manage-updates-for-vm.md).
+* Aby użyć Update Management dla maszyn wirtualnych, zobacz Zarządzanie aktualizacjami i [poprawkami dla maszyn wirtualnych.](manage-updates-for-vm.md)
 
-* Jeśli nie chcesz już używać Update Management i chcesz go usunąć, zobacz instrukcje w temacie [usuwanie Update Management funkcji](remove-feature.md).
+* Jeśli nie chcesz już używać Update Management i chcesz go usunąć, zobacz instrukcje w te Update Management [funkcji](remove-feature.md).
 
-* Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](remove-vms.md).
+* Aby usunąć maszyny wirtualne z Update Management, zobacz [Usuwanie maszyn wirtualnych z Update Management](remove-vms.md).

@@ -3,12 +3,13 @@ title: Jak kierować do Azure Functions środowiska uruchomieniowego
 description: Azure Functions obsługuje wiele wersji środowiska uruchomieniowego. Dowiedz się, jak określić wersję środowiska uruchomieniowego aplikacji funkcji hostowanej na platformie Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 9a9f8fca1c39fd0251df3e3a8da3d789aae4d3d6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ca107ec2f0ce04bf7b1eae3a98087217c267d33d
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779277"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830920"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak kierować do Azure Functions środowiska uruchomieniowego
 
@@ -40,7 +41,7 @@ W poniższej tabeli przedstawiono `FUNCTIONS_EXTENSION_VERSION` wartości poszcz
 Zmiana wersji środowiska uruchomieniowego powoduje ponowne uruchomienie aplikacji funkcji.
 
 >[!NOTE]
->Przypięte aplikacje funkcji .NET w celu rezygnacji z automatycznego `~2.0` uaktualniania do programu .NET Core 3.1. Aby dowiedzieć się więcej, zobacz Zagadnienia dotyczące funkcji w wersji [2.x.](functions-dotnet-class-library.md#functions-v2x-considerations)  
+>Aplikacje funkcji .NET przypięte w celu rezygnacji z automatycznego `~2.0` uaktualniania do programu .NET Core 3.1. Aby dowiedzieć się więcej, [zobacz Zagadnienia dotyczące funkcji w wersji 2.x.](functions-dotnet-class-library.md#functions-v2x-considerations)  
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Wyświetlanie i aktualizowanie bieżącej wersji środowiska uruchomieniowego
 

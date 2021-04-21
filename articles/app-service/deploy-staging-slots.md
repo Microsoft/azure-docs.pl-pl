@@ -4,13 +4,13 @@ description: Dowiedz się, jak wdrażać aplikacje w miejscu nieprodukcyjną i a
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: b93fb61cc58360ddfcf15d2af2c936203d869500
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.openlocfilehash: 8a26332250f5c53116d940a2b625eb8d7991c187
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771537"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833116"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk przejściowych w usłudze Azure App Service
 <a name="Overview"></a>
@@ -46,13 +46,13 @@ Aby można było włączyć wiele miejsc wdrożenia, aplikacja musi działać w 
    > Jeśli aplikacja nie znajduje się jeszcze w warstwie **Standardowa,** **Premium** lub **Izolowana,** zostanie wyświetlony komunikat informujący o obsługiwanych warstwach umożliwiających publikowanie etapowe. W tym momencie możesz wybrać  pozycję Uaktualnij i przejść do karty **Skala** aplikacji przed kontynuowaniem.
    > 
 
-3. W **oknie dialogowym Dodawanie** miejsca nadaj miejscu nazwę i wybierz, czy sklonować konfigurację aplikacji z innego miejsca wdrożenia. Wybierz **pozycję Dodaj,** aby kontynuować.
+3. W **oknie dialogowym Dodawanie** miejsca podaj nazwę miejsca i wybierz, czy sklonować konfigurację aplikacji z innego miejsca wdrożenia. Wybierz **pozycję Dodaj,** aby kontynuować.
    
     ![Źródło konfiguracji](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     Konfigurację można sklonować z dowolnego istniejącego miejsca. Ustawienia, które można sklonować, obejmują ustawienia aplikacji, parametry połączenia, wersje platformy językowej, gniazda internetowe, wersję protokołu HTTP i bitowość platformy.
 
-4. Po dodaniu miejsca wybierz pozycję **Zamknij,** aby zamknąć okno dialogowe. Nowe miejsce jest teraz wyświetlane na **stronie Miejsca wdrożenia.** Domyślnie wartość **% ruchu jest** ustawiona na 0 dla nowego miejsca, a cały ruch klientów jest przekierowyny do miejsca produkcyjnego.
+4. Po dodaniu miejsca wybierz pozycję **Zamknij,** aby zamknąć okno dialogowe. Nowe miejsce jest teraz wyświetlane na **stronie Miejsca wdrożenia.** Domyślnie wartość **% ruchu** jest ustawiona na 0 dla nowego miejsca, a cały ruch klientów jest przekierowyny do miejsca produkcyjnego.
 
 5. Wybierz nowe miejsce wdrożenia, aby otworzyć stronę zasobów tego miejsca.
    
@@ -73,7 +73,7 @@ Nowe miejsce wdrożenia nie ma zawartości, nawet jeśli sklonuje się ustawieni
 W przypadku zamiany dwóch miejsc (zazwyczaj z miejsca przejściowego do miejsca produkcyjnego) App Service, aby upewnić się, że w miejscu docelowym nie wystąpi przestój:
 
 1. Zastosuj następujące ustawienia z miejsca docelowego (na przykład miejsca produkcyjnego) do wszystkich wystąpień miejsca źródłowego: 
-    - [Ustawienia aplikacji specyficzne dla](#which-settings-are-swapped) miejsca i parametry połączenia, jeśli ma to zastosowanie.
+    - [Ustawienia aplikacji specyficzne](#which-settings-are-swapped) dla miejsca i parametry połączenia, jeśli ma to zastosowanie.
     - [Ustawienia ciągłego](deploy-continuous-deployment.md) wdrażania, jeśli są włączone.
     - [App Service ustawienia uwierzytelniania,](overview-authentication-authorization.md) jeśli są włączone.
     
@@ -81,7 +81,7 @@ W przypadku zamiany dwóch miejsc (zazwyczaj z miejsca przejściowego do miejsca
 
 1. Poczekaj na zakończenie ponownego uruchamiania każdego wystąpienia w miejscu źródłowym. Jeśli ponowne uruchomienie jakiegokolwiek wystąpienia nie powiedzie się, operacja zamiany przywraca wszystkie zmiany do miejsca źródłowego i zatrzymuje operację.
 
-1. Jeśli [lokalna pamięć podręczna](overview-local-cache.md) jest włączona, wyzwolij inicjowanie lokalnej pamięci podręcznej, wywołując żądanie HTTP do katalogu głównego aplikacji ("/") w każdym wystąpieniu miejsca źródłowego. Poczekaj, aż każde wystąpienie zwróci dowolną odpowiedź HTTP. Inicjowanie lokalnej pamięci podręcznej powoduje kolejne ponowne uruchomienie każdego wystąpienia.
+1. Jeśli [włączono lokalną](overview-local-cache.md) pamięć podręczną, wyzwolij inicjowanie lokalnej pamięci podręcznej, wywołując żądanie HTTP do katalogu głównego aplikacji ("/") w każdym wystąpieniu miejsca źródłowego. Poczekaj, aż każde wystąpienie zwróci dowolną odpowiedź HTTP. Inicjalizacja lokalnej pamięci podręcznej powoduje kolejne ponowne uruchomienie każdego wystąpienia.
 
 1. Jeśli [zamiana automatyczna](#Auto-Swap) jest włączona [](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) przy użyciu niestandardowej rozgrzewki, [](#Warm-up)wyzwolij inicjację aplikacji, wywołując żądanie HTTP do katalogu głównego aplikacji ("/") w każdym wystąpieniu miejsca źródłowego.
 
@@ -89,11 +89,11 @@ W przypadku zamiany dwóch miejsc (zazwyczaj z miejsca przejściowego do miejsca
     
     Jeśli wystąpienie zwraca dowolną odpowiedź HTTP, uważa się, że jest rozgrzewce.
 
-1. Jeśli wszystkie wystąpienia w miejscu źródłowym zostaną rozgrzewce pomyślnie, zamień dwa miejsca, przełączając reguły rozsyłania dla dwóch miejsc. Po tym kroku miejsce docelowe (na przykład miejsce produkcyjne) ma aplikację, która została wcześniej rozgrzana w miejscu źródłowym.
+1. Jeśli wszystkie wystąpienia w miejscu źródłowym zostaną rozgrzewce pomyślnie, zamień dwa miejsca, przełączając reguły rozsyłania dla dwóch miejsc. Po tym kroku miejsce docelowe (na przykład miejsce produkcyjne) zawiera aplikację, która została wcześniej rozgrzana w miejscu źródłowym.
 
 1. Teraz, gdy miejsce źródłowe zawiera aplikację przed zamianą wcześniej w miejscu docelowym, wykonaj tę samą operację, stosując wszystkie ustawienia i ponownie uruchamiając wystąpienia.
 
-W dowolnym momencie operacji zamiany wszystkie prace dotyczące inicjowania zamienione aplikacje są odbywać się w miejscu źródłowym. Miejsce docelowe pozostaje w trybie online podczas przygotowania i rozgrzewki miejsca źródłowego, niezależnie od tego, gdzie zamiana zakończy się powodzeniem lub niepowodzeniem. Aby zamienić miejsce przejściowe na miejsce produkcyjne, upewnij się, że miejsce produkcyjne jest zawsze miejscem docelowym. W ten sposób operacja zamiany nie ma wpływu na aplikację produkcyjną.
+W dowolnym momencie operacji zamiany cała praca nad zainicjowania zamienione aplikacje odbywa się w miejscu źródłowym. Miejsce docelowe pozostaje w trybie online podczas przygotowania i rozgrzewki miejsca źródłowego, niezależnie od tego, gdzie zamiana zakończy się powodzeniem lub niepowodzeniem. Aby zamienić miejsce przejściowe na miejsce produkcyjne, upewnij się, że miejsce produkcyjne jest zawsze miejscem docelowym. Dzięki temu operacja zamiany nie ma wpływu na aplikację produkcyjną.
 
 ### <a name="which-settings-are-swapped"></a>Które ustawienia są zamieniane?
 
@@ -109,7 +109,7 @@ Aby skonfigurować ustawienie aplikacji lub ciąg połączenia tak, aby nie był
 Miejsca wdrożenia można zamienić na stronie Miejsca **wdrożenia** aplikacji i **na stronie** Przegląd. Aby uzyskać szczegółowe informacje techniczne dotyczące zamiany miejsca, zobacz [Co się dzieje podczas zamiany](#AboutConfiguration).
 
 > [!IMPORTANT]
-> Przed zamianą aplikacji z miejsca wdrożenia na produkcyjne upewnij się, że miejsce docelowe jest produkcyjne i że wszystkie ustawienia w miejscu źródłowym są skonfigurowane dokładnie tak, jak chcesz, aby były w środowisku produkcyjnym.
+> Przed zamianą aplikacji z miejsca wdrożenia na produkcyjne upewnij się, że miejsce docelowe to produkcja i że wszystkie ustawienia w miejscu źródłowym są skonfigurowane dokładnie tak, jak chcesz, aby były w środowisku produkcyjnym.
 > 
 > 
 
@@ -129,13 +129,13 @@ Aby zamienić miejsca wdrożenia:
 
 3. Po zakończeniu zamknij okno dialogowe, wybierając pozycję **Zamknij**.
 
-Jeśli masz problemy, zobacz Rozwiązywanie [problemów z zamianami](#troubleshoot-swaps).
+Jeśli masz jakiekolwiek problemy, zobacz Rozwiązywanie [problemów z zamianami](#troubleshoot-swaps).
 
 <a name="Multi-Phase"></a>
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>Zamiana z podglądem (zamiana wielofazowa)
 
-Przed zamianą w środowisku produkcyjnym jako miejsce docelowe sprawdź, czy aplikacja działa z zamienione ustawienia. Miejsce źródłowe jest również rozgrzewowane przed zakończeniem zamiany, co jest pożądane w przypadku aplikacji o znaczeniu krytycznym.
+Przed zamianą do produkcji jako miejsce docelowe sprawdź, czy aplikacja działa z zamienione ustawienia. Miejsce źródłowe jest również rozgrzewowane przed zakończeniem zamiany, co jest pożądane w przypadku aplikacji o znaczeniu krytycznym.
 
 Podczas zamiany z podglądem program App Service tę [samą](#AboutConfiguration) operację zamiany, ale jest wstrzymywany po pierwszym kroku. Następnie możesz sprawdzić wynik w miejscu przejściowym przed zakończeniem zamiany. 
 
@@ -153,11 +153,11 @@ Aby zamienić się z podglądem:
 
     Po zakończeniu fazy 1 w oknie dialogowym zostanie wyświetlone powiadomienie. Wyświetl podgląd zamiany w miejscu źródłowym, przechodząc `https://<app_name>-<source-slot-name>.azurewebsites.net` do . 
 
-3. Gdy wszystko będzie gotowe do zakończenia  oczekującej zamiany, wybierz akcję Ukończ zamianę w **zamian,** a następnie wybierz pozycję **Ukończ zamianę.**
+3. Gdy wszystko będzie gotowe do ukończenia zamiany oczekującej, wybierz **akcję** Ukończ zamianę w **zamian** i wybierz pozycję **Ukończ zamianę.**
 
-    Aby anulować oczekującą zamianę, wybierz pozycję **Anuluj zamianę.**
+    Aby anulować oczekującą zamianę, wybierz **pozycję Anuluj zamianę.**
 
-4. Po zakończeniu zamknij okno dialogowe, wybierając pozycję **Zamknij.**
+4. Po zakończeniu zamknij okno dialogowe, wybierając pozycję **Zamknij**.
 
 Jeśli masz jakiekolwiek problemy, zobacz Rozwiązywanie [problemów z zamianami](#troubleshoot-swaps).
 
@@ -191,7 +191,7 @@ Aby skonfigurować zamianę automatyczną:
 
 3. Wykonaj wypychanie kodu do miejsca źródłowego. Zamiana automatyczna następuje po krótkim czasie, a aktualizacja jest odzwierciedlana pod adresem URL miejsca docelowego.
 
-Jeśli masz problemy, zobacz Rozwiązywanie [problemów z zamianami](#troubleshoot-swaps).
+Jeśli masz jakiekolwiek problemy, zobacz Rozwiązywanie [problemów z zamianami](#troubleshoot-swaps).
 
 <a name="Warm-up"></a>
 
@@ -239,37 +239,37 @@ Aby automatycznie rozsyłać ruch produkcyjny:
 
 1. Przejdź do strony zasobów aplikacji i wybierz pozycję **Miejsca wdrożenia.**
 
-2. W **kolumnie Procent** ruchu w miejscu, do którego chcesz przekierowyować ruch, określ wartość procentową (od 0 do 100) w celu reprezentowania całkowitej ilości ruchu, który chcesz przekierowyć. Wybierz pozycję **Zapisz**.
+2. W **kolumnie Procent** ruchu w miejscu, do którego chcesz przekierowyć trasę, określ wartość procentową (od 0 do 100) reprezentującą łączną ilość ruchu, który chcesz przekierowyć. Wybierz pozycję **Zapisz**.
 
-    ![Ustawianie wartości procentowej ruchu](./media/web-sites-staged-publishing/RouteTraffic.png)
+    ![Ustawianie procentu ruchu](./media/web-sites-staged-publishing/RouteTraffic.png)
 
 Po zapisaniu ustawienia określona wartość procentowa klientów jest losowo przekierowyowana do miejsca nieprodukcji. 
 
 Gdy klient jest automatycznie przekierowyowany do określonego miejsca, jest on "przypięty" do tego miejsca na czas życia tej sesji klienta. W przeglądarce klienta możesz zobaczyć, do którego miejsca jest przypięta sesja, patrząc na `x-ms-routing-name` plik cookie w nagłówkach HTTP. Żądanie, które jest kierowane do miejsca "przejściowego", ma plik cookie `x-ms-routing-name=staging` . Żądanie, które jest kierowane do miejsca produkcyjnego, ma plik cookie `x-ms-routing-name=self` .
 
    > [!NOTE]
-   > Obok interfejsu Azure Portal można również użyć polecenia w interfejsie wiersza polecenia platformy Azure, aby ustawić wartości procentowe routingu z narzędzi ci/CD, takich jak potoki DevOps lub inne [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) systemy automatyzacji.
+   > Obok polecenia Azure Portal można również użyć polecenia w interfejsie wiersza polecenia platformy Azure, aby ustawić wartości procentowe routingu z narzędzi ci/CD, takich jak potoki DevOps lub inne systemy [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) automatyzacji.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Ręczne przekieruj ruch produkcyjny
 
-Oprócz automatycznego routingu ruchu usługa App Service kierowanie żądań do określonego miejsca. Jest to przydatne, gdy chcesz, aby użytkownicy mogli zrezygnować z korzystania z aplikacji w wersji beta lub z nich zrezygnować. Aby ręcznie przekierowyć ruch produkcyjny, należy użyć `x-ms-routing-name` parametru zapytania.
+Oprócz automatycznego routingu ruchu usługa App Service kierowanie żądań do określonego miejsca. Jest to przydatne, gdy chcesz, aby użytkownicy mogli zrezygnować z aplikacji w wersji beta lub z nich zrezygnować. Aby ręcznie przekierowyć ruch produkcyjny, należy użyć `x-ms-routing-name` parametru zapytania.
 
-Aby na przykład pozwolić użytkownikom zrezygnować z aplikacji w wersji beta, możesz umieścić ten link na swojej stronie internetowej:
+Aby na przykład pozwolić użytkownikom zrezygnować z aplikacji w wersji beta, możesz umieścić ten link na stronie internetowej:
 
 ```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
-Ciąg określa `x-ms-routing-name=self` miejsce produkcyjne. Gdy przeglądarka klienta uzyskuje dostęp do linku, jest on przekierowywany do miejsca produkcyjnego. Każde kolejne żądanie ma `x-ms-routing-name=self` plik cookie, który przypina sesję do miejsca produkcyjnego.
+Ciąg określa `x-ms-routing-name=self` miejsce produkcyjne. Gdy przeglądarka klienta uzyskuje dostęp do linku, jest on przekierowywany do miejsca produkcyjnego. Każde kolejne żądanie ma plik cookie, który `x-ms-routing-name=self` przypina sesję do miejsca produkcyjnego.
 
-Aby pozwolić użytkownikom na zgodę na aplikację w wersji beta, ustaw ten sam parametr zapytania na nazwę miejsca nieprodukcji. Oto przykład:
+Aby pozwolić użytkownikom wybrać aplikację w wersji beta, ustaw ten sam parametr zapytania na nazwę miejsca nieprodukcyjną. Oto przykład:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-Domyślnie nowe gniazda mają regułę rozsyłania `0%` o wartości , wyświetlaną na szaro. Gdy jawnie ustawisz tę wartość na (wyświetlaną w czarnym tekście), użytkownicy mogą ręcznie uzyskać dostęp do miejsca przejściowego przy `0%` użyciu `x-ms-routing-name` parametru zapytania. Nie będą one jednak automatycznie kierowane do miejsca, ponieważ wartość procentowa routingu jest ustawiona na 0. Jest to zaawansowany scenariusz, w którym można "ukryć" miejsce przejściowe przed publicznym, umożliwiając zespołom wewnętrznym testowanie zmian w miejscu.
+Domyślnie nowe gniazda mają regułę rozsyłania `0%` , wyświetlaną na szaro. Jeśli jawnie ustawisz tę wartość na (wyświetlaną jako czarny tekst), użytkownicy mogą ręcznie uzyskać dostęp do miejsca przejściowego przy `0%` użyciu `x-ms-routing-name` parametru zapytania. Nie będą one jednak automatycznie kierowane do miejsca, ponieważ wartość procentowa routingu jest ustawiona na 0. Jest to zaawansowany scenariusz, w którym można "ukryć" miejsce przejściowe przed publicznym, zezwalając zespołom wewnętrznym na testowanie zmian w miejscu.
 
 <a name="Delete"></a>
 
@@ -289,7 +289,7 @@ Wyszukaj i wybierz aplikację. Wybierz **pozycję Miejsca wdrożenia —**  >  *
 
 Azure PowerShell to moduł, który udostępnia polecenia cmdlet do zarządzania platformą Azure za pośrednictwem usługi Windows PowerShell, w tym obsługę zarządzania miejscami wdrożenia w Azure App Service.
 
-Aby uzyskać informacje na temat instalowania i konfigurowania Azure PowerShell oraz uwierzytelniania użytkowników Azure PowerShell subskrypcji platformy Azure, zobacz Jak zainstalować i skonfigurować Microsoft Azure PowerShell [.](/powershell/azure/)  
+Aby uzyskać informacje na temat instalowania i konfigurowania Azure PowerShell oraz uwierzytelniania Azure PowerShell subskrypcji platformy Azure, zobacz Jak zainstalować i [skonfigurować](/powershell/azure/)Microsoft Azure PowerShell .  
 
 ---
 ### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
@@ -334,16 +334,16 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-resource-manager-templates"></a>Automatyzacja przy użyciu Resource Manager szablonów
+## <a name="automate-with-resource-manager-templates"></a>Automatyzowanie przy użyciu Resource Manager szablonów
 
 [Azure Resource Manager to](../azure-resource-manager/templates/overview.md) deklaratywne pliki JSON służące do automatyzowania wdrażania i konfigurowania zasobów platformy Azure. Aby zamienić miejsca przy użyciu Resource Manager szablonów, ustawisz dwie właściwości w zasobach *Microsoft.Web/sites/slots* i *Microsoft.Web/sites:*
 
 - `buildVersion`: jest to właściwość ciągu reprezentująca bieżącą wersję aplikacji wdrożonej w miejscu. Na przykład: "v1", "1.0.0.1" lub "2019-09-20T11:53:25.2887393-07:00".
-- `targetBuildVersion`: jest to właściwość ciągu określająca, `buildVersion` co powinno mieć miejsce. Jeśli targetBuildVersion nie jest równa bieżącej wartości , spowoduje to wyzwolenie operacji wymiany przez znalezienie miejsca o `buildVersion` określonej wartości `buildVersion` .
+- `targetBuildVersion`: jest to właściwość ciągu określająca, `buildVersion` co powinno mieć miejsce. Jeśli targetBuildVersion nie jest równa bieżącej wartości , spowoduje to wyzwolenie operacji zamiany przez znalezienie `buildVersion` miejsca, które ma określony element `buildVersion` .
 
 ### <a name="example-resource-manager-template"></a>Przykładowy Resource Manager szablonu
 
-Poniższy Resource Manager zaktualizuje obiekt miejsca przejściowego i `buildVersion` ustawi obiekt `targetBuildVersion` w miejscu produkcyjnym. Spowoduje to zamianę dwóch miejsc. W szablonie przyjęto założenie, że masz już utworzoną aplikacji internetowej z miejscem o nazwie "staging".
+Poniższy Resource Manager zaktualizuje obiekt miejsca przejściowego i `buildVersion` ustawi wartość w `targetBuildVersion` miejscu produkcyjnym. Spowoduje to zamianę dwóch miejsc. W szablonie przyjęto założenie, że masz już utworzoną aplikacji internetowej z miejscem o nazwie "staging".
 
 ```json
 {
@@ -399,15 +399,15 @@ Aby uzyskać [polecenia interfejsu](https://github.com/Azure/azure-cli) wiersza 
 
 ## <a name="troubleshoot-swaps"></a>Rozwiązywanie problemów z zamianami
 
-Jeśli podczas zamiany miejsca wystąpi [błąd,](#AboutConfiguration)jest on *rejestrowanyD:\home\LogFiles\eventlog.xml*. Jest on również rejestrowany w dzienniku błędów specyficznym dla aplikacji.
+Jeśli podczas zamiany miejsca wystąpi jakikolwiek [błąd,](#AboutConfiguration)zostanie onD:\home\LogFiles\eventlog.xml *.* Jest on również rejestrowany w dzienniku błędów specyficznym dla aplikacji.
 
-Poniżej podano niektóre typowe błędy zamiany:
+Poniżej podano niektóre typowe błędy wymiany:
 
-- Ułożyło się żądanie HTTP do katalogu głównego aplikacji. Operacja zamiany czeka 90 sekund dla każdego żądania HTTP, a ponowne próby są 5 razy. Jeśli wszystkie ponowne próby przejdą w czasie, operacja zamiany zostanie zatrzymana.
+- Uchyliliśmy czas żądania HTTP do katalogu głównego aplikacji. Operacja zamiany czeka 90 sekund dla każdego żądania HTTP, a ponowne próby są 5 razy. Jeśli zostanie użytą wartość dla wszystkich ponownych prób, operacja zamiany zostanie zatrzymana.
 
 - Inicjowanie lokalnej pamięci podręcznej może się nie powieść, gdy zawartość aplikacji przekroczy limit przydziału dysku lokalnego określony dla lokalnej pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie lokalnej pamięci podręcznej](overview-local-cache.md).
 
-- Podczas [niestandardowej rozgrzewki](#Warm-up)żądania HTTP są dokonywane wewnętrznie (bez użycia zewnętrznego adresu URL). Mogą one nie powieść się z pewnymi regułami ponownego pisać adresów URL w *Web.config*. Na przykład reguły przekierowywania nazw domen lub wymuszania protokołu HTTPS mogą uniemożliwiać dotarcie żądań rozgrzewki do kodu aplikacji. Aby omiąć ten problem, zmodyfikuj reguły ponownego pisu, dodając następujące dwa warunki:
+- Podczas [niestandardowej rozgrzewki](#Warm-up)żądania HTTP są dokonywane wewnętrznie (bez użycia zewnętrznego adresu URL). Mogą one nie powieść się z pewnymi regułami ponownego pisali adresy URL *wWeb.config*. Na przykład reguły przekierowywania nazw domen lub wymuszania protokołu HTTPS mogą uniemożliwiać dotarcie żądań rozgrzewki do kodu aplikacji. Aby ominąc ten problem, zmodyfikuj reguły ponownego pisu, dodając następujące dwa warunki:
 
     ```xml
     <conditions>
@@ -416,7 +416,7 @@ Poniżej podano niektóre typowe błędy zamiany:
       ...
     </conditions>
     ```
-- Bez niestandardowej rozgrzewki reguły ponownego agwania adresów URL nadal mogą blokować żądania HTTP. Aby ominąć ten problem, zmodyfikuj reguły ponownego pisu, dodając następujący warunek:
+- Bez niestandardowej rozgrzewki reguły ponownego pisali adresy URL nadal mogą blokować żądania HTTP. Aby ominąc ten problem, zmodyfikuj reguły ponownego pisu, dodając następujący warunek:
 
     ```xml
     <conditions>
@@ -425,7 +425,7 @@ Poniżej podano niektóre typowe błędy zamiany:
     </conditions>
     ```
 
-- Po zamianie miejsca w aplikacji mogą wystąpić nieoczekiwane ponowne uruchomienia. Dzieje się tak, ponieważ po zamianie konfiguracja powiązania nazwy hosta nie jest zsynchronizowana, co samo w sobie nie powoduje ponownego uruchomienia. Jednak niektóre podstawowe zdarzenia magazynu (takie jak trybu failover woluminu magazynu) mogą wykryć te rozbieżności i wymusić ponowne uruchomienie wszystkich procesów roboczych. Aby zminimalizować tego rodzaju ponowne uruchomienia, ustaw [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` ustawienie aplikacji](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) we *wszystkich gniazdach*. To ustawienie aplikacji nie działa *jednak* z Windows Communication Foundation (WCF).
+- Po zamianie miejsca aplikacja może doświadczyć nieoczekiwanych ponownego uruchomienia. Dzieje się tak, ponieważ po zamianie konfiguracja powiązania nazwy hosta nie jest zsynchronizowana, co samo w sobie nie powoduje ponownego uruchomienia. Jednak niektóre podstawowe zdarzenia magazynu (takie jak trybu failover woluminu magazynu) mogą wykryć te rozbieżności i wymusić ponowne uruchomienie wszystkich procesów roboczych. Aby zminimalizować tego typu ponowne uruchomienia, ustaw [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` ustawienie aplikacji we](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) wszystkich *gniazdach*. To ustawienie aplikacji nie działa *jednak* z Windows Communication Foundation (WCF).
 
 ## <a name="next-steps"></a>Następne kroki
-[Blokowanie dostępu do miejsc nieprodukcji](app-service-ip-restrictions.md)
+[Blokowanie dostępu do miejsc nieprodukcyjnych](app-service-ip-restrictions.md)

@@ -1,84 +1,85 @@
 ---
-title: Skalowanie pamięci podręcznej platformy Azure dla wystąpienia Redis
-description: Dowiedz się, jak skalować usługę Azure cache for Redis Instances przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell, i interfejsu wiersza polecenia platformy Azure
+title: Skalowanie Azure Cache for Redis danych
+description: Dowiedz się, jak skalować wystąpienia Azure Cache for Redis przy użyciu interfejsu Azure Portal i narzędzi, takich jak Azure PowerShell i interfejs wiersza polecenia platformy Azure
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 43db8d4c094ec1b08a24c29fdaccf97f63ef29b9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581647"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833980"
 ---
-# <a name="scale-an-azure-cache-for-redis-instance"></a>Skalowanie pamięci podręcznej platformy Azure dla wystąpienia Redis
-Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej. W przypadku pamięci podręcznej podstawowa, standardowa lub Premium można zmienić jej rozmiar i warstwę po jej utworzeniu, aby zachować zapotrzebowanie na aplikacje. W tym artykule przedstawiono sposób skalowania pamięci podręcznej przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell i interfejs wiersza polecenia platformy Azure.
+# <a name="scale-an-azure-cache-for-redis-instance"></a>Skalowanie Azure Cache for Redis danych
+Azure Cache for Redis oferuje różne oferty pamięci podręcznej, które zapewniają elastyczność wyboru rozmiaru i funkcji pamięci podręcznej. W przypadku pamięci podręcznej w warstwie Podstawowa, Standardowa lub Premium możesz zmienić jej rozmiar i warstwę po jej utworzeniu, aby nadązyć za potrzebami aplikacji. W tym artykule pokazano, jak skalować pamięć podręczną przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell i interfejs wiersza polecenia platformy Azure.
 
 ## <a name="when-to-scale"></a>Kiedy skalować
-Można użyć funkcji [monitorowania](cache-how-to-monitor.md) usługi Azure cache for Redis do monitorowania kondycji i wydajności pamięci podręcznej oraz określania czasu skalowania pamięci podręcznej. 
+Za pomocą funkcji [monitorowania usługi](cache-how-to-monitor.md) Azure Cache for Redis monitorować kondycję i wydajność pamięci podręcznej oraz ułatwić określenie, kiedy należy skalować pamięć podręczną. 
 
-Można monitorować następujące metryki, aby pomóc w ustaleniu, czy konieczne jest skalowanie.
+Możesz monitorować następujące metryki, aby ułatwić określenie, czy konieczne jest skalowanie.
 
 * Ładowanie serwera Redis
 * Użycie pamięci
 * Przepustowość sieci
 * Użycie procesora
 
-Jeśli okaże się, że pamięć podręczna nie spełnia już wymagań aplikacji, można skalować ją do większej lub mniejszej warstwy cenowej pamięci podręcznej, która jest odpowiednia dla danej aplikacji. Aby uzyskać więcej informacji na temat określania warstwy cenowej pamięci podręcznej, która ma być używana, zobacz [Wybieranie odpowiedniej warstwy](cache-overview.md#choosing-the-right-tier).
+Jeśli ustalisz, że pamięć podręczna nie spełnia już wymagań aplikacji, możesz skalować do większej lub mniejszej warstwy cenowej pamięci podręcznej, która jest właściwa dla aplikacji. Aby uzyskać więcej informacji na temat określania warstwy cenowej pamięci podręcznej do użycia, zobacz [Wybieranie właściwej warstwy](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="scale-a-cache"></a>Skalowanie pamięci podręcznej
-Aby skalować pamięć podręczną, [Przejdź do pamięci podręcznej](cache-configure.md#configure-azure-cache-for-redis-settings) w [Azure Portal](https://portal.azure.com) a następnie kliknij pozycję **Skaluj** w **menu zasób**.
+Aby skalować pamięć podręczną, [przejdź do](cache-configure.md#configure-azure-cache-for-redis-settings) pamięci podręcznej w Azure Portal [i](https://portal.azure.com) kliknij pozycję **Skaluj** w **menu Zasób.**
 
 ![Skalowanie](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-Wybierz żądaną warstwę cenową w bloku **Wybierz warstwę cenową** , a następnie kliknij przycisk **Wybierz**.
+Wybierz żądaną warstwę cenową w bloku **Wybierz warstwę cenową,** a następnie kliknij **pozycję Wybierz.**
 
 ![Warstwa cenowa][redis-cache-pricing-tier-blade]
 
 
-Możesz skalować do innej warstwy cenowej z następującymi ograniczeniami:
+Można skalować do innej warstwy cenowej z następującymi ograniczeniami:
 
 * Nie można skalować z wyższej warstwy cenowej do niższej warstwy cenowej.
-  * Nie można skalować z pamięci podręcznej **Premium** do warstwy **standardowa** lub **podstawowa** .
-  * Nie można skalować z poziomu **standardowej** pamięci podręcznej do **podstawowej** pamięci podręcznej.
-* Możesz skalować od **podstawowej** pamięci podręcznej do **standardowej** pamięci podręcznej, ale nie możesz zmienić rozmiaru w tym samym czasie. Jeśli potrzebujesz innego rozmiaru, możesz wykonać kolejną operację skalowania do żądanego rozmiaru.
-* Nie można skalować z **podstawowej** pamięci podręcznej bezpośrednio do pamięci podręcznej **Premium** . Najpierw Skaluj od warstwy **podstawowa** do **standardowa** w ramach jednej operacji skalowania, a następnie z warstwy **standardowa** do **Premium** w kolejnej operacji skalowania.
-* Nie można skalować od większego rozmiaru w dół do rozmiaru **C0 (250 MB)** . Można jednak skalować w dół do dowolnego innego rozmiaru w ramach tej samej warstwy cenowej. Na przykład można skalować w dół od standardu C5 do C1 Standard.
+  * Nie można skalować z pamięci podręcznej **Premium** w dół **do** standardowej lub podstawowej pamięci **podręcznej.**
+  * Nie można skalować z **standardowej** pamięci podręcznej w dół do podstawowej **pamięci podręcznej.**
+* Można skalować z podstawowej **pamięci podręcznej** do **standardowej** pamięci podręcznej, ale nie można zmienić rozmiaru w tym samym czasie. Jeśli potrzebujesz innego rozmiaru, możesz wykonać kolejną operację skalowania do żądanego rozmiaru.
+* Nie można skalować bezpośrednio z **podstawowej** pamięci podręcznej do pamięci **podręcznej Premium.** Najpierw przeskaluj **z podstawowej** do standardowej w jednej operacji skalowania, a następnie ze **Standardowa** do **Premium** w kolejnej operacji skalowania. 
+* Nie można skalować od większego rozmiaru do **rozmiaru C0 (250 MB).** Można jednak skalować w dół do dowolnego innego rozmiaru w ramach tej samej warstwy cenowej. Na przykład można skalować w dół z C5 Standard do C1 Standard.
  
-Podczas skalowania pamięci podręcznej do nowej warstwy cenowej w bloku **usługi Azure cache for Redis** jest wyświetlany stan **skalowania** .
+Gdy pamięć podręczna jest skalowana do  nowej warstwy cenowej, w bloku Azure Cache for Redis jest **wyświetlany stan skalowania.**
 
 ![Skalowanie][redis-cache-scaling]
 
-Po zakończeniu skalowania stan zmieni się ze **skalowanie** na **uruchomione**.
+Po zakończeniu skalowania stan zmieni się z **Skalowanie** na **Uruchomione.**
 
 ## <a name="how-to-automate-a-scaling-operation"></a>Jak zautomatyzować operację skalowania
-Oprócz skalowania wystąpień pamięci podręcznej w Azure Portal można skalować za pomocą poleceń cmdlet programu PowerShell, interfejsu wiersza polecenia platformy Azure i za pomocą bibliotek zarządzania Microsoft Azure (MAML). 
+Oprócz skalowania wystąpień pamięci podręcznej w usłudze Azure Portal można skalować przy użyciu poleceń cmdlet programu PowerShell, interfejsu wiersza polecenia platformy Azure i bibliotek zarządzania Microsoft Azure (MAML). 
 
 * [Skalowanie przy użyciu programu PowerShell](#scale-using-powershell)
 * [Skalowanie przy użyciu interfejsu wiersza polecenia platformy Azure](#scale-using-azure-cli)
-* [Skalowanie za pomocą MAML](#scale-using-maml)
+* [Skalowanie przy użyciu zarządzania aplikacjami mobilnymi (MAML)](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>Skalowanie przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Możesz skalować pamięć podręczną platformy Azure dla wystąpień Redis za pomocą programu PowerShell, używając polecenia cmdlet [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) `Size` , gdy `Sku` właściwości, lub `ShardCount` są modyfikowane. Poniższy przykład przedstawia sposób skalowania pamięci podręcznej o nazwie `myCache` do pamięci podręcznej 2,5 GB. 
+Możesz skalować wystąpienia Azure Cache for Redis za pomocą programu PowerShell przy użyciu polecenia cmdlet [Set-AzRedisCache,](/powershell/module/az.rediscache/set-azrediscache) gdy właściwości `Size` , lub zostaną `Sku` `ShardCount` zmodyfikowane. W poniższym przykładzie pokazano, jak skalować pamięć podręczną o nazwie `myCache` do pamięci podręcznej o rozmiarze 2,5 GB. 
 
 ```powershell
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 ```
 
-Aby uzyskać więcej informacji na temat skalowania za pomocą programu PowerShell, zobacz [skalowanie pamięci podręcznej platformy Azure dla Redis przy użyciu programu PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
+Aby uzyskać więcej informacji na temat skalowania za pomocą programu PowerShell, zobacz [Aby skalować Azure Cache for Redis przy użyciu programu PowerShell.](cache-how-to-manage-redis-cache-powershell.md#scale)
 
 ### <a name="scale-using-azure-cli"></a>Skalowanie przy użyciu interfejsu wiersza polecenia platformy Azure
-Aby skalować usługę Azure cache for Redis Instances przy użyciu interfejsu wiersza polecenia platformy Azure, wywołaj `azure rediscache set` polecenie i przekaż wymagane zmiany konfiguracji, które obejmują nowy rozmiar, jednostkę SKU lub rozmiar klastra, w zależności od wymaganej operacji skalowania.
+Aby skalować wystąpienia Azure Cache for Redis przy użyciu interfejsu wiersza polecenia platformy Azure, wywołaj polecenie i przekaż żądane zmiany konfiguracji, które obejmują nowy rozmiar, sku lub rozmiar klastra, w zależności od żądanej operacji `azure rediscache set` skalowania.
 
-Aby uzyskać więcej informacji na temat skalowania przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Zmiana ustawień istniejącej pamięci podręcznej platformy Azure dla usługi Redis](cache-manage-cli.md#scale).
+Aby uzyskać więcej informacji na temat skalowania za pomocą interfejsu wiersza polecenia platformy Azure, zobacz Zmienianie ustawień [istniejącego Azure Cache for Redis.](cache-manage-cli.md#scale)
 
-### <a name="scale-using-maml"></a>Skalowanie za pomocą MAML
-Aby skalować pamięć podręczną platformy Azure dla wystąpień Redis przy użyciu [bibliotek zarządzania Microsoft Azure (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), wywołaj `IRedisOperations.CreateOrUpdate` metodę i przekaż nowy rozmiar dla `RedisProperties.SKU.Capacity` .
+### <a name="scale-using-maml"></a>Skalowanie przy użyciu zarządzania aplikacjami mobilnymi (MAML)
+Aby skalować wystąpienia Azure Cache for Redis przy użyciu bibliotek zarządzania Microsoft Azure [(MAML),](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)wywołaj metodę i przekaż nowy rozmiar `IRedisOperations.CreateOrUpdate` dla `RedisProperties.SKU.Capacity` .
 
 ```csharp
     static void Main(string[] args)
@@ -100,80 +101,80 @@ Aby skalować pamięć podręczną platformy Azure dla wystąpień Redis przy u�
     }
 ```
 
-Aby uzyskać więcej informacji, zobacz przykład [zarządzania usługą Azure cache for Redis przy użyciu MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) .
+Aby uzyskać więcej informacji, zobacz przykład [Manage Azure Cache for Redis using MAML (Zarządzanie](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) aplikacjami mobilnymi przy użyciu maml).
 
-## <a name="scaling-faq"></a>Skalowanie często zadawane pytania
-Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące skalowania usługi Azure cache for Redis.
+## <a name="scaling-faq"></a>Często zadawane pytania dotyczące skalowania
+Na poniższej liście znajdują się odpowiedzi na często zadawane pytania dotyczące Azure Cache for Redis skalowania.
 
-* [Czy mogę skalować do, z lub w pamięci podręcznej Premium?](#can-i-scale-to-from-or-within-a-premium-cache)
-* [Czy po skalowaniu należy zmienić nazwę pamięci podręcznej lub klucze dostępu?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
+* [Czy można skalować do, z lub w pamięci podręcznej Premium?](#can-i-scale-to-from-or-within-a-premium-cache)
+* [Czy po skalowaniu muszę zmienić nazwę pamięci podręcznej lub klucze dostępu?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 * [Jak działa skalowanie?](#how-does-scaling-work)
-* [Czy podczas skalowania utracisz dane z mojej pamięci podręcznej?](#will-i-lose-data-from-my-cache-during-scaling)
-* [Czy ustawienie niestandardowych baz danych jest dotknięte problemem podczas skalowania?](#is-my-custom-databases-setting-affected-during-scaling)
+* [Czy podczas skalowania utracę dane z pamięci podręcznej?](#will-i-lose-data-from-my-cache-during-scaling)
+* [Czy podczas skalowania ma to wpływ na ustawienie niestandardowych baz danych?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Czy moja pamięć podręczna będzie dostępna podczas skalowania?](#will-my-cache-be-available-during-scaling)
-* Po skonfigurowaniu replikacji geograficznej dlaczego nie mogę skalować pamięci podręcznej ani zmieniać fragmentów w klastrze?
+* Dlaczego po skonfigurowaniu replikacji geograficznej nie mogę skalować pamięci podręcznej ani zmieniać fragmentów w klastrze?
 * [Operacje, które nie są obsługiwane](#operations-that-are-not-supported)
 * [Jak długo trwa skalowanie?](#how-long-does-scaling-take)
-* [Jak mogę sprawdzić, czy skalowanie zostało zakończone?](#how-can-i-tell-when-scaling-is-complete)
+* [Jak sprawdzić, kiedy skalowanie jest zakończone?](#how-can-i-tell-when-scaling-is-complete)
 
-### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>Czy mogę skalować do, z lub w pamięci podręcznej Premium?
-* Nie można skalować z poziomu pamięci podręcznej **Premium** do warstwy cenowej **podstawowa** lub **standardowa** .
-* Możesz skalować z jednej warstwy cenowej **Premium** cache do innej.
-* Nie można skalować z **podstawowej** pamięci podręcznej bezpośrednio do pamięci podręcznej **Premium** . Najpierw Skaluj od warstwy **podstawowa** do **standardowa** w ramach jednej operacji skalowania, a następnie z warstwy **standardowa** do **Premium** w kolejnej operacji skalowania.
-* Jeśli włączono klaster podczas tworzenia pamięci podręcznej **Premium** , można [zmienić rozmiar klastra](cache-how-to-premium-clustering.md#cluster-size). Jeśli pamięć podręczna została utworzona bez włączonej obsługi klastrowania, można skonfigurować klaster w późniejszym czasie.
+### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>Czy można skalować do, z lub w pamięci podręcznej Premium?
+* Nie można skalować z pamięci **podręcznej Premium** w dół do warstwy **cenowej Podstawowa** **lub Standardowa.**
+* Możesz skalować z jednej warstwy **cenowej premium** pamięci podręcznej do innej.
+* Nie można skalować z podstawowej pamięci **podręcznej** bezpośrednio do pamięci **podręcznej Premium.** Najpierw przeskaluj **z podstawowej do** **standardowej** w jednej operacji skalowania, a następnie ze **Standardowa** do **Premium** w kolejnej operacji skalowania.
+* Jeśli klastrowanie włączono podczas tworzenia pamięci podręcznej **Premium,** możesz [zmienić rozmiar klastra](cache-how-to-premium-clustering.md#cluster-size). Jeśli pamięć podręczna została utworzona bez włączonego klastrowania, można skonfigurować klastrowanie w późniejszym czasie.
   
-  Aby uzyskać więcej informacji, zobacz [jak skonfigurować klastrowanie dla pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-clustering.md).
+  Aby uzyskać więcej informacji, [zobacz How to configure clustering for a Premium Azure Cache for Redis (Jak](cache-how-to-premium-clustering.md)skonfigurować klastrowanie dla usługi Premium Azure Cache for Redis).
 
-### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>Czy po skalowaniu należy zmienić nazwę pamięci podręcznej lub klucze dostępu?
-Nie, nazwa i klucze pamięci podręcznej nie są zmieniane podczas operacji skalowania.
+### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>Czy po skalowaniu muszę zmienić nazwę pamięci podręcznej lub klucze dostępu?
+Nie, nazwa i klucze pamięci podręcznej nie ulegają zmianie podczas operacji skalowania.
 
 ### <a name="how-does-scaling-work"></a>Jak działa skalowanie?
-* Gdy **podstawowa** pamięć podręczna jest skalowana do innego rozmiaru, jest ona zamykana i zostanie zainicjowana Nowa pamięć podręczna przy użyciu nowego rozmiaru. W tym czasie pamięć podręczna jest niedostępna, a wszystkie dane w pamięci podręcznej zostaną utracone.
-* Gdy **podstawowa** pamięć podręczna jest skalowana do **standardowej** pamięci podręcznej, zostanie zainicjowana pamięć podręczna repliki, a dane są kopiowane z podstawowej pamięci podręcznej do pamięci podręcznej repliki. Pamięć podręczna pozostaje dostępna podczas procesu skalowania.
-* Gdy **standardowa** pamięć podręczna jest skalowana do innego rozmiaru lub pamięci podręcznej **Premium** , jedna z replik zostanie zamknięta i ponownie zainicjowana do nowego rozmiaru i danych przetransferowanych, a następnie druga replika wykonuje tryb failover przed ponownym zainicjowaniem obsługi administracyjnej, podobnie jak w przypadku awarii jednego z węzłów pamięci podręcznej.
+* Gdy **podstawowa pamięć** podręczna jest skalowana do innego rozmiaru, jest zamykana, a nowa pamięć podręczna jest aprowizowana przy użyciu nowego rozmiaru. W tym czasie pamięć podręczna jest niedostępna i wszystkie dane w pamięci podręcznej są utracone.
+* Gdy **podstawowa pamięć** podręczna jest skalowana do standardowej pamięci podręcznej, aprowizowana jest replika pamięci podręcznej, **a** dane są kopiowane z podstawowej pamięci podręcznej do pamięci podręcznej repliki. Pamięć podręczna pozostaje dostępna podczas procesu skalowania.
+* Gdy  standardowa pamięć podręczna jest skalowana do innego rozmiaru lub pamięci podręcznej **Premium,** jedna z replik jest zamykana i ponownie aprowizowana dla nowego rozmiaru i przesyłanych danych, a następnie druga replika wykonuje tryb failover przed jej ponowną aprowizcją, podobnie jak w przypadku procesu, który występuje podczas awarii jednego z węzłów pamięci podręcznej.
 
-### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Czy podczas skalowania utracisz dane z mojej pamięci podręcznej?
-* Gdy **podstawowa** pamięć podręczna jest skalowana do nowego rozmiaru, wszystkie dane są tracone, a pamięć podręczna jest niedostępna podczas operacji skalowania.
-* Gdy **podstawowa** pamięć podręczna jest skalowana do **standardowej** pamięci podręcznej, dane w pamięci podręcznej są zwykle zachowywane.
-* Gdy **standardowa** pamięć podręczna jest skalowana do większego rozmiaru lub warstwy, a pamięć podręczna w **warstwie Premium** jest skalowana do większego rozmiaru, wszystkie dane są zwykle zachowywane. W przypadku skalowania pamięci podręcznej **standardowej** lub **Premium** w dół do mniejszego rozmiaru dane mogą zostać utracone w zależności od ilości danych znajdujących się w pamięci podręcznej związanej z nowym rozmiarem podczas skalowania. Jeśli dane zostaną utracone podczas skalowania w dół, klucze są wykluczane przy użyciu zasad wykluczania [AllKeys-LRU](https://redis.io/topics/lru-cache) . 
+### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Czy podczas skalowania utracę dane z pamięci podręcznej?
+* Gdy **podstawowa pamięć** podręczna jest skalowana do nowego rozmiaru, wszystkie dane są utracone, a pamięć podręczna jest niedostępna podczas operacji skalowania.
+* Gdy **podstawowa pamięć** podręczna jest skalowana do **standardowej** pamięci podręcznej, dane w pamięci podręcznej są zwykle zachowywane.
+* Gdy pamięć **podręczna w** warstwie Standardowa jest skalowana do większego rozmiaru lub warstwy albo pamięć podręczna w warstwie **Premium** jest skalowana do większego rozmiaru, wszystkie dane są zwykle zachowywane. Podczas skalowania **standardowej** lub **premium** pamięci podręcznej w dół do mniejszego rozmiaru dane mogą zostać utracone w zależności od tego, ile danych znajduje się w pamięci podręcznej powiązanej z nowym rozmiarem podczas skalowania. Jeśli dane zostaną utracone podczas skalowania w dół, klucze zostaną eksmisje przy użyciu [zasad eksmisji allkeys-lru.](https://redis.io/topics/lru-cache) 
 
-### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Czy ustawienie niestandardowych baz danych jest dotknięte problemem podczas skalowania?
-Jeśli skonfigurowano wartość niestandardową dla `databases` Ustawienia podczas tworzenia pamięci podręcznej, należy pamiętać, że niektóre warstwy cenowe mają różne [limity baz danych](cache-configure.md#databases). Poniżej przedstawiono niektóre zagadnienia dotyczące skalowania w tym scenariuszu:
+### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Czy ustawienie niestandardowych baz danych ma wpływ na skalowanie?
+Jeśli podczas tworzenia pamięci podręcznej skonfigurowano wartość niestandardową dla tego ustawienia, należy pamiętać, że niektóre warstwy cenowe `databases` mają różne [limity baz danych.](cache-configure.md#databases) Oto kilka kwestii, które należy wziąć pod uwagę podczas skalowania w tym scenariuszu:
 
-* Podczas skalowania do warstwy cenowej z niższym `databases` limitem niż bieżąca warstwa:
-  * Jeśli używasz domyślnej liczby `databases` , która jest 16 dla wszystkich warstw cenowych, żadne dane nie zostaną utracone.
-  * Jeśli używasz niestandardowej liczby `databases` , która znajduje się w granicach warstwy, do której jest skalowane, to `databases` ustawienie jest zachowywane i żadne dane nie zostaną utracone.
-  * Jeśli używasz niestandardowej liczby, `databases` która przekracza limity nowej warstwy, `databases` ustawienie jest obniżane do limitów nowej warstwy, a wszystkie dane z usuniętych baz danych zostaną utracone.
-* W przypadku skalowania do warstwy cenowej o tym samym lub wyższym `databases` limicie niż bieżąca warstwa `databases` ustawienie jest zachowywane i żadne dane nie zostaną utracone.
+* W przypadku skalowania do warstwy cenowej z niższym `databases` limitem niż bieżąca warstwa:
+  * Jeśli używasz domyślnej liczby , czyli 16 dla wszystkich warstw `databases` cenowych, żadne dane nie zostaną utracone.
+  * Jeśli używasz niestandardowej liczby, która mieści się w limitach dla warstwy, do której jest skalowana, to ustawienie zostanie zachowane i żadne dane `databases` `databases` nie zostaną utracone.
+  * Jeśli używasz niestandardowej liczby, która przekracza limity nowej warstwy, to ustawienie jest niższe do limitów nowej warstwy, a wszystkie dane w usuniętych bazach danych `databases` `databases` zostaną utracone.
+* W przypadku skalowania do warstwy cenowej z tym samym lub wyższym limitem co bieżąca warstwa ustawienie jest zachowywane i `databases` żadne dane nie zostaną `databases` utracone.
 
-W przypadku, gdy w przypadku wersji Standard i Premium są dostępne 99,9% umowy SLA, nie ma umowy SLA na utratę danych.
+Mimo że w przypadku pamięci podręcznych w standardowych i Premium 99,9% czasu dostępności istnieje umowa SLA na poziomie 99,9%, nie ma umowy SLA dotyczącej utraty danych.
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>Czy moja pamięć podręczna będzie dostępna podczas skalowania?
-* Pamięć podręczna w warstwach **standardowa** i **Premium** pozostaje dostępna podczas operacji skalowania. Jednak podczas skalowania pamięci podręcznej w warstwach Standardowa i Premium może wystąpić Blips połączeń, a także podczas skalowania z warstwy Podstawowa do standardowa. Te Blips połączeń powinny być małe, a klienci Redis powinni mieć możliwość natychmiastowego nawiązania połączenia.
-* **Podstawowe** pamięci podręczne są w trybie offline w trakcie operacji skalowania do innego rozmiaru. Podstawowe pamięci podręczne pozostają dostępne podczas skalowania z warstwy **podstawowa** do **standardowa** , ale mogą wystąpić małe Blip połączeń. W przypadku wystąpienia Blip połączenia klienci Redis powinni mieć możliwość natychmiastowego nawiązania połączenia.
+* **Pamięci** **podręczne** w standardowych i premium pozostają dostępne podczas operacji skalowania. Jednak wielokropki połączeń mogą wystąpić podczas skalowania pamięci podręcznych w standardowych i premium, a także podczas skalowania z pamięci podręcznych w standardowych do podstawowych. Te wielokropki połączeń powinny być małe, a klienci usługi Redis powinni mieć możliwość natychmiastowego ponownego nawiązania połączenia.
+* **Podstawowe** pamięci podręczne są w trybie offline podczas operacji skalowania do innego rozmiaru. Podstawowe pamięci podręczne pozostają dostępne podczas skalowania z **podstawowej** do **standardowej,** ale mogą mieć niewielki wielokropek połączenia. W przypadku wystąpienia wielokropka połączenia klienci usługi Redis powinni mieć możliwość natychmiastowego ponownego nawiązania połączenia.
 
 
 ### <a name="scaling-limitations-with-geo-replication"></a>Ograniczenia skalowania z replikacją geograficzną
 
-Po dodaniu linku replikacji geograficznej między dwiema pamięciami podręcznymi nie będzie można inicjować operacji skalowania ani zmieniać liczby fragmentów w klastrze. Aby wydać te polecenia, należy odłączyć pamięć podręczną. Aby uzyskać więcej informacji, zobacz [Konfigurowanie replikacji geograficznej](cache-how-to-geo-replication.md).
+Po dodaniu linku replikacji geograficznej między dwiema pamięciami podręcznymi nie będzie już można zainicjować operacji skalowania ani zmienić liczby fragmentów w klastrze. Aby wydać te polecenia, należy odłączyć pamięć podręczną. Aby uzyskać więcej informacji, zobacz [Konfigurowanie replikacji geograficznej.](cache-how-to-geo-replication.md)
 
 
 ### <a name="operations-that-are-not-supported"></a>Operacje, które nie są obsługiwane
 * Nie można skalować z wyższej warstwy cenowej do niższej warstwy cenowej.
-  * Nie można skalować z pamięci podręcznej **Premium** do warstwy **standardowa** lub **podstawowa** .
-  * Nie można skalować z poziomu **standardowej** pamięci podręcznej do **podstawowej** pamięci podręcznej.
-* Możesz skalować od **podstawowej** pamięci podręcznej do **standardowej** pamięci podręcznej, ale nie możesz zmienić rozmiaru w tym samym czasie. Jeśli potrzebujesz innego rozmiaru, możesz wykonać kolejną operację skalowania do żądanego rozmiaru.
-* Nie można skalować z **podstawowej** pamięci podręcznej bezpośrednio do pamięci podręcznej **Premium** . Najpierw Skaluj od warstwy **podstawowa** do **standardowa** w ramach jednej operacji skalowania, a następnie Skaluj ją od warstwy **standardowa** do warstwy **Premium** w kolejnej operacji.
-* Nie można skalować od większego rozmiaru w dół do rozmiaru **C0 (250 MB)** .
+  * Nie można skalować z pamięci podręcznej **Premium** w dół **do** standardowej lub podstawowej pamięci **podręcznej.**
+  * Nie można skalować z **standardowej** pamięci podręcznej w dół do podstawowej **pamięci podręcznej.**
+* Można skalować z podstawowej **pamięci podręcznej** do **standardowej** pamięci podręcznej, ale nie można zmienić rozmiaru w tym samym czasie. Jeśli potrzebujesz innego rozmiaru, możesz wykonać kolejną operację skalowania do żądanego rozmiaru.
+* Nie można skalować z podstawowej pamięci **podręcznej** bezpośrednio do pamięci **podręcznej Premium.** Najpierw przeskaluj **z podstawowej** do **standardowej** w jednej operacji skalowania, a następnie przeskaluj z **Standardowej** do **Premium** w kolejnej operacji.
+* Nie można skalować od większego rozmiaru do rozmiaru **C0 (250 MB).**
 
-Jeśli operacja skalowania nie powiedzie się, usługa podejmie próbę przywrócenia operacji, a pamięć podręczna zostanie przywrócona do oryginalnego rozmiaru.
+Jeśli operacja skalowania nie powiedzie się, usługa spróbuje przywrócić operację, a pamięć podręczna przywróci oryginalny rozmiar.
 
 
 ### <a name="how-long-does-scaling-take"></a>Jak długo trwa skalowanie?
-Skalowanie czasu zależy od ilości danych znajdujących się w pamięci podręcznej, dzięki czemu większa ilość danych trwa dłużej. Skalowanie trwa około 20 minut. W przypadku klastrowanych pamięci podręcznych skalowanie trwa około 20 minut na fragmentu.
+Czas skalowania zależy od ilości danych w pamięci podręcznej, a ukończenie większych ilości danych trwa dłużej. Skalowanie trwa około 20 minut. W przypadku klastrowanych pamięci podręcznych skalowanie trwa około 20 minut na fragment.
 
-### <a name="how-can-i-tell-when-scaling-is-complete"></a>Jak mogę sprawdzić, czy skalowanie zostało zakończone?
-W Azure Portal można zobaczyć operację skalowania w toku. Po zakończeniu skalowania stan pamięci podręcznej zmieni się na **uruchomiony**.
+### <a name="how-can-i-tell-when-scaling-is-complete"></a>Jak sprawdzić, kiedy skalowanie jest zakończone?
+W Azure Portal widać, że operacja skalowania jest w toku. Po zakończeniu skalowania stan pamięci podręcznej zmieni się na **Uruchomiony.**
 
 <!-- IMAGES -->
 

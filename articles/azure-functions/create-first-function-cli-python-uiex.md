@@ -4,15 +4,16 @@ description: Dowiedz się, jak utworzyć funkcję języka Python z wiersza polec
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom:
-- devx-track-python
+- devx-track-powershell
 - devx-track-azurecli
+- devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 626cff867a336880689373c289087e2332a816ee
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e144304ae1b36ca02d4b8796e7994e87b09505d9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787453"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831100"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji języka Python na platformie Azure z wiersza polecenia
 
@@ -239,14 +240,14 @@ Przed wdrożeniem kodu funkcji na platformie Azure należy utworzyć <abbr title
     az login
     ```
 
-    Polecenie [az login](/cli/azure/reference-index#az_login) loguje Cię do konta platformy Azure.
+    Polecenie [az login](/cli/azure/reference-index#az_login) umożliwia zalogowanie się do konta platformy Azure.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
     Connect-AzAccount
     ```
 
-    Polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) umożliwia wykonanie cię na koncie platformy Azure.
+    Polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) umożliwia wyłoślinie Cię na konto platformy Azure.
 
     ---
 
@@ -266,11 +267,11 @@ Przed wdrożeniem kodu funkcji na platformie Azure należy utworzyć <abbr title
     New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
     ```
 
-    Polecenie [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) tworzy grupę zasobów. Zazwyczaj grupę zasobów i zasoby tworzy się w regionie w pobliżu, używając dostępnego regionu zwróconego z polecenia cmdlet [Get-AzLocation.](/powershell/module/az.resources/get-azlocation)
+    Polecenie [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) tworzy grupę zasobów. Grupę zasobów i zasoby zazwyczaj tworzy się w regionie w pobliżu, używając dostępnego regionu zwróconego z polecenia cmdlet [Get-AzLocation.](/powershell/module/az.resources/get-azlocation)
 
     ---
 
-    Nie można hostowania aplikacji dla systemów Linux i Windows w tej samej grupie zasobów. Jeśli masz istniejącą grupę zasobów o nazwie z aplikacją funkcji systemu Windows lub aplikacją internetową, musisz `AzureFunctionsQuickstart-rg` użyć innej grupy zasobów.
+    Nie można hostowania aplikacji systemów Linux i Windows w tej samej grupie zasobów. Jeśli masz istniejącą grupę zasobów o nazwie z aplikacją funkcji lub aplikacją internetową systemu `AzureFunctionsQuickstart-rg` Windows, musisz użyć innej grupy zasobów.
 
 1. Utwórz konto usługi Azure Storage ogólnego przeznaczenia w grupie zasobów i regionie:
 
@@ -292,7 +293,7 @@ Przed wdrożeniem kodu funkcji na platformie Azure należy utworzyć <abbr title
 
     ---
 
-    Zastąp `<STORAGE_NAME>` nazwą, która jest odpowiednia dla Ciebie, i <abbr title="Nazwa musi być unikatowa dla wszystkich kont magazynu używanych globalnie przez wszystkich klientów platformy Azure. Można na przykład użyć kombinacji nazwy osobistej lub firmowej, nazwy aplikacji i identyfikatora liczbowego, jak w przypadku contosobizappstorage20.">unikatowa w usłudze Azure Storage</abbr>. Nazwy muszą zawierać tylko cyfry od trzech do 24 znaków i małe litery. `Standard_LRS` Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcje](storage-considerations.md#storage-account-requirements).
+    Zastąp `<STORAGE_NAME>` nazwą, która jest odpowiednia dla Ciebie, i <abbr title="Nazwa musi być unikatowa dla wszystkich kont magazynu używanych globalnie przez wszystkich klientów platformy Azure. Można na przykład użyć kombinacji nazwy osobistej lub firmowej, nazwy aplikacji i identyfikatora liczbowego, jak w przypadku contosobizappstorage20.">unikatowa w usłudze Azure Storage</abbr>. Nazwy muszą zawierać od trzech do 24 znaków tylko cyfry i małe litery. `Standard_LRS`Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcję .](storage-considerations.md#storage-account-requirements)
     
     W przypadku tego przewodnika Szybki start na koncie magazynu naliczane jest tylko kilka centów (USD).
 

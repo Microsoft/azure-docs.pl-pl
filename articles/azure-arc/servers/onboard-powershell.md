@@ -1,30 +1,31 @@
 ---
 title: Łączenie maszyn hybrydowych z platformą Azure przy użyciu programu PowerShell
-description: W tym artykule dowiesz się, jak zainstalować agenta i połączyć maszynę z platformą Azure przy użyciu serwerów z obsługą usługi Azure Arc. Można to zrobić za pomocą programu PowerShell.
+description: Z tego artykułu dowiesz się, jak zainstalować agenta i połączyć maszynę z platformą Azure przy użyciu Azure Arc serwerów. Można to zrobić za pomocą programu PowerShell.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07a00de9077378ce3e3f7a7578b66e93d1b04f2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d6963a53ac14c9d6727a8d53e781bc8b8389b76e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584944"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831622"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>Łączenie maszyn hybrydowych z platformą Azure przy użyciu programu PowerShell
 
-W przypadku serwerów z funkcją Azure Arc można wykonać ręczne kroki, aby włączyć je dla co najmniej jednej maszyny z systemem Windows lub Linux w danym środowisku. Alternatywnie, możesz użyć polecenia cmdlet programu PowerShell [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) , aby pobrać agenta połączonej maszyny, zainstalować agenta i zarejestrować maszynę przy użyciu usługi Azure Arc. Polecenie cmdlet pobierze pakiet agenta systemu Windows (Instalator Windows) z centrum pobierania Microsoft oraz pakiet agenta z systemem Linux z repozytorium pakietu Microsoft.
+W przypadku serwerów z Azure Arc można wykonać kroki ręczne, aby włączyć je dla co najmniej jednej maszyny z systemem Windows lub Linux w środowisku. Alternatywnie możesz użyć polecenia cmdlet programu PowerShell [Connect-AzConnectedMachine,](/powershell/module/az.connectedmachine/remove-azconnectedmachine) aby pobrać agenta Connected Machine, zainstalować agenta i zarejestrować maszynę w Azure Arc. Polecenie cmdlet pobiera pakiet agenta systemu Windows (Instalator Windows) z Centrum pobierania Microsoft oraz pakiet agenta systemu Linux z repozytorium pakietów firmy Microsoft.
 
-Ta metoda wymaga uprawnień administratora na komputerze, aby zainstalować i skonfigurować agenta. W systemie Linux przy użyciu konta głównego i w systemie Windows należysz do lokalnej grupy administratorów. Proces ten można wykonać interaktywnie lub zdalnie w systemie Windows Server za pomocą [komunikacji zdalnej programu PowerShell](/powershell/scripting/learn/ps101/08-powershell-remoting).
+Ta metoda wymaga uprawnień administratora na maszynie w celu zainstalowania i skonfigurowania agenta. W systemie Linux przy użyciu konta głównego i w systemie Windows należysz do grupy Administratorzy lokalni. Ten proces można wykonać interaktywnie lub zdalnie na serwerze z systemem Windows przy użyciu komunikacji zdalnej programu [PowerShell.](/powershell/scripting/learn/ps101/08-powershell-remoting)
 
-Przed rozpoczęciem Sprawdź [wymagania wstępne](agent-overview.md#prerequisites) i sprawdź, czy Twoja subskrypcja i zasoby spełniają wymagania. Aby uzyskać informacje o obsługiwanych regionach i innych powiązanych zagadnieniach, zobacz [Obsługiwane regiony platformy Azure](overview.md#supported-regions).
+Przed rozpoczęciem zapoznaj się z wymaganiami [wstępnymi](agent-overview.md#prerequisites) i sprawdź, czy Twoja subskrypcja i zasoby spełniają wymagania. Aby uzyskać informacje o obsługiwanych regionach i innych powiązanych zagadnieniach, zobacz [obsługiwane regiony platformy Azure.](overview.md#supported-regions)
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Maszyna z Azure PowerShell. Aby uzyskać instrukcje, zobacz [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/).
+- Maszyna z Azure PowerShell. Aby uzyskać instrukcje, [zobacz Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/).
 
-Program PowerShell służy do zarządzania rozszerzeniami maszyn wirtualnych na serwerach hybrydowych zarządzanych przez serwery z obsługą usługi Azure Arc. Przed rozpoczęciem korzystania z programu PowerShell należy zainstalować `Az.ConnectedMachine` moduł. Uruchom następujące polecenie na serwerze z włączonym użyciem usługi Azure ARC:
+Program PowerShell umożliwia zarządzanie rozszerzeniami maszyn wirtualnych na serwerach hybrydowych zarządzanych przez Azure Arc serwerów z włączoną obsługą. Przed rozpoczęciem korzystania z programu PowerShell zainstaluj `Az.ConnectedMachine` moduł . Uruchom następujące polecenie na serwerze z włączoną obsługą Azure Arc:
 
 ```powershell
 Install-Module -Name Az.ConnectedMachine
@@ -36,51 +37,51 @@ Po zakończeniu instalacji zostanie wyświetlony następujący komunikat:
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instalowanie agenta i nawiązywanie połączenia z platformą Azure
 
-1. Otwórz konsolę programu PowerShell z podniesionymi uprawnieniami.
+1. Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień.
 
 2. Zaloguj się do platformy Azure, uruchamiając polecenie `Connect-AzAccount` .
 
-3. Aby zainstalować agenta połączonej maszyny, użyj `Connect-AzConnectedMachine` z `-Name` `-ResourceGroupName` parametrami, i `-Location` . Użyj `-SubscriptionId` parametru, aby zastąpić domyślną subskrypcję w wyniku kontekstu platformy Azure utworzonego po zalogowaniu się. Uruchom jedno z następujących poleceń:
+3. Aby zainstalować agenta Connected Machine, użyj `Connect-AzConnectedMachine` polecenia z `-Name` parametrami , i `-ResourceGroupName` `-Location` . Użyj `-SubscriptionId` parametru , aby zastąpić domyślną subskrypcję w wyniku kontekstu platformy Azure utworzonego po zalogowaniu. Uruchom jedno z następujących poleceń:
 
-    * Aby zainstalować agenta podłączonego maszyny na komputerze docelowym, który może bezpośrednio komunikować się z platformą Azure, uruchom polecenie:
+    * Aby zainstalować agenta Connected Machine na maszynie docelowej, która może bezpośrednio komunikować się z platformą Azure, uruchom:
 
         ```azurepowershell
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region>
         ```
     
-    * Aby zainstalować agenta podłączonego maszyny na komputerze docelowym, który komunikuje się za pomocą serwera proxy, uruchom polecenie:
+    * Aby zainstalować agenta Connected Machine na maszynie docelowej, która komunikuje się za pośrednictwem serwera proxy, uruchom:
         
         ```azurepowershell
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -Proxy http://<proxyURL>:<proxyport>
         ```
 
-Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. W systemie Windows zaznacz ten plik: *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*. W systemie Linux zaznacz ten plik: */var/opt/azcmagent/log/himds.log*.
+Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. W systemie Windows sprawdź ten plik: *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log.* W systemie Linux sprawdź ten plik: */var/opt/azcmagent/log/himds.log.*
 
 ## <a name="install-and-connect-by-using-powershell-remoting"></a>Instalowanie i nawiązywanie połączenia przy użyciu komunikacji zdalnej programu PowerShell
 
-Poniżej przedstawiono sposób konfigurowania co najmniej jednego serwera z systemem Windows z włączonymi usługami Azure Arc. Należy włączyć obsługę zdalną programu PowerShell na maszynie zdalnej. W tym celu użyj polecenia cmdlet `Enable-PSRemoting`.
+Poniżej opisano sposób konfigurowania jednego lub większej liczby serwerów z systemem Windows z włączonymi serwerami Azure Arc. Należy włączyć zdalną obsługę zdalną programu PowerShell na maszynie zdalnej. W tym celu użyj polecenia cmdlet `Enable-PSRemoting`.
 
 1. Otwórz konsolę programu PowerShell jako administrator.
 
 2. Zaloguj się do platformy Azure, uruchamiając polecenie `Connect-AzAccount` .
 
-3. Aby zainstalować agenta połączonej maszyny, użyj `Connect-AzConnectedMachine` z `-ResourceGroupName` `-Location` parametrami i. Nazwy zasobów platformy Azure będą automatycznie używać nazwy hosta każdego serwera. Użyj `-SubscriptionId` parametru, aby zastąpić domyślną subskrypcję w wyniku kontekstu platformy Azure utworzonego po zalogowaniu się.
+3. Aby zainstalować agenta Connected Machine, użyj `Connect-AzConnectedMachine` polecenia z `-ResourceGroupName` parametrami i `-Location` . Nazwy zasobów platformy Azure będą automatycznie używać nazwy hosta każdego serwera. Użyj `-SubscriptionId` parametru , aby zastąpić domyślną subskrypcję w wyniku kontekstu platformy Azure utworzonego po zalogowaniu.
 
-    * Aby zainstalować agenta podłączonego maszyny na komputerze docelowym, który może bezpośrednio komunikować się z platformą Azure, uruchom następujące polecenie:
+    * Aby zainstalować agenta Connected Machine na maszynie docelowej, która może bezpośrednio komunikować się z platformą Azure, uruchom następujące polecenie:
     
         ```azurepowershell
         $sessions = New-PSSession -ComputerName myMachineName
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
     
-    * Aby zainstalować agenta połączonego komputera na wielu maszynach zdalnych w tym samym czasie, należy dodać listę nazw maszyn zdalnych, z których każda oddzielona przecinkami.
+    * Aby jednocześnie zainstalować agenta Connected Machine na wielu maszynach zdalnych, dodaj listę nazw maszyn zdalnych rozdzielonych przecinkami.
 
         ```azurepowershell
         $sessions = New-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
 
-    Poniższy przykład pokazuje wyniki polecenia docelowego dla jednej maszyny:
+    W poniższym przykładzie pokazano wyniki polecenia przeznaczonego dla jednej maszyny:
     
     ```azurepowershell
     time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
@@ -95,14 +96,14 @@ Poniżej przedstawiono sposób konfigurowania co najmniej jednego serwera z syst
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Weryfikowanie połączenia z usługą Azure Arc
 
-Po zainstalowaniu i skonfigurowaniu agenta do rejestracji przy użyciu serwerów z obsługą usługi Azure Arc przejdź do Azure Portal, aby sprawdzić, czy serwer pomyślnie nawiązał połączenie. Zapoznaj się z maszyną w [Azure Portal](https://portal.azure.com).
+Po zainstalowaniu i skonfigurowaniu agenta do rejestrowania na Azure Arc serwerów, przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetl maszynę w [Azure Portal](https://portal.azure.com).
 
-![Zrzut ekranu przedstawiający pulpit nawigacyjny serwerów z pomyślnym połączeniem z serwerem.](./media/onboard-portal/arc-for-servers-successful-onboard.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny Serwery z pomyślnym połączeniem z serwerem.](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* W razie potrzeby zapoznaj się z [przewodnikiem Rozwiązywanie problemów z agentem podłączonych komputerów](troubleshoot-agent-onboard.md).
+* W razie potrzeby zapoznaj się z [przewodnikiem Rozwiązywanie problemów z agentem połączonej maszyny.](troubleshoot-agent-onboard.md)
 
-* Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md). Możesz użyć [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzić, czy maszyna zgłasza do oczekiwanego log Analyticsego obszaru roboczego, i włączyć monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/vm/vminsights-enable-policy.md).
+* Dowiedz się, jak zarządzać maszyną przy użyciu [Azure Policy](../../governance/policy/overview.md). Możesz użyć konfiguracji [gościa maszyny](../../governance/policy/concepts/guest-configuration.md)wirtualnej, sprawdzić, czy maszyna raportuje do oczekiwanego obszaru roboczego usługi Log Analytics, i włączyć monitorowanie za pomocą Azure Monitor [maszyn wirtualnych.](../../azure-monitor/vm/vminsights-enable-policy.md)
 
-* Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/agents/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy chcesz zbierać dane monitorowania systemu operacyjnego i obciążenia albo zarządzać nimi za pomocą Azure Automation elementów Runbook lub funkcji, takich jak Update Management. Ten agent jest również wymagany do korzystania z innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-introduction.md).
+* Dowiedz się więcej o [agencie usługi Log Analytics.](../../azure-monitor/agents/log-analytics-agent.md) Agent usługi Log Analytics dla systemów Windows i Linux jest wymagany, gdy chcesz zbierać dane monitorowania systemu operacyjnego i obciążenia albo zarządzać nimi za pomocą elementów Runbook lub funkcji programu Azure Automation, takich jak Update Management. Ten agent jest również wymagany do korzystania z innych usług platformy Azure, takich [jak Azure Security Center](../../security-center/security-center-introduction.md).

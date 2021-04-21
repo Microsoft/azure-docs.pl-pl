@@ -1,52 +1,53 @@
 ---
-title: Rozwiązywanie problemów z konfiguracją stanu Azure Automation
-description: W tym artykule opisano sposób rozwiązywania problemów z konfiguracją stanu Azure Automation.
+title: Rozwiązywanie Azure Automation State Configuration problemów
+description: W tym artykule opisano sposób rozwiązywania Azure Automation State Configuration problemów.
 services: automation
 ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 91c4780981851b62027fecf18da2c3b78625f272
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896532"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831208"
 ---
-# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Rozwiązywanie problemów z konfiguracją stanu Azure Automation
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Rozwiązywanie Azure Automation State Configuration problemów
 
-Ten artykuł zawiera informacje o rozwiązywaniu problemów i rozwiązywaniu problemów, które pojawiają się podczas kompilowania lub wdrażania konfiguracji w Azure Automation konfiguracji stanu. Aby uzyskać ogólne informacje na temat funkcji konfiguracja stanu, zobacz [Omówienie konfiguracji stanu Azure Automation](../automation-dsc-overview.md).
+Ten artykuł zawiera informacje na temat rozwiązywania problemów, które występują podczas kompilowania lub wdrażania konfiguracji w Azure Automation State Configuration. Aby uzyskać ogólne informacje na temat State Configuration, zobacz [Azure Automation State Configuration omówienie .](../automation-dsc-overview.md)
 
-## <a name="diagnose-an-issue"></a>Diagnozuj problem
+## <a name="diagnose-an-issue"></a>Diagnozowanie problemu
 
-Po otrzymaniu błędu kompilacji lub wdrożenia dla konfiguracji należy wykonać kilka kroków, aby ułatwić zdiagnozowanie problemu.
+Po otrzymaniu błędu kompilacji lub wdrożenia dla konfiguracji poniżej znajdziesz kilka kroków, które pomogą Ci zdiagnozować problem.
 
 ### <a name="1-ensure-that-your-configuration-compiles-successfully-on-the-local-machine"></a>1. Upewnij się, że konfiguracja została pomyślnie skompilowana na komputerze lokalnym
 
-Konfiguracja stanu Azure Automation jest oparta na konfiguracji żądanego stanu programu PowerShell (DSC). Dokumentację dotyczącą języka i składni DSC można znaleźć w dokumentacji [DSC programu PowerShell](/powershell/scripting/overview).
+Azure Automation State Configuration jest zbudowany na programie PowerShell Desired State Configuration (DSC). Dokumentację języka DSC i składni można znaleźć w dokumentacji [dsc programu PowerShell.](/powershell/scripting/overview)
 
-Przez skompilowanie konfiguracji DSC na komputerze lokalnym, można odnajdywać i rozwiązywać typowe błędy, takie jak:
+Kompilowanie konfiguracji DSC na komputerze lokalnym umożliwia odnajdywanie i rozwiązywanie typowych błędów, takich jak:
 
    - Brak modułów.
    - Błędy składniowe.
    - Błędy logiki.
 
-### <a name="2-view-dsc-logs-on-your-node"></a>2. Wyświetl dzienniki DSC w Twoim węźle
+### <a name="2-view-dsc-logs-on-your-node"></a>2. Wyświetlanie dzienników DSC w węźle
 
-Jeśli konfiguracja została pomyślnie skompilowana, ale nie powiedzie się w przypadku zastosowania do węzła, można znaleźć szczegółowe informacje w dziennikach DSC. Informacje o tym, gdzie znaleźć te dzienniki, można znaleźć w temacie [gdzie znajdują się dzienniki zdarzeń DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+Jeśli konfiguracja zostanie skompilowana pomyślnie, ale nie powiedzie się po zastosowaniu do węzła, szczegółowe informacje można znaleźć w dziennikach DSC. Aby uzyskać informacje o tym, gdzie można znaleźć te dzienniki, zobacz Gdzie znajdują się dzienniki zdarzeń [DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
-Moduł [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) może pomóc w analizie szczegółowych informacji z dzienników DSC. Jeśli skontaktujesz się z pomocą techniczną, wymagają one tych dzienników do zdiagnozowania problemu.
+Moduł [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) może pomóc w analizowaniu szczegółowych informacji z dzienników DSC. Jeśli skontaktujemy się z pomocą techniczną, będą oni wymagać tych dzienników do zdiagnozowania problemu.
 
-Moduł można zainstalować `xDscDiagnostics` na komputerze lokalnym, postępując zgodnie z instrukcjami w temacie [Instalowanie stabilnej wersji modułu](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+Moduł można zainstalować na komputerze lokalnym, zgodnie z instrukcjami w temacie `xDscDiagnostics` [Instalowanie modułu stabilnej wersji.](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)
 
-Aby zainstalować `xDscDiagnostics` moduł na maszynie platformy Azure, użyj polecenie [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). Można również użyć opcji **Uruchom polecenie** w Azure Portal, wykonując czynności opisane w temacie [Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom](../../virtual-machines/windows/run-command.md).
+Aby zainstalować moduł `xDscDiagnostics` na maszynie platformy Azure, użyj narzędzia [Invoke-AzVMRunCommand.](/powershell/module/az.compute/invoke-azvmruncommand) Możesz również użyć  opcji uruchom polecenie w instrukcje Azure Portal, korzystając z procedury Uruchamianie skryptów programu [PowerShell](../../virtual-machines/windows/run-command.md)na maszynie wirtualnej z systemem Windows przy użyciu Uruchamianie polecenia .
 
-Aby uzyskać informacje na temat korzystania z programu **xDscDiagnostics**, zobacz [Używanie xDscDiagnostics do analizowania dzienników DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). Zobacz również [polecenia cmdlet xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+Aby uzyskać informacje na temat **używania funkcji xDscDiagnostics,** zobacz [Using xDscDiagnostics to analyze DSC logs (Używanie diagnostyki xDscDiagnostics do analizowania dzienników DSC).](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs) Zobacz również [polecenia cmdlet xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. Upewnij się, że węzły i obszar roboczy usługi Automation mają wymagane moduły
 
-Konfiguracja DSC zależy od modułów zainstalowanych w węźle. W przypadku korzystania z konfiguracji stanu Azure Automation należy zaimportować wszystkie wymagane moduły do konta usługi Automation, wykonując czynności opisane w sekcji [Importowanie modułów](../shared-resources/modules.md#import-modules). Konfiguracje mogą również mieć zależność od określonych wersji modułów. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z modułami](shared-resources.md#modules).
+Konfiguracja DSC zależy od modułów zainstalowanych w węźle. W przypadku korzystania z Azure Automation State Configuration zaimportuj wszystkie wymagane moduły na konto usługi Automation, zgodnie z instrukcjami w te [tematu Import Modules (Importowanie modułów).](../shared-resources/modules.md#import-modules) Konfiguracje mogą również być zależne od określonych wersji modułów. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z modułami](shared-resources.md#modules).
 
-## <a name="scenario-a-configuration-with-special-characters-cant-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>Scenariusz: nie można usunąć konfiguracji z użyciem znaków specjalnych z portalu
+## <a name="scenario-a-configuration-with-special-characters-cant-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>Scenariusz: Nie można usunąć konfiguracji ze znakami specjalnymi z portalu
 
 ### <a name="issue"></a>Problem
 
@@ -58,17 +59,17 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd jest tymczasowym problemem, który został zaplanowany do rozwiązania.
+Ten błąd jest tymczasowym problemem, który ma zostać rozwiązany.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Użyj polecenia cmdlet [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration) , aby usunąć konfigurację.
+Użyj polecenia cmdlet [Remove-AzAutomationDscConfiguration,](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration) aby usunąć konfigurację.
 
-## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Scenariusz: nie można zarejestrować agenta DSC
+## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Scenariusz: Nie można zarejestrować agenta DSC
 
 ### <a name="issue"></a>Problem
 
-Po [ustawieniu-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) lub innym poleceniu cmdlet DSC zostanie wyświetlony komunikat o błędzie:
+W [przypadku polecenia Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) lub innego polecenia cmdlet DSC zostanie wyświetlony błąd:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -83,17 +84,17 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd jest zwykle spowodowany przez zaporę, komputer za serwerem proxy lub inne błędy sieciowe.
+Ten błąd jest zwykle spowodowany przez zaporę, maszynę, która znajduje się za serwerem proxy, lub inne błędy sieci.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Sprawdź, czy komputer ma dostęp do odpowiednich punktów końcowych dla DSC, i spróbuj ponownie. Aby uzyskać listę wymaganych portów i adresów, zobacz [Planowanie sieci](../automation-dsc-overview.md#network-planning).
+Sprawdź, czy maszyna ma dostęp do odpowiednich punktów końcowych dla konfiguracji DSC, i spróbuj ponownie. Aby uzyskać listę wymaganych portów i adresów, zobacz [Network planning (Planowanie sieci).](../automation-dsc-overview.md#network-planning)
 
-## <a name="a-nameunauthorizedscenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"><a/>Scenariusz: raporty o stanie zwracają kod odpowiedzi bez autoryzacji
+## <a name="a-nameunauthorizedscenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"><a/>Scenariusz: raporty stanu zwracają kod odpowiedzi Bez autoryzacji
 
 ### <a name="issue"></a>Problem
 
-Po zarejestrowaniu węzła z konfiguracją stanu Azure Automation zostanie wyświetlony jeden z następujących komunikatów o błędach:
+Po zarejestrowaniu węzła w Azure Automation State Configuration zostanie wyświetlony jeden z następujących komunikatów o błędach:
 
 ```error
 The attempt to send status report to the server https://{your Automation account URL}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
@@ -107,27 +108,27 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Ten problem jest spowodowany przez zły lub wygasły certyfikat. Zobacz [Ponowne rejestrowanie węzła](../automation-dsc-onboarding.md#re-register-a-node).
 
-Przyczyną tego problemu może być również konfiguracja serwera proxy, która nie zezwala na dostęp do ***. Azure-Automation.NET**. Aby uzyskać więcej informacji, zobacz [Konfiguracja sieci prywatnych](../automation-dsc-overview.md#network-planning). 
+Ten problem może być również spowodowany tym, że konfiguracja serwera proxy nie zezwala na dostęp do pliku ***.azure-automation.net**. Aby uzyskać więcej informacji, [zobacz Configuration of private networks (Konfiguracja sieci prywatnych).](../automation-dsc-overview.md#network-planning) 
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Wykonaj następujące kroki, aby ponownie zarejestrować węzeł niepowodzenia konfiguracji DSC.
+Aby ponownie zarejestrować węzeł DSC, który się nie popełni, należy wykonać poniższe kroki.
 
 #### <a name="step-1-unregister-the-node"></a>Krok 1. Wyrejestruj węzeł
 
-1. W Azure Portal przejdź do pozycji   >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
-1. Wybierz **węzły** i wybierz węzeł z problemami.
-1. Wybierz pozycję **Wyrejestruj** , aby wyrejestrować węzeł.
+1. W Azure Portal przejdź do strony **Konta** usługi Home Automation > (Twoje konto usługi  >   Automation) > State **Configuration (DSC).**
+1. Wybierz **pozycję Węzły** i wybierz węzeł, który ma problemy.
+1. Wybierz **pozycję Wyrejestruj,** aby wyrejestrować węzeł.
 
-#### <a name="step-2-uninstall-the-dsc-extension-from-the-node"></a>Krok 2. odinstalowanie rozszerzenia DSC z węzła
+#### <a name="step-2-uninstall-the-dsc-extension-from-the-node"></a>Krok 2. Odinstalowywanie rozszerzenia DSC z węzła
 
-1. W Azure Portal przejdź do **strony głównej**  >  **maszyny wirtualnej** > (węzeł z niepowodzeniem) > **rozszerzenia**.
-1. Wybierz pozycję **Microsoft. PowerShell. DSC**, rozszerzenie DSC programu PowerShell.
-1. Wybierz pozycję **Odinstaluj** , aby odinstalować rozszerzenie.
+1. W Azure Portal przejdź do **strony** Głównej maszyny  >  **wirtualnej** > (węzeł awarii) > **rozszerzenia**.
+1. Wybierz **pozycję Microsoft.Powershell.DSC**, rozszerzenie DSC programu PowerShell.
+1. Wybierz pozycję Odinstaluj, aby odinstalować rozszerzenie. 
 
-#### <a name="step-3-remove-all-bad-or-expired-certificates-from-the-node"></a>Krok 3. usunięcie wszystkich nieprawidłowych lub wygasłych certyfikatów z węzła
+#### <a name="step-3-remove-all-bad-or-expired-certificates-from-the-node"></a>Krok 3. Usuwanie wszystkich złych lub wygasłych certyfikatów z węzła
 
-W przypadku niepowodzenia węzła w wierszu polecenia programu PowerShell z podwyższonym poziomem uprawnień uruchom następujące polecenia:
+W węźle, który nie działa, w wierszu polecenia programu PowerShell z podwyższonym poziomem uprawnień uruchom następujące polecenia:
 
 ```powershell
 $certs = @()
@@ -145,19 +146,19 @@ If (($certs.Count) -gt 0)
 }
 ```
 
-#### <a name="step-4-reregister-the-failing-node"></a>Krok 4. ponowne zarejestrowanie węzła, który kończy się niepowodzeniem
+#### <a name="step-4-reregister-the-failing-node"></a>Krok 4. Ponowne rejestrowanie węzła, który się nie popełni
 
-1. W Azure Portal przejdź do pozycji   >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
-1. Wybierz **węzły**.
+1. W Azure Portal przejdź do strony **Konta** usługi Home Automation > (Twoje konto usługi  >   Automation) > State **Configuration (DSC).**
+1. Wybierz pozycję **Węzły.**
 1. Wybierz pozycję **Dodaj**.
-1. Wybierz węzeł z niepowodzeniem.
-1. Wybierz pozycję **Połącz**, a następnie wybierz odpowiednie opcje.
+1. Wybierz węzeł, który się nie popełni.
+1. Wybierz **pozycję** Połącz i wybierz odpowiednie opcje.
 
-## <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>Scenariusz: węzeł jest w stanie niepowodzenia z powodu błędu "nie znaleziono"
+## <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>Scenariusz: węzeł jest w stanie niepowodzeniem z błędem "Nie znaleziono"
 
 ### <a name="issue"></a>Problem
 
-Węzeł zawiera raport z nieprawidłowym stanem i zawiera błąd:
+Węzeł ma raport ze stanem Niepowodzenie i zawiera błąd:
 
 ```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
@@ -165,17 +166,17 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje zazwyczaj, gdy węzeł jest przypisany do nazwy konfiguracji, na przykład **ABC**, zamiast nazwy węzła konfiguracji (pliku MOF), na przykład **ABC. Serwer** Web.
+Ten błąd występuje zwykle, gdy węzeł jest przypisany do nazwy konfiguracji, na przykład **ABC,** zamiast nazwy konfiguracji węzła (pliku MOF), na przykład **ABC. Serwer sieci Web**.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-* Upewnij się, że przypiszesz węzeł z nazwą konfiguracji węzła, a nie nazwą konfiguracji.
+* Upewnij się, że przypisujesz węzeł z nazwą konfiguracji węzła, a nie nazwą konfiguracji.
 * Konfigurację węzła można przypisać do węzła przy użyciu Azure Portal lub polecenia cmdlet programu PowerShell.
 
-  * W Azure Portal przejdź do pozycji   >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**. Następnie wybierz węzeł i wybierz pozycję **Przypisz konfigurację węzła**.
-  * Użyj polecenia cmdlet [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode) .
+  * W Azure Portal przejdź do strony **Konta** usługi Home Automation > (Twoje konto usługi  >   Automation) > State **Configuration (DSC).** Następnie wybierz węzeł i wybierz pozycję **Przypisz konfigurację węzła**.
+  * Użyj polecenia cmdlet [Set-AzAutomationDscNode.](/powershell/module/Az.Automation/Set-AzAutomationDscNode)
 
-## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Scenariusz: podczas kompilowania konfiguracji nie zostały utworzone żadne konfiguracje węzłów (pliki MOF)
+## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Scenariusz: podczas kompilowania konfiguracji nie zostały opracowane żadne konfiguracje węzłów (pliki MOF)
 
 ### <a name="issue"></a>Problem
 
@@ -187,20 +188,20 @@ Compilation completed successfully, but no node configuration **.mof** files wer
 
 ### <a name="cause"></a>Przyczyna
 
-Gdy wyrażenie `Node` zgodne ze słowem kluczowym w konfiguracji DSC ma wartość `$null` , nie są generowane konfiguracje węzłów.
+Gdy wyrażenie następujące po swonie kluczowym w konfiguracji DSC ma `Node` wartość , `$null` konfiguracje węzłów nie są konfiguracyjne.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 Aby rozwiązać ten problem, użyj jednego z następujących rozwiązań:
 
-* Upewnij się, że wyrażenie obok `Node` słowa kluczowego w definicji konfiguracji nie jest zgodne z wartością null.
-* Jeśli przekazujesz [ConfigurationData](../automation-dsc-compile.md) podczas kompilowania konfiguracji, upewnij się, że przekazujesz wartości, których konfiguracja oczekuje od danych konfiguracyjnych.
+* Upewnij się, że wyrażenie obok słowa kluczowego w definicji konfiguracji nie ocenia `Node` wartości Null.
+* W przypadku przekazywania danych [ConfigurationData](../automation-dsc-compile.md) podczas kompilowania konfiguracji upewnij się, że dane konfiguracji są przekazywania wartości, których oczekuje konfiguracja.
 
-## <a name="scenario-the-dsc-node-report-becomes-stuck-in-the-in-progress-state"></a><a name="dsc-in-progress"></a>Scenariusz: Raport węzła DSC zostanie zablokowany w stanie w toku
+## <a name="scenario-the-dsc-node-report-becomes-stuck-in-the-in-progress-state"></a><a name="dsc-in-progress"></a>Scenariusz: Raport węzła DSC zostaje zablokowany w stanie W toku
 
 ### <a name="issue"></a>Problem
 
-Dane wyjściowe agenta DSC:
+Agent DSC wyprowadza dane wyjściowe:
 
 ```error
 No instance found with given property values
@@ -208,13 +209,13 @@ No instance found with given property values
 
 ### <a name="cause"></a>Przyczyna
 
-Uaktualniono wersję środowiska Windows Management Framework (WMF) i masz uszkodzone Instrumentacja zarządzania Windows (WMI).
+Uaktualniono wersję programu Windows Management Framework (WMF) i uszkodzono Instrumentacja zarządzania Windows (WMI).
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Postępuj zgodnie z instrukcjami podanymi w temacie [znane problemy i ograniczenia DSC](/powershell/scripting/wmf/known-issues/known-issues-dsc).
+Postępuj zgodnie z instrukcjami [w tesłudze DSC known issues and limitations](/powershell/scripting/wmf/known-issues/known-issues-dsc)(Znane problemy i ograniczenia dsc).
 
-## <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a><a name="issue-using-credential"></a>Scenariusz: nie można użyć poświadczenia w konfiguracji DSC
+## <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a><a name="issue-using-credential"></a>Scenariusz: Nie można użyć poświadczeń w konfiguracji DSC
 
 ### <a name="issue"></a>Problem
 
@@ -226,17 +227,17 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 ### <a name="cause"></a>Przyczyna
 
-W konfiguracji użyto poświadczeń, ale nie wprowadzono dla `ConfigurationData` `PSDscAllowPlainTextPassword` nich odpowiedniej wartości true dla każdej konfiguracji węzła.
+Poświadczenie było używane w konfiguracji, ale nie zapewniało prawidłowego ustawienia wartości `ConfigurationData` true dla każdej konfiguracji `PSDscAllowPlainTextPassword` węzła.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że w `ConfigurationData` `PSDscAllowPlainTextPassword` każdej konfiguracji węzła, która jest wymieniona w konfiguracji, określono wartość true. Zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](../automation-dsc-compile.md).
+Upewnij się, że dla każdej konfiguracji węzła, która jest wymieniona w konfiguracji, należy przekazać wartość właściwą, aby ustawić wartość `ConfigurationData` `PSDscAllowPlainTextPassword` true. Zobacz [Kompilowanie konfiguracji DSC w programie Azure Automation State Configuration](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenariusz: "błąd przetwarzania rozszerzenia" podczas włączania maszyny z poziomu rozszerzenia DSC
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenariusz: błąd "Rozszerzenie przetwarzania błędów" podczas włączania maszyny z rozszerzenia DSC
 
 ### <a name="issue"></a>Problem
 
-Gdy komputer zostanie włączony przy użyciu rozszerzenia DSC, wystąpi błąd, który zawiera błąd:
+Po włączeniu maszyny przy użyciu rozszerzenia DSC wystąpi błąd, który zawiera błąd:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -244,18 +245,18 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje zazwyczaj, gdy do węzła jest przypisana nazwa konfiguracji węzła, która nie istnieje w usłudze.
+Ten błąd zazwyczaj występuje, gdy do węzła jest przypisana nazwa konfiguracji węzła, która nie istnieje w usłudze.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-* Upewnij się, że przypiszesz węzeł o nazwie, która dokładnie pasuje do nazwy w usłudze.
-* Można zrezygnować z uwzględnienia nazwy konfiguracji węzła, co spowoduje włączenie węzła, ale nie przypisanie konfiguracji węzła.
+* Upewnij się, że przypisujesz węzeł o nazwie, która dokładnie odpowiada nazwie w usłudze.
+* Można nie uwzględniać nazwy konfiguracji węzła, co powoduje włączenie węzła, ale nie przypisanie konfiguracji węzła.
 
-## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Scenariusz: "wystąpił co najmniej jeden błąd" podczas rejestrowania węzła przy użyciu programu PowerShell
+## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Scenariusz: błąd "Wystąpił co najmniej jeden błąd" podczas rejestrowania węzła przy użyciu programu PowerShell
 
 ### <a name="issue"></a>Problem
 
-Po zarejestrowaniu węzła przy użyciu polecenia [register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode) lub [register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode)pojawia się następujący błąd:
+Podczas rejestrowania węzła przy użyciu [narzędzia Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode) lub [Register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode)występuje następujący błąd:
 
 ```error
 One or more errors occurred.
@@ -263,20 +264,20 @@ One or more errors occurred.
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje podczas próby zarejestrowania węzła w oddzielnej subskrypcji, który jest używany przez konto usługi Automation.
+Ten błąd występuje podczas próby zarejestrowania węzła w oddzielnej subskrypcji niż używana przez konto usługi Automation.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Traktuj węzeł między subskrypcjami, tak jakby został zdefiniowany dla oddzielnej chmury lub lokalnie. Zarejestruj węzeł przy użyciu jednej z następujących opcji włączania maszyn:
+Traktuj węzeł między subskrypcjami tak, jakby był zdefiniowany dla oddzielnej chmury lub dla środowisk lokalnych. Zarejestruj węzeł przy użyciu jednej z tych opcji włączania maszyn:
 
-* Windows: [fizyczne/wirtualne maszyny z systemem Windows lokalnie lub w chmurze innej niż Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
-* Linux: [fizyczne/wirtualne maszyny z systemem Linux w środowisku lokalnym lub w chmurze innej niż Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
+* Windows: maszyny fizyczne/wirtualne z systemem Windows lokalnie lub [w chmurze innej niż Azure/AWS.](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines)
+* Linux: maszyny fizyczne/wirtualne z systemem Linux w środowisku lokalnym lub [w chmurze innej niż platforma Azure.](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines)
 
-## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Scenariusz: komunikat o błędzie "Inicjowanie obsługi nie powiodło się"
+## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Scenariusz: komunikat o błędzie "Aprowizowanie nie powiodło się"
 
 ### <a name="issue"></a>Problem
 
-Po zarejestrowaniu węzła zostanie wyświetlony komunikat o błędzie:
+Po zarejestrowaniu węzła zostanie wyświetlony błąd:
 
 ```error
 Provisioning has failed
@@ -284,17 +285,17 @@ Provisioning has failed
 
 ### <a name="cause"></a>Przyczyna
 
-Ten komunikat występuje, gdy występuje problem z łącznością między węzłem i platformą Azure.
+Ten komunikat występuje, gdy występuje problem z łącznością między węzłem a platformą Azure.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Ustal, czy węzeł znajduje się w wirtualnej sieci prywatnej (VPN), czy też ma inne problemy z nawiązywaniem połączenia z platformą Azure. Zobacz [Rozwiązywanie problemów z wdrażaniem funkcji](onboarding.md).
+Ustal, czy węzeł znajduje się w wirtualnej sieci prywatnej (VPN), czy ma inne problemy z nawiązywanie połączenia z platformą Azure. Zobacz [Rozwiązywanie problemów z wdrażaniem funkcji.](onboarding.md)
 
-## <a name="scenario-failure-with-a-general-error-when-applying-a-configuration-in-linux"></a><a name="failure-linux-temp-noexec"></a>Scenariusz: Wystąpił błąd ogólny podczas stosowania konfiguracji w systemie Linux
+## <a name="scenario-failure-with-a-general-error-when-applying-a-configuration-in-linux"></a><a name="failure-linux-temp-noexec"></a>Scenariusz: Błąd z ogólnym błędem podczas stosowania konfiguracji w systemie Linux
 
 ### <a name="issue"></a>Problem
 
-W przypadku zastosowania konfiguracji w systemie Linux Wystąpił błąd, który zawiera następujący komunikat:
+Po zastosowaniu konfiguracji w systemie Linux wystąpi błąd, który zawiera błąd:
 
 ```error
 This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
@@ -302,44 +303,44 @@ This event indicates that failure happens when LCM is processing the configurati
 
 ### <a name="cause"></a>Przyczyna
 
-Jeśli lokalizacja **/tmp** jest ustawiona na `noexec` , bieżąca wersja DSC nie będzie mogła zastosować konfiguracji.
+Jeśli **/tmp** lokalizacja jest ustawiona `noexec` na , bieżąca wersja DSC nie może zastosować konfiguracji.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Usuń `noexec` opcję z lokalizacji **/tmp** .
+Usuń `noexec` opcję z **lokalizacji /tmp.**
 
-## <a name="scenario-node-configuration-names-that-overlap-can-result-in-a-bad-release"></a><a name="compilation-node-name-overlap"></a>Scenariusz: nazwy konfiguracji węzłów, które pokrywają się, mogą spowodować nieprawidłową wersję
+## <a name="scenario-node-configuration-names-that-overlap-can-result-in-a-bad-release"></a><a name="compilation-node-name-overlap"></a>Scenariusz: Nakładające się nazwy konfiguracji węzłów mogą powodować złe wydanie
 
 ### <a name="issue"></a>Problem
 
-W przypadku wygenerowania wielu konfiguracji węzłów za pomocą pojedynczego skryptu konfiguracji, a niektóre nazwy konfiguracji węzłów są podzbiorami innych nazw, usługa kompilacji może zakończyć przypisywanie niewłaściwej konfiguracji. Ten problem występuje tylko wtedy, gdy używasz pojedynczego skryptu do generowania konfiguracji z danymi konfiguracyjnymi na węzeł i tylko wtedy, gdy nastąpi odchodzenie nazw na początku ciągu. Przykładem jest pojedynczy skrypt konfiguracyjny używany do generowania konfiguracji na podstawie danych węzła przekazaną jako tablicę skrótów za pomocą poleceń cmdlet, a dane węzła obejmują serwery o nazwach **Server** i **1server**.
+Jeśli używasz pojedynczego skryptu konfiguracji do generowania wielu konfiguracji węzłów, a niektóre nazwy konfiguracji węzła są podzbiorem innych nazw, usługa kompilacji może przypisać nieprawidłową konfigurację. Ten problem występuje tylko wtedy, gdy używasz pojedynczego skryptu do generowania konfiguracji z danymi konfiguracji na węzeł i tylko wtedy, gdy nazwa nakłada się na początku ciągu. Przykładem jest pojedynczy skrypt konfiguracji używany do generowania konfiguracji na podstawie danych węzła przekazywanych jako tablica skrótów przy użyciu polecenia cmdlet, a dane węzła obejmują serwery o nazwach **server** i **1server.**
 
 ### <a name="cause"></a>Przyczyna
 
-Jest to znany problem dotyczący usługi kompilacji.
+Jest to znany problem z usługą kompilacji.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Najlepszym rozwiązaniem jest skompilowanie lokalnie lub w potoku ciągłej integracji/ciągłego wdrażania i przekazanie plików MOF konfiguracji węzła bezpośrednio do usługi. Jeśli kompilacja w usłudze jest wymagana, następnym najlepszym obejściem jest podzielenie zadań kompilacji tak, aby nie zachodziły na nazwy.
+Najlepszym obejściem jest skompilowanie lokalnie lub w potoku CI/CD i przekazanie plików MOF konfiguracji węzła bezpośrednio do usługi. Jeśli kompilacja w usłudze jest wymagana, następnym najlepszym obejściem jest podzielenie zadań kompilacji tak, aby nazwy nie nakładały się na siebie.
 
-## <a name="scenario-gateway-timeout-error-on-dsc-configuration-upload"></a><a name="gateway-timeout"></a>Scenariusz: błąd limitu czasu bramy w przekazywaniu konfiguracji DSC
+## <a name="scenario-gateway-timeout-error-on-dsc-configuration-upload"></a><a name="gateway-timeout"></a>Scenariusz: błąd limitu czasu bramy podczas przekazywania konfiguracji DSC
 
 #### <a name="issue"></a>Problem
 
-`GatewayTimeout`Wystąpił błąd podczas przekazywania konfiguracji DSC. 
+Podczas `GatewayTimeout` przekazywania konfiguracji DSC występuje błąd. 
 
 ### <a name="cause"></a>Przyczyna
 
-W przypadku konfiguracji DSC, które mogą być czasochłonne, może to spowodować wystąpienie tego błędu.
+Konfiguracje DSC, których kompilacja trwa długo, mogą spowodować ten błąd.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Konfiguracje DSC można szybko przeanalizować przez jawne dołączenie `ModuleName` parametru do dowolnego wywołania [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource) .
+Konfiguracje DSC można przyspieszyć, jawnie uwzględniając parametr dla dowolnych wywołań `ModuleName` [Import-DSCResource.](/powershell/scripting/dsc/configurations/import-dscresource)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz tutaj problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
+Jeśli nie widzisz tutaj swojego problemu lub nie możesz go rozwiązać, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Nawiąż połączenie z [@AzureSupport](https://twitter.com/azuresupport) kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
-* Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.
+* Uzyskaj odpowiedzi od ekspertów z platformy Azure za [pośrednictwem forów platformy Azure.](https://azure.microsoft.com/support/forums/)
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z , oficjalnym kontem Microsoft Azure w celu poprawy jakości obsługi klienta. pomoc techniczna platformy Azure łączy społeczność platformy Azure z odpowiedziami, pomocą techniczną i ekspertami.
+* Zdarzenie pomocy technicznej platformy Azure. Przejdź do witryny [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję Uzyskaj pomoc **techniczną.**

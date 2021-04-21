@@ -6,16 +6,17 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
+- devx-track-azurepowershell
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: f5c51630d111bd68e311a93100abb8266e2a8e27
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b006f006c9fb45c9a7d80e815f95bec812e5ec3f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787435"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831838"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji języka Python na platformie Azure z wiersza polecenia
 
@@ -63,7 +64,7 @@ Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wi
 
 + Uruchom `(Get-Module -ListAvailable Az).Version` i zweryfikuj wersję 5.0 lub nowszą. 
 
-+ Uruchom, `Connect-AzAccount` aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
++ Uruchom `Connect-AzAccount` , aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
 
 + Uruchom system (Linux/macOS) lub (Windows), aby sprawdzić raporty dotyczące wersji języka Python w wersji `python --version` `py --version` 3.8.x, 3.7.x lub 3.6.x.
 
@@ -180,14 +181,14 @@ Użyj następujących poleceń, aby utworzyć te elementy. Obsługiwane są zar�
     az login
     ```
 
-    Polecenie [az login](/cli/azure/reference-index#az_login) loguje Cię do konta platformy Azure.
+    Polecenie [az login](/cli/azure/reference-index#az_login) umożliwia zalogowanie się do konta platformy Azure.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
     Connect-AzAccount
     ```
 
-    Polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) umożliwia wykonanie cię na koncie platformy Azure.
+    Polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) umożliwia wyłoślinie Cię na konto platformy Azure.
 
     ---
 
@@ -207,12 +208,12 @@ Użyj następujących poleceń, aby utworzyć te elementy. Obsługiwane są zar�
     New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
     ```
 
-    Polecenie [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) tworzy grupę zasobów. Zazwyczaj grupę zasobów i zasoby tworzy się w regionie w pobliżu, używając dostępnego regionu zwróconego z polecenia cmdlet [Get-AzLocation.](/powershell/module/az.resources/get-azlocation)
+    Polecenie [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) tworzy grupę zasobów. Grupę zasobów i zasoby zazwyczaj tworzy się w regionie w pobliżu, używając dostępnego regionu zwróconego z polecenia cmdlet [Get-AzLocation.](/powershell/module/az.resources/get-azlocation)
 
     ---
 
     > [!NOTE]
-    > Nie można hostowania aplikacji dla systemów Linux i Windows w tej samej grupie zasobów. Jeśli masz istniejącą grupę zasobów o nazwie z aplikacją funkcji systemu Windows lub aplikacją internetową, musisz `AzureFunctionsQuickstart-rg` użyć innej grupy zasobów.
+    > Nie można hostowania aplikacji systemów Linux i Windows w tej samej grupie zasobów. Jeśli masz istniejącą grupę zasobów o nazwie z aplikacją funkcji lub aplikacją internetową systemu `AzureFunctionsQuickstart-rg` Windows, musisz użyć innej grupy zasobów.
 
 1. Utwórz konto magazynu ogólnego przeznaczenia w grupie zasobów i regionie:
 
@@ -234,9 +235,9 @@ Użyj następujących poleceń, aby utworzyć te elementy. Obsługiwane są zar�
 
     ---
 
-    W poprzednim przykładzie zastąp nazwą, która jest odpowiednia dla Ciebie i `<STORAGE_NAME>` unikatowa w usłudze Azure Storage. Nazwy muszą zawierać tylko cyfry od trzech do 24 znaków i małe litery. `Standard_LRS` Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcje](storage-considerations.md#storage-account-requirements).
+    W poprzednim przykładzie zastąp nazwą odpowiednią dla Ciebie i unikatową `<STORAGE_NAME>` w usłudze Azure Storage. Nazwy muszą zawierać od trzech do 24 znaków tylko cyfry i małe litery. `Standard_LRS`Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcję .](storage-considerations.md#storage-account-requirements)
     
-    W przypadku tego przewodnika Szybki start na koncie magazynu naliczane jest tylko kilka centów (USD).
+    W przypadku tego przewodnika Szybki start na koncie magazynu naliczane są tylko opłaty w wysokości kilku centów (USD).
 
 1. Utwórz aplikację funkcji na platformie Azure:
 
@@ -254,13 +255,13 @@ Użyj następujących poleceń, aby utworzyć te elementy. Obsługiwane są zar�
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
     
-    Polecenie cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) tworzy aplikację funkcji na platformie Azure. Jeśli używasz języka Python 3.7 lub 3.6, zmień odpowiednio `-RuntimeVersion` na `3.7` lub `3.6` .
+    Polecenie cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) tworzy aplikację funkcji na platformie Azure. Jeśli używasz języka Python 3.7 lub 3.6, zmień `-RuntimeVersion` odpowiednio na `3.7` lub `3.6` .
 
     ---
     
     W poprzednim przykładzie zastąp nazwą konta użytego w poprzednim kroku, a zastąp wartością globalnie unikatową `<STORAGE_NAME>` `<APP_NAME>` nazwą odpowiednią dla Ciebie.  `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
     
-    To polecenie tworzy aplikację funkcji uruchamianą w środowisku uruchomieniowym określonego języka w ramach planu zużycie usługi [Azure Functions,](consumption-plan.md)który jest bezpłatny dla ilości użycia, które są tutaj naliczane. Polecenie aplikuje również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą której można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie poniesie żadnych kosztów, dopóki nie zostanie aktywowane.
+    To polecenie tworzy aplikację funkcji uruchamianą w określonym środowisku uruchomieniowym języka w ramach [planu Azure Functions Consumption ,](consumption-plan.md)który jest bezpłatny dla ilości użycia, które zostanie naliczone w tym miejscu. Polecenie aplikuje również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą której można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitorowanie Azure Functions](functions-monitoring.md). Wystąpienie nie ponosi żadnych kosztów, dopóki nie zostanie aktywowane.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
@@ -279,6 +280,6 @@ W osobnym oknie terminalu lub w przeglądarce ponownie wywołaj funkcję zdalną
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Łączenie z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+> [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
 
 [Masz problemy? Daj nam znać.](https://aka.ms/python-functions-qs-survey)

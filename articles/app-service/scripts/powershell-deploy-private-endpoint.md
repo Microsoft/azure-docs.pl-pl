@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell: wdrażanie prywatnego punktu końcowego dla aplikacji internetowej za pomocą programu PowerShell'
-description: Dowiedz się, jak wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu programu PowerShell
+title: 'PowerShell: wdrażanie prywatnego punktu końcowego dla aplikacji internetowej przy użyciu programu PowerShell'
+description: Dowiedz się, jak za pomocą programu PowerShell wdrożyć prywatny punkt końcowy dla aplikacji internetowej
 author: ericgre
 ms.assetid: e1cc08d5-91cf-49d7-8d0a-c0e7bd2046ac
 ms.topic: sample
@@ -8,16 +8,17 @@ ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 97ded67b9f9daa2652b2740a21a4b7d6a0ac2bdd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bc4fb20521c1d5d1f61fb411f9e6688e422d7ae6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87068263"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832990"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-powershell"></a>Tworzenie aplikacji App Service i wdrażanie prywatnego punktu końcowego przy użyciu programu PowerShell
 
-Ten przykładowy skrypt tworzy aplikację w App Service z jej powiązanymi zasobami, a następnie wdraża prywatny punkt końcowy.
+Ten przykładowy skrypt tworzy aplikację w App Service z powiązanymi zasobami, a następnie wdraża prywatny punkt końcowy.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -115,14 +116,14 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Tworzy aplikację internetową. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Tworzy konfigurację podsieci sieci wirtualnej. |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Tworzy sieć wirtualną. |
-| [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection) | Tworzy konfigurację połączenia z usługą linku prywatnego. |
+| [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection) | Tworzy konfigurację połączenia usługi łącza prywatnego. |
 | [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) | Tworzy prywatny punkt końcowy. |
 | [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone) | Tworzy nową prywatną strefę DNS. |
 | [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink) | Tworzy nowe łącze prywatnej sieci wirtualnej DNS. |
-| [New-AzPrivateDnsZoneConfig](/powershell/module/az.network/new-azprivatednszoneconfig) | Tworzy konfigurację strefy DNS grupy prywatnych stref DNS. |
-| [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup) | Tworzy prywatną grupę stref DNS w określonym prywatnym punkcie końcowym. |
+| [New-AzPrivateDnsZoneConfig](/powershell/module/az.network/new-azprivatednszoneconfig) | Tworzy konfigurację strefy DNS prywatnej grupy strefy DNS. |
+| [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup) | Tworzy grupę prywatnej strefy DNS w określonym prywatnym punkcie końcowym. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/).
-- Dodatkowe przykłady Azure PowerShell dla Azure App Service Web Apps można znaleźć w [przykładach Azure PowerShell](../samples-powershell.md).
+- Dodatkowe Azure PowerShell przykłady dla Azure App Service Web Apps można znaleźć w Azure PowerShell [przykładach.](../samples-powershell.md)

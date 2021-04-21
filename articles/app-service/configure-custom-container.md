@@ -3,13 +3,14 @@ title: Konfigurowanie kontenera niestandardowego
 description: Dowiedz się, jak skonfigurować kontener niestandardowy w Azure App Service. W tym artykule przedstawiono najczęściej wykonywane zadania konfiguracji.
 ms.topic: article
 ms.date: 02/23/2021
+ms.custom: devx-track-azurepowershell
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 7bfebe318d93a544c964d70ea0a28144a7f0e43b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 48d2eeec1bdb1b9b4a393b4116092f043716077c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764247"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832037"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera dla usługi Azure App Service
 
@@ -17,13 +18,13 @@ W tym artykule pokazano, jak skonfigurować kontener niestandardowy do uruchamia
 
 ::: zone pivot="container-windows"
 
-Ten przewodnik zawiera kluczowe pojęcia i instrukcje dotyczące konteneryzacji aplikacji systemu Windows w App Service. Jeśli nigdy wcześniej nie używaliśmy Azure App Service, najpierw wykonaj kroki samouczka i [przewodnika](quickstart-custom-container.md) Szybki start [dla](tutorial-custom-container.md) kontenerów niestandardowych.
+Ten przewodnik zawiera kluczowe pojęcia i instrukcje dotyczące konteneryzacji aplikacji systemu Windows w App Service. Jeśli nigdy wcześniej nie używaliśmy Azure App Service, [](quickstart-custom-container.md) najpierw postępuj zgodnie z samouczkiem i samouczkiem kontenerów [niestandardowych.](tutorial-custom-container.md)
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-Ten przewodnik zawiera kluczowe pojęcia i instrukcje dotyczące konteneryzacji aplikacji systemu Linux w App Service. Jeśli nigdy wcześniej nie używaliśmy Azure App Service, najpierw wykonaj kroki samouczka i [przewodnika](quickstart-custom-container.md) Szybki start [dla](tutorial-custom-container.md) kontenerów niestandardowych. Istnieje również przewodnik Szybki start [i samouczek dotyczący](quickstart-multi-container.md) aplikacji z wieloma [kontenerami.](tutorial-multi-container-app.md)
+Ten przewodnik zawiera kluczowe pojęcia i instrukcje dotyczące konteneryzacji aplikacji systemu Linux w App Service. Jeśli nigdy wcześniej nie używaliśmy Azure App Service, [](quickstart-custom-container.md) najpierw postępuj zgodnie z samouczkiem i samouczkiem kontenerów [niestandardowych.](tutorial-custom-container.md) Istnieje również przewodnik Szybki start i [samouczek dotyczący](quickstart-multi-container.md) aplikacji z wieloma [kontenerami.](tutorial-multi-container-app.md)
 
 ::: zone-end
 
@@ -34,12 +35,12 @@ Ten przewodnik zawiera kluczowe pojęcia i instrukcje dotyczące konteneryzacji 
 W przypadku niestandardowego obrazu systemu Windows należy wybrać odpowiedni obraz [nadrzędny (obraz podstawowy)](https://docs.docker.com/develop/develop-images/baseimages/) dla odpowiedniej struktury:
 
 - Aby wdrożyć .NET Framework aplikacji, użyj obrazu nadrzędnego opartego na wersji systemu Windows Server Core [Long-Term Servicing Channel (LTSC).](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 
-- Aby wdrożyć aplikacje .NET Core, użyj obrazu nadrzędnego opartego na wersji Windows Server Nano [Semi-Annual Servicing Channel (SAC).](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 
+- Aby wdrożyć aplikacje .NET Core, użyj obrazu nadrzędnego opartego na wersji Systemu Windows Server Nano [Semi-Annual Servicing Channel (SAC).](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 
 
 Pobieranie obrazu nadrzędnego podczas uruchamiania aplikacji może zająć trochę czasu. Można jednak skrócić czas uruchamiania, korzystając z jednego z następujących obrazów nadrzędnych, które już zostały zbuforowane w usłudze Azure App Service:
 
 - [](https://hub.docker.com/_/microsoft-windows-servercore)mcr.microsoft.com/windows/servercore:2004
-- [mcr.microsoft.com/windows/servercore:](https://hub.docker.com/_/microsoft-windows-servercore)ltsc2019
+- [](https://hub.docker.com/_/microsoft-windows-servercore)mcr.microsoft.com/windows/servercore:ltsc2019
 - [](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/)mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-2004
 - [](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/)mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
 - [](https://hub.docker.com/_/microsoft-dotnet-core-runtime/)mcr.microsoft.com/dotnet/core/runtime:3.1-nanoserver-2004
@@ -73,13 +74,13 @@ W *\<username>* przypadku i należy podać poświadczenia logowania dla *\<passw
 
 ## <a name="i-dont-see-the-updated-container"></a>Nie widzę zaktualizowanego kontenera
 
-Jeśli zmienisz ustawienia kontenera platformy Docker tak, aby wskazać nowy kontener, może miej kilka minut, zanim aplikacja obsługuje żądania HTTP z nowego kontenera. Podczas ściągania i rozpoczynania pracy nowego kontenera App Service nadal obsługiwać żądania ze starego kontenera. Dopiero po uruchomieniu i przygotowaniu nowego kontenera do odbierania żądań App Service rozpocząć wysyłanie do niego żądań.
+Jeśli zmienisz ustawienia kontenera platformy Docker tak, aby wskazać nowy kontener, może to potrwać kilka minut, zanim aplikacja będzie obsługuje żądania HTTP z nowego kontenera. Gdy nowy kontener jest ściągany i uruchomiony, App Service nadal będzie obsługiwać żądania ze starego kontenera. Tylko wtedy, gdy nowy kontener jest uruchomiony i gotowy do odbierania żądań, App Service rozpocząć wysyłanie do niego żądań.
 
 ## <a name="how-container-images-are-stored"></a>Jak są przechowywane obrazy kontenerów
 
-Przy pierwszym uruchomieniu niestandardowego obrazu platformy Docker w programie App Service App Service i ściąga `docker pull` wszystkie warstwy obrazu. Te warstwy są przechowywane na dysku, tak jak w przypadku korzystania z lokalnej platformy Docker. Przy każdym ponownym uruchomieniu aplikacji App Service obiekt , ale ściąga tylko te warstwy, `docker pull` które uległy zmianie. Jeśli nie zostały wprowadzone żadne zmiany, App Service istniejące warstwy na dysku lokalnym.
+Przy pierwszym uruchomieniu niestandardowego obrazu platformy Docker w App Service App Service i ściąga `docker pull` wszystkie warstwy obrazu. Te warstwy są przechowywane na dysku, tak jak w przypadku używania platformy Docker lokalnie. Przy każdym ponownym uruchomieniu aplikacji App Service obiekt , ale ściąga tylko te warstwy, `docker pull` które uległy zmianie. Jeśli nie zostały wprowadzone żadne zmiany, App Service istniejące warstwy na dysku lokalnym.
 
-Jeśli z jakiegokolwiek powodu aplikacja zmienia wystąpienia obliczeniowe, takie jak skalowanie w górę i w dół warstw cenowych, App Service ponownie ściągnąć wszystkie warstwy. To samo dotyczy skalowania w celu dodania kolejnych wystąpień. Istnieją również rzadkie przypadki, w których wystąpienia aplikacji mogą ulec zmianie bez operacji skalowania.
+Jeśli z jakiegokolwiek powodu aplikacja zmienia wystąpienia obliczeniowe, na przykład skalowanie w górę i w dół warstw cenowych, App Service ponownie ściągnąć wszystkie warstwy. To samo dotyczy skalowania w celu dodania kolejnych wystąpień. Istnieją również rzadkie przypadki, w których wystąpienia aplikacji mogą ulec zmianie bez operacji skalowania.
 
 ## <a name="configure-port-number"></a>Konfigurowanie numeru portu
 
@@ -113,7 +114,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB
 
 Gdy aplikacja jest uruchamiana, App Service są automatycznie wstrzykiwane do procesu jako zmienne środowiskowe. Zmienne środowiskowe kontenera można zweryfikować przy użyciu adresu URL `https://<app-name>.scm.azurewebsites.net/Env)` .
 
-Jeśli aplikacja używa obrazów z rejestru prywatnego lub z Docker Hub, poświadczenia do uzyskiwania dostępu do repozytorium są zapisywane w zmiennych środowiskowych: `DOCKER_REGISTRY_SERVER_URL` , `DOCKER_REGISTRY_SERVER_USERNAME` i `DOCKER_REGISTRY_SERVER_PASSWORD` . Ze względu na zagrożenia bezpieczeństwa żadna z tych zastrzeżonych nazw zmiennych nie jest narażona na działanie aplikacji.
+Jeśli aplikacja używa obrazów z rejestru prywatnego lub z Docker Hub, poświadczenia dostępu do repozytorium są zapisywane w zmiennych środowiskowych: `DOCKER_REGISTRY_SERVER_URL` , `DOCKER_REGISTRY_SERVER_USERNAME` i `DOCKER_REGISTRY_SERVER_PASSWORD` . Ze względu na zagrożenia bezpieczeństwa żadna z tych zastrzeżonych nazw zmiennych nie jest narażona na działanie aplikacji.
 
 ::: zone pivot="container-windows"
 W przypadku kontenerów opartych na usługach IIS lub .NET Framework (4.0 lub więcej) są one automatycznie wstrzykiwane jako ustawienia aplikacji .NET i parametry połączenia przez `System.ConfigurationManager` App Service. W przypadku wszystkich innych języków lub platform są one udostępniane jako zmienne środowiskowe dla procesu z jednym z następujących odpowiednich prefiksów:
@@ -418,7 +419,7 @@ Na poniższych listach przedstawiono obsługiwane i nieobsługiwane Docker Compo
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: migrowanie niestandardowego oprogramowania Azure App Service użyciu kontenera niestandardowego](tutorial-custom-container.md)
+> [Samouczek: migrowanie niestandardowego oprogramowania do Azure App Service przy użyciu kontenera niestandardowego](tutorial-custom-container.md)
 
 ::: zone pivot="container-linux"
 

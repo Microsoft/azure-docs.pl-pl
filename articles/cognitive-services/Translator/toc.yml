@@ -146,22 +146,24 @@
           href: document-translation/create-sas-tokens.md
     - name: Odwołanie
       items:
-        - name: Uzyskiwanie formatów dokumentów
-          href: document-translation/reference/get-document-formats.md
-        - name: Uzyskiwanie formatów słownika
-          href: document-translation/reference/get-glossary-formats.md
-        - name: Uzyskiwanie źródła magazynu dokumentów
-          href: document-translation/reference/get-document-storage-source.md
-        - name: Przesyłanie żądania wsadowego
-          href: document-translation/reference/submit-batch-request.md
-        - name: Uzyskiwanie stanu dokumentów operacji
-          href: document-translation/reference/get-operation-documents-status.md
+        - name: Uzyskiwanie obsługiwanych formatów dokumentów
+          href: document-translation/reference/get-supported-document-formats.md
+        - name: Uzyskiwanie obsługiwanych formatów słownika
+          href: document-translation/reference/get-supported-glossary-formats.md
+        - name: Uzyskiwanie obsługiwanych źródeł magazynu
+          href: document-translation/reference/get-supported-storage-sources.md
+        - name: Rozpoczynanie tłumaczenia
+          href: document-translation/reference/start-translation.md
         - name: Uzyskiwanie stanu dokumentów
+          href: document-translation/reference/get-documents-status.md
+        - name: Uzyskiwanie stanu dokumentu
           href: document-translation/reference/get-document-status.md
-        - name: Operacje get
-          href: document-translation/reference/get-operations.md
-        - name: Operacja anulowania
-          href: document-translation/reference/cancel-operation.md
+        - name: Uzyskiwanie stanu tłumaczeń
+          href: document-translation/reference/get-translations-status.md
+        - name: Uzyskiwanie stanu tłumaczenia
+          href: document-translation/reference/get-translation-status.md
+        - name: Anulowanie tłumaczenia
+          href: document-translation/reference/cancel-translation.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Gotowość przedsiębiorstwa

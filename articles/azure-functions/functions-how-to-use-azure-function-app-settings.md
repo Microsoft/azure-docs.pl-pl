@@ -4,19 +4,19 @@ description: Dowiedz się, jak skonfigurować ustawienia aplikacji funkcji w Azu
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: ed87a5a744defb15d4a898aeabdce5267b7431fe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 6775fdf8d5174600344f3c7177a3130ef63e8f76
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775659"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832684"
 ---
 # <a name="manage-your-function-app"></a>Zarządzanie aplikacją funkcji 
 
-W Azure Functions aplikacja funkcji udostępnia kontekst wykonywania dla poszczególnych funkcji. Zachowania aplikacji funkcji mają zastosowanie do wszystkich funkcji hostowanych przez tę aplikację funkcji. Wszystkie funkcje w aplikacji funkcji muszą być w tym samym [języku.](supported-languages.md) 
+W Azure Functions aplikacja funkcji udostępnia kontekst wykonywania dla poszczególnych funkcji. Zachowania aplikacji funkcji mają zastosowanie do wszystkich funkcji hostowanych przez danej aplikacji funkcji. Wszystkie funkcje w aplikacji funkcji muszą być w tym samym [języku.](supported-languages.md) 
 
-Poszczególne funkcje w aplikacji funkcji są wdrażane razem i skalowane razem. Wszystkie funkcje w tej samej aplikacji funkcji współdzielą zasoby na wystąpienie w czasie skalowania aplikacji funkcji. 
+Poszczególne funkcje w aplikacji funkcji są wdrażane razem i skalowane razem. Wszystkie funkcje w tej samej aplikacji funkcji współdzielą zasoby dla każdego wystąpienia podczas skalowania aplikacji funkcji. 
 
 Parametry połączenia, zmienne środowiskowe i inne ustawienia aplikacji są definiowane oddzielnie dla każdej aplikacji funkcji. Wszystkie dane, które muszą być współużytkcyjne między aplikacjami funkcji, powinny być przechowywane zewnętrznie w trwałym magazynie.
 
@@ -24,23 +24,23 @@ Parametry połączenia, zmienne środowiskowe i inne ustawienia aplikacji są de
 
 1. Aby rozpocząć, przejdź do [Azure Portal] i zaloguj się do konta platformy Azure. Na pasku wyszukiwania w górnej części portalu wprowadź nazwę aplikacji funkcji i wybierz ją z listy. 
 
-2. W **obszarze Ustawienia** w okienku po lewej stronie wybierz pozycję **Konfiguracja**.
+2. W **obszarze Ustawienia** w okienku po lewej stronie wybierz pozycję **Konfiguracja.**
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Omówienie aplikacji funkcji w Azure Portal":::
 
-Na stronie przeglądu możesz przejść do wszystkiego, czego potrzebujesz **[](#settings)** do zarządzania aplikacją funkcji, a w szczególności do ustawień aplikacji **[i funkcji platformy](#platform-features)**.
+Na stronie przeglądu możesz przejść do wszystkiego, czego potrzebujesz **[](#settings)** do zarządzania aplikacją funkcji, a w szczególności do ustawień aplikacji **[i funkcji platformy.](#platform-features)**
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Praca z ustawieniami aplikacji
 
-Ustawieniami aplikacji można zarządzać za pomocą [Azure Portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) oraz interfejsu wiersza [polecenia platformy Azure](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). Ustawieniami aplikacji można również [zarządzać](functions-develop-vs-code.md#application-settings-in-azure) z Visual Studio Code i [z Visual Studio](functions-develop-vs.md#function-app-settings). 
+Ustawieniami aplikacji można zarządzać za pomocą [Azure Portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) oraz interfejsu wiersza polecenia platformy [Azure](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) [Azure PowerShell.](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings) Ustawieniami aplikacji można również [zarządzać](functions-develop-vs-code.md#application-settings-in-azure) z Visual Studio Code i [z Visual Studio](functions-develop-vs.md#function-app-settings). 
 
-Te ustawienia są przechowywane w postaci zaszyfrowanej. Aby dowiedzieć się więcej, zobacz [Zabezpieczenia ustawień aplikacji](security-concepts.md#application-settings).
+Te ustawienia są przechowywane w postaci zaszyfrowanej. Aby dowiedzieć się więcej, zobacz [Zabezpieczenia ustawień aplikacji.](security-concepts.md#application-settings)
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
 Aby znaleźć ustawienia aplikacji, zobacz [Wprowadzenie w Azure Portal](#get-started-in-the-azure-portal). 
 
-Na **karcie Ustawienia** aplikacji są zachowywane ustawienia używane przez aplikację funkcji. Musisz wybrać pozycję **Pokaż wartości,** aby wyświetlić wartości w portalu. Aby dodać ustawienie w portalu, wybierz pozycję **Nowe ustawienie aplikacji** i dodaj nową parę klucz-wartość.
+Na **karcie Ustawienia** aplikacji są zachowywane ustawienia, które są używane przez aplikację funkcji. Musisz wybrać pozycję **Pokaż wartości,** aby wyświetlić wartości w portalu. Aby dodać ustawienie w portalu, wybierz pozycję **Nowe ustawienie aplikacji** i dodaj nową parę klucz-wartość.
 
 ![Ustawienia aplikacji funkcji w Azure Portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
@@ -86,9 +86,9 @@ Podczas tworzenia aplikacji funkcji lokalnie należy zachować lokalne kopie tyc
 
 ## <a name="hosting-plan-type"></a>Typ planu hostingu
 
-Podczas tworzenia aplikacji funkcji tworzysz również plan hostingu, w którym jest uruchamiana aplikacja. Plan może mieć jedną lub więcej aplikacji funkcji. Funkcjonalność, skalowanie i ceny funkcji zależą od typu planu. Aby dowiedzieć się więcej, [zobacz Azure Functions hostingu.](functions-scale.md)
+Podczas tworzenia aplikacji funkcji tworzysz również plan hostingu, w którym aplikacja jest uruchamiana. Plan może mieć jedną lub więcej aplikacji funkcji. Funkcjonalność, skalowanie i ceny funkcji zależą od typu planu. Aby dowiedzieć się więcej, [zobacz Azure Functions hostingu.](functions-scale.md)
 
-Możesz określić typ planu używanego przez aplikację funkcji z witryny Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure Azure PowerShell API. 
+Typ planu używanego przez aplikację funkcji można określić z witryny Azure Portal albo przy użyciu interfejsu wiersza polecenia platformy Azure lub interfejsów AZURE POWERSHELL API. 
 
 Następujące wartości wskazują typ planu:
 
@@ -143,7 +143,7 @@ Ta migracja nie jest obsługiwana w systemie Linux.
 
 Użyj poniższej procedury, aby przeprowadzić migrację z planu Zużycie do planu Premium w systemie Windows:
 
-1. Uruchom następujące polecenie, aby utworzyć nowy plan App Service (Elastic Premium) w tym samym regionie i grupie zasobów co istniejąca aplikacja funkcji.  
+1. Uruchom następujące polecenie, aby utworzyć nowy plan App Service (Elastyczna wersja Premium) w tym samym regionie i grupie zasobów co istniejąca aplikacja funkcji.  
 
     ```azurecli-interactive
     az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP> --location <REGION> --sku EP1
@@ -155,15 +155,15 @@ Użyj poniższej procedury, aby przeprowadzić migrację z planu Zużycie do pla
     az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
     ```
 
-1. Jeśli nie potrzebujesz już poprzedniego planu aplikacji funkcji Zużycie, usuń oryginalny plan aplikacji funkcji po potwierdzeniu, że migracja do nowego planu została pomyślnie zmigrowana. Uruchom następujące polecenie, aby uzyskać listę wszystkich planów Użycia w grupie zasobów.
+1. Jeśli nie potrzebujesz już poprzedniego planu aplikacji funkcji Zużycie, usuń oryginalny plan aplikacji funkcji po potwierdzeniu, że migracja do nowego planu została pomyślnie zmigrowana. Uruchom następujące polecenie, aby uzyskać listę wszystkich planów Zużycia w grupie zasobów.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].{PlanName:name,Sites:numberOfSites}" -o table
     ```
 
-    Możesz bezpiecznie usunąć plan bez lokacji, z której przeprowadzasz migrację.
+    Możesz bezpiecznie usunąć plan z zerową lokacją, czyli z której został zmigrowany.
 
-1. Uruchom następujące polecenie, aby usunąć zmigrowany plan zużycie.
+1. Uruchom następujące polecenie, aby usunąć zmigrowany plan Zużycia.
 
     ```azurecli-interactive
     az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
@@ -173,7 +173,7 @@ Użyj poniższej procedury, aby przeprowadzić migrację z planu Zużycie do pla
 
 Aby przeprowadzić migrację z planu Premium do planu Zużycie w systemie Windows, użyj następującej procedury:
 
-1. Uruchom następujące polecenie, aby utworzyć nową aplikację funkcji (Zużycie) w tym samym regionie i grupie zasobów co istniejąca aplikacja funkcji. To polecenie tworzy również nowy plan Zużycie, w którym działa aplikacja funkcji.
+1. Uruchom następujące polecenie, aby utworzyć nową aplikację funkcji (Zużycie) w tym samym regionie i grupie zasobów co istniejąca aplikacja funkcji. To polecenie tworzy również nowy plan Zużycie, w którym jest uruchamiana aplikacja funkcji.
 
     ```azurecli-interactive
     az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
@@ -185,7 +185,7 @@ Aby przeprowadzić migrację z planu Premium do planu Zużycie w systemie Window
     az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN>
     ```
 
-1. Usuń aplikację funkcji utworzoną w kroku 1, ponieważ potrzebujesz tylko planu, który został utworzony do uruchomienia istniejącej aplikacji funkcji.
+1. Usuń aplikację funkcji utworzoną w kroku 1, ponieważ potrzebny jest tylko plan, który został utworzony do uruchomienia istniejącej aplikacji funkcji.
 
     ```azurecli-interactive
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
@@ -241,7 +241,7 @@ Podczas tworzenia aplikacji lokalnie zalecamy używanie interfejsu [Azure Functi
 
 ![Konfigurowanie usługi Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-Zaawansowane narzędzia dla App Service (znane również jako Kudu) zapewniają dostęp do zaawansowanych funkcji administracyjnych aplikacji funkcji. Z usługi Kudu można zarządzać informacjami o systemie, ustawieniami aplikacji, zmiennymi środowiskowym, rozszerzeniami witryn, nagłówkami HTTP i zmiennymi serwera. Możesz również uruchomić aplikację **Kudu,** przeglądając punkt końcowy SCM dla aplikacji funkcji, na przykład `https://<myfunctionapp>.scm.azurewebsites.net/` 
+Zaawansowane narzędzia dla App Service (znane również jako Kudu) zapewniają dostęp do zaawansowanych funkcji administracyjnych aplikacji funkcji. W środowisku Kudu można zarządzać informacjami o systemie, ustawieniami aplikacji, zmiennymi środowiskowym, rozszerzeniami witryn, nagłówkami HTTP i zmiennymi serwera. Możesz również uruchomić aplikację **Kudu,** przeglądając punkt końcowy SCM dla aplikacji funkcji, na przykład `https://<myfunctionapp>.scm.azurewebsites.net/` 
 
 
 ### <a name="deployment-center"></a><a name="deployment"></a>Centrum wdrażania
@@ -274,7 +274,7 @@ Użyj polecenia [`az functionapp cors show`](/cli/azure/functionapp/cors#az_func
 
 ![Konfigurowanie uwierzytelniania dla aplikacji funkcji](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
-Gdy funkcje korzystają z wyzwalacza HTTP, możesz wymagać, aby wywołania najpierw zostały uwierzytelnione. App Service obsługuje Azure Active Directory uwierzytelniania i logowania u dostawców sieci społecznościowych, takich jak Facebook, Microsoft i Twitter. Aby uzyskać szczegółowe informacje na temat konfigurowania określonych dostawców uwierzytelniania, [zobacz Azure App Service omówienie uwierzytelniania.](../app-service/overview-authentication-authorization.md) 
+Gdy funkcje korzystają z wyzwalacza HTTP, możesz wymagać, aby wywołania zostały najpierw uwierzytelnione. App Service obsługuje Azure Active Directory uwierzytelniania i logowania u dostawców sieci społecznościowych, takich jak Facebook, Microsoft i Twitter. Aby uzyskać szczegółowe informacje na temat konfigurowania określonych dostawców uwierzytelniania, [zobacz omówienie Azure App Service uwierzytelniania.](../app-service/overview-authentication-authorization.md) 
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,40 +1,40 @@
 ---
-title: Lokalizacje danych dla pulpitu wirtualnego systemu Windows — Azure
-description: Krótkie omówienie lokalizacji danych i metadanych pulpitu wirtualnego systemu Windows.
+title: Lokalizacje danych dla Windows Virtual Desktop — Azure
+description: Krótkie omówienie lokalizacji, w których Windows Virtual Desktop przechowywane są dane i metadane użytkownika.
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a4c63cc686b08d179e20e6f3e3a7aa1efa69a5f8
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: eeba3cb579c6ef9158379403a3206f99a2cfb060
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447084"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830632"
 ---
-# <a name="data-and-metadata-locations-for-windows-virtual-desktop"></a>Lokalizacje danych i metadanych dla pulpitu wirtualnego systemu Windows
+# <a name="data-and-metadata-locations-for-windows-virtual-desktop"></a>Lokalizacje danych i metadanych dla Windows Virtual Desktop
 
 >[!IMPORTANT]
->Ta zawartość dotyczy pulpitu wirtualnego systemu Windows z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez Azure Resource Manager obiektów, zobacz [ten artykuł](./virtual-desktop-fall-2019/data-locations-2019.md).
+>Ta zawartość dotyczy Windows Virtual Desktop z Azure Resource Manager Windows Virtual Desktop obiektów. Jeśli używasz klasy Windows Virtual Desktop (klasycznej) bez obiektów Azure Resource Manager, zobacz [ten artykuł.](./virtual-desktop-fall-2019/data-locations-2019.md)
 
-Pulpit wirtualny systemu Windows jest obecnie dostępny dla wszystkich lokalizacji geograficznych. Administratorzy mogą wybrać lokalizację do przechowywania danych użytkownika podczas tworzenia maszyn wirtualnych puli hostów i skojarzonych usług, takich jak serwery plików. Dowiedz się więcej o usłudze Azure lokalizacje geograficzne na [mapie centrum danych platformy Azure](https://azuredatacentermap.azurewebsites.net/).
+Windows Virtual Desktop jest obecnie dostępna dla wszystkich lokalizacji geograficznych. Administratorzy mogą wybrać lokalizację do przechowywania danych użytkownika podczas tworzenia maszyn wirtualnych puli hostów i skojarzonych usług, takich jak serwery plików. Dowiedz się więcej o lokalizacjach geograficznych platformy Azure na mapie [centrum danych platformy Azure.](https://azuredatacentermap.azurewebsites.net/)
 
 >[!NOTE]
->Firma Microsoft nie kontroluje ani nie ogranicza regionów, w których ty lub użytkownicy mogą uzyskiwać dostęp do danych specyficznych dla użytkownika i aplikacji.
+>Firma Microsoft nie kontroluje ani nie ogranicza regionów, w których Ty lub Twoi użytkownicy mogą uzyskać dostęp do danych użytkownika i aplikacji.
 
 >[!IMPORTANT]
->Pulpit wirtualny systemu Windows przechowuje globalne informacje o metadanych, takie jak nazwy dzierżawców, nazwy puli hostów, nazwy grup aplikacji i nazwy głównej użytkownika w centrum danych. Za każdym razem, gdy klient tworzy obiekt usługi, musi wprowadzić lokalizację dla obiektu usługi. Wprowadzona przez siebie Lokalizacja określa miejsce, w którym będą przechowywane metadane dla obiektu. Klient wybierze region świadczenia usługi Azure, a metadane będą przechowywane w powiązanej lokalizacji geograficznej. Aby zapoznać się z listą wszystkich regionów platformy Azure i powiązanych lokalizacje geograficzne, zobacz [Azure lokalizacje geograficzne](https://azure.microsoft.com/global-infrastructure/geographies/).
+>Windows Virtual Desktop globalne informacje o metadanych, takie jak nazwy obszarów roboczych, nazwy puli hostów, nazwy grup aplikacji i główne nazwy użytkowników w centrum danych. Za każdym razem, gdy klient tworzy obiekt usługi, musi wprowadzić lokalizację obiektu usługi. Wejdą do nich lokalizacje, w których będą przechowywane metadane obiektu. Klient wybierze region świadczenia usługi Azure, a metadane będą przechowywane w powiązanej lokalizacji geograficznej. Aby uzyskać listę wszystkich regionów platformy Azure i powiązanych lokalizacji geograficznych, zobacz [Obszary geograficzne platformy Azure.](https://azure.microsoft.com/global-infrastructure/geographies/)
 
-Obecnie obsługujemy przechowywanie metadanych w następujących lokalizacje geograficzne:
+Obecnie obsługujemy przechowywanie metadanych w następujących lokalizacjach geograficznych:
 
-- Stany Zjednoczone (US) (ogólnie dostępna)
+- Stany Zjednoczone (USA) (ogólnie dostępne)
 - Europa (UE) (publiczna wersja zapoznawcza) 
 
 >[!NOTE]
-> Po wybraniu regionu w celu utworzenia obiektów usługi pulpitu wirtualnego systemu Windows w programie zobaczysz regiony należące do USA i UE lokalizacje geograficzne. Aby upewnić się, który region będzie najlepiej działał dla danego wdrożenia, zapoznaj się z [naszą globalną mapą infrastruktury platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
+> Podczas wybierania regionu, w którym mają być Windows Virtual Desktop usługi, zobaczysz regiony w lokalizacjach geograficznych USA i Unii Europejskiej. Aby upewnić się, że rozumiesz, który region będzie najlepiej działać dla Twojego wdrożenia, zobacz naszą globalną [mapę infrastruktury platformy Azure.](https://azure.microsoft.com/global-infrastructure/geographies/#geographies)
 
-Przechowywane metadane są szyfrowane w stanie spoczynku, a dublowane nadmiarowe są utrzymywane w obrębie lokalizacji geograficznej. Wszystkie dane klientów, takie jak ustawienia aplikacji i dane użytkownika, znajdują się w lokalizacji wybranej przez klienta i nie są zarządzane przez usługę. Coraz więcej lokalizacje geograficzne stanie się dostępna w miarę rozwoju usługi.
+Przechowywane metadane są szyfrowane w spoczynku, a duplikaty geograficznie nadmiarowe są przechowywane w lokalizacji geograficznej. Wszystkie dane klienta, takie jak ustawienia aplikacji i dane użytkownika, znajdują się w lokalizacji wybieranej przez klienta i nie są zarządzane przez usługę. W miarę rozwoju usługi będzie dostępnych więcej lokalizacji geograficznych.
 
-Metadane usługi są replikowane w obrębie lokalizacji geograficznej platformy Azure na potrzeby odzyskiwania po awarii.
+Metadane usługi są replikowane w lokalizacji geograficznej platformy Azure na potrzeby odzyskiwania po awarii.

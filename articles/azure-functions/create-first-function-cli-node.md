@@ -3,13 +3,13 @@ title: Tworzenie funkcji języka JavaScript z wiersza polecenia — Azure Functi
 description: Dowiedz się, jak utworzyć funkcję JavaScript z wiersza polecenia, a następnie opublikować lokalny projekt Node.js do hostingu bez serwera w Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8db78e56087e7cb777d1aa85391d4b6ac2aae27
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: eb162bcff647e9e1dbced19ddea33a8f3c54b58e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787543"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831946"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji JavaScript na platformie Azure z wiersza polecenia
 

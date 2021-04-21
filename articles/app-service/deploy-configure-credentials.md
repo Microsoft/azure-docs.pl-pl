@@ -4,13 +4,13 @@ description: Dowiedz się, jakie typy poświadczeń wdrażania znajdują się Az
 ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b77a26f61e1168846156de990806bbed2f7c41e3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 008bfa58c117fc1b43227ba73902d921cec25795
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789541"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830579"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurowanie poświadczeń wdrożenia dla Azure App Service
 Aby zabezpieczyć wdrażanie aplikacji z komputera lokalnego, program [Azure App Service](./overview.md) dwa typy poświadczeń dla lokalnego wdrożenia usługi [Git](deploy-local-git.md) i wdrożenia [FTP/S.](deploy-ftp.md) Te poświadczenia nie są takie same jak poświadczenia subskrypcji platformy Azure.

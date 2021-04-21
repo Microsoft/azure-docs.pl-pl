@@ -3,12 +3,12 @@ title: Opcje uwierzytelniania rejestru
 description: Opcje uwierzytelniania dla prywatnego rejestru kontenerów platformy Azure, w tym logowanie przy użyciu tożsamości Azure Active Directory, korzystanie z jednostki usługi i korzystanie z opcjonalnych poświadczeń administratora.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: 7ff55d569e2659262ce9f323e4db2ea7ed671d20
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 097a322260e4c4f55d4e0d7e3e107abdd15a3b8a
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784285"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831640"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Uwierzytelnianie za pomocą rejestru kontenerów platformy Azure
 
@@ -24,14 +24,14 @@ W poniższej tabeli wymieniono dostępne metody uwierzytelniania i typowe scenar
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Indywidualna tożsamość usługi AD](#individual-login-with-azure-ad)                | `az acr login` w interfejsie wiersza polecenia platformy Azure                             | Interakcyjne wypychanie/ściąganie przez deweloperów, testerów                                    | Tak                              | Token usługi AD musi być odnawiany co 3 godziny     |
 | [Jednostkę usługi AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` w interfejsie wiersza polecenia platformy Azure<br/><br/> Ustawienia logowania do rejestru w interfejsach API lub narzędziach<br/><br/> [Klucz tajny ściągania kubernetes](container-registry-auth-kubernetes.md)                                           | Nienadzorowane wypychanie z potoku ci/cd<br/><br/> Nienadzorowane ściąganie do platformy Azure lub usług zewnętrznych  | Tak                              | Domyślna wygaśnięcie hasła dodatku SP to 1 rok       |                                                           
-| [Integracja z platformą AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Dołączanie rejestru podczas tworzenia lub aktualizowania klastra usługi AKS  | Nienadzorowane ściąganie do klastra usługi AKS                                                  | Nie, dostęp tylko do ściągania             | Dostępne tylko z klastrem usługi AKS            |
-| [Tożsamość zarządzana dla zasobów platformy Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` w interfejsie wiersza polecenia platformy Azure                                       | Nienadzorowane wypychanie z potoku azure CI/CD<br/><br/> Nienadzorowane ściąganie do usług platformy Azure<br/><br/>   | Tak                              | Używaj tylko z wybranych usług platformy Azure, które [obsługują tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
-| [Administrator](#admin-account)                            | `docker login`                                          | Interakcyjne wypychanie/ściąganie przez indywidualnego dewelopera lub testera<br/><br/>Wdrażanie obrazu w portalu z rejestru do Azure App Service lub Azure Container Instances                      | Nie, zawsze ściągaj i wypychaj dostęp  | Jedno konto na rejestr, nie jest zalecane dla wielu użytkowników         |
-| [Token dostępu o zakresie repozytorium](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` w interfejsie wiersza polecenia platformy Azure   | Interakcyjne wypychanie/ściąganie do repozytorium przez poszczególnych deweloperów lub testerów<br/><br/> Nienadzorowane wypychanie/ściąganie do repozytorium przez pojedynczy system lub urządzenie zewnętrzne                  | Tak                              | Obecnie nie są zintegrowane z tożsamością usługi AD  |
+| [Integracja z platformą AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Dołączanie rejestru podczas tworzenia lub aktualizowania klastra usługi AKS  | Nienadzorowane ściąganie do klastra usługi AKS                                                  | Nie, dostęp tylko do ściągania             | Dostępne tylko w klastrze usługi AKS            |
+| [Tożsamość zarządzana dla zasobów platformy Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` w interfejsie wiersza polecenia platformy Azure                                       | Nienadzorowane wypychanie z potoku usługi Azure CI/CD<br/><br/> Nienadzorowane ściąganie do usług platformy Azure<br/><br/>   | Tak                              | Użyj tylko z wybranych usług platformy Azure, które [obsługują tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
+| [Administrator](#admin-account)                            | `docker login`                                          | Interakcyjne wypychanie/ściąganie przez poszczególnych deweloperów lub testerów<br/><br/>Wdrażanie obrazu w portalu z rejestru do Azure App Service lub Azure Container Instances                      | Nie, zawsze ściągaj i wypychaj dostęp  | Jedno konto na rejestr, nie jest zalecane dla wielu użytkowników         |
+| [Token dostępu o zakresie repozytorium](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` w interfejsie wiersza polecenia platformy Azure   | Interakcyjne wypychanie/ściąganie do repozytorium przez poszczególnych deweloperów lub testerów<br/><br/> Nienadzorowane wypychanie/ściąganie do repozytorium przez pojedynczy system lub urządzenie zewnętrzne                  | Tak                              | Nie jest obecnie zintegrowany z tożsamością usługi AD  |
 
 ## <a name="individual-login-with-azure-ad"></a>Indywidualne logowanie za pomocą usługi Azure AD
 
-Podczas bezpośredniej pracy z rejestrem, takiej jak ściąganie obrazów do i wypychanie obrazów ze stacji roboczej dewelopera do utworzonego rejestru, uwierzytelnianie przy użyciu indywidualnej tożsamości platformy Azure. Zaloguj się do interfejsu wiersza [polecenia platformy Azure](/cli/azure/install-azure-cli) za pomocą polecenia az [login,](/cli/azure/reference-index#az_login)a następnie uruchom [polecenie az acr login:](/cli/azure/acr#az_acr_login)
+Podczas bezpośredniej pracy z rejestrem, takiej jak ściąganie obrazów do dewelopera i wypychanie obrazów ze stacji roboczej dewelopera do utworzonego rejestru, uwierzytelnianie przy użyciu indywidualnej tożsamości platformy Azure. Zaloguj się do interfejsu wiersza [polecenia platformy Azure](/cli/azure/install-azure-cli) za pomocą polecenia az [login](/cli/azure/reference-index#az_login), a następnie uruchom polecenie [az acr login:](/cli/azure/acr#az_acr_login)
 
 ```azurecli
 az login
@@ -65,7 +65,7 @@ W danych wyjściowych jest wyświetlany token dostępu w skrócie w tym miejscu:
   "loginServer": "myregistry.azurecr.io"
 }
 ``` 
-W przypadku uwierzytelniania rejestru zalecamy przechowywanie poświadczeń tokenu w bezpiecznej lokalizacji i stosowanie zalecanych rozwiązań w zakresie zarządzania poświadczeniami logowania platformy [Docker](https://docs.docker.com/engine/reference/commandline/login/). Na przykład przechowuj wartość tokenu w zmiennej środowiskowej:
+W przypadku uwierzytelniania rejestru zalecamy przechowywanie poświadczeń tokenu w bezpiecznej lokalizacji i stosowanie zalecanych rozwiązań w zakresie zarządzania poświadczeniami logowania [platformy Docker.](https://docs.docker.com/engine/reference/commandline/login/) Na przykład przechowuj wartość tokenu w zmiennej środowiskowej:
 
 ```bash
 TOKEN=$(az acr login --name <acrName> --expose-token --output tsv --query accessToken)
@@ -79,7 +79,7 @@ docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-0000000000
 
 ## <a name="service-principal"></a>Jednostka usługi
 
-Jeśli przypiszesz [jednostkę usługi](../active-directory/develop/app-objects-and-service-principals.md) do rejestru, aplikacja lub usługa może używać jej do uwierzytelniania bezgłowego. Jednostki usługi umożliwiają kontrolę dostępu opartą na rolach [(RBAC)](../role-based-access-control/role-assignments-portal.md) platformy Azure do rejestru i można przypisać wiele podmiotów zabezpieczeń usługi do rejestru. Wiele podmiotów zabezpieczeń usługi umożliwia definiowanie różnych dostępu dla różnych aplikacji.
+W przypadku przypisania [jednostki usługi](../active-directory/develop/app-objects-and-service-principals.md) do rejestru aplikacja lub usługa może używać jej do uwierzytelniania bezgłowego. Jednostki usługi umożliwiają kontrolę dostępu opartą na rolach [(RBAC)](../role-based-access-control/role-assignments-portal.md) platformy Azure do rejestru i umożliwiają przypisywanie wielu podmiotów usługi do rejestru. Wiele podmiotów zabezpieczeń usługi umożliwia definiowanie różnych dostępu dla różnych aplikacji.
 
 Dostępne role dla rejestru kontenerów obejmują:
 
@@ -91,19 +91,19 @@ Dostępne role dla rejestru kontenerów obejmują:
 
 Aby uzyskać pełną listę ról, zobacz [Azure Container Registry ról i uprawnień.](container-registry-roles.md)
 
-Aby uzyskać więcej wskazówek dotyczących skryptów interfejsu wiersza polecenia do tworzenia jednostki usługi do uwierzytelniania za pomocą rejestru kontenerów platformy Azure, zobacz Azure Container Registry uwierzytelnianie przy użyciu [jednostki usługi.](container-registry-auth-service-principal.md)
+Aby uzyskać więcej wskazówek dotyczących skryptów interfejsu wiersza polecenia do tworzenia jednostki usługi do uwierzytelniania za pomocą rejestru kontenerów platformy Azure, zobacz Azure Container Registry authentication with service principals (Uwierzytelnianie przy użyciu [jednostki usługi).](container-registry-auth-service-principal.md)
 
 ## <a name="admin-account"></a>Konto administratora
 
 Każdy rejestr kontenerów zawiera konto użytkownika administratora, które jest domyślnie wyłączone. Możesz włączyć administratora i zarządzać jego poświadczeniami w witrynie Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure lub innych narzędzi platformy Azure. Konto administratora ma pełne uprawnienia do rejestru.
 
-Konto administratora jest obecnie wymagane w przypadku niektórych scenariuszy wdrażania obrazu z rejestru kontenerów do niektórych usług platformy Azure. Na przykład konto administratora jest potrzebne w przypadku użycia usługi Azure Portal do wdrożenia obrazu kontenera z rejestru bezpośrednio w usłudze [Azure Container Instances](../container-instances/container-instances-using-azure-container-registry.md#deploy-with-azure-portal) lub [usłudze Azure Web Apps for Containers.](container-registry-tutorial-deploy-app.md)
+Konto administratora jest obecnie wymagane w przypadku niektórych scenariuszy wdrażania obrazu z rejestru kontenerów w niektórych usługach platformy Azure. Na przykład konto administratora jest potrzebne w przypadku użycia usługi Azure Portal do wdrożenia obrazu kontenera z rejestru bezpośrednio w usłudze [Azure Container Instances](../container-instances/container-instances-using-azure-container-registry.md#deploy-with-azure-portal) lub [Azure Web Apps for Containers.](container-registry-tutorial-deploy-app.md)
 
 > [!IMPORTANT]
-> Konto administratora jest przeznaczone dla jednego użytkownika w celu uzyskania dostępu do rejestru, głównie do celów testowych. Nie zalecamy udostępniania poświadczeń konta administratora wielu użytkownikom. Wszyscy użytkownicy uwierzytelniający się przy użyciu konta administratora są wyświetlani jako pojedynczy użytkownik z dostępem wypychania i ściągania do rejestru. Zmiana lub wyłączenie tego konta powoduje wyłączenie dostępu do rejestru dla wszystkich użytkowników, którzy używają jego poświadczeń. W przypadku scenariuszy bezgłowych zaleca się używanie indywidualnej tożsamości dla użytkowników i jednostki usługi.
+> Konto administratora jest przeznaczone dla jednego użytkownika w celu uzyskania dostępu do rejestru, głównie do celów testowych. Nie zalecamy udostępniania poświadczeń konta administratora wielu użytkownikom. Wszyscy użytkownicy uwierzytelniający się przy użyciu konta administratora są wyświetlani jako pojedynczy użytkownik z dostępem wypychania i ściągania do rejestru. Zmiana lub wyłączenie tego konta powoduje wyłączenie dostępu do rejestru dla wszystkich użytkowników, którzy używają jego poświadczeń. Tożsamość indywidualna jest zalecana dla użytkowników i jednostki usługi w scenariuszach bez użycia głowy.
 >
 
-Konto administratora ma dwa hasła, które można ponownie wygenerować. Dwa hasła umożliwiają zachowanie połączenia z rejestrem przy użyciu jednego hasła podczas ponownego generowania drugiego. Jeśli konto administratora jest włączone, możesz przekazać nazwę użytkownika i hasło do polecenia po wyświetleniu monitu o uwierzytelnienie `docker login` podstawowe w rejestrze. Na przykład:
+Konto administratora ma dwa hasła, które można ponownie wygenerować. Dwa hasła umożliwiają utrzymanie połączenia z rejestrem przy użyciu jednego hasła podczas ponownego generowania drugiego. Jeśli konto administratora jest włączone, możesz przekazać nazwę użytkownika i hasło do polecenia po wyświetleniu monitu o uwierzytelnienie `docker login` podstawowe do rejestru. Na przykład:
 
 ```
 docker login myregistry.azurecr.io 
@@ -117,7 +117,7 @@ Aby włączyć administratora dla istniejącego rejestru, możesz użyć paramet
 az acr update -n <acrName> --admin-enabled true
 ```
 
-Możesz włączyć administratora na stronie usługi Azure Portal, wybierając pozycję  Klucze dostępu w  obszarze **USTAWIENIA,** a następnie pozycję Włącz w obszarze **Administrator.**
+Możesz włączyć użytkownika administracyjnego w Azure Portal, przechodząc do rejestru, wybierając pozycję Klucze dostępu w obszarze **USTAWIENIA,** a następnie pozycję **Włącz** w obszarze  **Administrator.**
 
 ![Włączanie interfejsu użytkownika administratora w Azure Portal][auth-portal-01]
 

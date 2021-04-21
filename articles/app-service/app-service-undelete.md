@@ -1,40 +1,41 @@
 ---
-title: Przywróć usunięte aplikacje
-description: Dowiedz się, jak przywrócić usuniętą aplikację w Azure App Service. Unikaj kłopotliwej przypadkowo usuniętej aplikacji.
+title: Przywracanie usuniętych aplikacji
+description: Dowiedz się, jak przywrócić usuniętą aplikację w Azure App Service. Unikaj przypadkowego usunięcia aplikacji.
 author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 71f762ac0effc9ad14510c02679109362163f66d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e894e0a8bd20d6a1c3c833a4c0a3656c0dcd0f05
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97008541"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833170"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Przywracanie usuniętej aplikacji usługi App Service przy użyciu programu PowerShell
 
-Jeśli przypadkowo usuniesz aplikację w Azure App Service, możesz ją przywrócić za pomocą poleceń z [modułu AZ PowerShell](/powershell/azure/).
+Jeśli przypadkowo usuniesz aplikację w programie Azure App Service, możesz ją przywrócić przy użyciu poleceń z modułu [Az programu PowerShell.](/powershell/azure/)
 
 > [!NOTE]
-> - Usunięte aplikacje są przeczyszczane z systemu 30 dni po początkowym usunięciu. Gdy aplikacja zostanie przeczyszczona, nie można jej odzyskać.
-> - Funkcja cofania usunięcia nie jest obsługiwana w przypadku planu zużycia.
-> - Aplikacje usługi Apps działające w App Service Environment nie obsługują migawek. W związku z tym usuwanie funkcjonalności i klonowanie nie jest obsługiwane w przypadku aplikacji App Service działających w App Service Environment.
+> - Usunięte aplikacje są usuwane z systemu 30 dni po początkowym usunięciu. Po przeczyszczeniu aplikacji nie można jej odzyskać.
+> - Cofanie funkcji nie jest obsługiwane w przypadku planu Zużycie.
+> - Aplikacje usługi Apps Service działające w App Service Environment nie obsługują migawek. W związku z tym funkcje cofniania i klonowania nie są obsługiwane w przypadku App Service działających w App Service Environment.
 >
 
-## <a name="re-register-app-service-resource-provider"></a>Zarejestruj ponownie dostawcę zasobów App Service
+## <a name="re-register-app-service-resource-provider"></a>Ponowne rejestrowanie App Service dostawcy zasobów
 
-Niektórzy klienci mogą napotkać problem polegający na tym, że pobieranie listy usuniętych aplikacji zakończy się niepowodzeniem. Aby rozwiązać ten problem, uruchom następujące polecenie:
+Niektórzy klienci mogą mieć problem z pobieraniem listy usuniętych aplikacji. Aby rozwiązać ten problem, uruchom następujące polecenie:
 
 ```powershell
  Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"
 ```
 
-## <a name="list-deleted-apps"></a>Wyświetlanie listy usuniętych aplikacji
+## <a name="list-deleted-apps"></a>Lista usuniętych aplikacji
 
-Aby pobrać kolekcję usuniętych aplikacji, można użyć programu `Get-AzDeletedWebApp` .
+Aby pobrać kolekcję usuniętych aplikacji, możesz użyć `Get-AzDeletedWebApp` .
 
-Aby uzyskać szczegółowe informacje dotyczące konkretnej usuniętej aplikacji, można użyć:
+Aby uzyskać szczegółowe informacje na temat określonej usuniętej aplikacji, możesz użyć:
 
 ```powershell
 Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location> 
@@ -42,38 +43,38 @@ Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_locatio
 
 Szczegółowe informacje obejmują:
 
-- **DeletedSiteId**: unikatowy identyfikator aplikacji używany w scenariuszach, w których usunięto wiele aplikacji o tej samej nazwie
-- **Identyfikator subskrypcji**: subskrypcja zawierająca usunięty zasób
-- **Lokalizacja**: Lokalizacja oryginalnej aplikacji
-- **ResourceGroupName**: nazwa oryginalnej grupy zasobów
-- **Nazwa**: nazwa oryginalnej aplikacji.
-- **Gniazdo**: Nazwa gniazda.
-- **Godzina usunięcia**: Kiedy aplikacja została usunięta  
+- **DeletedSiteId:** unikatowy identyfikator aplikacji używany w scenariuszach, w których usunięto wiele aplikacji o tej samej nazwie
+- **SubscriptionID:** subskrypcja zawierająca usunięty zasób
+- **Lokalizacja:** Lokalizacja oryginalnej aplikacji
+- **ResourceGroupName:** nazwa oryginalnej grupy zasobów
+- **Nazwa:** nazwa oryginalnej aplikacji.
+- **Miejsce:** nazwa miejsca.
+- **Czas usunięcia:** kiedy aplikacja została usunięta  
 
-## <a name="restore-deleted-app"></a>Przywróć usuniętą aplikację
+## <a name="restore-deleted-app"></a>Przywracanie usuniętej aplikacji
 
 >[!NOTE]
-> `Restore-AzDeletedWebApp` nie jest obsługiwana w przypadku aplikacji funkcji.
+> `Restore-AzDeletedWebApp` Nie jest obsługiwana w przypadku aplikacji funkcji.
 
-Gdy aplikacja, którą chcesz przywrócić, została zidentyfikowana, możesz ją przywrócić za pomocą polecenia `Restore-AzDeletedWebApp` .
+Po zidentyfikowaniu aplikacji, którą chcesz przywrócić, możesz ją przywrócić przy użyciu narzędzia `Restore-AzDeletedWebApp` .
 
 ```powershell
 Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> Gniazda wdrożenia nie są przywracane jako część aplikacji. Jeśli musisz przywrócić miejsce przejściowe, użyj `-Slot <slot-name>`  flagi.
+> Miejsca wdrożenia nie są przywracane w ramach aplikacji. Jeśli musisz przywrócić miejsce przejściowe, użyj `-Slot <slot-name>`  flagi .
 >
 
-Dane wejściowe polecenia są następujące:
+Dane wejściowe dla polecenia są:
 
-- **Docelowa Grupa zasobów**: docelowa Grupa zasobów, w której aplikacja zostanie przywrócona
-- **Nazwa**: Nazwa aplikacji powinna być globalnie unikatowa.
-- **TargetAppServicePlanName**: plan App Service połączony z aplikacją
+- **Docelowa grupa zasobów:** docelowa grupa zasobów, w której aplikacja zostanie przywrócona
+- **Nazwa:** nazwa aplikacji powinna być globalnie unikatowa.
+- **TargetAppServicePlanName:** App Service planu połączonego z aplikacją
 
-Domyślnie `Restore-AzDeletedWebApp` program przywraca zarówno konfigurację aplikacji, jak i dowolną zawartość. Jeśli chcesz tylko przywrócić zawartość, użyj `-RestoreContentOnly` flagi z tym polecenia cmdlet.
+Domyślnie `Restore-AzDeletedWebApp` przywracana jest zarówno konfiguracja aplikacji, jak i dowolna zawartość. Jeśli chcesz przywrócić tylko zawartość, użyj `-RestoreContentOnly` flagi z tym poleceniem polecenia.
 
 > [!NOTE]
-> Jeśli aplikacja była hostowana, a następnie usunięta z App Service Environment, może zostać przywrócona tylko wtedy, gdy odpowiednie App Service Environment nadal istnieją.
+> Jeśli aplikacja była hostowana na stronie, a następnie usunięta z App Service Environment, można ją przywrócić tylko wtedy, gdy App Service Environment nadal istnieje.
 >
 
-Pełne odwołanie polecenia cmdlet można znaleźć tutaj: [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).
+Pełną listę poleceń polecenia można znaleźć tutaj: [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).
