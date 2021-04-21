@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — Azure Key Vault Biblioteka kliencka certyfikatów dla języka JavaScript (wersja 4)
-description: Dowiedz się, jak tworzyć, pobierać i usuwać certyfikaty z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej języka JavaScript
+title: Szybki start — Azure Key Vault klienta certyfikatów dla języka JavaScript (wersja 4)
+description: Dowiedz się, jak tworzyć, pobierać i usuwać certyfikaty z usługi Azure Key Vault przy użyciu biblioteki klienta języka JavaScript
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 12/6/2020
@@ -8,33 +8,33 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1064c6a1e2dddaae98e94ccceca7b1d550897393
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f933a564e62bf3aae1ec05c6dde048100c22967
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97930858"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815850"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka JavaScript (wersja 4)
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>Szybki start: Azure Key Vault klienta certyfikatów dla języka JavaScript (wersja 4)
 
-Rozpocznij pracę z biblioteką klienta Azure Key Vault Certificate dla języka JavaScript. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla certyfikatów. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku szybki start dowiesz się, jak tworzyć, pobierać i usuwać certyfikaty z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej języka JavaScript
+Wprowadzenie do biblioteki klienta Azure Key Vault dla języka JavaScript. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn certyfikatów. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. Z tego przewodnika Szybki start dowiesz się, jak tworzyć, pobierać i usuwać certyfikaty z usługi Azure Key Vault przy użyciu biblioteki klienta języka JavaScript
 
-Key Vault zasoby biblioteki klienta:
+Key Vault zasobów biblioteki klienta:
 
-[Dokumentacja](/javascript/api/overview/azure/key-vault-index)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/keyvault-certificates)
+[Dokumentacja referencyjna interfejsu API](/javascript/api/overview/azure/key-vault-index)  |  [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  [Pakiet (npm)](https://www.npmjs.com/package/@azure/keyvault-certificates)
 
-Aby uzyskać więcej informacji o Key Vault i certyfikatach, zobacz:
-- [Przegląd Key Vault](../general/overview.md)
-- [Omówienie certyfikatów](about-certificates.md).
+Aby uzyskać więcej informacji na Key Vault i certyfikatów, zobacz:
+- [Key Vault omówienie](../general/overview.md)
+- [Certificates Overview (Omówienie certyfikatów).](about-certificates.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Bieżąca [Node.js](https://nodejs.org) dla danego systemu operacyjnego.
+- Subskrypcja platformy Azure — [utwórz subskrypcję bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Bieżące [Node.js](https://nodejs.org) dla systemu operacyjnego.
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
-- Key Vault — można go utworzyć przy użyciu [Azure Portal](../general/quick-create-portal.md) [interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md)
+- Interfejs Key Vault — można go utworzyć przy użyciu interfejsu [wiersza Azure Portal](../general/quick-create-portal.md) [platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md)
 
-Ten przewodnik Szybki Start zakłada, że korzystasz z [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+W tym przewodniku Szybki start założono, że używasz interfejsu wiersza [polecenia platformy Azure.](/cli/azure/install-azure-cli)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -44,38 +44,38 @@ Ten przewodnik Szybki Start zakłada, że korzystasz z [interfejsu wiersza polec
     az login
     ```
 
-    Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure.
+    Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, zrobi to i załaduje stronę logowania platformy Azure.
 
-    W przeciwnym razie Otwórz stronę przeglądarki pod adresem [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadź kod autoryzacji wyświetlany w terminalu.
+    W przeciwnym razie otwórz stronę przeglądarki pod [https://aka.ms/devicelogin](https://aka.ms/devicelogin) adresem i wprowadź kod autoryzacji wyświetlany w terminalu.
 
 2. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
 
-## <a name="create-new-nodejs-application"></a>Utwórz nową aplikację Node.js
+## <a name="create-new-nodejs-application"></a>Tworzenie nowej Node.js aplikacji
 
-Następnie Utwórz aplikację Node.js, którą można wdrożyć w chmurze. 
+Następnie utwórz aplikację Node.js, która może zostać wdrożona w chmurze. 
 
-1. W powłoce poleceń Utwórz folder o nazwie `key-vault-node-app` :
+1. W powłoki poleceń utwórz folder o nazwie `key-vault-node-app` :
 
 ```azurecli
 mkdir key-vault-node-app
 ```
 
-1. Przejdź do nowo utworzonego katalogu *Key-magazyn-Node-App* i uruchom polecenie "init", aby zainicjować projekt węzła:
+1. Zmień katalog na nowo utworzony *katalog key-vault-node-app* i uruchom polecenie "init", aby zainicjować projekt węzła:
 
 ```azurecli
 cd key-vault-node-app
 npm init -y
 ```
 
-## <a name="install-key-vault-packages"></a>Zainstaluj pakiety Key Vault
+## <a name="install-key-vault-packages"></a>Instalowanie Key Vault pakietów
 
-W oknie konsoli programu zainstaluj [bibliotekę Azure Key Vault certyfikatów](https://www.npmjs.com/package/@azure/keyvault-certificates) Node.js.
+W oknie konsoli zainstaluj bibliotekę certyfikatów Azure Key Vault [dla](https://www.npmjs.com/package/@azure/keyvault-certificates) Node.js.
 
 ```azurecli
 npm install @azure/keyvault-certificates
 ```
 
-Zainstaluj pakiet [Azure. Identity](https://www.npmjs.com/package/@azure/identity) w celu uwierzytelnienia w Key Vault
+Instalowanie pakietu [azure.identity w](https://www.npmjs.com/package/@azure/identity) celu uwierzytelnienia w Key Vault
 
 ```azurecli
 npm install @azure/identity
@@ -101,7 +101,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje uprawnienia certyfikatów do konta użytkownika
+Utwórz zasady dostępu dla magazynu kluczy, które będą udzielać uprawnień do certyfikatu kontu użytkownika
 
 ```azurecli
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create purge
@@ -113,11 +113,11 @@ Poniższe przykłady kodu pokazują, jak utworzyć klienta, ustawić certyfikat,
 
 ### <a name="set-up-the-app-framework"></a>Konfigurowanie struktury aplikacji
 
-1. Utwórz nowy plik tekstowy i Zapisz go jako "index.js"
+1. Utwórz nowy plik tekstowy i zapisz go jako "index.js"
 
-1. Dodaj wymagane wywołania do załadowania modułów platformy Azure i Node.js
+1. Dodawanie wywołań require w celu załadowania platformy Azure i Node.js modułów
 
-1. Utwórz strukturę dla programu, w tym podstawową obsługę wyjątków
+1. Tworzenie struktury programu, w tym podstawowej obsługi wyjątków
 
 ```javascript
 const readline = require('readline');
@@ -141,7 +141,7 @@ async function main() {
 main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 ```
 
-### <a name="add-directives"></a>Dodaj dyrektywy
+### <a name="add-directives"></a>Dodawanie dyrektyw
 
 Dodaj następujące dyrektywy na początku kodu:
 
@@ -152,11 +152,11 @@ const { CertificateClient } = require("@azure/keyvault-certificates");
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
 
-W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, który jest preferowaną metodą tworzenia lokalnego. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do usługi App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy ["DefaultAzureCredential ()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) z [biblioteki tożsamości platformy Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji na temat uwierzytelniania do magazynu kluczy, zobacz [przewodnik dewelopera](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie jest to klasa ["DefaultAzureCredential()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) z biblioteki tożsamości platformy [Azure,](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji na temat uwierzytelniania w magazynie kluczy, zobacz [Developer's Guide (Przewodnik dewelopera).](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
 
-Dodaj następujący kod do funkcji "Main ()"
+Dodaj następujący kod do funkcji "main()"
 
 ```javascript
 const keyVaultName = process.env["KEY_VAULT_NAME"];
@@ -166,9 +166,9 @@ const credential = new DefaultAzureCredential();
 const client = new Certificate(KVUri, credential);
 ```
 
-### <a name="save-a-certificate"></a>Zapisz certyfikat
+### <a name="save-a-certificate"></a>Zapisywanie certyfikatu
 
-Po uwierzytelnieniu aplikacji można umieścić certyfikat w magazynie kluczy przy użyciu [metody beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_) . wymaga to nazwy certyfikatu i[zasad certyfikatów](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy) zasad certyfikatów z [właściwościami zasad certyfikatów](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)
+Teraz, gdy aplikacja jest uwierzytelniona, możesz umieścić certyfikat w układzie kluczy przy użyciu [metody beginCreateCertificate.](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_) Wymaga to nazwy certyfikatu i zasad certyfikatu zasad certyfikatów z właściwościami zasad [certyfikatów](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties) [](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy)
 
 ```javascript
 const certificatePolicy = {
@@ -180,10 +180,10 @@ const certificate = await poller.pollUntilDone();
 ```
 
 > [!NOTE]
-> Jeśli nazwa certyfikatu istnieje, powyżej kodu zostanie utworzona nowa wersja tego certyfikatu.
-### <a name="retrieve-a-certificate"></a>Pobierz certyfikat
+> Jeśli nazwa certyfikatu istnieje, powyższy kod utworzy nową wersję tego certyfikatu.
+### <a name="retrieve-a-certificate"></a>Pobieranie certyfikatu
 
-Teraz można pobrać wcześniej ustawioną wartość za pomocą [metody getcertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#getCertificate_string__GetCertificateOption).
+Teraz możesz pobrać wcześniej ustawioną wartość za pomocą [metody getCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#getCertificate_string__GetCertificateOption).
 
 ```javascript
 const retrievedCertificate = await client.getCertificate(certificateName);
@@ -191,7 +191,7 @@ const retrievedCertificate = await client.getCertificate(certificateName);
 
 ### <a name="delete-a-certificate"></a>Usuwanie certyfikatu
 
-Na koniec Usuń i Przeczyść certyfikat z magazynu kluczy przy użyciu metod [beginDeleteCertificate] https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) i [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) .
+Na koniec usuńmy i przeczyścimy certyfikat z magazynu kluczy za pomocą metod [beginDeleteCertificate] i https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) [purgeDeletedCertificate.](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_)
 
 ```javascript
 const deletePoller = await client.beginDeleteCertificate(certificateName);
@@ -279,11 +279,11 @@ Purging your certificate from mykeyvault ... done
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Magazyn kluczy, Zapisano certyfikat i pobrano ten certyfikat. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
+W tym przewodniku Szybki start utworzono magazyn kluczy, przechowywano certyfikat i pobrano ten certyfikat. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
-- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Zapoznaj się z [omówieniem certyfikatów](about-certificates.md)
-- Wyświetlanie [Key Vault dostępu z poziomu samouczka aplikacji App Service](../general/tutorial-net-create-vault-azure-web-app.md)
-- Zobacz [Key Vault dostępu z poziomu samouczka maszyny wirtualnej](../general/tutorial-net-virtual-machine.md)
-- Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)
+- Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
+- Zapoznaj się [z omówieniem certyfikatów](about-certificates.md)
+- Zobacz [samouczek dotyczący dostępu Key Vault z App Service aplikacji](../general/tutorial-net-create-vault-azure-web-app.md)
+- Zobacz [samouczek dotyczący Key Vault dostępu z maszyny wirtualnej](../general/tutorial-net-virtual-machine.md)
+- Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
+- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-features.md)

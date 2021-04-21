@@ -5,16 +5,17 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 93c55c21bf740f2851cac1926bc673cebcd914b0
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0416ce25ed03be35c56e7fa2ed7175ad65ae6555
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514805"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831550"
 ---
 # <a name="enable-a-managed-identity-for-your-azure-automation-account-preview"></a>Włączanie tożsamości zarządzanej dla konta Azure Automation (wersja zapoznawcza)
 
-W tym temacie pokazano, jak utworzyć tożsamość zarządzaną dla konta Azure Automation oraz jak używać jej do uzyskiwania dostępu do innych zasobów. Aby uzyskać więcej informacji na temat współpracy tożsamości zarządzanej z Azure Automation, zobacz [Tożsamości zarządzane](automation-security-overview.md#managed-identities-preview).
+W tym temacie przedstawiono sposób tworzenia tożsamości zarządzanej dla konta Azure Automation oraz używania jej do uzyskiwania dostępu do innych zasobów. Aby uzyskać więcej informacji na temat współpracy tożsamości zarządzanej z Azure Automation, zobacz [Tożsamości zarządzane](automation-security-overview.md#managed-identities-preview).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -22,7 +23,7 @@ W tym temacie pokazano, jak utworzyć tożsamość zarządzaną dla konta Azure 
 
 - Najnowsza wersja modułów Azure Automation kont. Obecnie jest to 1.6.0. (Aby uzyskać szczegółowe informacje o tej wersji, zobacz [Az.Automation 1.6.0).](https://www.powershellgallery.com/packages/Az.Automation/1.6.0)
 
-- Zasób platformy Azure, do którego chcesz uzyskać dostęp z element runbook usługi Automation. Ten zasób musi mieć rolę zdefiniowaną dla tożsamości zarządzanej, co ułatwia uwierzytelnianie dostępu do zasobu za pomocą uwierzytelniania przez ten zasób. Aby dodać role, musisz być właścicielem zasobu w odpowiedniej dzierżawie usługi Azure AD.
+- Zasób platformy Azure, do którego chcesz uzyskać dostęp z element runbook usługi Automation. Ten zasób musi mieć rolę zdefiniowaną dla tożsamości zarządzanej, co ułatwia uwierzytelnianie dostępu do zasobu za pomocą runbook usługi Automation. Aby dodać role, musisz być właścicielem zasobu w odpowiedniej dzierżawie usługi Azure AD.
 
 - Jeśli chcesz wykonywać zadania hybrydowe przy użyciu tożsamości zarządzanej, zaktualizuj hybrydowy proces roboczy runbook do najnowszej wersji. Minimalne wymagane wersje to:
 
@@ -89,7 +90,7 @@ Treść żądania
 
 |Właściwość (JSON) | Wartość | Opis|
 |----------|-----------|------------|
-| principalid | \<principal-ID\> | Unikatowy identyfikator globalny (GUID) obiektu jednostki usługi dla tożsamości zarządzanej, która reprezentuje konto usługi Automation w dzierżawie usługi Azure AD. Ten identyfikator GUID jest czasami wyświetlany jako "identyfikator obiektu" lub identyfikator obiektu. |
+| principalid | \<principal-ID\> | Unikatowy identyfikator globalny (GUID) obiektu jednostki usługi dla tożsamości zarządzanej, która reprezentuje konto usługi Automation w dzierżawie usługi Azure AD. Ten identyfikator GUID jest czasami wyświetlany jako "identyfikator obiektu" lub "objectID". |
 | tenantid | \<Azure-AD-tenant-ID\> | Unikatowy identyfikator globalny (GUID) reprezentujący dzierżawę usługi Azure AD, której członkiem jest teraz konto usługi Automation. Wewnątrz dzierżawy usługi Azure AD nazwa główna usługi ma taką samą nazwę jak konto usługi Automation. |
 
 ## <a name="give-identity-access-to-azure-resources-by-obtaining-a-token"></a>Zapewnianie tożsamości dostępu do zasobów platformy Azure przez uzyskanie tokenu
@@ -118,7 +119,7 @@ Connect-AzAccount -Identity
 ## <a name="generate-an-access-token-without-using-azure-cmdlets"></a>Generowanie tokenu dostępu bez użycia polecenia cmdlet platformy Azure
 
 W przypadku punktów końcowych HTTP upewnij się, że:
-- Nagłówek metadanych musi być obecny i powinien być ustawiony na wartość "true".
+- Nagłówek metadanych musi być obecny i powinien mieć wartość "true".
 - Zasób musi zostać przekazany wraz z żądaniem jako parametr zapytania dla żądania GET i jako dane formularza dla żądania POST.
 - Dla nagłówka X-IDENTITY-HEADER należy ustawić wartość zmiennej środowiskowej IDENTITY_HEADER hybrydowych pracowników runbook. 
 - Typem zawartości żądania Post musi być "application/x-www-form-urlencoded". 
@@ -146,7 +147,7 @@ $accessToken = Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentT
 Write-Output $accessToken.access_token
 ```
 
-## <a name="sample-runbooks-using-managed-identity"></a>Przykładowe podręczniki Runbook używające tożsamości zarządzanej
+## <a name="sample-runbooks-using-managed-identity"></a>Przykładowe podręczniki Runbook korzystające z tożsamości zarządzanej
 
 ### <a name="sample-runbook-to-access-a-sql-database-without-using-azure-cmdlets"></a>Przykładowy program Runbook do uzyskiwania dostępu do bazy danych SQL bez użycia poleceń cmdlet platformy Azure
 
@@ -195,7 +196,7 @@ try {
 }
 ```
 
-### <a name="sample-python-runbook-to-get-a-token"></a>Przykładowy kod Runbook języka Python do pobierania tokenu
+### <a name="sample-python-runbook-to-get-a-token"></a>Przykładowy moduł Runbook języka Python do pobierania tokenu
  
 ```python
 #!/usr/bin/env python3 
@@ -215,6 +216,6 @@ print(response.text)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli musisz wyłączyć tożsamość zarządzaną, zobacz Wyłączanie tożsamości zarządzanej Azure Automation [(wersja zapoznawcza).](disable-managed-identity-for-automation.md)
+- Jeśli musisz wyłączyć tożsamość zarządzaną, zobacz [Disable your Azure Automation account managed identity (preview) (Wyłączanie](disable-managed-identity-for-automation.md)tożsamości zarządzanej konta zarządzanego Azure Automation w wersji zapoznawczej).
 
-- Aby uzyskać omówienie zabezpieczeń Azure Automation, zobacz [Automation account authentication overview (Omówienie uwierzytelniania konta usługi Automation).](automation-security-overview.md)
+- Aby uzyskać omówienie zabezpieczeń Azure Automation konta, zobacz [Automation account authentication overview (Omówienie uwierzytelniania konta usługi Automation).](automation-security-overview.md)

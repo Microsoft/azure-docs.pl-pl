@@ -110,8 +110,6 @@
           href: message-transfers-locks-settlement.md
         - name: Kolejki utraconych wiadomości
           href: service-bus-dead-letter-queues.md
-        - name: Liczniki komunikatów
-          href: message-counters.md
         - name: Optymalizowanie wydajności
           href: service-bus-performance-improvements.md
         - name: Geograficzne odzyskiwanie po awarii i replikacja geograficzna
@@ -244,6 +242,10 @@
           href: enable-partitions.md
         - name: Włączanie automatycznego przekazywania dalej dla kolejki lub subskrypcji
           href: enable-auto-forward.md
+        - name: Włączanie utraconych komunikatów dla kolejki lub subskrypcji
+          href: enable-dead-letter.md
+        - name: Uzyskiwanie liczników komunikatów
+          href: message-counters.md
         - name: Przechodzenie między regionami
           href: move-across-regions.md
         - name: Automatyczne aktualizowanie jednostek obsługi komunikatów

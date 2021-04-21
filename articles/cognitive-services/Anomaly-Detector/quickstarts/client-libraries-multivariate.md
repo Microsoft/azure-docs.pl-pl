@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: wykrywanie anomalii przy użyciu biblioteki klienta wykrywacza anomalii na potrzeby wykrywania anomalii wieloczynnikowa'
+title: 'Szybki start: wykrywanie anomalii przy użyciu biblioteki klienta Narzędzie do wykrywania anomalii w celu wielowariatego wykrywania anomalii'
 titleSuffix: Azure Cognitive Services
-description: Detektor anomalii wieloczynnikowa oferuje biblioteki klienckie do wykrywania niezależności w seriach danych jako partia lub dane przesyłane strumieniowo.
+description: Wielozmianowy Narzędzie do wykrywania anomalii biblioteki klienckie do wykrywania nieprawidłowości w serii danych w trybie wsadowym lub w danych przesyłanych strumieniowo.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -9,17 +9,17 @@ zone_pivot_groups: anomaly-detector-quickstart-multivariate
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 04/01/2020
+ms.date: 04/21/2021
 ms.author: mbullwin
 keywords: wykrywanie anomalii, algorytmy
-ms.openlocfilehash: c522675f90cd716725ecaba23d5b6ce5921665a6
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c19365719dddb01521010c742ac774762060bed9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316041"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830740"
 ---
-# <a name="quickstart-use-the-anomaly-detector-multivariate-client-library"></a>Szybki Start: korzystanie z biblioteki wieloczynnikowa Client wykrywania anomalii
+# <a name="quickstart-use-the-anomaly-detector-multivariate-client-library"></a>Szybki start: korzystanie z Narzędzie do wykrywania anomalii wielu kowariantnych bibliotek klienckich
 
 ::: zone pivot="programming-language-csharp"
 

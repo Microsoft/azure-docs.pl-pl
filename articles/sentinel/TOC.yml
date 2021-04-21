@@ -2,7 +2,7 @@
   href: index.yml
 - name: Omówienie
   href: overview.md
-- name: Co nowego w programie Azure Sentinel?
+- name: Co nowego w Azure Sentinel?
   href: whats-new.md
 - name: Przewodniki Szybki start
   expanded: true
@@ -53,7 +53,7 @@
       href: import-threat-intelligence.md
     - name: Korzystanie z własnej platformy uczenia maszynowego
       href: bring-your-own-ml.md
-    - name: Integrowanie Microsoft 365 Defender z Azure Sentinel
+    - name: Integrowanie usługi Microsoft 365 Defender z Azure Sentinel
       href: microsoft-365-defender-sentinel-integration.md
     - name: Używanie danych zewnętrznych z listami obserwowanych
       href: watchlists.md
@@ -61,6 +61,8 @@
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Normalizowanie danych między tabelami
       href: normalization.md
+    - name: Używanie Azure Data Explorer do długoterminowego przechowywania dzienników
+      href: store-logs-in-azure-data-explorer.md
     - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń

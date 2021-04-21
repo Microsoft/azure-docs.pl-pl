@@ -1,43 +1,41 @@
 ### YamlMime:Landing
-title: Dokumentacja platformy Azure Industrial IoT
-summary: Platforma Azure Industrial IoT to pakiet modułów i usług firmy Microsoft wdrożonych na platformie Azure.
+title: Dokumentacja platformy Azure Industrial IoT Platform
+summary: Usługa Azure Industrial IoT Platform to pakiet modułów i usług firmy Microsoft, które są wdrażane na platformie Azure.
 metadata:
-  description: Dowiedz się więcej na temat
+  description: Dowiedz się więcej o
   ms.service: industrial-iot
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
   ms.date: 3/22/2021
-  ms.openlocfilehash: 8419316a452b9258e8b54cb333aa5fe1ef87b5b9
-  ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+  ms.openlocfilehash: bced3bdbb854af75e7b521f7c5c3f2e1022a161b
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/23/2021
-  ms.locfileid: "104800180"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107813834"
 landingContent:
-- title: Informacje o platformie Azure Industrial IoT
+- title: Informacje o usłudze Azure Industrial IoT Platform
   linkLists:
   - linkListType: overview
     links:
-    - text: Co to jest przemysł IoT (IIoT)?
+    - text: Co to jest przemysłowe IoT (IIoT)?
       url: overview-what-is-industrial-iot.md
-    - text: Co to jest platforma przemysłowa IoT (IIoT)?
-      url: overview-what-is-industrial-iot-platform.md
-    - text: Co to jest Wydawca OPC?
+    - text: Co to jest wydawca OPC?
       url: overview-what-is-opc-publisher.md
-- title: Wprowadzenie do platformy IoT (IIoT)
+- title: Wprowadzenie do przemysłowej platformy IoT (IIoT)
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Wdróż platformę Azure Industrial IoT
+    - text: Wdrażanie przemysłowej platformy IoT Azure
       url: tutorial-deploy-industrial-iot-platform.md
-    - text: Konfigurowanie przemysłowych składników IoT
+    - text: Konfigurowanie składników przemysłowego IoT
       url: tutorial-configure-industrial-iot-components.md
-    - text: Ściąganie danych z usługi Azure Industrial IoT do ADX
+    - text: Ściąganie danych przemysłowego IoT platformy Azure do usługi ADX
       url: tutorial-industrial-iot-azure-data-explorer.md
-    - text: Wizualizowanie danych za pomocą Time Series Insights (TSI)
+    - text: Wizualizowanie danych za Time Series Insights (TSI)
       url: tutorial-visualize-data-time-series-insights.md
-- title: Współpraca z wydawcą OPC
+- title: Praca z wydawcą OPC
   linkLists:
   - linkListType: tutorial
     links:

@@ -1,85 +1,85 @@
 ---
 title: Integrowanie aplikacji z usługą Azure Virtual Network
-description: Integruj aplikację w Azure App Service z sieciami wirtualnymi platformy Azure.
+description: Integrowanie aplikacji w Azure App Service z sieciami wirtualnymi platformy Azure.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 4666f03e529c568177ff56a2db84e226bc906132
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 42391a073d7cb1d7e6850e298c2be32d550bb813
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182914"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832072"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z siecią wirtualną platformy Azure
 
-W tym artykule opisano funkcję integracji sieci wirtualnej Azure App Service i sposób konfigurowania jej przy użyciu aplikacji w programie [Azure App Service](./overview.md). Korzystając z [usługi azure Virtual Network][VNETOverview] (sieci wirtualnych), możesz umieścić wiele zasobów platformy Azure w sieci bez obsługi Internetu. Funkcja integracji sieci wirtualnej umożliwia aplikacjom dostęp do zasobów w sieci wirtualnej lub przez sieć wirtualną. Integracja z siecią wirtualną nie umożliwia prywatnym dostępu do Twoich aplikacji.
+W tym artykule opisano Azure App Service integracji z siecią wirtualną i sposób jej skonfigurowania przy użyciu aplikacji w [Azure App Service](./overview.md). Dzięki [usłudze Azure Virtual Network][VNETOverview] (VNets) możesz umieścić wiele zasobów platformy Azure w sieci, w ramach których nie można routować Internetu. Funkcja integracji z siecią wirtualną umożliwia aplikacjom uzyskiwanie dostępu do zasobów w sieci wirtualnej lub za jej pośrednictwem. Integracja z siecią wirtualną nie umożliwia prywatnego dostępu do aplikacji.
 
-Azure App Service ma dwie odmiany funkcji integracji sieci wirtualnej:
+Azure App Service ma dwie odmiany funkcji integracji z siecią wirtualną:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
-## <a name="enable-vnet-integration"></a>Włącz integrację sieci wirtualnej
+## <a name="enable-vnet-integration"></a>Włączanie integracji z siecią wirtualną
 
-1. Przejdź do interfejsu użytkownika **sieci** w portalu App Service. W obszarze integracja z siecią **wirtualną** wybierz **pozycję kliknij tutaj, aby ją skonfigurować**.
+1. Przejdź do **interfejsu użytkownika** sieci w App Service portal. W **obszarze Integracja z siecią** wirtualną wybierz pozycję Kliknij **tutaj, aby skonfigurować .**
 
-1. Wybierz pozycję **Dodaj sieć wirtualną**.
+1. Wybierz **pozycję Dodaj sieć wirtualną.**
 
-   ![Wybierz integrację sieci wirtualnej][1]
+   ![Wybieranie integracji z siecią wirtualną][1]
 
-1. Lista rozwijana zawiera wszystkie Azure Resource Manager sieci wirtualnych w ramach subskrypcji w tym samym regionie. Poniżej znajduje się lista Menedżer zasobów sieci wirtualnych we wszystkich innych regionach. Wybierz sieć wirtualną, z którą chcesz przeprowadzić integrację.
+1. Lista rozwijana zawiera wszystkie sieci wirtualne Azure Resource Manager subskrypcji w tym samym regionie. Poniżej znajduje się lista wszystkich Resource Manager wirtualnych we wszystkich innych regionach. Wybierz sieć wirtualną, z którą chcesz zintegrować.
 
    ![Wybierz sieć wirtualną][2]
 
-   * Jeśli sieć wirtualna znajduje się w tym samym regionie, Utwórz nową podsieć lub Wybierz pustą istniejącą podsieć.
-   * Aby można było wybrać sieć wirtualną w innym regionie, trzeba mieć zainicjowaną bramę sieci wirtualnej z włączoną opcją punkt do lokacji.
-   * Aby przeprowadzić integrację z klasyczną siecią wirtualną, zamiast wybierać listę rozwijaną **Virtual Network** wybierz **pozycję kliknij tutaj, aby nawiązać połączenie z klasyczną siecią wirtualną**. Wybierz wybraną klasyczną sieć wirtualną. Docelowa sieć wirtualna musi mieć już zainicjowaną bramę Virtual Network z włączoną opcją punkt-lokacja.
+   * Jeśli sieć wirtualna znajduje się w tym samym regionie, utwórz nową podsieć lub wybierz pustą wcześniejistą podsieć.
+   * Aby wybrać sieć wirtualną w innym regionie, musisz mieć aprowizowana bramę sieci wirtualnej z włączoną obsługą połączenia punkt-lokacja.
+   * Aby zintegrować z klasyczną siecią  wirtualną, zamiast wybierać listę rozwijaną Virtual Network, wybierz pozycję Kliknij tutaj, aby nawiązać połączenie **z klasyczną siecią wirtualną.** Wybierz klasyczną sieć wirtualną. Docelowa sieć wirtualna musi już mieć bramę Virtual Network aprowizowana z włączoną obsługą połączenia punkt-lokacja.
 
     ![Wybieranie klasycznej sieci wirtualnej][3]
 
-W trakcie integracji aplikacja zostanie ponownie uruchomiona. Po zakończeniu integracji zobaczysz szczegóły dotyczące sieci wirtualnej, z którą masz integrację.
+Podczas integracji aplikacja jest uruchamiana ponownie. Po zakończeniu integracji zobaczysz szczegóły dotyczące zintegrowanej sieci wirtualnej.
 
-## <a name="regional-vnet-integration"></a>Integracja z regionalną siecią wirtualną
+## <a name="regional-vnet-integration"></a>Regionalna integracja z siecią wirtualną
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
-### <a name="how-regional-vnet-integration-works"></a>Sposób działania integracji regionalnej sieci wirtualnej
+### <a name="how-regional-vnet-integration-works"></a>Jak działa regionalna integracja z siecią wirtualną
 
-Aplikacje w App Service są hostowane na rolach procesów roboczych. Plany cenowe w warstwach Podstawowa i wyższa są dedykowanymi planami hostingu, w których nie ma innych obciążeń klientów działających w tych samych procesach roboczych. Integracja regionalnej sieci wirtualnej działa przez zainstalowanie interfejsów wirtualnych z adresami w podsieci delegowanej. Ponieważ adres od jest w sieci wirtualnej, może uzyskać dostęp do większości rzeczy w lub za pośrednictwem sieci wirtualnej, jak w przypadku maszyny wirtualnej w sieci wirtualnej. Implementacja sieci jest inna niż w przypadku uruchamiania maszyny wirtualnej w sieci wirtualnej. Dlatego niektóre funkcje sieciowe nie są jeszcze dostępne dla tej funkcji.
+Aplikacje w App Service są hostowane w rolach procesu roboczego. Plany cenowe w chmurze Podstawowa i wyższa to dedykowane plany hostingu, w których nie ma obciążeń innych klientów uruchomionych na tych samych pracownikach. Regionalna integracja z siecią wirtualną działa przez instalowanie interfejsów wirtualnych z adresami w podsieci delegowane. Ponieważ adres od znajduje się w sieci wirtualnej, może ona uzyskać dostęp do większości rzeczy w sieci wirtualnej lub za jej pośrednictwem, tak jak maszyna wirtualna w sieci wirtualnej. Implementacja sieci różni się od uruchamiania maszyny wirtualnej w sieci wirtualnej. Dlatego niektóre funkcje sieciowe nie są jeszcze dostępne dla tej funkcji.
 
-![Sposób działania integracji regionalnej sieci wirtualnej][5]
+![Jak działa regionalna integracja z siecią wirtualną][5]
 
-Gdy włączona jest regionalna Integracja sieci wirtualnej, aplikacja wykonuje wywołania wychodzące do Internetu za pomocą tych samych kanałów co normalny. Adresy wychodzące, które są wyświetlane w portalu właściwości aplikacji, to adresy nadal używane przez aplikację. Jakie zmiany w aplikacji są wywołaniami zabezpieczonych usług punktu końcowego usługi lub adresy RFC 1918, przejdź do sieci wirtualnej. Jeśli WEBSITE_VNET_ROUTE_ALL jest ustawiona na 1, cały ruch wychodzący może być wysyłany do sieci wirtualnej.
+Gdy włączono regionalną integrację z siecią wirtualną, aplikacja wykonuje połączenia wychodzące do Internetu za pośrednictwem tych samych kanałów, co zwykle. Adresy wychodzące, które są wyświetlane w portalu właściwości aplikacji, są adresami nadal używanymi przez aplikację. Zmiany dotyczące aplikacji to wywołania usług zabezpieczonych punktem końcowym usługi lub adresy RFC 1918 trafiają do sieci wirtualnej. Jeśli WEBSITE_VNET_ROUTE_ALL ustawiono wartość 1, cały ruch wychodzący może być wysyłany do sieci wirtualnej.
 
 > [!NOTE]
-> `WEBSITE_VNET_ROUTE_ALL` nie jest obecnie obsługiwane w kontenerach systemu Windows.
+> `WEBSITE_VNET_ROUTE_ALL` Usługa nie jest obecnie obsługiwana w kontenerach systemu Windows.
 > 
 
-Funkcja obsługuje tylko jeden interfejs wirtualny na proces roboczy. Jeden wirtualny interfejs na proces roboczy oznacza jedną regionalną integrację sieci wirtualnej na App Service plan. Wszystkie aplikacje w tym samym planie App Service mogą korzystać z tej samej integracji sieci wirtualnej. Jeśli potrzebujesz aplikacji do łączenia się z dodatkową siecią wirtualną, musisz utworzyć kolejny plan App Service. Używany interfejs wirtualny nie jest zasobem, do którego klienci mają bezpośredni dostęp.
+Funkcja obsługuje tylko jeden interfejs wirtualny na proces roboczy. Jeden interfejs wirtualny na proces roboczy oznacza jedną regionalną integrację z siecią wirtualną na App Service wirtualnej. Wszystkie aplikacje w tym samym planie App Service mogą korzystać z tej samej integracji z siecią wirtualną. Jeśli potrzebujesz aplikacji do nawiązania połączenia z dodatkową siecią wirtualną, musisz utworzyć inny plan App Service wirtualnej. Używany interfejs wirtualny nie jest zasobem, do których klienci mają bezpośredni dostęp.
 
-Ze względu na to, jak działa ta technologia, ruch używany z integracją sieci wirtualnej nie jest wyświetlany w usłudze Azure Network Watcher ani w dziennikach przepływów sieciowej grupy zabezpieczeń.
+Ze względu na charakter działania tej technologii ruch używany z integracją z siecią wirtualną nie jest pokazywany w dziennikach przepływu usługi Azure Network Watcher ani sieciowej organizacji zabezpieczeń.
 
-## <a name="gateway-required-vnet-integration"></a>Integracja z siecią wirtualną wymagana przez bramę
+## <a name="gateway-required-vnet-integration"></a>Integracja z siecią wirtualną wymaganą przez bramę
 
-Integracja sieci wirtualnej wymagana przez bramę obsługuje łączenie z siecią wirtualną w innym regionie lub w klasycznej sieci wirtualnej. Integracja z siecią wirtualną wymagana przez bramę:
+Integracja z siecią wirtualną wymaganą przez bramę obsługuje nawiązywanie połączenia z siecią wirtualną w innym regionie lub z klasyczną siecią wirtualną. Integracja z siecią wirtualną wymaganą przez bramę:
 
-* Umożliwia aplikacji łączenie tylko z jedną siecią wirtualną jednocześnie.
-* Umożliwia zintegrowanie maksymalnie pięciu sieci wirtualnych w ramach planu App Service.
-* Umożliwia korzystanie z tej samej sieci wirtualnej przez wiele aplikacji w planie App Service bez wpływu na łączną liczbę, która może być używana przez plan App Service. Jeśli masz sześć aplikacji korzystających z tej samej sieci wirtualnej w ramach tego samego planu App Service, który jest liczony jako jedna sieć wirtualna.
-* Program obsługuje umowę SLA na 99,9% ze względu na umowę SLA na bramie.
-* Umożliwia aplikacjom używanie systemu DNS, z którym jest konfigurowana Sieć wirtualna.
-* Wymaga Virtual Network bramy opartej na trasach skonfigurowanej z siecią VPN typu punkt-lokacja, zanim będzie można połączyć się z aplikacją.
+* Umożliwia aplikacji łączenie się tylko z jedną siecią wirtualną jednocześnie.
+* Umożliwia integrację maksymalnie pięciu sieci wirtualnych w ramach App Service wirtualnej.
+* Umożliwia korzystanie z tej samej sieci wirtualnej przez wiele aplikacji w planie App Service bez wpływu na łączną liczbę, która może być używana przez App Service planu. Jeśli masz sześć aplikacji korzystających z tej samej sieci wirtualnej w tym samym planie App Service, będzie to oznaczać, że używana jest jedna sieć wirtualna.
+* Obsługuje umowy SLA na poziomie 99,9% z powodu umowy SLA bramy.
+* Umożliwia aplikacjom korzystanie z systemu DNS skonfigurowanego w sieci wirtualnej.
+* Wymaga Virtual Network bramy opartej na trasach skonfigurowanej przy użyciu sieci VPN typu punkt-lokacja protokołu SSTP, zanim będzie można ją połączyć z aplikacją.
 
-Nie można używać integracji sieci wirtualnej wymaganej przez bramę:
+Nie można używać integracji z siecią wirtualną wymaganą przez bramę:
 
-* Z siecią wirtualną połączoną z usługą Azure ExpressRoute.
-* Z poziomu aplikacji systemu Linux.
-* Z [kontenera systemu Windows](quickstart-custom-container.md).
-* Aby uzyskać dostęp do zabezpieczonych zasobów punktu końcowego usługi.
-* Z bramą współistnienia obsługującą zarówno ExpressRoute, jak i sieci VPN typu lokacja-lokacja.
+* Z siecią wirtualną połączeni z Azure ExpressRoute.
+* Z aplikacji systemu Linux.
+* Z kontenera [systemu Windows](quickstart-custom-container.md).
+* Aby uzyskać dostęp do zasobów zabezpieczonych przez punkt końcowy usługi.
+* W przypadku współistnienia bramy obsługującej zarówno usługę ExpressRoute, jak i sieci VPN typu punkt-lokacja lub lokacja-lokacja.
 
 ### <a name="set-up-a-gateway-in-your-azure-virtual-network"></a>Konfigurowanie bramy w sieci wirtualnej platformy Azure ###
 
@@ -87,85 +87,85 @@ Aby utworzyć bramę:
 
 1. [Utwórz podsieć bramy][creategatewaysubnet] w sieci wirtualnej.
 
-1. [Utwórz bramę sieci VPN][creategateway]. Wybierz typ sieci VPN opartej na trasach.
+1. [Utwórz bramę sieci VPN.][creategateway] Wybierz typ sieci VPN opartej na trasach.
 
-1. [Ustaw adresy punkt-lokacja][setp2saddresses]. Jeśli Brama nie znajduje się w podstawowej jednostce SKU, protokół IKEV2 musi być wyłączony w konfiguracji punkt-lokacja, a protokół SSTP musi być wybrany. Przestrzeń adresowa punktu do lokacji musi znajdować się w blokach adresów RFC 1918 10.0.0.0/8, 172.16.0.0/12 i 192.168.0.0/16.
+1. [Ustaw adresy typu punkt-lokacja.][setp2saddresses] Jeśli brama nie znajduje się w podstawowej wersji SKU, należy wyłączyć IKEV2 w konfiguracji punkt-lokacja i wybrać SSTP. Przestrzeń adresowa punkt-lokacja musi znajdować się w blokach adresów RFC 1918 10.0.0.0/8, 172.16.0.0/12 i 192.168.0.0/16.
 
-Jeśli tworzysz bramę do użycia z integracją App Service sieci wirtualnej, nie musisz przekazywać certyfikatu. Tworzenie bramy może potrwać 30 minut. Nie będzie można zintegrować aplikacji z siecią wirtualną do momentu aprowizacji bramy.
+Jeśli tworzysz bramę do użycia z App Service integracji z siecią wirtualną, nie musisz przekazywać certyfikatu. Tworzenie bramy może potrwać 30 minut. Nie będzie można zintegrować aplikacji z siecią wirtualną, dopóki brama nie zostanie aprowizowana.
 
 ### <a name="how-gateway-required-vnet-integration-works"></a>Jak działa integracja z siecią wirtualną wymaganą przez bramę
 
-Integracja z siecią wirtualną wymagana przez bramę jest oparta na technologii sieci VPN typu punkt-lokacja. Sieci VPN typu punkt-lokacja ograniczają dostęp sieciowy do maszyny wirtualnej, która hostuje aplikację. Aplikacje są ograniczone do wysyłania ruchu do Internetu tylko za pomocą Połączenia hybrydowe lub przez integrację sieci wirtualnej. Gdy aplikacja zostanie skonfigurowana przy użyciu portalu do korzystania z integracji z siecią wirtualną wymaganą przez bramę, w Twoim imieniu zarządza się złożoną negocjacją w celu utworzenia i przypisania certyfikatów na bramie i stronie aplikacji. W wyniku tego pracownicy używający do hostowania aplikacji mogą bezpośrednio łączyć się z bramą sieci wirtualnej w wybrane sieci wirtualnej.
+Integracja z siecią wirtualną wymaganą przez bramę jest zbudowana na podstawie technologii sieci VPN typu punkt-lokacja. Sieci VPN typu punkt-lokacja ograniczają dostęp sieciowy do maszyny wirtualnej, która hostuje aplikację. Aplikacje są ograniczone do wysyłania ruchu do Internetu tylko za pośrednictwem połączeń hybrydowych lub integracji z siecią wirtualną. Gdy aplikacja jest skonfigurowana przy użyciu portalu do korzystania z integracji z siecią wirtualną wymaganą przez bramę, w Twoim imieniu jest zarządzane złożone negocjacje w celu utworzenia i przypisania certyfikatów po stronie bramy i aplikacji. W efekcie pracownicy, którzy hostują aplikacje, mogą bezpośrednio połączyć się z bramą sieci wirtualnej w wybranej sieci wirtualnej.
 
 ![Jak działa integracja z siecią wirtualną wymaganą przez bramę][6]
 
-### <a name="access-on-premises-resources"></a>Dostęp do zasobów lokalnych
+### <a name="access-on-premises-resources"></a>Uzyskiwanie dostępu do zasobów lokalnych
 
-Aplikacje mogą uzyskiwać dostęp do zasobów lokalnych przez integrację z usługą sieci wirtualnych, która ma połączenia lokacja-lokacja. W przypadku używania integracji sieci wirtualnej wymaganej przez bramę należy zaktualizować trasy lokalnej bramy sieci VPN do bloków adresów punkt-lokacja. Po pierwszym skonfigurowaniu sieci VPN typu lokacja-lokacja, skrypty używane do skonfigurowania należy prawidłowo skonfigurować trasy. W przypadku dodania adresów punkt-lokacja po utworzeniu sieci VPN typu lokacja-lokacja należy ręcznie zaktualizować trasy. Szczegółowe informacje o tym, jak to zrobić, różnią się w zależności od bramy i nie zostały opisane tutaj. Nie można skonfigurować protokołu BGP z połączeniem sieci VPN typu lokacja-lokacja.
+Aplikacje mogą uzyskać dostęp do zasobów lokalnych przez integrację z sieciami wirtualnmi, które mają połączenia lokacja-lokacja. Jeśli używasz integracji z siecią wirtualną wymaganą przez bramę, zaktualizuj trasy lokalnej bramy sieci VPN blokami adresów typu punkt-lokacja. Podczas pierwszej konfiguracji sieci VPN typu lokacja-lokacja skrypty używane do jej konfigurowania powinny prawidłowo konfigurować trasy. W przypadku dodawania adresów punkt-lokacja po utworzeniu sieci VPN typu lokacja-lokacja należy ręcznie zaktualizować trasy. Szczegółowe informacje na temat tego, jak to zrobić, różnią się w zależności od bramy i nie zostały tutaj opisane. Nie można skonfigurować protokołu BGP za pomocą połączenia sieci VPN typu lokacja-lokacja.
 
-Żadna dodatkowa konfiguracja nie jest wymagana do uzyskania dostępu do zasobów lokalnych w ramach funkcji integracji regionalnej sieci wirtualnej. Wystarczy podłączyć sieć wirtualną do zasobów lokalnych przy użyciu usługi ExpressRoute lub sieci VPN typu lokacja-lokacja.
+Nie jest wymagana żadna dodatkowa konfiguracja, aby funkcja integracji regionalnej sieci wirtualnej docierała za pośrednictwem sieci wirtualnej do zasobów lokalnych. Wystarczy połączyć sieć wirtualną z zasobami lokalnymi przy użyciu usługi ExpressRoute lub sieci VPN typu lokacja-lokacja.
 
 > [!NOTE]
-> Funkcja integracji sieci wirtualnej wymagana przez bramę nie integruje aplikacji z siecią wirtualną, która ma bramę ExpressRoute. Nawet jeśli Brama ExpressRoute jest skonfigurowana w [trybie współistnienia][VPNERCoex], integracja sieci wirtualnej nie działa. Jeśli musisz uzyskać dostęp do zasobów za pomocą połączenia ExpressRoute, użyj funkcji integracji regionalnej sieci wirtualnej lub [App Service Environment][ASE], która działa w sieci wirtualnej.
+> Funkcja integracji z siecią wirtualną wymaganą przez bramę nie integruje aplikacji z siecią wirtualną, która ma bramę usługi ExpressRoute. Nawet jeśli brama usługi ExpressRoute jest skonfigurowana w trybie [współistnienia,][VPNERCoex]integracja z siecią wirtualną nie działa. Jeśli musisz uzyskać dostęp do zasobów za pośrednictwem połączenia expressRoute, użyj regionalnej funkcji integracji z siecią wirtualną lub App Service Environment [,][ASE]która działa w Twojej sieci wirtualnej.
 >
 >
 
 ### <a name="peering"></a>Komunikacja równorzędna
 
-Jeśli używasz komunikacji równorzędnej z integracją regionalnej sieci wirtualnej, nie musisz wykonywać żadnych dodatkowych czynności konfiguracyjnych.
+Jeśli używasz komunikacji równorzędnej z regionalną integracją z siecią wirtualną, nie musisz robić żadnych dodatkowych konfiguracji.
 
-W przypadku korzystania z integracji sieci wirtualnej wymaganej przez bramę z usługą komunikacji równorzędnej należy skonfigurować kilka dodatkowych elementów. Aby skonfigurować komunikację równorzędną do pracy z aplikacją:
+Jeśli używasz integracji sieci wirtualnej wymaganej przez bramę z użyciem komunikacji równorzędnej, musisz skonfigurować kilka dodatkowych elementów. Aby skonfigurować komunikacja równorzędna do pracy z aplikacją:
 
-1. Dodaj połączenie komunikacji równorzędnej w sieci wirtualnej, z którą łączy się aplikacja. Po dodaniu połączenia komunikacji równorzędnej Włącz **dostęp do sieci wirtualnej** i wybierz opcję **Zezwalaj na przekazywanie dalej ruchu** i **Zezwalaj na tranzyt bramy**.
-1. Dodaj połączenie komunikacji równorzędnej w sieci wirtualnej, która jest połączona z siecią wirtualną, z którą nawiązano połączenie. Po dodaniu połączenia komunikacji równorzędnej w docelowej sieci wirtualnej Włącz **dostęp do usługi Virtual Network** i wybierz opcję **Zezwalaj na przekazywanie dalej ruchu** i **Zezwalaj na bramy zdalne**.
-1. Przejdź do **App Service planowanie**  >    >  interfejsu użytkownika **integracji sieci wirtualnej** w portalu. Wybierz sieć wirtualną, z którą aplikacja nawiązuje połączenie. W sekcji Routing Dodaj zakres adresów sieci wirtualnej, która jest połączona z siecią wirtualną.
+1. Dodaj połączenie komunikacji równorzędnej w sieci wirtualnej, z która łączy się aplikacja. Po dodaniu połączenia komunikacji równorzędnej włącz opcję Zezwalaj na dostęp do sieci **wirtualnej** i wybierz pozycję **Zezwalaj** na ruch przesyłany dalej i **Zezwalaj na tranzyt bramy.**
+1. Dodaj połączenie komunikacji równorzędnej w sieci wirtualnej, która jest połączona równorzędnie z siecią wirtualną, z która jest połączona. Po dodaniu połączenia komunikacji równorzędnej w  docelowej sieci wirtualnej włącz opcję Zezwalaj na dostęp do sieci wirtualnej i wybierz pozycję Zezwalaj na ruch przesyłany dalej i **Zezwalaj na bramy zdalne.** 
+1. Przejdź do planu **App Service**  >  **interfejsu użytkownika**  >  **integracji sieci wirtualnej** w portalu. Wybierz sieć wirtualną, z która łączy się aplikacja. W sekcji routingu dodaj zakres adresów sieci wirtualnej połączonej za pomocą komunikacji równorzędnej z siecią wirtualną, z która jest połączona aplikacja.
 
 ## <a name="manage-vnet-integration"></a>Zarządzanie integracją sieci wirtualnej
 
-Łączenie i rozłączanie z siecią wirtualną jest na poziomie aplikacji. Operacje, które mogą mieć wpływ na integrację sieci wirtualnej w wielu aplikacjach, są na poziomie planu App Service. W portalu integracji sieci wirtualnej z aplikacją > **Networking**  >   możesz uzyskać szczegółowe informacje dotyczące sieci wirtualnej. Podobne informacje można wyświetlić na poziomie planu App Service w   >    >  portalu **integracji sieci wirtualnej** App Service plan.
+Nawiązywanie połączenia z siecią wirtualną i rozłączanie z siecią wirtualną jest na poziomie aplikacji. Operacje, które mogą mieć wpływ na integrację z siecią wirtualną w wielu aplikacjach, App Service poziomie planu. W portalu integracji > **sieci** wirtualnych można uzyskać szczegółowe informacje  >   dotyczące sieci wirtualnej. Podobne informacje można znaleźć na poziomie planu App Service w portalu **integracji** sieci App Service  >  **sieci**  >   wirtualnych.
 
-Jedyną operacją, którą można wykonać w widoku aplikacji wystąpienia integracji sieci wirtualnej, jest rozłączenie aplikacji z sieci wirtualnej, z którą jest ona aktualnie połączona. Aby odłączyć aplikację od sieci wirtualnej, wybierz pozycję **Rozłącz**. Aplikacja zostanie uruchomiona ponownie po rozłączeniu z siecią wirtualną. Rozłączanie nie zmienia sieci wirtualnej. Podsieć lub Brama nie jest usuwana. Jeśli chcesz usunąć sieć wirtualną, najpierw Odłącz aplikację od sieci wirtualnej i Usuń z niej zasoby, takie jak bramy.
+Jedyną operacją, która można podjąć w widoku aplikacji wystąpienia integracji z siecią wirtualną, jest rozłączenie aplikacji z siecią wirtualną, z która jest aktualnie połączona. Aby odłączyć aplikację od sieci wirtualnej, wybierz pozycję **Rozłącz.** Aplikacja zostanie ponownie uruchomiona po rozłączeniu z siecią wirtualną. Rozłączenie nie zmienia sieci wirtualnej. Podsieć lub brama nie jest usuwana. Jeśli następnie chcesz usunąć sieć wirtualną, najpierw odłącz aplikację od sieci wirtualnej i usuń jej zasoby, takie jak bramy.
 
-W interfejsie użytkownika integracji z siecią wirtualną App Service są wyświetlane wszystkie integracje sieci wirtualnej używane przez aplikacje w planie App Service. Aby wyświetlić szczegółowe informacje o każdej sieci wirtualnej, wybierz sieć wirtualną, która Cię interesuje. Istnieją dwie akcje, które można wykonać w tym miejscu dla integracji z siecią wirtualną wymagana przez bramę:
+Interfejs App Service integracji z siecią wirtualną planu pokazuje wszystkie integracje sieci wirtualnej używane przez aplikacje w App Service wirtualnej. Aby wyświetlić szczegółowe informacje dotyczące każdej sieci wirtualnej, wybierz sieć wirtualną, która Cię interesuje. W przypadku integracji z siecią wirtualną wymaganą przez bramę można wykonać dwie akcje:
 
-* **Synchronizacja sieci**: operacja synchronizacji sieci jest używana tylko w przypadku funkcji integracji wirtualnej zależnej od bramy. Wykonanie operacji synchronizacji sieci gwarantuje, że certyfikaty i informacje o sieci są zsynchronizowane. W przypadku dodania lub zmiany serwera DNS sieci wirtualnej wykonaj operację synchronizacji sieci. Ta operacja uruchamia ponownie wszystkie aplikacje używające tej sieci wirtualnej. Ta operacja nie będzie działała, jeśli używasz aplikacji i sieci wirtualnej należącej do różnych subskrypcji.
-* **Dodawanie tras**: Dodawanie tras dysków ruch wychodzący do sieci wirtualnej.
+* **Sieć synchronizacji:** operacja synchronizacji sieci jest używana tylko w przypadku funkcji integracji sieci wirtualnej zależnej od bramy. Wykonanie operacji synchronizacji sieci gwarantuje, że certyfikaty i informacje o sieci są zsynchronizowane. Jeśli dodasz lub zmienisz system DNS sieci wirtualnej, wykonaj operację synchronizacji sieci. Ta operacja powoduje ponowne uruchomienie wszystkich aplikacji, które korzystają z tej sieci wirtualnej. Ta operacja nie będzie działać, jeśli używasz aplikacji i sieci wirtualnej należącej do różnych subskrypcji.
+* **Dodawanie tras:** dodanie tras kieruje ruchem wychodzącym do sieci wirtualnej.
 
-Prywatny adres IP przypisany do wystąpienia jest udostępniany za pośrednictwem zmiennej środowiskowej, **WEBSITE_PRIVATE_IP**. Interfejs użytkownika konsoli kudu również pokazuje listę zmiennych środowiskowych dostępnych dla aplikacji sieci Web. Ten adres IP jest przypisany z zakresu adresów podsieci zintegrowanej. W przypadku integracji z regionalną siecią wirtualną wartość WEBSITE_PRIVATE_IP jest adresem IP z zakresu adresów podsieci delegowanej, a w przypadku integracji z siecią wirtualną wymaganą przez bramę wartość jest adresem IP z zakresu adres puli adresów punkt-lokacja skonfigurowanej w bramie Virtual Network. Jest to adres IP, który będzie używany przez aplikację internetową do łączenia się z zasobami za pomocą Virtual Network. 
+Prywatny adres IP przypisany do wystąpienia jest udostępniane za pośrednictwem zmiennej środowiskowej **WEBSITE_PRIVATE_IP**. Interfejs użytkownika konsoli Kudu zawiera również listę zmiennych środowiskowych dostępnych dla aplikacji internetowej. Ten adres IP jest przypisywany z zakresu adresów zintegrowanej podsieci. W przypadku regionalnej integracji z siecią wirtualną wartość WEBSITE_PRIVATE_IP to adres IP z zakresu adresów delegowanej podsieci, a w przypadku integracji z siecią wirtualną wymaganą przez bramę wartość jest adresem IP z zakresu adresów puli adresów punkt-lokacja skonfigurowanej w bramie usługi Virtual Network Gateway. Jest to adres IP, który będzie używany przez aplikację internetową do łączenia się z zasobami za pośrednictwem Virtual Network. 
 
 > [!NOTE]
-> Wartość WEBSITE_PRIVATE_IP jest powiązana ze zmianą. Będzie on jednak adresem IP w zakresie adresów podsieci integracji lub zakresu adresów typu punkt-lokacja, dlatego trzeba będzie zezwolić na dostęp z całego zakresu adresów.
+> Wartość właściwości WEBSITE_PRIVATE_IP jest powiązana ze zmianą. Będzie to jednak adres IP w zakresie adresów podsieci integracji lub zakres adresów punkt-lokacja, dlatego należy zezwolić na dostęp z całego zakresu adresów.
 >
 
-### <a name="gateway-required-vnet-integration-routing"></a>Routing integracji sieci wirtualnej wymagane przez bramę
-Trasy, które są zdefiniowane w sieci wirtualnej, są używane do kierowania ruchu do sieci wirtualnej z aplikacji. Aby wysłać dodatkowy ruch wychodzący do sieci wirtualnej, Dodaj te bloki adresów tutaj. Ta funkcja działa tylko z integracją sieci wirtualnej wymaganą przez bramę. Tabele tras nie wpływają na ruch aplikacji, gdy używasz integracji sieci wirtualnej wymagane przez bramę w taki sposób, aby korzystała z regionalnej integracji sieci wirtualnej.
+### <a name="gateway-required-vnet-integration-routing"></a>Routing integracji sieci wirtualnej wymagany przez bramę
+Trasy zdefiniowane w sieci wirtualnej są używane do kierowania ruchu do sieci wirtualnej z aplikacji. Aby wysłać dodatkowy ruch wychodzący do sieci wirtualnej, dodaj te bloki adresów tutaj. Ta funkcja działa tylko w przypadku integracji z siecią wirtualną wymaganą przez bramę. Tabele tras nie wpływają na ruch aplikacji w przypadku korzystania z integracji z siecią wirtualną wymaganą przez bramę w taki sposób, jak w przypadku regionalnej integracji z siecią wirtualną.
 
 ### <a name="gateway-required-vnet-integration-certificates"></a>Certyfikaty integracji sieci wirtualnej wymagane przez bramę
-Po włączeniu integracji sieci wirtualnej wymaganej przez bramę wymagana jest wymiana certyfikatów w celu zapewnienia bezpieczeństwa połączenia. Wraz z certyfikatami są Konfiguracja DNS, trasy i inne podobne elementy opisujące sieć.
+Po włączeniu integracji z siecią wirtualną wymaganą przez bramę istnieje wymagana wymiana certyfikatów w celu zapewnienia bezpieczeństwa połączenia. Oprócz certyfikatów są to konfiguracja dns, trasy i inne podobne rzeczy, które opisują sieć.
 
-Jeśli zostaną zmienione informacje o certyfikatach lub sieci, wybierz pozycję **Synchronizuj sieć**. Po wybraniu opcji **Synchronizuj sieć** spowoduje to krótką awarię połączenia między aplikacją i siecią wirtualną. Gdy aplikacja nie zostanie uruchomiona ponownie, utrata łączności może spowodować, że lokacja nie działa prawidłowo.
+Jeśli certyfikaty lub informacje o sieci zostaną zmienione, wybierz pozycję **Synchronizuj sieć**. Wybranie opcji **Synchronizuj sieć** powoduje krótką przerwę w łączności między aplikacją a siecią wirtualną. Gdy aplikacja nie zostanie ponownie uruchomiona, utrata łączności może spowodować, że witryna nie będzie działać prawidłowo.
 
 ## <a name="pricing-details"></a>Szczegóły cennika
-Funkcja zintegrowanej integracji sieci wirtualnej nie ma dodatkowej opłaty za użycie poza opłatami za warstwę cenową planu App Service.
+Regionalna funkcja integracji z siecią wirtualną nie ma dodatkowych opłat za użycie wykraczające poza App Service warstwy cenowej.
 
-Trzy opłaty są związane z korzystaniem z funkcji integracji sieci wirtualnej wymaganej przez bramę:
+Trzy opłaty są związane z użyciem funkcji integracji z siecią wirtualną wymaganą przez bramę:
 
-* **App Service plan cenowy planu opłaty**: aplikacje muszą być w planie App Service w warstwie Standardowa, Premium, PremiumV2 lub PremiumV3. Aby uzyskać więcej informacji na temat tych kosztów, zobacz [Cennik usługi App Service][ASPricing].
-* **Koszty transferu danych**: naliczane są opłaty za ruch wychodzący, nawet jeśli sieć wirtualna znajduje się w tym samym centrum danych. Te opłaty są opisane w [transfer danych szczegóły cennika][DataPricing].
-* **Koszty bramy sieci VPN**: Istnieje koszt bramy sieci wirtualnej, która jest wymagana dla sieci VPN typu punkt-lokacja. Aby uzyskać więcej informacji, zobacz [Cennik usługi VPN Gateway][VNETPricing].
+* **App Service warstwy cenowej:** Twoje aplikacje muszą być w planie premium, premium, premiumv2 lub PremiumV3 App Service planie. Aby uzyskać więcej informacji na temat tych kosztów, [zobacz App Service cennik.][ASPricing]
+* **Koszty transferu danych:** za ruch wychodzący danych naliczana jest opłata, nawet jeśli sieć wirtualna znajduje się w tym samym centrum danych. Te opłaty są opisane w [te tematach szczegóły cennika usługi Data Transfer.][DataPricing]
+* **Koszty bramy sieci VPN:** istnieje koszt bramy sieci wirtualnej, który jest wymagany dla sieci VPN typu punkt-lokacja. Aby uzyskać więcej informacji, zobacz [Cennik bramy sieci VPN.][VNETPricing]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 > [!NOTE]
-> Integracja sieci wirtualnej nie jest obsługiwana w przypadku scenariuszy Docker Compose w App Service.
-> Ograniczenia dostępu Azure Functions są ignorowane, jeśli istnieje prywatny punkt końcowy.
+> Integracja z siecią wirtualną nie jest obsługiwana w Docker Compose scenariuszach App Service.
+> Azure Functions dostępu są ignorowane, jeśli istnieje prywatny punkt końcowy.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## <a name="automation"></a>Automation
 
-Obsługa interfejsu wiersza polecenia jest dostępna dla integracji regionalnej sieci wirtualnej. Aby uzyskać dostęp do poniższych poleceń, [Zainstaluj interfejs wiersza polecenia platformy Azure][installCLI].
+Obsługa interfejsu wiersza polecenia jest dostępna dla regionalnej integracji z siecią wirtualną. Aby uzyskać dostęp do poniższych poleceń, [zainstaluj interfejs wiersza polecenia platformy Azure.][installCLI]
 
 ```azurecli
 az webapp vnet-integration --help
@@ -189,7 +189,7 @@ Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
 
-Obsługa programu PowerShell dla integracji regionalnej sieci wirtualnej jest również dostępna, ale należy utworzyć zasób generyczny z tablicą właściwości resourceID
+Dostępna jest również obsługa regionalnej integracji z siecią wirtualną w programie PowerShell, ale należy utworzyć zasób ogólny z tablicą właściwości resourceID podsieci
 
 ```azurepowershell
 # Parameters
@@ -217,7 +217,7 @@ New-AzResource @vNetParams
 ```
 
 
-W przypadku integracji sieci wirtualnej wymagane przez bramę można zintegrować App Service z siecią wirtualną platformy Azure za pomocą programu PowerShell. Aby uzyskać gotowy do uruchomienia skrypt, zobacz [łączenie aplikacji w Azure App Service z siecią wirtualną platformy Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+W przypadku integracji z siecią wirtualną wymaganą przez bramę można zintegrować App Service z siecią wirtualną platformy Azure przy użyciu programu PowerShell. Aby uzyskać gotowy do uruchomienia skrypt, zobacz Connect an app in Azure App Service to an Azure virtual network (Łączenie aplikacji w [usłudze Azure App Service z siecią wirtualną platformy Azure).](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)
 
 
 <!--Image references-->

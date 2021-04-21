@@ -1,27 +1,27 @@
 ---
-title: Tworzenie magazynu konfiguracji aplikacji platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM)
+title: Tworzenie Azure App Configuration magazynu przy użyciu Azure Resource Manager szablonu (szablonu usługi ARM)
 titleSuffix: Azure App Configuration
-description: Dowiedz się, jak utworzyć magazyn konfiguracji aplikacji platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM).
+description: Dowiedz się, jak utworzyć Azure App Configuration magazynu przy użyciu Azure Resource Manager szablonu (szablonu usługi ARM).
 author: GrantMeStrength
 ms.author: jken
 ms.date: 10/16/2020
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.openlocfilehash: c5976053e32bcc97e57ef8f74b3249df83d322c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 92ca80a6c807394c45be8f0187c7add736ba83ce
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933240"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831784"
 ---
-# <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Szybki Start: Tworzenie magazynu konfiguracji aplikacji platformy Azure przy użyciu szablonu ARM
+# <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Szybki start: tworzenie magazynu Azure App Configuration przy użyciu szablonu usługi ARM
 
-W tym przewodniku szybki start opisano, jak:
+W tym przewodniku Szybki start opisano, jak:
 
-- Wdróż magazyn konfiguracji aplikacji przy użyciu szablonu Azure Resource Manager (szablon ARM).
-- Utwórz wartości kluczy w magazynie konfiguracji aplikacji przy użyciu szablonu ARM.
-- Odczytaj wartości klucza w magazynie konfiguracji aplikacji z szablonu ARM.
+- Wdrażanie App Configuration magazynu przy użyciu szablonu Azure Resource Manager (szablonu usługi ARM).
+- Tworzenie kluczy-wartości w magazynie App Configuration przy użyciu szablonu usługi ARM.
+- Odczytywanie kluczy i wartości w magazynie App Configuration z szablonu usługi ARM.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -35,33 +35,33 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/). Tworzy nowy magazyn konfiguracji aplikacji z dwoma kluczowymi wartościami wewnątrz. Następnie używa `reference` funkcji do wyprowadzania wartości dwóch zasobów klucz-wartość. Odczytanie wartości klucza w ten sposób umożliwia użycie jej w innych miejscach w szablonie.
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/). Tworzy nowy magazyn App Configuration z dwoma kluczami-wartościami. Następnie używa funkcji `reference` , aby wyprowadzać wartości dwóch zasobów klucz-wartość. Odczytywanie wartości klucza w ten sposób umożliwia jej korzystanie z innych miejsc w szablonie.
 
-Przewodnik Szybki Start używa `copy` elementu, aby utworzyć wiele wystąpień zasobu klucz-wartość. Aby dowiedzieć się więcej na temat `copy` elementu, zobacz [iteracja zasobów w szablonach ARM](../azure-resource-manager/templates/copy-resources.md).
+W tym przewodniku Szybki `copy` start element jest używany do tworzenia wielu wystąpień zasobu klucz-wartość. Aby dowiedzieć się więcej na temat `copy` elementu , zobacz [Iteracja zasobów w szablonach arm.](../azure-resource-manager/templates/copy-resources.md)
 
 > [!IMPORTANT]
-> Ten szablon wymaga wersji dostawcy zasobów konfiguracji aplikacji `2020-07-01-preview` lub nowszej. Ta wersja używa `reference` funkcji do odczytywania wartości klucza. `listKeyValue`Funkcja, która została użyta do odczytu wartości kluczy w poprzedniej wersji, jest niedostępna w wersji `2020-07-01-preview` .
+> Ten szablon wymaga App Configuration dostawcy zasobów `2020-07-01-preview` lub nowszej. Ta wersja używa `reference` funkcji do odczytywania wartości klucz-wartość. Funkcja, `listKeyValue` która była używana do odczytywania wartości klucz-wartość w poprzedniej wersji, nie jest dostępna, począwszy od wersji `2020-07-01-preview` .
 
 :::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
 
-Dwa zasoby platformy Azure są zdefiniowane w szablonie:
+W szablonie zdefiniowano dwa zasoby platformy Azure:
 
-- [Microsoft. AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): Tworzenie magazynu konfiguracji aplikacji.
-- [Microsoft. AppConfiguration/configurationStores/wartości](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues)kluczowe: Utwórz klucz-wartość w magazynie konfiguracji aplikacji.
+- [Microsoft.AppConfiguration/configurationStores:](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores)utwórz App Configuration magazynu.
+- [Microsoft.AppConfiguration/configurationStores/keyValues:](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues)utwórz klucz-wartość wewnątrz App Configuration magazynu.
 
 > [!TIP]
-> `keyValues`Nazwa zasobu jest kombinacją klucza i etykiety. Klucz i etykieta są przyłączone przez `$` ogranicznik. Etykieta jest opcjonalna. W powyższym przykładzie `keyValues` zasób o nazwie `myKey` tworzy klucz-wartość bez etykiety.
+> Nazwa `keyValues` zasobu jest kombinacją klucza i etykiety. Klucz i etykieta są połączone przez `$` ogranicznik. Etykieta jest opcjonalna. W powyższym przykładzie `keyValues` zasób o nazwie `myKey` tworzy klucz-wartość bez etykiety.
 >
-> Kodowanie procentowe, znane także jako kodowanie adresów URL, umożliwia używanie klawiszy lub etykiet do dołączania znaków, które nie są dozwolone w nazwach zasobów szablonu ARM. `%` nie jest dozwolonym znakiem, więc `~` jest używany w jego miejscu. Aby poprawnie zakodować nazwę, wykonaj następujące kroki:
+> Kodowanie procentowe, znane również jako kodowanie adresów URL, umożliwia kluczom lub etykietom dołączanie znaków, które nie są dozwolone w nazwach zasobów szablonu usługi ARM. `%` nie jest też dozwolonym znakiem, więc `~` jest używany w jego miejscu. Aby poprawnie zakodować nazwę, wykonaj następujące kroki:
 >
-> 1. Zastosuj kodowanie adresu URL
-> 2. Zamień `~` na `~7E`
-> 3. Zamień `%` na `~`
+> 1. Stosowanie kodowania adresu URL
+> 2. `~`Zamień na`~7E`
+> 3. `%`Zamień na`~`
 >
-> Na przykład, aby utworzyć parę klucz-wartość z nazwą klucza `AppName:DbEndpoint` i nazwą etykiety `Test` , nazwa zasobu powinna być `AppName~3ADbEndpoint$Test` .
+> Aby na przykład utworzyć parę klucz-wartość z nazwą klucza i nazwą `AppName:DbEndpoint` `Test` etykiety, nazwa zasobu powinna mieć wartość `AppName~3ADbEndpoint$Test` .
 
 > [!NOTE]
-> Konfiguracja aplikacji umożliwia dostęp do danych klucza za pośrednictwem [prywatnego linku](concept-private-endpoint.md) do sieci wirtualnej. Domyślnie po włączeniu tej funkcji wszystkie żądania dotyczące danych konfiguracyjnych aplikacji za pośrednictwem sieci publicznej są odrzucane. Ponieważ szablon ARM jest uruchamiany poza siecią wirtualną, dostęp do danych z szablonu ARM nie jest dozwolony. Aby zezwolić na dostęp do danych z szablonu usługi ARM w przypadku użycia linku prywatnego, można włączyć dostęp do sieci publicznej za pomocą następującego polecenia interfejsu CLI platformy Azure. Należy wziąć pod uwagę implikacje zabezpieczeń dotyczące włączania dostępu do sieci publicznej w tym scenariuszu.
+> App Configuration umożliwia dostęp do danych typu klucz-wartość za pośrednictwem [łącza prywatnego](concept-private-endpoint.md) z sieci wirtualnej. Domyślnie, gdy funkcja jest włączona, wszystkie żądania dotyczące danych App Configuration przez sieć publiczną są odmowa. Ponieważ szablon usługi ARM działa poza siecią wirtualną, dostęp do danych z szablonu usługi ARM jest niedozwolone. Aby zezwolić na dostęp do danych z szablonu usługi ARM, gdy jest używane łącze prywatne, możesz włączyć dostęp do sieci publicznej za pomocą następującego polecenia interfejsu wiersza polecenia platformy Azure. W tym scenariuszu należy wziąć pod uwagę implikacje dotyczące bezpieczeństwa dotyczące włączania dostępu do sieci publicznej.
 >
 > ```azurecli-interactive
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
@@ -69,11 +69,11 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon tworzy magazyn konfiguracji aplikacji z dwoma kluczowymi wartościami wewnątrz.
+Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon tworzy magazyn App Configuration z dwoma kluczami-wartościami.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
-Szablon można również wdrożyć przy użyciu następującego polecenia cmdlet programu PowerShell. Wartości klucza będą znajdować się w danych wyjściowych konsoli programu PowerShell.
+Szablon można również wdrożyć przy użyciu następującego polecenia cmdlet programu PowerShell. Klucz-wartość będzie w danych wyjściowych konsoli programu PowerShell.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -88,17 +88,17 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W polu wyszukiwania Azure Portal wpisz **Konfiguracja aplikacji**. Z listy wybierz pozycję **Konfiguracja aplikacji** .
-1. Wybierz nowo utworzony zasób konfiguracji aplikacji.
-1. W obszarze **operacje** kliknij pozycję **Eksplorator konfiguracji**.
-1. Sprawdź, czy istnieją dwa wartości kluczy.
+1. W polu Azure Portal wyszukiwania wpisz **App Configuration**. Wybierz **App Configuration** z listy.
+1. Wybierz nowo utworzony zasób App Configuration zasobów.
+1. W **obszarze Operacje** kliknij pozycję Eksplorator **konfiguracji**.
+1. Sprawdź, czy istnieją dwie wartości klucza.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów, magazyn konfiguracji aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Jeśli planujesz używać sklepu z konfiguracją aplikacji w przyszłości, możesz pominąć jego usuwanie. Jeśli nie chcesz nadal korzystać z tego sklepu, Usuń wszystkie zasoby utworzone w tym przewodniku Szybki Start, uruchamiając następujące polecenie cmdlet:
+Gdy grupa zasobów, magazyn zasobów i wszystkie pokrewne zasoby nie App Configuration już potrzebne, usuń je. Jeśli planujesz używać magazynu App Configuration w przyszłości, możesz pominąć jego usuwanie. Jeśli nie zamierzasz nadal korzystać z tego magazynu, usuń wszystkie zasoby utworzone w tym przewodniku Szybki start, uruchamiając następujące polecenie cmdlet:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -108,7 +108,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o dodawaniu flagi funkcji i Key Vault odwołaniu do magazynu konfiguracji aplikacji, zaznacz poniżej przykłady szablonów ARM.
+Aby dowiedzieć się więcej na temat dodawania flagi funkcji i Key Vault do magazynu App Configuration, zapoznaj się z poniższymi przykładami szablonów usługi ARM.
 
-- [101 — aplikacja-konfiguracja — magazyn — ZZ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
-- [101-App-Configuration-Store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)
+- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
+- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)

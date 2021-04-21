@@ -1,31 +1,32 @@
 ---
-title: Udostępnianie aplikacji sieci Web za pomocą usługi Azure cache for Redis
-description: Użyj szablonu Azure Resource Manager, aby wdrożyć aplikację internetową za pomocą usługi Azure cache for Redis.
+title: Aprowizuj aplikację internetową za pomocą Azure Cache for Redis
+description: Użyj Azure Resource Manager, aby wdrożyć aplikację internetową za pomocą Azure Cache for Redis.
 services: app-service
 author: yegu-ms
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: ec8d4f5611425734974d07ae6ee7008b10b9b406
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 089d7d7990f0f94135f629a5cd7a461700aa3433
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85833778"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830776"
 ---
-# <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Tworzenie aplikacji sieci Web i usługi Azure cache for Redis przy użyciu szablonu
+# <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Tworzenie aplikacji internetowej i Azure Cache for Redis przy użyciu szablonu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-W tym temacie dowiesz się, jak utworzyć szablon Azure Resource Manager, który wdraża aplikację internetową platformy Azure w usłudze Azure cache for Redis. Dowiesz się, jak definiować wdrożone zasoby oraz jak definiować parametry, które są określone podczas wdrażania. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym temacie dowiesz się, jak utworzyć szablon Azure Resource Manager, który wdraża aplikację internetową platformy Azure za pomocą Azure Cache for Redis. Dowiesz się, jak definiować wdrażane zasoby i definiować parametry określone podczas wykonywania wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
-Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Aby dowiedzieć się więcej na temat składni i właściwości JSON dla typów zasobów pamięci podręcznej, zobacz [Microsoft. cache — typy zasobów](/azure/templates/microsoft.cache/allversions).
+Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)(Tworzenie Azure Resource Manager szablonów). Aby dowiedzieć się więcej o składni i właściwościach JSON dla typów zasobów pamięci podręcznej, zobacz [Typy zasobów Microsoft.Cache.](/azure/templates/microsoft.cache/allversions)
 
-Aby zapoznać się z pełnym szablonem, zobacz [Web App with Azure cache for Redis Template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
+Aby uzyskać kompletny szablon, zobacz [Web App with Azure Cache for Redis template (Aplikacja internetowa z Azure Cache for Redis szablonu).](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json)
 
-## <a name="what-you-will-deploy"></a>Co zostanie wdrożone
-W tym szablonie zostaną wdrożone następujące narzędzia:
+## <a name="what-you-will-deploy"></a>Co wdrożysz
+W tym szablonie wdrożysz:
 
 * Aplikacja internetowa platformy Azure
 * Azure Cache for Redis
@@ -40,7 +41,7 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Zmienne nazw
-Ten szablon używa zmiennych do konstruowania nazw zasobów. Używa funkcji [uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) do konstruowania wartości na podstawie identyfikatora grupy zasobów.
+Ten szablon używa zmiennych do konstruowania nazw zasobów. Używa on funkcji [uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) do konstruowania wartości na podstawie identyfikatora grupy zasobów.
 
 ```json
 "variables": {
@@ -55,7 +56,7 @@ Ten szablon używa zmiennych do konstruowania nazw zasobów. Używa funkcji [uni
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### <a name="azure-cache-for-redis"></a>Azure Cache for Redis
-Tworzy pamięć podręczną platformy Azure dla usługi Redis, która jest używana z aplikacją sieci Web. Nazwa pamięci podręcznej jest określona w zmiennej **cacheName** .
+Tworzy Azure Cache for Redis, który jest używany z aplikacją internetową. Nazwa pamięci podręcznej jest określona w zmiennej **cacheName.**
 
 Szablon tworzy pamięć podręczną w tej samej lokalizacji co grupa zasobów.
 
@@ -81,9 +82,9 @@ Szablon tworzy pamięć podręczną w tej samej lokalizacji co grupa zasobów.
 
 
 ### <a name="web-app"></a>Aplikacja internetowa
-Tworzy aplikację sieci Web o nazwie określonej w zmiennej **WebsiteName** .
+Tworzy aplikację internetową o nazwie określonej w zmiennej **webSiteName.**
 
-Zwróć uwagę, że aplikacja sieci Web jest skonfigurowana przy użyciu właściwości ustawienia aplikacji, które umożliwiają współdziałanie z pamięcią podręczną platformy Azure dla Redis. Te ustawienia aplikacji są dynamicznie tworzone na podstawie wartości podanych podczas wdrażania.
+Zwróć uwagę, że aplikacja internetowa jest skonfigurowana przy użyciu właściwości ustawień aplikacji, które umożliwiają jej pracę z Azure Cache for Redis. Te ustawienia aplikacji są tworzone dynamicznie na podstawie wartości podanych podczas wdrażania.
 
 ```json
 {

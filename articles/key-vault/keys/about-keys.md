@@ -1,6 +1,6 @@
 ---
-title: Klucze — informacje Azure Key Vault
-description: Omówienie Azure Key Vault interfejsu REST i szczegółów dla deweloperów kluczy.
+title: Informacje o kluczach — Azure Key Vault
+description: Omówienie interfejsu REST Azure Key Vault szczegóły dla deweloperów kluczy.
 services: key-vault
 author: amitbapat
 manager: msmbaldwin
@@ -10,86 +10,86 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 3c4bb61217c7b972220a55a4837c2b3db980f2ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9565095a40052a940d7a7b31f0fd3a27e0e75c2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095984"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815004"
 ---
 # <a name="about-keys"></a>Informacje o kluczach
 
-Azure Key Vault oferuje dwa typy zasobów do przechowywania kluczy kryptograficznych i zarządzania nimi. Magazyny obsługują klucze chronione przez oprogramowanie oraz chronione przez moduł HSM (sprzętowego modułu zabezpieczeń). Zarządzane sprzętowych modułów zabezpieczeń obsługują tylko klucze chronione przez moduł HSM. 
+Azure Key Vault udostępnia dwa typy zasobów do przechowywania kluczy kryptograficznych i zarządzania nimi. Magazyny obsługują klucze chronione przez oprogramowanie i klucze chronione przez moduł HSM (Sprzętowy moduł zabezpieczeń). Zarządzane moduły HSM obsługują tylko klucze chronione przez moduł HSM. 
 
-|Typ zasobu|Metody ochrony klucza|Podstawowy adres URL punktu końcowego płaszczyzny danych|
+|Typ zasobu|Metody ochrony kluczy|Podstawowy adres URL punktu końcowego płaszczyzny danych|
 |--|--|--|
-| **Magazyny** | Chronione przez oprogramowanie<br/><br/>oraz<br/><br/>Chronione przez moduł HSM (z jednostką SKU Premium)</li></ul> | https://{nazwa magazynu}. magazyn. Azure. NET |
-| * * Zarządzane sprzętowych modułów zabezpieczeń * * | Chronione przez moduł HSM | https://{HSM-Name}. managedhsm. Azure. NET |
+| **Magazyny** | Chronione przez oprogramowanie<br/><br/>oraz<br/><br/>Chronione przez moduł HSM (z sku Premium)</li></ul> | https://{nazwa magazynu}.vault.azure.net |
+| **Zarządzane moduły HSM** | Chronione przez moduł HSM | https://{nazwa-hsm}.managedhsm.azure.net |
 ||||
 
-- **Magazyny** — magazyny zapewniają niedrogie, łatwe do wdrożenia, wiele dzierżawców, odporne na strefy (tam, gdzie to możliwe) rozwiązanie do zarządzania kluczami o wysokiej dostępności odpowiednie dla najpopularniejszych scenariuszy aplikacji w chmurze.
-- **Zarządzany** moduł HSM zarządzany przez sprzętowych modułów zabezpieczeń zapewnia pojedyncze dzierżawy, odporne na strefy (o ile są dostępne), sprzętowych modułów zabezpieczeń o wysokiej dostępności do przechowywania kluczy kryptograficznych i zarządzania nimi. Najbardziej odpowiednie dla aplikacji i scenariuszy użycia, które obsługują klucze o wysokiej wartości. Pomaga również spełnić najbardziej rygorystyczne wymagania dotyczące zabezpieczeń, zgodności i przepisów. 
+- **Magazyny** — magazyny zapewniają ekonomiczne, łatwe do wdrożenia, wielodostępne, odporne na strefy (jeśli są dostępne) rozwiązanie do zarządzania kluczami o wysokiej dostępie, odpowiednie dla większości typowych scenariuszy aplikacji w chmurze.
+- **Zarządzane moduły HSM** — zarządzany moduł HSM udostępnia jednodostępne, odporne na strefy (jeśli są dostępne) moduły HSM o wysokiej dostępie do przechowywania kluczy kryptograficznych i zarządzania nimi. Najbardziej odpowiedni dla aplikacji i scenariuszy użycia, które obsługują klucze o wysokiej wartości. Pomaga również spełnić najbardziej rygorystyczne wymagania dotyczące zabezpieczeń, zgodności i przepisów prawnych. 
 
 > [!NOTE]
 > Magazyny umożliwiają również przechowywanie kilku typów obiektów, takich jak wpisy tajne, certyfikaty i klucze kont magazynu, oraz zarządzanie nimi, oprócz kluczy kryptograficznych.
 
-Klucze kryptograficzne w Key Vault są reprezentowane jako obiekty klucza internetowego JSON [JWK]. Specyfikacje JavaScript Object Notation (JSON) i podpisywanie i szyfrowanie obiektów JavaScript są następujące:
+Klucze kryptograficzne w Key Vault są reprezentowane jako JSON Web Key [JWK]. Specyfikacje JavaScript Object Notation (JSON) i JavaScript Object Signing and Encryption (JOSE) to:
 
--   [Klucz internetowy JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [Szyfrowanie sieci Web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [Algorytmy sieci Web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [Podpis internetowy JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
+-   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
+-   [Algorytmy internetowe JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
+-   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-Podstawowe specyfikacje JWK/JWA są również rozszerzane w celu włączenia typów kluczy unikatowych dla implementacji Azure Key Vault i zarządzanych modułów HSM. 
+Podstawowe specyfikacje JWK/JWA są również rozszerzane w celu włączenia typów kluczy unikatowych dla implementacji Azure Key Vault zarządzanych modułów HSM. 
 
-Klucze chronione przez moduł HSM (określane również jako klucze HSM) są przetwarzane w module HSM (sprzętowego modułu zabezpieczeń) i zawsze pozostają na granicy ochrony HSM. 
+Klucze chronione przez moduł HSM (nazywane również kluczami HSM) są przetwarzane w module HSM (Sprzętowy moduł zabezpieczeń) i zawsze pozostają granicą ochrony modułu HSM. 
 
-- Magazyny korzystają z zweryfikowanych sprzętowych modułów zabezpieczeń **poziomu 2 FIPS 140-2** do ochrony kluczy HSM w udostępnionej infrastrukturze zaplecza modułu HSM. 
-- W zarządzanym module HSM są używane moduły HSM w trybie **FIPS 140-2 Level 3** do ochrony kluczy. Każda pula modułów HSM jest izolowanym wystąpieniem pojedynczej dzierżawy z własną [domeną zabezpieczeń](../managed-hsm/security-domain.md) zapewniającą kompletną izolację kryptograficzną od wszystkich innych sprzętowych modułów zabezpieczeń udostępniania tej samej infrastruktury sprzętowej.
+- Magazyny używają modułów HSM zweryfikowanych w programie **FIPS 140-2** poziom 2 do ochrony kluczy HSM w udostępnionej infrastrukturze zaplecza modułu HSM. 
+- Zarządzany moduł HSM używa modułów HSM zweryfikowanych w programie **FIPS 140-2 poziom 3** do ochrony kluczy. Każda pula modułów HSM jest izolowanym [](../managed-hsm/security-domain.md) wystąpieniem pojedynczej dzierżawy z własną domeną zabezpieczeń zapewniającą pełną izolację kryptograficzna od wszystkich innych modułów HSM współużytkowanych przez tę samą infrastrukturę sprzętową.
 
-Te klucze są chronione w pulach modułu HSM o pojedynczej dzierżawie. W postaci miękkiej lub wyeksportowanej z obsługiwanego urządzenia HSM można zaimportować klucz RSA, EC i symetryczny. Klucze można również generować w pulach HSM. Podczas importowania kluczy HSM przy użyciu metody opisanej w [BYOK (Dostarcz własny klucz) Specyfikacja](../keys/byok-specification.md)umożliwia bezpieczny materiał klucza transportowego do zarządzanych pul modułu HSM. 
+Klucze te są chronione w pulach modułów HSM z jedną dzierżawą. Można zaimportować klucz RSA, EC i klucz symetryczny w postaci nie programowej lub eksportując z obsługiwanego urządzenia HSM. Klucze można również generować w pulach modułów HSM. Zaimportowanie kluczy HSM przy użyciu metody opisanej w specyfikacji [BYOK (bring your own key)](../keys/byok-specification.md)umożliwia bezpieczny materiał klucza transportu do zarządzanych pul modułów HSM. 
 
-Aby uzyskać więcej informacji na temat granic geograficznych, zobacz [Microsoft Azure Centrum zaufania](https://azure.microsoft.com/support/trust-center/privacy/)
+Aby uzyskać więcej informacji na temat granic geograficznych, [zobacz Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)
 
 ## <a name="key-types-and-protection-methods"></a>Typy kluczy i metody ochrony
 
-Key Vault obsługuje klucze RSA i CE. Zarządzany moduł HSM obsługuje klucze RSA, EC i symetryczne. 
+Key Vault obsługuje klucze RSA i EC. Zarządzany moduł HSM obsługuje klucze RSA, EC i symetryczne. 
 
 ### <a name="hsm-protected-keys"></a>Klucze chronione przez moduł HSM
 
-|Typ klucza|Magazyny (tylko wersja Premium)|Zarządzane sprzętowych modułów zabezpieczeń|
+|Typ klucza|Magazyny (tylko wersja Premium SKU)|Zarządzane moduły HSM|
 |--|--|--|
-|**EC-HSM**: klucz krzywej eliptycznej | Obsługiwane | Obsługiwane|
-|**RSA-HSM**: klucz RSA|Obsługiwane|Obsługiwane|
-|**OCT-HSM**: klucz symetryczny|Nieobsługiwane|Obsługiwane|
+|**EC-HSM:** klucz krzywej wielokropka | Obsługiwane | Obsługiwane|
+|**RSA-HSM:** klucz RSA|Obsługiwane|Obsługiwane|
+|**oct-HSM:** klucz symetryczny|Nieobsługiwane|Obsługiwane|
 |||
 
 ### <a name="software-protected-keys"></a>Klucze chronione przez oprogramowanie
 
-|Typ klucza|Magazyny|Zarządzane sprzętowych modułów zabezpieczeń|
+|Typ klucza|Magazyny|Zarządzane moduły HSM|
 |--|--|--|
-**RSA**: klucz RSA "chronione przez oprogramowanie"|Obsługiwane|Nieobsługiwane
-**EC**: klucz krzywej eliptyczna "chronione przez oprogramowanie"|Obsługiwane|Nieobsługiwane
+**RSA:** klucz RSA "chroniony przez oprogramowanie"|Obsługiwane|Nieobsługiwane
+**EC:** klucz krzywej wielokropka "chronionej przez oprogramowanie"|Obsługiwane|Nieobsługiwane
 |||
 
 ### <a name="compliance"></a>Zgodność
 
 |Typ klucza i miejsce docelowe|Zgodność|
 |---|---|
-|Klucze chronione przez oprogramowanie w magazynach (jednostki SKU w warstwie Premium & standard) | Poziom FIPS 140-2|
-|Klucze chronione przez moduł HSM w magazynach (jednostka SKU Premium)| FIPS 140-2 Level 2|
-|Klucze chronione przez moduł HSM w zarządzanym module HSM|Poziom standardu FIPS 140-2|
+|Klucze chronione przez oprogramowanie w magazynach (jednostki SKU w & Premium i Standardowa) | FIPS 140-2 Poziom 1|
+|Klucze chronione przez moduł HSM w magazynach (SKU Premium)| FIPS 140-2 Level 2|
+|Klucze chronione przez moduł HSM w zarządzanym hsm|FIPS 140-2 Poziom 3|
 |||
 
 
 
-Zobacz [typy kluczy, algorytmy i operacje,](about-keys-details.md) Aby uzyskać szczegółowe informacje dotyczące każdego typu klucza, algorytmów, operacji, atrybutów i tagów.
+Zobacz [Typy kluczy, algorytmy](about-keys-details.md) i operacje, aby uzyskać szczegółowe informacje o poszczególnych typach kluczy, algorytmach, operacjach, atrybutach i tagach.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Informacje o usłudze Key Vault](../general/overview.md)
 - [Informacje o zarządzanym module HSM](../managed-hsm/overview.md)
 - [Informacje o wpisach tajnych](../secrets/about-secrets.md)
 - [Informacje o certyfikatach](../certificates/about-certificates.md)
-- [Omówienie interfejsu API REST Key Vault](../general/about-keys-secrets-certificates.md)
+- [Key Vault interfejsu API REST](../general/about-keys-secrets-certificates.md)
 - [Uwierzytelnianie, żądania i odpowiedzi](../general/authentication-requests-and-responses.md)
 - [Przewodnik dewelopera usługi Key Vault](../general/developers-guide.md)

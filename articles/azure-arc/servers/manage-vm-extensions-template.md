@@ -3,12 +3,13 @@ title: Włączanie rozszerzenia maszyny wirtualnej przy użyciu Azure Resource M
 description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na serwerach z Azure Arc działających w środowiskach chmury hybrydowej przy użyciu Azure Resource Manager szablonu.
 ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 095f95192a2054d34e438d8683ac9c2e20a824f1
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d32be184a7e5bb713aee83cd3023f271299d3872
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389642"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832864"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Włączanie rozszerzeń maszyn wirtualnych platformy Azure przy użyciu szablonu usługi ARM
 
@@ -17,7 +18,7 @@ W tym artykule pokazano, jak używać szablonu usługi Azure Resource Manager us
 Rozszerzenia maszyn wirtualnych można dodać do Azure Resource Manager szablonu i wykonać wraz z wdrożeniem szablonu. Rozszerzenia maszyn wirtualnych obsługiwane przez serwery z usługą Arc umożliwia wdrożenie obsługiwanego rozszerzenia maszyny wirtualnej na maszynach z systemem Linux lub Windows przy użyciu Azure PowerShell. Każdy z poniższych przykładów zawiera plik szablonu i plik parametrów z przykładami wartości do podania w szablonie.
 
 >[!NOTE]
->Chociaż wiele rozszerzeń może być tworzona wsadowo i przetwarzana, są one instalowane szeregowo. Po zakończeniu pierwszej instalacji rozszerzenia podejmowana jest próba zainstalowania następnego rozszerzenia.
+>Chociaż wiele rozszerzeń można tworzyć wsadowo i przetwarzać, są one instalowane szeregowo. Po zakończeniu pierwszej instalacji rozszerzenia podejmowana jest próba zainstalowania następnego rozszerzenia.
 
 > [!NOTE]
 > Azure Arc z włączoną obsługą usługi nie obsługują wdrażania rozszerzeń maszyn wirtualnych i zarządzania nimi na maszynach wirtualnych platformy Azure. W przypadku maszyn wirtualnych platformy Azure zobacz następujący artykuł [z omówieniem rozszerzenia maszyny wirtualnej.](../../virtual-machines/extensions/overview.md)
@@ -296,7 +297,7 @@ Konfiguracja rozszerzenia niestandardowego skryptu określa takie rzeczy jak lok
 
 ## <a name="deploy-the-dependency-agent-extension"></a>Wdrażanie rozszerzenia agenta zależności
 
-Aby użyć Azure Monitor agenta zależności, przedstawiono następujący przykład do uruchomienia w systemach Windows i Linux. Jeśli nie masz informacji o agencie Zależności, zobacz [Overview of Azure Monitor agents (Omówienie agentów zależności).](../../azure-monitor/agents/agents-overview.md#dependency-agent)
+Aby użyć Azure Monitor agenta zależności, przedstawiono następujący przykład do uruchomienia w systemach Windows i Linux. Jeśli nie masz informacji o agencie Zależności, zobacz Overview of Azure Monitor agents (Omówienie [agentów zależności).](../../azure-monitor/agents/agents-overview.md#dependency-agent)
 
 ### <a name="template-file-for-linux"></a>Plik szablonu dla systemu Linux
 

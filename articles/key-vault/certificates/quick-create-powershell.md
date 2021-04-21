@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: a641ca1206cb41ded0513db72daa278dc3753c85
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 32150fb4cce76d5a2537c5ec969f265e0d8aae20
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750396"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816192"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Szybki start: konfigurowanie i pobieranie certyfikatu z usługi Azure Key Vault użyciu Azure PowerShell
 
@@ -84,4 +84,4 @@ W tym przewodniku Szybki start utworzono Key Vault przechowywany w nim certyfika
 
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
 - Zobacz informacje dotyczące Azure PowerShell Key Vault [cmdlet](/powershell/module/az.keyvault/)
-- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)
+- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-features.md)

@@ -3,12 +3,12 @@ title: Praca z interfejsami API usługi Defender for IoT
 description: Użyj zewnętrznego interfejsu API REST, aby uzyskać dostęp do danych odnalezionych przez czujniki i konsole zarządzania oraz wykonywać akcje na tych danych.
 ms.date: 12/14/2020
 ms.topic: reference
-ms.openlocfilehash: e7833a20d4f708ecb5b80394fae2c56fc07c9489
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0e3659d8d5e6829651012dae02ca74c5ecacaf0c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752736"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829966"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Interfejsy API konsoli zarządzania i czujnika usługi Defender dla IoT
 
@@ -44,7 +44,7 @@ Aby wygenerować token:
 
    **Element** Used wskazuje, kiedy ostatnio odebrano wywołanie zewnętrzne z tym tokenem.
 
-   Jeśli w polu Używany  dla tego tokenu jest wyświetlany komunikat **N/A,** połączenie między czujnikiem a połączonym serwerem nie działa.
+   Jeśli w polu Użyte  dla tego tokenu jest wyświetlany komunikat **N/A,** połączenie między czujnikiem a połączonym serwerem nie działa.
 
 6. Dodaj do żądania nagłówek HTTP o **tytule Authorization** (Autoryzacja) i ustaw jego wartość na wygenerowany token.
 
@@ -107,10 +107,10 @@ Tablica obiektów JSON reprezentujących urządzenia.
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
 | **id** | Numeryczny | Nie | - |
-| **ipAddresses** | Tablica JSON | Tak | Adresy IP (może to być więcej niż jeden adres w przypadku adresów internetowych lub urządzenia z dwiema karty sieciowe) |
+| **ipAddresses** | Tablica JSON | Tak | Adresy IP (może to być więcej niż jeden adres w przypadku adresów internetowych lub urządzenie z dwiema karty sieciowe) |
 | **name** | Ciąg | Nie | - |
-| **Typu** | Ciąg | Nie | Unknown, Engineering Station,TAP, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal Station, VPN Gateway, Internet lub Multiemisja i emisja |
-| **macAddresses** | Tablica JSON | Tak | Adresy MAC (może to być więcej niż jeden adres w przypadku urządzenia z dwiema karty sieciowe) |
+| **Typu** | Ciąg | Nie | Nieznany, stacja inżynieryjna, FUNKCJA, HMI, Historian, Kontroler domeny, Serwer DB, Punkt dostępu bezprzewodowego, Router, Przełącznik, Serwer, Stacja robocza, Kamera IP, Drukarka, Zapora, Stacja terminalowa, VPN Gateway, Internet lub Multiemisja i emisja |
+| **adres macAddresses** | Tablica JSON | Tak | Adresy MAC (może to być więcej niż jeden adres w przypadku urządzenia z dwiema karty sieciowe) |
 | **operatingSystem** | Ciąg | Tak | - |
 | **engineeringStation** | Wartość logiczna | Nie | Prawda czy fałsz |
 | **Skaner** | Wartość logiczna | Nie | Prawda czy fałsz |
@@ -450,10 +450,10 @@ Tablica obiektów JSON reprezentujących połączenia urządzeń.
 > [!div class="mx-tdBreakAll"]
 > | Typ | Interfejsy API | Przykład |
 > |--|--|--|
-> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" https:/ <span> /127.0.0.1/api/v1/devices/connections |
-> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/ <deviceId> /connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" <span> 'https:/ /127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=159450986000' |
+> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections | curl -k -H "Autoryzacja: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/api/v1/devices/connections |
+> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/ <deviceId> /connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" <span> 'https:/ /127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000' |
 
-### <a name="retrieve-information-on-cves---apiv1devicescves"></a>Pobieranie informacji dotyczących dokumentów CVE — /api/v1/devices/cves
+### <a name="retrieve-information-on-cves---apiv1devicescves"></a>Pobieranie informacji dotyczących cve — /api/v1/devices/cves
 
 Ten interfejs API umożliwia zażądanie listy wszystkich znanych luk CVE odnalezionych na urządzeniach w sieci.
 
@@ -475,7 +475,7 @@ Domyślnie ten interfejs API udostępnia listę wszystkich adresów IP urządze�
 
   `/api/v1/devices/<ipAddress>/cves`
 
-- **top:** ile najlepiej punktowych cve ma zostać pobranych dla każdego adresu IP urządzenia.
+- **top:** ile list CVE z najwyższą jakością ma zostać pobranych dla każdego adresu IP urządzenia.
 
   **Przykład:**
 
@@ -489,7 +489,7 @@ Domyślnie ten interfejs API udostępnia listę wszystkich adresów IP urządze�
 
 #### <a name="response-content"></a>Zawartość odpowiedzi
 
-Tablica obiektów JSON, które reprezentują wartości CVE zidentyfikowane na adresach IP.
+Tablica obiektów JSON reprezentujących wartości CVE zidentyfikowane na adresach IP.
 
 #### <a name="fields"></a>Pola
 
@@ -498,7 +498,7 @@ Tablica obiektów JSON, które reprezentują wartości CVE zidentyfikowane na ad
 | **cveId** | Ciąg | Nie | - |
 | **Ipaddress** | Ciąg | Nie | Adres IP |
 | **Ocena** | Ciąg | Nie | 0.0 - 10.0 |
-| **attackVector** | Ciąg | Nie | Sieć, sąsiadująca sieć, lokalna lub fizyczna |
+| **attackVector** | Ciąg | Nie | Sieć, Sąsiadująca sieć, Lokalna lub Fizyczna |
 | **Opis** | Ciąg | Nie | - |
 
 #### <a name="response-example"></a>Przykład odpowiedzi
@@ -565,7 +565,7 @@ Tablica obiektów JSON, które reprezentują wartości CVE zidentyfikowane na ad
 
 | Typ | Interfejsy API | Przykład |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves | curl -k -H "Autoryzacja: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/api/v1/devices/cves |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" https:/ <span> /127.0.0.1/api/v1/devices/cves |
 | GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/ <deviceIpAddress> /cves?top= | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" https:/ <span> /127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50 |
 
 ### <a name="retrieve-alert-information---apiv1alerts"></a>Pobieranie informacji o alertach — /api/v1/alerts
@@ -578,7 +578,7 @@ Ten interfejs API umożliwia zażądanie listy wszystkich alertów wykrytych prz
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
-- **state:** aby filtrować tylko obsługiwane lub nieobsługiwane alerty.
+- **stan:** aby filtrować tylko obsługiwane lub nieobsługiwane alerty.
 
   **Przykład:**
 
@@ -590,13 +590,13 @@ Ten interfejs API umożliwia zażądanie listy wszystkich alertów wykrytych prz
 
   `/api/v1/alerts?fromTime=<epoch>`
 
-- **toTime:** filtrowanie alertów utworzonych tylko przed określoną godziną (w milisekundach, UTC).
+- **toTime:** filtrowanie alertów utworzonych tylko przed określonym czasem (w milisekundach, UTC).
 
   **Przykład:**
 
   `/api/v1/alerts?toTime=<epoch>`
 
-- **typ**: Aby filtrować alerty według określonego typu. Istniejące typy do filtrowania: nieoczekiwane nowe urządzenia, rozłączenia.
+- **typ**: aby filtrować alerty według określonego typu. Istniejące typy do filtrowania według: nieoczekiwane nowe urządzenia, rozłączenia.
 
   **Przykład:**
 
@@ -622,10 +622,10 @@ Tablica obiektów JSON reprezentujących alerty.
 | **Silnika** | Ciąg | Nie | Naruszenie protokołu, naruszenie zasad, złośliwe oprogramowanie, anomalia lub działanie |
 | **sourceDevice** | Numeryczny | Tak | Identyfikator urządzenia |
 | **destinationDevice** | Numeryczny | Tak | Identyfikator urządzenia |
-| **sourceDeviceAddress** | Numeryczny | Tak | IP, MAC, Null |
-| **destinationDeviceAddress** | Numeryczny | Tak | IP, MAC, Null |
+| **sourceDeviceAddress** | Numeryczny | Tak | IP, MAC |
+| **destinationDeviceAddress** | Numeryczny | Tak | IP, MAC |
 | **remediationSteps (Kroki korygowania)** | Ciąg | Tak | Kroki korygowania opisane w alercie |
-| **additionalInformation** | Obiekt dodatkowych informacji | Tak | - |
+| **additionalInformation (informacje dodatkowe)** | Obiekt informacji dodatkowych | Tak | - |
 
 Należy pamiętać, że /api/v2/ jest wymagany do następujących informacji:
 
@@ -708,7 +708,7 @@ Należy pamiętać, że /api/v2/ jest wymagany do następujących informacji:
 > [!div class="mx-tdBreakAll"]
 > | Typ | Interfejsy API | Przykład |
 > |--|--|--|
-> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" <span> 'https:/ /127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections' |
+> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" <span> "https:/ /127.0.0.1/api/v1/alerts?state=unhanded&fromTime=1594550986000&toTime=1594550986001&type=disconnections' |
 
 ### <a name="retrieve-timeline-events---apiv1events"></a>Pobieranie zdarzeń osi czasu — /api/v1/events
 
@@ -720,7 +720,7 @@ Ten interfejs API umożliwia zażądanie listy zdarzeń zgłoszonych na osi czas
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
-- **minutesTimeFrame:** ramy czasowe od teraz wstecz, minuty, w których zdarzenia zostały zgłoszone.
+- **minutesTimeFrame:** okres od teraz do tyłu, minuta, w którym zdarzenia zostały zgłoszone.
 
   **Przykład:**
 
@@ -748,7 +748,7 @@ Tablica obiektów JSON reprezentujących alerty.
 |--|--|--|--|--|
 | **Sygnatury czasowej** | Numeryczny | Nie | Epoka (UTC) |
 | **title** | Ciąg | Nie | - |
-| **Ważności** | Ciąg | Nie | INFORMACJE, POWIADOMIENIA lub ALERTY |
+| **Ważności** | Ciąg | Nie | INFORMACJE, POWIADOMIENIE lub ALERT |
 | **Właściciel** | Ciąg | Tak | Jeśli zdarzenie zostało utworzone ręcznie, to pole będzie zawierać nazwę użytkownika, która utworzyła zdarzenie |
 | **zawartość** | Ciąg | Nie | - |
 
@@ -829,7 +829,7 @@ Tablica obiektów JSON reprezentujących alerty.
 
 | Typ | Interfejsy API | Przykład |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" <span> 'https:/ /127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED' |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" "https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type=' | curl -k -H "Autoryzacja: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED" |
 
 ### <a name="retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices"></a>Pobieranie informacji o lukach w zabezpieczeniach — /api/v1/reports/vulnerabilities/devices
 
@@ -845,13 +845,13 @@ Ten interfejs API umożliwia żądanie wyników oceny luk w zabezpieczeniach dla
 
 #### <a name="response-content"></a>Zawartość odpowiedzi
 
-Tablica obiektów JSON reprezentujących oceniane urządzenia.
+Tablica obiektów JSON reprezentujących ocenione urządzenia.
 
 Obiekt urządzenia zawiera:
 
 - Dane ogólne
 
-- Ocena oceny
+- Ocena
 
 - Luki w zabezpieczeniach
 
@@ -867,7 +867,7 @@ Obiekt urządzenia zawiera:
 | **Modelu** | Ciąg | Tak | - |
 | **isWirelessAccessPoint** | Wartość logiczna | Nie | Prawda czy fałsz |
 | **operatingSystem** | Obiekt systemu operacyjnego | Tak | - |
-| **Luki** | Obiekt luki w zabezpieczeniach | Tak | - |
+| **Luki** | Obiekt luk w zabezpieczeniach | Tak | - |
 
 #### <a name="operating-system-fields"></a>Pola systemu operacyjnego
 
@@ -889,7 +889,7 @@ Obiekt urządzenia zawiera:
 | **openedPorts** | Tablica JSON | Tak | Otwarte obiekty portów |
 | **isEngineeringStation** | Wartość logiczna | Nie | Prawda czy fałsz |
 | **isKnownScanner** | Wartość logiczna | Nie | Prawda czy fałsz |
-| **cves** | Tablica JSON | Tak | Obiekty CVE |
+| **cves (cves)** | Tablica JSON | Tak | Obiekty CVE |
 | **isUnauthorized** | Wartość logiczna | Nie | Prawda czy fałsz |
 | **malwareIndicationsDetected** | Wartość logiczna | Nie | Prawda czy fałsz |
 | **weakAuthentication** | Tablica JSON | Tak | Wykryte aplikacje używające słabego uwierzytelniania |
@@ -909,7 +909,7 @@ Obiekt urządzenia zawiera:
 | **Portu** | Numeryczny | Nie | - |
 | **Transportu** | Ciąg | Nie | TCP lub UDP |
 | **Klienta** | Ciąg | Nie | Adres IP |
-| **clientSoftware** | Ciąg | Nie | SSH, VNC, pulpit zdalny lub program Team Viewer |
+| **clientSoftware** | Ciąg | Nie | SSH, VNC, pulpit zdalny lub przeglądarka zespołu |
 
 #### <a name="open-port-fields"></a>Otwieranie pól portów
 
@@ -1083,7 +1083,7 @@ Obiekt urządzenia zawiera:
 
 | Typ | Interfejsy API | Przykład |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices | curl -k -H "Autoryzacja: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/api/v1/reports/vulnerabilities/devices |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" https:/ <span> /127.0.0.1/api/v1/reports/vulnerabilities/devices |
 
 ### <a name="retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity"></a>Pobieranie luk w zabezpieczeniach — /api/v1/reports/vulnerabilities/security
 
@@ -1101,7 +1101,7 @@ Ta ocena jest oparta na ogólnych informacjach o sieci i systemie, a nie na ocen
 
 #### <a name="response-content"></a>Zawartość odpowiedzi
 
-Obiekt JSON reprezentujący ocenione wyniki. Każdy klucz może mieć wartość null. W przeciwnym razie będzie on zawierać obiekt JSON z kluczami nienadaymiaymi się do wartości null.
+Obiekt JSON reprezentujący ocenione wyniki. Każdy klucz może mieć wartość null. W przeciwnym razie będzie zawierać obiekt JSON z kluczami, które nie mogą zawierać wartości null.
 
 ### <a name="result-fields"></a>Pola wyników
 
@@ -1130,8 +1130,8 @@ Obiekt JSON reprezentujący ocenione wyniki. Każdy klucz może mieć wartość 
 | Nazwa pola | Typ | Lista wartości |
 | ---------- | ---- | -------------- |
 | **sources** | Tablica źródeł JSON. Każde źródło może mieć dowolny z czterech formatów. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
-| **Miejsc** | Tablica JSON miejsc docelowych. Każdy obiekt docelowy może mieć dowolny z czterech formatów. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
-| **Porty** | Tablica portów JSON w dowolnym z trzech formatów | "Any", "port (protokół, jeśli wykryto)", "z portu do portu (protokół, jeśli wykryto)" |
+| **Miejsc** | Tablica JSON miejsc docelowych. Każde miejsce docelowe może mieć dowolny z czterech formatów. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
+| **Porty** | Tablica portów JSON w dowolnym z trzech formatów | "Any", "port (protokół, jeśli wykryto)", "z portu do portu (protokół, jeśli został wykryty)" |
 
 **accessPoints**
 
@@ -1330,11 +1330,11 @@ Obiekt JSON reprezentujący ocenione wyniki. Każdy klucz może mieć wartość 
 
 | Typ | Interfejsy API | Przykład |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" https:/ <span> /127.0.0.1/api/v1/reports/vulnerabilities/security |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security | curl -k -H "Autoryzacja: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/api/v1/reports/vulnerabilities/security |
 
 ### <a name="retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational"></a>Pobieranie luk w zabezpieczeniach operacyjnych — /api/v1/reports/vulnerabilities/operational
 
-Ten interfejs API umożliwia żądanie wyników ogólnej oceny luk w zabezpieczeniach. Ta ocena zapewnia wgląd w stan operacyjny sieci. Jest on oparty na ogólnych informacjach o sieci i systemie, a nie na ocenie określonego urządzenia.
+Ten interfejs API umożliwia żądanie wyników ogólnej oceny luk w zabezpieczeniach. Ta ocena zapewnia wgląd w stan operacyjny sieci. Jest ona oparta na ogólnych informacjach o sieci i systemie, a nie na ocenie określonego urządzenia.
 
 #### <a name="method"></a>Metoda
 
@@ -1849,20 +1849,20 @@ Tablica obiektów JSON reprezentujących urządzenia.
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
 | Nazwa | Ciąg | Nie | - |
-| Adresy | Tablica JSON | Tak | Wartości główne lub liczbowe |
+| Adresy | Tablica JSON | Tak | Wartość główna lub liczbowa |
 
 #### <a name="firmware-fields"></a>Pola oprogramowania układowego
 
 | Nazwa | Typ | Dopuszczający wartość null | Lista wartości |
 |--|--|--|--|
-| **Seryjny** | Ciąg | Nie | N/A lub wartość rzeczywista |
-| **Modelu** | Ciąg | Nie | N/A lub wartość rzeczywista |
-| **firmwareVersion** | Double | Nie | N/A lub wartość rzeczywista |
-| **additionalData** | Ciąg | Nie | N/A lub wartość rzeczywista |
-| **moduleAddress** | Ciąg | Nie | N/A lub wartość rzeczywista |
-| **Rack** | Ciąg | Nie | N/A lub wartość rzeczywista |
-| **Gniazdo** | Ciąg | Nie | N/W lub wartość rzeczywista |
-| **Adres** | Ciąg | Nie | N/W lub wartość rzeczywista |
+| **Seryjny** | Ciąg | Nie | N/W lub wartość rzeczywista |
+| **Modelu** | Ciąg | Nie | N/W lub wartość rzeczywista |
+| **firmwareVersion** | Double | Nie | N/W lub wartość rzeczywista |
+| **additionalData** | Ciąg | Nie | N/W lub wartość rzeczywista |
+| **moduleAddress** | Ciąg | Nie | N/W lub wartość rzeczywista |
+| **Rack** | Ciąg | Nie | N/W lub wartość rzeczywista |
+| **Gniazdo** | Ciąg | Nie | N/A lub wartość rzeczywista |
+| **Adres** | Ciąg | Nie | N/A lub wartość rzeczywista |
 
 #### <a name="response-example"></a>Przykład odpowiedzi
 
@@ -2008,7 +2008,7 @@ Tablica obiektów JSON reprezentujących urządzenia.
 
 | Typ | Interfejsy API | Przykład |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized=' | curl -k -H "Autoryzacja: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true" |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" "https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized=' | curl -k -H "Autoryzacja: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true" |
 
 ### <a name="retrieve-alert-information---externalv1alerts"></a>Pobieranie informacji o alertach — /external/v1/alerts
 
@@ -2020,7 +2020,7 @@ Ten interfejs API umożliwia pobranie wszystkich lub przefiltrowanych alertów z
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
-- **state:** aby filtrować tylko obsługiwane i nieobsługiwane alerty.
+- **stan:** aby filtrować tylko obsługiwane i nieobsługiwane alerty.
 
   **Przykład:**
 
@@ -2032,14 +2032,14 @@ Ten interfejs API umożliwia pobranie wszystkich lub przefiltrowanych alertów z
 
   `/api/v1/alerts?fromTime=<epoch>`
 
-- **toTime:** filtrowanie alertów utworzonych tylko przed określoną godziną (w milisekundach, UTC).
+- **toTime:** filtrowanie alertów utworzonych tylko przed określonym czasem (w milisekundach, UTC).
 
   **Przykład:**
 
   `/api/v1/alerts?toTime=<epoch>`
 
-- **siteId:** lokacja, w której został wykryty alert.
-- **zoneId:** strefa, w której został wykryty alert.
+- **siteId:** lokacja, w której został odnaleziony alert.
+- **zoneId:** strefa, w której został odnaleziony alert.
 - **sensor:** czujnik, na którym został wykryty alert.
 
 *Być może nie masz identyfikatora witryny i strefy. W takim przypadku należy odpytować wszystkie urządzenia, aby pobrać identyfikator witryny i strefy.*
@@ -2056,20 +2056,20 @@ Ten interfejs API umożliwia pobranie wszystkich lub przefiltrowanych alertów z
 | **Silnika** | Ciąg | Nie | Naruszenie protokołu, naruszenie zasad, złośliwe oprogramowanie, anomalia lub działanie |
 | **sourceDevice** | Numeryczny | Tak | Identyfikator urządzenia |
 | **destinationDevice** | Numeryczny | Tak | Identyfikator urządzenia |
-| **sourceDeviceAddress** | Numeryczny | Tak | IP, MAC, Null |
-| **destinationDeviceAddress** | Numeryczny | Tak | IP, MAC, Null |
+| **sourceDeviceAddress** | Numeryczny | Tak | IP, MAC |
+| **destinationDeviceAddress** | Numeryczny | Tak | IP, MAC |
 | **remediationSteps (Kroki korygowania)** | Ciąg | Tak | Kroki korygowania wyświetlane w alercie|
-| **sensorName** | Ciąg | Tak | Nazwa czujnika zdefiniowanego przez użytkownika w konsoli|
-|**Nazwa_strefy** | Ciąg | Tak | Nazwa strefy skojarzonej z czujnikiem w konsoli|
-| **Sitename** | Ciąg | Tak | Nazwa lokacji skojarzonej z czujnikiem w konsoli programu |
-| **additionalInformation** | Obiekt dodatkowych informacji | Tak | - |
+| **sensorName (nazwa czujnika)** | Ciąg | Tak | Nazwa czujnika zdefiniowana przez użytkownika |
+|**Nazwa_strefy** | Ciąg | Tak | Nazwa strefy skojarzonej z czujnikiem|
+| **Sitename** | Ciąg | Tak | Nazwa witryny skojarzonej z czujnikiem |
+| **additionalInformation (informacje dodatkowe)** | Obiekt informacji dodatkowych | Tak | - |
 
 Należy pamiętać, że /api/v2/ jest wymagany do następujących informacji:
 
 - sourceDeviceAddress 
 - destinationDeviceAddress
 - remediationSteps (Kroki korygowania)
-- sensorName (nazwa czujnika)
+- sensorName
 - Nazwa_strefy
 - Sitename
 
@@ -2187,21 +2187,21 @@ Należy pamiętać, że /api/v2/ jest wymagany do następujących informacji:
 
 ### <a name="qradar-alerts"></a>Alerty QRadar
 
-Integracja aplikacji QRadar z usługą Defender dla IoT ułatwia identyfikowanie alertów generowanych przez usługę Defender dla IoT i wykonywanie akcji za pomocą tych alertów. Aplikacja QRadar odbiera dane z usługi Defender dla IoT, a następnie kontaktuje się ze składnikiem lokalnej konsoli zarządzania publicznego interfejsu API.
+Integracja oprogramowania QRadar z usługą Defender dla IoT ułatwia identyfikowanie alertów generowanych przez usługę Defender dla IoT i wykonywanie akcji za pomocą tych alertów. Aplikacja QRadar odbiera dane z usługi Defender dla IoT, a następnie kontaktuje się ze składnikiem lokalnej konsoli zarządzania publicznego interfejsu API.
 
-Aby wysłać dane wykryte przez usługę Defender for IoT do aplikacji QRadar, zdefiniuj regułę przekazywania w systemie usługi Defender dla IoT i wybierz opcję Zdalna obsługa **alertów** pomocy technicznej.
+Aby wysłać dane odnalezione przez usługę Defender dla IoT do aplikacji QRadar, zdefiniuj regułę przekazywania w systemie usługi Defender dla IoT i wybierz opcję Obsługa **alertów** pomocy technicznej zdalnej.
 
 :::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="Edytuj reguły przekazywania zgodnie z potrzebami.":::
 
-Po wybraniu tej opcji podczas konfigurowania reguł przekazywania w aplikacji QRadar zostaną wyświetlone następujące dodatkowe pola:
+Po wybraniu tej opcji podczas konfigurowania reguł przekazywania w programie QRadar zostaną wyświetlone następujące dodatkowe pola:
 
 - **UUID:** unikatowy identyfikator alertu, taki jak 1-1555245116250.
 
 - **Lokacja:** lokacja, w której został wykryty alert.
 
-- **Strefa:** strefa, w której został odnaleziony alert.
+- **Strefa:** strefa, w której został wykryty alert.
 
-Przykład ładunku wysyłanego do QRadar:
+Przykład ładunku wysyłanego do aplikacji QRadar:
 
 ```
 <9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
@@ -2217,7 +2217,7 @@ Przykład ładunku wysyłanego do QRadar:
 
 **JSON**
 
-#### <a name="request-content"></a>Żądanie zawartości
+#### <a name="request-content"></a>Zawartość żądania
 
 Obiekt JSON reprezentujący akcję do wykonania dla alertu zawierającego identyfikator UUID.
 
@@ -2249,20 +2249,20 @@ Tablica obiektów JSON reprezentujących urządzenia.
 
 | Nazwa | Typ | Dopuszczający wartość null | Opis |
 |--|--|--|--|
-| **zawartość/błąd** | Ciąg | Nie | Jeśli żądanie zostanie pomyślnie wyświetlone, zostanie wyświetlona właściwość content. W przeciwnym razie zostanie wyświetlona właściwość error. |
+| **zawartość/błąd** | Ciąg | Nie | Jeśli żądanie powiedzie się, zostanie wyświetlona właściwość content. W przeciwnym razie zostanie wyświetlona właściwość error. |
 
 #### <a name="possible-content-values"></a>Możliwe wartości zawartości
 
 | Kod stanu | Wartość zawartości | Opis |
 |--|--|--|
 | 200 | Żądanie aktualizacji alertu zostało zakończone pomyślnie. | Żądanie aktualizacji zostało zakończone pomyślnie. Brak komentarzy. |
-| 200 | Alert został już obsłużony **(dojście**). | Alert został już obsłużony po otrzymaniu żądania dojścia do alertu.<br />Alert pozostaje **obsługiwany.** |
-| 200 | Alert został już obsłużony i nauczony (**handleAndLearn**). | Alert został już obsłużony i poznany po otrzymaniu żądania **obsługi i** uczenia się.<br />Alert pozostaje w stanie **handledAndLearn.** |
-| 200 | Alert został już obsłużony **(obsłużony).**<br />W przypadku alertu wykonano obsługę i uczenia **(handleAndLearn).** | Alert został już obsłużony po otrzymaniu żądania **obsługiandLearn.**<br />Alert staje się **handleAndLearn**. |
-| 200 | Alert został już obsłużony i nauczony (**handleAndLearn**). Ignorowane żądanie dojścia. | Alert został już **obsłużny po** otrzymaniu żądania obsługi alertu. Alert pozostaje obsługiwany **przez iWięcej.** |
+| 200 | Alert został już obsłużony (**dojście**). | Alert został już obsłużony po otrzymaniu żądania dojścia do alertu.<br />Alert pozostaje **obsługiwany.** |
+| 200 | Alert został już obsłużony i nauczony (**handleAndLearn**). | Alert został już obsłużony i odebrany po otrzymaniu żądania **obsługi i** uczenia.<br />Alert pozostaje w stanie **handledAndLearn.** |
+| 200 | Alert został już obsłużony **(obsłużony).**<br />Dojście i nauka (**handleAndLearn**) zostało wykonane dla alertu. | Alert został już obsłużony po otrzymaniu żądania **obsługi i uczenia** się.<br />Alert staje się **handleAndLearn**. |
+| 200 | Alert został już obsłużony i nauczony (**handleAndLearn**). Ignorowane żądanie obsługi. | Alert był już **obsługiwany przez platformęAndLearn** po otrzymaniu żądania obsługi alertu. Alert pozostaje obsługiwany **PrzezWięcej**. |
 | 500 | Nieprawidłowa akcja. | Wysłana akcja nie jest prawidłową akcją do wykonania dla alertu. |
 | 500 | Wystąpił nieoczekiwany błąd. | Wystąpił nieoczekiwany błąd. Aby rozwiązać ten problem, skontaktuj się z pomocą techniczną. |
-| 500 | Nie można wykonać żądania, ponieważ nie znaleziono alertu dla tego UUID. | Nie znaleziono określonego alertu UUID w systemie. |
+| 500 | Nie można wykonać żądania, ponieważ nie znaleziono alertu dla tego kodu UUID. | Nie znaleziono określonego alertu UUID w systemie. |
 
 #### <a name="response-example"></a>Przykład odpowiedzi
 
@@ -2290,9 +2290,9 @@ Tablica obiektów JSON reprezentujących urządzenia.
 
 ### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>Wykluczenia alertów (okno obsługi) — /external/v1/maintenanceWindow
 
-Zdefiniuj warunki, w których alerty nie będą wysyłane. Na przykład zdefiniuj i zaktualizuj godziny zatrzymania i rozpoczęcia, urządzenia lub podsieci, które powinny zostać wykluczone podczas wyzwalania alertów, lub usługę Defender dla aparatów IoT, które powinny zostać wykluczone. Na przykład w oknie obsługi można zatrzymać dostarczanie alertów dla wszystkich alertów, z wyjątkiem alertów złośliwego oprogramowania na urządzeniach krytycznych.
+Zdefiniuj warunki, w których alerty nie będą wysyłane. Na przykład zdefiniuj i zaktualizuj czas zatrzymania i uruchomienia, urządzenia lub podsieci, które powinny zostać wykluczone podczas wyzwalania alertów, lub usługę Defender dla aparatów IoT, które powinny zostać wykluczone. Na przykład podczas okna obsługi można zatrzymać dostarczanie alertów dla wszystkich alertów, z wyjątkiem alertów dotyczących złośliwego oprogramowania na urządzeniach krytycznych.
 
-Interfejsy API, które definiujesz w tym miejscu, są wyświetlane w oknie wykluczeń **alertów** lokalnej konsoli zarządzania jako reguła wykluczania tylko do odczytu.
+Interfejsy API, które zdefiniowano w tym miejscu,  są wyświetlane w oknie wykluczeń alertów lokalnej konsoli zarządzania jako reguła wykluczania tylko do odczytu.
 
 :::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="Okno Wykluczenia alertów z listą wszystkich reguł wykluczeń. ":::
 
@@ -2322,32 +2322,32 @@ Interfejsy API, które definiujesz w tym miejscu, są wyświetlane w oknie wyklu
 
 #### <a name="error-codes"></a>Kody błędów
 
-- **201 (Utworzono):** akcja została pomyślnie ukończona.
+- **201 (utworzono):** akcja została pomyślnie ukończona.
 
 - **400 (Złe żądanie):** pojawia się w następujących przypadkach:
 
-   - Parametr **TTL** nie jest liczbowy lub nie jest dodatni.
+   - Parametr **ttl** nie jest liczbowy lub nie jest dodatni.
 
-   - Parametr **podsieci został zdefiniowany** przy użyciu nieprawidłowego formatu.
+   - Parametr **podsieci został** zdefiniowany przy użyciu nieprawidłowego formatu.
 
    - Brak **parametru ticketId.**
 
    - Parametr **aparatu** nie pasuje do istniejących aparatów zabezpieczeń.
 
-- **404 (Nie znaleziono):** jeden z czujników nie istnieje.
+- **404 (Nie znaleziono)**: jeden z czujników nie istnieje.
 
 - **409 (konflikt):** identyfikator biletu jest połączony z innym otwartym oknem obsługi.
 
-- **500 (Wewnętrzny błąd serwera):** dowolny inny nieoczekiwany błąd.
+- **500 (Wewnętrzny błąd serwera)**: dowolny inny nieoczekiwany błąd.
 
 > [!NOTE]
 > Upewnij się, że identyfikator biletu nie jest połączony z istniejącym otwartym oknem. Generowana jest następująca reguła wykluczania: Maintenance-{nazwa tokenu}-{identyfikator biletu}.
 
 #### <a name="method---put"></a>Metoda — PUT
 
-Umożliwia zaktualizowanie czasu trwania okna obsługi po rozpoczęciu procesu konserwacji przez zmianę **parametru czasu** wygaśnięcia. Nowa definicja czasu trwania zastępuje poprzednią.
+Umożliwia zaktualizowanie czasu trwania okna obsługi po rozpoczęciu procesu konserwacji przez zmianę **parametru czasu wygaśnięcia.** Nowa definicja czasu trwania zastępuje poprzednią.
 
-Ta metoda jest przydatna, gdy chcesz ustawić dłuższy czas trwania niż aktualnie skonfigurowany czas trwania.
+Ta metoda jest przydatna, gdy chcesz ustawić dłuższy czas trwania niż obecnie skonfigurowany czas trwania.
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
@@ -2357,7 +2357,7 @@ Ta metoda jest przydatna, gdy chcesz ustawić dłuższy czas trwania niż aktual
 
 #### <a name="error-code"></a>Kod błędu
 
-- **200 (OK)**: Akcja została pomyślnie ukończona.
+- **200 (OK):** Akcja została pomyślnie ukończona.
 
 - **400 (Złe żądanie):** pojawia się w następujących przypadkach:
 
@@ -2365,11 +2365,11 @@ Ta metoda jest przydatna, gdy chcesz ustawić dłuższy czas trwania niż aktual
 
    - Brak **parametru ticketId.**
 
-   - Brak **parametru ttl.**
+   - Brak **parametru TTL.**
 
 - **404 (Nie znaleziono):** identyfikator biletu nie jest połączony z otwartym oknem obsługi.
 
-- **500 (Wewnętrzny błąd serwera)**: dowolny inny nieoczekiwany błąd.
+- **500 (Wewnętrzny błąd serwera):** dowolny inny nieoczekiwany błąd.
 
 > [!NOTE]
 > Upewnij się, że identyfikator biletu jest połączony z istniejącym otwartym oknem.
@@ -2384,13 +2384,13 @@ Zamyka istniejące okno obsługi.
 
 #### <a name="error-code"></a>Kod błędu
 
-- **200 (OK)**: Akcja została pomyślnie ukończona.
+- **200 (OK):** Akcja została pomyślnie ukończona.
 
 - **400 (Złe żądanie):** brak **parametru ticketId.**
 
 - **404 (Nie znaleziono):** identyfikator biletu nie jest połączony z otwartym oknem obsługi.
 
-- **500 (Wewnętrzny błąd serwera)**: dowolny inny nieoczekiwany błąd.
+- **500 (Wewnętrzny błąd serwera):** dowolny inny nieoczekiwany błąd.
 
 > [!NOTE]
 > Upewnij się, że identyfikator biletu jest połączony z istniejącym otwartym oknem.
@@ -2401,7 +2401,7 @@ Pobierz dziennik wszystkich akcji otwierania, zamykania i aktualizowania, które
 
 #### <a name="query-parameters"></a>Parametry zapytania
 
-- **fromDate**: filtruje dzienniki ze wstępnie zdefiniowanej daty i nowszych. Format to 2019-12-30.
+- **fromDate**: filtruje dzienniki ze wstępnie zdefiniowanej daty i później. Format to 2019-12-30.
 
 - **toDate:** filtruje dzienniki do wstępnie zdefiniowanej daty. Format to 2019-12-30.
 
@@ -2411,13 +2411,13 @@ Pobierz dziennik wszystkich akcji otwierania, zamykania i aktualizowania, które
 
 #### <a name="error-code"></a>Kod błędu 
 
-- **200 (OK):** Akcja została pomyślnie ukończona.
+- **200 (OK)**: Akcja została pomyślnie ukończona.
 
 - **400 (Nieprawidłowe żądanie):** format daty jest nieprawidłowy.
 
 - **204 (Brak zawartości):** nie ma żadnych danych do pokazania.
 
-- **500 (Wewnętrzny błąd serwera):** dowolny inny nieoczekiwany błąd.
+- **500 (Wewnętrzny błąd serwera)**: dowolny inny nieoczekiwany błąd.
 
 #### <a name="response-type"></a>Typ odpowiedzi
 
@@ -2433,7 +2433,7 @@ Tablica obiektów JSON reprezentujących operacje okna obsługi.
 |--|--|--|--|
 | **Datetime** | Ciąg | Przykład: "2012-04-23T18:25:43.511Z" | nie |
 | **ticketId** | Ciąg | Przykład: "9a5fe99c-d914-4bda-9332-307384fe40bf" | nie |
-| **tokenName** | Ciąg | - | nie |
+| **tokenName (nazwa tokenu)** | Ciąg | - | nie |
 | **Silniki** | Tablica ciągów | - | tak |
 | **sensorIds** | Tablica ciągów | - | tak |
 | **Podsieci** | Tablica ciągów | - | tak |
@@ -2444,14 +2444,14 @@ Tablica obiektów JSON reprezentujących operacje okna obsługi.
 
 | Typ | Interfejsy API | Przykład |
 |--|--|--|
-| POST | curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2... ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2... SENSOR_IDn>],"podsieci": [<SUBNET1, SUBNET2.... SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"], "sensorIds": ["5",""3"], "subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
+| POST | curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2... ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2... SENSOR_IDn>]"podsieci": [<SUBNET1, SUBNET2.... SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"], "sensorIds": ["5",""3"], "podsieci": ["10.0.0.3"]}" -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
 | PUT | curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
-| DELETE | curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}" -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" "https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aeddcabcd" <span> "https:/ /127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-0 1-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a' |
+| DELETE | curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}" -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName=' | curl -k -H "Autoryzacja: 1234b734a9244d54ab8d40aeddcabcd" "https:/ <span> /127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-0 1-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a' |
 
 ### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>Uwierzytelnianie poświadczeń użytkownika — /external/authentication/validation
 
-Ten interfejs API umożliwia weryfikowanie poświadczeń użytkownika. Wszystkie role użytkowników usługi Defender dla IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender dla IoT.
+Użyj tego interfejsu API do zweryfikowania poświadczeń użytkownika. Wszystkie role użytkownika usługi Defender dla IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender dla IoT.
 
 #### <a name="method"></a>Metoda
 
@@ -2510,11 +2510,11 @@ response:
 
 | Typ | Interfejsy API | Przykład |
 |--|--|--|
-| POST | curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation' | curl -k -d '{"username":"myUser","password":" 1234@abcd "}" "https:/ <span> /127.0.0.1/external/authentication/validation" |
+| POST | curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation' | curl -k -d '{"username":"myUser","password":" 1234@abcd "}" 'https:/ <span> /127.0.0.1/external/authentication/validation' |
 
 ### <a name="change-password---externalauthenticationset_password"></a>Zmienianie hasła — /external/authentication/set_password
 
-Ten interfejs API umożliwia użytkownikom zmienianie własnych haseł. Wszystkie role użytkownika usługi Defender dla IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender dla IoT.
+Ten interfejs API umożliwia użytkownikom zmienianie własnych haseł. Wszystkie role użytkowników usługi Defender dla IoT mogą współpracować z interfejsem API. Do korzystania z tego interfejsu API nie jest potrzebny token dostępu usługi Defender dla IoT.
 
 #### <a name="method"></a>Metoda
 
@@ -2553,7 +2553,7 @@ Ciąg komunikatu ze szczegółami stanu operacji:
 
 - **Niepowodzenie — błąd:** Niepowodzenie uwierzytelniania użytkownika
 
-- **Błąd — błąd:** Hasło nie jest zgodne z zasadami zabezpieczeń
+- **Niepowodzenie — błąd:** Hasło nie jest zgodne z zasadami zabezpieczeń
 
 #### <a name="response-example"></a>Przykład odpowiedzi
 
@@ -2628,9 +2628,9 @@ Ciąg komunikatu ze szczegółami stanu operacji:
 
 - **Błąd — błąd:** Użytkownik nie istnieje
 
-- **Błąd — błąd:** Hasło nie jest zgodne z zasadami zabezpieczeń
+- **Niepowodzenie — błąd:** Hasło nie jest zgodne z zasadami zabezpieczeń
 
-- **Błąd — błąd:** Użytkownik nie ma uprawnień do zmiany hasła
+- **Niepowodzenie — błąd:** Użytkownik nie ma uprawnień do zmiany hasła
 
 #### <a name="response-example"></a>Przykład odpowiedzi
 

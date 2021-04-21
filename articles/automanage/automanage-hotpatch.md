@@ -1,6 +1,6 @@
 ---
 title: Hotpatch for Windows Server Azure Edition (wersja zapoznawcza)
-description: Dowiedz się, w jaki sposób program hotpatch for Windows Server Azure Edition działa i jak go włączyć
+description: Dowiedz się, jak działa hotpatch dla systemu Windows Server Azure Edition i jak ją włączyć
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: hotpatch
@@ -8,53 +8,54 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b3fc9f12dfa6ad4edcc120ac7c9592c9435a0e4
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953395"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830182"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Hotpatch dla nowych maszyn wirtualnych (wersja zapoznawcza)
 
-Funkcja HotPatching to nowy sposób instalowania aktualizacji na nowych maszynach wirtualnych systemu Windows Server Azure Edition (VM), które nie wymagają ponownego uruchomienia po instalacji. Ten artykuł zawiera informacje na temat maszyn wirtualnych hotpatch for Windows Server Azure Edition, które mają następujące zalety:
-* Dolny wpływ na obciążenie z mniejszą ilością ponownych uruchomień
-* Szybsze wdrażanie aktualizacji w miarę mniejszych pakietów, instalowanie szybszych i łatwiejsze organizowanie poprawek za pomocą usługi Azure Update Manager
-* Lepsza ochrona, ponieważ pakiety aktualizacji hotpatch są objęte zakresem aktualizacji zabezpieczeń systemu Windows, które instalują się szybciej bez ponownego uruchamiania
+Hotpatching to nowy sposób instalowania aktualizacji na nowych maszynach wirtualnych z systemem Windows Server Azure Edition, które nie wymagają ponownego uruchomienia po instalacji. Ten artykuł zawiera informacje o poprawkach na gorąco dla maszyn wirtualnych z systemem Windows Server Azure Edition, które mają następujące zalety:
+* Mniejszy wpływ na obciążenie przy mniejszej ilości ponownych uruchomień
+* Szybsze wdrażanie aktualizacji, ponieważ pakiety są mniejsze, instalują się szybciej i mają łatwiejszą aranżację poprawek za pomocą usługi Azure Update Manager
+* Lepsza ochrona, ponieważ pakiety aktualizacji hotpatch są ograniczony do aktualizacji zabezpieczeń systemu Windows, które instalują się szybciej bez ponownego uruchamiania
 
 ## <a name="how-hotpatch-works"></a>Jak działa hotpatch
 
-Hotpatch działa, najpierw ustanawiając linię bazową z Windows Update najnowszą aktualizacją zbiorczą. Hotpatches są okresowo uwalniane (na przykład w drugi wtorek miesiąca), który kompiluje się w tej linii bazowej. Hotpatches będzie zawierać aktualizacje, które nie wymagają ponownego uruchomienia. Okresowo (począwszy od co trzy miesiące), linia bazowa jest odświeżana nową najnowszą aktualizacją zbiorczą.
+Hotpatch działa przez utworzenie planu bazowego z Windows Update najnowszą aktualizacją zbiorczą. Poprawki są okresowo zwalniane (na przykład w drugi wtorek miesiąca), które bazują na tym punkcie odniesienia. Poprawki będą zawierać aktualizacje, które nie wymagają ponownego uruchomienia. Okresowo (począwszy od co trzy miesiące) punkt odniesienia jest odświeżany przy użyciu nowej aktualizacji zbiorczej.
 
-:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Przykładowy harmonogram hotpatch.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Harmonogram przykładu hotpatch.":::
 
-Istnieją dwa typy linii bazowych: **planowane punkty odniesienia** i **nieplanowane linie bazowe**.
-*  **Planowane punkty odniesienia** są udostępniane w regularnych erzeach, z wydaniami hotpatch między.  Planowane linie bazowe obejmują wszystkie aktualizacje w porównywalnej _najnowszej aktualizacji zbiorczej_ dla danego miesiąca i wymagają ponownego uruchomienia.
-    * Powyższy przykładowy harmonogram ilustruje cztery planowane wersje bazowe w roku kalendarzowym (pięć łącznie na diagramie) i osiem hotpatch.
-* **Nieplanowane linie bazowe** są uwalniane, gdy jest wydawana ważna aktualizacja (na przykład Naprawiono zero dni), a dana aktualizacja nie może zostać wydana jako hotpatch.  Po zwolnieniu nieplanowanych linii bazowych hotpatch wersja zostanie zamieniona na nieplanowaną linię bazową w danym miesiącu.  Nieplanowane linie bazowe obejmują również wszystkie aktualizacje w porównywalnej _najnowszej aktualizacji zbiorczej_ dla tego miesiąca, a także wymagają ponownego uruchomienia.
-    * Powyższy przykładowy harmonogram ilustruje dwie nieplanowane linie bazowe, które zastąpią hotpatch wydania w tych miesiącach (rzeczywista liczba nieplanowanych linii bazowych w roku nie jest znana z góry).
+Istnieją dwa typy punktów odniesienia: **planowane i** **nieplanowane.**
+*  **Planowane linie bazowe** są zwalniane w regularnych odstępach czasu, a między nimi są dostępne wersje hotpatch.  Planowane linie bazowe obejmują wszystkie aktualizacje w porównywalnej najnowszej aktualizacji _zbiorczej_ dla tego miesiąca i wymagają ponownego uruchomienia.
+    * Powyższy przykładowy harmonogram ilustruje cztery planowane wydania planu bazowego w roku kalendarzowym (łącznie pięć na diagramie) i osiem wydań poprawki na gorąco.
+* **Nieplanowane linie** bazowe są publikowane po wywłaszczeniu ważnej aktualizacji (takiej jak poprawka zerowa) i tej konkretnej aktualizacji nie można wydano jako poprawki.  Po wydaniu nieplanowanych punktów odniesienia wydanie poprawki na gorąco zostanie zastąpione nieplanowanym punktem odniesienia w tym miesiącu.  Nieplanowane linie bazowe obejmują również  wszystkie aktualizacje w porównywalnej najnowszej aktualizacji zbiorczej dla tego miesiąca, a także wymagają ponownego uruchomienia.
+    * Powyższy przykładowy harmonogram ilustruje dwa nieplanowane plany bazowe, które zastąpią wydania hotpatch dla tych miesięcy (rzeczywista liczba nieplanowanych linii bazowych w roku nie jest znana z wyprzedzeniem).
 
 ## <a name="regional-availability"></a>Dostępność w regionach
-Hotpatch jest dostępny we wszystkich globalnych regionach platformy Azure w wersji zapoznawczej. Regiony Azure Government nie są obsługiwane w wersji zapoznawczej.
+Hotpatch jest dostępna we wszystkich globalnych regionach platformy Azure w wersji zapoznawczej. Azure Government nie są obsługiwane w wersji zapoznawczej.
 
 ## <a name="how-to-get-started"></a>Jak zacząć
 
 > [!NOTE]
-> W fazie zapoznawczej można zacząć korzystać tylko z Azure Portal za pomocą [tego linku](https://aka.ms/AzureAutomanageHotPatch).
+> W fazie wersji zapoznawczej możesz rozpocząć pracę tylko w oknie Azure Portal użyciu [tego linku.](https://aka.ms/AzureAutomanageHotPatch)
 
-Aby rozpocząć korzystanie z programu hotpatch na nowej maszynie wirtualnej, wykonaj następujące kroki:
-1.  Włącz dostęp do wersji zapoznawczej
-    * Wymagana jest możliwość jednorazowego włączenia dostępu w wersji zapoznawczej na subskrypcję.
-    * Dostęp do wersji zapoznawczej można włączyć za pomocą interfejsu API, programu PowerShell lub interfejsu wiersza polecenia zgodnie z opisem w poniższej sekcji.
-1.  Tworzenie maszyny wirtualnej na podstawie Azure Portal
-    * W trakcie korzystania z wersji zapoznawczej należy zacząć korzystać z [tego linku](https://aka.ms/AzureAutomanageHotPatch).
-1.  Podaj szczegóły maszyny wirtualnej
-    * Upewnij się, że na liście rozwijanej obrazu wybrano _system Windows Server 2019 Datacenter: Azure Edition_
-    * Na karcie Zarządzanie przewiń w dół do sekcji "aktualizacje systemu operacyjnego gościa". Zobaczysz, że funkcja HotPatching została ustawiona na wartość włączone, a Instalacja poprawek została przekazana do funkcji poprawek przystosowanych do platformy Azure.
-    * Zasady autozarządzania MASZYNami wirtualnymi są domyślnie włączone.
-1. Utwórz nową maszynę wirtualną
+Aby rozpocząć korzystanie z poprawki na nowej maszynie wirtualnej, wykonaj następujące kroki:
+1.  Włączanie dostępu w wersji zapoznawczej
+    * Wymagana jest jedna wersja zapoznawcza włączania dostępu na subskrypcję.
+    * Dostęp w wersji zapoznawczej można włączyć za pośrednictwem interfejsu API, programu PowerShell lub interfejsu wiersza polecenia zgodnie z opisem w poniższej sekcji.
+1.  Tworzenie maszyny wirtualnej na Azure Portal
+    * W okresie korzystania z wersji zapoznawczej musisz rozpocząć korzystanie z [tego linku.](https://aka.ms/AzureAutomanageHotPatch)
+1.  Dostarczanie szczegółów maszyny wirtualnej
+    * Upewnij się, że na liście rozwijanej Obraz wybrano _opcję Windows Server 2019 Datacenter: Azure Edition)_
+    * Na kroku karty Zarządzanie przewiń w dół do sekcji "Aktualizacje systemu operacyjnego gościa". Zobaczysz, że opcja Hotpatching ustawiona na Wł. i Instalacja poprawek jest domyślnie ustawiona na stosowanie poprawek orkiestrowanych przez platformę Azure.
+    * Najlepsze rozwiązania dotyczące automatycznego tworzenia maszyn wirtualnych będą domyślnie włączone
+1. Tworzenie nowej maszyny wirtualnej
 
-## <a name="enabling-preview-access"></a>Włączanie dostępu do wersji zapoznawczej
+## <a name="enabling-preview-access"></a>Włączanie dostępu w wersji zapoznawczej
 
 ### <a name="rest-api"></a>Interfejs API REST
 
@@ -74,7 +75,7 @@ GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/M
 GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestPatchVMPreview?api-version=2015-12-01`
 ```
 
-Po zarejestrowaniu tej funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych.
+Po zarejestrowaniu funkcji dla subskrypcji ukończ proces zgody, propagując zmianę do dostawcy zasobów obliczeniowych.
 
 ```
 POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
@@ -82,7 +83,7 @@ POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?ap
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-```Register-AzProviderFeature```Aby włączyć podgląd subskrypcji, użyj polecenia cmdlet.
+Użyj polecenia ```Register-AzProviderFeature``` cmdlet , aby włączyć podgląd subskrypcji.
 
 ``` PowerShell
 Register-AzProviderFeature -FeatureName InGuestHotPatchVMPreview -ProviderNamespace Microsoft.Compute
@@ -98,7 +99,7 @@ Get-AzProviderFeature -FeatureName InGuestAutoPatchVMPreview -ProviderNamespace 
 Get-AzProviderFeature -FeatureName InGuestPatchVMPreview -ProviderNamespace Microsoft.Compute
 ```
 
-Po zarejestrowaniu tej funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych.
+Po zarejestrowaniu funkcji dla subskrypcji ukończ proces zgody, propagując zmianę do dostawcy zasobów obliczeniowych.
 
 ``` PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -106,7 +107,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Służy ```az feature register``` do włączania wersji zapoznawczej subskrypcji.
+Użyj ```az feature register``` , aby włączyć podgląd subskrypcji.
 
 ```
 az feature register --namespace Microsoft.Compute --name InGuestHotPatchVMPreview
@@ -121,109 +122,109 @@ az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
 az feature show --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
-Po zarejestrowaniu tej funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych.
+Po zarejestrowaniu funkcji dla subskrypcji ukończ proces zgody, propagując zmianę do dostawcy zasobów obliczeniowych.
 
 ```
 az provider register --namespace Microsoft.Compute
 ```
 
-## <a name="patch-installation"></a>Instalacja poprawki
+## <a name="patch-installation"></a>Instalacja poprawna
 
-W trakcie okresu zapoznawczego [Automatyczna poprawka gościa maszyny wirtualnej](../virtual-machines/automatic-vm-guest-patching.md) jest włączana automatycznie dla wszystkich maszyn wirtualnych utworzonych przy użyciu _systemu Windows Server 2019 Datacenter: Azure Edition_. Z włączoną automatyczną poprawką gościa maszyny wirtualnej:
+W wersji zapoznawczej [automatyczne](../virtual-machines/automatic-vm-guest-patching.md) stosowanie poprawek gościa maszyny wirtualnej jest automatycznie włączone dla wszystkich maszyn wirtualnych utworzonych za pomocą centrum danych systemu _Windows Server 2019: Wersja platformy Azure._ Z włączonym automatycznym stosowaniem poprawek gościa maszyny wirtualnej:
 * Poprawki sklasyfikowane jako krytyczne lub zabezpieczenia są automatycznie pobierane i stosowane na maszynie wirtualnej.
-* Poprawki są stosowane w godzinach poza godzinami szczytu w strefie czasowej maszyny wirtualnej.
-* Aranżacja poprawek jest zarządzana przez platformę Azure, a poprawki są stosowane po [pierwszej zasadzie dostępności](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
-* Kondycja maszyny wirtualnej określona za pośrednictwem sygnałów kondycji platformy jest monitorowana w celu wykrywania niepowodzeń poprawek.
+* Poprawki są stosowane poza godzinami szczytu w strefie czasowej maszyny wirtualnej.
+* Orkiestracja poprawek jest zarządzana przez platformę Azure, a poprawki są stosowane zgodnie z [zasadami availability-first.](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching)
+* Kondycja maszyny wirtualnej określona za pomocą sygnałów kondycji platformy jest monitorowana w celu wykrywania błędów poprawek.
 
-### <a name="how-does-automatic-vm-guest-patching-work"></a>Jak działa automatyczna poprawka gościa maszyny wirtualnej?
+### <a name="how-does-automatic-vm-guest-patching-work"></a>Jak działa automatyczne stosowanie poprawek gościa maszyny wirtualnej?
 
-Gdy na maszynie wirtualnej jest włączone [Automatyczne stosowanie poprawek gościa maszyny wirtualnej](../virtual-machines/automatic-vm-guest-patching.md) , dostępne są automatycznie pobierane i stosowane poprawki krytyczne i zabezpieczenia. Ten proces jest automatycznie rozpoczynany w każdym miesiącu, gdy zostaną wydane nowe poprawki. Ocena poprawek i instalacja jest automatyczna, a proces obejmuje ponowne uruchomienie maszyny wirtualnej zgodnie z wymaganiami.
+Gdy [automatyczne stosowanie poprawek gościa](../virtual-machines/automatic-vm-guest-patching.md) maszyny wirtualnej jest włączone na maszynie wirtualnej, dostępne poprawki krytyczne i zabezpieczeń są pobierane i stosowane automatycznie. Ten proces jest uruchamiany automatycznie co miesiąc, gdy są wydane nowe poprawki. Ocena poprawek i instalacja są automatyczne, a proces obejmuje ponowne uruchomienie maszyny wirtualnej zgodnie z potrzebami.
 
-Funkcja hotpatch włączona w _systemie Windows Server 2019 Datacenter: maszyny wirtualne platformy Azure_ , większość comiesięcznych aktualizacji zabezpieczeń jest dostarczanych jako hotpatches, które nie wymagają ponownego uruchomienia. Najnowsze aktualizacje zbiorcze wysyłane na planowanych lub nieplanowanych miesiącach bazowych są wymagane do ponownego uruchomienia maszyny wirtualnej. Dodatkowe poprawki krytyczne lub zabezpieczeń mogą być również okresowo dostępne, co może wymagać ponownego uruchomienia maszyny wirtualnej.
+Po włączeniu funkcji Hotpatch w systemie _Windows Server 2019 Datacenter:_ maszyny wirtualne w wersji Azure Edition większość comiesięcznych aktualizacji zabezpieczeń jest dostarczana jako poprawki, które nie wymagają ponownego uruchomienia. Najnowsze aktualizacje zbiorcze wysyłane w planowanych lub nieplanowanych miesiącach linii bazowej będą wymagać ponownego uruchomienia maszyny wirtualnej. Okresowo mogą być również dostępne dodatkowe poprawki krytyczne lub poprawki zabezpieczeń, które mogą wymagać ponownego uruchomienia maszyny wirtualnej.
 
-Maszyna wirtualna jest szacowana automatycznie co kilka dni i wiele razy w ciągu 30-dniowego okresu, aby określić odpowiednie poprawki dla tej maszyny wirtualnej. Ta automatyczna ocena gwarantuje, że wszystkie brakujące poprawki zostaną odnalezione w najwcześniejszym możliwym momencie.
+Maszyna wirtualna jest oceniana automatycznie co kilka dni i wielokrotnie w dowolnym okresie 30 dni w celu określenia odpowiednich poprawek dla tej maszyny wirtualnej. Ta automatyczna ocena gwarantuje, że wszelkie brakujące poprawki zostaną odnalezione jak najszybciej.
 
-Poprawki są instalowane w ciągu 30 dni od comiesięcznych wersji poprawek, zgodnie z [zasadami pierwszej dostępności](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Poprawki są instalowane tylko poza godzinami szczytu maszyny wirtualnej, w zależności od strefy czasowej maszyny wirtualnej. Maszyna wirtualna musi być uruchomiona w godzinach poza godzinami szczytu, aby poprawki były instalowane automatycznie. Jeśli maszyna wirtualna jest wyłączona podczas okresowej oceny, maszyna wirtualna zostanie oceniona, a odpowiednie poprawki zostaną zainstalowane automatycznie podczas kolejnej oceny okresowej, gdy maszyna wirtualna jest włączona. Kolejna okresowa Ocena odbywa się zwykle w ciągu kilku dni.
+Poprawki są instalowane w ciągu 30 dni od comiesięcznych wydań poprawek zgodnie z zasadami [pierwszej dostępności.](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching) Poprawki są instalowane tylko poza godzinami szczytu maszyny wirtualnej, w zależności od strefy czasowej maszyny wirtualnej. Maszyna wirtualna musi działać poza godzinami szczytu, aby poprawki zostały automatycznie zainstalowane. Jeśli maszyna wirtualna zostanie wyłączona podczas okresowej oceny, maszyna wirtualna zostanie oceniona, a odpowiednie poprawki zostaną zainstalowane automatycznie podczas następnej okresowej oceny, gdy maszyna wirtualna jest wł. Następna okresowa ocena zwykle następuje w ciągu kilku dni.
 
-Aktualizacje definicji i inne poprawki niesklasyfikowane jako krytyczne lub zabezpieczenia nie zostaną zainstalowane za poorednictwem automatycznej poprawki gościa maszyny wirtualnej.
+Aktualizacje definicji i inne poprawki, które nie zostały sklasyfikowane jako krytyczne lub nie zostaną zainstalowane za pomocą automatycznego poprawiania gościa maszyny wirtualnej.
 
-## <a name="understanding-the-patch-status-for-your-vm"></a>Informacje o stanie poprawek dla maszyny wirtualnej
+## <a name="understanding-the-patch-status-for-your-vm"></a>Opis stanu poprawki dla maszyny wirtualnej
 
-Aby wyświetlić stan poprawki dla maszyny wirtualnej, przejdź do sekcji " **gość + aktualizacje hosta** " dla maszyny wirtualnej w Azure Portal. W sekcji **aktualizacje systemu operacyjnego gościa** kliknij pozycję "przejdź do hotpatch (wersja zapoznawcza)", aby wyświetlić najnowszy stan poprawki dla maszyny wirtualnej.
+Aby wyświetlić stan poprawki dla maszyny wirtualnej, przejdź do sekcji **Aktualizacje** gościa i hosta dla maszyny wirtualnej w Azure Portal. W sekcji **Aktualizacje systemu operacyjnego gościa** kliknij pozycję "Przejdź do poprawki (wersja zapoznawcza)", aby wyświetlić stan najnowszej poprawki dla maszyny wirtualnej.
 
-Na tym ekranie zobaczysz stan hotpatch dla maszyny wirtualnej. Możesz również sprawdzić, czy istnieją dostępne poprawki dla maszyny wirtualnej, które nie zostały zainstalowane. Zgodnie z opisem w powyższej sekcji "instalacja poprawki" wszystkie aktualizacje zabezpieczeń i krytyczne zostaną automatycznie zainstalowane na maszynie wirtualnej przy użyciu [automatycznej poprawki gościa maszyny wirtualnej](../virtual-machines/automatic-vm-guest-patching.md) i nie są wymagane żadne dodatkowe akcje. Poprawki z innymi klasyfikacjami aktualizacji nie są instalowane automatycznie. Zamiast tego są one widoczne na liście dostępnych poprawek na karcie "zgodność aktualizacji". Historię wdrożeń aktualizacji na maszynie wirtualnej można także wyświetlić za pomocą "Historia aktualizacji". Zostanie wyświetlona Historia aktualizacji z ostatnich 30 dni wraz ze szczegółami instalacji poprawki.
+Na tym ekranie zobaczysz stan hotpatch dla maszyny wirtualnej. Możesz również sprawdzić, czy są dostępne poprawki dla maszyny wirtualnej, które nie zostały zainstalowane. Zgodnie z opisem w powyższej sekcji "Instalacja poprawek" wszystkie aktualizacje [](../virtual-machines/automatic-vm-guest-patching.md) zabezpieczeń i krytyczne zostaną automatycznie zainstalowane na maszynie wirtualnej przy użyciu automatycznego stosowania poprawek gościa maszyny wirtualnej i nie są wymagane żadne dodatkowe akcje. Poprawki z innymi klasyfikacjami aktualizacji nie są instalowane automatycznie. Zamiast tego są one dostępne na liście dostępnych poprawek na karcie "Aktualizowanie zgodności". Historię wdrożeń aktualizacji na maszynie wirtualnej można również wyświetlić za pomocą "Historii aktualizacji". Zostanie wyświetlona historia aktualizacji z ostatnich 30 dni wraz ze szczegółami instalacji poprawek.
 
 
-:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Zarządzanie hotpatch.":::
 
-Dzięki automatycznej poprawkom gościa maszyny wirtualnej maszyna wirtualna jest okresowo i automatycznie oceniana pod kątem dostępnych aktualizacji. Te okresowe oceny zapewniają wykrycie dostępnych poprawek. Wyniki oceny można obejrzeć na ekranie aktualizacje powyżej, łącznie z czasem ostatniej oceny. Możesz również wybrać opcję wyzwalania oceny poprawek na żądanie dla maszyny wirtualnej w dowolnym momencie przy użyciu opcji "Oceń teraz" i przejrzeć wyniki po zakończeniu oceny.
+Dzięki automatycznemu stosowaniem poprawek gościa maszyny wirtualnej maszyna wirtualna jest okresowo i automatycznie oceniana pod celu oceny dostępnych aktualizacji. Te okresowe oceny zapewniają wykrycie dostępnych poprawek. Wyniki oceny można wyświetlić na ekranie Aktualizacje powyżej, w tym czas ostatniej oceny. Możesz również w dowolnym momencie wyzwolić ocenę poprawek na żądanie dla maszyny wirtualnej przy użyciu opcji "Oceń teraz" i przejrzeć wyniki po zakończeniu oceny.
 
-Podobnie jak w przypadku oceny na żądanie, można również zainstalować poprawki na żądanie dla maszyny wirtualnej przy użyciu opcji "Zainstaluj aktualizacje teraz". W tym miejscu możesz zainstalować wszystkie aktualizacje w ramach określonych klasyfikacji poprawek. Możesz również określić aktualizacje do dołączenia lub wykluczenia, dostarczając listę poszczególnych artykułów bazy wiedzy. Poprawki zainstalowane na żądanie nie są instalowane przy użyciu zasad pierwszej dostępności i mogą wymagać większej ilości ponownych uruchomień oraz przestojów maszyn wirtualnych na potrzeby instalacji aktualizacji.
+Podobnie jak w przypadku oceny na żądanie, poprawki można również instalować na żądanie dla maszyny wirtualnej przy użyciu opcji "Zainstaluj aktualizacje teraz". W tym miejscu możesz zainstalować wszystkie aktualizacje w ramach określonych klasyfikacji poprawek. Możesz również określić aktualizacje do dołączyć lub wykluczyć, podając listę poszczególnych artykułów bazy wiedzy. Poprawki zainstalowane na żądanie nie są instalowane przy użyciu zasad availability-first i mogą wymagać większej liczby ponownych uruchomień i przestojów maszyny wirtualnej w przypadku instalacji aktualizacji.
 
 ## <a name="supported-updates"></a>Obsługiwane aktualizacje
 
-Hotpatch obejmuje aktualizacje zabezpieczeń systemu Windows i zapewnia ich zgodność z zawartością aktualizacji zabezpieczeń wystawionych w ramach regularnego (nie Hotpatchego) kanału Windows Update.
+Hotpatch obejmuje Zabezpieczenia Windows aktualizacji systemu Windows i utrzymuje parzystość z zawartością aktualizacji zabezpieczeń wystawionych dla w zwykłym (nie hotpatch) kanału aktualizacji systemu Windows.
 
-Istnieją pewne ważne zagadnienia dotyczące uruchamiania maszyny wirtualnej z systemem Windows Server Azure Edition przy włączonej hotpatch. Ponowny rozruch jest nadal wymagany do zainstalowania aktualizacji, które nie są uwzględnione w programie hotpatch. Ponowne uruchomienia są również wymagane okresowo po zainstalowaniu nowej linii bazowej. Te ponowne uruchomienia synchronizują maszynę wirtualną z poprawkami nienależącymi do zabezpieczeń zawartymi w najnowszej aktualizacji zbiorczej.
-* Poprawki, które nie są obecnie zawarte w programie hotpatch, obejmują aktualizacje niezwiązane z zabezpieczeniami wydane dla systemu Windows, a także aktualizacje inne niż Windows (takie jak poprawki .NET).  Te typy poprawek muszą być instalowane w trakcie miesiąca bazowego i wymagają ponownego uruchomienia.
+Istnieją pewne ważne zagadnienia dotyczące uruchamiania maszyny wirtualnej z systemem Windows Server w wersji Azure z włączoną hotpatch. Ponowne uruchomienia są nadal wymagane do zainstalowania aktualizacji, które nie są uwzględnione w programie Hotpatch. Ponowne uruchomienia są również wymagane okresowo po zainstalowaniu nowego planu bazowego. Te ponowne uruchomienia aktualizują maszynę wirtualną w synchronizacji z poprawkami innymi niż poprawki zabezpieczeń zawarte w najnowszej aktualizacji zbiorczej.
+* Poprawki, które nie są obecnie zawarte w programie Hotpatch, obejmują aktualizacje niebędące zabezpieczeniami wydane dla systemu Windows oraz aktualizacje inne niż systemu Windows (takie jak poprawki programu .NET).  Tego typu poprawki muszą być instalowane w miesiącu odniesienia i będą wymagać ponownego uruchomienia.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-### <a name="what-is-hotpatching"></a>Co to jest Funkcja HotPatching?
+### <a name="what-is-hotpatching"></a>Co to jest hotpatching?
 
-* Funkcja HotPatching to nowy sposób instalowania aktualizacji na komputerze z systemem Windows Server 2019 Datacenter: Azure Edition VM na platformie Azure, który nie wymaga ponownego uruchomienia po instalacji. Działa przez poprawianie kodu w pamięci uruchomionych procesów bez konieczności ponownego uruchamiania procesu.
+* Hotpatching to nowy sposób instalowania aktualizacji na centrum danych systemu Windows Server 2019: maszyna wirtualna w wersji Azure Edition na platformie Azure, która nie wymaga ponownego uruchomienia po instalacji. Działa on przez stosowanie poprawek do kodu w pamięci uruchomionych procesów bez konieczności ponownego uruchamiania procesu.
 
-### <a name="how-does-hotpatching-work"></a>Jak działa funkcja HotPatching?
+### <a name="how-does-hotpatching-work"></a>Jak działa hotpatching?
 
-* Funkcja HotPatching działa przez ustanowienie linii bazowej z Windows Update najnowszej aktualizacji zbiorczej, a następnie kompiluje ją z aktualizacjami, które nie wymagają ponownego uruchomienia.  Linia bazowa jest okresowo aktualizowana przy użyciu nowej aktualizacji zbiorczej. Aktualizacja zbiorcza obejmuje wszystkie aktualizacje zabezpieczeń i jakości oraz wymaga ponownego uruchomienia komputera.
+* Hotpatching działa przez ustanowienie linii bazowej z najnowszą aktualizacją zbiorczą Windows Update, a następnie opiera się na tym punkcie odniesienia z aktualizacjami, które nie wymagają ponownego uruchomienia, aby weszły w życie.  Punkt odniesienia jest okresowo aktualizowany przy użyciu nowej aktualizacji zbiorczej. Aktualizacja zbiorcza obejmuje wszystkie aktualizacje zabezpieczeń i jakości oraz wymaga ponownego uruchomienia.
 
-### <a name="why-should-i-use-hotpatch"></a>Dlaczego warto używać hotpatch?
+### <a name="why-should-i-use-hotpatch"></a>Dlaczego należy używać funkcji Hotpatch?
 
-* Jeśli używasz hotpatch w systemie Windows Server 2019 Datacenter: Azure Edition, maszyna wirtualna będzie miała wyższą dostępność (mniejszą liczbę ponownych uruchomień) i szybsze aktualizacje (mniejsze pakiety, które są instalowane szybciej bez konieczności ponownego uruchamiania procesów). Ten proces powoduje, że maszyna wirtualna jest zawsze aktualna i bezpieczna.
+* W przypadku korzystania z narzędzia Hotpatch w systemie Windows Server 2019 Datacenter: Azure Edition maszyna wirtualna będzie mieć wyższą dostępność (mniej ponownych uruchomień) i szybsze aktualizacje (mniejsze pakiety instalowane szybciej bez konieczności ponownego uruchamiania procesów). Ten proces powoduje, że maszyna wirtualna jest zawsze aktualny i bezpieczny.
 
-### <a name="what-types-of-updates-are-covered-by-hotpatch"></a>Jakie typy aktualizacji są objęte hotpatch?
+### <a name="what-types-of-updates-are-covered-by-hotpatch"></a>Jakie typy aktualizacji są objęte aktualizacją na gorąco?
 
 * Hotpatch obecnie obejmuje aktualizacje zabezpieczeń systemu Windows.
 
-### <a name="when-will-i-receive-the-first-hotpatch-update"></a>Kiedy zostanie wyświetlona pierwsza aktualizacja hotpatch?
+### <a name="when-will-i-receive-the-first-hotpatch-update"></a>Kiedy otrzymam pierwszą aktualizację hotpatch?
 
-* Aktualizacje hotpatch są zwykle publikowane w drugi wtorek każdego miesiąca. Aby uzyskać więcej informacji, zobacz poniżej.
+* Aktualizacje poprawki są zwykle zwalniane w drugi wtorek każdego miesiąca. Aby uzyskać więcej informacji, zobacz poniżej.
 
 ### <a name="what-will-the-hotpatch-schedule-look-like"></a>Jak będzie wyglądać harmonogram hotpatch?
 
-* Funkcja HotPatching działa przez ustanowienie linii bazowej z Windows Update najnowszą aktualizacją zbiorczą, a następnie kompiluje ją z aktualizacją hotpatch publikowaną miesięcznie.  W trakcie okresu zapoznawczego punkty odniesienia zostaną opublikowane co trzy miesiące. Zapoznaj się z poniższym obrazem, aby zapoznać się z przykładem rocznego harmonogramu z trzema subskrypcjami (w tym przykładem nieplanowanych linii bazowych ze względu na poprawki zerowe).
+* Tworzenie aktualizacji na gorąco działa przez ustanowienie planu bazowego z najnowszą Windows Update aktualizacją zbiorczą, a następnie bazuje na tym punkcie odniesienia z aktualizacjami hotpatch wydanymi co miesiąc.  W okresie wersji zapoznawczej punkty odniesienia będą wydane co trzy miesiące. Na poniższej ilustracji przedstawiono przykład rocznego harmonogramu na trzy miesiące (w tym przykład nieplanowanych linii bazowych z powodu poprawek z dnia zerowego).
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Przykładowy harmonogram hotpatch.":::
+    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Harmonogram przykładu hotpatch.":::
 
-### <a name="are-reboots-still-needed-for-a-vm-enrolled-in-hotpatch"></a>Czy ponowne uruchomienia są nadal potrzebne dla maszyny wirtualnej zarejestrowanej w hotpatch?
+### <a name="are-reboots-still-needed-for-a-vm-enrolled-in-hotpatch"></a>Czy ponowne uruchomienie maszyny wirtualnej zarejestrowanej w usłudze Hotpatch jest nadal potrzebne?
 
-* Ponowny rozruch jest nadal wymagany do zainstalowania aktualizacji nieuwzględnionych w programie hotpatch i są wymagane okresowo po zainstalowaniu linii bazowej (Windows Update najnowszej aktualizacji zbiorczej). To ponowne uruchomienie spowoduje synchronizację maszyny wirtualnej ze wszystkimi poprawkami zawartymi w aktualizacji zbiorczej. Linie bazowe (które wymagają ponownego uruchomienia) rozpocznie się w ciągu trzech miesięcy erze i rosną z upływem czasu.
+* Ponowne uruchomienia są nadal wymagane do zainstalowania aktualizacji, które nie są uwzględnione w programie Hotpatch, i są wymagane okresowo po zainstalowaniu planu bazowego (Windows Update najnowszej aktualizacji zbiorczej). Ten ponowny rozruch pozwoli zachować synchronizację maszyny wirtualnej ze wszystkimi poprawkami dołączonymi do aktualizacji zbiorczej. Punkty odniesienia (które wymagają ponownego uruchomienia) będą rozpoczynać się w ciągu trzech miesięcy i zwiększać się z czasem.
 
-### <a name="are-my-applications-affected-when-a-hotpatch-update-is-installed"></a>Czy moje aplikacje mają oddziaływać po zainstalowaniu aktualizacji hotpatch?
+### <a name="are-my-applications-affected-when-a-hotpatch-update-is-installed"></a>Czy po zainstalowaniu aktualizacji poprawki ma to wpływ na moje aplikacje?
 
-* Ponieważ hotpatch poprawia kod w pamięci uruchomionych procesów bez konieczności ponownego uruchamiania procesu, proces stosowania poprawek nie będzie miał wpływu na aplikacje. Należy zauważyć, że jest to niezależne od potencjalnego wpływu na wydajność i funkcjonalność poprawki.
+* Ponieważ program Hotpatch poprawia kod w pamięci uruchomionych procesów bez konieczności ponownego uruchamiania procesu, proces poprawiania nie ma wpływu na aplikacje. Należy pamiętać, że jest to oddzielone od wszelkich potencjalnych implikacji wydajności i funkcjonalności samej poprawki.
 
 ### <a name="can-i-turn-off-hotpatch-on-my-vm"></a>Czy mogę wyłączyć hotpatch na mojej maszynie wirtualnej?
 
-* Można wyłączyć hotpatch na maszynie wirtualnej za pomocą Azure Portal.  Wyłączenie usługi hotpatch spowoduje Wyrejestrowanie maszyny wirtualnej z hotpatch, która przywraca maszynę wirtualną do typowego zachowania aktualizacji dla systemu Windows Server.  Po wyrejestrowaniu z usługi hotpatch na maszynie wirtualnej można ponownie zarejestrować tę maszynę wirtualną po wydaniu kolejnej linii bazowej hotpatch.
+* Możesz wyłączyć hotpatch na maszynie wirtualnej za pomocą Azure Portal.  Wyłączenie poprawki spowoduje wyzwień maszynę wirtualną z programu Hotpatch, co spowoduje przywrócenie typowego zachowania aktualizacji maszyny wirtualnej dla systemu Windows Server.  Po wyrejestrować się z poprawki na maszynie wirtualnej można ponownie zarejestrować maszynę wirtualną po zwolnieniu następnego planu bazowego poprawki.
 
-### <a name="can-i-upgrade-from-my-existing-windows-server-os"></a>Czy mogę uaktualnić istniejący system operacyjny Windows Server?
+### <a name="can-i-upgrade-from-my-existing-windows-server-os"></a>Czy można uaktualnić istniejący system operacyjny Windows Server?
 
-* Uaktualnianie z istniejących wersji systemu Windows Server (czyli systemu Windows Server 2016 lub 2019 wersji niezwiązanych z platformą Azure) nie jest obecnie obsługiwane. Obsługiwane jest uaktualnianie do przyszłych wersji systemu Windows Server Azure Edition.
+* Uaktualnianie z istniejących wersji systemu Windows Server (czyli wersji systemu Windows Server 2016 lub 2019 spoza platformy Azure) nie jest obecnie obsługiwane. Będzie obsługiwane uaktualnianie do przyszłych wersji systemu Windows Server Azure Edition.
 
-### <a name="can-i-use-hotpatch-for-production-workloads-during-the-preview"></a>Czy mogę używać hotpatch do obciążeń produkcyjnych w ramach wersji zapoznawczej?
+### <a name="can-i-use-hotpatch-for-production-workloads-during-the-preview"></a>Czy mogę używać poprawki w przypadku obciążeń produkcyjnych w wersji zapoznawczej?
 
-* Wersje zapoznawcze są przeznaczone tylko do celów testowych i nie mogą być używane w środowiskach produkcyjnych.
+* Wersje zapoznawcze są przeznaczone tylko do celów testowych, a nie do użytku w środowiskach produkcyjnych.
 
-### <a name="will-i-be-charged-during-the-preview"></a>Czy zostanie naliczona opłata w ramach wersji zapoznawczej?
+### <a name="will-i-be-charged-during-the-preview"></a>Czy w okresie zapoznawczym zostaną naliczone opłaty?
 
-* Licencja na system Windows Server Azure Edition jest bezpłatna w ramach wersji zapoznawczej. Jednak koszt każdej źródłowej infrastruktury skonfigurowanej dla maszyny wirtualnej (magazynu, obliczeń, sieci itp.) nadal będzie obciążany subskrypcją.
+* Licencja na system Windows Server Azure Edition jest bezpłatna w okresie zapoznawczym. Jednak koszt dowolnej podstawowej infrastruktury ustawionej dla maszyny wirtualnej (magazynu, mocy obliczeniowej, sieci itp.) nadal będzie naliczany w ramach subskrypcji.
 
-### <a name="how-can-i-get-troubleshooting-support-for-hotpatching"></a>Jak mogę uzyskać pomoc techniczną dotyczącą rozwiązywania problemów z funkcją HotPatching?
+### <a name="how-can-i-get-troubleshooting-support-for-hotpatching"></a>Jak uzyskać pomoc techniczną rozwiązywania problemów z hotpatching?
 
-* Możesz zaplikować [bilet przypadku pomocy](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)technicznej. Dla opcji usługa Wyszukaj i wybierz **maszynę wirtualną z systemem Windows** w obszarze Obliczanie. Wybierz **funkcje platformy Azure** dla typu problemu i **automatycznej poprawki gościa maszyny wirtualnej** dla podtypu problemu.
+* Możesz utworzyć bilet zgłoszenia [do pomocy technicznej.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) W polu Usługa wyszukaj i wybierz pozycję Maszyna wirtualna z **systemem Windows w** obszarze Obliczenia. Wybierz **pozycję Funkcje platformy Azure** dla typu problemu i automatyczne stosowanie **poprawek** gościa maszyny wirtualnej dla podtypu problemu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o platformie Azure Update Management [tym miejscu](../automation/update-management/overview.md).
-* Dowiedz się więcej na temat automatycznego stosowania [](../virtual-machines/automatic-vm-guest-patching.md) poprawek gościa maszyny wirtualnej
+* Dowiedz się więcej o usłudze Azure Update Management [tutaj.](../automation/update-management/overview.md)
+* Dowiedz się więcej o automatycznym stosowaniem poprawek gościa maszyny wirtualnej [tutaj](../virtual-machines/automatic-vm-guest-patching.md)

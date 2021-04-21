@@ -1,22 +1,22 @@
 ---
-title: Tworzenie pierwszej funkcji przy użyciu szablonów Azure Resource Manager
-description: Tworzenie i wdrażanie na platformie Azure prostej wyzwalanej przez protokół HTTP funkcji bezserwerowej przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: Tworzenie pierwszej funkcji przy użyciu Azure Resource Manager szablonów
+description: Tworzenie i wdrażanie na platformie Azure prostej funkcji bez serwera wyzwalanej przez protokół HTTP przy użyciu szablonu Azure Resource Manager (szablonu ARM).
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs
-ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 0badc233597c13228e9826ed062cc15828c65cf2
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93422828"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833386"
 ---
-# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Szybki Start: Tworzenie i wdrażanie zasobów Azure Functions przy użyciu szablonu ARM
+# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Szybki start: tworzenie i wdrażanie Azure Functions zasobów z szablonu usługi ARM
 
-W tym artykule opisano tworzenie funkcji reagującej na żądania HTTP przy użyciu szablonu Azure Resource Manager (szablonu ARM). 
+W tym artykule użyjemy szablonu usługi Azure Resource Manager arm w celu utworzenia funkcji, która odpowiada na żądania HTTP. 
 
-W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
+Wykonanie kroków tego przewodnika Szybki start wiąże się z niewielkim kosztem konta platformy Azure w wysokości nie mniejszej niż kilka centów USD. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,13 +28,13 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ### <a name="azure-account"></a>Konto platformy Azure 
 
-Przed rozpoczęciem musisz mieć konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
+Przed rozpoczęciem musisz mieć konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/)
 
 ### <a name="create-a-local-functions-project"></a>Tworzenie projektu funkcji lokalnych
 
-Ten artykuł wymaga, aby projekt kodu funkcji lokalnych był uruchamiany w utworzonych zasobach platformy Azure. Jeśli nie utworzysz najpierw projektu do opublikowania, nie będzie można ukończyć sekcji wdrożenia tego artykułu. 
+Ten artykuł wymaga uruchomienia lokalnego projektu kodu funkcji na tworzyć zasoby platformy Azure. Jeśli nie utworzysz najpierw projektu do opublikowania, nie będzie można ukończyć sekcji wdrażania tego artykułu. 
 
-Wybierz jedną z następujących kart, Użyj linku i wypełnij sekcję, aby utworzyć aplikację funkcji w wybranym języku:
+Wybierz jedną z następujących kart, kliknij link i ukończ sekcję, aby utworzyć aplikację funkcji w języku, który chcesz wybrać:
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -53,7 +53,7 @@ Utwórz projekt funkcji lokalnych w wybranym języku w Visual Studio Code:
 
 # <a name="command-line"></a>[Wiersz polecenia](#tab/command-line)
 
-Utwórz projekt funkcji lokalnych w wybranym języku z poziomu wiersza polecenia:
+Utwórz projekt funkcji lokalnych w wybranym języku z wiersza polecenia:
 
 + [C#](create-first-function-cli-csharp.md)
 + [Java](create-first-function-cli-java.md)
@@ -72,12 +72,12 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 :::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json":::
 
-Ten szablon tworzy następujące cztery zasoby platformy Azure:
+Ten szablon tworzy cztery następujące zasoby platformy Azure:
 
-+ [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): Utwórz konto usługi Azure Storage, które jest wymagane przez funkcje.
-+ [**Microsoft. Web/dopuszczalna**](/azure/templates/microsoft.web/serverfarms): Utwórz plan hostingu bezserwerowego dla aplikacji funkcji.
-+ [**Microsoft. Web/Sites**](/azure/templates/microsoft.web/sites): Utwórz aplikację funkcji.
-+ [**Microsoft. Insights/Components**](/azure/templates/microsoft.insights/components): utwórz wystąpienie Application Insights do monitorowania.
++ [**Microsoft.Storage/storageAccounts:**](/azure/templates/microsoft.storage/storageaccounts)utwórz konto usługi Azure Storage, które jest wymagane przez usługę Functions.
++ [**Microsoft.Web/serverfarms:**](/azure/templates/microsoft.web/serverfarms)utwórz bez użycia serwera plan hostingu dla aplikacji funkcji.
++ [**Microsoft.Web/sites:**](/azure/templates/microsoft.web/sites)utwórz aplikację funkcji.
++ [**microsoft.insights/components:**](/azure/templates/microsoft.insights/components)utwórz Application Insights do monitorowania.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -107,75 +107,75 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
-Następnie sprawdź poprawność zasobów hostingu aplikacji funkcji utworzonych przez opublikowanie projektu na platformie Azure i wywołanie punktu końcowego HTTP funkcji.
+Następnie zweryfikuj utworzoną aplikację funkcji hostowania zasobów, publikując projekt na platformie Azure i wywołując punkt końcowy HTTP funkcji.
 
-### <a name="publish-the-function-project-to-azure"></a>Opublikuj projekt funkcji na platformie Azure
+### <a name="publish-the-function-project-to-azure"></a>Publikowanie projektu funkcji na platformie Azure
 
-Aby opublikować projekt w nowych zasobach platformy Azure, wykonaj następujące kroki:
+Aby opublikować projekt w nowych zasobach platformy Azure, należy wykonać następujące kroki:
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
-W danych wyjściowych Skopiuj adres URL wyzwalacza HTTP. Służy do testowania funkcji działającej na platformie Azure. 
+W danych wyjściowych skopiuj adres URL wyzwalacza HTTP. Umożliwia to przetestowanie funkcji uruchomionej na platformie Azure. 
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**.
 
-1. W obszarze Wybieranie **elementu docelowego publikowania** wybierz pozycję **Azure Functions plan zużycia** , **wybierając pozycję istniejący** i wybierz pozycję **Utwórz profil**.
+1. Na **stronie Wybierz miejsce docelowe publikacji** wybierz pozycję Azure Functions **Zużycie** z **wybierz** istniejący i wybierz pozycję **Utwórz profil.**
 
-    :::image type="content" source="media/functions-create-first-function-arm/choose-publish-target-visual-studio.png" alt-text="Wybierz istniejący element docelowy publikowania":::
+    :::image type="content" source="media/functions-create-first-function-arm/choose-publish-target-visual-studio.png" alt-text="Wybieranie istniejącego obiektu docelowego publikowania":::
 
-1. Wybierz swoją **subskrypcję**, rozwiń grupę zasobów, wybierz aplikację funkcji, a następnie wybierz **przycisk OK**.
+1. Wybierz **subskrypcję**, rozwiń grupę zasobów, wybierz aplikację funkcji i wybierz przycisk **OK.**
 
-1. Po zakończeniu publikowania Skopiuj **adres URL witryny**.
+1. Po zakończeniu publikowania skopiuj adres **URL witryny**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Skopiuj adres URL witryny z podsumowania publikowania":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Kopiowanie adresu URL witryny z podsumowania publikowania":::
 
-1. Dołącz ścieżkę `/api/<FUNCTION_NAME>?name=Functions` , gdzie `<FUNCTION_NAME>` to nazwa funkcji. Adres URL, który wywołuje funkcję wyzwalacza HTTP, ma następujący format:
+1. Dołącz `/api/<FUNCTION_NAME>?name=Functions` ścieżkę , `<FUNCTION_NAME>` gdzie jest nazwą funkcji. Adres URL wywołujący funkcję wyzwalacza HTTP ma następujący format:
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=Functions`
 
-Ten adres URL jest używany do testowania funkcji wyzwalacza HTTP działającej na platformie Azure.
+Ten adres URL umożliwia przetestowanie funkcji wyzwalacza HTTP uruchomionej na platformie Azure.
 
 # <a name="command-line"></a>[Wiersz polecenia](#tab/command-line)
 
-Aby opublikować kod lokalny w aplikacji funkcji na platformie Azure, użyj `publish` polecenia:
+Aby opublikować kod lokalny w aplikacji funkcji na platformie Azure, użyj `publish` polecenia :
 
 ```cmd
 func azure functionapp publish <FUNCTION_APP_NAME>
 ```
 
-W tym przykładzie Zastąp `<FUNCTION_APP_NAME>` wartość nazwą aplikacji funkcji. Może być konieczne ponowne zalogowanie się za pomocą programu `az login` . 
+W tym przykładzie `<FUNCTION_APP_NAME>` zastąp nazwą swojej aplikacji funkcji. Może być konieczne zalogowanie się ponownie przy `az login` użyciu . 
 
-W danych wyjściowych Skopiuj adres URL wyzwalacza HTTP. Służy do testowania funkcji działającej na platformie Azure.
+W danych wyjściowych skopiuj adres URL wyzwalacza HTTP. Umożliwia to przetestowanie funkcji uruchomionej na platformie Azure.
 
 ---
 
 ### <a name="invoke-the-function-on-azure"></a>Wywoływanie funkcji na platformie Azure
 
-Wklej adres URL skopiowany dla żądania HTTP na pasku adresu przeglądarki, upewnij się, że `name` ciąg zapytania został `?name=Functions` dołączony do końca tego adresu URL, a następnie wykonaj żądanie. 
+Wklej adres URL skopiowany dla żądania HTTP na pasku adresu przeglądarki, upewnij się, że ciąg zapytania został dołączony na końcu tego adresu URL, a następnie `name` `?name=Functions` wykonaj żądanie. 
 
-Powinna zostać wyświetlona odpowiedź:
+Powinna zostać wyświetlony odpowiedź, na przykład:
 
 <pre>Hello Functions!</pre>
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli przejdziesz do następnego kroku i dodasz powiązanie danych wyjściowych kolejki usługi Azure Storage, Zachowaj wszystkie swoje zasoby w miejscu, w którym będziesz kompilować zawartość już wykonane.
+Jeśli dodasz powiązanie wyjściowe kolejki usługi Azure Storage do następnego kroku, zachowaj wszystkie zasoby na miejscu, ponieważ będziesz tworzyć na podstawie już wykonanej pracy.
 
-W przeciwnym razie użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć ponoszenia dalszych kosztów.
+W przeciwnym razie użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć dodatkowych kosztów.
 
 ```azurecli
 az group delete --name <RESOURCE_GROUP_NAME>
 ```
 
-Zamień `<RESOURCE_GROUP_NAME>` na nazwę grupy zasobów.
+Zastąp `<RESOURCE_GROUP_NAME>` nazwą grupy zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po opublikowaniu pierwszej funkcji, Dowiedz się więcej, dodając powiązanie danych wyjściowych do funkcji.
+Teraz, po opublikowaniu pierwszej funkcji, dowiedz się więcej, dodając powiązanie wyjściowe do funkcji.
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 

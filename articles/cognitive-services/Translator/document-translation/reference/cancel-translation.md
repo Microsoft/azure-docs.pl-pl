@@ -1,7 +1,7 @@
 ---
-title: Get document status method (Metoda pobierz stan dokumentu)
+title: Anulowanie metody tłumaczenia
 titleSuffix: Azure Cognitive Services
-description: Metoda get document status zwraca stan określonego dokumentu.
+description: Metoda anulowania tłumaczenia anuluje obecnie przetwarzanie lub operację w kolejce.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -10,22 +10,23 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/25/2021
 ms.author: v-jansk
-ms.openlocfilehash: 36cd10a0b04be21e9f332832b4381662eeedd01d
+ms.openlocfilehash: 3de052f50676065a6656f77a0ea68cf8c9ab46a8
 ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833674"
+ms.locfileid: "107836204"
 ---
-# <a name="get-document-status"></a>Uzyskiwanie stanu dokumentu
+# <a name="cancel-translation"></a>Anulowanie tłumaczenia
 
-Metoda Get Document Status zwraca stan określonego dokumentu. Metoda zwraca stan tłumaczenia określonego dokumentu na podstawie identyfikatora żądania i identyfikatora dokumentu.
+Anulowanie operacji przetwarzania lub operacji w kolejce. Operacja nie zostanie anulowana, jeśli została już ukończona, nie powiodła się lub została anulowana. Zostanie zwrócone złe żądanie. Wszystkie dokumenty, które zostały przetłumaczone, nie zostaną anulowane i zostaną naliczone opłaty. Jeśli to możliwe, wszystkie oczekujące dokumenty zostaną anulowane.
 
 ## <a name="request-url"></a>Adres URL żądania
 
-Wyślij `GET` żądanie do:
-```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents/{documentId}
+Wyślij `DELETE` żądanie do:
+
+```DELETE HTTP
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
 ```
 
 Dowiedz się, jak znaleźć [niestandardową nazwę domeny](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -40,43 +41,49 @@ Dowiedz się, jak znaleźć [niestandardową nazwę domeny](../get-started-with-
 Parametry żądania przekazane w ciągu zapytania to:
 
 |Parametr zapytania|Wymagane|Opis|
-|--- |--- |--- |
-|Documentid|Prawda|Identyfikator dokumentu.|
-|identyfikator|Prawda|Identyfikator wsadu.|
+|-----|-----|-----|
+|identyfikator|Prawda|Identyfikator operacji.|
+
 ## <a name="request-headers"></a>Nagłówki żądań
 
 Nagłówki żądań to:
 
 |Nagłówki|Opis|
-|--- |--- |
+|-----|-----|
 |Ocp-Apim-Subscription-Key|Wymagany nagłówek żądania|
 
 ## <a name="response-status-codes"></a>Kody stanu odpowiedzi
 
 Poniżej przedstawiono możliwe kody stanu HTTP zwracane przez żądanie.
 
-|Kod stanu|Opis|
-|--- |--- |
-|200|OK. Żądanie pomyślne i zaakceptowane przez usługę. Zostaną zwrócone szczegóły operacji. HeadersRetry-After: integerETag: string|
+| Kod stanu| Opis|
+|-----|-----|
+|200|OK. Żądanie anulowania zostało przesłane|
 |401|Nieautoryzowanych. Sprawdź swoje poświadczenia.|
-|404|Nie znaleziono. Zasób nie został znaleziony.|
-|500|Wewnętrzny błąd serwera.|
+|404|Nie znaleziono. Zasób nie został znaleziony. 
+|500|Wewnętrzny błąd serwera.
 |Inne kody stanu|<ul><li>Zbyt wiele żądań</li><li>Serwer jest tymczasowo niedostępny</li></ul>|
 
-## <a name="get-document-status-response"></a>Uzyskiwanie odpowiedzi o stanie dokumentu
+## <a name="cancel-translation-response"></a>Anulowanie odpowiedzi tłumaczenia
 
-### <a name="successful-get-document-status-response"></a>Pomyślna odpowiedź na pytanie o stan dokumentu
+### <a name="successful-response"></a>Pomyślna odpowiedź
+
+Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 
 |Nazwa|Typ|Opis|
 |--- |--- |--- |
-|path|ciąg|Lokalizacja dokumentu lub folderu.|
+|identyfikator|ciąg|Identyfikator operacji.|
 |createdDateTimeUtc|ciąg|Data i godzina utworzenia operacji.|
 |lastActionDateTimeUtc|ciąg|Data i godzina aktualizacji stanu operacji.|
 |status|Ciąg|Lista możliwych stanów zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>ValidationFailed</li></ul>|
-|na wartość|ciąg|Dwulitowy kod języka to language. Zobacz listę języków.|
-|progress|liczba|Postęp tłumaczenia, jeśli jest dostępny|
-|identyfikator|ciąg|Identyfikator dokumentu.|
-|characterCharged|liczba całkowita|Znaki naliczane przez interfejs API.|
+|Podsumowanie|StatusSummary|Podsumowanie zawierające szczegóły wymienione poniżej.|
+|summary.total|liczba całkowita|Liczba wszystkich dokumentów.|
+|summary.failed|liczba całkowita|Liczba dokumentów nie powiodła się.|
+|summary.success|liczba całkowita|Liczba pomyślnie przetłumaczonych dokumentów.|
+|summary.inProgress|liczba całkowita|Liczba dokumentów w toku.|
+|summary.notYetStarted|liczba całkowita|Liczba dokumentów, których przetwarzanie nie zostało jeszcze rozpoczęte.|
+|summary.cancelled|liczba całkowita|Liczba anulowanych.|
+|summary.totalCharacterCharged|liczba całkowita|Łączna liczba znaków naliczana przez interfejs API.|
 
 ### <a name="error-response"></a>Odpowiedź z błędem
 
@@ -84,25 +91,34 @@ Poniżej przedstawiono możliwe kody stanu HTTP zwracane przez żądanie.
 |--- |--- |--- |
 |kod|ciąg|Wylinia zawierające kody błędów wysokiego poziomu. Możliwe wartości:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Brak autoryzacji</li></ul>|
 |message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
-|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, komunikat i opcjonalny element docelowy właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
+|Docelowego|ciąg|Pobiera źródło błędu. Na przykład będzie to "dokumenty" lub "identyfikator dokumentu" dla nieprawidłowego dokumentu.|
+|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, komunikat i opcjonalne właściwości docelowe, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
 |innerError.code|ciąg|Pobiera ciąg błędu kodu.|
-|innerError.message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
+|Wewnętrzny. Eroor.message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 
 ## <a name="examples"></a>Przykłady
 
 ### <a name="example-successful-response"></a>Przykład pomyślnej odpowiedzi
+
 Poniższy obiekt JSON jest przykładem pomyślnej odpowiedzi.
+
+Kod stanu: 200
 
 ```JSON
 {
-  "path": "https://myblob.blob.core.windows.net/destinationContainer/fr/mydoc.txt",
+  "id": "727bf148-f327-47a0-9481-abae6362f11e",
   "createdDateTimeUtc": "2020-03-26T00:00:00Z",
   "lastActionDateTimeUtc": "2020-03-26T01:00:00Z",
-  "status": "Running",
-  "to": "fr",
-  "progress": 0.1,
-  "id": "273622bd-835c-4946-9798-fd8f19f6bbf2",
-  "characterCharged": 0
+  "status": "Succeeded",
+  "summary": {
+    "total": 10,
+    "failed": 1,
+    "success": 9,
+    "inProgress": 0,
+    "notYetStarted": 0,
+    "cancelled": 0,
+    "totalCharacterCharged": 0
+  }
 }
 ```
 
@@ -110,17 +126,17 @@ Poniższy obiekt JSON jest przykładem pomyślnej odpowiedzi.
 
 Poniższy obiekt JSON jest przykładem odpowiedzi błędu. Schemat innych kodów błędów jest taki sam.
 
-Kod stanu: 401
+Kod stanu: 500
 
 ```JSON
 {
   "error": {
-    "code": "Unauthorized",
-    "message": "User is not authorized",
-    "target": "Document",
+    "code": "InternalServerError",
+    "message": "Internal Server Error",
+    "target": "Operation",
     "innerError": {
-      "code": "Unauthorized",
-      "message": "Operation is not authorized"
+      "code": "InternalServerError",
+      "message": "Unexpected internal server error has occurred"
     }
   }
 }

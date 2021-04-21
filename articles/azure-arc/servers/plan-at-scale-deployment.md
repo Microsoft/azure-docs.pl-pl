@@ -1,93 +1,93 @@
 ---
-title: Planowanie i wdrażanie serwerów z obsługą usługi Azure Arc
-description: Dowiedz się, jak włączyć wiele maszyn na serwerach z obsługą usługi Azure ARC, aby uprościć konfigurację najważniejszych funkcji zabezpieczeń, zarządzania i monitorowania na platformie Azure.
-ms.date: 03/18/2021
+title: Jak planować i wdrażać Azure Arc serwerów z włączoną obsługą
+description: Dowiedz się, jak włączyć obsługę wielu maszyn na Azure Arc, aby uprościć konfigurację podstawowych funkcji zabezpieczeń, zarządzania i monitorowania na platformie Azure.
+ms.date: 04/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f8fe410da56f627ceab5f17c980f2daa1a262c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023286"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831982"
 ---
-# <a name="plan-and-deploy-arc-enabled-servers"></a>Planowanie i wdrażanie serwerów z obsługą łuku
+# <a name="plan-and-deploy-arc-enabled-servers"></a>Planowanie i wdrażanie serwerów z usługą Arc
 
-Wdrożenie usługi infrastruktury IT lub aplikacji biznesowej jest wyzwaniem dla każdej firmy. Aby zapewnić jego zgodność i uniknąć wszelkich niezwiązanych z nią niedowolnych powitań i nieplanowanych kosztów, należy dokładnie zaplanować, aby upewnić się, że wszystko jest gotowe do użycia. Aby zaplanować wdrożenie serwerów z obsługą usługi Azure Arc w dowolnej skali, należy uwzględnić kryteria projektowania i wdrażania, które muszą zostać spełnione w celu pomyślnego wykonania zadań.
+Wdrożenie usługi infrastruktury IT lub aplikacji biznesowej jest wyzwaniem dla każdej firmy. Aby można było je dobrze wykonać i uniknąć niechłannych niespodzianek i nieplanowanych kosztów, należy dokładnie zaplanować go, aby upewnić się, że wszystko jest tak gotowe, jak to możliwe. Aby zaplanować wdrażanie Azure Arc serwerów w dowolnej skali, powinna obejmować kryteria projektowania i wdrażania, które muszą zostać spełnione w celu pomyślnego ukończenia zadań.
 
-Aby wdrożenie przebiegać bezproblemowo, plan powinien stworzyć jasne zrozumienie:
+Aby wdrożenie przebiegało bezproblemowo, plan powinien jasno zrozumieć:
 
 * Role i obowiązki.
-* Spis serwerów fizycznych lub maszyn wirtualnych, aby sprawdzić, czy spełniają one wymagania sieciowe i systemowe.
-* Zestaw umiejętności i szkolenia wymagane do zapewnienia pomyślnego wdrożenia i zarządzania nim.
+* Spis serwerów fizycznych lub maszyn wirtualnych w celu sprawdzenia, czy spełniają one wymagania sieciowe i systemowe.
+* Zestaw umiejętności i szkolenie wymagane do umożliwienia pomyślnego wdrożenia i zarządzania w tym zakresie.
 * Kryteria akceptacji i sposób śledzenia sukcesu.
 * Narzędzia lub metody służące do automatyzowania wdrożeń.
-* Zidentyfikowano zagrożenia i plany zaradcze, aby uniknąć opóźnień, zakłóceń itp.
-* Jak uniknąć przerw w działaniu podczas wdrażania.
-* Jaka jest ścieżka eskalacji w przypadku wystąpienia znaczącego problemu?
+* Identyfikowanie zagrożeń i planów ograniczania ryzyka w celu uniknięcia opóźnień, zakłóceń itp.
+* Jak uniknąć zakłóceń podczas wdrażania.
+* Jaka jest ścieżka eskalacji w przypadku wystąpienia istotnego problemu?
 
-Celem tego artykułu jest upewnienie się, że przygotowano do pomyślnego wdrożenia serwerów z obsługą usługi Azure Arc na wielu serwerach fizycznych lub maszynach wirtualnych w środowisku.
+Celem tego artykułu jest zapewnienie gotowości do pomyślnego wdrożenia serwerów z obsługą Azure Arc na wielu produkcyjnych serwerach fizycznych lub maszynach wirtualnych w środowisku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Na maszynach jest uruchomiony [obsługiwany system operacyjny](agent-overview.md#supported-operating-systems) dla agenta połączonej maszyny.
-* Maszyny mają łączność z siecią lokalną lub innym środowiskiem chmury do zasobów platformy Azure, bezpośrednio lub za pośrednictwem serwera proxy.
-* Do zainstalowania i skonfigurowania serwera z włączonym Łukem, który jest podłączony do agenta komputera, konto z podwyższonym poziomem uprawnień (czyli administratorem lub jako root) na komputerach.
-* Aby dodać maszyny, musisz być członkiem roli **dołączania maszyny połączonej z platformą Azure** .
-* Aby odczytywać, modyfikować i usuwać maszyny, musisz być członkiem roli **administratora zasobów maszyny połączonej z platformą Azure** .
+* Na maszynach działa [obsługiwany system operacyjny](agent-overview.md#supported-operating-systems) agenta Connected Machine.
+* Maszyny mają łączność z sieci lokalnej lub innego środowiska chmury do zasobów na platformie Azure bezpośrednio lub za pośrednictwem serwera proxy.
+* Aby zainstalować i skonfigurować agenta Connected Machine serwerów z obsługą usługi Arc, konto z podwyższonym poziomem uprawnień (czyli administratorem lub użytkownikiem głównym) na maszynach.
+* Aby dołączać maszyny, należysz do Azure Connected Machine **dołączania.**
+* Aby odczytywać, modyfikować i usuwać maszynę, należysz do Azure Connected Machine **administratora** zasobów.
 
 ## <a name="pilot"></a>Pilotaż
 
-Przed wdrożeniem na wszystkich maszynach produkcyjnych Rozpocznij od oceny tego procesu wdrażania przed jego wdrożeniem w środowisku. W przypadku pilotażu należy zidentyfikować reprezentatywne próbkowanie maszyn, które nie są kluczowe dla firm, które nie mają możliwości prowadzenia działalności. Upewnij się, że masz wystarczającą ilość czasu na uruchomienie pilotażu i ocenę jego wpływu: zalecamy co najmniej 30 dni.
+Przed wdrożeniem na wszystkich maszynach produkcyjnych należy rozpocząć od oceny tego procesu wdrażania przed wdrożeniem go w szerokim środowisku. W przypadku pilotażu zidentyfikuj reprezentatywne próbkowanie maszyn, które nie mają krytycznego znaczenie dla możliwości prowadzenia działalności firmy. Należy zapewnić wystarczająco dużo czasu na uruchomienie pilotażu i ocenę jego wpływu: zalecamy co najmniej 30 dni.
 
-Ustanowienie formalnego planu opisującego zakres i szczegóły pilotażu. Poniżej przedstawiono przykład sposobu, w jaki plan powinien obejmować, aby pomóc Ci rozpocząć pracę.
+Ustanów formalny plan opisujący zakres i szczegóły pilotażu. Poniżej przedstawiono przykład tego, co powinien zawierać plan, aby ułatwić ci pracę.
 
-* Cele — opisuje sterowniki biznesowe i techniczne, które doprowadziły do decyzji, że pilotaż jest niezbędny.
-* Kryteria wyboru — określa kryteria używane do wybierania aspektów rozwiązania, które będą prezentowane za pośrednictwem pilotażu.
-* Zakres — opisuje zakres pilotażu, który obejmuje, ale nie ogranicza do składników rozwiązania, przewidywanego harmonogramu, czasu trwania pilotażu i liczby maszyn docelowych.
-* Kryteria sukcesu i metryki — zdefiniuj kryteria sukcesu pilotażu i określone miary używane do określania poziomu sukcesu.
-* Plan szkoleniowy — zawiera opis planu szkolenia inżynierów systemów, administratorów itp., którzy są nowym sposobem na platformę Azure i usługi IT podczas pilotażu.
-* Plan przejścia — opis strategii i kryteriów używanych do przejścia od pilotażu do środowiska produkcyjnego.
-* Wycofywanie — zawiera opis procedur wycofywania pilotażu do stanu sprzed wdrożenia.
-* Ryzyka — lista wszystkich zidentyfikowanych zagrożeń związanych z przeprowadzeniem pilotażu i związana z wdrożeniem produkcyjnym.
+* Cele — opisuje czynniki biznesowe i techniczne, które doprowadziły do podjęcia decyzji o konieczności pilotażu.
+* Kryteria wyboru — określa kryteria używane do wybierania aspektów rozwiązania, które zostaną zademonstrowane za pośrednictwem pilotażu.
+* Zakres — opisuje zakres pilotażu, który obejmuje między innymi składniki rozwiązania, przewidywany harmonogram, czas trwania pilotażu i liczbę maszyn docelowych.
+* Kryteria i metryki sukcesu — zdefiniuj kryteria sukcesu pilotażu i konkretne miary używane do określenia poziomu sukcesu.
+* Plan szkolenia — opisuje plan szkoleń dla inżynierów systemów, administratorów itp., którzy są nowymi osobami na platformie Azure i usługach it podczas pilotażu.
+* Plan przejścia — zawiera opis strategii i kryteriów, które służą jako przewodnik przejścia z pilotażu do produkcji.
+* Wycofywanie — opisuje procedury wycofywania pilotażu do stanu przed wdrożeniem.
+* Ryzyka — lista wszystkich zidentyfikowanych czynników ryzyka związanych z przeprowadzeniem pilotażu i powiązanych z wdrożeniem produkcyjnym.
 
-## <a name="phase-1-build-a-foundation"></a>Faza 1: Tworzenie podstawy
+## <a name="phase-1-build-a-foundation"></a>Faza 1: Tworzenie podstaw
 
-W tej fazie inżynierowie systemów lub Administratorzy włączają podstawowe funkcje w ramach subskrypcji platformy Azure w organizacji, aby rozpocząć fundament przed włączeniem maszyn do zarządzania przez serwery z włączonym łukiem i innych usług platformy Azure.
-
-|Zadanie |Szczegóły |Czas trwania |
-|-----|-------|---------|
-| [Tworzenie grupy zasobów](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Dedykowana Grupa zasobów obejmująca tylko serwery z obsługą łuku i scentralizowanego zarządzania i monitorowania tych zasobów. | Jedna godzina |
-| Zastosuj [Tagi](../../azure-resource-manager/management/tag-resources.md) , aby ułatwić organizowanie maszyn. | Oceń i opracowuj [strategię tagowania](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) dopasowaną przez dział IT, która może pomóc w zmniejszeniu złożoności zarządzania serwerami z włączonym łukiem i uproszczenia podejmowania decyzji dotyczących zarządzania. | Jeden dzień |
-| Projektowanie i wdrażanie [dzienników Azure monitor](../../azure-monitor/logs/data-platform-logs.md) | Oceń [zagadnienia dotyczące projektowania i wdrażania](../../azure-monitor/logs/design-logs-deployment.md) , aby określić, czy organizacja ma używać istniejącego lub zaimplementowania innego obszaru roboczego log Analytics do przechowywania zebranych danych dziennika z serwerów i maszyn hybrydowych. <sup>1</sup> | Jeden dzień |
-| [Opracowywanie planu Azure Policy](../../governance/policy/overview.md) ładu | Określ, w jaki sposób ma zostać wdrożony nadzór nad serwerami hybrydowymi i maszynami w zakresie subskrypcji lub grupy zasobów przy użyciu Azure Policy. | Jeden dzień |
-| Konfigurowanie [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) (RBAC) | Opracowywanie planu dostępu w celu kontrolowania, kto ma dostęp do zarządzania serwerami z obsługą łuku i możliwość wyświetlania ich danych z innych usług i rozwiązań platformy Azure. | Jeden dzień |
-| Zidentyfikuj maszyny z zainstalowanym agentem Log Analytics | Uruchom następujące zapytanie dziennika w [log Analytics](../../azure-monitor/logs/log-analytics-overview.md) , aby obsłużyć konwersję istniejących wdrożeń agentów log Analytics do agenta zarządzanego przez rozszerzenie:<br> Puls <br> &#124;, gdzie TimeGenerated > temu (30d) <br> &#124;, gdzie ResourceType = = "Machines" i (ComputerEnvironment = = "non-Azure") <br> &#124; Sumuj według komputera, ResourceProvider, ResourceType, ComputerEnvironment | Jedna godzina |
-
-<sup>1</sup> istotną kwestią w ocenie projektu obszaru log Analytics, jest integracja z Azure Automation w celu obsługi Update Management oraz funkcji Change Tracking i spisu, a także Azure Security Center i platformy Azure. Jeśli Twoja organizacja ma już konto usługi Automation i włączyła swoje funkcje zarządzania połączone z obszarem roboczym Log Analytics, Oceń, czy można scentralizować i usprawnić operacje zarządzania, a także zminimalizować koszty, korzystając z tych istniejących zasobów i tworząc zduplikowane konto, obszar roboczy itd.
-
-## <a name="phase-2-deploy-arc-enabled-servers"></a>Faza 2. wdrażanie serwerów z włączonym łukiem
-
-Następnie dodamy do podstawy ustalonej w fazie 1 przez przygotowanie do i wdrożenie agenta połączonego z serwerem z włączonym łukiem.
+W tej fazie inżynierowie systemu lub administratorzy włączają podstawowe funkcje w subskrypcji platformy Azure organizacji, aby rozpocząć podstawy przed włączeniem maszyn do zarządzania przez serwery z usługą Arc i inne usługi platformy Azure.
 
 |Zadanie |Szczegóły |Czas trwania |
 |-----|-------|---------|
-| Pobierz wstępnie zdefiniowany skrypt instalacyjny | Zapoznaj się z wstępnie zdefiniowanym skryptem instalacji i dostosuj go, aby zapewnić obsługę zautomatyzowanych wymagań dotyczących wdrażania w ramach wdrażania agenta połączonego maszyny.<br><br> Przykładowe zasoby dołączania w skali:<br><br> <ul><li> [Podstawowy skrypt wdrażania w skali](onboard-service-principal.md)</ul></li> <ul><li>[Dołączanie w skali VMware vSphere maszyn wirtualnych z systemem Windows Server](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[Dołączanie do VMware vSphere maszyn wirtualnych z systemem Linux w skali](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[AWSe wystąpienia EC2 w skali przy użyciu rozwiązania ansible](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> <ul><li>[Wdrażanie w skali przy użyciu komunikacji zdalnej programu PowerShell](./onboard-powershell.md) (tylko system Windows)</ul></li>| Co najmniej jeden dzień, w zależności od wymagań, procesów organizacyjnych (na przykład zmiany i Release Management) i używanej metody automatyzacji. |
-| [Tworzenie jednostki usługi](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Utwórz nazwę główną usługi, aby połączyć maszyny w sposób nieinteraktywny przy użyciu Azure PowerShell lub z portalu.| Jedna godzina |
-| Wdróż agenta połączonej maszyny na serwerze docelowym i na maszynach docelowych |Użyj narzędzia Automation, aby wdrożyć skrypty na serwerach i połączyć je z platformą Azure.| Co najmniej jeden dzień w zależności od planu wydania i po wdrożeniu etapowym. |
+| [Tworzenie grupy zasobów](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Dedykowana grupa zasobów, która obejmuje tylko serwery z usługą Arc oraz scentralizowane zarządzanie tymi zasobami i ich monitorowanie. | Jedna godzina |
+| Stosowanie [tagów w](../../azure-resource-manager/management/tag-resources.md) celu organizowania maszyn. | Oceń i opracuj strategię tagowania dostosowaną do potrzeb IT, która może pomóc zmniejszyć złożoność zarządzania serwerami z usługą Arc i uprościć podejmowanie decyzji dotyczących zarządzania. [](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) | Jeden dzień |
+| Projektowanie i wdrażanie [dzienników Azure Monitor danych](../../azure-monitor/logs/data-platform-logs.md) | Oceń [zagadnienia dotyczące](../../azure-monitor/logs/design-logs-deployment.md) projektowania i wdrażania, aby określić, czy organizacja powinna używać istniejącego, czy implementować inny obszar roboczy usługi Log Analytics do przechowywania zebranych danych dzienników z hybrydowych serwerów i maszyn. <sup>1</sup> | Jeden dzień |
+| [Opracowywanie Azure Policy](../../governance/policy/overview.md) ładu | Określ sposób implementowania ładu hybrydowych serwerów i maszyn w zakresie subskrypcji lub grupy zasobów za pomocą Azure Policy. | Jeden dzień |
+| Konfigurowanie [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) (RBAC) | Opracuj plan dostępu, aby kontrolować, kto ma dostęp do zarządzania serwerami z usługą Arc, oraz możliwość wyświetlania ich danych z innych usług i rozwiązań platformy Azure. | Jeden dzień |
+| Identyfikowanie maszyn z już zainstalowanym agentem usługi Log Analytics | Uruchom następujące zapytanie dziennika w u [usługi Log Analytics,](../../azure-monitor/logs/log-analytics-overview.md) aby obsługiwać konwersję istniejących wdrożeń agentów usługi Log Analytics na agenta zarządzanego przez rozszerzenie:<br> Puls <br> &#124; where TimeGenerated > ago(30d) <br> &#124; where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") <br> &#124; według Computer, ResourceProvider, ResourceType, ComputerEnvironment | Jedna godzina |
 
-## <a name="phase-3-manage-and-operate"></a>Faza 3: zarządzanie i obsługa
+<sup>1</sup> Ważnym elementem oceny projektu obszaru roboczego usługi Log Analytics jest integracja z usługą Azure Automation w celu obsługi jej funkcji Update Management i Śledzenie zmian i spis, a także Azure Security Center i Azure Sentinel. Jeśli Twoja organizacja ma już konto usługi Automation i włączyła funkcje zarządzania połączone z obszarem roboczym usługi Log Analytics, oceń, czy można scentralizować i usprawnić operacje zarządzania, a także zminimalizować koszty przy użyciu istniejących zasobów w porównaniu z tworzeniem zduplikowanego konta, obszaru roboczego itp.
 
-Faza 3 widzi administratorów lub inżynierów systemów, które umożliwiają automatyzację zadań ręcznych w celu zarządzania i obsługiwania agenta połączonej maszyny oraz komputera w ich cyklu życia.
+## <a name="phase-2-deploy-arc-enabled-servers"></a>Faza 2: wdrażanie serwerów z usługą Arc
+
+Następnie dodajemy do podstaw układ w fazie 1, przygotowując się do i wdrażając agenta Connected Machine serwerów z obsługą usługi Arc.
 
 |Zadanie |Szczegóły |Czas trwania |
 |-----|-------|---------|
-|Tworzenie alertu Resource Health |Jeśli serwer zatrzyma wysyłanie pulsu do platformy Azure przez dłużej niż 15 minut, może to oznaczać, że jest w trybie offline, połączenie sieciowe zostało zablokowane lub Agent nie jest uruchomiony. Utwórz plan na potrzeby reakcji i zbadaj te incydenty i Użyj [alertów Resource Health](../..//service-health/resource-health-alert-monitor-guide.md) , aby otrzymywać powiadomienia o ich rozpoczęciu.<br><br> Określ następujące podczas konfigurowania alertu:<br> **Typ zasobu**  =  **Serwery z obsługą usługi Azure Arc**<br> **Bieżący stan zasobu**  =  **Niedostępne**<br> **Poprzedni stan zasobu**  =  **Dostępne** | Jedna godzina |
-|Tworzenie alertu Azure Advisor | Aby uzyskać najlepsze środowisko i najnowsze poprawki dotyczące zabezpieczeń i błędów, zalecamy utrzymywanie Aktualności agenta serwerów z włączonym usługą Azure Arc. Nieaktualne agenci zostaną zidentyfikowani za pomocą [alertu Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Określ następujące podczas konfigurowania alertu:<br> **Typ zalecenia**  =  **Uaktualnianie do najnowszej wersji agenta połączonej maszyny platformy Azure** | Jedna godzina |
-|[Przypisywanie zasad platformy Azure](../../governance/policy/assign-policy-portal.md) do zakresu subskrypcji lub grupy zasobów |Przypisz zasady **włączania Azure monitor dla maszyn wirtualnych** [](../../azure-monitor/vm/vminsights-enable-policy.md) (i inne, które spełniają Twoje potrzeby) do zakresu subskrypcji lub grupy zasobów. Azure Policy umożliwia przypisanie definicji zasad instalujących wymaganych agentów dla Azure Monitor dla maszyn wirtualnych w środowisku.| Różnie |
-|[Włącz Update Management dla serwerów z włączonym łukiem](../../automation/update-management/enable-from-automation-account.md) |Skonfiguruj Update Management w Azure Automation, aby zarządzać aktualizacjami systemu operacyjnego dla maszyn wirtualnych z systemami Windows i Linux zarejestrowanych przy użyciu serwerów z włączonym łukiem. | 15 minut |
+| Pobieranie wstępnie zdefiniowanego skryptu instalacji | Przejrzyj i dostosuj wstępnie zdefiniowany skrypt instalacji na potrzeby wdrożenia na dużą skalę agenta connected machine w celu obsługi wymagań dotyczących wdrażania zautomatyzowanego.<br><br> Przykładowe zasoby dołączania na dużą skalę:<br><br> <ul><li> [Podstawowy skrypt wdrażania na dużą skalę](onboard-service-principal.md)</ul></li> <ul><li>[Maszyny wirtualne z systemem Windows Server VMware vSphere dołączanie na dużą skalę](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[Dołączanie na dużą skalę na VMware vSphere wirtualnych z systemem Linux](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[Dołączanie wystąpień usługi EC2 usług AWS na dużą skalę przy użyciu urządzenia Ansible](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> <ul><li>[Wdrażanie na dużą skalę przy użyciu komunikacji zdalnej programu PowerShell](./onboard-powershell.md) (tylko system Windows)</ul></li>| Co najmniej jeden dzień w zależności od wymagań, procesów organizacyjnych (na przykład Change i Release Management) oraz używanej metody automatyzacji. |
+| [Tworzenie jednostki usługi](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Utwórz jednostkę usługi w celu łączenia maszyn w sposób nieinterakcyjny przy Azure PowerShell lub z portalu.| Jedna godzina |
+| Wdrażanie agenta Connected Machine na serwerach docelowych i na maszynach docelowych |Użyj narzędzia automatyzacji, aby wdrożyć skrypty na serwerach i połączyć je z platformą Azure.| Co najmniej jeden dzień w zależności od planu wydania i w przypadku etapowego wycofywania. |
+
+## <a name="phase-3-manage-and-operate"></a>Faza 3: Zarządzanie i obsługa
+
+Faza 3 widzi, jak administratorzy lub inżynierowie systemu umożliwiają automatyzację ręcznych zadań zarządzania i obsługi agenta connected machine i maszyny w trakcie ich cyklu życia.
+
+|Zadanie |Szczegóły |Czas trwania |
+|-----|-------|---------|
+|Tworzenie alertu Resource Health alertu |Jeśli serwer przestanie wysyłać pulsy na platformę Azure dłużej niż 15 minut, może to oznaczać, że serwer jest w trybie offline, połączenie sieciowe zostało zablokowane lub agent nie jest uruchomiony. Opracuj plan reagowania na te zdarzenia [](../..//service-health/resource-health-alert-monitor-guide.md) i ich badania, a następnie użyj alertów Resource Health, aby uzyskać powiadomienia o ich uruchomieniu.<br><br> Podczas konfigurowania alertu określ następujące elementy:<br> **Typ zasobu**  =  **Azure Arc serwerów z włączoną obsługą**<br> **Bieżący stan zasobu**  =  **Niedostępne**<br> **Poprzedni stan zasobu**  =  **Dostępne** | Jedna godzina |
+|Tworzenie alertu Azure Advisor alertu | Aby uzyskać najlepsze środowisko oraz najnowsze poprawki zabezpieczeń i błędów, zalecamy, aby agent serwerów z włączonymi Azure Arc był aktualny. W przypadku aktualnych agentów zostanie zidentyfikowany alert [Azure Advisor alertu](../../advisor/advisor-alerts-portal.md).<br><br> Podczas konfigurowania alertu określ następujące elementy:<br> **Typ zalecenia**  =  **Uaktualnianie do najnowszej wersji Azure Connected Machine Agent** | Jedna godzina |
+|[Przypisywanie zasad platformy Azure](../../governance/policy/assign-policy-portal.md) do zakresu subskrypcji lub grupy zasobów |Przypisz **zasady Azure Monitor dla maszyn wirtualnych** [zasobów](../../azure-monitor/vm/vminsights-enable-policy.md) (i inne, które spełniają Twoje potrzeby) do zakresu subskrypcji lub grupy zasobów. Azure Policy umożliwia przypisywanie definicji zasad, które instalują wymaganych agentów na potrzeby szczegółowych informacji o maszynach wirtualnych w środowisku.| Różnie |
+|[Włączanie Update Management dla serwerów z usługą Arc](../../automation/update-management/enable-from-automation-account.md) |Skonfiguruj Update Management w Azure Automation do zarządzania aktualizacjami systemu operacyjnego dla maszyn wirtualnych z systemami Windows i Linux zarejestrowanych na serwerach z usługą Arc. | 15 minut |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku Rozwiązywanie problemów z agentem podłączonych komputerów](troubleshoot-agent-onboard.md).
+* Informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku Rozwiązywanie problemów z agentem połączonej maszyny.](troubleshoot-agent-onboard.md)
 
-* Dowiedz się, jak uprościć wdrażanie za pomocą innych usług platformy Azure, takich jak [Konfiguracja stanu](../../automation/automation-dsc-overview.md) Azure Automation i inne obsługiwane [rozszerzenia maszyn wirtualnych platformy Azure](manage-vm-extensions.md).
+* Dowiedz się, jak uprościć wdrażanie za pomocą innych usług platformy Azure, takich jak Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) i inne obsługiwane rozszerzenia [maszyn wirtualnych platformy Azure.](manage-vm-extensions.md)

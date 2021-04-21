@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: e698061122fcc8ff8019907b5fdeba5b2df58407
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 605d1e0f67ac959d2c7325e04e2fd10d9d2419be
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779349"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829498"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji języka Python dla systemu Linux dla Azure App Service
 
@@ -18,7 +18,7 @@ W tym artykule [opisano, Azure App Service](overview.md) uruchamiać aplikacje j
 
 Aparat App Service wdrażania automatycznie aktywuje środowisko wirtualne i jest uruchamiany automatycznie podczas wdrażania repozytorium Git lub `pip install -r requirements.txt` pakietu [zip.](deploy-zip.md) [](deploy-local-git.md)
 
-Ten przewodnik zawiera kluczowe pojęcia i instrukcje dla deweloperów języka Python, którzy używają wbudowanego kontenera systemu Linux w App Service. Jeśli nigdy wcześniej nie używaliśmy języka Azure App Service, najpierw postępuj zgodnie z samouczkiem [Python Quickstart](quickstart-python.md) and Python with PostgreSQL (Język Python z [programem PostgreSQL).](tutorial-python-postgresql-app.md)
+Ten przewodnik zawiera kluczowe pojęcia i instrukcje dla deweloperów języka Python, którzy używają wbudowanego kontenera systemu Linux w App Service. Jeśli nigdy wcześniej nie używaliśmy języka Azure App Service, najpierw postępuj zgodnie z samouczkiem Python [Quickstart](quickstart-python.md) and Python with PostgreSQL (Język Python z [programem PostgreSQL).](tutorial-python-postgresql-app.md)
 
 Do konfiguracji możesz użyć [interfejsu Azure Portal](https://portal.azure.com) lub interfejsu wiersza polecenia platformy Azure:
 
@@ -95,7 +95,7 @@ Aby uzyskać więcej informacji na temat App Service i kompilowania aplikacji j�
 > Ustawienie o nazwie , jeśli zawiera lub 1, wyzwala kompilację `SCM_DO_BUILD_DURING_DEPLOYMENT` `true` Oryx podczas wdrażania. To ustawienie ma wartość true w przypadku wdrażania przy użyciu narzędzia git, polecenia interfejsu wiersza polecenia platformy Azure `az webapp up` Visual Studio Code.
 
 > [!NOTE]
-> Zawsze używaj ścieżek względnych we wszystkich skryptach przed kompilacją i po kompilacji, ponieważ kontener kompilacji, w którym działa program Oryx, różni się od kontenera środowiska uruchomieniowego, w którym jest uruchamiana aplikacja. Nigdy nie należy polegać na dokładnym umieszczeniu folderu projektu aplikacji w kontenerze (na przykład znajduje się on w folderze *site/wwwroot).*
+> Zawsze używaj ścieżek względnych we wszystkich skryptach przed kompilacją i po kompilacji, ponieważ kontener kompilacji, w którym działa program Oryx, różni się od kontenera środowiska uruchomieniowego, w którym jest uruchamiana aplikacja. Nigdy nie polegaj na dokładnym umieszczeniu folderu projektu aplikacji w kontenerze (na przykład że znajduje się on w folderze *site/wwwroot).*
 
 ## <a name="migrate-existing-applications-to-azure"></a>Migrowanie istniejących aplikacji na platformę Azure
 
@@ -108,15 +108,15 @@ Istniejące aplikacje internetowe można ponownie wdać na platformie Azure w na
 
 1. **Zasoby usługi App Service:** utwórz grupę zasobów, App Service plan i App Service internetową do hostowania aplikacji. Można to łatwo zrobić, wykonując początkowe wdrożenie kodu za pomocą polecenia interfejsu wiersza polecenia platformy Azure , jak pokazano w tece Samouczek: wdrażanie aplikacji internetowej Django za pomocą bazy danych `az webapp up` [PostgreSQL](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service)— wdrażanie kodu . Zastąp nazwy grupy zasobów, planu App Service i aplikacji internetowej, aby bardziej odpowiednie dla Twojej aplikacji.
 
-1. **Zmienne środowiskowe:** jeśli aplikacja wymaga żadnych zmiennych środowiskowych, utwórz równoważne [App Service ustawień aplikacji.](configure-common.md#configure-app-settings) Te App Service są wyświetlane w kodzie jako zmienne środowiskowe, zgodnie z opisem w tece [Zmienne środowiskowe programu Access.](#access-app-settings-as-environment-variables)
-    - Na przykład połączeniami z bazą danych często zarządza się za pomocą takich ustawień, jak pokazano w tece Samouczek: wdrażanie aplikacji internetowej Django za pomocą bazy danych [PostgreSQL](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database)— konfigurowanie zmiennych w celu połączenia z bazą danych .
+1. **Zmienne środowiskowe:** jeśli aplikacja wymaga żadnych zmiennych środowiskowych, utwórz równoważne [App Service aplikacji.](configure-common.md#configure-app-settings) Te App Service są wyświetlane w kodzie jako zmienne środowiskowe zgodnie z opisem w te tematu Access environment variables (Uzyskiwanie dostępu [do zmiennych środowiskowych).](#access-app-settings-as-environment-variables)
+    - Na przykład połączeniami z bazą danych często zarządza się za pomocą takich ustawień, jak pokazano w teście Samouczek: wdrażanie aplikacji internetowej Django za pomocą [programu PostgreSQL](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database)— konfigurowanie zmiennych w celu połączenia bazy danych .
     - Zobacz [Ustawienia produkcyjne dla aplikacji Django,](#production-settings-for-django-apps) aby uzyskać szczegółowe ustawienia dla typowych aplikacji Django.
 
 1. **Uruchamianie aplikacji:** przejrzyj [](#container-startup-process) sekcję Proces uruchamiania kontenera w dalszej części tego artykułu, aby zrozumieć, App Service próbuje uruchomić aplikację. App Service domyślnie używa serwera internetowego Gunicorn, który musi być w stanie znaleźć obiekt aplikacji *lub wsgi.py* folderze. W razie potrzeby możesz dostosować [polecenie uruchamiania](#customize-startup-command).
 
-1. **Ciągłe wdrażanie:** skonfiguruj ciągłe wdrażanie zgodnie z opisem w te tematach [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment (Ciągłe wdrażanie w usłudze Azure App Service lub Kudu) lub Deploy to App Service using GitHub Actions if using GitHub Actions (Wdrażanie w usłudze App Service przy użyciu funkcji [GitHub Actions](./deploy-continuous-deployment.md) w przypadku korzystania z funkcji GitHub Actions).
+1. **Ciągłe wdrażanie:** skonfiguruj ciągłe wdrażanie zgodnie z opisem w tesłudze Continuous [deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment (Ciągłe wdrażanie w usłudze Azure App Service lub Kudu) albo Deploy to App Service using GitHub Actions using GitHub Actions (Wdrażanie w usłudze App Service przy użyciu funkcji [GitHub Actions](./deploy-continuous-deployment.md) w przypadku korzystania z funkcji GitHub Actions).
 
-1. **Akcje niestandardowe:** aby wykonać akcje w kontenerze App Service, który hostuje aplikację, takie jak migracje bazy danych Django, możesz nawiązać połączenie z kontenerem za pośrednictwem [połączenia SSH.](configure-linux-open-ssh-session.md) Aby uzyskać przykład uruchamiania migracji baz danych Django, zobacz [Tutorial: Deploy a Django web app with PostgreSQL - run database migrations](tutorial-python-postgresql-app.md#43-run-django-database-migrations)(Samouczek: wdrażanie aplikacji internetowej Django za pomocą bazy danych PostgreSQL — uruchamianie migracji baz danych).
+1. **Akcje niestandardowe:** aby wykonać akcje w kontenerze App Service, który hostuje aplikację, takie jak migracje bazy danych Django, możesz nawiązać połączenie z kontenerem za [pośrednictwem połączenia SSH.](configure-linux-open-ssh-session.md) Aby uzyskać przykład uruchamiania migracji baz danych Django, zobacz [Tutorial: Deploy a Django web app with PostgreSQL - run database migrations](tutorial-python-postgresql-app.md#43-run-django-database-migrations)(Samouczek: wdrażanie aplikacji internetowej Django za pomocą bazy danych PostgreSQL — uruchamianie migracji bazy danych).
     - W przypadku korzystania z ciągłego wdrażania można wykonać te akcje przy użyciu poleceń po kompilacji, jak opisano wcześniej w obszarze [Dostosowywanie automatyzacji kompilacji.](#customize-build-automation)
 
 Po ukończeniu tych kroków powinno być możliwe zatwierdzanie zmian w repozytorium źródłowym i automatyczne wdrażanie tych aktualizacji w App Service.
@@ -125,40 +125,40 @@ Po ukończeniu tych kroków powinno być możliwe zatwierdzanie zmian w repozyto
 
 W przypadku środowiska produkcyjnego, takiego Azure App Service, aplikacje Django powinny być zgodne z listą kontrolną wdrażania [django](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) (djangoproject.com).
 
-W poniższej tabeli opisano ustawienia produkcyjne, które są istotne dla platformy Azure. Te ustawienia są definiowane w pliku *setting.py* aplikacji.
+W poniższej tabeli opisano ustawienia produkcyjne, które są istotne dla platformy Azure. Te ustawienia są definiowane w *pliku* setting.py aplikacji.
 
 | Ustawienie Django | Instrukcje dotyczące platformy Azure |
 | --- | --- |
-| `SECRET_KEY` | Przechowuj wartość w ustawieniach App Service zgodnie z opisem w te tematu Access app settings as environment variables (Uzyskiwanie dostępu do ustawień [aplikacji jako zmiennych środowiskowych).](#access-app-settings-as-environment-variables) Możesz też przechowywać [wartość jako "klucz tajny"](../key-vault/secrets/quick-create-python.md)w Azure Key Vault . |
-| `DEBUG` | Utwórz ustawienie na App Service o wartości 0 (false), a następnie załaduj `DEBUG` wartość jako zmienną środowiskową. W środowisku dewelopera utwórz `DEBUG` zmienną środowiskową o wartości 1 (true). |
-| `ALLOWED_HOSTS` | W środowisku produkcyjnym django wymaga dołączyć adres URL aplikacji do tablicy settings.py `ALLOWED_HOSTS` .  Ten adres URL można pobrać w czasie wykonywania przy użyciu kodu `os.environ['WEBSITE_HOSTNAME']` . App Service automatycznie ustawia `WEBSITE_HOSTNAME` zmienną środowiskową na adres URL aplikacji. |
-| `DATABASES` | Zdefiniuj ustawienia App Service dla połączenia z bazą danych i załaduj je jako zmienne środowiskowe, aby wypełnić [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) słownik. Możesz też przechowywać wartości (w szczególności nazwę użytkownika i hasło) jako [Azure Key Vault tajne.](../key-vault/secrets/quick-create-python.md) |
+| `SECRET_KEY` | Przechowuj wartość w ustawieniach App Service zgodnie z opisem w tece Access app settings as environment variables (Uzyskiwanie dostępu do ustawień aplikacji [jako zmiennych środowiskowych).](#access-app-settings-as-environment-variables) Możesz też przechowywać [wartość jako "klucz tajny"](../key-vault/secrets/quick-create-python.md)w Azure Key Vault . |
+| `DEBUG` | Utwórz ustawienie na App Service o wartości 0 (false), a następnie załaduj `DEBUG` wartość jako zmienną środowiskową. W środowisku projektowym utwórz `DEBUG` zmienną środowiskową o wartości 1 (true). |
+| `ALLOWED_HOSTS` | W środowisku produkcyjnym django wymaga, aby adres URL aplikacji był uwzględniany `ALLOWED_HOSTS` w tablicy *settings.py*. Ten adres URL można pobrać w czasie wykonywania przy użyciu kodu `os.environ['WEBSITE_HOSTNAME']` . App Service automatycznie ustawia `WEBSITE_HOSTNAME` zmienną środowiskową na adres URL aplikacji. |
+| `DATABASES` | Zdefiniuj ustawienia App Service dla połączenia z bazą danych i załaduj je jako zmienne środowiskowe w celu wypełnienia [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) słownika. Możesz też przechowywać wartości (szczególnie nazwę użytkownika i hasło) jako wpisy [Azure Key Vault tajne.](../key-vault/secrets/quick-create-python.md) |
 
 ## <a name="serve-static-files-for-django-apps"></a>Serve static files for Django apps (Obsługiwać pliki statyczne dla aplikacji Django)
 
 Jeśli aplikacja internetowa Django zawiera statyczne pliki frontonia, najpierw postępuj zgodnie z instrukcjami dotyczącymi zarządzania plikami statycznych [w](https://docs.djangoproject.com/en/3.1/howto/static-files/) dokumentacji django.
 
-W App Service następnie wprowadzić następujące modyfikacje:
+Na App Service następnie wprowadzić następujące zmiany:
 
-1. Rozważ użycie zmiennych środowiskowych (w przypadku tworzenia lokalnego) i ustawień aplikacji (podczas wdrażania w chmurze) w celu dynamicznego ustawienia platformy Django `STATIC_URL` `STATIC_ROOT` i zmiennych. Na przykład:    
+1. Rozważ użycie zmiennych środowiskowych (w przypadku tworzenia lokalnego) i ustawień aplikacji (podczas wdrażania w chmurze) w celu dynamicznego ustawienia django `STATIC_URL` `STATIC_ROOT` i zmiennych. Na przykład:    
 
     ```python
     STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
     STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
     ```
 
-    `DJANGO_STATIC_URL` I `DJANGO_STATIC_ROOT` można zmieniać w razie potrzeby w środowisku lokalnym i w chmurze. Jeśli na przykład proces kompilacji plików statycznych umieszcza je w folderze o nazwie , można ustawić wartość , aby `django-static` `DJANGO_STATIC_URL` uniknąć `/django-static/` używania wartości domyślnej.
+    `DJANGO_STATIC_URL` I `DJANGO_STATIC_ROOT` można zmieniać w razie potrzeby w środowiskach lokalnych i w chmurze. Jeśli na przykład proces kompilacji dla plików statycznych umieszcza je w folderze o nazwie , można ustawić wartość , aby `django-static` `DJANGO_STATIC_URL` uniknąć `/django-static/` używania wartości domyślnej.
 
-1. Jeśli masz skrypt przed kompilacją, który generuje pliki statyczne w innym folderze, dołącz ten folder do zmiennej Django, aby proces Django znalazł `STATICFILES_DIRS` `collectstatic` je. Jeśli na przykład uruchamiasz plik `yarn build` w folderze frontonie, a yarn generuje folder zawierający pliki statyczne, dołącz `build/static` ten folder w następujący sposób:
+1. Jeśli masz skrypt przed kompilacją, który generuje pliki statyczne w innym folderze, dołącz ten folder do zmiennej Django, aby proces `STATICFILES_DIRS` Django `collectstatic` je znalazł. Jeśli na przykład uruchamiasz plik `yarn build` w folderze frontonia, a yarn wygeneruje folder zawierający pliki statyczne, dołącz `build/static` ten folder w następujący sposób:
 
     ```python
     FRONTEND_DIR = "path-to-frontend-folder" 
     STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
     ```
 
-    W tym miejscu , aby utworzyć ścieżkę do miejsca uruchomienia `FRONTEND_DIR` narzędzia kompilacji, takiego jak yarn. Możesz ponownie użyć zmiennej środowiskowej i ustawienia aplikacji zgodnie z potrzebami.
+    W tym `FRONTEND_DIR` miejscu , aby utworzyć ścieżkę do miejsca, w którym jest uruchamiane narzędzie do kompilacji, takie jak yarn. Możesz ponownie użyć zmiennej środowiskowej i ustawienia aplikacji zgodnie z potrzebami.
 
-1. Dodaj `whitenoise` do *requirements.txt* plików. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) to pakiet języka Python, który ułatwia produkcyjnej aplikacji Django obsługa własnych plików statycznych. Whitenoise w szczególności obsługuje pliki, które znajdują się w folderze określonym przez zmienną `STATIC_ROOT` Django.
+1. Dodaj `whitenoise` plik *requirements.txt* pliku. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) to pakiet języka Python, który ułatwia produkcyjnej aplikacji Django obsługa własnych plików statycznych. Whitenoise w szczególności obsługuje pliki, które znajdują się w folderze określonym przez zmienną `STATIC_ROOT` Django.
 
 1. W pliku *settings.py* dodaj następujący wiersz dla whitenoise:
 
@@ -169,8 +169,10 @@ W App Service następnie wprowadzić następujące modyfikacje:
 1. Zmodyfikuj `MIDDLEWARE` również listy i , aby uwzględnić `INSTALLED_APPS` whitenoise:
 
     ```python
-    MIDDLEWARE = [
-        "whitenoise.middleware.WhiteNoiseMiddleware",
+    MIDDLEWARE = [                                                                   
+        'django.middleware.security.SecurityMiddleware',
+        # Add whitenoise middleware after the security middleware                             
+        'whitenoise.middleware.WhiteNoiseMiddleware',
         # Other values follow
     ]
 
@@ -182,22 +184,22 @@ W App Service następnie wprowadzić następujące modyfikacje:
 
 ## <a name="container-characteristics"></a>Właściwości kontenera
 
-Po wdrożeniu w App Service aplikacje języka Python działają w kontenerze platformy Docker dla systemu Linux zdefiniowanym w [repozytorium GitHub](https://github.com/Azure-App-Service/python)języka App Service Python. Konfiguracje obrazów można znaleźć w katalogach specyficznych dla wersji.
+Po wdrożeniu w usłudze App Service python aplikacje działają w kontenerze platformy Docker systemu Linux zdefiniowanym w [repozytorium GitHub](https://github.com/Azure-App-Service/python)języka Python App Service python. Konfiguracje obrazów można znaleźć w katalogach specyficznych dla wersji.
 
 Ten kontener ma następujące cechy:
 
 - Aplikacje są uruchamiane przy użyciu [serwera HTTP Gunicorn WSGI](https://gunicorn.org/) z dodatkowymi argumentami `--bind=0.0.0.0 --timeout 600`.
     - Ustawienia konfiguracji serwera Gunicorn można podać za pośrednictwem *pliku gunicorn.conf.py* w katalogu głównym projektu, zgodnie z opisem w tece Omówienie konfiguracji serwera [Gunicorn](https://docs.gunicorn.org/en/stable/configure.html#configuration-file) (docs.gunicorn.org). Możesz też dostosować [polecenie uruchamiania](#customize-startup-command).
 
-    - Aby chronić aplikację internetową przed przypadkowymi lub celowym atakami DDOS, serwer Gunicorn jest uruchamiany za zwrotnym serwerem proxy Nginx, zgodnie z opisem w temacie [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html) (docs.gunicorn.org) (Wdrażanie serwera Gunicorn (docs.gunicorn.org).
+    - Aby chronić aplikację internetową przed przypadkowymi lub celowym atakami DDOS, serwer Gunicorn jest uruchamiany za zwrotnym serwerem proxy serwera Nginx zgodnie z opisem w temacie Wdrażanie serwera [Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html) (docs.gunicorn.org).
 
-- Domyślnie podstawowy obraz kontenera zawiera tylko platformę internetową Flask, ale kontener obsługuje inne struktury zgodne ze standardem WSGI i zgodne z platformą Python 3.6+, takie jak Django.
+- Domyślnie podstawowy obraz kontenera zawiera tylko platformę internetową Flask, ale kontener obsługuje inne struktury zgodne ze standardem WSGI i zgodne z platformą Python 3.6+, np. Django.
 
-- Aby zainstalować dodatkowe pakiety, takie jak Django,requirements.txt [*w*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) katalogu głównym projektu, który określa bezpośrednie zależności. App Service zainstaluje te zależności automatycznie podczas wdrażania projektu.
+- Aby zainstalować dodatkowe pakiety, takie jak Django,requirements.txt [*pliku*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) w katalogu głównym projektu, który określa bezpośrednie zależności. App Service następnie automatycznie zainstaluje te zależności podczas wdrażania projektu.
 
-    Plik *requirements.txt* musi *znajdować* się w katalogu głównym projektu, aby można było zainstalować zależności. W przeciwnym razie proces kompilacji zgłasza błąd: "Nie można odnaleźć setup.py ani requirements.txt; Nie uruchamiaj instalacji pip". Jeśli wystąpi ten błąd, sprawdź lokalizację pliku wymagań.
+    Plik *requirements.txt* musi *znajdować* się w katalogu głównym projektu, aby można było zainstalować zależności. W przeciwnym razie proces kompilacji zgłasza błąd: "Nie można odnaleźć setup.py lub requirements.txt; Nie uruchamiaj instalacji pip". Jeśli wystąpi ten błąd, sprawdź lokalizację pliku wymagań.
 
-- App Service automatycznie definiuje zmienną środowiskową o nazwie z adresem URL aplikacji `WEBSITE_HOSTNAME` internetowej, taką jak `msdocs-hello-world.azurewebsites.net` . Definiuje również nazwę `WEBSITE_SITE_NAME` aplikacji, taką jak `msdocs-hello-world` . 
+- App Service automatycznie definiuje zmienną środowiskową o nazwie z adresem URL aplikacji `WEBSITE_HOSTNAME` internetowej, na przykład `msdocs-hello-world.azurewebsites.net` . Definiuje również `WEBSITE_SITE_NAME` nazwę aplikacji, taką jak `msdocs-hello-world` . 
    
 - Narzędzia npm i Node.js są zainstalowane w kontenerze, aby można było uruchamiać narzędzia kompilacji oparte na węźle, takie jak yarn.
 
@@ -221,9 +223,9 @@ W przypadku aplikacji Django usługa App Service szuka pliku o nazwie `wsgi.py` 
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Jeśli chcesz mieć bardziej konkretną kontrolę nad poleceniem uruchamiania, użyj niestandardowego polecenia [uruchamiania,](#customize-startup-command)zastąp wartość nazwą folderu zawierającego wsgi.py i dodaj argument, jeśli ten moduł nie znajduje się w katalogu głównym `<module>`  `--chdir` projektu. Jeśli na przykład twoja *wsgi.py* znajduje się w obszarze *knboard/backend/config* w katalogu głównym projektu, użyj argumentów `--chdir knboard/backend config.wsgi` .
+Jeśli chcesz mieć bardziej konkretną kontrolę nad poleceniem uruchamiania, użyj niestandardowego polecenia [uruchamiania,](#customize-startup-command)zastąp nazwą folderu zawierającego wsgi.py i dodaj argument, jeśli ten moduł nie znajduje się w katalogu głównym `<module>`  `--chdir` projektu. Jeśli na przykład plik *wsgi.py* w katalogu głównym projektu w obszarze *knboard/backend/config,* użyj argumentów `--chdir knboard/backend config.wsgi` .
 
-Aby włączyć rejestrowanie produkcyjne, dodaj parametry i , jak pokazano w `--access-logfile` `--error-logfile` przykładach dla [niestandardowych poleceń uruchamiania](#customize-startup-command).
+Aby włączyć rejestrowanie w środowisku produkcyjnym, dodaj parametry i , jak pokazano w `--access-logfile` `--error-logfile` przykładach dla [niestandardowych poleceń uruchamiania](#customize-startup-command).
 
 ### <a name="flask-app"></a>Aplikacja Flask
 
@@ -241,17 +243,17 @@ Jeśli główny moduł aplikacji znajduje się w innym pliku, użyj innej nazwy 
 
 ### <a name="default-behavior"></a>Zachowanie domyślne
 
-Jeśli App Service nie znajdzie polecenia niestandardowego, aplikacji Django ani aplikacji Flask, uruchomi domyślną aplikację tylko do odczytu znajdującą się w folderze _opt/defaultsite_ i pokazaną na poniższej ilustracji.
+Jeśli aplikacja App Service nie znajdzie polecenia niestandardowego, aplikacji Django ani aplikacji Flask, uruchomi domyślną aplikację tylko do odczytu znajdującą się w folderze _opt/defaultsite_ i pokazaną na poniższej ilustracji.
 
 Jeśli wdrożono kod i nadal jest wyświetlana aplikacja domyślna, zobacz Rozwiązywanie problemów [— aplikacja nie jest wyświetlana.](#app-doesnt-appear)
 
 [![Domyślna strona internetowa usługi App Service w systemie Linux](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
 
-Jeśli spodziewasz się, że wdrożona aplikacja będzie wyświetlana zamiast aplikacji domyślnej, zobacz [Troubleshooting - App doesn't appear](#app-doesnt-appear)(Rozwiązywanie problemów — aplikacja nie jest wyświetlana).
+Jeśli spodziewasz się, że wdrożona aplikacja będzie wyświetlana zamiast aplikacji domyślnej, zobacz Rozwiązywanie problemów [— aplikacja nie jest wyświetlana.](#app-doesnt-appear)
 
 ## <a name="customize-startup-command"></a>Dostosowywanie polecenia uruchamiania
 
-Jak wspomniano wcześniej w tym artykule, możesz podać ustawienia konfiguracji serwera Gunicorn za pośrednictwem *pliku gunicorn.conf.py* w katalogu głównym projektu, zgodnie z opisem w artykule Omówienie konfiguracji serwera [Gunicorn.](https://docs.gunicorn.org/en/stable/configure.html#configuration-file)
+Jak wspomniano wcześniej w tym artykule, ustawienia konfiguracji serwera Gunicorn można podać za pośrednictwem pliku *gunicorn.conf.py* w katalogu głównym projektu, zgodnie z opisem w artykule Omówienie konfiguracji serwera [Gunicorn.](https://docs.gunicorn.org/en/stable/configure.html#configuration-file)
 
 Jeśli taka konfiguracja nie jest wystarczająca, możesz kontrolować zachowanie podczas uruchamiania kontenera, podając niestandardowe polecenie uruchamiania lub wiele poleceń w pliku polecenia uruchamiania. Plik polecenia uruchamiania może używać dowolnej nazwy, takiej jak *startup.sh*, *startup.cmd,* *startup.txt* i tak dalej.
 
@@ -388,7 +390,7 @@ Poniższe sekcje zawierają dodatkowe wskazówki dotyczące konkretnych problem�
     - Upewnij się, że używasz usługi App Service dla systemu Linux, a nie wystąpienia opartego na systemie Windows. W interfejsie wiersza polecenia platformy Azure uruchom polecenie `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, zastępując zmienne `<resource-group-name>` i `<app-name>` odpowiednimi wartościami. Powinny zostać wyświetlone dane wyjściowe `app,linux`. W przeciwnym razie ponownie utwórz usługę App Service i wybierz system Linux.
     
     - Użyj [połączenia SSH,](#open-ssh-session-in-browser) aby połączyć się bezpośrednio z kontenerem App Service i sprawdzić, czy pliki istnieją w *folderze site/wwwroot.* Jeśli pliki nie istnieją, użyj następujących kroków:
-      1. Utwórz ustawienie aplikacji o nazwie o wartości 1, ponownie wdąć kod, odczekaj kilka minut, a następnie spróbuj ponownie uzyskać `SCM_DO_BUILD_DURING_DEPLOYMENT` dostęp do aplikacji. Aby uzyskać więcej informacji na temat tworzenia ustawień aplikacji, zobacz [Konfigurowanie App Service aplikacji w Azure Portal](configure-common.md).
+      1. Utwórz ustawienie aplikacji o nazwie o wartości 1, ponownie wdychuj kod, odczekaj kilka minut, a następnie spróbuj ponownie uzyskać `SCM_DO_BUILD_DURING_DEPLOYMENT` dostęp do aplikacji. Aby uzyskać więcej informacji na temat tworzenia ustawień aplikacji, zobacz [Konfigurowanie App Service aplikacji w Azure Portal](configure-common.md).
       1. Przejrzyj proces wdrażania, [sprawdź dzienniki wdrażania,](#access-deployment-logs)popraw wszelkie błędy i ponownie wdaj aplikację.
     
     - Jeśli pliki istnieją, oznacza to, że usługa App Service nie mogła zidentyfikować określonego pliku startowego. Sprawdź, czy aplikacja ma strukturę zgodnie [](#django-app) z oczekiwaniami App Service django lub [Flask,](#flask-app)lub użyj [niestandardowego polecenia uruchamiania](#customize-startup-command).

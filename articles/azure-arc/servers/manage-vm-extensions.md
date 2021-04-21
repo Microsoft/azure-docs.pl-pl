@@ -3,12 +3,12 @@ title: Zarządzanie rozszerzeniami maszyny wirtualnej Azure Arc serwerami z wł�
 description: Azure Arc mogą zarządzać wdrażaniem rozszerzeń maszyn wirtualnych, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji z maszynami wirtualnymi spoza platformy Azure.
 ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 67f1b5b3db6ef446342e8381d54d487af1f3426a
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: e28cd7753fc85f2e40385c65392fea73502aa05b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389795"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832846"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Zarządzanie rozszerzeniami maszyn wirtualnych na serwerach z obsługą usługi Azure Arc
 
@@ -30,7 +30,7 @@ Azure Arc obsługi rozszerzeń maszyn wirtualnych z włączonymi serwerami zapew
 
 - Zbieraj dane dzienników do analizy za pomocą dzienników [Azure Monitor,](../../azure-monitor/logs/data-platform-logs.md) włączając rozszerzenie maszyny wirtualnej agenta usługi Log Analytics. Jest to przydatne w przypadku wykonywania złożonej analizy danych z różnych źródeł.
 
-- W [Azure Monitor dla maszyn wirtualnych](../../azure-monitor/vm/vminsights-overview.md)program analizuje wydajność maszyn wirtualnych z systemami Windows i Linux oraz monitoruje ich procesy i zależności od innych zasobów i procesów zewnętrznych. Można to osiągnąć, włączając zarówno agenta usługi Log Analytics, jak i rozszerzenia maszyny wirtualnej agenta zależności.
+- Dzięki [analizom maszyny](../../azure-monitor/vm/vminsights-overview.md)wirtualnej analizuje ona wydajność maszyn wirtualnych z systemami Windows i Linux oraz monitoruje ich procesy i zależności od innych zasobów i procesów zewnętrznych. Można to osiągnąć, włączając zarówno agenta usługi Log Analytics, jak i rozszerzenia maszyny wirtualnej agenta zależności.
 
 - Pobieranie i wykonywanie skryptów na połączonych maszynach hybrydowych przy użyciu rozszerzenia niestandardowego skryptu. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalacji oprogramowania lub innych zadań konfiguracji lub zarządzania.
 
@@ -44,7 +44,7 @@ Funkcja rozszerzenia maszyny wirtualnej jest dostępna tylko na liście [obsług
 
 W tej wersji obsługujemy następujące rozszerzenia maszyn wirtualnych na maszynach z systemami Windows i Linux.
 
-Aby dowiedzieć się więcej o Azure Connected Machine agenta i szczegółowe informacje o składniku agenta rozszerzenia, zobacz [Omówienie agenta](agent-overview.md#agent-component-details).
+Aby dowiedzieć się więcej o Azure Connected Machine agenta rozszerzenia i szczegółowe informacje o składniku agenta rozszerzenia, zobacz [Omówienie agenta](agent-overview.md#agent-component-details).
 
 > [!NOTE]
 > Niedawno usunięto obsługę rozszerzenia maszyny wirtualnej DSC dla serwerów z usługą Arc. Alternatywnie zalecamy użycie rozszerzenia niestandardowego skryptu do zarządzania konfiguracją po wdrożeniu serwera lub maszyny.
@@ -78,9 +78,9 @@ Ta funkcja zależy od następujących dostawców zasobów platformy Azure w subs
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
 
-Jeśli nie są jeszcze zarejestrowani, wykonaj kroki opisane w te tematu Register Azure resource providers (Rejestrowanie [dostawców zasobów platformy Azure).](agent-overview.md#register-azure-resource-providers)
+Jeśli nie są jeszcze zarejestrowani, postępuj zgodnie z instrukcjami w obszarze [Rejestrowanie dostawców zasobów platformy Azure.](agent-overview.md#register-azure-resource-providers)
 
-Zapoznaj się z dokumentacją każdego rozszerzenia maszyny wirtualnej przywoływaną w poprzedniej tabeli, aby dowiedzieć się, czy ma on jakiekolwiek wymagania sieciowe lub systemowe. Może to pomóc uniknąć problemów z łącznością z usługą lub funkcją platformy Azure, która opiera się na tym rozszerzeniu maszyny wirtualnej.
+Zapoznaj się z dokumentacją każdego rozszerzenia maszyny wirtualnej, do których odwołuje się poprzednia tabela, aby dowiedzieć się, czy ma ono jakiekolwiek wymagania sieciowe lub systemowe. Może to pomóc uniknąć problemów z łącznością z usługą lub funkcją platformy Azure, która opiera się na tym rozszerzeniu maszyny wirtualnej.
 
 ### <a name="log-analytics-vm-extension"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics
 
@@ -97,7 +97,7 @@ Rozszerzenie Key Vault maszyny wirtualnej (wersja zapoznawcza) nie obsługuje na
 Wdrażanie rozszerzenia maszyny Key Vault wirtualnej (wersja zapoznawcza) jest obsługiwane tylko przy użyciu:
 
 - Interfejs wiersza polecenia platformy Azure
-- W Azure PowerShell
+- The Azure PowerShell
 - Szablon usługi Azure Resource Manager
 
 Przed wdrożeniem rozszerzenia należy wykonać następujące czynności:
