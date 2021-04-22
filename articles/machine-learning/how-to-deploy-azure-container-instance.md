@@ -1,5 +1,5 @@
 ---
-title: Jak wdrażać modele w Azure Container Instances
+title: Jak wdrażać modele na Azure Container Instances
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak wdrażać modele Azure Machine Learning jako usługę internetową przy użyciu Azure Container Instances.
 services: machine-learning
@@ -11,21 +11,21 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 1eaf58f4f951547e6e4e461803e79844f99e630a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 845a146d9e3f920f3313a80f1bb8c845cb781f37
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501743"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875543"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Wdrażanie modelu w usłudze Azure Container Instances
 
-Dowiedz się, jak używać Azure Machine Learning do wdrażania modelu jako usługi internetowej na platformie Azure Container Instances (ACI). Użyj Azure Container Instances, jeśli jest spełnione jeden z następujących warunków:
+Dowiedz się, jak używać Azure Machine Learning do wdrażania modelu jako usługi internetowej na platformie Azure Container Instances (ACI). Użyj Azure Container Instances, jeśli jeden z następujących warunków jest prawdziwy:
 
-- Musisz szybko wdrożyć i zweryfikować model. Nie trzeba wcześniej tworzyć kontenerów ACI. Są one tworzone w ramach procesu wdrażania.
+- Musisz szybko wdrożyć i zweryfikować model. Nie musisz wcześniej tworzyć kontenerów ACI. Są one tworzone w ramach procesu wdrażania.
 - Testowany jest model, który jest w trakcie opracowywania. 
 
-Aby uzyskać informacje o limitach przydziału i dostępności regionów dla usługi ACI, zobacz [Artykuł Limity przydziału](../container-instances/container-instances-quotas.md) i dostępność Azure Container Instances regionów.
+Aby uzyskać informacje o limitach przydziału i dostępności regionów dla usługi ACI, zobacz artykuł Quotas and region availability for Azure Container Instances article [(Limity](../container-instances/container-instances-quotas.md) przydziału i dostępność regionów dla Azure Container Instances usługi ACI).
 
 > [!IMPORTANT]
 > Zdecydowanie zaleca się debugowanie lokalnie przed wdrożeniem w usłudze internetowej. Aby uzyskać więcej informacji, zobacz [Debugowanie lokalne](./how-to-troubleshoot-deployment-local.md)
@@ -38,31 +38,31 @@ Aby uzyskać informacje o limitach przydziału i dostępności regionów dla us�
 
 - Model uczenia maszynowego zarejestrowany w obszarze roboczym. Jeśli nie masz zarejestrowanego modelu, zobacz [Jak i gdzie wdrażać modele.](how-to-deploy-and-where.md)
 
-- Rozszerzenie [interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)platformy Azure Machine Learning service , Azure Machine Learning python [SDK](/python/api/overview/azure/ml/intro)lub rozszerzenie [Azure Machine Learning Visual Studio Code .](tutorial-setup-vscode-extension.md)
+- Rozszerzenie [interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)platformy Azure Machine Learning service , Azure Machine Learning Python [SDK](/python/api/overview/azure/ml/intro)lub rozszerzenie [Azure Machine Learning Visual Studio Code .](tutorial-setup-vscode-extension.md)
 
 - We __fragmentach__ kodu w języku Python w tym artykule założono, że ustawiono następujące zmienne:
 
-    * `ws` — ustaw obszar roboczy.
-    * `model` — ustaw na zarejestrowany model.
+    * `ws` — Ustaw na swój obszar roboczy.
+    * `model` — ustaw wartość na zarejestrowany model.
     * `inference_config` — ustaw na konfigurację wnioskowania dla modelu.
 
-    Aby uzyskać więcej informacji na temat ustawiania tych zmiennych, zobacz How and where to deploy models (Jak [i gdzie wdrażać modele).](how-to-deploy-and-where.md)
+    Aby uzyskać więcej informacji na temat ustawiania tych zmiennych, zobacz [How and where to deploy models (Jak i gdzie wdrażać modele).](how-to-deploy-and-where.md)
 
-- We __fragmentach__ kodu interfejsu wiersza polecenia w tym artykule założono, że utworzono `inferenceconfig.json` dokument. Aby uzyskać więcej informacji na temat tworzenia tego dokumentu, zobacz [How and where to deploy models (Jak i gdzie wdrażać modele).](how-to-deploy-and-where.md)
+- Fragmenty __kodu__ interfejsu wiersza polecenia w tym artykule zakładają, że utworzono `inferenceconfig.json` dokument. Aby uzyskać więcej informacji na temat tworzenia tego dokumentu, zobacz How and where to deploy models (Jak [i gdzie wdrażać modele).](how-to-deploy-and-where.md)
 
 ## <a name="limitations"></a>Ograniczenia
 
-* W przypadku Azure Container Instances w sieci wirtualnej sieć wirtualna musi znajdować się w tej samej grupie zasobów co Azure Machine Learning wirtualnej.
+* W przypadku Azure Container Instances w sieci wirtualnej sieć wirtualna musi znajdować się w tej samej grupie zasobów co Azure Machine Learning roboczy.
 * W przypadku Azure Container Instances wewnątrz sieci wirtualnej nie Azure Container Registry (ACR) dla obszaru roboczego.
 
-Aby uzyskać więcej informacji, zobacz [How to secure inferencing with virtual networks (Jak zabezpieczyć wnioskowanie za pomocą sieci wirtualnych).](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci)
+Aby uzyskać więcej informacji, [zobacz How to secure inferencing with virtual networks](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci)(Jak zabezpieczyć wnioskowanie przy użyciu sieci wirtualnych).
 
 ## <a name="deploy-to-aci"></a>Wdrażanie w usłudze ACI
 
-Aby wdrożyć model do Azure Container Instances, utwórz konfigurację wdrożenia __opisującą__ wymagane zasoby obliczeniowe. Na przykład liczba rdzeni i pamięć. Potrzebna jest również konfiguracja __wnioskowania__, która opisuje środowisko potrzebne do hostowania modelu i usługi internetowej. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz How and where to deploy models (Jak [i gdzie wdrażać modele).](how-to-deploy-and-where.md)
+Aby wdrożyć model do Azure Container Instances, utwórz konfigurację wdrożenia __opisującą__ wymagane zasoby obliczeniowe. Na przykład liczba rdzeni i pamięć. Potrzebna jest również konfiguracja __wnioskowania__ opisującą środowisko potrzebne do hostowania modelu i usługi internetowej. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz How and where to deploy models (Jak [i gdzie wdrażać modele).](how-to-deploy-and-where.md)
 
 > [!NOTE]
-> * ACI jest odpowiednie tylko w przypadku małych modeli, które mają rozmiar poniżej 1 GB. 
+> * ACI jest odpowiednia tylko w przypadku małych modeli o rozmiarze poniżej 1 GB. 
 > * Zalecamy używanie usługi AKS z jednym węzłem do tworzenia i testowania większych modeli.
 > * Liczba modeli do wdrożenia jest ograniczona do 1000 modeli na wdrożenie (na kontener). 
 
@@ -94,7 +94,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-Aby uzyskać więcej informacji, zobacz az ml model deploy reference [(Az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference). 
+Aby uzyskać więcej informacji, zobacz informacje dotyczące [wdrażania modelu az ml.](/cli/azure/ml/model#az_ml_model_deploy) 
 
 ## <a name="using-vs-code"></a>Korzystanie z programu VS Code
 

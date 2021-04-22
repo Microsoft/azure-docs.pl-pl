@@ -1,77 +1,77 @@
 ---
-title: Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server
-description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby tworzyć kopie zapasowe maszyn wirtualnych przy użyciu Azure Backup Server.
+title: Kopii zapasowej Azure VMware Solution wirtualnych za pomocą Azure Backup Server
+description: Skonfiguruj środowisko Azure VMware Solution, aby konfigurować kopię zapasową maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: 163065556b7dbc979d68613744ea827c209d9fda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92affbf883215f0d051115fb64e9e7bf7a1430b3
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618920"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871781"
 ---
-# <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server
+# <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Kopii zapasowej Azure VMware Solution wirtualnych za pomocą Azure Backup Server
 
-W tym artykule opisano tworzenie kopii zapasowych maszyn wirtualnych VMware działających na platformie Azure VMware przy użyciu Azure Backup Server. Najpierw należy dokładnie zapoznać się z tematem [Konfigurowanie rozwiązania Microsoft Azure Backup Server dla oprogramowania VMware platformy Azure](set-up-backup-server-for-azure-vmware-solution.md).
+W tym artykule będziemy back up VMware virtual machines (VMs) running on Azure VMware Solution with Azure Backup Server(Maszyny wirtualne VMware) uruchomione na Azure VMware Solution z Azure Backup Server. Najpierw dokładnie przejmij [kroki konfiguracji Microsoft Azure Backup Server dla Azure VMware Solution.](set-up-backup-server-for-azure-vmware-solution.md)
 
-Następnie przeprowadzimy przez wszystkie niezbędne procedury, aby:
+Następnie przejedzemy przez wszystkie niezbędne procedury, aby:
 
 > [!div class="checklist"] 
-> * Skonfiguruj bezpieczny kanał, aby Azure Backup Server mógł komunikować się z serwerami VMware za pośrednictwem protokołu HTTPS. 
-> * Dodaj poświadczenia konta do Azure Backup Server. 
+> * Skonfiguruj bezpieczny kanał, aby Azure Backup Server z serwerami VMware za pośrednictwem protokołu HTTPS. 
+> * Dodaj poświadczenia konta, aby Azure Backup Server. 
 > * Dodaj program vCenter do Azure Backup Server. 
-> * Skonfiguruj grupę ochrony zawierającą maszyny wirtualne VMware, dla których chcesz utworzyć kopię zapasową, określ ustawienia kopii zapasowej i Zaplanuj kopię zapasową.
+> * Skonfiguruj grupę ochrony zawierającą maszyny wirtualne VMware, dla których chcesz utworzyć kopię zapasową, określ ustawienia kopii zapasowej i zaplanuj tworzenie kopii zapasowej.
 
-## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Utwórz bezpieczne połączenie z serwerem vCenter
+## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Tworzenie bezpiecznego połączenia z serwerem vCenter
 
-Domyślnie Azure Backup Server komunikuje się z serwerami VMware za pośrednictwem protokołu HTTPS. Aby skonfigurować połączenie HTTPS, Pobierz certyfikat urzędu certyfikacji VMware (CA) i zaimportuj go na Azure Backup Server.
+Domyślnie program Azure Backup Server się z serwerami VMware za pośrednictwem protokołu HTTPS. Aby skonfigurować połączenie HTTPS, pobierz certyfikat urzędu certyfikacji VMware i zaimportuj go na Azure Backup Server.
 
 ### <a name="set-up-the-certificate"></a>Konfigurowanie certyfikatu
 
-1. W przeglądarce na komputerze Azure Backup Server wprowadź adres URL klienta sieci Web vSphere.
+1. W przeglądarce na maszynie Azure Backup Server wprowadź adres URL klienta sieci Web vSphere.
 
    > [!NOTE] 
-   > Jeśli strona programu VMware **wprowadzenie** nie zostanie wyświetlona, sprawdź ustawienia połączenia i serwera proxy przeglądarki i spróbuj ponownie.
+   > Jeśli strona programu VMware **Wprowadzenie** nie jest wyświetlana, sprawdź ustawienia połączenia i serwera proxy przeglądarki, a następnie spróbuj ponownie.
 
-1. Na stronie **wprowadzenie** VMware wybierz pozycję **Pobierz certyfikaty zaufanych głównych urzędów certyfikacji**.
+1. Na stronie VMware **Wprowadzenie** wybierz pozycję Pobierz certyfikaty **zaufanego głównego urzędu certyfikacji.**
 
-   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="Klient sieci Web vSphere":::
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="Klient internetowy vSphere":::
 
-1. Zapisz plik **download.zip** na maszynie Azure Backup Server, a następnie wyodrębnij jego zawartość do folderu **Certyfikaty** , który zawiera:
+1. Zapisz plik **download.zip** na maszynie Azure Backup Server, a następnie wyodrębnij jego zawartość do folderu **certs,** który zawiera:
 
-   - Plik certyfikatu głównego z rozszerzeniem rozpoczynającym się od numerowanej sekwencji takiej jak. 0 i. 1.
-   - Plik listy CRL z rozszerzeniem rozpoczynającym się od sekwencji takich jak. r0 lub. R1.
+   - Plik certyfikatu głównego z rozszerzeniem, który rozpoczyna się od numerowanych sekwencji, takich jak .0 i .1.
+   - Plik listy CRL z rozszerzeniem, który rozpoczyna się od sekwencji, np. r0 lub r1.
 
-1. W folderze **Certyfikaty** kliknij prawym przyciskiem myszy plik certyfikatu głównego, a następnie wybierz polecenie **Zmień nazwę** , aby zmienić rozszerzenie na **. CRT**.
+1. W **folderze certs** kliknij prawym przyciskiem myszy plik certyfikatu głównego i wybierz **polecenie** Zmień nazwę, aby zmienić rozszerzenie na **crt.**
 
-   Ikona pliku zmieni się na taki, który reprezentuje certyfikat główny.
+   Ikona pliku zmieni się na ikonę reprezentującą certyfikat główny.
 
-1. Kliknij prawym przyciskiem myszy certyfikat główny, a następnie wybierz pozycję **Zainstaluj certyfikat**.
+1. Kliknij prawym przyciskiem myszy certyfikat główny, a następnie wybierz **polecenie Zainstaluj certyfikat.**
 
-1. W **Kreatorze importu certyfikatów** wybierz pozycję **komputer lokalny** jako miejsce docelowe certyfikatu, a następnie wybierz przycisk **dalej**.
+1. W **Kreatorze importu certyfikatów** wybierz **pozycję Komputer lokalny** jako miejsce docelowe certyfikatu, a następnie wybierz pozycję **Dalej.**
 
-   ![Strona powitalna kreatora](../backup/media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
+   ![Strona powitana kreatora](../backup/media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
    > [!NOTE] 
-   > Jeśli zostanie wyświetlony monit, potwierdź, że chcesz zezwolić na wprowadzanie zmian na komputerze.
+   > W razie monitu potwierdź, że chcesz zezwolić na zmiany na komputerze.
 
-1. Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie**, a następnie wybierz pozycję **Przeglądaj** , aby wybrać magazyn certyfikatów.
+1. Wybierz **pozycję Umieść wszystkie certyfikaty w następującym magazynie, a** następnie wybierz pozycję **Przeglądaj,** aby wybrać magazyn certyfikatów.
 
    ![Magazyn certyfikatów](../backup/media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
-1. Wybierz pozycję **Zaufane główne** urzędy certyfikacji jako folder docelowy, a następnie wybierz **przycisk OK**.
+1. Wybierz **Zaufane główne urzędy certyfikacji** jako folder docelowy, a następnie wybierz przycisk **OK.**
 
-1. Przejrzyj ustawienia, a następnie wybierz pozycję **Zakończ** , aby rozpocząć Importowanie certyfikatu.
+1. Przejrzyj ustawienia i wybierz pozycję **Zakończ,** aby rozpocząć importowanie certyfikatu.
 
-   ![Sprawdź, czy certyfikat znajduje się w odpowiednim folderze](../backup/media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
+   ![Sprawdź, czy certyfikat znajduje się we właściwym folderze](../backup/media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
-1. Po potwierdzeniu importu certyfikatu Zaloguj się do serwera vCenter, aby upewnić się, że połączenie jest bezpieczne.
+1. Po potwierdzeniu importu certyfikatu zaloguj się do serwera vCenter, aby potwierdzić, że połączenie jest bezpieczne.
 
-### <a name="enable-tls-12-on-azure-backup-server"></a>Włącz protokół TLS 1,2 na Azure Backup Server
+### <a name="enable-tls-12-on-azure-backup-server"></a>Włączanie obsługi TLS 1.2 na Azure Backup Server
 
-W przypadku oprogramowania VMware 6,7 jako protokołu komunikacyjnego włączono protokół TLS. 
+Protokół TLS w programie VMware 6.7 lub jego wersji był włączony jako protokół komunikacyjny. 
 
-1. Skopiuj poniższe ustawienia rejestru i wklej je do Notatnika. Następnie Zapisz plik jako TLS. REG bez rozszerzenia. txt.
+1. Skopiuj następujące ustawienia rejestru i wklej je do Notatnika. Następnie zapisz plik jako TLS. Reg bez rozszerzenia txt.
 
    ```
    
@@ -103,260 +103,260 @@ W przypadku oprogramowania VMware 6,7 jako protokołu komunikacyjnego włączono
    
    ```
 
-1. Kliknij prawym przyciskiem myszy protokół TLS. Plik REG i wybierz pozycję **Scal** lub **Otwórz** , aby dodać ustawienia do rejestru.
+1. Kliknij prawym przyciskiem myszy pozycję TLS. Reg pliku, a następnie wybierz **scalania** lub **Otwórz,** aby dodać ustawienia do rejestru.
 
 
-## <a name="add-the-account-on-azure-backup-server"></a>Dodaj konto na Azure Backup Server
+## <a name="add-the-account-on-azure-backup-server"></a>Dodaj konto w Azure Backup Server
 
-1. Otwórz Azure Backup Server, a następnie w konsoli Azure Backup Server wybierz pozycję **Zarządzanie**  >  **serwery produkcyjne** zarządzanie  >  **programem VMware**.
+1. Otwórz Azure Backup Server, a następnie w konsoli Azure Backup Server wybierz pozycję Zarządzanie serwerami  >  **produkcyjnymi** Zarządzaj  >  **programem VMware.**
 
-   ![Konsola Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
+   ![Azure Backup Server konsoli programu](../backup/media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
 
-1. W oknie dialogowym **Zarządzanie poświadczeniami** wybierz pozycję **Dodaj**.
+1. W **oknie dialogowym Zarządzanie poświadczeniami** wybierz pozycję **Dodaj**.
 
    ![W oknie dialogowym Zarządzanie poświadczeniami wybierz pozycję Dodaj.](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-1. W oknie dialogowym **Dodaj poświadczenia** wprowadź nazwę i opis nowego poświadczenia. Określ nazwę użytkownika i hasło zdefiniowane na serwerze VMware.
+1. W **oknie dialogowym Dodawanie** poświadczeń wprowadź nazwę i opis nowego poświadczenia. Określ nazwę użytkownika i hasło zdefiniowane na serwerze VMware.
 
    > [!NOTE] 
-   > Jeśli serwer VMware i Azure Backup Server nie znajdują się w tej samej domenie, określ domenę w polu **Nazwa użytkownika** .
+   > Jeśli serwer VMware i Azure Backup Server nie są w tej samej domenie, określ domenę w **polu Nazwa** użytkownika.
 
-   ![Okno dialogowe Dodawanie poświadczeń Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
+   ![Azure Backup Server dialogowe Dodawanie poświadczeń](../backup/media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
-1. Wybierz pozycję **Dodaj** , aby dodać nowe poświadczenie.
+1. Wybierz **pozycję Dodaj,** aby dodać nowe poświadczenie.
 
-   ![Zrzut ekranu Azure Backup Server przedstawia okno dialogowe Zarządzanie poświadczeniami z wyświetlonymi nowymi poświadczeniami.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   ![Zrzut ekranu przedstawia Azure Backup Server Zarządzanie poświadczeniami z wyświetlonymi nowymi poświadczeniami.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Dodaj serwer vCenter do Azure Backup Server
 
-1. W konsoli Azure Backup Server wybierz pozycję **Zarządzanie**  >  **serwery produkcyjne**  >  **Dodaj**.
+1. W konsoli Azure Backup Server wybierz pozycję **Zarządzanie**  >  **serwerami produkcyjnymi**  >  **Dodaj**.
 
-   ![Kreator otwierania dodawania serwera produkcyjnego](../backup/media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
+   ![Otwieranie Kreatora dodatku serwera produkcyjnego](../backup/media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-1. Wybierz pozycję **serwery VMware**, a **następnie** kliknij przycisk Dalej.
+1. Wybierz **pozycję Serwery VMware** i wybierz pozycję **Dalej.**
 
-   ![Kreator dodawania do serwera produkcyjnego](../backup/media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
+   ![Kreator dodatku serwera produkcyjnego](../backup/media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-1. Określ adres IP serwera vCenter.
+1. Określ adres IP programu vCenter.
 
-   ![Określ serwer VMware](../backup/media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
+   ![Określanie serwera VMware](../backup/media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
-1. W polu **Port SSL** Wprowadź port używany do komunikacji z programem vCenter.
+1. W polu **Port SSL** wprowadź port używany do komunikacji z programem vCenter.
 
    > [!TIP] 
-   > Port 443 jest portem domyślnym, ale można go zmienić, jeśli serwer vCenter nasłuchuje na innym porcie.
+   > Port 443 jest portem domyślnym, ale można go zmienić, jeśli program vCenter nasłuchuje na innym porcie.
 
-1. W polu **Określ poświadczenia** wybierz poświadczenie, które zostało utworzone w poprzedniej sekcji.
+1. W **polu Określ poświadczenia** wybierz poświadczenia utworzone w poprzedniej sekcji.
 
-1. Wybierz pozycję **Dodaj** , aby dodać serwer vCenter do listy serwerów, a następnie wybierz przycisk **dalej**.
+1. Wybierz **pozycję Dodaj,** aby dodać program vCenter do listy serwerów, a następnie wybierz pozycję **Dalej.**
 
-   ![Dodaj serwer i poświadczenie oprogramowania VMware](../backup/media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
+   ![Dodawanie serwera VMware i poświadczeń](../backup/media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
-1. Na stronie **Podsumowanie** wybierz pozycję **Dodaj** , aby dodać program vCenter do Azure Backup Server.
+1. Na stronie **Podsumowanie** wybierz pozycję **Dodaj,** aby dodać program vCenter do Azure Backup Server.
 
-   Nowy serwer zostanie dodany natychmiast. Program vCenter nie potrzebuje agenta.
+   Nowy serwer jest dodawany natychmiast. VCenter nie potrzebuje agenta.
 
-   ![Dodaj serwer VMware do Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/tasks-screen.png)
+   ![Dodawanie serwera VMware do Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/tasks-screen.png)
 
-1. Na stronie **zakończenie** Sprawdź ustawienia, a następnie wybierz pozycję **Zamknij**.
+1. Na stronie **Finish** (Zakończ) przejrzyj ustawienia, a następnie wybierz pozycję **Close (Zamknij).**
 
-   ![Strona końcowa](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
+   ![Strona zakończenia](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   Zobaczysz serwer vCenter na liście na **serwerze produkcyjnym** z:
-   - Wpisz jako **serwer VMware** 
-   - Stan agenta jako **prawidłowy** 
+   Serwer vCenter zostanie wyświetlony w obszarze **Serwer produkcyjny** z:
+   - Wpisz jako **VMware Server** 
+   - Stan agenta : **OK** 
    
-      Jeśli widzisz **stan agenta** jako **nieznany**, wybierz pozycję **Odśwież**.
+      Jeśli stan agenta **jest nieznany,** **wybierz** pozycję **Odśwież.**
 
 ## <a name="configure-a-protection-group"></a>Konfigurowanie grupy ochrony
 
-Grupy ochrony zbierają wiele maszyn wirtualnych i stosują te same ustawienia przechowywania i tworzenia kopii zapasowych danych do wszystkich maszyn wirtualnych w grupie.
+Grupy ochrony zbierają wiele maszyn wirtualnych i stosują te same ustawienia przechowywania danych i kopii zapasowych do wszystkich maszyn wirtualnych w grupie.
 
-1. W konsoli Azure Backup Server wybierz pozycję **Ochrona**  >  **Nowa**.
+1. W konsoli Azure Backup Server wybierz pozycję **Ochrona**  >  **Nowy.**
 
-   ![Otwórz Kreatora tworzenia nowej grupy ochrony](../backup/media/backup-azure-backup-server-vmware/open-protection-wizard.png)
+   ![Otwórz kreatora Tworzenie nowej grupy ochrony](../backup/media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-1. Na stronie powitalnej Kreatora **tworzenia nowej grupy ochrony** wybierz pozycję **dalej**.
+1. Na stronie **powitaowej Kreatora tworzenia nowej grupy ochrony** wybierz pozycję **Dalej.**
 
-   ![Kreator tworzenia nowej grupy ochrony — okno dialogowe](../backup/media/backup-azure-backup-server-vmware/protection-wizard.png)
+   ![Okno dialogowe Kreatora tworzenia nowej grupy ochrony](../backup/media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-1. Na stronie **Wybierz typ grupy ochrony** wybierz pozycję **serwery**, a następnie wybierz przycisk **dalej**. Zostanie wyświetlona strona **Wybierz członków grupy** .
+1. Na stronie **Wybierz typ grupy ochrony** wybierz pozycję **Serwery,** a następnie wybierz pozycję **Dalej.** Zostanie **wyświetlona strona Wybierz członków** grupy.
 
-1. Na stronie **Wybierz członków grupy** Wybierz Maszyny wirtualne (lub foldery maszyn wirtualnych), których kopię zapasową chcesz utworzyć, a następnie wybierz przycisk **dalej**.
+1. Na stronie **Wybieranie członków grupy** wybierz maszyny wirtualne (lub foldery maszyn wirtualnych), których kopię zapasową chcesz wrócić, a następnie wybierz przycisk **Dalej.**
 
    > [!NOTE]
-   > W przypadku wybrania folderu lub maszyn wirtualnych foldery znajdujące się w tym folderze również są wybierane do kopii zapasowej. Możesz wyczyścić foldery lub maszyny wirtualne, których kopia zapasowa ma nie być wykonana. Jeśli tworzona jest kopia zapasowa maszyny wirtualnej lub folderu, nie można jej wybrać, co gwarantuje, że nie zostaną utworzone zduplikowane punkty odzyskiwania dla maszyny wirtualnej.
+   > Po wybraniu folderu lub maszyn wirtualnych foldery w tym folderze są również wybierane do kopii zapasowej. Możesz usunąć zaznaczenie folderów lub maszyn wirtualnych, dla których nie chcesz wrócić do kopii zapasowej. Jeśli kopię zapasową maszyny wirtualnej lub folderu jest już tworzona, nie można jej wybrać, co gwarantuje, że nie utworzono zduplikowanych punktów odzyskiwania dla maszyny wirtualnej.
 
-   ![Wybierz członków grupy](../backup/media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+   ![Wybieranie członków grupy](../backup/media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
 1. Na stronie **Wybierz metodę ochrony danych** wprowadź nazwę grupy ochrony i ustawienia ochrony. 
 
-1. Ustaw krótkoterminową ochronę na **dysku**, Włącz ochronę w trybie online, a następnie wybierz przycisk **dalej**.
+1. Ustaw ochronę krótkoterminową na **Dysk,** włącz ochronę w trybie online, a następnie wybierz pozycję **Dalej.**
 
    ![Wybieranie metody ochrony danych](../backup/media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-1. Określ, jak długo mają być przechowywane kopie zapasowe danych na dysku.
+1. Określ, jak długo chcesz przechowywać kopię zapasową danych na dysku.
 
-   - **Zakres przechowywania**: liczba dni przechowywania punktów odzyskiwania dysków.
-   - **Ekspresowa pełna kopia zapasowa**: jak często są pobierane punkty odzyskiwania dysków. Aby zmienić godziny lub daty wystąpienia krótkoterminowych kopii zapasowych, wybierz pozycję **Modyfikuj**.
+   - **Zakres przechowywania:** liczba dni przechowywania punktów odzyskiwania dysku.
+   - **Ekspresowa pełna kopia zapasowa:** jak często są podejmowane punkty odzyskiwania dysku. Aby zmienić godziny lub daty tworzenia krótkoterminowych kopii zapasowych, wybierz pozycję **Modyfikuj**.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Określ cele krótkoterminowe dla ochrony opartej na dyskach":::
+   :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Określanie krótkoterminowych celów ochrony opartej na dyskach":::
 
-1. Na stronie **przegląd Disk Storage alokacji** Sprawdź miejsce na dysku dla kopii zapasowych maszyny wirtualnej.
+1. Na stronie **Review Disk Storage Allocation (Przeglądanie** alokacji zasobów) przejrzyj miejsce na dysku dla kopii zapasowych maszyn wirtualnych.
 
-   - Zalecane alokacje dysków są zależne od określonego zakresu przechowywania, typu obciążenia i rozmiaru chronionych danych. Wprowadź wymagane zmiany, a następnie wybierz przycisk **dalej**.
+   - Zalecane przydziały dysków są oparte na określonym zakresie przechowywania, typie obciążenia i rozmiarze chronionych danych. Określ wymagane zmiany, a następnie wybierz pozycję **Dalej.**
    - **Rozmiar danych:** Rozmiar danych w grupie ochrony.
-   - **Miejsce na dysku:** Zalecana ilość miejsca na dysku dla grupy ochrony. Jeśli chcesz zmodyfikować to ustawienie, wybierz miejsce mniej więcej niż wielkość Szacowana każdego źródła danych.
-   - **Szczegóły puli magazynu:** Pokazuje stan puli magazynów, w tym łączny rozmiar i czas wolnego dysku.
+   - **Miejsce na dysku:** Zalecana ilość miejsca na dysku dla grupy ochrony. Jeśli chcesz zmodyfikować to ustawienie, wybierz miejsce nieco większe niż szacowana wielkość poszczególnych źródeł danych.
+   - **Szczegóły puli magazynów:** Przedstawia stan puli magazynów, w tym całkowity i pozostały rozmiar dysku.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Przejrzyj miejsce na dysku określone w puli magazynów":::
+   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Przejrzyj miejsce na dysku podane w puli magazynów":::
 
    > [!NOTE]
-   > W niektórych scenariuszach raportowany rozmiar danych jest wyższy niż rozmiar rzeczywistej maszyny wirtualnej. Jesteśmy świadomi problemu i obecnie badamy go.
+   > W niektórych scenariuszach zgłaszany rozmiar danych jest większy niż rzeczywisty rozmiar maszyny wirtualnej. Wiemy o problemie i obecnie go badamy.
 
-1. Na stronie **Wybierz metodę tworzenia repliki** wskaż, jak chcesz pobrać początkową kopię zapasową, a następnie wybierz pozycję **dalej**.
+1. Na stronie **Wybieranie metody tworzenia repliki** wskaż sposób tworzenia początkowej kopii zapasowej, a następnie wybierz pozycję **Dalej.**
 
-   - Wartość domyślna jest **automatycznie przez sieć** i **teraz**. Jeśli używasz wartości domyślnej, określ czas poza szczytem. W przypadku wybrania opcji **później** Określ dzień i godzinę.
-   - W przypadku dużych ilości danych lub mniej niż optymalnych warunków sieciowych należy rozważyć replikację danych w trybie offline za pomocą nośników wymiennych.
+   - Wartość domyślna to **Automatycznie za pośrednictwem sieci i** **Teraz.** Jeśli używasz wartości domyślnej, określ czas poza szczytem. W przypadku wybrania **opcji Później** określ dzień i czas.
+   - W przypadku dużych ilości danych lub mniej niż optymalnych warunków sieciowych należy rozważyć replikowanie danych w trybie offline przy użyciu nośników wymiennych.
 
-   ![Wybierz metodę tworzenia repliki](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
+   ![Wybieranie metody tworzenia repliki](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. W obszarze **Opcje sprawdzania spójności** wybierz, jak i kiedy zautomatyzować sprawdzanie spójności, a następnie wybierz przycisk **dalej**.
+1. W **przypadku opcji sprawdzania spójności** wybierz sposób i czas automatyzacji sprawdzania spójności, a następnie wybierz pozycję **Dalej.**
 
-   - Sprawdzanie spójności można uruchomić, gdy dane repliki staną się niespójne lub zgodnie z ustalonym harmonogramem.
-   - Jeśli nie chcesz konfigurować automatycznego sprawdzania spójności, możesz uruchomić sprawdzanie ręczne, klikając prawym przyciskiem myszy grupę ochrony, aby **przeprowadzić sprawdzanie spójności**.
+   - Sprawdzanie spójności można przeprowadzać, gdy dane repliki stają się niespójne lub zgodnie z ustawionym harmonogramem.
+   - Jeśli nie chcesz konfigurować automatycznego sprawdzania spójności, możesz uruchomić sprawdzanie ręczne, klikając prawym przyciskiem myszy grupę ochrony **Wykonaj sprawdzanie spójności.**
 
-1. Na stronie **Określ dane ochrony w trybie online** Wybierz Maszyny wirtualne lub foldery maszyn wirtualnych, których kopię zapasową chcesz utworzyć, a następnie wybierz przycisk **dalej**. 
+1. Na stronie **Określanie danych ochrony online** wybierz foldery maszyn wirtualnych lub maszyn wirtualnych, których kopię zapasową chcesz wrócić, a następnie wybierz przycisk **Dalej.** 
 
    > [!TIP]
-   > Możesz wybrać członków pojedynczo lub wybierz **pozycję Zaznacz wszystko** , aby wybrać wszystkie elementy członkowskie.
+   > Możesz wybrać członków indywidualnie lub wybrać **pozycję Zaznacz wszystko,** aby wybrać wszystkich członków.
 
-   ![Określ dane ochrony w trybie online](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+   ![Określanie danych ochrony online](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-1. Na stronie **Określanie harmonogramu tworzenia kopii zapasowych online Określ** , jak często mają być wykonywane kopie zapasowe danych z magazynu lokalnego na platformę Azure. 
+1. Na stronie **Określanie harmonogramu tworzenia kopii zapasowych** online wskaż, jak często chcesz tworzyć kopie zapasowe danych z magazynu lokalnego na platformie Azure. 
 
-   - Punkty odzyskiwania w chmurze do wygenerowania danych zgodnie z harmonogramem. 
-   - Po wygenerowaniu punkt odzyskiwania zostanie on przeniesiony do magazynu Recovery Services na platformie Azure.
+   - Punkty odzyskiwania w chmurze dla danych, które mają być generowane zgodnie z harmonogramem. 
+   - Po wygenerowaniu punktu odzyskiwania jest on następnie przesyłany do magazynu usługi Recovery Services na platformie Azure.
 
-   ![Określ harmonogram kopii zapasowych online](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+   ![Określanie harmonogramu tworzenia kopii zapasowych online](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-1. Na stronie **Określanie zasad przechowywania online** wskaż, jak długo mają być przechowywane punkty odzyskiwania utworzone na podstawie kopii zapasowych na platformie Azure.
+1. Na stronie **Określanie zasad przechowywania w** trybie online wskaż, jak długo punkty odzyskiwania utworzone na podstawie kopii zapasowych mają być zachowywane na platformie Azure.
 
-   - Nie ma limitu czasu, w którym można przechowywać dane na platformie Azure.
-   - Jedynym ograniczeniem jest to, że nie można mieć więcej niż 9 999 punktów odzyskiwania dla każdego chronionego wystąpienia. W tym przykładzie chronione wystąpienie jest serwerem VMware.
+   - Nie ma limitu czasu przechowywania danych na platformie Azure.
+   - Jedynym ograniczeniem jest to, że nie można mieć więcej niż 9999 punktów odzyskiwania na chronione wystąpienie. W tym przykładzie chronionym wystąpieniem jest serwer VMware.
 
-   ![Określ zasady przechowywania danych online](../backup/media/backup-azure-backup-server-vmware/retention-policy.png)
+   ![Określanie zasad przechowywania w trybie online](../backup/media/backup-azure-backup-server-vmware/retention-policy.png)
 
-1. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
+1. Na **stronie Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz grupę.**
 
    ![Członek grupy ochrony i podsumowanie ustawień](../backup/media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
-## <a name="monitor-with-the-azure-backup-server-console"></a>Monitorowanie za pomocą konsoli Azure Backup Server
+## <a name="monitor-with-the-azure-backup-server-console"></a>Monitorowanie za pomocą konsoli Azure Backup Server aplikacji
 
-Po skonfigurowaniu grupy ochrony do tworzenia kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure można monitorować stan zadania i alertu kopii zapasowej za pomocą konsoli Azure Backup Server. Oto, co można monitorować.
+Po skonfigurowaniu grupy ochrony do tworzenia kopii zapasowych Azure VMware Solution wirtualnych można monitorować stan zadania tworzenia kopii zapasowej i alertu przy użyciu konsoli Azure Backup Server wirtualnej. Oto co można monitorować.
 
-- W obszarze zadania **monitorowania** :
-   - W obszarze **alerty** można monitorować błędy, ostrzeżenia i informacje ogólne.  Możesz wyświetlić aktywne i nieaktywne alerty oraz skonfigurować powiadomienia e-mail.
-   - W obszarze **zadania** można wyświetlić zadania uruchomione przez Azure Backup Server dla określonego chronionego źródła danych lub grupy ochrony. Można obserwować postęp zadania lub sprawdzić zasoby używane przez zadania.
-- W obszarze zadania **Ochrona** można sprawdzić stan woluminów i udziałów w grupie ochrony. Można także sprawdzić ustawienia konfiguracji, takie jak ustawienia odzyskiwania, przydział dysku i harmonogram tworzenia kopii zapasowych.
-- W obszarze zadania **zarządzania** można wyświetlić karty **dyski, online** i **agenci** , aby sprawdzić stan dysków w puli magazynów, zarejestrować się na platformie Azure i wdrożyć stan agenta programu DPM.
+- W obszarze **zadań** Monitorowanie:
+   - W **obszarze** Alerty możesz monitorować błędy, ostrzeżenia i informacje ogólne.  Możesz wyświetlać aktywne i nieaktywne alerty oraz skonfigurować powiadomienia e-mail.
+   - W **obszarze** Zadania można wyświetlić zadania uruchomione przez Azure Backup Server dla określonego chronionego źródła danych lub grupy ochrony. Możesz śledzić postęp zadania lub sprawdzać zasoby używane przez zadania.
+- W obszarze **zadania** Ochrona można sprawdzić stan woluminów i udziałów w grupie ochrony. Możesz również sprawdzić ustawienia konfiguracji, takie jak ustawienia odzyskiwania, alokacja dysku i harmonogram tworzenia kopii zapasowych.
+- W obszarze **zadań** Zarządzanie można wyświetlić karty **Dyski,** Online i Agenci, aby sprawdzić stan dysków w puli magazynów, rejestrację na platformie Azure i stan wdrożonego agenta programu DPM. 
 
 :::image type="content" source="media/azure-vmware-solution-backup/monitor-backup-jobs.png" alt-text="Monitorowanie stanu zadań tworzenia kopii zapasowej w Azure Backup Server":::
 
-## <a name="restore-vmware-virtual-machines"></a>Przywróć maszyny wirtualne VMware
+## <a name="restore-vmware-virtual-machines"></a>Przywracanie maszyn wirtualnych VMware
 
-W konsola administratora Azure Backup Server istnieją dwa sposoby znajdowania możliwych do odzyskania danych. Możesz wyszukiwać lub przeglądać. Podczas odzyskiwania danych można lub nie chcieć przywracać danych lub maszyn wirtualnych do tej samej lokalizacji. Z tego powodu Azure Backup Server obsługuje trzy opcje odzyskiwania kopii zapasowych maszyn wirtualnych VMware:
+W Azure Backup Server konsola administratora istnieją dwa sposoby znalezienia danych, które można odzyskać. Możesz wyszukiwać i przeglądać. Podczas odzyskiwania danych możesz chcieć przywrócić dane lub maszynę wirtualną do tej samej lokalizacji. Z tego powodu program Azure Backup Server trzy opcje odzyskiwania dla kopii zapasowych maszyn wirtualnych VMware:
 
-- **Odzyskiwanie do oryginalnej lokalizacji (OLR)**: Użyj OLR do przywrócenia chronionej maszyny wirtualnej do jej oryginalnej lokalizacji. Maszynę wirtualną można przywrócić do jej oryginalnej lokalizacji tylko wtedy, gdy nie zostały dodane lub usunięte dyski od momentu utworzenia kopii zapasowej. Jeśli dyski zostały dodane lub usunięte, musisz użyć odzyskiwania do lokalizacji alternatywnej.
-- **Odzyskiwanie do lokalizacji alternatywnej (ALR)**: Użyj, gdy brakuje oryginalnej maszyny wirtualnej lub nie chcesz przeszkadzać oryginalnej maszynie wirtualnej. Podaj lokalizację hosta ESXi, puli zasobów, folderu oraz magazynu danych magazynu i ścieżki. Aby ułatwić odróżnienie przywróconej maszyny wirtualnej od oryginalnej maszyny wirtualnej, Azure Backup Server dołączenie *"-odzyskiwane"* do nazwy maszyny wirtualnej.
-- **Odzyskiwanie poszczególnych lokalizacji plików (ILR)**: Jeśli chroniona maszyna wirtualna jest maszyną wirtualną z systemem Windows Server, można odzyskać pojedyncze pliki lub foldery w ramach maszyny wirtualnej za pomocą funkcji ILR Azure Backup Server. Aby odzyskać poszczególne pliki, zapoznaj się z procedurą w dalszej części tego artykułu. Przywracanie pojedynczego pliku z maszyny wirtualnej jest dostępne tylko dla punktów odzyskiwania maszyn wirtualnych i dysków z systemem Windows.
+- **Odzyskiwanie oryginalnej lokalizacji (OLR): użyj OLR,** aby przywrócić chronioną maszynę wirtualną do jej oryginalnej lokalizacji. Maszynę wirtualną można przywrócić do oryginalnej lokalizacji tylko wtedy, gdy od momentu tworzenia kopii zapasowej nie dodano ani nie usunięto żadnych dysków. Jeśli dyski zostały dodane lub usunięte, należy użyć odzyskiwania lokalizacji alternatywnej.
+- **Odzyskiwanie lokalizacji alternatywnej (ALR):** użyj metody , gdy brakuje oryginalnej maszyny wirtualnej lub nie chcesz zakłócać oryginalnej maszyny wirtualnej. Podaj lokalizację hosta ESXi, puli zasobów, folderu oraz magazynu danych i ścieżki magazynu. Aby ułatwić odróżnienie przywróconej maszyny wirtualnej od oryginalnej maszyny wirtualnej, Azure Backup Server dołącza do nazwy maszyny wirtualnej tekst *"-Recovered".*
+- **Odzyskiwanie poszczególnych lokalizacji plików (ILR):** jeśli chroniona maszyna wirtualna jest maszyną wirtualną z systemem Windows Server, poszczególne pliki lub foldery na maszynie wirtualnej można odzyskać za pomocą funkcji ILR Azure Backup Server. Aby odzyskać poszczególne pliki, zapoznaj się z procedurą w dalszej części tego artykułu. Przywracanie pojedynczego pliku z maszyny wirtualnej jest dostępne tylko dla maszyny wirtualnej z systemem Windows i punktów odzyskiwania dysku.
 
 ### <a name="restore-a-recovery-point"></a>Przywracanie punktu odzyskiwania
 
-1. W konsola administratora Azure Backup Server wybierz widok **odzyskiwania** . 
+1. W Azure Backup Server konsola administratora wybierz **widok** Odzyskiwanie. 
 
-1. Za pomocą okienka **przeglądania** Przeglądaj lub Filtruj, aby znaleźć maszynę wirtualną, którą chcesz odzyskać. Po wybraniu maszyny wirtualnej lub folderu w okienku * * punkty odzyskiwania dla okienka są wyświetlane dostępne punkty odzyskiwania.
+1. Korzystając z **okienka** Przeglądaj, przeglądaj lub filtruj, aby znaleźć maszynę wirtualną, którą chcesz odzyskać. Po wybraniu maszyny wirtualnej lub folderu w okienku **Punkty odzyskiwania są wyświetlane dostępne punkty odzyskiwania.
 
    ![Dostępne punkty odzyskiwania](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
-1. W okienku **punkty odzyskiwania dla** wybierz datę utworzenia punktu odzyskiwania. Pogrubienie dat kalendarza ma dostępne punkty odzyskiwania. Alternatywnie możesz kliknąć prawym przyciskiem myszy maszynę wirtualną i wybrać opcję **Pokaż wszystkie punkty odzyskiwania** , a następnie wybrać punkt odzyskiwania z listy.
+1. W **okienku Punkty odzyskiwania** dla wybierz datę rozpoczęcia korzystania z punktu odzyskiwania. Daty kalendarza pogrubioną czcionką mają dostępne punkty odzyskiwania. Alternatywnie możesz kliknąć prawym przyciskiem myszy maszynę wirtualną i wybrać pozycję **Pokaż** wszystkie punkty odzyskiwania, a następnie wybrać punkt odzyskiwania z listy.
 
    > [!NOTE] 
-   > W przypadku ochrony krótkoterminowej wybierz punkt odzyskiwania oparty na dysku do szybszego odzyskiwania. Po wygaśnięciu krótkoterminowych punktów odzyskiwania są wyświetlane tylko punkty odzyskiwania **online** do odzyskania.
+   > Aby uzyskać krótkoterminową ochronę, wybierz punkt odzyskiwania oparty na dysku, aby przyspieszyć odzyskiwanie. Po wygaśnięciu krótkoterminowych punktów odzyskiwania będą dostępne tylko punkty **odzyskiwania online** do odzyskania.
 
-1. Przed odzyskiwaniem z punktu odzyskiwania online upewnij się, że lokalizacja tymczasowa zawiera wystarczającą ilość wolnego miejsca do przechowywania pełnego nieskompresowanego rozmiaru maszyny wirtualnej, którą chcesz odzyskać. Lokalizację przemieszczania można wyświetlić lub zmienić, uruchamiając **Kreatora konfiguracji ustawień subskrypcji**.
+1. Przed odzyskaniem z punktu odzyskiwania online upewnij się, że lokalizacja przemieszczania zawiera wystarczająco dużo wolnego miejsca do przechowywania pełnego nieskompresowanych rozmiarów maszyny wirtualnej, którą chcesz odzyskać. Lokalizację przemieszczania można wyświetlić lub zmienić, uruchamiając **Kreatora konfigurowania ustawień subskrypcji.**
 
-   :::image type="content" source="media/azure-vmware-solution-backup/mabs-recovery-folder-settings.png" alt-text="Ustawienia folderu odzyskiwania Azure Backup Server":::
+   :::image type="content" source="media/azure-vmware-solution-backup/mabs-recovery-folder-settings.png" alt-text="Azure Backup Server folderu odzyskiwania":::
 
-1. Wybierz pozycję **Odzyskaj** , aby otworzyć **Kreatora odzyskiwania**.
+1. Wybierz **pozycję Odzyskaj,** aby otworzyć Kreatora **odzyskiwania.**
 
-   ![Kreator odzyskiwania, Przegląd strony wyboru odzyskiwania](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
+   ![Kreator odzyskiwania, strona Przegląd wyboru odzyskiwania](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-1. Wybierz pozycję **dalej** , aby przejść do ekranu **Określanie opcji odzyskiwania** . Wybierz ponownie przycisk **dalej** , aby przejść do ekranu **Wybieranie typu odzyskiwania** . 
+1. Wybierz **przycisk** Dalej, aby przejść do **ekranu Określanie opcji** odzyskiwania. Wybierz **ponownie pozycję** Dalej, aby przejść do ekranu Wybieranie **typu** odzyskiwania. 
 
    > [!NOTE]
-   > Obciążenia oprogramowania VMware nie obsługują włączania ograniczania przepustowości sieci.
+   > Obciążenia VMware nie obsługują włączania ograniczania przepustowości sieci.
 
-1. Na stronie **Wybieranie typu odzyskiwania** Odzyskaj do oryginalnego wystąpienia lub nowej lokalizacji.
+1. Na stronie **Wybierz typ odzyskiwania** odzyskaj do oryginalnego wystąpienia lub nowej lokalizacji.
 
-   - W przypadku wybrania opcji **Odzyskaj do oryginalnego wystąpienia** nie trzeba wprowadzać więcej opcji w kreatorze. Dane dla oryginalnego wystąpienia są używane.
-   - Jeśli wybierzesz opcję **Odzyskaj jako maszynę wirtualną na dowolnym hoście**, na ekranie **określ miejsce docelowe** podaj informacje dotyczące **hosta ESXi**, **puli zasobów**, **folderu** i **ścieżki**.
+   - W przypadku wybrania **opcji Odzyskaj** do oryginalnego wystąpienia nie trzeba wybierać więcej opcji w kreatorze. Używane są dane dla oryginalnego wystąpienia.
+   - Jeśli wybierzesz **opcję Odzyskaj** jako maszynę wirtualną na dowolnym hoście, na ekranie Określ lokalizację docelową podaj informacje dotyczące hosta **ESXi,** puli **zasobów,** **folderu** i **ścieżki**. 
 
-   ![Wybieranie strony typu odzyskiwania](../backup/media/restore-azure-backup-server-vmware/recovery-type.png)
+   ![Wybieranie strony Typ odzyskiwania](../backup/media/restore-azure-backup-server-vmware/recovery-type.png)
 
-1. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Odzyskaj** , aby rozpocząć proces odzyskiwania. 
+1. Na stronie **Podsumowanie** przejrzyj ustawienia i wybierz pozycję **Odzyskaj,** aby rozpocząć proces odzyskiwania. 
 
-   Ekran **stan odzyskiwania** pokazuje postęp operacji odzyskiwania.
+   Ekran **Stan** odzyskiwania przedstawia postęp operacji odzyskiwania.
 
 ### <a name="restore-an-individual-file-from-a-vm"></a>Przywracanie pojedynczego pliku z maszyny wirtualnej
 
-Można przywrócić pojedyncze pliki z chronionego punktu odzyskiwania maszyny wirtualnej. Ta funkcja jest dostępna tylko dla maszyn wirtualnych z systemem Windows Server. Przywracanie pojedynczych plików jest podobne do przywracania całej maszyny wirtualnej, z wyjątkiem przechodzenia do dysku VMDK i znajdowania odpowiednich plików przed rozpoczęciem procesu odzyskiwania. 
+Poszczególne pliki można przywrócić z chronionego punktu odzyskiwania maszyny wirtualnej. Ta funkcja jest dostępna tylko dla maszyn wirtualnych z systemem Windows Server. Przywracanie poszczególnych plików jest podobne do przywracania całej maszyny wirtualnej, z wyjątkiem tego, że przeglądasz zestaw VMDK i znajdujesz pliki przed rozpoczęciem procesu odzyskiwania. 
 
 > [!NOTE]
-> Przywracanie pojedynczego pliku z maszyny wirtualnej jest dostępne tylko dla punktów odzyskiwania maszyn wirtualnych i dysków z systemem Windows.
+> Przywracanie pojedynczego pliku z maszyny wirtualnej jest dostępne tylko dla maszyny wirtualnej z systemem Windows i punktów odzyskiwania dysku.
 
-1. W konsola administratora Azure Backup Server wybierz widok **odzyskiwania** .
+1. W Azure Backup Server konsola administratora wybierz **widok** Odzyskiwanie.
 
-1. Za pomocą okienka **przeglądania** Przeglądaj lub Filtruj, aby znaleźć maszynę wirtualną, którą chcesz odzyskać. Po wybraniu maszyny wirtualnej lub folderu w okienku * * punkty odzyskiwania dla okienka są wyświetlane dostępne punkty odzyskiwania.
+1. Korzystając z **okienka** Przeglądaj, przeglądaj lub filtruj, aby znaleźć maszynę wirtualną, którą chcesz odzyskać. Po wybraniu maszyny wirtualnej lub folderu w okienku **Punkty odzyskiwania są wyświetlane dostępne punkty odzyskiwania.
 
    ![Dostępne punkty odzyskiwania](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
-1. W okienku **punkty odzyskiwania dla** Użyj kalendarza, aby wybrać datę zawierającą odpowiednie punkty odzyskiwania. W zależności od sposobu skonfigurowania zasad tworzenia kopii zapasowych daty mogą mieć więcej niż jeden punkt odzyskiwania. 
+1. W **okienku Punkty odzyskiwania** dla użyj kalendarza, aby wybrać datę zawierającą odpowiednie punkty odzyskiwania. W zależności od tego, jak skonfigurowano zasady tworzenia kopii zapasowych, daty mogą mieć więcej niż jeden punkt odzyskiwania. 
 
-1. Po wybraniu dnia, w którym wykonano punkt odzyskiwania, należy upewnić się, że wybrano prawidłowy **czas odzyskiwania**. 
+1. Po wybraniu dnia, w którym został podjęty punkt odzyskiwania, upewnij się, że jest wybierany prawidłowy **czas odzyskiwania**. 
 
    > [!NOTE]
-   > Jeśli wybrana data ma wiele punktów odzyskiwania, wybierz punkt odzyskiwania, wybierając go z menu rozwijanego **godzina odzyskiwania** . 
+   > Jeśli wybrana data ma wiele punktów odzyskiwania, wybierz punkt  odzyskiwania, wybierając go z menu rozwijanego Czas odzyskiwania. 
 
-   Po wybraniu punktu odzyskiwania w okienku **ścieżka** zostanie wyświetlona lista elementów możliwych do odzyskania.
+   Po wybraniu punktu odzyskiwania lista elementów, które można odzyskać, zostanie wyświetlona w **okienku** Ścieżka.
 
-1. Aby znaleźć pliki do odzyskania, w okienku **ścieżki** kliknij dwukrotnie element w kolumnie element możliwy do **odzyskania** , aby go otworzyć. Następnie wybierz plik lub foldery, które chcesz odzyskać. Aby zaznaczyć wiele elementów, wybierz klawisz **Ctrl** podczas zaznaczania każdego elementu. Użyj okienka **ścieżka** , aby przeszukać listę plików lub folderów, które pojawiają się w kolumnie element możliwy do **odzyskania** .
+1. Aby znaleźć pliki do odzyskania, w okienku **Ścieżka** kliknij dwukrotnie element w kolumnie **Element** do odzyskania, aby go otworzyć. Następnie wybierz plik lub foldery, które chcesz odzyskać. Aby wybrać wiele elementów, naciśnij klawisz **Ctrl** podczas zaznaczania każdego elementu. Użyj **okienka Ścieżka,** aby przeszukać listę plików lub folderów wyświetlanych w kolumnie **Element do odzyskania.**
     
    > [!NOTE]
-   > **Lista wyszukiwania poniżej** nie przeszukiwania do podfolderów. Aby przeszukać podfoldery, kliknij dwukrotnie folder. Użyj przycisku do **góry** , aby przejść z folderu podrzędnego do folderu nadrzędnego. Można wybrać wiele elementów (plików i folderów), ale muszą one znajdować się w tym samym folderze nadrzędnym. Nie można odzyskać elementów z wielu folderów w ramach tego samego zadania odzyskiwania.
+   > **Lista wyszukiwania poniżej** nie wyszukuje podfolderów. Aby przeszukać podfoldery, kliknij dwukrotnie folder . Użyj **przycisku W** górę, aby przejść z folderu podrzędnego do folderu nadrzędnego. Możesz wybrać wiele elementów (plików i folderów), ale muszą one znajdować się w tym samym folderze nadrzędnym. Nie można odzyskać elementów z wielu folderów w tym samym zadaniu odzyskiwania.
 
-   ![Przegląd wyboru odzyskiwania](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
+   ![Przeglądanie wyboru odzyskiwania](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 
-1. Po wybraniu elementów do odzyskania na Wstążce narzędzia konsola administratora wybierz pozycję **Odzyskaj** , aby otworzyć **Kreatora odzyskiwania**. W **Kreatorze odzyskiwania** ekran **Przegląd opcji odzyskiwania** pokazuje wybrane elementy do odzyskania.
+1. Po wybraniu elementów do odzyskania na wstążce narzędzia konsola administratora  wybierz pozycję Odzyskaj, aby otworzyć **Kreatora odzyskiwania**. W **Kreatorze odzyskiwania** na **ekranie Przejrzyj wybór odzyskiwania** są zaznaczone elementy do odzyskania.
 
-1. Na stronie **Określanie opcji odzyskiwania** wykonaj jedną z następujących czynności:
+1. Na **ekranie Określanie opcji odzyskiwania** wykonaj jedną z następujących czynności:
 
-   - Wybierz pozycję **Modyfikuj** , aby włączyć ograniczanie przepustowości sieci. W oknie dialogowym **ograniczanie** przepustowości wybierz opcję **Włącz ograniczenie przepustowości sieci** , aby je włączyć. Po włączeniu Skonfiguruj **Ustawienia** i **harmonogram pracy**.
-   - Wybierz pozycję **dalej** , aby wyłączyć funkcję ograniczania przepustowości sieci.
+   - Wybierz **pozycję Modyfikuj,** aby włączyć ograniczanie przepustowości sieci. W **oknie dialogowym** Ograniczanie przepustowości wybierz pozycję **Włącz ograniczanie** przepustowości sieci, aby je włączyć. Po włączeniu skonfiguruj ustawienia **i** **harmonogram pracy.**
+   - Wybierz **przycisk Dalej,** aby pozostawić wyłączone ograniczanie przepustowości sieci.
 
-1. Na ekranie **Wybieranie typu odzyskiwania** wybierz pozycję **dalej**. Pliki lub foldery można odzyskać tylko do folderu sieciowego.
+1. Na **ekranie Wybierz typ odzyskiwania** wybierz pozycję **Dalej.** Pliki lub foldery można odzyskać tylko do folderu sieciowego.
 
-1. Na ekranie **określ miejsce docelowe** wybierz pozycję **Przeglądaj** , aby znaleźć lokalizację sieciową dla plików lub folderów. Azure Backup Server tworzy folder, do którego zostaną skopiowane wszystkie odzyskane elementy. Nazwa folderu ma prefiks MABS_day-miesiąc-Year. W przypadku wybrania lokalizacji odzyskiwanych plików lub folderów zostaną podane szczegółowe informacje dotyczące tej lokalizacji.
+1. Na **ekranie Określanie miejsca** docelowego wybierz **pozycję Przeglądaj,** aby znaleźć lokalizację sieciową plików lub folderów. Azure Backup Server folder, w którym kopiowane są wszystkie odzyskane elementy. Nazwa folderu ma prefiks MABS_day miesiąc-rok. Po wybraniu lokalizacji dla odzyskanych plików lub folderu zostaną podane szczegóły dla tej lokalizacji.
 
-   ![Określ lokalizację do odzyskania plików](../backup/media/restore-azure-backup-server-vmware/specify-destination.png)
+   ![Określanie lokalizacji do odzyskania plików](../backup/media/restore-azure-backup-server-vmware/specify-destination.png)
 
-1. Na stronie **Określ opcje odzyskiwania** wybierz ustawienia zabezpieczeń, które mają zostać zastosowane. Można wybrać opcję modyfikacji ograniczenia przepustowości sieci, ale ograniczenie przepustowości jest domyślnie wyłączone. Ponadto odzyskiwanie i **powiadamianie** **sieci San** nie jest włączone.
+1. Na **ekranie Określanie opcji odzyskiwania** wybierz, które ustawienie zabezpieczeń ma być stosowane. Możesz zmodyfikować ograniczanie przepustowości sieci, ale ograniczenie jest domyślnie wyłączone. Ponadto odzyskiwanie **sieci SAN** **i powiadomienia** nie są włączone.
 
-1. Na ekranie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz polecenie **Odzyskaj** , aby rozpocząć proces odzyskiwania. Ekran **stan odzyskiwania** pokazuje postęp operacji odzyskiwania.
+1. Na **ekranie Podsumowanie** przejrzyj ustawienia i wybierz pozycję **Odzyskaj,** aby rozpocząć proces odzyskiwania. Ekran **Stan** odzyskiwania przedstawia postęp operacji odzyskiwania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy zawarto tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server, warto zapoznać się z tematem: 
+Teraz, gdy już wiesz, jak wrócić do kopii Azure VMware Solution wirtualnych za pomocą Azure Backup Server, możesz dowiedzieć się więcej na temat: 
 
-- [Rozwiązywanie problemów podczas konfigurowania kopii zapasowych w Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md).
-- [Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Rozwiązywanie problemów podczas konfigurowania kopii zapasowych w Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md)
+- [Zarządzanie cyklem życia maszyn Azure VMware Solution wirtualnych](lifecycle-management-of-azure-vmware-solution-vms.md)

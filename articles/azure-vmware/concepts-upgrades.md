@@ -1,57 +1,57 @@
 ---
-title: Koncepcje — aktualizacje i uaktualnienia w chmurze prywatnej
-description: Dowiedz się więcej na temat podstawowych procesów uaktualniania i funkcji w rozwiązaniu VMware platformy Azure.
+title: Pojęcia — aktualizacje i uaktualnienia chmury prywatnej
+description: Dowiedz się więcej na temat procesów i funkcji uaktualniania kluczy w Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 9810de40944f70a4efb7ec81d17868ffdf256c7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ced5832a6d994f6cbc7e659d44ce4f6ac88681d0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586152"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876818"
 ---
-# <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Aktualizacje i uaktualnienia chmury prywatnej rozwiązania VMware platformy Azure
+# <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Azure VMware Solution aktualizacji i uaktualnień chmury prywatnej
 
-Jedną z korzyści związanych z chmurą prywatną rozwiązań Azure VMware jest to, że platforma jest obsługiwana. Konserwacja obejmuje zautomatyzowane aktualizacje pakietu oprogramowania VMware zweryfikowanego w celu zapewnienia, że korzystasz z najnowszej wersji oprogramowania Azure VMware w chmurze prywatnej.
+Jedną z zalet Azure VMware Solution chmur prywatnych jest to, że platforma jest utrzymywana dla Ciebie. Konserwacja obejmuje automatyczne aktualizacje pakietu oprogramowania zweryfikowanego przez oprogramowanie VMware, aby upewnić się, że używasz najnowszej wersji oprogramowania Azure VMware Solution w chmurze prywatnej.
 
-W przypadku chmury prywatnej Azure VMware rozwiązanie to obejmuje:
+W szczególności chmura Azure VMware Solution prywatna obejmuje:
 
-- Dedykowane węzły serwera bez systemu operacyjnego obsługiwane przy użyciu funkcji hypervisor VMware ESXi 
-- serwer vCenter do zarządzania ESXi i sieci vSAN 
-- Oprogramowanie VMware NSX-T zdefiniowane w sieci dla maszyn wirtualnych obciążeń vSphere  
-- Magazyn danych VMware sieci vSAN dla maszyn wirtualnych obciążeń vSphere  
+- Dedykowane węzły serwera bez systemu plików aprowizowane VMware ESXi funkcji hypervisor 
+- Serwer vCenter do zarządzania sieciami ESXi i vSAN 
+- Sieć zdefiniowana programowo VMware NSX-T dla maszyn wirtualnych obciążeń vSphere  
+- Magazyn danych VMware vSAN dla maszyn wirtualnych obciążeń vSphere  
 - VMware HCX na potrzeby mobilności obciążeń  
 
-Chmura prywatna rozwiązania Azure VMware obejmuje również zasoby w usłudze Azure underlay, które są wymagane do łączności i obsługują chmurę prywatną. Rozwiązanie VMware firmy Azure stale monitoruje kondycję zarówno underlay, jak i składników programu VMware. Gdy rozwiązanie VMware firmy Azure wykryje błąd, podejmuje działania w celu naprawy składników zakończonych niepowodzeniem. 
+Chmura Azure VMware Solution prywatna obejmuje również zasoby w ramach underlay platformy Azure wymagane do łączności i obsługi chmury prywatnej. Azure VMware Solution stale monitoruje kondycję składników oprogramowania VMware i składników oprogramowania VMware. Gdy Azure VMware Solution wykryje awarię, podejmuje działania w celu naprawienia uszkodzonych składników. 
 
 ## <a name="what-components-get-updated"></a>Jakie składniki są aktualizowane?   
 
-Rozwiązanie VMware platformy Azure aktualizuje następujące składniki VMware: 
+Azure VMware Solution aktualizuje następujące składniki VMware: 
 
-- vCenter Server i ESXi uruchomione w węzłach serwera bez systemu operacyjnego 
-- Sieci vSAN 
+- vCenter Server i ESXi uruchomione na węzłach serwera bez systemu plików 
+- Vsan 
 - NSX-T 
 
-Rozwiązanie VMware firmy Azure aktualizuje także oprogramowanie w underlay, takie jak sterowniki, oprogramowanie w przełącznikach sieciowych i oprogramowanie układowe w węzłach bez systemu operacyjnego. 
+Azure VMware Solution także oprogramowanie w ramach oprogramowania, takie jak sterowniki, oprogramowanie w przełącznikach sieciowych i oprogramowanie układowe w węzłach bez systemu operacyjnego. 
 
 ## <a name="types-of-updates"></a>Typy aktualizacji
 
-Rozwiązanie VMware firmy Azure stosuje następujące typy aktualizacji składników oprogramowania VMware:
+Azure VMware Solution stosuje następujące typy aktualizacji składników VMware:
 
 - Poprawki: poprawki zabezpieczeń i poprawki błędów wydane przez oprogramowanie VMware. 
-- Aktualizacje: aktualizacje wersji pomocniczej co najmniej jednego składnika VMware. 
-- Uaktualnienia: główne aktualizacje wersji co najmniej jednego składnika VMware.
+- Aktualizacje: aktualizacje wersji pomocniczej jednego lub większej liczby składników VMware. 
+- Uaktualnienia: aktualizacje wersji głównych jednego lub większej liczby składników VMware.
 
-Otrzymasz powiadomienie przed zastosowaniem poprawek do chmur prywatnych. Pomożemy również zaplanować przedział czasu obsługi przed zastosowaniem aktualizacji lub uaktualnień do chmury prywatnej. 
+Otrzymasz powiadomienie przed zastosowaniem poprawek do chmur prywatnych i po ich zastosowaniu. Będziemy również współpracować z Tobem, aby zaplanować okno obsługi przed zastosowaniem aktualizacji lub uaktualnień do chmury prywatnej. 
 
 ## <a name="vmware-appliance-backup"></a>Kopia zapasowa urządzenia VMware 
 
-Rozwiązanie VMware firmy Azure pobiera również kopię zapasową konfiguracji następujących składników programu VMware:
+Azure VMware Solution również kopii zapasowej konfiguracji następujących składników VMware:
 
 - Program vCenter Server 
-- Menedżer NSX-T 
+- NSX-T Manager 
 
-W razie awarii rozwiązanie VMware firmy Azure może przywrócić te składniki z kopii zapasowej konfiguracji. 
+W czasie awarii program Azure VMware Solution przywrócić te składniki z kopii zapasowej konfiguracji. 
 
 ## <a name="vmware-software-versions"></a>Wersje oprogramowania VMware
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
@@ -59,10 +59,10 @@ W razie awarii rozwiązanie VMware firmy Azure może przywrócić te składniki 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy zostały omówione podstawowe procesy uaktualniania i funkcje w rozwiązaniu VMware platformy Azure, warto zapoznać się z tematem:
+Teraz, gdy zostały już uwzględnione kluczowe procesy uaktualniania i funkcje w programie Azure VMware Solution, możesz dowiedzieć się więcej na temat:
 
-- [Jak utworzyć chmurę prywatną](tutorial-create-private-cloud.md).
-- [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md).
+- [Jak utworzyć chmurę prywatną](tutorial-create-private-cloud.md)
+- [Jak włączyć Azure VMware Solution zasobów](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 

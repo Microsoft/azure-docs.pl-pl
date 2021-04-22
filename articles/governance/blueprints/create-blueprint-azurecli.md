@@ -1,32 +1,32 @@
 ---
-title: 'Szybki Start: Tworzenie strategii przy użyciu interfejsu wiersza polecenia platformy Azure'
-description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: 'Szybki start: tworzenie strategii za pomocą interfejsu wiersza polecenia platformy Azure'
+description: W tym przewodniku Szybki start użyjemy Azure Blueprints tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: fbe5c12f1c94d4b59dbdc2a97b6a4cb9af5a2328
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 506877eddd78ce54681bd4870e1d9040b4738c27
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563671"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877412"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Szybki start: definiowanie i przypisywanie strategii platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
-Informacje na temat tworzenia i przypisywania planów umożliwiają definiowanie wspólnych wzorców w celu opracowania wielokrotnego i szybkiego wdrożenia konfiguracji na podstawie szablonów Azure Resource Manager (szablony ARM), zasad, zabezpieczeń i innych. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
+Nauka tworzenia i przypisywania strategii umożliwia definiowanie typowych wzorców w celu opracowywania konfiguracji wielokrotnego użytku i szybko wdrażalnych na podstawie szablonów usługi Azure Resource Manager (arm), zasad, zabezpieczeń i innych. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
-- Jeśli nie korzystasz już z planów platformy Azure, zarejestruj dostawcę zasobów za pomocą interfejsu wiersza polecenia platformy Azure w systemie `az provider register --namespace Microsoft.Blueprint` .
+- Jeśli wcześniej nie używaliśmy usługi Azure Blueprints, zarejestruj dostawcę zasobów za pośrednictwem interfejsu wiersza polecenia platformy Azure za pomocą polecenia `az provider register --namespace Microsoft.Blueprint` .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="add-the-blueprint-extension"></a>Dodaj rozszerzenie planu
+## <a name="add-the-blueprint-extension"></a>Dodawanie rozszerzenia strategii
 
-Aby włączyć interfejs wiersza polecenia platformy Azure do zarządzania definicjami i przypisaniami planu, należy dodać rozszerzenie.
+Aby umożliwić interfejsowi wiersza polecenia platformy Azure zarządzanie definicjami strategii i przypisaniami, należy dodać rozszerzenie.
 To rozszerzenie działa wszędzie tam, gdzie interfejs wiersza polecenia platformy Azure może być używany, w tym w [funkcji bash w systemie Windows 10](/windows/wsl/install-win10), usłudze [Cloud Shell](https://shell.azure.com) (autonomicznej i wewnątrz portalu), [obrazie platformy Docker interfejsu wiersza polecenia platformy Azure](https://hub.docker.com/_/microsoft-azure-cli), lub zainstalowany lokalnie.
 
-1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.0.76**). Jeśli jeszcze go nie zainstalowano, postępuj zgodnie z [tymi instrukcjami](/cli/azure/install-azure-cli-windows).
+1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.0.76).** Jeśli jeszcze go nie zainstalowano, postępuj zgodnie z [tymi instrukcjami](/cli/azure/install-azure-cli-windows).
 
 1. W wybranym środowisku interfejsu wiersza polecenia platformy Azure zaimportuj rozszerzenie za pomocą następującego polecenia:
 
@@ -35,7 +35,7 @@ To rozszerzenie działa wszędzie tam, gdzie interfejs wiersza polecenia platfor
    az extension add --name blueprint
    ```
 
-1. Sprawdź, czy rozszerzenie zostało zainstalowane i czy jest to oczekiwana wersja (co najmniej **0.1.0**):
+1. Sprawdź, czy rozszerzenie zostało zainstalowane i ma oczekiwaną wersję (co najmniej **0.1.0):**
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -47,14 +47,14 @@ To rozszerzenie działa wszędzie tam, gdzie interfejs wiersza polecenia platfor
 
 ## <a name="create-a-blueprint"></a>Tworzenie strategii
 
-Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utworzenie strategii z dostępnych zasobów. Utworzymy strategię o nazwie „MyBlueprint” służącą do konfigurowania przypisań ról i zasad dla subskrypcji. Następnie dodamy grupę zasobów, szablon ARM i przypisanie roli do grupy zasobów.
+Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utworzenie strategii z dostępnych zasobów. Utworzymy strategię o nazwie „MyBlueprint” służącą do konfigurowania przypisań ról i zasad dla subskrypcji. Następnie dodamy grupę zasobów, szablon usługi ARM i przypisanie roli do grupy zasobów.
 
 > [!NOTE]
-> W przypadku korzystania z interfejsu wiersza polecenia platformy Azure najpierw tworzony jest obiekt _Plan_ . Dla każdego _artefaktu_ zawierającego parametry, który ma zostać dodany, parametry _strategii_ początkowej muszą zostać zdefiniowane wcześniej.
+> W przypadku korzystania z interfejsu wiersza polecenia _platformy_ Azure najpierw jest tworzony obiekt strategii. Dla każdego _artefaktu_ zawierającego parametry, który ma zostać dodany, parametry _strategii_ początkowej muszą zostać zdefiniowane wcześniej.
 
-1. Utwórz obiekt _strategii_ początkowej. Parametr **Parameters** przyjmuje plik JSON, który zawiera wszystkie parametry poziomu planu. Parametry są określane podczas przypisywania i używane przez artefakty dodane w kolejnych krokach.
+1. Utwórz obiekt _strategii_ początkowej. Parametr **parameters** przyjmuje plik JSON, który zawiera wszystkie parametry poziomu strategii. Parametry są określane podczas przypisywania i używane przez artefakty dodane w kolejnych krokach.
 
-   - Plik JSON — blueprintparms.json
+   - Plik JSON — blueprintparms.jswł.
 
      ```json
      {
@@ -116,10 +116,10 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      ```
 
      > [!NOTE]
-     > Użyj nazwy pliku _blueprint.js_ podczas importowania definicji planu.
-     > Ta nazwa pliku jest używana podczas wywoływania [AZ planu import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
+     > Użyj nazwy pliku _blueprint.jspodczas_ importowania definicji strategii.
+     > Ta nazwa pliku jest używana podczas wywoływania [az blueprint import](/cli/azure/blueprint#az_blueprint_import).
 
-     Obiekt planu jest domyślnie tworzony w domyślnej subskrypcji. Aby określić grupę zarządzania, należy użyć grupy **zarządzania** parametrami. Aby określić subskrypcję, użyj **subskrypcji** parametru.
+     Obiekt strategii jest domyślnie tworzony w subskrypcji domyślnej. Aby określić grupę zarządzania, użyj grupy **zarządzania parametrami**. Aby określić subskrypcję, użyj parametru **subskrypcja**.
 
 1. Dodaj grupę zasobów dla artefaktów magazynu do definicji.
 
@@ -142,7 +142,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
 
 1. Dodaj przypisanie zasad w subskrypcji. W tym przykładzie użyto wbudowanych zasad _Zastosuj tag i jego wartość domyślną do grup zasobów_ o identyfikatorze GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
-   - Plik JSON — artifacts\policyTags.json
+   - Plik JSON — artifacts\policyTags.jswł.
 
      ```json
      {
@@ -168,11 +168,11 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      ```
 
      > [!NOTE]
-     > W przypadku używania `az blueprint` na komputerze Mac Zamień `\` na `/` wartości parametrów, które zawierają ścieżkę. W takim przypadku wartość **parametrów** `artifacts/policyTags.json` .
+     > W przypadku `az blueprint` używania na komputerze Mac zastąp wartość `\` `/` parametrem , aby uzyskać wartości parametrów, które zawierają ścieżkę. W tym przypadku wartość parametrów **to** `artifacts/policyTags.json` .
 
 1. Dodaj kolejne przypisanie zasad dla tagu magazynu (używając ponownie parametru _storageAccountType_) w subskrypcji. Ten dodatkowy artefakt przypisania zasad pokazuje, że parametr zdefiniowany w strategii może być używany przez więcej niż jeden artefakt. W tym przykładzie parametr **storageAccountType** służy do określania tagu w grupie zasobów. Ta wartość zawiera informacje o koncie magazynu, które zostanie tworzone w następnym kroku. W tym przykładzie użyto wbudowanych zasad _Zastosuj tag i jego wartość domyślną do grup zasobów_ o identyfikatorze GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
-   - Plik JSON — artifacts\policyStorageTags.json
+   - Plik JSON — artifacts\policyStorageTags.jswł.
 
      ```json
      {
@@ -198,11 +198,11 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      ```
 
      > [!NOTE]
-     > W przypadku używania `az blueprint` na komputerze Mac Zamień `\` na `/` wartości parametrów, które zawierają ścieżkę. W takim przypadku wartość **parametrów** `artifacts/policyStorageTags.json` .
+     > W przypadku `az blueprint` używania na komputerze Mac zastąp wartość `\` `/` parametrem , aby uzyskać wartości parametrów, które zawierają ścieżkę. W tym przypadku wartość parametrów **to** `artifacts/policyStorageTags.json` .
 
-1. Dodaj szablon w grupie zasobów. Parametr **szablonu** dla szablonu ARM zawiera normalne składniki JSON szablonu. Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry planu są dostępne dla szablonu za pomocą **parametrów** parametru i w formacie JSON szablonu, którego para klucz-wartość służy do iniekcji wartości. Nazwy planów i parametrów szablonu mogą być takie same.
+1. Dodaj szablon w grupie zasobów. Parametr **szablonu** dla szablonu usługi ARM zawiera normalne składniki JSON szablonu. Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry strategii są dostępne dla szablonu  przy użyciu parametrów parametrów, a w pliku JSON szablonu para klucz-wartość jest używana do iniekcji wartości. Nazwy parametrów strategii i szablonu mogą być takie same.
 
-   - Plik szablonu ARM JSON — artifacts\templateStorage.json
+   - Plik szablonu arm JSON — artifacts\templateStorage.jsna
 
      ```json
      {
@@ -256,7 +256,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      }
      ```
 
-   - Plik parametru szablonu ARM w formacie JSON — artifacts\templateStorageParams.json
+   - Plik parametrów szablonu arm JSON — artifacts\templateStorageParams.jsna
 
      ```json
      {
@@ -284,7 +284,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      ```
 
      > [!NOTE]
-     > W przypadku używania `az blueprint` na komputerze Mac Zamień `\` na `/` wartości parametrów, które zawierają ścieżkę. W takim przypadku wartość **szablonu** zmieni się, `artifacts/templateStorage.json` a **Parametry** staną się `artifacts/templateStorageParams.json` .
+     > W przypadku `az blueprint` używania na komputerze Mac zastąp wartość `\` `/` parametrem , aby uzyskać wartości parametrów, które zawierają ścieżkę. W tym przypadku wartość szablonu staje **się, a** `artifacts/templateStorage.json` parametry stają **się** `artifacts/templateStorageParams.json` wartością .
 
 1. Dodaj przypisanie roli w grupie zasobów. Podobnie jak w poprzednim wpisie przypisania roli, w poniższym przykładzie użyto identyfikatora definicji dla roli **Właściciel** i podano mu inny parametr ze strategii. W tym przykładzie użyto wbudowanej roli _Właściciel_ o identyfikatorze GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
@@ -305,15 +305,15 @@ Po dodaniu artefaktów do strategii czas na jej opublikowanie. Opublikowanie str
 az blueprint publish --blueprint-name 'MyBlueprint' --version '{BlueprintVersion}'
 ```
 
-Wartość zmiennej `{BlueprintVersion}` jest ciągiem liter, cyfr i łączników (bez spacji czy innych znaków specjalnych) o maksymalnej długości 20 znaków. Korzystaj z unikatowych i informacyjnych, takich jak **v20200605-135541**.
+Wartość zmiennej `{BlueprintVersion}` jest ciągiem liter, cyfr i łączników (bez spacji czy innych znaków specjalnych) o maksymalnej długości 20 znaków. Użyj czegoś unikatowego i informacyjnego, takiego jak **v20200605-135541.**
 
 ## <a name="assign-a-blueprint"></a>Przypisywanie strategii
 
-Po opublikowaniu planu przy użyciu interfejsu wiersza polecenia platformy Azure można go przypisać do subskrypcji. Przypisz utworzoną przez siebie strategię do jednej z subskrypcji w Twojej hierarchii grup zarządzania. Jeśli strategia została zapisana w subskrypcji, można ją przypisać tylko do tej subskrypcji. Parametr strategii **-name** określa plan do przypisania. Aby podać nazwę, lokalizację, tożsamość, blokadę i parametry planu, użyj pasujących parametrów interfejsu wiersza polecenia platformy Azure w `az blueprint assignment create` poleceniu lub podaj je w pliku JSON **parametrów** .
+Po opublikowaniu strategii przy użyciu interfejsu wiersza polecenia platformy Azure można ją przypisać do subskrypcji. Przypisz utworzoną przez siebie strategię do jednej z subskrypcji w Twojej hierarchii grup zarządzania. Jeśli strategia została zapisana w subskrypcji, można ją przypisać tylko do tej subskrypcji. Parametr **blueprint-name** określa plan do przypisania. Aby podać nazwę, lokalizację, tożsamość, blokadę i parametry strategii, użyj pasujących parametrów interfejsu wiersza polecenia platformy Azure w poleceniu lub podaj je w `az blueprint assignment create` **pliku** JSON parametrów.
 
-1. Uruchom wdrażanie strategii, przypisując ją do subskrypcji. Ponieważ parametry **współautorów** i **właścicieli** wymagają tablicy obiektów objectid, aby otrzymać przypisanie roli, użyj [Azure Active Directory interfejs API programu Graph](/graph/migrate-azure-ad-graph-planning-checklist) do zbierania obiektów objectid do użycia w **parametrach** dla własnych użytkowników, grup lub jednostek usługi.
+1. Uruchom wdrażanie strategii, przypisując ją do subskrypcji. Ponieważ  parametry współautorów i właścicieli wymagają tablicy identyfikatorów obiektów podmiotów zabezpieczeń, aby uzyskać przypisanie roli, użyj polecenia  [Azure Active Directory interfejs Graph API](/graph/migrate-azure-ad-graph-planning-checklist) do zbierania identyfikatorów objectId do użycia w parametrach dla własnych użytkowników, grup lub jednostki usługi. 
 
-   - Plik JSON — blueprintAssignment.json
+   - Plik JSON — blueprintAssignment.jswł.
 
      ```json
      {
@@ -354,7 +354,7 @@ Po opublikowaniu planu przy użyciu interfejsu wiersza polecenia platformy Azure
    - Tożsamość zarządzana przypisana przez użytkownika
 
      W przypisaniu strategii można również użyć [tożsamości zarządzanej przypisanej przez użytkownika](../../active-directory/managed-identities-azure-resources/overview.md).
-     W takim przypadku parametr **Identity-Type** jest ustawiony na wartość _UserAssigned_ , a parametr tożsamości **przypisanych przez użytkownika** Określa tożsamość. Zamień `{userIdentity}` na nazwę tożsamości zarządzanej przypisanej przez użytkownika.
+     W takim przypadku parametr **identity-type** jest ustawiany na _UserAssigned,_ a parametr **user-assigned-identities** określa tożsamość. Zastąp `{userIdentity}` nazwą tożsamości zarządzanej przypisanej przez użytkownika.
 
      ```azurecli-interactive
      az blueprint assignment create \
@@ -369,13 +369,13 @@ Po opublikowaniu planu przy użyciu interfejsu wiersza polecenia platformy Azure
      **Tożsamość zarządzana przypisana przez użytkownika** może należeć do dowolnej subskrypcji i grupy zasobów, do której użytkownik przypisujący strategię ma uprawnienia.
 
      > [!IMPORTANT]
-     > Plany platformy Azure nie zarządzają tożsamości zarządzanej przypisanej przez użytkownika. Użytkownicy są odpowiedzialni za przypisywanie wystarczających ról i uprawnień — w przeciwnym razie przypisanie strategii kończy się niepowodzeniem.
+     > Azure Blueprints zarządza tożsamością zarządzaną przypisaną przez użytkownika. Użytkownicy są odpowiedzialni za przypisywanie wystarczających ról i uprawnień — w przeciwnym razie przypisanie strategii kończy się niepowodzeniem.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ### <a name="unassign-a-blueprint"></a>Cofanie przypisania strategii
 
-Strategię można usunąć z subskrypcji. Usunięcie często przeprowadza się, gdy zasoby artefaktu przestają być potrzebne. Po usunięciu strategii artefakty przypisane w jej ramach są pozostawiane. Aby usunąć przypisanie planu, użyj `az blueprint assignment delete` polecenia:
+Strategię można usunąć z subskrypcji. Usunięcie często przeprowadza się, gdy zasoby artefaktu przestają być potrzebne. Po usunięciu strategii artefakty przypisane w jej ramach są pozostawiane. Aby usunąć przypisanie strategii, użyj `az blueprint assignment delete` polecenia :
 
 ```azurecli-interactive
 az blueprint assignment delete --name 'assignMyBlueprint'
@@ -383,7 +383,7 @@ az blueprint assignment delete --name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono, przypisano i usunięto plan przy użyciu interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się więcej na temat planów platformy Azure, przejdź do artykułu dotyczącego cyklu życia planu.
+W tym przewodniku Szybki start utworzono, przypisano i usunięto strategia za pomocą interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się więcej na Azure Blueprints, przejdź do artykułu o cyklu życia strategii.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o cyklu życia planu](./concepts/lifecycle.md)
+> [Dowiedz się więcej o cyklu życia strategii](./concepts/lifecycle.md)

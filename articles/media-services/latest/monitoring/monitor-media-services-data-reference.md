@@ -7,21 +7,21 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
-ms.date: 03/17/2021
-ms.openlocfilehash: 4e4c65966ec8a6a5b47d5f68596f6d2d496fda17
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.date: 04/21/2021
+ms.openlocfilehash: 3fd7b8013ec67d718f308ccd1b72a6f90012e02e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835510"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873059"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Informacje Media Services monitorowania
 
-W tym artykule omykamy dane, które są przydatne do monitorowania Media Services. Aby uzyskać więcej informacji na temat wszystkich metryk platformy obsługiwanych w programie Azure Monitor, zapoznaj się z tematem [Obsługiwane metryki za pomocą Azure Monitor.](../../../azure-monitor/essentials/metrics-supported.md)
+W tym artykule omykamy dane, które są przydatne do monitorowania Media Services. Aby uzyskać więcej informacji na temat wszystkich metryk platformy obsługiwanych w programie Azure Monitor, zapoznaj się z tematem [Obsługiwane metryki](../../../azure-monitor/essentials/metrics-supported.md)za pomocą Azure Monitor .
 
-## <a name="media-services-metrics"></a>Media Services metryki
+## <a name="metrics"></a>Metryki
 
-Metryki są zbierane w regularnych odstępach czasu niezależnie od tego, czy wartość się zmienia. Są one przydatne w przypadku alertów, ponieważ mogą być często próbkowane, a alert można szybko wyzbić przy użyciu stosunkowo prostej logiki.
+Metryki są zbierane w regularnych odstępach czasu niezależnie od tego, czy wartość się zmienia. Są one przydatne w przypadku alertów, ponieważ mogą być często próbkowane, a alerty mogą być szybko wyzwani przy użyciu stosunkowo prostej logiki.
 
 
 Media Services obsługuje metryki monitorowania dla następujących zasobów:
@@ -33,27 +33,28 @@ Media Services obsługuje metryki monitorowania dla następujących zasobów:
 | Punkty końcowe przesyłania strumieniowego | [Microsoft.Media/mediaservices/streamingEndpoints,](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints)które są istotne dla interfejsu [API REST punktów końcowych przesyłania strumieniowego.](/rest/api/media/streamingendpoints) 
 
 
-Należy również przejrzeć [limity przydziału i limity kont.](../limits-quotas-constraints-reference.md)
+Należy również przejrzeć [limity przydziału i limity konta.](../limits-quotas-constraints-reference.md)
 
 
 ## <a name="metric-dimensions"></a>Wymiary metryki
 
 Aby uzyskać więcej informacji na temat wymiarów metryk, zobacz [Metryki wielowymiarowe](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
-<!--**PLACEHOLDER** for dimensions table.-->
-OutputFormat, HttpStatusCode, ErrorCode, TrackName
+Usługi Media Services mają następujące wymiary metryk.  Są one własne, oparte na metrykach, które obsługują.  Aby uzyskać [więcej informacji, zobacz linki](#metrics) metryk powyżej.   
+- Format OutputFormat
+- HttpStatusCode 
+- ErrorCode 
+- Nazwa ścieżki 
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
 
-## <a name="media-services-resource-logs"></a>Media Services zasobów
-
-Dzienniki zasobów zawierają rozbudowane i częste dane dotyczące działania zasobu platformy Azure. Aby uzyskać więcej informacji, zobacz [Jak zbierać dane dzienników](../../../azure-monitor/essentials/platform-logs-overview.md)z zasobów platformy Azure i korzystać z tych danych.
+Dzienniki zasobów zawierają rozbudowane i częste dane dotyczące działania zasobu platformy Azure. Aby uzyskać więcej informacji, zobacz Jak zbierać i korzystać [z danych dzienników z zasobów platformy Azure.](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 Media Services obsługuje następujące dzienniki zasobów: [Microsoft.Media/mediaservices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
 
 ## <a name="schemas"></a>Schematy
 
-Aby uzyskać szczegółowy opis schematu dzienników diagnostycznych najwyższego poziomu, zobacz Obsługiwane usługi, schematy i kategorie [dla dzienników diagnostycznych platformy Azure.](../../../azure-monitor/essentials/resource-logs-schema.md)
+Aby uzyskać szczegółowy opis schematu dzienników diagnostycznych najwyższego poziomu, zobacz Obsługiwane usługi, schematy i kategorie [dzienników diagnostycznych platformy Azure.](../../../azure-monitor/essentials/resource-logs-schema.md)
 
 ## <a name="key-delivery-log-schema-properties"></a>Właściwości schematu dziennika dostarczania kluczy
 
@@ -69,7 +70,7 @@ Te właściwości są specyficzne dla schematu dziennika dostarczania kluczy.
 
 ### <a name="example"></a>Przykład
 
-Właściwości schematu kluczowych żądań dostarczania.
+Właściwości schematu żądań dostarczania kluczy.
 
 ```json
 {
@@ -130,7 +131,7 @@ Właściwości schematu kluczowych żądań dostarczania.
 ```
 
 >[!NOTE]
-> Widevine to usługa dostarczana przez firmę Google Inc. podlegając warunkiom świadczenia usług i zasadom ochrony prywatności firmy Google, Inc.
+> Widevine to usługa dostarczana przez firmę Google Inc. z zastrzeżeniem warunków użytkowania usługi i zasad ochrony prywatności firmy Google, Inc.
 
 ## <a name="next-steps"></a>Następne kroki
 

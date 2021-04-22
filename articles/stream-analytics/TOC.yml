@@ -316,13 +316,13 @@
               href: external-error-codes.md
             - name: Błędy wewnętrzne
               href: internal-error-codes.md
-    - name: Integracja z usługą Machine Learning
+    - name: Integracja z Machine Learning
       items:
         - name: Analiza tonacji przy użyciu modeli usługi ML
           href: stream-analytics-machine-learning-integration-tutorial.md
         - name: Wykrywanie anomalii
           href: stream-analytics-machine-learning-anomaly-detection.md
-        - name: Używanie interfejsów API REST w usłudze ML
+        - name: Korzystanie z interfejsów API REST uczenia maszynowego
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Debugowanie za pomocą diagramu zadań
       href: stream-analytics-job-diagram-with-metrics.md
@@ -677,7 +677,7 @@
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/stream-analytics/stream-analytics
+      href: /cli/azure/stream-analytics
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

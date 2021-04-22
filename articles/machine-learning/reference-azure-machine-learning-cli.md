@@ -9,14 +9,14 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 8e912e141ab769f3121fcccdecb9c3952920572f
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f30cd528a329708a7478b1a4a343f7be3b9eac04
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516216"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877790"
 ---
-# <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Zainstaluj & interfejsu wiersza polecenia dla Azure Machine Learning
+# <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Zainstaluj & interfejsu wiersza polecenia na Azure Machine Learning
 
 
 Interfejs Azure Machine Learning wiersza polecenia to rozszerzenie interfejsu wiersza polecenia platformy [Azure](/cli/azure/), międzyplatformowego interfejsu wiersza polecenia dla platformy Azure. To rozszerzenie udostępnia polecenia do pracy z Azure Machine Learning. Umożliwia automatyzację działań uczenia maszynowego. Na poniższej liście przedstawiono kilka przykładowych akcji, które można wykonać za pomocą rozszerzenia interfejsu wiersza polecenia:
@@ -27,26 +27,26 @@ Interfejs Azure Machine Learning wiersza polecenia to rozszerzenie interfejsu wi
 
 + Spakowania, wdrażania i śledzenia cyklu życia modeli uczenia maszynowego
 
-Interfejs wiersza polecenia nie zastępuje zestawu AZURE MACHINE LEARNING SDK. Jest to uzupełniające się narzędzie, które jest zoptymalizowane pod kątem obsługi wysoce sparametryzowanego zadania, które dobrze pasują do automatyzacji.
+Interfejs wiersza polecenia nie zastępuje zestawu AZURE MACHINE LEARNING SDK. Jest to uzupełniające się narzędzie zoptymalizowane pod kątem obsługi wysoce sparametryzowanego zadania, które dobrze pasują do automatyzacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Aby korzystać z interfejsu wiersza polecenia, musisz mieć subskrypcję platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) już dziś.
 
-* Aby używać poleceń interfejsu wiersza polecenia w tym dokumencie ze środowiska **lokalnego,** potrzebny jest interfejs wiersza [polecenia platformy Azure.](/cli/azure/install-azure-cli)
+* Aby używać poleceń interfejsu wiersza polecenia w tym dokumencie ze środowiska **lokalnego,** potrzebny jest interfejs wiersza [polecenia platformy Azure](/cli/azure/install-azure-cli).
 
     Jeśli używasz interfejsu [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), interfejs wiersza polecenia jest dostępny za pośrednictwem przeglądarki i znajduje się w chmurze.
 
 ## <a name="full-reference-docs"></a>Pełna dokumenty referencyjne
 
-Znajdź pełną [dokumenty referencyjne rozszerzenia azure-cli-ml interfejsu wiersza polecenia platformy Azure.](/cli/azure/ml/)
+Znajdź pełne [dokumenty referencyjne dotyczące rozszerzenia azure-cli-ml interfejsu wiersza polecenia platformy Azure.](/cli/azure/ml/)
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Łączenie interfejsu wiersza polecenia z subskrypcją platformy Azure
 
 > [!IMPORTANT]
-> Jeśli używasz tej Azure Cloud Shell, możesz pominąć tę sekcję. Usługa Cloud Shell automatycznie uwierzytelnia Cię przy użyciu konta, z których logujesz się do subskrypcji platformy Azure.
+> Jeśli używasz tej Azure Cloud Shell, możesz pominąć tę sekcję. Usługa Cloud Shell automatycznie uwierzytelnia Cię przy użyciu konta, które logujesz się do subskrypcji platformy Azure.
 
-Istnieje kilka sposobów uwierzytelniania w subskrypcji platformy Azure za pomocą interfejsu wiersza polecenia. Najbardziej podstawowe jest interakcyjne uwierzytelnianie przy użyciu przeglądarki. Aby uwierzytelnić się interaktywnie, otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
+Istnieje kilka sposobów uwierzytelniania w subskrypcji platformy Azure za pomocą interfejsu wiersza polecenia. Najbardziej podstawowe jest interaktywne uwierzytelnianie przy użyciu przeglądarki. Aby uwierzytelnić się interaktywnie, otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
 
 ```azurecli-interactive
 az login
@@ -56,7 +56,7 @@ Jeśli interfejs wiersza polecenia może otworzyć Twoją domyślną przeglądar
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
-Aby uzyskać informacje o innych metodach uwierzytelniania, zobacz [Logowanie się przy użyciu interfejsu wiersza polecenia platformy Azure.](/cli/azure/authenticate-azure-cli)
+Aby uzyskać informacje o innych metodach uwierzytelniania, zobacz [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure.](/cli/azure/authenticate-azure-cli)
 
 ## <a name="install-the-extension"></a>Instalowanie rozszerzenia
 
@@ -94,9 +94,9 @@ Następujące polecenia pokazują, jak za pomocą interfejsu wiersza polecenia z
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-create).
+    Aby uzyskać więcej informacji, zobacz [az ml workspace create](/cli/azure/ml/workspace#az_ml_workspace_create).
 
-+ Dołączanie konfiguracji obszaru roboczego do folderu w celu umożliwienia świadomości kontekstowej interfejsu wiersza polecenia.
++ Dołączanie konfiguracji obszaru roboczego do folderu w celu włączenia świadomości kontekstowej interfejsu wiersza polecenia.
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
@@ -104,7 +104,7 @@ Następujące polecenia pokazują, jak za pomocą interfejsu wiersza polecenia z
 
     To polecenie tworzy `.azureml` podkatalog zawierający przykładowe pliki środowiska runconfig i conda. Zawiera on również `config.json` plik, który jest używany do komunikowania się z Azure Machine Learning roboczym.
 
-    Aby uzyskać więcej informacji, zobacz [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach).
+    Aby uzyskać więcej informacji, zobacz [az ml folder attach](/cli/azure/ml/folder#az_ml_folder_attach).
 
 + Dołączanie kontenera obiektów blob platformy Azure jako magazynu danych.
 
@@ -112,7 +112,7 @@ Następujące polecenia pokazują, jak za pomocą interfejsu wiersza polecenia z
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml datastore attach-blob](/cli/azure/ext/azure-cli-ml/ml/datastore#ext-azure-cli-ml-az-ml-datastore-attach-blob).
+    Aby uzyskać więcej informacji, zobacz [az ml datastore attach-blob](/cli/azure/ml/datastore#az_ml_datastore_attach-blob).
 
 + Przekazywanie plików do magazynu danych.
 
@@ -120,15 +120,15 @@ Następujące polecenia pokazują, jak za pomocą interfejsu wiersza polecenia z
     az ml datastore upload  -n datastorename -p sourcepath
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml datastore upload](/cli/azure/ext/azure-cli-ml/ml/datastore#ext-azure-cli-ml-az-ml-datastore-upload).
+    Aby uzyskać więcej informacji, zobacz [az ml datastore upload](/cli/azure/ml/datastore#az_ml_datastore_upload).
 
-+ Dołącz klaster usługi AKS jako docelowy obiekt obliczeniowy.
++ Dołączanie klastra usługi AKS jako docelowego obiektu obliczeniowego.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach-aks)
 
 ### <a name="compute-clusters"></a>Klastry obliczeniowe
 
@@ -165,7 +165,7 @@ Następujące polecenia pokazują, jak za pomocą interfejsu wiersza polecenia z
         az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
         ```
 
-Aby uzyskać więcej informacji, zobacz [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+Aby uzyskać więcej informacji, zobacz [az ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute).
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
 
@@ -180,15 +180,15 @@ Zarządzanie wystąpieniami obliczeniowymi.  We wszystkich poniższych przykład
     az ml computetarget create computeinstance -n cpu -s "STANDARD_D3_V2" -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance).
 
-+ Zatrzymaj obliczenia.
++ Zatrzymaj wystąpienia obliczeniowe.
 
     ```azurecli-interactive
     az ml computetarget computeinstance stop -n cpu -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml computetarget computeinstance stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget computeinstance stop](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 + Uruchamianie wystąpienia obliczeniowego.
 
@@ -196,7 +196,7 @@ Zarządzanie wystąpieniami obliczeniowymi.  We wszystkich poniższych przykład
     az ml computetarget computeinstance start -n cpu -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml computetarget computeinstance start](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget computeinstance start](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 + Uruchom ponownie wystąpienia obliczeniowe.
 
@@ -204,7 +204,7 @@ Zarządzanie wystąpieniami obliczeniowymi.  We wszystkich poniższych przykład
     az ml computetarget computeinstance restart -n cpu -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml computetarget computeinstance restart (Az ml computetarget computeinstance restart).](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget computeinstance restart (Az ml computetarget computeinstance restart).](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart)
 
 + Usuwanie wystąpienia obliczeniowego.
 
@@ -212,12 +212,12 @@ Zarządzanie wystąpieniami obliczeniowymi.  We wszystkich poniższych przykład
     az ml computetarget delete -n cpu -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml computetarget delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
 
 
 ## <a name="run-experiments"></a><a id="experiments"></a>Uruchamianie eksperymentów
 
-* Rozpocznij przebieg eksperymentu. W przypadku korzystania z tego polecenia określ nazwę pliku runconfig (tekst przed rozszerzeniem .runconfig, jeśli patrzysz na system plików) względem \* parametru -c.
+* Rozpocznij przebieg eksperymentu. Korzystając z tego polecenia, określ nazwę pliku runconfig (tekst przed .runconfig, jeśli patrzysz na system plików) względem \* -c parametru.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
@@ -226,11 +226,11 @@ Zarządzanie wystąpieniami obliczeniowymi.  We wszystkich poniższych przykład
     > [!TIP]
     > Polecenie `az ml folder attach` tworzy `.azureml` podkatalog, który zawiera dwa przykładowe pliki runconfig. 
     >
-    > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchamiania, możesz użyć polecenia [RunConfig.save(),](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) aby zapisać go jako plik runconfig.
+    > Jeśli masz skrypt języka Python, który tworzy obiekt konfiguracji uruchamiania programowo, możesz użyć polecenia [RunConfig.save(),](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) aby zapisać go jako plik runconfig.
     >
-    > Pełny schemat runconfig można znaleźć w tym pliku [JSON.](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) Schemat jest samowyodokumentowania za `description` pośrednictwem klucza każdego obiektu. Ponadto istnieją wylinia dla możliwych wartości i fragment kodu szablonu na końcu.
+    > Pełny schemat runconfig można znaleźć w tym pliku [JSON.](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) Schemat sam dokumentuje się za pomocą `description` klucza każdego obiektu. Ponadto istnieją wyliki dla możliwych wartości i fragment kodu szablonu na końcu.
 
-    Aby uzyskać więcej informacji, zobacz [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script).
+    Aby uzyskać więcej informacji, zobacz [az ml run submit-script](/cli/azure/ml/run#az_ml_run_submit_script).
 
 * Wyświetl listę eksperymentów:
 
@@ -238,11 +238,11 @@ Zarządzanie wystąpieniami obliczeniowymi.  We wszystkich poniższych przykład
     az ml experiment list
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list).
+    Aby uzyskać więcej informacji, zobacz [az ml experiment list](/cli/azure/ml/experiment#az_ml_experiment_list).
 
-### <a name="hyperdrive-run"></a>Uruchomienie funkcji HyperDrive
+### <a name="hyperdrive-run"></a>Uruchamianie funkcji HyperDrive
 
-Do wykonywania przebiegów dostrajania parametrów można użyć usługi HyperDrive z interfejsem wiersza polecenia platformy Azure. Najpierw utwórz plik konfiguracji funkcji HyperDrive w następującym formacie. Zobacz [artykuł Dostrajanie hiperparametrów dla modelu,](how-to-tune-hyperparameters.md) aby uzyskać szczegółowe informacje na temat parametrów dostrajania hiperparametrów.
+Za pomocą usługi HyperDrive z interfejsem wiersza polecenia platformy Azure można wykonywać przebiegi dostrajania parametrów. Najpierw utwórz plik konfiguracji usługi HyperDrive w następującym formacie. Aby uzyskać szczegółowe informacje na temat [parametrów dostrajania hiperparametrów,](how-to-tune-hyperparameters.md) zobacz artykuł Tune hyperparameters for your model (Dostrajanie hiperparametrów dla modelu).
 
 ```yml
 # hdconfig.yml
@@ -282,7 +282,7 @@ Następujące polecenia pokazują, jak pracować z zestawami danych w Azure Mach
 
     Aby uzyskać informacje na temat formatu pliku JSON używanego do definiowania zestawu danych, `az ml dataset register --show-template` użyj .
 
-    Aby uzyskać więcej informacji, zobacz [az ml dataset register](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-register).
+    Aby uzyskać więcej informacji, zobacz [az ml dataset register](/cli/azure/ml/dataset#az_ml_dataset_register).
 
 + Lista wszystkich zestawów danych w obszarze roboczym:
 
@@ -290,7 +290,7 @@ Następujące polecenia pokazują, jak pracować z zestawami danych w Azure Mach
     az ml dataset list
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml dataset list](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-list).
+    Aby uzyskać więcej informacji, zobacz [az ml dataset list](/cli/azure/ml/dataset#az_ml_dataset_list).
 
 + Pobierz szczegóły zestawu danych:
 
@@ -298,7 +298,7 @@ Następujące polecenia pokazują, jak pracować z zestawami danych w Azure Mach
     az ml dataset show -n dataset-name
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml dataset show](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-show).
+    Aby uzyskać więcej informacji, zobacz [az ml dataset show](/cli/azure/ml/dataset#az_ml_dataset_show).
 
 + Wyrejestruj zestaw danych:
 
@@ -306,11 +306,11 @@ Następujące polecenia pokazują, jak pracować z zestawami danych w Azure Mach
     az ml dataset unregister -n dataset-name
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml dataset unregister](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-archive).
+    Aby uzyskać więcej informacji, zobacz [az ml dataset unregister](/cli/azure/ml/dataset#az_ml_dataset_archive).
 
 ## <a name="environment-management"></a>Zarządzanie środowiskiem
 
-Następujące polecenia pokazują, jak tworzyć, rejestrować i Azure Machine Learning [dla](how-to-configure-environment.md) obszaru roboczego:
+Następujące polecenia pokazują, jak tworzyć, rejestrować i tworzyć Azure Machine Learning [dla](how-to-configure-environment.md) obszaru roboczego:
 
 + Utwórz pliki szkieletu dla środowiska:
 
@@ -318,7 +318,7 @@ Następujące polecenia pokazują, jak tworzyć, rejestrować i Azure Machine Le
     az ml environment scaffold -n myenv -d myenvdirectory
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml environment scaffold (Szkielet środowiska az ml).](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-scaffold)
+    Aby uzyskać więcej informacji, zobacz [az ml environment scaffold (Szkielet środowiska az ml).](/cli/azure/ml/environment#az_ml_environment_scaffold)
 
 + Rejestrowanie środowiska:
 
@@ -326,7 +326,7 @@ Następujące polecenia pokazują, jak tworzyć, rejestrować i Azure Machine Le
     az ml environment register -d myenvdirectory
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml environment register](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-register).
+    Aby uzyskać więcej informacji, zobacz [az ml environment register](/cli/azure/ml/environment#az_ml_environment_register).
 
 + Lista zarejestrowanych środowisk:
 
@@ -334,7 +334,7 @@ Następujące polecenia pokazują, jak tworzyć, rejestrować i Azure Machine Le
     az ml environment list
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml environment list](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-list).
+    Aby uzyskać więcej informacji, zobacz [az ml environment list](/cli/azure/ml/environment#az_ml_environment_list).
 
 + Pobierz zarejestrowane środowisko:
 
@@ -342,11 +342,11 @@ Następujące polecenia pokazują, jak tworzyć, rejestrować i Azure Machine Le
     az ml environment download -n myenv -d downloaddirectory
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml environment download](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-download).
+    Aby uzyskać więcej informacji, zobacz [az ml environment download](/cli/azure/ml/environment#az_ml_environment_download).
 
 ### <a name="environment-configuration-schema"></a>Schemat konfiguracji środowiska
 
-Jeśli używasz polecenia , generuje on plik szablonu, który można zmodyfikować i użyć do utworzenia niestandardowych konfiguracji `az ml environment scaffold` `azureml_environment.json` środowiska za pomocą interfejsu wiersza polecenia. Obiekt najwyższego poziomu jest luźno mapowany [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) na klasę w zestawie SDK języka Python. 
+Jeśli używasz polecenia , generuje on plik szablonu, który można zmodyfikować i który może służyć do tworzenia niestandardowych konfiguracji `az ml environment scaffold` `azureml_environment.json` środowiska za pomocą interfejsu wiersza polecenia. Obiekt najwyższego poziomu jest luźno mapowany [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) na klasę w zestawie SDK języka Python. 
 
 ```json
 {
@@ -390,11 +390,11 @@ Jeśli używasz polecenia , generuje on plik szablonu, który można zmodyfikowa
 }
 ```
 
-W poniższej tabeli przedstawiono szczegółowo każde pole najwyższego poziomu w pliku JSON, jego typ i opis. Jeśli typ obiektu jest połączony z klasą z zestawu SDK języka Python, istnieje luźne dopasowanie 1:1 między każdym polem JSON a nazwą zmiennej publicznej w klasie języka Python. W niektórych przypadkach pole może być mapowe na argument konstruktora, a nie zmienną klasy. Na przykład pole `environmentVariables` jest mapowe `environment_variables` na zmienną w klasie [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) .
+W poniższej tabeli przedstawiono szczegóły każdego pola najwyższego poziomu w pliku JSON, jego typ i opis. Jeśli typ obiektu jest połączony z klasą z zestawu SDK języka Python, istnieje luźne dopasowanie 1:1 między każdym polem JSON a nazwą zmiennej publicznej w klasie języka Python. W niektórych przypadkach pole może być mapowanie na argument konstruktora, a nie zmienną klasy. Na przykład pole `environmentVariables` jest mapowe `environment_variables` na zmienną w klasie [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) .
 
 | Pole JSON | Typ | Opis |
 |---|---|---|
-| `name` | `string` | Nazwa środowiska. Nie należy rozpoczynać od nazwy **microsoft lub** **azureml.** |
+| `name` | `string` | Nazwa środowiska. Nie należy rozpoczynać od nazwy **Microsoft** lub **AzureML.** |
 | `version` | `string` | Wersja środowiska. |
 | `environmentVariables` | `{string: string}` | Mapa skrótu nazw i wartości zmiennych środowiskowych. |
 | `python` | [`PythonSection`](/python/api/azureml-core/azureml.core.environment.pythonsection)Hat definiuje środowisko języka Python i interpreter do użycia w docelowym zasobie obliczeniowym. |
@@ -413,7 +413,7 @@ Następujące polecenia pokazują, jak pracować z potokami uczenia maszynowego:
     az ml pipeline create -n mypipeline -y mypipeline.yml
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml pipeline create](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext-azure-cli-ml-az-ml-pipeline-create).
+    Aby uzyskać więcej informacji, zobacz [az ml pipeline create](/cli/azure/ml/pipeline#az_ml_pipeline_create).
 
     Aby uzyskać więcej informacji na temat pliku YAML potoku, zobacz [Define machine learning pipelines in YAML (Definiowanie potoków uczenia maszynowego w yaml).](reference-pipeline-yaml.md)
 
@@ -423,7 +423,7 @@ Następujące polecenia pokazują, jak pracować z potokami uczenia maszynowego:
     az ml run submit-pipeline -n myexperiment -y mypipeline.yml
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml run submit-pipeline](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-pipeline).
+    Aby uzyskać więcej informacji, zobacz [az ml run submit-pipeline](/cli/azure/ml/run#az_ml_run_submit_pipeline).
 
     Aby uzyskać więcej informacji na temat pliku YAML potoku, zobacz [Define machine learning pipelines in YAML (Definiowanie potoków uczenia maszynowego w yaml).](reference-pipeline-yaml.md)
 
@@ -433,7 +433,7 @@ Następujące polecenia pokazują, jak pracować z potokami uczenia maszynowego:
     az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml pipeline create-schedule](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext-azure-cli-ml-az-ml-pipeline-create-schedule).
+    Aby uzyskać więcej informacji, zobacz [az ml pipeline create-schedule](/cli/azure/ml/pipeline#az_ml_pipeline_create-schedule).
 
     Aby uzyskać więcej informacji na temat pliku YAML harmonogramu potoku, zobacz [Define machine learning pipelines in YAML (Definiowanie potoków uczenia maszynowego w yaml).](reference-pipeline-yaml.md#schedules)
 
@@ -447,25 +447,25 @@ Następujące polecenia pokazują, jak zarejestrować wytrenowany model, a nast�
     az ml model register -n mymodel -p sklearn_regression_model.pkl
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register).
+    Aby uzyskać więcej informacji, zobacz [az ml model register](/cli/azure/ml/model#az_ml_model_register).
 
 + **OPCJONALNE** Profilowanie modelu w celu uzyskania optymalnych wartości procesora CPU i pamięci do wdrożenia.
     ```azurecli-interactive
     az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
     ```
 
-    Aby uzyskać więcej informacji, zobacz [az ml model profile](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-profile).
+    Aby uzyskać więcej informacji, zobacz [az ml model profile](/cli/azure/ml/model#az_ml_model_profile).
 
 + Wdrażanie modelu w u usługi AKS
     ```azurecli-interactive
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
     
-    Aby uzyskać więcej informacji na temat schematu pliku konfiguracji wnioskowania, zobacz [Inference configuration schema (Schemat konfiguracji wnioskowania).](#inferenceconfig)
+    Aby uzyskać więcej informacji na temat schematu pliku konfiguracji wnioskowania, zobacz [Schemat konfiguracji wnioskowania](#inferenceconfig).
     
     Aby uzyskać więcej informacji na temat schematu pliku konfiguracji wdrożenia, zobacz [Schemat konfiguracji wdrożenia](#deploymentconfig).
 
-    Aby uzyskać więcej informacji, zobacz [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy).
+    Aby uzyskać więcej informacji, zobacz [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy).
 
 <a id="inferenceconfig"></a>
 
@@ -491,6 +491,6 @@ Następujące polecenia pokazują, jak zarejestrować wytrenowany model, a nast�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Informacje o poleceniach dla rozszerzenia Machine Learning interfejsu wiersza polecenia](/cli/azure/ext/azure-cli-ml/ml).
+* [Informacje o poleceniach dla rozszerzenia Machine Learning interfejsu wiersza polecenia.](/cli/azure/ml)
 
 * [Trenowania i wdrażania modeli uczenia maszynowego przy użyciu Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)

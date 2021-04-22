@@ -1,6 +1,6 @@
 ---
 title: Programowe tworzenie subskrypcji platformy Azure dla umowy Microsoft Partner Agreement przy użyciu najnowszych interfejsów API
-description: Dowiedz się, jak tworzyć subskrypcje platformy Azure dla umowy partnerskiej firmy Microsoft programowo przy użyciu najnowszych wersji interfejsu API REST, wiersza polecenia platformy Azure, Azure PowerShell i szablonów Azure Resource Manager.
+description: Dowiedz się, jak programowo tworzyć subskrypcje platformy Azure dla usługi Microsoft Partner Agreement przy użyciu najnowszych wersji interfejsu API REST, interfejsu wiersza polecenia platformy Azure, interfejsu wiersza polecenia Azure PowerShell i szablonów Azure Resource Manager azure.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 5a731aab924e63eac468a22862f35aeff76bc068
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69d8910ffe0e45c4c47a035d5c32e71f19d9e04a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593969"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870665"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>Programowe tworzenie subskrypcji platformy Azure dla umowy Microsoft Partner Agreement przy użyciu najnowszych interfejsów API
 
@@ -72,14 +72,14 @@ Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla któ
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby uzyskać tę wartość, należy użyć interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
+Aby uzyskać tę wartość, użyj interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 ```azurecli
 az billing account list
 ```
-Zobaczysz listę wszystkich kont rozliczeniowych, do których masz dostęp.
+Zostanie wyświetlona lista wszystkich kont rozliczeniowych, do których masz dostęp.
 
 ```json
 [
@@ -104,7 +104,7 @@ Zobaczysz listę wszystkich kont rozliczeniowych, do których masz dostęp.
 ]
 ```
 
-Użyj właściwości displayName, aby zidentyfikować konto rozliczeniowe, dla którego chcesz utworzyć subskrypcje. Upewnij się, że parametr agreementType tego konta to MicrosoftPartnerAgreement. Skopiuj nazwę konta. Na przykład, aby utworzyć subskrypcję dla konta rozliczenia firmy Contoso, skopiuj 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-XX-XX. Wklej tę wartość w dogodnym miejscu, aby można było jej użyć w następnym kroku.
+Użyj właściwości displayName, aby zidentyfikować konto rozliczeniowe, dla którego chcesz utworzyć subskrypcje. Upewnij się, że parametr agreementType tego konta to MicrosoftPartnerAgreement. Skopiuj nazwę konta. Aby na przykład utworzyć subskrypcję dla konta rozliczeniowego Contoso, skopiuj 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx. Wklej tę wartość w dogodnym miejscu, aby można było jej użyć w następnym kroku.
 
 ---
 
@@ -153,7 +153,7 @@ Użyj właściwości `displayName`, aby określić klienta, dla którego chcesz 
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby uzyskać tę wartość, należy użyć interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
+Aby uzyskać tę wartość, użyj interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -231,11 +231,11 @@ Użyj właściwości `description`, aby określić odsprzedawcę, który będzie
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby uzyskać tę wartość, należy użyć interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
+Aby uzyskać tę wartość, użyj interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Wykonaj poniższe żądanie, używając `name` skopiowanego z pierwszego kroku ( ```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx``` ) i klienta `name` skopiowanego z poprzedniego kroku ( ```acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ).
+W poniższym żądaniu z skopiowanym w pierwszym kroku ( ) i klientem skopiowanym `name` z poprzedniego kroku ( ```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx``` `name` ```acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ).
 
 ```azurecli
  az billing customer show --expand "enabledAzurePlans,resellers" --account-name "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --name "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -363,7 +363,7 @@ Przekaż opcjonalną wartość *resellerId* skopiowaną w drugim kroku w wywoła
 
 Najpierw zainstaluj to rozszerzenie, uruchamiając polecenia `az extension add --name account` i `az extension add --name alias`.
 
-Uruchom następujące polecenie [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create). 
+Uruchom następujące polecenie [az account alias create](/cli/azure/account/alias#az_account_alias_create). 
 
 ```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"
@@ -389,9 +389,9 @@ Przekaż opcjonalną wartość *resellerId* skopiowaną w drugim kroku w wywoła
 
 ## <a name="use-arm-template"></a>Korzystanie z szablonu usługi Resource Manager
 
-W poprzedniej sekcji pokazano, jak utworzyć subskrypcję za pomocą programu PowerShell, interfejsu wiersza polecenia lub API REST. Jeśli musisz zautomatyzować tworzenie subskrypcji, rozważ użycie szablonu Azure Resource Manager (szablon ARM).
+W poprzedniej sekcji popisano sposób tworzenia subskrypcji przy użyciu programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST. Jeśli potrzebujesz zautomatyzować tworzenie subskrypcji, rozważ użycie szablonu usługi Azure Resource Manager (szablonu USŁUGI ARM).
 
-Poniższy szablon tworzy subskrypcję. W `billingScope` polu podaj identyfikator klienta. W przypadku programu `targetManagementGroup` Podaj grupę zarządzania, w której chcesz utworzyć subskrypcję.
+Poniższy szablon tworzy subskrypcję. W `billingScope` przypadku usługi podaj identyfikator klienta. W `targetManagementGroup` przypadku usługi podaj grupę zarządzania, w której chcesz utworzyć subskrypcję.
 
 ```json
 {
@@ -435,7 +435,7 @@ Poniższy szablon tworzy subskrypcję. W `billingScope` polu podaj identyfikator
 }
 ```
 
-Wdróż szablon na [poziomie grupy zarządzania](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Wd wdrażaj szablon [na poziomie grupy zarządzania.](../../azure-resource-manager/templates/deploy-to-management-group.md)
 
 ### <a name="rest"></a>[REST](#tab/rest)
 

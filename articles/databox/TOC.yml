@@ -238,7 +238,7 @@
     - name: Dokumentacja
       items:
         - name: Interfejs wiersza polecenia platformy Azure
-          href: /cli/azure/ext/databox/databox
+          href: /cli/azure/databox
         - name: Azure PowerShell
           href: /powershell/module/az.databox
         - name: Interfejsy API platformy .NET

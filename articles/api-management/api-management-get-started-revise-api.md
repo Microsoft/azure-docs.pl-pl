@@ -1,5 +1,5 @@
 ---
-title: Samouczek — bezpieczne API Management zmian interfejsu API przy użyciu poprawek w interfejsie API
+title: Samouczek — bezpieczne stosowanie poprawek w API Management, aby bezpiecznie wprowadzać zmiany niepowiązywistych interfejsów API
 titleSuffix: Azure API Management
 description: Wykonaj kroki tego samouczka, aby dowiedzieć się, jak przy użyciu poprawek wprowadzać zmiany niepowodujące niezgodności w usłudze API Management.
 services: api-management
@@ -10,17 +10,17 @@ ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 1d99d6f876e4896bb4321afb8dc4d8e7c3a404e7
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6ab3f2e4e2164611820813a5fdb04e2b27df1ff2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483558"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877034"
 ---
-# <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Samouczek: bezpieczne stosowanie poprawek w celu bezpiecznego stosowania niepowiązywanych zmian interfejsu API
+# <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Samouczek: bezpieczne stosowanie poprawek w celu bezpiecznego stosowania zmian interfejsu API, które nie przerywają pracy
 Gdy interfejs API jest gotowy i zaczyna być używany przez deweloperów, zazwyczaj musisz wprowadzać zmiany w tym interfejsie API i jednocześnie nie zakłócać pracy wywołującym interfejs API. Ponadto warto poinformować deweloperów o wprowadzanych zmianach. 
 
-W usłudze Azure API Management użyj *poprawek,* aby wprowadzić niepowiązywająco istotne zmiany interfejsu API, aby można było bezpiecznie modelować i testować zmiany. Gdy wszystko będzie gotowe, możesz wprowadzić poprawkę jako bieżącą i zastąpić bieżący interfejs API. 
+W usłudze Azure API Management użyj *poprawek,* aby wprowadzać niepowiązywająco istotne zmiany interfejsu API, aby można było bezpiecznie modelować i testować zmiany. Gdy wszystko będzie gotowe, możesz wprowadzić poprawkę jako bieżącą i zastąpić bieżący interfejs API. 
 
 Aby uzyskać więcej informacji, [zobacz Wersje & i](https://azure.microsoft.com/blog/versions-revisions/) [Wersjonowanie interfejsu API za pomocą usługi Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
@@ -44,7 +44,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do swojego API Management wystąpienia.
 1. Wybierz pozycję **Interfejsy API**.
-2. Wybierz **pozycję Pokaz interfejsu API Konferencji** z listy interfejsów API (lub inny interfejs API, do którego chcesz dodać poprawki).
+2. Wybierz **pozycję Pokaz interfejsu API Conference** z listy interfejsów API (lub inny interfejs API, do którego chcesz dodać poprawki).
 3. Wybierz **kartę Poprawki.**
 4. Wybierz **pozycję + Dodaj poprawkę.**
 
@@ -83,7 +83,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 1. Wybierz kartę **Poprawki** w menu w górnej części strony.
 1. Otwórz menu kontekstowe (**...**) dla poprawki **Poprawka 2**.
 1. Wybierz **pozycję Określ jako bieżącą.**
-1. Zaznacz pole wyboru Opublikuj w publicznym dzienniku zmian dla tego interfejsu **API,** jeśli chcesz publikować notatki dotyczące tej zmiany. Podaj opis zmiany, który zobaczą deweloperzy, na przykład: **Testowanie poprawek. Dodano nową operację "test".**
+1. Zaznacz pole wyboru Opublikuj w publicznym dzienniku zmian dla tego interfejsu **API,** jeśli chcesz publikować notatki dotyczące tej zmiany. Podaj opis zmiany, który deweloperzy zobaczą, na przykład: **Testowanie poprawek. Dodano nową operację "test".**
 1. **Poprawka 2** jest teraz bieżącą poprawką.
 
     :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Menu Poprawka w oknie Poprawki":::
@@ -113,16 +113,16 @@ Użyj tej procedury, aby utworzyć i zaktualizować wydanie.
        --notes 'Testing revisions. Added new "test" operation.'
    ```
 
-   Wydanie poprawki staje się bieżącą poprawą.
+   Wydanie poprawki staje się bieżącą poprawek.
 
-1. Aby wyświetlić swoje wydania, użyj [polecenia az apim api release list:](/cli/azure/apim/api/release#az_apim_api_release_list)
+1. Aby wyświetlić swoje wersje, użyj [polecenia az apim api release list:](/cli/azure/apim/api/release#az_apim_api_release_list)
 
    ```azurecli
    az apim api release list --resource-group apim-hello-word-resource-group \
        --api-id echo-api --service-name apim-hello-world --output table
    ```
 
-   Określone uwagi są wyświetlane w ładzie zmian. Można je wyświetlić w danych wyjściowych poprzedniego polecenia.
+   Określone uwagi są wyświetlane na dziennikach zmian. Można je wyświetlić w danych wyjściowych poprzedniego polecenia.
 
 1. Podczas tworzenia wydania parametr `--notes` jest opcjonalny. Notatki można dodać lub zmienić później przy użyciu polecenia [az apim api release update:](/cli/azure/apim/api/release#az_apim_api_release_update)
 

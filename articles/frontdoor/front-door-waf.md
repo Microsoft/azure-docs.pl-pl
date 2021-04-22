@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: d315fa5b588c6e5f2e4643ca18626e400e6ca01b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f31e592f3e8fa9501b0aa1f8ed47fa5122f75820
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785653"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869621"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Samouczek: szybkie skalowanie i ochrona aplikacji internetowej przy użyciu Azure Front Door i Azure Web Application Firewall (WAF)
 
-W wielu aplikacjach internetowych w ostatnich tygodniach wystąpił szybki wzrost ruchu z powodu coVID-19. Te aplikacje internetowe również mają gwałtowny wzrost złośliwego ruchu, w tym ataki typu "odmowa usługi". Istnieje skuteczny sposób skalowania aplikacji na zewnątrz pod względem skoków ruchu i ochrony przed atakami: skonfigurowanie usługi Azure Front Door przy użyciu usługi Azure WAF jako warstwy przyspieszania, buforowania i zabezpieczeń przed aplikacją internetową. Ten artykuł zawiera wskazówki dotyczące sposobu Azure Front Door z usługą Azure WAF skonfigurowaną dla dowolnej aplikacji internetowej, która działa na platformie Azure lub poza platformą Azure. 
+W wielu aplikacjach internetowych w ostatnich tygodniach wystąpił szybki wzrost ruchu z powodu COVID-19. Te aplikacje internetowe również mają gwałtowny wzrost złośliwego ruchu, w tym ataki typu "odmowa usługi". Istnieje skuteczny sposób skalowania aplikacji na zewnątrz w przypadku skoków ruchu i ochrony przed atakami: skonfiguruj usługę Azure Front Door przy użyciu usługi Azure WAF jako warstwy przyspieszania, buforowania i zabezpieczeń przed aplikacją internetową. Ten artykuł zawiera wskazówki dotyczące sposobu Azure Front Door z usługą Azure WAF skonfigurowaną dla dowolnej aplikacji internetowej, która działa na platformie Azure lub poza platformą Azure. 
 
-W tym samouczku skonfigurujemy aplikację WAF przy użyciu interfejsu wiersza polecenia platformy Azure. To samo można osiągnąć przy użyciu interfejsów API REST Azure Portal, Azure PowerShell, Azure Resource Manager lub interfejsów API REST platformy Azure. 
+W tym samouczku skonfigurujemy aplikację WAF przy użyciu interfejsu wiersza polecenia platformy Azure. To samo można osiągnąć przy użyciu interfejsów API REST Azure Portal, Azure PowerShell, Azure Resource Manager lub azure. 
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
@@ -30,16 +30,16 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > - Tworzenie zasad usługi Azure WAF.
 > - Konfigurowanie zestawów reguł dla zasad WAF.
 > - Kojarzenie zasad WAF z Front Door.
-> - Konfigurowanie domeny niestandardowej.
+> - Skonfiguruj domenę niestandardową.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Instrukcje w tym samouczku korzystają z interfejsu wiersza polecenia platformy Azure. [Wyświetl ten przewodnik,](/cli/azure/get-started-with-azure-cli) aby rozpocząć pracę z interfejsem wiersza polecenia platformy Azure.
+- Instrukcje w tym samouczku korzystają z interfejsu wiersza polecenia platformy Azure. [Aby rozpocząć pracę z](/cli/azure/get-started-with-azure-cli) interfejsem wiersza polecenia platformy Azure, zobacz ten przewodnik.
 
   > [!TIP] 
-  > Łatwe i szybkie rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure jest korzystanie z powłoki Bash w [Azure Cloud Shell.](../cloud-shell/quickstart.md)
+  > Łatwym i szybkim sposobem rozpoczęcia pracy z interfejsem wiersza polecenia platformy Azure jest [powłoka Bash](../cloud-shell/quickstart.md)w Azure Cloud Shell .
 
 - Upewnij się, że `front-door` rozszerzenie jest dodane do interfejsu wiersza polecenia platformy Azure:
 
@@ -48,7 +48,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
    ```
 
 > [!NOTE] 
-> Aby uzyskać więcej informacji na temat poleceń używanych w tym samouczku, zobacz Azure [CLI reference for Front Door](/cli/azure/ext/front-door)(Informacje o interfejsie wiersza polecenia platformy Azure dla Front Door ).
+> Aby uzyskać więcej informacji na temat poleceń używanych w tym samouczku, zobacz Azure [CLI reference for Front Door](/cli/azure/)(Interfejs wiersza polecenia platformy Azure ).
 
 ## <a name="create-an-azure-front-door-resource"></a>Tworzenie zasobu Azure Front Door zasobów
 
@@ -64,9 +64,9 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--resource-group`: grupa zasobów, w której chcesz umieścić ten Azure Front Door zasobów. Aby dowiedzieć się więcej na temat grup zasobów, zobacz [Zarządzanie grupami zasobów na platformie Azure.](../azure-resource-manager/management/manage-resource-groups-portal.md)
 
-W odpowiedzi, która zostanie otrzymasz po uruchomieniu tego polecenia, poszukaj klucza `hostName` . Ta wartość będzie potrzebna w późniejszym kroku. To `hostName` nazwa DNS utworzonego zasobu Azure Front Door DNS.
+W odpowiedzi, która zostanie otrzymasz po uruchomieniu tego polecenia, odszukaj klucz `hostName` . Ta wartość będzie potrzebna w późniejszym kroku. To `hostName` nazwa DNS utworzonego zasobu Azure Front Door DNS.
 
-## <a name="create-an-azure-waf-profile-to-use-with-azure-front-door-resources"></a>Tworzenie profilu usługi Azure WAF do użycia z Azure Front Door zasobów
+## <a name="create-an-azure-waf-profile-to-use-with-azure-front-door-resources"></a>Tworzenie profilu aplikacji internetowych platformy Azure do użycia z Azure Front Door zasobów
 
 ```azurecli-interactive 
 az network front-door waf-policy create --name <>  --resource-group <>  --disabled false --mode Prevention
@@ -76,12 +76,12 @@ az network front-door waf-policy create --name <>  --resource-group <>  --disabl
 
 `--resource-group`: grupa zasobów, w której chcesz umieścić ten zasób WAF. 
 
-Poprzedni kod interfejsu wiersza polecenia utworzy zasady WAF, które są włączone i są w trybie zapobiegania. 
+Poprzedni kod interfejsu wiersza polecenia spowoduje utworzenie zasad aplikacji sieci WAF, które są włączone i są w trybie zapobiegania. 
 
 > [!NOTE] 
-> Przed podjęciem decyzji o użyciu trybu ochrony warto utworzyć zasady WAF w trybie wykrywania i obserwować, jak wykrywa i rejestruje złośliwe żądania (bez blokowania ich).
+> Warto utworzyć zasady WAF w trybie wykrywania i obserwować, jak wykrywa i rejestruje złośliwe żądania (bez blokowania ich), zanim zdecydujesz się na użycie trybu ochrony.
 
-W odpowiedzi, która zostanie otrzymasz po uruchomieniu tego polecenia, poszukaj klucza `ID` . Ta wartość będzie potrzebna w późniejszym kroku. 
+W odpowiedzi, która zostanie otrzymasz po uruchomieniu tego polecenia, odszukaj klucz `ID` . Ta wartość będzie potrzebna w późniejszym kroku. 
 
 Pole `ID` powinno mieć ten format:
 
@@ -89,7 +89,7 @@ Pole `ID` powinno mieć ten format:
 
 ## <a name="add-managed-rule-sets-to-the-waf-policy"></a>Dodawanie zarządzanych zestawów reguł do zasad WAF
 
-Zarządzane zestawy reguł można dodać do zasad WAF. Zarządzany zestaw reguł to zestaw reguł budowaną i zarządzaną przez firmę Microsoft, która pomaga chronić cię przed klasą zagrożeń. W tym przykładzie dodajemy dwa zestawy reguł:
+Zarządzane zestawy reguł można dodać do zasad WAF. Zarządzany zestaw reguł to zestaw reguł budowany i zarządzany przez firmę Microsoft, który ułatwia ochronę przed klasą zagrożeń. W tym przykładzie dodajemy dwa zestawy reguł:
 - Domyślny zestaw reguł, który pomaga chronić przed powszechnymi zagrożeniami internetowymi. 
 - Zestaw reguł ochrony przed botami, który pomaga chronić przed złośliwymi botami.
 

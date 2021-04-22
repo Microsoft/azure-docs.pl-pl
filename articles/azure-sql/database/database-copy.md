@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: wiassaf
 ms.date: 03/10/2021
-ms.openlocfilehash: 3ce07af74c3f01fd78ef15ab0e7d43b91361e556
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b7084ef045d14b9715c41bb9ffa483d1f2f7bedf
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784483"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865157"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiowanie transakcyjnie spójnej kopii bazy danych w programie Azure SQL Database
 
@@ -39,7 +39,7 @@ Podczas kopiowania bazy danych na inny serwer podmiot zabezpieczeń, który zain
 
 Niezależnie od serwera docelowego wszyscy użytkownicy bazy danych, ich uprawnienia i identyfikatory zabezpieczeń (SID) są kopiowane do kopii bazy danych. Użycie [użytkowników zawartej](logins-create-manage.md) bazy danych w celu uzyskania dostępu do danych gwarantuje, że skopiowana baza danych ma te same poświadczenia użytkownika, dzięki czemu po zakończeniu kopiowania można natychmiast uzyskać do niej dostęp przy użyciu tych samych poświadczeń.
 
-Jeśli do uzyskiwania dostępu do danych i kopiowania bazy danych na inny serwer używasz danych logowania na poziomie serwera, dostęp z wykorzystaniem danych logowania może nie zadziałać. Dzieje się tak, ponieważ na serwerze docelowym nie istnieją dane logowania lub ponieważ odpowiednie hasła i identyfikatory zabezpieczeń są inne. Aby dowiedzieć się więcej o zarządzaniu nazwami logowania podczas kopiowania bazy danych na inny serwer, zobacz Jak zarządzać zabezpieczeniami Azure SQL Database [po odzyskiwaniu po awarii.](active-geo-replication-security-configure.md) Po zakończeniu operacji kopiowania na inny serwer i przed ponownego zamapowania innych użytkowników tylko identyfikator logowania skojarzony z właścicielem bazy danych lub administrator serwera mogą zalogować się do skopiowanej bazy danych. Aby rozwiązać problemy z nazwami logowania i ustanowić dostęp do danych po zakończeniu operacji kopiowania, zobacz [Resolve logins (Rozwiązywanie logowań).](#resolve-logins)
+Jeśli do uzyskiwania dostępu do danych i kopiowania bazy danych na inny serwer używasz danych logowania na poziomie serwera, dostęp z wykorzystaniem danych logowania może nie zadziałać. Dzieje się tak, ponieważ na serwerze docelowym nie istnieją dane logowania lub ponieważ odpowiednie hasła i identyfikatory zabezpieczeń są inne. Aby dowiedzieć się więcej o zarządzaniu nazwami logowania podczas kopiowania bazy danych na inny serwer, zobacz How to manage Azure SQL Database security after disaster recovery (Jak zarządzać zabezpieczeniami po [odzyskiwaniu po awarii).](active-geo-replication-security-configure.md) Po zakończeniu operacji kopiowania na inny serwer i przed ponowną mapą innych użytkowników tylko dane logowania skojarzone z właścicielem bazy danych lub administrator serwera mogą zalogować się do skopiowanej bazy danych. Aby rozwiązać problemy z logowaniem i ustanowić dostęp do danych po zakończeniu operacji kopiowania, zobacz [Resolve logins (Rozwiązywanie problemów z nazwami logowania).](#resolve-logins)
 
 ## <a name="copy-using-the-azure-portal"></a>Kopiowanie za pomocą witryny Azure Portal
 
@@ -56,7 +56,7 @@ Aby skopiować bazę danych, skorzystaj z poniższych przykładów.
 W przypadku programu PowerShell użyj polecenia cmdlet [New-AzSqlDatabaseCopy.](/powershell/module/az.sql/new-azsqldatabasecopy)
 
 > [!IMPORTANT]
-> Moduł PowerShell Azure Resource Manager (RM) jest nadal obsługiwany przez Azure SQL Database, ale cały przyszły rozwój jest dla modułu Az.Sql. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r.  Argumenty poleceń w module Az i modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji na temat ich zgodności, [zobacz Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az)(Wprowadzenie do nowego modułu Az Azure PowerShell Az).
+> Moduł PowerShell Azure Resource Manager (RM) jest nadal obsługiwany przez Azure SQL Database, ale cały przyszły rozwój jest dla modułu Az.Sql. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r.  Argumenty poleceń w module Az i modułach AzureRm są w znacznym stopniu identyczne. Aby uzyskać więcej informacji na temat ich zgodności, zobacz [Wprowadzenie do nowego modułu Azure PowerShell Az.](/powershell/azure/new-azureps-module-az)
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
@@ -80,12 +80,12 @@ Kopia bazy danych jest operacją asynchroniczną, ale docelowa baza danych jest 
 
 ## <a name="copy-using-transact-sql"></a>Kopiowanie przy użyciu języka Transact-SQL
 
-Zaloguj się do bazy danych master przy użyciu identyfikatora logowania administratora serwera lub identyfikatora logowania, który utworzył bazę danych, którą chcesz skopiować. Aby kopiowanie bazy danych powiodło się, identyfikatory logowania, które nie są administratorem serwera, muszą być członkami `dbmanager` roli. Aby uzyskać więcej informacji na temat identyfikatorów logowania i nawiązywania połączenia z serwerem, zobacz [Manage logins (Zarządzanie nazwami logowania).](logins-create-manage.md)
+Zaloguj się do bazy danych master przy użyciu identyfikatora logowania administratora serwera lub identyfikatora logowania, który utworzył bazę danych, którą chcesz skopiować. Aby kopiowanie bazy danych powiodło się, nazwy logowania, które nie są administratorem serwera, muszą być członkami `dbmanager` roli. Aby uzyskać więcej informacji na temat identyfikatorów logowania i nawiązywania połączenia z serwerem, zobacz [Zarządzanie nazwami logowania](logins-create-manage.md).
 
 Rozpocznij kopiowanie źródłowej bazy danych za pomocą pliku [CREATE DATABASE... AS COPY OF,](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instrukcja. Instrukcja języka T-SQL będzie nadal działać do momentu ukończenia operacji kopiowania bazy danych.
 
 > [!NOTE]
-> Zakończenie instrukcji języka T-SQL nie powoduje zakończenia operacji kopiowania bazy danych. Aby zakończyć operację, należy usunąć docelową bazę danych.
+> Zakończenie instrukcji języka T-SQL nie powoduje zakończenia operacji kopiowania bazy danych. Aby zakończyć operację, upuść docelową bazę danych.
 >
 
 > [!IMPORTANT]
@@ -93,7 +93,7 @@ Rozpocznij kopiowanie źródłowej bazy danych za pomocą pliku [CREATE DATABASE
 
 ### <a name="copy-to-the-same-server"></a>Kopiowanie na ten sam serwer
 
-Zaloguj się do bazy danych master przy użyciu identyfikatora logowania administratora serwera lub identyfikatora logowania, który utworzył bazę danych, którą chcesz skopiować. Aby kopiowanie bazy danych powiodło się, identyfikatory logowania, które nie są administratorem serwera, muszą być członkami `dbmanager` roli.
+Zaloguj się do bazy danych master przy użyciu identyfikatora logowania administratora serwera lub identyfikatora logowania, który utworzył bazę danych, którą chcesz skopiować. Aby kopiowanie bazy danych powiodło się, nazwy logowania, które nie są administratorem serwera, muszą być członkami `dbmanager` roli.
 
 To polecenie kopiuje bazę danych Database1 do nowej bazy danych o nazwie Database2 na tym samym serwerze. W zależności od rozmiaru bazy danych operacja kopiowania może zająć trochę czasu.
 
@@ -104,7 +104,7 @@ To polecenie kopiuje bazę danych Database1 do nowej bazy danych o nazwie Databa
 
 ### <a name="copy-to-an-elastic-pool"></a>Kopiowanie do elastycznej puli
 
-Zaloguj się do bazy danych master przy użyciu identyfikatora logowania administratora serwera lub identyfikatora logowania, który utworzył bazę danych, którą chcesz skopiować. Aby kopiowanie bazy danych powiodło się, identyfikatory logowania, które nie są administratorem serwera, muszą być członkami `dbmanager` roli.
+Zaloguj się do bazy danych master przy użyciu identyfikatora logowania administratora serwera lub identyfikatora logowania, który utworzył bazę danych, którą chcesz skopiować. Aby kopiowanie bazy danych powiodło się, nazwy logowania, które nie są administratorem serwera, muszą być członkami `dbmanager` roli.
 
 To polecenie kopiuje bazę danych Database1 do nowej bazy danych o nazwie Database2 w elastycznej puli o nazwie pool1. W zależności od rozmiaru bazy danych operacja kopiowania może zająć trochę czasu.
 
@@ -119,7 +119,7 @@ Database1 może być pojedynczą bazą danych lub bazą danych w puli. Kopiowani
 
 ### <a name="copy-to-a-different-server"></a>Kopiowanie na inny serwer
 
-Zaloguj się do głównej bazy danych serwera docelowego, na którym ma zostać utworzona nowa baza danych. Użyj identyfikatora logowania, który ma taką samą nazwę i hasło jak właściciel bazy danych źródłowej bazy danych na serwerze źródłowym. Identyfikator logowania na serwerze docelowym musi być również członkiem `dbmanager` roli lub administratorem serwera.
+Zaloguj się do głównej bazy danych serwera docelowego, na którym ma zostać utworzona nowa baza danych. Użyj identyfikatora logowania, który ma taką samą nazwę i hasło jak właściciel bazy danych źródłowej bazy danych na serwerze źródłowym. Identyfikator logowania na serwerze docelowym musi być również członkiem roli lub być identyfikatorem logowania `dbmanager` administratora serwera.
 
 To polecenie kopiuje bazę danych Database1 na serwerze server1 do nowej bazy danych o nazwie Database2 na serwerze server2. W zależności od rozmiaru bazy danych operacja kopiowania może zająć trochę czasu.
 
@@ -218,37 +218,37 @@ Do zarządzania kopiowaniem bazy danych przy Azure Portal wymagane są również
 
    Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-Jeśli chcesz zobaczyć operacje w ramach wdrożeń w grupie zasobów w portalu, operacje wielu dostawców zasobów, w tym operacje SQL, będą potrzebne następujące dodatkowe role platformy Azure:
+Jeśli chcesz zobaczyć operacje w ramach wdrożeń w grupie zasobów w portalu, operacje wielu dostawców zasobów, w tym operacje SQL, będą potrzebne następujące dodatkowe uprawnienia:
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 
 ## <a name="resolve-logins"></a>Rozwiązywanie problemów z logowaniem
 
-Gdy nowa baza danych będzie w trybie online na serwerze docelowym, użyj instrukcji [ALTER USER,](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) aby ponownie zamapować użytkowników z nowej bazy danych na dane logowania na serwerze docelowym. Aby rozwiązać problem użytkowników oddzielonych, zobacz [Rozwiązywanie problemów z użytkownikami oddzielonym.](/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server) Zobacz też [jak zarządzać zabezpieczeniami Azure SQL Database po odzyskiwaniu po awarii.](active-geo-replication-security-configure.md)
+Gdy nowa baza danych będzie w trybie online na serwerze docelowym, użyj instrukcji [ALTER USER,](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) aby ponownie zamapować użytkowników z nowej bazy danych na identyfikatory logowania na serwerze docelowym. Aby rozwiązać problem użytkowników oddzielonych, zobacz [Rozwiązywanie problemów z użytkownikami oddzielonym.](/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server) Zobacz też [Jak zarządzać zabezpieczeniami Azure SQL Database po odzyskiwaniu po awarii.](active-geo-replication-security-configure.md)
 
-Wszyscy użytkownicy w nowej bazie danych zachowują uprawnienia, które mieli w źródłowej bazie danych. Użytkownik, który zainicjował kopię bazy danych, staje się właścicielem nowej bazy danych. Po zakończeniu kopiowania i przed ponownego zmapowania innych użytkowników tylko właściciel bazy danych może zalogować się do nowej bazy danych.
+Wszyscy użytkownicy w nowej bazie danych zachowują uprawnienia, które mieli w źródłowej bazie danych. Użytkownik, który zainicjował kopię bazy danych, staje się właścicielem nowej bazy danych. Po zakończeniu kopiowania i przed ponownego zamapowania innych użytkowników tylko właściciel bazy danych może zalogować się do nowej bazy danych.
 
-Aby dowiedzieć się więcej o zarządzaniu użytkownikami i nazwami logowania podczas kopiowania bazy danych na inny serwer, zobacz Jak zarządzać zabezpieczeniami Azure SQL Database [po odzyskiwaniu po awarii.](active-geo-replication-security-configure.md)
+Aby dowiedzieć się więcej o zarządzaniu użytkownikami i nazwami logowania podczas kopiowania bazy danych na inny serwer, zobacz How to manage Azure SQL Database security after disaster recovery (Jak zarządzać zabezpieczeniami po [odzyskiwaniu po awarii).](active-geo-replication-security-configure.md)
 
 ## <a name="database-copy-errors"></a>Błędy kopiowania bazy danych
 
-Podczas kopiowania bazy danych w programie można napotkać następujące Azure SQL Database. Więcej informacji znajdziesz w artykule [Kopiowanie bazy danych usługi Azure SQL Database](database-copy.md).
+Następujące błędy można napotkać podczas kopiowania bazy danych w Azure SQL Database. Więcej informacji znajdziesz w artykule [Kopiowanie bazy danych usługi Azure SQL Database](database-copy.md).
 
 | Kod błędu | Ważność | Opis |
 | ---:| ---:|:--- |
 | 40635 |16 |Klient o adresie IP "%.&#x2a;ls" jest tymczasowo wyłączony. |
 | 40637 |16 |Tworzenie kopii bazy danych jest obecnie wyłączone. |
 | 40561 |16 |Kopiowanie bazy danych nie powiodło się. Źródło lub docelowa baza danych nie istnieje. |
-| 40562 |16 |Kopiowanie bazy danych nie powiodło się. Źródłową bazę danych porzucono. |
+| 40562 |16 |Kopiowanie bazy danych nie powiodło się. Źródłowa baza danych została porzucona. |
 | 40563 |16 |Kopiowanie bazy danych nie powiodło się. Docelowa baza danych została porzucona. |
 | 40564 |16 |Kopiowanie bazy danych nie powiodło się z powodu błędu wewnętrznego. Porzuć docelową bazę danych i spróbuj ponownie. |
-| 40565 |16 |Kopiowanie bazy danych nie powiodło się. Nie jest dozwolone więcej niż 1 równoczesne kopiowanie bazy danych z tego samego źródła. Porzuć docelową bazę danych i spróbuj ponownie później. |
+| 40565 |16 |Kopiowanie bazy danych nie powiodło się. Dozwolona jest nie więcej niż 1 współbieżna kopia bazy danych z tego samego źródła. Upuść docelową bazę danych i spróbuj ponownie później. |
 | 40566 |16 |Kopiowanie bazy danych nie powiodło się z powodu błędu wewnętrznego. Porzuć docelową bazę danych i spróbuj ponownie. |
 | 40567 |16 |Kopiowanie bazy danych nie powiodło się z powodu błędu wewnętrznego. Porzuć docelową bazę danych i spróbuj ponownie. |
-| 40568 |16 |Kopiowanie bazy danych nie powiodło się. Źródłowa baza danych stała się niedostępna. Porzuć docelową bazę danych i spróbuj ponownie. |
+| 40568 |16 |Kopiowanie bazy danych nie powiodło się. Źródłową bazę danych stał się niedostępny. Porzuć docelową bazę danych i spróbuj ponownie. |
 | 40569 |16 |Kopiowanie bazy danych nie powiodło się. Docelowa baza danych stała się niedostępna. Porzuć docelową bazę danych i spróbuj ponownie. |
-| 40570 |16 |Kopiowanie bazy danych nie powiodło się z powodu błędu wewnętrznego. Upuść docelową bazę danych i spróbuj ponownie później. |
-| 40571 |16 |Kopiowanie bazy danych nie powiodło się z powodu błędu wewnętrznego. Upuść docelową bazę danych i spróbuj ponownie później. |
+| 40570 |16 |Kopiowanie bazy danych nie powiodło się z powodu błędu wewnętrznego. Porzuć docelową bazę danych i spróbuj ponownie później. |
+| 40571 |16 |Kopiowanie bazy danych nie powiodło się z powodu błędu wewnętrznego. Porzuć docelową bazę danych i spróbuj ponownie później. |
 
 ## <a name="next-steps"></a>Następne kroki
 

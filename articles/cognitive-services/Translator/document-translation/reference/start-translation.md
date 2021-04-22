@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 1d167962e22953a4a9ca69ece347f8427b9218c9
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 820b5f39192fffa0ec54b44c6016965599d85a8c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836314"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863699"
 ---
 # <a name="start-translation"></a>Rozpoczynanie tłumaczenia
 
@@ -39,7 +39,7 @@ Dowiedz się, jak znaleźć [niestandardową nazwę domeny.](../get-started-with
 > [!IMPORTANT]
 >
 > * **Wszystkie żądania interfejsu API do usługi tłumaczenia dokumentów wymagają niestandardowego punktu końcowego domeny**.
-> * Nie można użyć punktu końcowego znalezionego na  stronie kluczy Azure Portal punktu końcowego ani globalnego punktu końcowego translatora — do przesyłania żądań HTTP do `api.cognitive.microsofttranslator.com` tłumaczenia dokumentów.
+> * Nie można użyć punktu końcowego znalezionego na  stronie kluczy i punktu końcowego Azure Portal ani globalnego punktu końcowego usługi Translator — do przesyłania żądań HTTP do tłumaczenia `api.cognitive.microsofttranslator.com` dokumentów.
 
 ## <a name="request-headers"></a>Nagłówki żądań
 
@@ -72,11 +72,11 @@ Definicja wejściowego żądania tłumaczenia wsadowego.
 |Nazwa|Typ|Wymagane|Opis|
 |--- |--- |--- |--- |
 |filter|DocumentFilter[]|Fałsz|DocumentFilter[] wymieniony poniżej.|
-|filter.prefix|ciąg|Fałsz|Ciąg prefiksu z wielkością liter do filtrowania dokumentów w ścieżce źródłowej w celu tłumaczenia. Na przykład w przypadku korzystania z identyfikatora URI obiektu blob usługi Azure Storage użyj prefiksu , aby ograniczyć podfolderów do tłumaczenia.|
-|filter.suffix|ciąg|Fałsz|Ciąg sufiksu z wielkością liter do filtrowania dokumentów w ścieżce źródłowej w celu tłumaczenia. Jest to najczęściej używane w przypadku rozszerzeń plików.|
-|language|ciąg|Fałsz|Kod języka Jeśli nie zostanie określony, wykonamy automatyczne wykrywanie dokumentu.|
+|filter.prefix|ciąg|Fałsz|Ciąg prefiksu z wielkość liter do filtrowania dokumentów w ścieżce źródłowej do tłumaczenia. Na przykład w przypadku korzystania z identyfikatora URI obiektu blob usługi Azure Storage użyj prefiksu , aby ograniczyć podfolderów do tłumaczenia.|
+|filter.suffix|ciąg|Fałsz|Ciąg sufiksu z wielkość liter do filtrowania dokumentów w ścieżce źródłowej do tłumaczenia. Jest to najczęściej używane w przypadku rozszerzeń plików.|
+|language|ciąg|Fałsz|Kod języka Jeśli żaden nie zostanie określony, wykonamy automatyczne wykrywanie dokumentu.|
 |sourceUrl|ciąg|True|Lokalizacja folderu/kontenera lub pojedynczego pliku z dokumentami.|
-|storageSource|Źródło usługi Storage|Fałsz|Źródło magazynu wymienione poniżej.|
+|magazynŹródło|Źródło magazynu|Fałsz|MagazynŹródło wymienione poniżej.|
 |storageSource.AzureBlob|ciąg|Fałsz||
 
 **inputs.storageType**
@@ -90,18 +90,18 @@ Typ magazynu ciągu źródłowego dokumentów wejściowych.
 
 **inputs.target**
 
-Miejsce docelowe dla ukończonych przetłumaczonych dokumentów.
+Miejsce docelowe ukończonych przetłumaczonych dokumentów.
 
 |Nazwa|Typ|Wymagane|Opis|
 |--- |--- |--- |--- |
 |category|ciąg|Fałsz|Kategoria/system niestandardowy dla żądania tłumaczenia.|
 |Glosariusze|Słownik[]|Fałsz|Słownik wymieniony poniżej. Lista słownika.|
 |glossaries.format|ciąg|Fałsz|Formacie.|
-|glossaries.glossaryUrl|ciąg|True (w przypadku używania słowników)|Lokalizacja słownika. Użyjemy rozszerzenia pliku do wyodrębnienia formatowania, jeśli parametr formatu nie zostanie podany. Jeśli para języków tłumaczenia nie jest obecna w słowniku, nie zostanie zastosowana.|
-|glossaries.storageSource|Źródło magazynu|Fałsz|MagazynŹródło wymienione powyżej.|
-|wartość targetUrl|ciąg|True|Lokalizacja folderu/kontenera z dokumentami.|
-|language|ciąg|True|Dwulicieowy kod języka docelowego. Zobacz [listę kodów języków.](../../language-support.md)|
-|magazynŹródło|StorageSource []|Fałsz|Źródło Magazynu [] wymienione powyżej.|
+|glossaries.glossaryUrl|ciąg|True (w przypadku korzystania z słowników)|Lokalizacja słownika. Użyjemy rozszerzenia pliku do wyodrębnienia formatowania, jeśli parametr formatu nie zostanie podany. Jeśli para języków tłumaczenia nie jest obecna w słowniku, nie zostanie zastosowana.|
+|glossaries.storageSource|Źródło usługi Storage|Fałsz|Źródło magazynu wymienione powyżej.|
+|targetUrl|ciąg|True|Lokalizacja folderu/kontenera wraz z dokumentami.|
+|language|ciąg|True|Dwulitowy kod języka docelowego. Zobacz [listę kodów języków](../../language-support.md).|
+|storageSource|StorageSource []|Fałsz|Źródło magazynu [] wymienione powyżej.|
 |Wersja|ciąg|Fałsz|Wersja.|
 
 ## <a name="example-request"></a>Przykładowe żądanie
@@ -128,9 +128,9 @@ Poniżej przedstawiono przykłady żądań wsadowych.
 }
 ```
 
-**Tłumaczenie wszystkich dokumentów w kontenerze z zastosowaniem słowników**
+**Tłumaczenie wszystkich dokumentów w kontenerze stosującym słowniki**
 
-Upewnij się, że utworzono adres URL słownika & sas tokenu dla określonego obiektu blob/dokumentu (nie dla kontenera)
+Upewnij się, że utworzono słownikowy adres URL & SAS dla określonego obiektu blob/dokumentu (nie dla kontenera)
 
 ```json
 {
@@ -160,7 +160,7 @@ Upewnij się, że utworzono adres URL słownika & sas tokenu dla określonego ob
 
 **Tłumaczenie określonego folderu w kontenerze**
 
-Upewnij się, że w filtrze określono nazwę folderu (z wielkością liter) jako prefiks — mimo że token SAS nadal jest dla kontenera.
+Upewnij się, że w filtrze została określona nazwa folderu (zróżnicowa wielkość liter) jako prefiks — mimo że token SAS jest nadal dla kontenera.
 
 ```json
 {
@@ -186,9 +186,9 @@ Upewnij się, że w filtrze określono nazwę folderu (z wielkością liter) jak
 **Tłumaczenie określonego dokumentu w kontenerze**
 
 * Upewnij się, że określono wartość "storageType": "File"
-* Upewnij się, że utworzono źródłowy adres URL & sas tokenu dla określonego obiektu blob/dokumentu (nie dla kontenera)
-* Upewnij się, że określono docelową nazwę pliku jako część docelowego adresu URL, chociaż token SAS nadal jest dla kontenera.
-* Przykładowe żądanie poniżej pokazuje, że pojedynczy dokument jest tłumaczony na dwa języki docelowe
+* Upewnij się, że utworzono źródłowy adres URL & sas dla określonego obiektu blob/dokumentu (nie dla kontenera)
+* Upewnij się, że jako część docelowego adresu URL określono docelową nazwę pliku — chociaż token SAS nadal jest dla kontenera.
+* Przykładowe żądanie poniżej przedstawia pojedynczy dokument tłumaczony na dwa języki docelowe
 
 ```json
 {
@@ -219,21 +219,21 @@ Poniżej przedstawiono możliwe kody stanu HTTP zwracane przez żądanie.
 
 |Kod stanu|Opis|
 |--- |--- |
-|202|Akceptowane. Żądanie pomyślne i żądanie wsadowe są tworzone przez usługę. Nagłówek Operation-Location adres URL stanu z ciągiem operation ID.HeadersOperation-Location:|
+|202|Akceptowane. Żądanie pomyślne i żądanie wsadowe są tworzone przez usługę. Nagłówek Operation-Location adres URL stanu z operacją ID.HeadersOperation-Location: ciąg|
 |400|Złe żądanie. Nieprawidłowe żądanie. Sprawdź parametry wejściowe.|
 |401|Nieautoryzowanych. Sprawdź swoje poświadczenia.|
-|429|Szybkość żądań jest zbyt duża.|
+|429|Szybkość żądań jest zbyt wysoka.|
 |500|Wewnętrzny błąd serwera.|
 |503|Usługa jest obecnie niedostępna.  Spróbuj ponownie później.|
 |Inne kody stanu|<ul><li>Zbyt wiele żądań</li><li>Serwer jest tymczasowo niedostępny</li></ul>|
 
-## <a name="error-response"></a>Odpowiedź z błędem
+## <a name="error-response"></a>Odpowiedź o błędzie
 
 |Nazwa|Typ|Opis|
 |--- |--- |--- |
 |kod|ciąg|Wylinia zawierające kody błędów wysokiego poziomu. Możliwe wartości:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Brak autoryzacji</li></ul>|
 |message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
-|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, komunikat i opcjonalny element docelowy właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
+|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, docelowy komunikat i opcjonalne właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
 |Wewnętrzny. Errorcode|ciąg|Pobiera ciąg błędu kodu.|
 |innerError.message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 
@@ -243,13 +243,13 @@ Poniżej przedstawiono możliwe kody stanu HTTP zwracane przez żądanie.
 
 Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 
-Identyfikator zadania można znaleźć w nagłówku odpowiedzi metody POST Operation-Location URL. Ostatnim parametrem adresu URL jest identyfikator zadania operacji (ciąg "/operation/").
+Identyfikator zadania można znaleźć w wartości nagłówka odpowiedzi metody POST Operation-Location URL. Ostatnim parametrem adresu URL jest identyfikator zadania operacji (ciąg "/operation/").
 
 ```HTTP
 Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0.preview.1/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
 ```
 
-### <a name="example-error-response"></a>Przykładowa odpowiedź o błędzie
+### <a name="example-error-response"></a>Przykładowa odpowiedź z błędem
 
 ```JSON
 {

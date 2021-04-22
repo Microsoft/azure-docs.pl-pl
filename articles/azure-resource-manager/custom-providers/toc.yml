@@ -46,7 +46,7 @@
     - name: REST
       href: /rest/api/customproviders/
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/custom-providers/custom-providers/
+      href: /cli/azure/custom-providers/
     - name: Azure PowerShell
       href: /powershell/module/Az.CustomProviders/
     - name: Elementy wbudowane usługi Azure Policy

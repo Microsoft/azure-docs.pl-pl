@@ -1,60 +1,60 @@
 ---
 title: Otwieranie usługi Service Mesh (wersja zapoznawcza)
-description: Otwieranie usługi Service Mesh (SYSTEM) w usłudze Azure Kubernetes Service (AKS)
+description: Otwieranie usługi Service Mesh (ICH) w Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: bbc07a7ee3f996c778cfc1b9d1764f10a613c50b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b0a37400d02ff324e7191bb0b04243d7f16090bd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782949"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877160"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Otwieranie dodatku AKS usługi Service Mesh (wersja zapoznawcza)
 
 ## <a name="overview"></a>Omówienie
 
-[Open Service Mesh (INDIA)](https://docs.openservicemesh.io/) to lekkie, rozszerzalne, natywne dla chmury siatki usług, które umożliwiają użytkownikom jednolite zarządzanie, zabezpieczanie i uzyskiwanie łatwych w pracy funkcji obserwacji dla wysoce dynamicznych środowisk mikrousług.
+[Open Service Mesh (IT)](https://docs.openservicemesh.io/) to lekki, rozszerzalny, natywny dla chmury siatka usług, która umożliwia użytkownikom jednolite zarządzanie, zabezpieczanie i uzyskiwanie możliwości obserwacji w wysoce dynamicznych środowiskach mikrousług.
 
-SYSTEMOWA uruchamia płaszczyznę sterowania opartą na aplikacji Envoy na platformie Kubernetes, można ją skonfigurować za pomocą interfejsów API [SMI](https://smi-spec.io/) i działa przez wstrzyknięcie serwera proxy envoy jako kontenera sidecar obok każdego wystąpienia aplikacji. Serwer proxy usługi Envoy zawiera i wykonuje reguły dotyczące zasad kontroli dostępu, implementuje konfigurację routingu i przechwytuje metryki. Płaszczyzna sterowania stale konfiguruje proxy, aby upewnić się, że zasady i reguły routingu są aktualne i że są w dobrej kondycji.
+APLIKACJA URUCHAMIA płaszczyznę sterowania opartą na platformie Envoy na platformie Kubernetes, można ją skonfigurować przy użyciu interfejsów API [SMI](https://smi-spec.io/) i działa przez wstrzyknięcie serwera proxy usługi Envoy jako kontenera sidecar obok każdego wystąpienia aplikacji. Serwer proxy usługi Envoy zawiera i wykonuje reguły dotyczące zasad kontroli dostępu, implementuje konfigurację routingu i przechwytuje metryki. Płaszczyzna sterowania stale konfiguruje proxy, aby upewnić się, że zasady i reguły routingu są aktualne i zapewniają, że serwer proxy jest w dobrej kondycji.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="capabilities-and-features"></a>Możliwości i funkcje
 
-SYSTEM ZARZĄDZANIA dostępem do sieci udostępnia następujący zestaw funkcji i możliwości, które zapewniają natywną siatkę usług w chmurze dla klastrów Azure Kubernetes Service (AKS):
+SYSTEM ZARZĄDZANIA dostępem do sieci udostępnia następujący zestaw funkcji i możliwości, które zapewniają natywną w chmurze siatkę usług dla klastrów Azure Kubernetes Service (AKS):
 
 - Zabezpieczanie komunikacji między usługami przez włączenie mTLS
 
-- Łatwe dołączanie aplikacji do siatki przez włączenie automatycznego iniekcji bocznej serwera proxy aplikacji Envoy
+- Łatwe dołączanie aplikacji do siatki przez włączenie automatycznego iniekcji sidecar serwera proxy aplikacji Envoy
 
-- Łatwe i przejrzyste konfiguracje dotyczące zmiany ruchu we wdrożeniach
+- Łatwe i przejrzyste konfiguracje dla przesuwania ruchu we wdrożeniach
 
 - Możliwość definiowania i wykonywania zasad precyzyjnej kontroli dostępu dla usług
 
-- Wgląd i szczegółowe informacje o metrykach aplikacji na potrzeby debugowania i monitorowania usług
+- Wgląd w metryki aplikacji na potrzeby debugowania i monitorowania usług oraz wgląd w nie
 
 - Integracja z zewnętrznymi usługami/rozwiązaniami do zarządzania certyfikatami z podłączanym interfejsem
 
 ## <a name="scenarios"></a>Scenariusze
 
-SYSTEM KONFIGURACJI może pomóc we wdrożeniach usługi AKS w następujących scenariuszach:
+System SWOIMi wdrożeniami usługi AKS może pomóc w następujących scenariuszach:
 
 - Zapewnianie zaszyfrowanej komunikacji między punktami końcowymi usługi wdrożonych w klastrze
 
 - Autoryzacja ruchu dla ruchu HTTP/HTTPS i TCP w siatce
 
-- Konfiguracja ważonych kontroli ruchu między co najmniej dwiema usługami dla wdrożeń A/B lub canary
+- Konfiguracja kontroli ruchu ważonego między co najmniej dwiema usługami dla wdrożeń A/B lub canary
 
 - Zbieranie i wyświetlanie wskaźników KPI z ruchu aplikacji
 
-## <a name="osm-service-quotas-and-limits-preview"></a>Limity przydziału i limity usługi LIMITY (wersja zapoznawcza)
+## <a name="osm-service-quotas-and-limits-preview"></a>Limity przydziału i limity usługi LIMIT (wersja zapoznawcza)
 
-Ograniczenia limitów przydziałów i limitów usług w wersji zapoznawczej DLA USŁUGI MOŻNA znaleźć na stronie Limity [przydziału i limity regionalne](https://docs.microsoft.com/azure/aks/quotas-skus-regions)usługi AKS.
+Ograniczenia limitów przydziałów i limitów usług w wersji zapoznawczej systemu SDK można znaleźć na stronie Limity [przydziału i limity regionalne](https://docs.microsoft.com/azure/aks/quotas-skus-regions)usługi AKS.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -75,11 +75,11 @@ Ograniczenia limitów przydziałów i limitów usług w wersji zapoznawczej DLA 
 ::: zone-end
 
 > [!WARNING]
-> Nie próbuj instalować funkcji DOSTĘP Z pliku binarnego przy użyciu programu `osm install` . Spowoduje to zainstalowanie rozwiązania ZAKS, które nie jest zintegrowane jako dodatek dla usług AKS.
+> Nie próbuj instalować narzędzia BINarnie przy `osm install` użyciu . Spowoduje to zainstalowanie rozwiązania SCAL, które nie jest zintegrowane jako dodatek dla usług AKS.
 
 ### <a name="register-the-aks-openservicemesh-preview-feature"></a>Rejestrowanie funkcji w `AKS-OpenServiceMesh` wersji zapoznawczej
 
-Aby utworzyć klaster usługi AKS, który może używać dodatku open service mesh, należy włączyć `AKS-OpenServiceMesh` flagę funkcji w subskrypcji.
+Aby utworzyć klaster usługi AKS, który może korzystać z dodatku open service mesh, należy włączyć `AKS-OpenServiceMesh` flagę funkcji w subskrypcji.
 
 Zarejestruj `AKS-OpenServiceMesh` flagę funkcji za pomocą [polecenia az feature register,][az-feature-register] jak pokazano w poniższym przykładzie:
 
@@ -87,7 +87,7 @@ Zarejestruj `AKS-OpenServiceMesh` flagę funkcji za pomocą [polecenia az featur
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-OpenServiceMesh"
 ```
 
-Wyświetlanie zarejestrowanego stanu może potrwać _kilka minut._ Sprawdź stan rejestracji za pomocą [polecenia az feature list:][az-feature-list]
+Wyświetlanie stanu Zarejestrowane trwa kilka _minut._ Sprawdź stan rejestracji za pomocą [polecenia az feature list:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-OpenServiceMesh')].{Name:name,State:properties.state}"
@@ -101,13 +101,13 @@ az provider register --namespace Microsoft.ContainerService
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="install-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-a-new-aks-cluster"></a>Instalowanie dodatku Open Service Mesh (ICH) Azure Kubernetes Service (AKS) dla nowego klastra usługi AKS
+## <a name="install-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-a-new-aks-cluster"></a>Instalowanie dodatku Open Service Mesh (SYSTEM) Azure Kubernetes Service (AKS) dla nowego klastra usługi AKS
 
-W nowym scenariuszu wdrażania klastra usługi AKS rozpoczniesz od zupełnie nowego wdrożenia klastra usługi AKS, które umożliwia dodanie DODATKU W operacji tworzenia klastra.
+W przypadku nowego scenariusza wdrażania klastra usługi AKS rozpoczniesz od zupełnie nowego wdrożenia klastra usługi AKS, aby w operacji tworzenia klastra w celu włączenia dodatku ZAKS.
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład umożliwia utworzenie grupy zasobów o nazwie _myOsmAksGroup_ w _lokalizacji eastus2_ (region):
+Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład tworzy grupę zasobów o nazwie _myOsmAksGroup_ w _lokalizacji eastus2_ (region):
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>
@@ -115,10 +115,10 @@ az group create --name <myosmaksgroup> --location <eastus2>
 
 ### <a name="deploy-an-aks-cluster-with-the-osm-add-on-enabled"></a>Wdrażanie klastra usługi AKS z włączonym dodatku THE
 
-Teraz wdrożysz nowy klaster usługi AKS z włączonym dodatku THE.
+Teraz wdrożysz nowy klaster usługi AKS z włączonym dodatku FILTR.
 
 > [!NOTE]
-> Należy pamiętać, że następujące polecenie wdrożenia usługi AKS korzysta z dysków efemeralnych systemu operacyjnego. Więcej informacji na temat efemeralnych dysków systemu operacyjnego dla [aks można znaleźć tutaj](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os)
+> Należy pamiętać, że następujące polecenie wdrażania usługi AKS korzysta z dysków efemeralnych systemu operacyjnego. Więcej informacji na temat [efemeralnych](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os) dysków systemu operacyjnego dla aks można znaleźć tutaj
 
 ```azurecli-interactive
 az aks create -n osm-addon-cluster -g <myosmaksgroup> --kubernetes-version 1.19.6 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
@@ -134,17 +134,17 @@ az aks get-credentials -n <myosmakscluster> -g <myosmaksgroup>
 
 ## <a name="enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster"></a>Włączanie dodatku Open Service Mesh (ONE) Azure Kubernetes Service (AKS) dla istniejącego klastra usługi AKS
 
-W przypadku istniejącego scenariusza klastra usługi AKS należy włączyć dodatek DODATKU DO ISTNIEJĄCEGO klastra usługi AKS, który został już wdrożony.
+W istniejącym scenariuszu klastra usługi AKS należy włączyć dodatek DOSTĘP do istniejącego klastra usługi AKS, który został już wdrożony.
 
-### <a name="enable-the-osm-add-on-to-existing-aks-cluster"></a>Włączanie dodatku DODATKU DO ISTNIEJĄCEGO KLASTRA USŁUGI AKS
+### <a name="enable-the-osm-add-on-to-existing-aks-cluster"></a>Włączanie dodatku THE do istniejącego klastra usługi AKS
 
-Aby włączyć dodatek DODATKU DODATKU AKS, należy uruchomić `az aks enable-addons --addons` polecenie przekazujące parametr `open-service-mesh`
+Aby włączyć dodatek AKS DOSTĘP, należy uruchomić `az aks enable-addons --addons` polecenie przekazujące parametr `open-service-mesh`
 
 ```azurecli-interactive
 az aks enable-addons --addons open-service-mesh -g <resource group name> -n <AKS cluster name>
 ```
 
-Powinny zostać wyświetlone dane wyjściowe podobne do danych wyjściowych pokazanych poniżej, aby potwierdzić, że dodatek AKSINSTAL ZOSTAŁ zainstalowany.
+Powinny zostać wyświetlone dane wyjściowe podobne do danych wyjściowych pokazanych poniżej, aby potwierdzić, że dodatek AKS SYSTEM został zainstalowany.
 
 ```json
 {- Finished ..
@@ -162,9 +162,9 @@ Powinny zostać wyświetlone dane wyjściowe podobne do danych wyjściowych poka
 ...
 ```
 
-## <a name="validate-the-aks-osm-add-on-installation"></a>Weryfikowanie instalacji dodatku DODATKU AKS
+## <a name="validate-the-aks-osm-add-on-installation"></a>Weryfikowanie instalacji dodatku DODATKU AKS NA PLATFORMIE
 
-Istnieje kilka poleceń, które należy uruchomić, aby sprawdzić, czy wszystkie składniki dodatku AKSŁĄCZYĆ są włączone i uruchomione:
+Istnieje kilka poleceń, które należy uruchomić, aby sprawdzić, czy wszystkie składniki dodatku AKS DOSTĘP SĄ włączone i uruchomione:
 
 Najpierw możemy odpytować profile dodatków klastra, aby sprawdzić włączony stan zainstalowanych dodatków. Następujące polecenie powinno zwrócić wartość "true".
 
@@ -172,7 +172,7 @@ Najpierw możemy odpytować profile dodatków klastra, aby sprawdzić włączony
 az aks list -g <resource group name> -o json | jq -r '.[].addonProfiles.openServiceMesh.enabled'
 ```
 
-Następujące polecenia `kubectl` będą zgłaszać stan kontrolera domeny .
+Następujące `kubectl` polecenia będą zgłaszać stan kontrolera w programie .
 
 ```azurecli-interactive
 kubectl get deployments -n kube-system --selector app=osm-controller
@@ -180,9 +180,9 @@ kubectl get pods -n kube-system --selector app=osm-controller
 kubectl get services -n kube-system --selector app=osm-controller
 ```
 
-## <a name="accessing-the-aks-osm-add-on"></a>Uzyskiwanie dostępu do dodatku AKS ZAKS
+## <a name="accessing-the-aks-osm-add-on"></a>Uzyskiwanie dostępu do dodatku AKS DOSTĘP DO SIECI
 
-Obecnie można uzyskać dostęp do konfiguracji kontrolera DNS i skonfigurować go za pośrednictwem mapy konfiguracji. Aby wyświetlić ustawienia konfiguracji kontrolera DNS, należy odpytować mapę konfiguracji za pośrednictwem programu , `kubectl` aby wyświetlić jego ustawienia konfiguracji.
+Obecnie można uzyskać dostęp do konfiguracji kontrolera THE i skonfigurować ją za pośrednictwem mapy konfiguracji. Aby wyświetlić ustawienia konfiguracji kontrolera DNS, należy odpytować za pomocą adresu plik configmap w celu `kubectl` wyświetlenia jego ustawień konfiguracji.
 
 ```azurecli-interactive
 kubectl get configmap -n kube-system osm-config -o json | jq '.data'
@@ -204,26 +204,26 @@ Dane wyjściowe mapy konfiguracji MODELU powinny wyglądać następująco:
 }
 ```
 
-Zwróć **uwagę permissive_traffic_policy_mode** że wartość jest skonfigurowana na **wartość true.** Tryb zasad ruchu permisywnych w CELU jest trybem, w którym [wymuszanie zasad](https://smi-spec.io/) ruchu SMI jest pomijane. W tym trybie SERWERY PROXY automatycznie odnajdują usługi, które są częścią siatki usług, i programują reguły zasad ruchu na każdej sidecar serwera proxy envoy, aby móc komunikować się z tymi usługami.
+Zwróć **uwagę permissive_traffic_policy_mode** że dla ustawienia skonfigurowano wartość **true.** Tryb zasad ruchu nachyliczania ruchu w TRYBIE, w którym [wymuszanie zasad](https://smi-spec.io/) ruchu SMI jest pomijane. W tym trybie SYSTEM AUTOMATYCZNIE odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu na każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
 
 > [!WARNING]
-> Przed przystąpieniem sprawdź, czy tryb zasad ruchu sieciowego jest ustawiony na wartość true, jeśli nie, zmień go na **true** przy użyciu poniższego polecenia
+> Przed przystąpieniem do pracy sprawdź, czy tryb zasad ruchu sieciowego jest ustawiony na wartość true. Jeśli nie, zmień go na **true** za pomocą poniższego polecenia
 
 ```OSM Permissive Mode to True
 kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"permissive_traffic_policy_mode":"true"}}'
 ```
 
-## <a name="deploy-a-new-application-to-be-managed-by-the-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>Wdrażanie nowej aplikacji, która ma być zarządzana przez dodatek Open Service Mesh (AZURE KUBERNETES SERVICE) (AKS)
+## <a name="deploy-a-new-application-to-be-managed-by-the-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>Wdrażanie nowej aplikacji, która ma być zarządzana przez dodatek Open Service Mesh (AZURE KUBERNETES SERVICE) Azure Kubernetes Service (AKS)
 
 ### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W krokach szczegółowo opisanej w tym przewodniku założono, że utworzono klaster usługi AKS (z włączoną obsługą kontroli RBAC na platformie Kubernetes) i nawiążesz połączenie z klastrem (jeśli potrzebujesz pomocy dotyczącej dowolnego z tych elementów, zobacz przewodnik Szybki start usługi AKS i zainstalowano dodatek `1.19+` `kubectl` AKS ONE. [](./kubernetes-walkthrough.md)
+W krokach szczegółowo opisanej w tym przewodniku założono, że utworzono klaster usługi AKS (kubernetes i powyższe z włączoną obsługą kontroli RBAC na platformie Kubernetes) i nawiązliśmy połączenie z klastrem (jeśli potrzebujesz pomocy dotyczącej dowolnego z tych elementów, zobacz przewodnik Szybki start usługi AKS i zainstalowaliśmy dodatek `1.19+` `kubectl` AKS ONE. [](./kubernetes-walkthrough.md)
 
 Musisz mieć zainstalowane następujące zasoby:
 
 - Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej
 - Rozszerzenie `aks-preview` w wersji 0.5.5 lub nowszej
-- SYSTEM w wersji 0.8.0 lub nowszej
+- WERSJA WERSJA 0.8.0 lub nowsza
 - apt-get install jq
 
 ### <a name="create-namespaces-for-the-application"></a>Tworzenie przestrzeni nazw dla aplikacji
@@ -250,9 +250,9 @@ namespace/bookthief created
 namespace/bookwarehouse created
 ```
 
-### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘPNĄ
+### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘP
 
-Dodanie przestrzeni nazw do siatki MESH umożliwi kontrolerowi THE automatyczne wstrzyknięcie kontenerów serwera proxy sidecar envoy do aplikacji. Uruchom następujące polecenie, aby do dołączać przestrzenie nazw aplikacji sklepu z książkami THE.
+Jeśli dodasz przestrzenie nazw do siatki MESH, umożliwi to kontrolerowi WOLUMINU automatyczne wstrzyknięcie kontenerów serwera proxy aplikacji Envoy sidecar do aplikacji. Uruchom następujące polecenie, aby do dołączać przestrzenie nazw aplikacji sklepu z książkami w układzie CZAS.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -267,7 +267,7 @@ Namespace [bookthief] successfully added to mesh [osm]
 Namespace [bookwarehouse] successfully added to mesh [osm]
 ```
 
-### <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Wdrażanie aplikacji sklepu z książkami w klastrze usługi AKS
+### <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Wdrażanie aplikacji księgarni w klastrze usługi AKS
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
@@ -307,13 +307,13 @@ deployment.apps/bookwarehouse created
 
 ### <a name="checkpoint-what-got-installed"></a>Punkt kontrolny: Co zainstalowano?
 
-Przykładowa aplikacja księgarni to aplikacja wielowarstwowa, która składa się z czterech usług: księgarni, księgarni, księgarni i księgarni. Zarówno usługa bookbuyer, jak i bookthief komunikują się z usługą księgarni w celu pobierania książek z usługi księgarni. Usługa księgarni pobiera książki z usługi księgarni w celu dostarczania książkibujerowi i księgarni. Jest to prosta aplikacja wielowarstwowa, która dobrze pokazuje, jak można użyć siatki usług do ochrony i autoryzowania komunikacji między usługami aplikacji. Kontynuując ten przewodnik, będziemy włączanie i wyłączanie zasad interfejsu usługi Service Mesh (SMI), aby zezwalać usługom na komunikację za pośrednictwem systemu ETHERNET i zezwalać na nie. Poniżej znajduje się diagram architektury instalacji aplikacji sklepu z książkami.
+Przykładowa aplikacja księgarni to aplikacja wielowarstwowa, która składa się z czterech usług, takich jak bookbuyer, bookthief, bookstore i bookwarehouse. Zarówno księgarnia, jak i usługa księgarni komunikują się z usługą księgarni w celu pobierania książek z usługi księgarni. Usługa księgarni pobiera książki z usługi księgarni w celu dostarczania księgarni i księgarni. Jest to prosta aplikacja wielowarstwowa, która dobrze pokazuje, jak można używać siatki usług do ochrony i autoryzowania komunikacji między usługami aplikacji. Kontynuując ten przewodnik, będziemy włączania i wyłączania zasad interfejsu SMI (Service Mesh Interface), aby zezwalać usługom na komunikację za pośrednictwem sieci DOSTĘPNEJ i nie zezwalać na nie. Poniżej znajduje się diagram architektury instalacji aplikacji sklepu z książkami.
 
 ![Architektura aplikacji BOOKBUYER](./media/aks-osm-addon/osm-bookstore-app-arch.png)
 
-### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Weryfikowanie aplikacji księgarni uruchomionej w klastrze usługi AKS
+### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Weryfikowanie aplikacji sklepu z książkami uruchomionej w klastrze usługi AKS
 
-W tej chwili wdrożyliśmy aplikację mulit-container magazynu książek, ale jest ona dostępna tylko z poziomu klastra usługi AKS. W kolejnych samouczkach znajdziesz pomoc w ujawnianiu aplikacji poza klastrem za pośrednictwem kontrolera ruchu wychodzącego. Na razie będziemy korzystać z przekazywania portów w celu uzyskania dostępu do aplikacji bookbuyer w klastrze usługi AKS, aby sprawdzić, czy kupuje książki w usłudze księgarni.
+W tej chwili wdrożyliśmy aplikację kontenera magazynu książek, ale jest ona dostępna tylko z poziomu klastra usługi AKS. W kolejnych samouczkach znajdziesz pomoc w ujawnianiu aplikacji poza klastrem za pośrednictwem kontrolera ruchu wychodzącego. Na razie będziemy korzystać z przekazywania portów w celu uzyskania dostępu do aplikacji bookbuyer w klastrze AKS, aby sprawdzić, czy kupuje książki w usłudze księgarni.
 
 Aby sprawdzić, czy aplikacja działa wewnątrz klastra, użyjemy portu do wyświetlenia interfejsu użytkownika składników bookbuyer i bookthief.
 
@@ -323,17 +323,17 @@ Najpierw pobierzmy nazwę zasobnika bookbuyer
 kubectl get pod -n bookbuyer
 ```
 
-Powinny pojawić się dane wyjściowe podobne do poniższych. Zasobnik bookbuyer będzie mieć dołączenie unikatowej nazwy.
+Powinny pojawić się dane wyjściowe podobne do poniższych. Zasobnik bookbuyer będzie miał dołączenie unikatowej nazwy.
 
 ```Output
 NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Gdy będziemy mieć nazwę zasobnika, możemy teraz użyć polecenia port-forward, aby skonfigurować tunel z systemu lokalnego do aplikacji w klastrze usługi AKS. Uruchom następujące polecenie, aby skonfigurować port do przodu dla lokalnego portu systemowego 8080. Ponownie użyj określonej nazwy zasobnika bookbuyer.
+Po nazwie zasobnika możemy teraz użyć polecenia port-forward, aby skonfigurować tunel z systemu lokalnego do aplikacji w klastrze usługi AKS. Uruchom następujące polecenie, aby skonfigurować przekazywanie portów dla lokalnego portu systemowego 8080. Ponownie użyj określonej nazwy zasobnika bookbuyer.
 
 > [!NOTE]
-> W przypadku wszystkich poleceń przekazywania portów najlepiej jest użyć dodatkowego terminalu, aby można było kontynuować pracę w tym przewodniku i nie rozłączać tunelu. Najlepiej jest również ustanowić tunel do przodu portów poza Azure Cloud Shell.
+> W przypadku wszystkich poleceń przekazywania portów najlepiej użyć dodatkowego terminalu, aby można było kontynuować pracę w tym przewodniku i nie rozłączać tunelu. Najlepiej jest również ustanowić tunel przekazywania portów poza Azure Cloud Shell.
 
 ```Bash
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
@@ -346,11 +346,11 @@ Forwarding from 127.0.0.1:8080 -> 14001
 Forwarding from [::1]:8080 -> 14001
 ```
 
-Gdy sesja przekierowania portów jest na miejscu, przejdź do następującego adresu URL w przeglądarce `http://localhost:8080` . W przeglądarce powinien być teraz wyświetlony interfejs użytkownika aplikacji bookbuyer podobny do poniższego.
+Gdy sesja przekazywania portów jest na miejscu, przejdź do następującego adresu URL w przeglądarce `http://localhost:8080` . W przeglądarce powinien być teraz wyświetlony interfejs użytkownika aplikacji bookbuyer podobny do poniższego.
 
-![Obraz interfejsu użytkownika aplikacji BOOKbuyer](./media/aks-osm-addon/osm-bookbuyer-service-ui.png)
+![Obraz interfejsu użytkownika aplikacji BOOKBUYer](./media/aks-osm-addon/osm-bookbuyer-service-ui.png)
 
-Zauważysz również, że łączna liczba zakupionych książek nadal zwiększa się do usługi księgarni w wersji 1. Usługa księgarni w wersji 2 nie została jeszcze wdrożona. Wdrożymy usługę księgarni w wersji 2, gdy zademonstr będziemy przedstawiać zasady podziału ruchu SMI.
+Zauważysz również, że łączna liczba zakupionych książek nadal zwiększa się do usługi sklepu z książkami w wersji 1. Usługa księgarni w wersji 2 nie została jeszcze wdrożona. Wdrożymy usługę księgarni w wersji 2, gdy zademonstrujemy zasady podziału ruchu SMI.
 
 Możesz również sprawdzić to samo dla usługi bookthief.
 
@@ -371,15 +371,15 @@ Przekieruj do zasobnika bookthief.
 kubectl port-forward bookthief-59549fb69c-cr8vl -n bookthief 8080:14001
 ```
 
-W przeglądarce przejdź do następującego adresu `http://localhost:8080` URL. Powinno być widać, że księgarnia obecnie kradzieży książek z usługi księgarni! W dalszej części wdrożymy zasady ruchu, aby zatrzymać księgę.
+Przejdź do następującego adresu URL w przeglądarce `http://localhost:8080` . Powinien zostać wyświetlony sklep z książkami, który obecnie kradzieży książek z usługi sklepu z książkami. W dalszej części zaim implementować będziemy zasady ruchu, aby zatrzymać bookthief.
 
-![Obraz interfejsu użytkownika aplikacji BOOKTHIEF](./media/aks-osm-addon/osm-bookthief-service-ui.png)
+![Obraz interfejsu użytkownika aplikacji BOOKTHief DLA KSIĄŻEK](./media/aks-osm-addon/osm-bookthief-service-ui.png)
 
-### <a name="disable-osm-permissive-traffic-mode-for-the-mesh"></a>Wyłącz tryb ruchu permisywnej JEDNOSTKI SSM dla siatki
+### <a name="disable-osm-permissive-traffic-mode-for-the-mesh"></a>Wyłączanie permisywnych trybów ruchu SIECIowego DLA siatki
 
-Jak wspomniano wcześniej podczas wyświetlania konfiguracji klastra DOSTĘP, konfiguracja JEDNOSTKI ZABEZPIECZEŃ domyślnie umożliwia włączenie zasad trybu ruchu. W tym trybie wymuszanie zasad ruchu jest pomijane, a system SIDE automatycznie odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu w każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
+Jak wspomniano wcześniej podczas wyświetlania konfiguracji klastra JEDNOSTKI KLASTRA, konfiguracja JEDNOSTKI ODZYSKIWANIA domyślnie umożliwia włączenie zasad trybu ruchu. W tym trybie wymuszanie zasad ruchu jest pomijane, a system MESH automatycznie odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu na każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
 
-Teraz wyłączymy zasady dotyczące trybu ruchu, a w klastrze będą potrzebne jawne zasady [SMI](https://smi-spec.io/) wdrożone w klastrze, aby umożliwić komunikację w siatce z każdej usługi. Aby wyłączyć tryb ruchu, uruchom następujące polecenie, aby zaktualizować właściwość configmap, zmieniając wartość z `true` na `false` .
+Teraz wyłączymy zasady trybu zezwalania na ruch, a w klastrze będą potrzebne jawne zasady [SMI](https://smi-spec.io/) wdrożone w klastrze, aby umożliwić komunikację w siatce z każdej usługi. Aby wyłączyć tryb ruchu, uruchom następujące polecenie, aby zaktualizować właściwość configmap, zmieniając wartość z `true` na `false` .
 
 ```azurecli-interactive
 kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"permissive_traffic_policy_mode":"false"}}'
@@ -391,11 +391,11 @@ Powinny pojawić się dane wyjściowe podobne do poniższych. Zasobnik bookthief
 configmap/osm-config patched
 ```
 
-Aby sprawdzić, czy tryb ruchu sieciowego jest wyłączony, przekieruj z powrotem do zasobnika bookbuyer lub bookthief, aby wyświetlić interfejs użytkownika w przeglądarce i sprawdzić, czy zakupione książki lub skradzione książki już się nie zwiększa. Upewnij się, że odświeżysz przeglądarkę. Jeśli przyrost został zatrzymany, zasady zostały zastosowane poprawnie. Udało Ci się zatrzymać księgową przed kradzieżą książek, ale ani księgarnia nie może kupić w księgarni, ani księgarni nie może pobierać książek z księgarni. Następnie zaim implementujemy [zasady SMI,](https://smi-spec.io/) aby zezwolić tylko na usługi w siatce, do których chcesz się z tym komunikować.
+Aby sprawdzić, czy tryb ruchu sieciowego jest wyłączony, przekieruj z powrotem do zasobnika bookbuyer lub bookthief, aby wyświetlić interfejs użytkownika w przeglądarce i sprawdzić, czy zakupione książki lub skradzione książki nie będą już zwiększane. Upewnij się, że odświeżysz przeglądarkę. Jeśli przyrost został zatrzymany, zasady zostały zastosowane poprawnie. Udało Ci się zatrzymać księgarnię przed kradzieżą książek, ale ani księgarni nie może kupić w księgarni, ani księgarni nie może pobrać książek z księgarni. Następnie zaim implementujemy [zasady SMI,](https://smi-spec.io/) aby zezwolić tylko na usługi w siatce, do których chcesz się z tym komunikować.
 
 ### <a name="apply-service-mesh-interface-smi-traffic-access-policies"></a>Stosowanie zasad dostępu do ruchu interfejsu SMI (Service Mesh Interface)
 
-Teraz, gdy wyłączyliśmy całą komunikację w siatce, pozwólmy naszej usłudze bookbuyer na komunikowanie się z naszą usługą księgarni w celu zakupu książek i umożliwienie naszej usłudze księgarni komunikowania się z naszą usługą księgarni w celu pobierania książek do sprzedaży.
+Teraz, gdy wyłączyliśmy całą komunikację w siatce, pozwólmy naszej usłudze bookbuyer na komunikowanie się z naszą usługą księgarni w celu zakupu książek i pozwólmy naszej usłudze księgarni na komunikowanie się z naszą usługą księgarni w celu pobierania książek do sprzedaży.
 
 Wd wdrażaj [następujące zasady SMI.](https://smi-spec.io/)
 
@@ -493,17 +493,17 @@ traffictarget.access.smi-spec.io/bookstore-access-bookwarehouse created
 httproutegroup.specs.smi-spec.io/bookwarehouse-service-routes created
 ```
 
-Teraz możesz skonfigurować sesję przekazywania portów dla zasobników księgarni lub księgarni i zobaczyć, że metryki dotyczące zakupionych książek i sprzedanych książek z powrotem się zwiększają. Możesz również zrobić to samo dla zasobnika bookthief, aby sprawdzić, czy nadal nie jest już w stanie wykraść książek.
+Teraz możesz skonfigurować sesję przekazywania portów w zasobnikach księgarni lub księgarni i zobaczyć, że metryki zakupionych książek i sprzedanych książek z powrotem się zwiększają. Możesz również zrobić to samo dla zasobnika bookthief, aby sprawdzić, czy nadal nie jest w stanie wykraść książek.
 
 ### <a name="apply-service-mesh-interface-smi-traffic-split-policies"></a>Stosowanie zasad podziału ruchu interfejsu SMI (Service Mesh Interface)
 
-Na ostatnim pokazie utworzymy zasady podziału ruchu [SMI,](https://smi-spec.io/) aby skonfigurować wagę komunikacji między jedną usługą a wieloma usługami jako zaplecza. Funkcja podziału ruchu umożliwia stopniowe przenoszenie połączeń do jednej usługi między usługami przez ważony ruch w skali od 0 do 100.
+Podczas ostatniej demonstracji utworzymy zasady podziału ruchu [SMI,](https://smi-spec.io/) aby skonfigurować wagę komunikacji między jedną usługą a wieloma usługami jako zaplecza. Funkcja podziału ruchu umożliwia stopniowe przenoszenie połączeń między usługami przez ważony ruch w skali od 0 do 100.
 
-Na poniższej ilustracji przedstawiono diagram zasad podziału ruchu [SMI](https://smi-spec.io/) do wdrożenia. Wdrożymy dodatkową księgarnię w wersji 2, a następnie podzielimy ruch przychodzący z księgarni, ważon 25% ruchu do usługi księgarni w wersji 1 i 75% do usługi księgarni w wersji 2.
+Na poniższej ilustracji przedstawiono diagram zasad podziału ruchu [SMI](https://smi-spec.io/) do wdrożenia. Wdrożymy dodatkową księgarnię w wersji 2, a następnie podzielimy ruch przychodzący z księgarni, ważon 25% ruchu do usługi księgarni v1 i 75% na usługę księgarni w wersji 2.
 
-![Diagram podziału ruchu dla bookbuyer w systemach BOOK](./media/aks-osm-addon/osm-bookbuyer-traffic-split-diagram.png)
+![Diagram podziału ruchu dla bookbuyerów w sieci BOOK](./media/aks-osm-addon/osm-bookbuyer-traffic-split-diagram.png)
 
-Wdzysuj usługę księgarni w wersji 2.
+Wdrażanie usługi księgarni w wersji 2.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -593,7 +593,7 @@ deployment.apps/bookstore-v2 created
 traffictarget.access.smi-spec.io/bookstore-v2 created
 ```
 
-Teraz wd wdrażają zasady podziału ruchu, aby podzielić ruch bookbuyer między dwiema usługami księgarni w wersji 1 i 2.
+Teraz wdów zasady podziału ruchu, aby podzielić ruch bookbuyer między dwiema usługami księgarni w wersji 1 i 2.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -618,28 +618,28 @@ Powinny zostać wyświetlone następujące dane wyjściowe.
 trafficsplit.split.smi-spec.io/bookstore-split created
 ```
 
-Skonfiguruj tunel do przekazywania portów do zasobnika bookbuyer. Powinny być teraz dostępne książki zakupione w usłudze księgarni w wersji 2. Jeśli nadal będziesz obserwować przyrost zakupów, zauważysz szybszy przyrost zakupów w usłudze sklepu z książkami w wersji 2.
+Skonfiguruj tunel do przekazywania portów do zasobnika bookbuyer. Powinny być teraz dostępne książki zakupione w usłudze księgarni w wersji 2. Jeśli nadal obserwować przyrost zakupów, należy zauważyć szybszy przyrost zakupów w usłudze księgarni w wersji 2.
 
-![Interfejs użytkownika książek ze książkami dla książek ZESI](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
+![INTERFEJS UŻYTKOWNIKA książek bookbuyer z książkami DLA KSIĄŻEK](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
 
 ## <a name="manage-existing-deployed-applications-to-be-managed-by-the-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>Zarządzanie istniejącymi wdrożonmi aplikacjami, które mają być zarządzane przez dodatek Open Service Mesh (AZURE KUBERNETES SERVICE) (AKS)
 
 ### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W krokach szczegółowo opisanej w tym przewodniku założono, że wcześniej włączono dodatek AKS DLA klastra usługi AKS. Jeśli tak nie jest, przed podjęciem kolejnej czynności zapoznaj się z sekcją Włączanie dodatku Azure Kubernetes Service [(AKS) usługi Open Service Mesh (AKS)](#enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster) dla istniejącego klastra usługi AKS. Ponadto klaster usługi AKS musi mieć wersję Kubernetes i nowszą, mieć włączoną funkcję RBAC usługi Kubernetes i nawiążeć połączenie z klastrem (jeśli potrzebujesz pomocy dotyczącej dowolnego z tych elementów, zobacz przewodnik Szybki start usługi AKS i zainstalowano dodatek `1.19+` `kubectl` AKS ONE. [](./kubernetes-walkthrough.md)
+W krokach szczegółowo instrukcje w tym przewodniku założono, że wcześniej włączono dodatek AKS DLA klastra AKS. Jeśli nie, przed podjęciem dalej zapoznaj się z sekcją Włączanie dodatku Azure Kubernetes Service [(AKS) usługi Open Service Mesh (AKS)](#enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster) dla istniejącego klastra usługi AKS. Ponadto klaster usługi AKS musi mieć wersję Kubernetes i nowszą, mieć włączoną funkcję kontroli RBAC na platformie Kubernetes i nawiąże połączenie z klastrem (jeśli potrzebujesz pomocy dotyczącej dowolnego z tych elementów, zapoznaj się z przewodnikem Szybki start usługi AKS i zainstaluj dodatek `1.19+` `kubectl` AKS ONE. [](./kubernetes-walkthrough.md)
 
 Musisz mieć zainstalowane następujące zasoby:
 
 - Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej
 - Rozszerzenie `aks-preview` w wersji 0.5.5 lub nowszej
-- SYSTEM w wersji 0.8.0 lub nowszej
+- WERSJA WERSJA 0.8.0 lub nowsza
 - apt-get install jq
 
-### <a name="verify-the-open-service-mesh-osm-permissive-traffic-mode-policy"></a>Weryfikowanie zasad trybu ruchu permisywnej usługi Open Service Mesh (ICH)
+### <a name="verify-the-open-service-mesh-osm-permissive-traffic-mode-policy"></a>Weryfikowanie zasad trybu permisywności ruchu w usłudze Open Service Mesh (CELU)
 
-Tryb zasad ruchu permisywnych JEDNOSTKI SMI jest trybem, w którym wymuszanie zasad ruchu [SMI](https://smi-spec.io/) jest pomijane. W tym trybie SYSTEM AUTOMATYCZNIE odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu w każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
+Tryb zasad ruchu permisywnych JEDNOSTKI SMI jest trybem, w którym wymuszanie zasad ruchu [SMI](https://smi-spec.io/) jest pomijane. W tym trybie SERWERY PROXY automatycznie odnajdują usługi, które są częścią siatki usług, i programują reguły zasad ruchu na każdej sidecar serwera proxy envoy, aby móc komunikować się z tymi usługami.
 
-Aby sprawdzić bieżący tryb ruchu sieciowego z dostępem do klastra, uruchom następujące polecenie:
+Aby sprawdzić bieżący tryb ruchu awaryjnego DLA klastra, uruchom następujące polecenie:
 
 ```azurecli-interactive
 kubectl get configmap -n kube-system osm-config -o json | jq '.data'
@@ -659,9 +659,9 @@ Dane wyjściowe mapy konfiguracji MODELU powinny wyglądać następująco:
 }
 ```
 
-Jeśli konfiguracja **permissive_traffic_policy_mode** na wartość **true,** możesz bezpiecznie dołączać przestrzenie nazw bez żadnych zakłóceń w komunikacji między usługami. Jeśli **dla** permissive_traffic_policy_mode skonfigurowano wartość **false,** należy upewnić się, że wdrożono poprawne manifesty zasad dostępu do ruchu [SMI,](https://smi-spec.io/) a także upewnić się, że masz konto usługi reprezentujące każdą usługę wdrożoną w przestrzeni nazw. Postępuj zgodnie ze wskazówkami dla dołączania istniejących wdrożonych aplikacji przy użyciu zasad ruchu permisyjnie skonfigurowanego jako False [(Fałsz) w usłudze Open Service Mesh (OPEN Service Mesh)](#onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false)
+Jeśli konfiguracja **permissive_traffic_policy_mode** na wartość **true**, możesz bezpiecznie dołączać przestrzenie nazw bez żadnych zakłóceń w komunikacji między usługami. Jeśli konfiguracja **permissive_traffic_policy_mode** wartość **false,** należy upewnić się, że wdrożono poprawne manifesty zasad dostępu do ruchu [SMI,](https://smi-spec.io/) a także upewnić się, że masz konto usługi reprezentujące każdą usługę wdrożoną w przestrzeni nazw. Postępuj zgodnie ze wskazówkami dla dołączania istniejących wdrożonych aplikacji za pomocą zasad ruchu usługi [Open Service Mesh (OPEN Service Mesh)](#onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false) skonfigurowanych jako Fałsz
 
-### <a name="onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-true"></a>Dołączanie istniejących wdrożonych aplikacji przy użyciu zasad ruchu permisywnych MESH (Open Service Mesh) skonfigurowanych jako True
+### <a name="onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-true"></a>Dołączanie istniejących wdrożonych aplikacji przy użyciu zasad ruchu permisywnej usługi Open Service Mesh (JEDNOSTKI) skonfigurowanych jako True
 
 Pierwszą rzeczą, jaką należy wykonać, jest dodanie wdrożonych przestrzeni nazw aplikacji do rozwiązania DO ZARZĄDZANIA.
 
@@ -688,7 +688,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-78666dcff8-wh6wl   1/1     Running   0          43s
 ```
 
-Zwróć uwagę **na kolumnę READY** z **wartością 1/1,** co oznacza, że zasobnik aplikacji ma tylko jeden kontener. Następnie konieczne będzie ponowne uruchomienie wdrożeń aplikacji, tak aby system KLUCZY można było wstrzyknąć kontener serwera proxy aplikacji Envoy do zasobnika aplikacji. Pobierzmy listę wdrożeń w przestrzeni nazw .
+Zwróć uwagę **na kolumnę READY** z **wartością 1/1,** co oznacza, że zasobnik aplikacji ma tylko jeden kontener. Następnie konieczne będzie ponowne uruchomienie wdrożeń aplikacji, aby usługa THE umożliwiała wstrzyknięcie kontenera serwera proxy sidecar aplikacji Envoy do zasobnika aplikacji. Pobierzmy listę wdrożeń w przestrzeni nazw .
 
 ```azurecli-interactive
 kubectl get deployment -n bookbuyer
@@ -719,14 +719,14 @@ Jeśli ponownie przyjrzymy się zasobnikom w przestrzeni nazw :
 kubectl get pod -n bookbuyer
 ```
 
-Teraz zauważysz, że kolumna **READY (GOTOWE)** zawiera teraz **2/2** kontenery gotowe do użycia w zasobniku. Drugi kontener to serwer proxy aplikacji Envoy sidecar.
+Teraz zauważysz, że w kolumnie **READY** jest teraz wyświetlane **2/2** kontenerów, które są gotowe do zasobnika. Drugi kontener to serwer proxy sidecar aplikacji Envoy.
 
 ```Output
 NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-84446dd5bd-j4tlr   2/2     Running   0          3m30s
 ```
 
-Możemy dokładniej zbadać zasobnik, aby wyświetlić serwer proxy envoy, uruchamiając polecenie describe w celu wyświetlenia konfiguracji.
+Możemy dokładniej zbadać zasobnik, aby wyświetlić serwer proxy usługi Envoy, uruchamiając polecenie describe w celu wyświetlenia konfiguracji.
 
 ```azurecli-interactive
 kubectl describe pod bookbuyer-84446dd5bd-j4tlr -n bookbuyer
@@ -759,11 +759,11 @@ Containers:
     Host Ports:    0/TCP, 0/TCP, 0/TCP
 ```
 
-Sprawdź, czy aplikacja nadal działa po wstrzyknięciu serwera proxy aplikacji Envoy.
+Sprawdź, czy aplikacja nadal działa po wstrzyknięciu serwera proxy sidecar aplikacji Envoy.
 
-### <a name="onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false"></a>Dołączanie istniejących wdrożonych aplikacji przy użyciu zasad ruchu permisywnych MESH (Open Service Mesh) skonfigurowanych jako Fałsz
+### <a name="onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false"></a>Dołączanie istniejących wdrożonych aplikacji przy użyciu zasad ruchu permisywnej usługi Open Service Mesh (JEDNOSTKI) skonfigurowanych jako Fałsz
 
-W przypadku ustawienia konfiguracji JEDNOSTKI SMI dla zasad ruchu permisywnego na wartość , system SYSTEM będzie wymagał jawnego wdrożenia zasad dostępu do ruchu SMI dla komunikacji między usługami w `false` klastrze. [](https://smi-spec.io/) Obecnie w ramach autoryzowania komunikacji między usługami używane są również konta usługi Kubernetes. Aby upewnić się, że istniejące wdrożone aplikacje będą komunikować się, gdy będą zarządzane przez siatkę MESH, musimy sprawdzić istnienie konta usługi do wykorzystania, zaktualizować wdrożenie aplikacji przy użyciu informacji o koncie usługi i zastosować zasady dostępu do ruchu [SMI.](https://smi-spec.io/)
+W przypadku ustawienia konfiguracji `false` JEDNOSTKI [SMI](https://smi-spec.io/) dla zasad ruchu sieciowego o ności 100000000000000000000000000000000000022002222000222200002222000220002200022222000220000002200022222882201200120 Obecnie w ramach autoryzowania komunikacji między usługami są również używane konta usługi Kubernetes. Aby upewnić się, że istniejące wdrożone aplikacje będą komunikować się, gdy będą zarządzane przez siatkę MESH, musimy zweryfikować istnienie konta usługi do wykorzystania, zaktualizować wdrożenie aplikacji przy użyciu informacji o koncie usługi, zastosować zasady dostępu do ruchu [SMI.](https://smi-spec.io/)
 
 #### <a name="verify-kubernetes-service-accounts"></a>Weryfikowanie kont usługi Kubernetes
 
@@ -773,7 +773,7 @@ Sprawdź, czy masz konto usługi kubernetes w przestrzeni nazw, w których wdro�
 kubectl get serviceaccounts -n bookbuyer
 ```
 
-Poniżej znajduje się konto usługi o nazwie `bookbuyer` w przestrzeni nazw bookbuyer.
+Poniżej znajduje się konto usługi o nazwie w przestrzeni nazw `bookbuyer` bookbuyer.
 
 ```Output
 NAME        SECRETS   AGE
@@ -781,7 +781,7 @@ bookbuyer   1         25h
 default     1         25h
 ```
 
-Jeśli nie masz konta usługi wymienionego na liście innej niż konto domyślne, musisz utworzyć je dla swojej aplikacji. Użyj następującego polecenia jako przykładu, aby utworzyć konto usługi w przestrzeni nazw wdrożonej aplikacji.
+Jeśli nie masz konta usługi na liście innej niż konto domyślne, musisz utworzyć je dla swojej aplikacji. Użyj następującego polecenia jako przykładu, aby utworzyć konto usługi we wdrożonej przestrzeni nazw aplikacji.
 
 ```azurecli-interactive
 kubectl create serviceaccount myserviceaccount -n bookbuyer
@@ -793,7 +793,7 @@ serviceaccount/myserviceaccount created
 
 #### <a name="view-your-applications-current-deployment-specification"></a>Wyświetlanie bieżącej specyfikacji wdrożenia aplikacji
 
-Jeśli trzeba było utworzyć konto usługi z wcześniejszej sekcji, istnieje prawdopodobieństwo, że wdrożenie aplikacji nie jest skonfigurowane z określonym w `serviceAccountName` specyfikacji wdrożenia. Specyfikację wdrożenia aplikacji możemy wyświetlić za pomocą następujących poleceń:
+Jeśli trzeba było utworzyć konto usługi z wcześniejszej sekcji, istnieje prawdopodobieństwo, że wdrożenie aplikacji nie jest skonfigurowane z określonym w `serviceAccountName` specyfikacji wdrożenia. Specyfikację wdrożenia aplikacji można wyświetlić za pomocą następujących poleceń:
 
 ```azurecli-interactive
 kubectl get deployment -n bookbuyer
@@ -806,13 +806,13 @@ NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 bookbuyer   1/1     1            1           25h
 ```
 
-Teraz opiszemy wdrożenie jako sprawdzenie, czy w sekcji Szablon zasobnika znajduje się konto usługi.
+Teraz opiszemy wdrożenie jako sprawdzenie, czy istnieje konto usługi wymienione w sekcji Szablon zasobnika.
 
 ```azurecli-interactive
 kubectl describe deployment bookbuyer -n bookbuyer
 ```
 
-W tym konkretnym wdrożeniu widać, że istnieje konto usługi skojarzone z wdrożeniem wymienione w sekcji Szablon zasobnika. To wdrożenie korzysta z konta usługi bookbuyer. Jeśli właściwość Konto  usługi: nie jest widzisz, wdrożenie nie jest skonfigurowane do używania konta usługi.
+W tym konkretnym wdrożeniu widać, że istnieje konto usługi skojarzone z wdrożeniem wymienione w sekcji Szablon zasobnika. To wdrożenie korzysta z konta usługi bookbuyer. Jeśli nie widzisz właściwości **Konto usługi:** , wdrożenie nie jest skonfigurowane do korzystania z konta usługi.
 
 ```Output
 Pod Template:
@@ -826,15 +826,15 @@ Pod Template:
 
 ```
 
-Istnieje kilka technik aktualizowania wdrożenia w celu dodania konta usługi Kubernetes. Zapoznaj się z dokumentacją rozwiązania Kubernetes dotyczącą [wbudowanego](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) aktualizowania wdrożenia lub [konfigurowania kont usług dla zasobników.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) Po zaktualizowaniu specyfikacji wdrożenia przy użyciu konta usługi ponownie wdróż wdrożenie (kubectl apply -f your-deployment.yaml) w klastrze.
+Istnieje kilka technik aktualizowania wdrożenia w celu dodania konta usługi kubernetes. Zapoznaj się z dokumentacją rozwiązania Kubernetes dotyczącą [wbudowanego aktualizowania](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) wdrożenia lub konfigurowania [kont usług dla zasobników](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/). Po zaktualizowaniu specyfikacji wdrożenia przy użyciu konta usługi wdróż ponownie wdrożenie (kubectl apply -f your-deployment.yaml) w klastrze.
 
 #### <a name="deploy-the-necessary-service-mesh-interface-smi-policies"></a>Wdrażanie niezbędnych zasad interfejsu usługi Service Mesh (SMI)
 
-Ostatnim krokiem umożliwiającym przepływ autoryzowanego ruchu w siatce jest wdrożenie niezbędnych zasad dostępu do ruchu [SMI](https://smi-spec.io/) dla aplikacji. Ilość konfiguracji, którą można osiągnąć za pomocą zasad dostępu ruchu [SMI,](https://smi-spec.io/) wykracza poza zakres tego przewodnika, ale szczegółowo opiszemy niektóre typowe składniki specyfikacji i pokażemy, jak skonfigurować proste zasady TrafficTarget i HTTPRouteGroup, aby umożliwić komunikację między usługami dla aplikacji.
+Ostatnim krokiem umożliwiającym przepływ autoryzowanego ruchu w siatce jest wdrożenie niezbędnych zasad dostępu do ruchu [SMI](https://smi-spec.io/) dla aplikacji. Ilość konfiguracji, którą można osiągnąć za pomocą zasad dostępu ruchu [SMI,](https://smi-spec.io/) wykracza poza zakres tego przewodnika, ale szczegółowo opiszemy niektóre typowe składniki specyfikacji i pokażemy, jak skonfigurować zarówno proste zasady TrafficTarget, jak i HTTPRouteGroup, aby umożliwić komunikację między usługami dla aplikacji.
 
-Specyfikacja [SMI](https://smi-spec.io/) [**Traffic Access Control**](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md#traffic-access-control) umożliwia użytkownikom definiowanie zasad kontroli dostępu dla ich aplikacji. Skupimy się na **zasobach interfejsu API TrafficTarget** i **HTTPRoutGroup.**
+Specyfikacja [SMI](https://smi-spec.io/) [**Traffic Access Control**](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md#traffic-access-control) umożliwia użytkownikom definiowanie zasad kontroli dostępu dla ich aplikacji. Skupimy się na **zasobach interfejsu API TrafficTarget** **i HTTPRoutGroup.**
 
-Zasób TrafficTarget składa się z trzech głównych ustawień konfiguracji docelowych, reguł i źródeł. Poniżej przedstawiono przykładowy element TrafficTarget.
+Zasób TrafficTarget składa się z trzech głównych ustawień konfiguracji docelowych, reguł i źródeł. Poniżej przedstawiono przykład trafficTarget.
 
 ```TrafficTarget Example spec
 apiVersion: access.smi-spec.io/v1alpha3
@@ -859,7 +859,7 @@ spec:
     namespace: bookbuyer
 ```
 
-W powyższej specyfikacji TrafficTarget oznacza konto usługi skonfigurowane dla `destination` docelowej usługi źródłowej. Pamiętaj, że konto usługi dodane wcześniej do wdrożenia będzie używane do autoryzowania dostępu do wdrożenia, do którym jest dołączone. Sekcja `rules` , w tym konkretnym przykładzie, definiuje typ ruchu HTTP, który jest dozwolony przez połączenie. Można skonfigurować szczegółowe wzorce wyrażenia regularnego dla nagłówków HTTP, aby określić, jaki ruch jest dozwolony za pośrednictwem protokołu HTTP. Sekcja `sources` jest komunikacją pochodzącą z usługi. Ta specyfikacja odczytuje, że księgarnia musi komunikować się z księgarnią.
+W powyższej specyfikacji TrafficTarget określa konto usługi skonfigurowane dla `destination` docelowej usługi źródłowej. Pamiętaj, że konto usługi dodane wcześniej do wdrożenia będzie używane do autoryzowania dostępu do wdrożenia, do których jest dołączone. Sekcja `rules` , w tym konkretnym przykładzie, definiuje typ ruchu HTTP dozwolonego przez połączenie. Można skonfigurować szczegółowe wzorce wyrażenia regularnego dla nagłówków HTTP, aby określić, jaki ruch jest dozwolony za pośrednictwem protokołu HTTP. Sekcja `sources` jest komunikacją pochodzącą z usługi. Ta specyfikacja odczytuje, że księgarnia musi komunikować się z księgarnią.
 
 Zasób HTTPRouteGroup składa się z jednego lub tablicy dopasowania informacji nagłówka HTTP i jest wymagany dla specyfikacji TrafficTarget. W poniższym przykładzie widać, że grupa HTTPRouteGroup autoryzuje trzy akcje HTTP, dwie akcje GET i jedną grupę POST.
 
@@ -956,9 +956,9 @@ EOF
 
 Odwiedź [witrynę SMI,](https://smi-spec.io/) aby uzyskać bardziej szczegółowe informacje na temat specyfikacji.
 
-### <a name="manage-the-applications-namespace-with-osm"></a>Zarządzanie przestrzenią nazw aplikacji za pomocą usługi DOSTĘP DO SIECI
+### <a name="manage-the-applications-namespace-with-osm"></a>Zarządzanie przestrzenią nazw aplikacji przy użyciu systemu ZARZĄDZANIA
 
-Następnie skonfigurujemy usługę DOSTĘPNĄ do zarządzania przestrzenią nazw i ponownie uruchomimy wdrożenia, aby serwer proxy usługi Envoy sidecar został wstrzyknięty do aplikacji.
+Następnie skonfigurujemy serwer PROXY do zarządzania przestrzenią nazw i ponowne uruchomienie wdrożeń, aby serwer proxy aplikacji Envoy został wstrzyknięty do aplikacji.
 
 Uruchom następujące polecenie, aby skonfigurować przestrzeń `azure-vote` nazw, która ma być zarządzana przez moją usługę DOSTĘPNĄ.
 
@@ -982,372 +982,9 @@ deployment.apps/azure-vote-front restarted
 deployment.apps/azure-vote-back restarted
 ```
 
-Jeśli wyświetlamy zasobniki dla przestrzeni nazw, zobaczymy etap READY zarówno elementu , jak i jako 2/2, co oznacza, że wraz z aplikacją został wstrzyknięty serwer `azure-vote`  `azure-vote-front` proxy `azure-vote-back` sidecar envoy.
+Jeśli wyświetlymy zasobniki dla przestrzeni nazw, zobaczymy etap READY zarówno elementu , jak i jako 2/2, co oznacza, że obok aplikacji został wstrzyknięty serwer proxy aplikacji `azure-vote`  `azure-vote-front` `azure-vote-back` Envoy sidecar.
 
-## <a name="tutorial-deploy-an-application-managed-by-open-service-mesh-osm-with-nginx-ingress"></a>Samouczek: wdrażanie aplikacji zarządzanej przez usługę Open Service Mesh (GIN) przy użyciu danych przychodzących NGINX
-
-Open Service Mesh (IT) to lekki, rozszerzalny, natywny dla chmury siatka usług, która umożliwia użytkownikom jednolite zarządzanie, zabezpieczanie i uzyskiwanie możliwości obserwacji w wysoce dynamicznych środowiskach mikrousług.
-
-W tym samouczku wykonasz następujące czynności:
-
-> [!div class="checklist"]
->
-> - Wyświetlanie bieżącej konfiguracji klastra FILTRU
-> - Utwórz przestrzenie nazw dla rozwiązania ONES do zarządzania wdrożonych aplikacji w przestrzeniach nazw
-> - Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘPNĄ
-> - Wdrażanie aplikacji przykładowej
-> - Weryfikowanie aplikacji uruchomionej w klastrze usługi AKS
-> - Tworzenie kontrolera ruchu przychodzących NGINX używanego do aplikacji
-> - Uwidocznij usługę za pośrednictwem Azure Application Gateway przychodzących do Internetu
-
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
-
-W krokach szczegółowo instrukcje opisane w tym artykule zakładają, że utworzono klaster usługi AKS (kubernetes i nowsza z włączoną obsługą kontroli RBAC na platformie Kubernetes) i nawiążesz połączenie z klastrem (jeśli potrzebujesz pomocy dotyczącej dowolnego z tych elementów, zobacz przewodnik Szybki start usługi AKS i zainstalowano dodatek `1.19+` `kubectl` AKS ONE. [](./kubernetes-walkthrough.md)
-
-Musisz mieć zainstalowane następujące zasoby:
-
-- Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej
-- Rozszerzenie `aks-preview` w wersji 0.5.5 lub nowszej
-- WERSJA WERSJA 0.8.0 lub nowsza
-- apt-get install jq
-
-### <a name="view-and-verify-the-current-osm-cluster-configuration"></a>Wyświetlanie i weryfikowanie bieżącej konfiguracji klastra FILTRU
-
-Po włączeniu dodatku DODATKU DO USŁUGI AKS w klastrze usługi AKS można wyświetlić bieżące parametry konfiguracji w pliku kubernetes ConfigMap. Uruchom następujące polecenie, aby wyświetlić właściwości ConfigMap:
-
-```azurecli-interactive
-kubectl get configmap -n kube-system osm-config -o json | jq '.data'
-```
-
-Dane wyjściowe pokazują bieżącą konfigurację KLASTRA.
-
-```json
-{
-  "egress": "true",
-  "enable_debug_server": "true",
-  "enable_privileged_init_container": "false",
-  "envoy_log_level": "error",
-  "outbound_ip_range_exclusion_list": "169.254.169.254,168.63.129.16,20.193.57.43",
-  "permissive_traffic_policy_mode": "false",
-  "prometheus_scraping": "false",
-  "service_cert_validity_duration": "24h",
-  "use_https_ingress": "false"
-}
-```
-
-Zwróć **uwagę permissive_traffic_policy_mode** że wartość jest skonfigurowana na **wartość true.** Tryb zasad ruchu permisywnych w CELU jest trybem, w którym [wymuszanie zasad](https://smi-spec.io/) ruchu SMI jest pomijane. W tym trybie SERWERY PROXY automatycznie odnajdują usługi, które są częścią siatki usług, i programują reguły zasad ruchu na każdej sidecar serwera proxy envoy, aby móc komunikować się z tymi usługami.
-
-### <a name="create-namespaces-for-the-application"></a>Tworzenie przestrzeni nazw dla aplikacji
-
-W tym samouczku będziemy używać aplikacji ZE sklepu z książkami, która ma następujące składniki aplikacji:
-
-- bookbuyer
-- bookthief
-- Księgarni
-- bookwarehouse
-
-Utwórz przestrzenie nazw dla każdego z tych składników aplikacji.
-
-```azurecli-interactive
-for i in bookstore bookbuyer bookthief bookwarehouse; do kubectl create ns $i; done
-```
-
-Powinny zostać wyświetlone następujące dane wyjściowe:
-
-```Output
-namespace/bookstore created
-namespace/bookbuyer created
-namespace/bookthief created
-namespace/bookwarehouse created
-```
-
-### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘPNĄ
-
-Dodanie przestrzeni nazw do siatki MESH umożliwi kontrolerowi SUM automatyczne wstrzyknięcie kontenerów serwera proxy sidecar envoy do aplikacji. Uruchom następujące polecenie, aby do dołączać przestrzenie nazw aplikacji sklepu z książkami THE.
-
-```azurecli-interactive
-osm namespace add bookstore bookbuyer bookthief bookwarehouse
-```
-
-Powinny zostać wyświetlone następujące dane wyjściowe:
-
-```Output
-Namespace [bookstore] successfully added to mesh [osm]
-Namespace [bookbuyer] successfully added to mesh [osm]
-Namespace [bookthief] successfully added to mesh [osm]
-Namespace [bookwarehouse] successfully added to mesh [osm]
-```
-
-### <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Wdrażanie aplikacji sklepu z książkami w klastrze usługi AKS
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookthief.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookstore.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookwarehouse.yaml
-```
-
-Wszystkie dane wyjściowe wdrożenia zostały podsumowane poniżej.
-
-```Output
-serviceaccount/bookbuyer created
-service/bookbuyer created
-deployment.apps/bookbuyer created
-
-serviceaccount/bookthief created
-service/bookthief created
-deployment.apps/bookthief created
-
-service/bookstore created
-serviceaccount/bookstore created
-deployment.apps/bookstore created
-
-serviceaccount/bookwarehouse created
-service/bookwarehouse created
-deployment.apps/bookwarehouse created
-```
-
-### <a name="update-the-bookbuyer-service"></a>Aktualizowanie usługi Bookbuyer
-
-Zaktualizuj usługę bookbuyer do prawidłowej konfiguracji portu przychodzącego przy użyciu następującego manifestu usługi.
-
-```azurecli-interactive
-kubectl apply -f - <<EOF
-apiVersion: v1
-kind: Service
-metadata:
-  name: bookbuyer
-  namespace: bookbuyer
-  labels:
-    app: bookbuyer
-spec:
-  ports:
-  - port: 14001
-    name: inbound-port
-  selector:
-    app: bookbuyer
-EOF
-```
-
-### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Weryfikowanie aplikacji sklepu z książkami uruchomionej w klastrze usługi AKS
-
-W tej chwili wdrożyliśmy aplikację kontenera magazynu książek, ale jest ona dostępna tylko z poziomu klastra usługi AKS. Później dodamy kontroler ruchu Azure Application Gateway, aby uwidocznić aplikację poza klastrem usługi AKS. Aby sprawdzić, czy aplikacja działa wewnątrz klastra, użyjemy portu do wyświetlenia interfejsu użytkownika składnika bookbuyer.
-
-Najpierw pobierzmy nazwę zasobnika bookbuyer
-
-```azurecli-interactive
-kubectl get pod -n bookbuyer
-```
-
-Powinny pojawić się dane wyjściowe podobne do poniższych. Zasobnik bookbuyer będzie miał dołączenie unikatowej nazwy.
-
-```Output
-NAME                         READY   STATUS    RESTARTS   AGE
-bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
-```
-
-Po nazwie zasobnika możemy teraz użyć polecenia port-forward, aby skonfigurować tunel z systemu lokalnego do aplikacji w klastrze usługi AKS. Uruchom następujące polecenie, aby skonfigurować przekazywanie portów dla lokalnego portu systemowego 8080. Ponownie użyj określonej nazwy zasobnika bookbuyer.
-
-```azurecli-interactive
-kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
-```
-
-Powinny zostać wyświetlony dane wyjściowe podobne do tych.
-
-```Output
-Forwarding from 127.0.0.1:8080 -> 14001
-Forwarding from [::1]:8080 -> 14001
-```
-
-Gdy sesja przekierowania portów jest na miejscu, przejdź do następującego adresu URL w przeglądarce `http://localhost:8080` . W przeglądarce powinien być teraz wyświetlony interfejs użytkownika aplikacji bookbuyer podobny do poniższego.
-
-![Obraz aplikacji BOOKbuyer dla interfejsu użytkownika NGINX](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
-
-### <a name="create-an-nginx-ingress-controller-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera ruchu przychodzących NGINX w Azure Kubernetes Service (AKS)
-
-Kontroler ruchu przychodzącego to element oprogramowania dostarczający odwrotny serwer proxy, konfigurowalne trasowanie ruchu oraz zakończenie protokołu TLS dla usług Kubernetes. Zasoby ruchu przychodzącego usług Kubernetes są używane do skonfigurowania zasad ruchu przychodzącego oraz tras dla poszczególnych usług Kubernetes. Dzięki korzystaniu z kontrolera ruchu przychodzącego oraz zasad ruchu przychodzącego można użyć jednego adresu IP do trasowania ruchu w wielu usługach w klastrze Kubernetes.
-
-Użyjemy kontrolera ruchu wychodzącego, aby uwidocznić aplikację zarządzaną przez technologię ONA w Internecie. Aby utworzyć kontroler ruchu przychodzących, użyj programu Helm, aby zainstalować pakiet nginx-ingress. W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchomionych replik kontrolera ruchu wychodzącego, upewnij się, że w klastrze usługi AKS znajduje się więcej niż jeden węzeł.
-
-Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
-
-> [!TIP]
-> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o _nazwie ingress-basic_. Określ przestrzeń nazw dla własnego środowiska zgodnie z potrzebami.
-
-```azurecli-interactive
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
-
-# Add the ingress-nginx repository
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-
-# Update the helm repo(s)
-helm repo update
-
-# Use Helm to deploy an NGINX ingress controller in the ingress-basic namespace
-helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
-    --set controller.replicaCount=1 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
-```
-
-Po utworzeniu usługi równoważenia obciążenia Kubernetes dla kontrolera ruchu przychodzących NGINX jest przypisywany dynamiczny publiczny adres IP, jak pokazano w następujących przykładowych danych wyjściowych:
-
-```Output
-$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
-
-NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
-```
-
-Nie utworzono jeszcze żadnych reguł ruchu przychodzących, więc domyślna strona 404 kontrolera ruchu przychodzących NGINX jest wyświetlana w przypadku przeglądania do wewnętrznego adresu IP. Reguły ruchu wychodzącego są konfigurowane w poniższych krokach.
-
-### <a name="expose-the-bookbuyer-service-to-the-internet"></a>Uwidocznij usługę bookbuyer w Internecie
-
-```azurecli-interactive
-kubectl apply -f - <<EOF
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: bookbuyer-ingress
-  namespace: bookbuyer
-  annotations:
-    kubernetes.io/ingress.class: nginx
-
-spec:
-
-  rules:
-    - host: bookbuyer.contoso.com
-      http:
-        paths:
-        - path: /
-          backend:
-            serviceName: bookbuyer
-            servicePort: 14001
-
-  backend:
-    serviceName: bookbuyer
-    servicePort: 14001
-EOF
-```
-
-Powinny zostać wyświetlone następujące dane wyjściowe:
-
-```Output
-Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress
-ingress.extensions/bookbuyer-ingress created
-```
-
-### <a name="view-the-nginx-logs"></a>Wyświetlanie dzienników serwera NGINX
-
-```azurecli-interactive
-POD=$(kubectl get pods -n ingress-basic | grep 'nginx-ingress' | awk '{print $1}')
-
-kubectl logs $POD -n ingress-basic -f
-```
-
-Dane wyjściowe pokazują stan kontrolera ruchu przychodzących NGINX po pomyślnym zastosowaniu reguły ruchu przychodzących:
-
-```Output
-I0321 <date>       6 event.go:282] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-basic", Name:"nginx-ingress-ingress-nginx-controller-54cf6c8bf4-jdvrw", UID:"3ebbe5e5-50ef-481d-954d-4b82a499ebe1", APIVersion:"v1", ResourceVersion:"3272", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
-I0321 <date>        6 event.go:282] Event(v1.ObjectReference{Kind:"Ingress", Namespace:"bookbuyer", Name:"bookbuyer-ingress", UID:"e1018efc-8116-493c-9999-294b4566819e", APIVersion:"networking.k8s.io/v1beta1", ResourceVersion:"5460", FieldPath:""}): type: 'Normal' reason: 'Sync' Scheduled for sync
-I0321 <date>        6 controller.go:146] "Configuration changes detected, backend reload required"
-I0321 <date>        6 controller.go:163] "Backend successfully reloaded"
-I0321 <date>        6 event.go:282] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-basic", Name:"nginx-ingress-ingress-nginx-controller-54cf6c8bf4-jdvrw", UID:"3ebbe5e5-50ef-481d-954d-4b82a499ebe1", APIVersion:"v1", ResourceVersion:"3272", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
-```
-
-### <a name="view-the-nginx-services-and-bookbuyer-service-externally"></a>Wyświetlanie usług NGINX i usługi bookbuyer na zewnątrz
-
-```azurecli-interactive
-kubectl get services -n ingress-basic
-```
-
-```Output
-NAME                                               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
-nginx-ingress-ingress-nginx-controller             LoadBalancer   10.0.100.23   20.193.1.74   80:31742/TCP,443:32683/TCP   4m15s
-nginx-ingress-ingress-nginx-controller-admission   ClusterIP      10.0.163.98   <none>        443/TCP                      4m15s
-```
-
-Ponieważ nazwa hosta w manifeście przychodzącym jest nazwą psuedo używaną do testowania, nazwa DNS nie będzie dostępna w Internecie. Alternatywnie możemy użyć programu curl i przełączyć nagłówek nazwy hosta do publicznego adresu IP serwera NGINX i otrzymać kod 200, który pomyślnie łączy nas z usługą bookbuyer.
-
-```azurecli-interactive
-curl -H 'Host: bookbuyer.contoso.com' http://EXTERNAL-IP/
-```
-
-Powinny zostać wyświetlone następujące dane wyjściowe:
-
-```Output
-<!doctype html>
-<html itemscope="" itemtype="http://schema.org/WebPage" lang="en">
-  <head>
-      <meta content="Bookbuyer" name="description">
-      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-      <title>Bookbuyer</title>
-      <style>
-        #navbar {
-            width: 100%;
-            height: 50px;
-            display: table;
-            border-spacing: 0;
-            white-space: nowrap;
-            line-height: normal;
-            background-color: #0078D4;
-            background-position: left top;
-            background-repeat-x: repeat;
-            background-image: none;
-            color: white;
-            font: 2.2em "Fira Sans", sans-serif;
-        }
-        #main {
-            padding: 10pt 10pt 10pt 10pt;
-            font: 1.8em "Fira Sans", sans-serif;
-        }
-        li {
-            padding: 10pt 10pt 10pt 10pt;
-            font: 1.2em "Consolas", sans-serif;
-        }
-      </style>
-      <script>
-        setTimeout(function(){window.location.reload(1);}, 1500);
-      </script>
-  </head>
-  <body bgcolor="#fff">
-    <div id="navbar">
-      &#128214; Bookbuyer
-    </div>
-    <div id="main">
-      <ul>
-        <li>Total books bought: <strong>1833</strong>
-          <ul>
-            <li>from bookstore V1: <strong>277</strong>
-            <li>from bookstore V2: <strong>1556</strong>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <br/><br/><br/><br/>
-    <br/><br/><br/><br/>
-    <br/><br/><br/><br/>
-
-    Current Time: <strong>Fri, 26 Mar 2021 15:02:53 UTC</strong>
-  </body>
-</html>
-```
-
-## <a name="tutorial-deploy-an-application-managed-by-open-service-mesh-osm-using-azure-application-gateway-ingress-aks-add-on"></a>Samouczek: wdrażanie aplikacji zarządzanej przez usługę Open Service Mesh (MESH) Azure Application Gateway dodatku AKS dla danych przychodzących
+## <a name="tutorial-deploy-an-application-managed-by-open-service-mesh-osm-with-nginx-ingress"></a>Samouczek: wdrażanie aplikacji zarządzanej przez usługę Open Service Mesh (CELU) przy użyciu danych przychodzących NGINX
 
 Open Service Mesh (INDIA) to lekkie, rozszerzalne, natywne dla chmury siatki usług, które umożliwiają użytkownikom jednolite zarządzanie, zabezpieczanie i uzyskiwanie łatwych w pracy funkcji obserwacji dla wysoce dynamicznych środowisk mikrousług.
 
@@ -1360,18 +997,17 @@ W tym samouczku wykonasz następujące czynności:
 > - Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘP
 > - Wdrażanie aplikacji przykładowej
 > - Weryfikowanie aplikacji uruchomionej w klastrze usługi AKS
-> - Tworzenie Azure Application Gateway, który będzie używany jako kontroler ruchu wychodzącego dla aplikacji
+> - Tworzenie kontrolera ruchu przychodzących NGINX używanego do aplikacji
 > - Uwidocznij usługę za pośrednictwem Azure Application Gateway przychodzących do Internetu
 
 ### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W krokach szczegółowo opisanej w tym artykule założono, że utworzono klaster usługi AKS (z włączoną obsługą kontroli RBAC na platformie Kubernetes), nawiążesz połączenie z klastrem (jeśli potrzebujesz pomocy dotyczącej dowolnego z tych elementów, zobacz przewodnik Szybki start usługi `1.19+` `kubectl` [AKS,](./kubernetes-walkthrough.md)zainstalowano dodatek AKS QUICK i zostanie utworzony nowy Azure Application Gateway dla danych przychodzących.
+W krokach szczegółowo instrukcje opisane w tym artykule założono, że utworzono klaster usługi AKS (z włączoną obsługą kontroli RBAC na platformie Kubernetes) i nawiążesz połączenie z klastrem (jeśli potrzebujesz pomocy dotyczącej dowolnego z tych elementów, zobacz przewodnik Szybki start usługi AKS i zainstalowano dodatek `1.19+` `kubectl` AKS ONE. [](./kubernetes-walkthrough.md)
 
 Musisz mieć zainstalowane następujące zasoby:
 
 - Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej
 - Rozszerzenie `aks-preview` w wersji 0.5.5 lub nowszej
-- Klaster AKS w wersji 1.19 lub Azure CNI sieci (dołączony do sieci wirtualnej platformy Azure)
 - SYSTEM w wersji 0.8.0 lub nowszej
 - apt-get install jq
 
@@ -1403,7 +1039,7 @@ Zwróć **uwagę permissive_traffic_policy_mode** że dla ustawienia skonfigurow
 
 ### <a name="create-namespaces-for-the-application"></a>Tworzenie przestrzeni nazw dla aplikacji
 
-W tym samouczku będziemy używać aplikacji sklepu z książkami THE, która ma następujące składniki aplikacji:
+W tym samouczku będziemy używać aplikacji sklepu z książkami THE, która zawiera następujące składniki aplikacji:
 
 - bookbuyer
 - bookthief
@@ -1427,7 +1063,7 @@ namespace/bookwarehouse created
 
 ### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘP
 
-Jeśli dodasz przestrzenie nazw do siatki MESH, umożliwi to kontrolerowi WOLUMINU automatyczne wstrzyknięcie kontenerów serwera proxy aplikacji Envoy sidecar do aplikacji. Uruchom następujące polecenie, aby do dołączać przestrzenie nazw aplikacji sklepu z książkami w układzie CZAS.
+Dodanie przestrzeni nazw do siatki APLIKACJI umożliwi kontrolerowi DNS automatyczne wstrzyknięcie kontenerów serwera proxy aplikacji Envoy sidecar do aplikacji. Uruchom następujące polecenie, aby do dołączać przestrzenie nazw aplikacji sklepu z książkami w układzie CZAS.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -1504,7 +1140,7 @@ EOF
 
 ### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Weryfikowanie aplikacji księgarni uruchomionej w klastrze usługi AKS
 
-W tej chwili wdrożyliśmy aplikację z wieloma kontenerami magazynu książek, ale jest ona dostępna tylko z poziomu klastra usługi AKS. Później dodamy kontroler ruchu Azure Application Gateway, aby uwidocznić aplikację poza klastrem usługi AKS. Aby sprawdzić, czy aplikacja jest uruchomiona wewnątrz klastra, użyjemy portu do wyświetlenia interfejsu użytkownika składnika bookbuyer.
+W tej chwili wdrożyliśmy aplikację mulit-container magazynu książek, ale jest ona dostępna tylko z poziomu klastra usługi AKS. Później dodamy kontroler ruchu Azure Application Gateway, aby uwidocznić aplikację poza klastrem usługi AKS. Aby sprawdzić, czy aplikacja jest uruchomiona wewnątrz klastra, użyjemy portu do wyświetlenia interfejsu użytkownika składnika bookbuyer.
 
 Najpierw pobierzmy nazwę zasobnika bookbuyer
 
@@ -1532,23 +1168,387 @@ Forwarding from 127.0.0.1:8080 -> 14001
 Forwarding from [::1]:8080 -> 14001
 ```
 
-Gdy sesja przekierowania portów jest na miejscu, przejdź do następującego adresu URL w przeglądarce `http://localhost:8080` . W przeglądarce powinien być teraz wyświetlony interfejs użytkownika aplikacji bookbuyer podobny do poniższego.
+Gdy sesja przekazywania portów jest na miejscu, przejdź do następującego adresu URL w przeglądarce `http://localhost:8080` . W przeglądarce powinien być teraz wyświetlony interfejs użytkownika aplikacji bookbuyer podobny do poniższego.
 
-![Obraz aplikacji BOOKbuyer dla App Gateway UI](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
+![Obraz aplikacji BOOKBUYer dla interfejsu użytkownika NGINX](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
+
+### <a name="create-an-nginx-ingress-controller-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera ruchu przychodzących NGINX w Azure Kubernetes Service (AKS)
+
+Kontroler ruchu przychodzącego to element oprogramowania dostarczający odwrotny serwer proxy, konfigurowalne trasowanie ruchu oraz zakończenie protokołu TLS dla usług Kubernetes. Zasoby ruchu przychodzącego usług Kubernetes są używane do skonfigurowania zasad ruchu przychodzącego oraz tras dla poszczególnych usług Kubernetes. Dzięki korzystaniu z kontrolera ruchu przychodzącego oraz zasad ruchu przychodzącego można użyć jednego adresu IP do trasowania ruchu w wielu usługach w klastrze Kubernetes.
+
+Użyjemy kontrolera ruchu wychodzącego, aby uwidocznić aplikację zarządzaną przez usługę DOSTĘP DO Internetu. Aby utworzyć kontroler ruchu przychodzących, użyj programu Helm, aby zainstalować pakiet nginx-ingress. W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchomionych replik kontrolera ruchu wychodzącego, upewnij się, że w klastrze usługi AKS znajduje się więcej niż jeden węzeł.
+
+Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
+
+> [!TIP]
+> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o _nazwie ingress-basic_. Określ przestrzeń nazw dla własnego środowiska zgodnie z potrzebami.
+
+```azurecli-interactive
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+# Update the helm repo(s)
+helm repo update
+
+# Use Helm to deploy an NGINX ingress controller in the ingress-basic namespace
+helm install nginx-ingress ingress-nginx/ingress-nginx \
+    --namespace ingress-basic \
+    --set controller.replicaCount=1 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+```
+
+Po utworzeniu usługi równoważenia obciążenia Kubernetes dla kontrolera ruchu przychodzących NGINX jest przypisywany dynamiczny publiczny adres IP, jak pokazano w następujących przykładowych danych wyjściowych:
+
+```Output
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
+```
+
+Reguły ruchu wychodzącego nie zostały jeszcze utworzone, więc domyślna strona 404 kontrolera ruchu przychodzących NGINX jest wyświetlana w przypadku przeglądania do wewnętrznego adresu IP. Reguły ruchu wychodzącego są konfigurowane w poniższych krokach.
+
+### <a name="expose-the-bookbuyer-service-to-the-internet"></a>Uwidocznij usługę bookbuyer w Internecie
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: bookbuyer-ingress
+  namespace: bookbuyer
+  annotations:
+    kubernetes.io/ingress.class: nginx
+
+spec:
+
+  rules:
+    - host: bookbuyer.contoso.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: bookbuyer
+            servicePort: 14001
+
+  backend:
+    serviceName: bookbuyer
+    servicePort: 14001
+EOF
+```
+
+Powinny zostać wyświetlone następujące dane wyjściowe:
+
+```Output
+Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress
+ingress.extensions/bookbuyer-ingress created
+```
+
+### <a name="view-the-nginx-logs"></a>Wyświetlanie dzienników serwera NGINX
+
+```azurecli-interactive
+POD=$(kubectl get pods -n ingress-basic | grep 'nginx-ingress' | awk '{print $1}')
+
+kubectl logs $POD -n ingress-basic -f
+```
+
+Dane wyjściowe pokazują stan kontrolera ruchu przychodzących NGINX po pomyślnym zastosowaniu reguły ruchu przychodzących:
+
+```Output
+I0321 <date>       6 event.go:282] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-basic", Name:"nginx-ingress-ingress-nginx-controller-54cf6c8bf4-jdvrw", UID:"3ebbe5e5-50ef-481d-954d-4b82a499ebe1", APIVersion:"v1", ResourceVersion:"3272", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0321 <date>        6 event.go:282] Event(v1.ObjectReference{Kind:"Ingress", Namespace:"bookbuyer", Name:"bookbuyer-ingress", UID:"e1018efc-8116-493c-9999-294b4566819e", APIVersion:"networking.k8s.io/v1beta1", ResourceVersion:"5460", FieldPath:""}): type: 'Normal' reason: 'Sync' Scheduled for sync
+I0321 <date>        6 controller.go:146] "Configuration changes detected, backend reload required"
+I0321 <date>        6 controller.go:163] "Backend successfully reloaded"
+I0321 <date>        6 event.go:282] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-basic", Name:"nginx-ingress-ingress-nginx-controller-54cf6c8bf4-jdvrw", UID:"3ebbe5e5-50ef-481d-954d-4b82a499ebe1", APIVersion:"v1", ResourceVersion:"3272", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+```
+
+### <a name="view-the-nginx-services-and-bookbuyer-service-externally"></a>Wyświetlanie usług NGINX i usługi bookbuyer na zewnątrz
+
+```azurecli-interactive
+kubectl get services -n ingress-basic
+```
+
+```Output
+NAME                                               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
+nginx-ingress-ingress-nginx-controller             LoadBalancer   10.0.100.23   20.193.1.74   80:31742/TCP,443:32683/TCP   4m15s
+nginx-ingress-ingress-nginx-controller-admission   ClusterIP      10.0.163.98   <none>        443/TCP                      4m15s
+```
+
+Ponieważ nazwa hosta w manifeście przychodzącym jest nazwą psuedo używaną do testowania, nazwa DNS nie będzie dostępna w Internecie. Alternatywnie możemy użyć programu curl i przełączyć nagłówek nazwy hosta do publicznego adresu IP serwera NGINX i odebrać kod 200, który pomyślnie łączy nas z usługą bookbuyer.
+
+```azurecli-interactive
+curl -H 'Host: bookbuyer.contoso.com' http://EXTERNAL-IP/
+```
+
+Powinny zostać wyświetlone następujące dane wyjściowe:
+
+```Output
+<!doctype html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+  <head>
+      <meta content="Bookbuyer" name="description">
+      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+      <title>Bookbuyer</title>
+      <style>
+        #navbar {
+            width: 100%;
+            height: 50px;
+            display: table;
+            border-spacing: 0;
+            white-space: nowrap;
+            line-height: normal;
+            background-color: #0078D4;
+            background-position: left top;
+            background-repeat-x: repeat;
+            background-image: none;
+            color: white;
+            font: 2.2em "Fira Sans", sans-serif;
+        }
+        #main {
+            padding: 10pt 10pt 10pt 10pt;
+            font: 1.8em "Fira Sans", sans-serif;
+        }
+        li {
+            padding: 10pt 10pt 10pt 10pt;
+            font: 1.2em "Consolas", sans-serif;
+        }
+      </style>
+      <script>
+        setTimeout(function(){window.location.reload(1);}, 1500);
+      </script>
+  </head>
+  <body bgcolor="#fff">
+    <div id="navbar">
+      &#128214; Bookbuyer
+    </div>
+    <div id="main">
+      <ul>
+        <li>Total books bought: <strong>1833</strong>
+          <ul>
+            <li>from bookstore V1: <strong>277</strong>
+            <li>from bookstore V2: <strong>1556</strong>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+
+    Current Time: <strong>Fri, 26 Mar 2021 15:02:53 UTC</strong>
+  </body>
+</html>
+```
+
+## <a name="tutorial-deploy-an-application-managed-by-open-service-mesh-osm-using-azure-application-gateway-ingress-aks-add-on"></a>Samouczek: wdrażanie aplikacji zarządzanej przez usługę Open Service Mesh (JEJ) Azure Application Gateway dodatku AKS dla danych przychodzących
+
+Open Service Mesh (IT) to lekki, rozszerzalny, natywny dla chmury siatka usług, która umożliwia użytkownikom jednolite zarządzanie, zabezpieczanie i uzyskiwanie możliwości obserwacji w wysoce dynamicznych środowiskach mikrousług.
+
+W tym samouczku wykonasz następujące czynności:
+
+> [!div class="checklist"]
+>
+> - Wyświetlanie bieżącej konfiguracji klastra FILTRU
+> - Utwórz przestrzenie nazw dla rozwiązania ONES do zarządzania wdrożonych aplikacji w przestrzeniach nazw
+> - Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘPNĄ
+> - Wdrażanie aplikacji przykładowej
+> - Weryfikowanie aplikacji uruchomionej w klastrze usługi AKS
+> - Tworzenie Azure Application Gateway, który ma być używany jako kontroler ruchu wychodzącego dla aplikacji
+> - Uwidocznij usługę za pośrednictwem Azure Application Gateway przychodzących do Internetu
+
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
+
+W krokach szczegółowo opisanej w tym artykule założono, że utworzono klaster usługi AKS (kubernetes i nowsze z włączoną obsługą kontroli RBAC na platformie Kubernetes), nawiążesz połączenie z klastrem (jeśli potrzebujesz pomocy dotyczącej dowolnego z tych elementów, zobacz przewodnik Szybki start usługi `1.19+` `kubectl` [AKS,](./kubernetes-walkthrough.md)zainstalowano dodatek AKS QUICK i zostanie utworzony nowy Azure Application Gateway dla danych przychodzących.
+
+Musisz mieć zainstalowane następujące zasoby:
+
+- Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej
+- Rozszerzenie `aks-preview` w wersji 0.5.5 lub nowszej
+- Klaster AKS w wersji 1.19 lub Azure CNI sieci (dołączony do sieci wirtualnej platformy Azure)
+- WERSJA WERSJA 0.8.0 lub nowsza
+- apt-get install jq
+
+### <a name="view-and-verify-the-current-osm-cluster-configuration"></a>Wyświetlanie i weryfikowanie bieżącej konfiguracji klastra FILTRU
+
+Po włączeniu dodatku DODATKU DO USŁUGI AKS w klastrze usługi AKS można wyświetlić bieżące parametry konfiguracji w pliku kubernetes ConfigMap. Uruchom następujące polecenie, aby wyświetlić właściwości ConfigMap:
+
+```azurecli-interactive
+kubectl get configmap -n kube-system osm-config -o json | jq '.data'
+```
+
+Dane wyjściowe pokazują bieżącą konfigurację KLASTRA.
+
+```json
+{
+  "egress": "true",
+  "enable_debug_server": "true",
+  "enable_privileged_init_container": "false",
+  "envoy_log_level": "error",
+  "outbound_ip_range_exclusion_list": "169.254.169.254,168.63.129.16,20.193.57.43",
+  "permissive_traffic_policy_mode": "false",
+  "prometheus_scraping": "false",
+  "service_cert_validity_duration": "24h",
+  "use_https_ingress": "false"
+}
+```
+
+Zwróć **uwagę permissive_traffic_policy_mode** że wartość jest skonfigurowana na **wartość true.** Tryb zasad ruchu permisywnych w CELU jest trybem, w którym [wymuszanie zasad](https://smi-spec.io/) ruchu SMI jest pomijane. W tym trybie SERWERY PROXY automatycznie odnajdują usługi, które są częścią siatki usług, i programują reguły zasad ruchu na każdej sidecar serwera proxy envoy, aby móc komunikować się z tymi usługami.
+
+### <a name="create-namespaces-for-the-application"></a>Tworzenie przestrzeni nazw dla aplikacji
+
+W tym samouczku będziemy używać aplikacji ZE sklepu z książkami, która ma następujące składniki aplikacji:
+
+- bookbuyer
+- bookthief
+- Księgarni
+- bookwarehouse
+
+Utwórz przestrzenie nazw dla każdego z tych składników aplikacji.
+
+```azurecli-interactive
+for i in bookstore bookbuyer bookthief bookwarehouse; do kubectl create ns $i; done
+```
+
+Powinny zostać wyświetlone następujące dane wyjściowe:
+
+```Output
+namespace/bookstore created
+namespace/bookbuyer created
+namespace/bookthief created
+namespace/bookwarehouse created
+```
+
+### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘPNĄ
+
+Dodanie przestrzeni nazw do siatki MESH umożliwi kontrolerowi THE automatyczne wstrzyknięcie kontenerów serwera proxy sidecar envoy do aplikacji. Uruchom następujące polecenie, aby do dołączać przestrzenie nazw aplikacji sklepu z książkami THE.
+
+```azurecli-interactive
+osm namespace add bookstore bookbuyer bookthief bookwarehouse
+```
+
+Powinny zostać wyświetlone następujące dane wyjściowe:
+
+```Output
+Namespace [bookstore] successfully added to mesh [osm]
+Namespace [bookbuyer] successfully added to mesh [osm]
+Namespace [bookthief] successfully added to mesh [osm]
+Namespace [bookwarehouse] successfully added to mesh [osm]
+```
+
+### <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Wdrażanie aplikacji sklepu z książkami w klastrze usługi AKS
+
+```azurecli-interactive
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
+```
+
+```azurecli-interactive
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookthief.yaml
+```
+
+```azurecli-interactive
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookstore.yaml
+```
+
+```azurecli-interactive
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookwarehouse.yaml
+```
+
+Wszystkie dane wyjściowe wdrożenia zostały podsumowane poniżej.
+
+```Output
+serviceaccount/bookbuyer created
+service/bookbuyer created
+deployment.apps/bookbuyer created
+
+serviceaccount/bookthief created
+service/bookthief created
+deployment.apps/bookthief created
+
+service/bookstore created
+serviceaccount/bookstore created
+deployment.apps/bookstore created
+
+serviceaccount/bookwarehouse created
+service/bookwarehouse created
+deployment.apps/bookwarehouse created
+```
+
+### <a name="update-the-bookbuyer-service"></a>Aktualizowanie usługi Bookbuyer
+
+Zaktualizuj usługę bookbuyer do prawidłowej konfiguracji portu przychodzącego przy użyciu następującego manifestu usługi.
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookbuyer
+  namespace: bookbuyer
+  labels:
+    app: bookbuyer
+spec:
+  ports:
+  - port: 14001
+    name: inbound-port
+  selector:
+    app: bookbuyer
+EOF
+```
+
+### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Weryfikowanie aplikacji sklepu z książkami uruchomionej w klastrze usługi AKS
+
+W tej chwili wdrożyliśmy aplikację z wieloma kontenerami w księgarni, ale jest ona dostępna tylko z poziomu klastra usługi AKS. Później dodamy kontroler ruchu Azure Application Gateway, aby uwidocznić aplikację poza klastrem usługi AKS. Aby sprawdzić, czy aplikacja działa wewnątrz klastra, użyjemy portu do wyświetlenia interfejsu użytkownika składnika bookbuyer.
+
+Najpierw pobierzmy nazwę zasobnika bookbuyer
+
+```azurecli-interactive
+kubectl get pod -n bookbuyer
+```
+
+Powinny pojawić się dane wyjściowe podobne do poniższych. Zasobnik bookbuyer będzie miał dołączenie unikatowej nazwy.
+
+```Output
+NAME                         READY   STATUS    RESTARTS   AGE
+bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
+```
+
+Po nazwie zasobnika możemy teraz użyć polecenia port-forward, aby skonfigurować tunel z systemu lokalnego do aplikacji w klastrze usługi AKS. Uruchom następujące polecenie, aby skonfigurować przekazywanie portów dla lokalnego portu systemowego 8080. Ponownie użyj określonej nazwy zasobnika bookbuyer.
+
+```azurecli-interactive
+kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
+```
+
+Powinny zostać wyświetlony dane wyjściowe podobne do tych.
+
+```Output
+Forwarding from 127.0.0.1:8080 -> 14001
+Forwarding from [::1]:8080 -> 14001
+```
+
+Gdy sesja przekazywania portów jest na miejscu, przejdź do następującego adresu URL w przeglądarce `http://localhost:8080` . W przeglądarce powinien być teraz wyświetlony interfejs użytkownika aplikacji bookbuyer podobny do poniższego.
+
+![Obraz aplikacji BOOKbuyer app for App Gateway UI](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
 ### <a name="create-an-azure-application-gateway-to-expose-the-bookbuyer-application-outside-the-aks-cluster"></a>Tworzenie aplikacji Azure Application Gateway uwidocznić aplikację bookbuyer poza klastrem usługi AKS
 
 > [!NOTE]
-> W poniższych kierunkach utworzymy nowe wystąpienie klasy Azure Application Gateway do użycia dla ruchu wychodzącego. Jeśli masz istniejącą Azure Application Gateway chcesz użyć, przejdź do sekcji dotyczącej włączania dodatku kontrolera ruchu Application Gateway ruchu Application Gateway ruchu wychodzącego.
+> W poniższych kierunkach zostanie użyte nowe wystąpienie Azure Application Gateway do ruchu wychodzącego. Jeśli masz istniejącą Azure Application Gateway, których chcesz użyć, przejdź do sekcji dotyczącej włączania Application Gateway kontrolera ruchu wychodzącego.
 
 #### <a name="deploy-a-new-application-gateway"></a>Wdrażanie nowego Application Gateway
 
 > [!NOTE]
-> Odwołujemy się do istniejącej dokumentacji dotyczącej włączania Application Gateway kontrolera ruchu przychodzących dla istniejącego klastra usługi AKS. W tym celu w wywłaszszono pewne modyfikacje, aby dopasować je do materiałów ZOI. Bardziej szczegółową dokumentację na ten temat można znaleźć [tutaj.](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing)
+> Odwołujemy się do istniejącej dokumentacji dotyczącej włączania Application Gateway kontrolera ruchu wychodzącego dla istniejącego klastra usługi AKS. W tym celu w wywłaszczyliśmy pewne modyfikacje, aby dopasować je do materiałów WC. Bardziej szczegółową dokumentację na ten temat można znaleźć [tutaj.](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing)
 
-Teraz wdrożysz nową usługę Application Gateway, aby zasymulować istniejący klaster Application Gateway, którego chcesz użyć do równoważenia obciążenia ruchu do klastra usługi AKS _myCluster._ Nazwa bramy Application Gateway _myApplicationGateway,_ ale najpierw musisz utworzyć zasób publicznego adresu IP. o nazwie _myPublicIp_ i nowej sieci wirtualnej o nazwie _myVnet_ z przestrzenią adresową 11.0.0.0/8 oraz podsiecią z przestrzenią adresową 11.1.0.0/16 o nazwie _mySubnet_ i wdrożyć adres Application Gateway w podsieci _mySubnet_ przy użyciu adresu _myPublicIp._
+Teraz wdrożysz nową klaster Application Gateway, aby symulować istniejące Application Gateway, których chcesz użyć do równoważenia obciążenia ruchu do klastra usługi AKS _myCluster._ Nazwa bramy Application Gateway _myApplicationGateway,_ ale najpierw należy utworzyć zasób publicznego adresu IP. o nazwie _myPublicIp_ i nowej sieci wirtualnej o nazwie _myVnet_ z przestrzenią adresową 11.0.0.0/8 oraz podsiecią o przestrzeni adresowej 11.1.0.0/16 o nazwie _mySubnet,_ a następnie wdrożyć adres Application Gateway w _podsieci mySubnet_ przy użyciu adresu _myPublicIp._
 
-W przypadku korzystania z klastra usługi AKS Application Gateway w oddzielnych sieciach wirtualnych przestrzenie adresowe dwóch sieci wirtualnych nie mogą się nakładać. Domyślna przestrzeń adresowa wdrażana przez klaster usługi AKS to 10.0.0.0/8, dlatego dla prefiksu adresu sieci wirtualnej usługi Application Gateway ustawiliśmy wartość 11.0.0.0/8.
+W przypadku korzystania z klastra usługi AKS Application Gateway w oddzielnych sieciach wirtualnych przestrzenie adresowe dwóch sieci wirtualnych nie mogą się nakładać. Domyślna przestrzeń adresowa wdrażana w klastrze usługi AKS to 10.0.0.0/8, dlatego ustawiamy prefiks adresu sieci wirtualnej usługi Application Gateway na 11.0.0.0/8.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -1558,11 +1558,11 @@ az network application-gateway create -n myApplicationGateway -l eastus2 -g myRe
 ```
 
 > [!NOTE]
-> Application Gateway kontrolera ruchu wychodzącego (AGIC)  obsługuje tylko jednostki SKU Application Gateway v2  (standardowe i WAF), a nie jednostki SKU Application Gateway v1.
+> Application Gateway ingress Controller (AGIC) obsługuje  tylko jednostki SKU Application Gateway v2 (Standardowe  i WAF), a nie jednostki SKU Application Gateway v1.
 
 #### <a name="enable-the-agic-add-on-for-an-existing-aks-cluster-through-azure-cli"></a>Włączanie dodatku AGIC dla istniejącego klastra usługi AKS za pomocą interfejsu wiersza polecenia platformy Azure
 
-Jeśli chcesz nadal korzystać z interfejsu wiersza polecenia platformy Azure, możesz nadal włączyć dodatek AGIC w utworzonym klastrze usługi AKS _myCluster_ i określić dodatek AGIC, aby użyć istniejącego utworzonego Application Gateway _myApplicationGateway._
+Jeśli chcesz nadal korzystać z interfejsu wiersza polecenia platformy Azure, możesz nadal włączyć dodatek AGIC w utworzonym klastrze usługi AKS _myCluster_ i określić dodatek AGIC, aby użyć istniejącego utworzonego Application Gateway, _myApplicationGateway._
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id")
@@ -1579,7 +1579,7 @@ To polecenie powinno pokazywać dane wyjściowe w następujący `true` sposób: 
 
 #### <a name="peer-the-two-virtual-networks-together"></a>Komunikacja równorzędna dwóch sieci wirtualnych
 
-Ponieważ klaster usługi AKS został wdrożony we własnej sieci wirtualnej, Application Gateway w innej sieci wirtualnej, konieczne będzie połączenie równorzędne dwóch sieci wirtualnych w celu przepływu ruchu z sieci Application Gateway do zasobników w klastrze. Komunikacja równorzędna dwóch sieci wirtualnych wymaga uruchomienia polecenia interfejsu wiersza polecenia platformy Azure dwa razy, aby upewnić się, że połączenie jest dwukierunkowe. Pierwsze polecenie spowoduje utworzenie połączenia komunikacji równorzędnej z Application Gateway wirtualnej do sieci wirtualnej usługi AKS; Drugie polecenie spowoduje utworzenie połączenia komunikacji równorzędnej w innym kierunku.
+Ponieważ klaster usługi AKS został wdrożony we własnej sieci wirtualnej, a klaster usługi Application Gateway w innej sieci wirtualnej, konieczne będzie połączenie równorzędne dwóch sieci wirtualnych w celu przepływu ruchu z sieci Application Gateway do zasobników w klastrze. Komunikacja równorzędna dwóch sieci wirtualnych wymaga uruchomienia polecenia interfejsu wiersza polecenia platformy Azure dwa razy, aby upewnić się, że połączenie jest dwukierunkowe. Pierwsze polecenie spowoduje utworzenie połączenia komunikacji równorzędnej z Application Gateway wirtualnej do sieci wirtualnej usługi AKS. Drugie polecenie utworzy połączenie komunikacji równorzędnej w innym kierunku.
 
 ```azurecli-interactive
 nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
@@ -1594,7 +1594,7 @@ az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --
 
 ### <a name="expose-the-bookbuyer-service-to-the-internet"></a>Uwidocznij usługę bookbuyer w Internecie
 
-Zastosuj następujący manifest przychodzący do klastra AKS, aby uwidocznić usługę bookbuyer w Internecie za pośrednictwem Azure Application Gateway.
+Zastosuj następujący manifest danych przychodzących do klastra AKS, aby uwidocznić usługę bookbuyer w Internecie za pośrednictwem Azure Application Gateway.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -1631,7 +1631,7 @@ Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.2
 ingress.extensions/bookbuyer-ingress created
 ```
 
-Ponieważ nazwa hosta w manifeście przychodzącym jest nazwą pseudo używaną do testowania, nazwa DNS nie będzie dostępna w Internecie. Alternatywnie możemy użyć programu curl i przełączyć nagłówek nazwy hosta do publicznego adresu IP usługi Azure Application Gateway i odebrać kod 200, który pomyślnie łączy nas z usługą bookbuyer.
+Ponieważ nazwa hosta w manifeście przychodzącym jest nazwą pseudo używaną do testowania, nazwa DNS nie będzie dostępna w Internecie. Alternatywnie możemy użyć programu curl i za nagłówkiem nazwy hosta na publicznym adresie IP usługi Azure Application Gateway otrzymać kod 200, który pomyślnie łączy nas z usługą bookbuyer.
 
 ```azurecli-interactive
 appGWPIP=$(az network public-ip show -g MyResourceGroup -n myPublicIp -o tsv --query "ipAddress")
@@ -1701,46 +1701,46 @@ Powinny zostać wyświetlone następujące dane wyjściowe
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-- [Dokumentacja dotycząca rozwiązywania problemów z platformą AGIC](https://docs.microsoft.com/azure/application-gateway/ingress-controller-troubleshoot)
-- [Dodatkowe narzędzia do rozwiązywania problemów są dostępne w repozytorium GitHub usługi AGIC](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)
+- [Dokumentacja dotycząca rozwiązywania problemów z domicą AGIC](https://docs.microsoft.com/azure/application-gateway/ingress-controller-troubleshoot)
+- [Dodatkowe narzędzia do rozwiązywania problemów są dostępne w repozytorium GitHub agic](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)
 
-## <a name="open-service-mesh-osm-monitoring-and-observability-using-azure-monitor-and-applications-insights"></a>Monitorowanie i wgląd w usługę Open Service Mesh (MESH) przy użyciu Azure Monitor i usługi Applications Insights
+## <a name="open-service-mesh-osm-monitoring-and-observability-using-azure-monitor-and-applications-insights"></a>Monitorowanie i wgląd w usługę Open Service Mesh (OWI) przy użyciu Azure Monitor i szczegółowych informacji o aplikacjach
 
-Usługi Azure Monitor i Azure Application Insights pomagają zmaksymalizować dostępność i wydajność aplikacji i usług, zapewniając kompleksowe rozwiązanie do zbierania, analizowania i działania na podstawie danych telemetrycznych z chmury i środowisk lokalnych.
+Zarówno usługa Azure Monitor, jak i usługa Azure Application Insights pomagają zmaksymalizować dostępność i wydajność aplikacji i usług, zapewniając kompleksowe rozwiązanie do zbierania, analizowania i działania na podstawie danych telemetrycznych ze środowisk chmurowych i lokalnych.
 
-Dodatek THE AKS będzie miał głęboką integrację z obiema tymi usługami platformy Azure i zapewni bezsekwne środowisko platformy Azure do wyświetlania kluczowych wskaźników wydajności dostarczanych przez metryki ROZWIĄZANIA DOC i reagowania na nie. Aby uzyskać więcej informacji na temat sposobu włączania i konfigurowania tych usług dla dodatku AKS , odwiedź stronę [Azure Monitor for THE](https://aka.ms/azmon/osmpreview) ( Informacje na temat włączania i konfigurowania tych usług).
+Dodatek AKS DLA FIRMY ZAKS będzie miał głęboką integrację z obiema tymi usługami platformy Azure i zapewni bezadyskusowe środowisko platformy Azure do wyświetlania kluczowych wskaźników wydajności dostarczanych przez metryki ALERT i reagowania na nie. Aby uzyskać więcej informacji na temat sposobu włączania i konfigurowania tych usług dla dodatku AKS , odwiedź stronę [Azure Monitor for THE,](https://aka.ms/azmon/osmpreview) aby uzyskać więcej informacji.
 
-## <a name="tutorial-manually-deploy-prometheus-grafana-and-jaeger-to-view-open-service-mesh-osm-metrics-for-observability"></a>Samouczek: ręczne wdrażanie systemów Prometheus, Grafana i Jaeger w celu wyświetlenia metryk open service mesh (KU) w celu obserwacji
+## <a name="tutorial-manually-deploy-prometheus-grafana-and-jaeger-to-view-open-service-mesh-osm-metrics-for-observability"></a>Samouczek: ręczne wdrażanie usług Prometheus, Grafana i Jaeger w celu wyświetlenia metryk open service mesh (ALERT) w celu obserwacji
 
 > [!WARNING]
-> Instalacja oprogramowania Prometheus, Grafana i Jaeger jest dostarczana jako ogólne wskazówki, które pokazują, w jaki sposób te narzędzia mogą być używane do wyświetlania danych metryk SYSTEMU SYSTEM. Wskazówek dotyczących instalacji nie należy używać w przypadku instalacji produkcyjnej. Zapoznaj się z dokumentacją każdego narzędzia, aby dowiedzieć się, jak najlepiej dopasować instalacje do twoich potrzeb. Najważniejszą z nich będzie brak trwałego magazynu, co oznacza, że wszystkie dane zostaną utracone po zakończeniu pracy zasobników Prometheus Grafana i/lub Jaeger.
+> Instalacja prometheus, Grafana i Jaeger są dostarczane jako ogólne wskazówki, aby pokazać, jak te narzędzia mogą być używane do wyświetlania danych metryk ALERT. Wskazówek dotyczących instalacji nie należy używać w przypadku konfiguracji produkcyjnej. Zapoznaj się z dokumentacją każdego narzędzia, aby dowiedzieć się, jak najlepiej dopasować instalacje do twoich potrzeb. Najważniejszy będzie brak trwałego magazynu, co oznacza, że wszystkie dane zostaną utracone po zakończeniu zasobników Prometheus Grafana i/lub Jaeger.
 
-Usługa Open Service Mesh (ALERT) generuje szczegółowe metryki związane z całym ruchem w obrębie siatki. Te metryki zapewniają wgląd w zachowanie aplikacji w siatce, pomagając użytkownikom rozwiązywać problemy, konserwować i analizować aplikacje.
+Usługa Open Service Mesh (MESH) generuje szczegółowe metryki dotyczące całego ruchu w obrębie siatki. Te metryki zapewniają wgląd w zachowanie aplikacji w siatce, pomagając użytkownikom rozwiązywać problemy, konserwować i analizować aplikacje.
 
-Obecnie SYSTEM zbiera metryki bezpośrednio z serwerów proxy sidecar (Envoy). System UMOŻLIWIA rozbudowane metryki ruchu przychodzącego i wychodzącego dla wszystkich usług w siatce. Dzięki tym metrykom użytkownik może uzyskać informacje o ogólnym natężeniu ruchu, błędach w ruchu i czasie odpowiedzi na żądania.
+Od dzisiaj SYSTEM zbiera metryki bezpośrednio z serwerów proxy karetki bocznej (Envoy). System MESH udostępnia rozbudowane metryki dla ruchu przychodzącego i wychodzącego dla wszystkich usług w siatce. Dzięki tym metrykom użytkownik może uzyskać informacje o ogólnym natężeniu ruchu, błędach w ruchu i czasie odpowiedzi na żądania.
 
-System ALERT używa systemu Prometheus do zbierania i przechowywania spójnych metryk ruchu i statystyk dla wszystkich aplikacji uruchomionych w siatce. Prometheus to zestaw narzędzi do monitorowania i alertów typu open source, który jest często używany w środowiskach Kubernetes i Service Mesh (ale nie tylko).
+System ALERT używa prometheus do zbierania i przechowywania spójnych metryk ruchu i statystyk dla wszystkich aplikacji uruchomionych w siatce. Prometheus to zestaw narzędzi do monitorowania i alertów typu open source, który jest często używany w środowiskach Kubernetes i Service Mesh (ale nie tylko).
 
-Każda aplikacja, która jest częścią siatki, jest uruchamiana w zasobniku zawierającym sidecar envoy, który uwidacznia metryki (metryki serwera proxy) w formacie Prometheus. Ponadto każdy zasobnik, który jest częścią siatki, ma adnotacje Prometheus, co umożliwia serwerowi Prometheus dynamiczne skrobanie aplikacji. Ten mechanizm automatycznie umożliwia wycinki metryk za każdym razem, gdy do siatki zostanie dodana nowa przestrzeń nazw/zasobnik/usługa.
+Każda aplikacja, która jest częścią siatki, jest uruchamiana w zasobniku zawierającym sidecar envoy, która uwidacznia metryki (metryki serwera proxy) w formacie Prometheus. Ponadto każdy zasobnik, który jest częścią siatki, ma adnotacje Prometheus, co umożliwia serwerowi Prometheus dynamiczne wycinki aplikacji. Ten mechanizm automatycznie umożliwia wycinki metryk za każdym razem, gdy do siatki zostanie dodana nowa przestrzeń nazw/zasobnik/usługa.
 
-Metryki ALERT można wyświetlać za pomocą narzędzia Grafana, czyli oprogramowania do wizualizacji i analizy typu open source. Umożliwia wykonywanie zapytań, wizualizowanie i eksplorowanie metryk oraz tworzenie alertów.
+Metryki ALERT można wyświetlać za pomocą narzędzia Grafana, czyli oprogramowania do wizualizacji i analizy typu open source. Umożliwia wykonywanie zapytań, wizualizowanie, alerty i eksplorowanie metryk.
 
 W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 >
-> - Tworzenie i wdrażanie wystąpienia prometheus
-> - Konfigurowanie aplikacjiDPOWIEDZIALNOŚCI w celu umożliwienia zdyskusowania prometheus
-> - Aktualizowanie mapy konfiguracji Prometheus
+> - Tworzenie i wdrażanie wystąpienia rozwiązania Prometheus
+> - Konfigurowanie aplikacji DOSTĘP do zezwalania na złomowanie prometheus
+> - Aktualizowanie mapy Prometheus Configmap
 > - Tworzenie i wdrażanie wystąpienia Grafana
 > - Konfigurowanie aplikacji Grafana przy użyciu źródła danych Prometheus
-> - Importowanie pulpitu nawigacyjnego INTERFEJSU UŻYTKOWNIKA dla programu Grafana
+> - Importowanie pulpitu nawigacyjnego CRM dla programu Grafana
 > - Tworzenie i wdrażanie wystąpienia Jaeger
-> - Konfigurowanie śledzenia Jaegera dla urządzenia DEBUG
+> - Konfigurowanie śledzenia Jaegera dla systemu ICH
 
-### <a name="deploy-and-configure-a-prometheus-instance-for-osm"></a>Wdrażanie i konfigurowanie wystąpienia Prometheus na platformieKOWY
+### <a name="deploy-and-configure-a-prometheus-instance-for-osm"></a>Wdrażanie i konfigurowanie wystąpienia rozwiązania Prometheus dla systemu AND
 
-Użyjemy usługi Helm do wdrożenia wystąpienia prometheus. Uruchom następujące polecenia, aby zainstalować prometheus za pośrednictwem programu Helm:
+Użyjemy usługi Helm do wdrożenia wystąpienia prometheus. Uruchom następujące polecenia, aby zainstalować system Prometheus za pośrednictwem programu Helm:
 
 ```azurecli-interactive
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -1794,15 +1794,15 @@ For more information on running Prometheus, visit:
 https://prometheus.io/
 ```
 
-#### <a name="configure-osm-to-allow-prometheus-scraping"></a>Konfigurowanie aplikacji DOSTĘP do zezwalania na złomowanie prometheus
+#### <a name="configure-osm-to-allow-prometheus-scraping"></a>Konfigurowanie aplikacjiDPOWIEDZIALNOŚCI w celu umożliwienia zdyskusowania prometheus
 
-Aby upewnić się, że składniki ZAKU są skonfigurowane dla wycinki Prometheus, należy sprawdzić konfigurację prometheus_scraping **znajdującą** się w pliku konfiguracyjnym z plikiem config o wysokiej jakości. Wyświetl konfigurację za pomocą następującego polecenia:
+Aby upewnić się, że składniki CSV są skonfigurowane dla skrobaków Prometheus, należy sprawdzić konfigurację prometheus_scraping **znajdującą** się w pliku konfiguracyjnym o wysokiej jakości. Wyświetl konfigurację za pomocą następującego polecenia:
 
 ```azurecli-interactive
 kubectl get configmap -n kube-system osm-config -o json | jq '.data.prometheus_scraping'
 ```
 
-Dane wyjściowe poprzedniego polecenia powinny być `true` zwracane, jeśli skonfigurowano dla aplikacji Prometheus wycinki. Jeśli zwracana wartość to `false` , musimy zaktualizować konfigurację tak, aby zawierała wartość `true` . Uruchom następujące polecenie, aby **włączyć wytłanianie** w programie PROMETHEUS:
+Dane wyjściowe poprzedniego polecenia powinny być `true` zwracane, jeśli skonfigurowano dla skrobania Prometheus. Jeśli zwracana wartość to `false` , musimy zaktualizować konfigurację tak, aby zawierała wartość `true` . Uruchom następujące polecenie, aby **włączyć** zdyskowanie APLIKACJI Prometheus:
 
 ```azurecli-interactive
 kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"prometheus_scraping":"true"}}'
@@ -1814,7 +1814,7 @@ Powinny zostać wyświetlone następujące dane wyjściowe.
 configmap/osm-config patched
 ```
 
-#### <a name="update-the-prometheus-configmap"></a>Aktualizowanie mapy Prometheus Configmap
+#### <a name="update-the-prometheus-configmap"></a>Aktualizowanie mapy konfiguracji Prometheus
 
 Domyślna instalacja systemu Prometheus będzie zawierać dwie mapy konfiguracji kubernetes. Listę map konfiguracji prometheus można wyświetlić za pomocą następującego polecenia.
 
@@ -1827,7 +1827,7 @@ stable-prometheus-alertmanager   1      4h34m
 stable-prometheus-server         5      4h34m
 ```
 
-Będziemy musieli zastąpić konfigurację prometheus.yml znajdującą się w **stable-prometheus-server** configmap z następującą konfiguracją SERWERA. Istnieje kilka technik edytowania plików w celu wykonania tego zadania. Prostym i bezpiecznym sposobem jest wyeksportowanie mapy konfiguracji, utworzenie jej kopii do utworzenia kopii zapasowej, a następnie edytowanie jej za pomocą edytora, takiego jak Visual Studio kodu.
+Musimy zastąpić konfigurację prometheus.yml znajdującą się w **mapie konfiguracji stable-prometheus-server** następującą konfiguracją APLIKACJI. Istnieje kilka technik edytowania plików, aby wykonać to zadanie. Prostym i bezpiecznym sposobem jest wyeksportowanie mapy konfiguracji, utworzenie jej kopii do utworzenia kopii zapasowej, a następnie edytowanie jej za pomocą edytora, takiego jak Visual Studio kodu.
 
 > [!NOTE]
 > Jeśli nie masz zainstalowanego Visual Studio Code możesz pobrać i zainstalować go [tutaj.](https://code.visualstudio.com/Download)
@@ -1845,10 +1845,10 @@ Następnie otwórzmy plik przy użyciu Visual Studio Code do edycji.
 code cm-stable-prometheus-server.yml
 ```
 
-Po otwarciu mapy konfiguracji w edytorze Visual Studio Code zastąp plik prometheus.yml poniższymi konfiguracjami PROTOKOŁU I zapisz plik.
+Po otwarciu mapy konfiguracji w edytorze plików Visual Studio Code zastąp plik prometheus.yml konfiguracją PONIŻEJ i zapisz plik.
 
 > [!WARNING]
-> Niezwykle ważne jest, aby zachować strukturę wcięcia pliku yaml. Wszelkie zmiany w strukturze plików yaml mogą spowodować, że mapa konfiguracji nie będzie mogła zostać ponownie zastosowana.
+> Bardzo ważne jest, aby zachować strukturę wcięcia pliku yaml. Wszelkie zmiany w strukturze plików yaml mogą spowodować, że mapa konfiguracji nie będzie mogła zostać ponownie zastosowana.
 
 ```OSM Prometheus Configmap Configuration
 prometheus.yml: |
@@ -2086,24 +2086,24 @@ configmap/stable-prometheus-server configured
 ```
 
 > [!NOTE]
-> Może zostać wyświetlony komunikat o braku wymaganej adnotacji kubernetes. Na razie można to zignorować.
+> Może zostać wyświetlony komunikat o brakującej adnotacji kubernetes. Na razie można to zignorować.
 
-#### <a name="verify-prometheus-is-configured-to-scrape-the-osm-mesh-and-api-endpoints"></a>Sprawdź, czy aplikacja Prometheus jest skonfigurowana do zsypowania punktów końcowych siatki INTERFEJSU i interfejsu API APLIKACJI
+#### <a name="verify-prometheus-is-configured-to-scrape-the-osm-mesh-and-api-endpoints"></a>Sprawdź, czy system Prometheus jest skonfigurowany do zsypowania punktów końcowych siatki AND i interfejsu API
 
-Aby sprawdzić, czy aplikacja Prometheus jest poprawnie skonfigurowana do zdjęć punkty końcowe siatki MESH i interfejsu API, przekażemy port do zasobnika Prometheus i wyświetlmy konfigurację docelową. Uruchom następujące polecenia.
+Aby sprawdzić, czy system Prometheus jest poprawnie skonfigurowany do zsypowania punktów końcowych siatki AND i interfejsu API, przekażemy port do zasobnika Prometheus i wyświetlmy konfigurację docelową. Uruchom następujące polecenia.
 
 ```azurecli-interactive
 PROM_POD_NAME=$(kubectl get pods -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.name}")
 kubectl --namespace <promNamespace> port-forward $PROM_POD_NAME 9090
 ```
 
-Otwórz przeglądarkę, aby `http://localhost:9090/targets`
+Otwórz przeglądarkę z `http://localhost:9090/targets`
 
-Jeśli przewiniesz w dół, wszystkie punkty końcowe metryki SMI powinny być w stanie **UP,** a także inne metryki ŹRÓDLA zdefiniowane zgodnie z poniższymi ilustracjami.
+Przewinięcie w dół powinno zwrócić uwagę na to, że stan wszystkich punktów końcowych metryk SMI powinien być w górę, a także powinny być zdefiniowane inne metryki ALERTu, jak po ilustracji poniżej. 
 
-![Obraz interfejsu użytkownika metryk docelowych APLIKACJI Prometheus](./media/aks-osm-addon/osm-prometheus-smi-metrics-target-scrape.png)
+![Obraz interfejsu użytkownika METRYK DOCELOWYCH PROMETHEUS](./media/aks-osm-addon/osm-prometheus-smi-metrics-target-scrape.png)
 
-### <a name="deploy-and-configure-a-grafana-instance-for-osm&quot;></a>Wdrażanie i konfigurowanie wystąpienia Grafana na platformieLAN
+### <a name="deploy-and-configure-a-grafana-instance-for-osm&quot;></a>Wdrażanie i konfigurowanie wystąpienia Grafana dla systemu SYSTEM
 
 Użyjemy usługi Helm do wdrożenia wystąpienia Grafana. Uruchom następujące polecenia, aby zainstalować program Grafana za pośrednictwem programu Helm:
 
@@ -2121,54 +2121,54 @@ kubectl get secret --namespace default osm-grafana -o jsonpath=&quot;{.data.admi
 
 Zanotuj hasło Grafana.
 
-Następnie pobierzemy zasobnik Grafana, aby przekierowyć go do pulpitu nawigacyjnego Grafana w celu zalogowania.
+Następnie pobierzemy zasobnik Grafana do portu do pulpitu nawigacyjnego Grafana w celu zalogowania.
 
 ```azurecli-interactive
 GRAF_POD_NAME=$(kubectl get pods -l &quot;app.kubernetes.io/name=grafana&quot; -o jsonpath=&quot;{.items[0].metadata.name}")
 kubectl port-forward $GRAF_POD_NAME 3000
 ```
 
-Otwórz przeglądarkę, aby `http://localhost:3000`
+Otwórz przeglądarkę z `http://localhost:3000`
 
 Na poniższym ekranie logowania wprowadź **admin** jako nazwę użytkownika i użyj przechwyconego wcześniej hasła Grafana.
 
-![Obraz interfejsu użytkownika strony logowania APLIKACJI Grafana](./media/aks-osm-addon/osm-grafana-ui-login.png)
+![Obraz interfejsu użytkownika strony logowania SYSTEMU Grafana](./media/aks-osm-addon/osm-grafana-ui-login.png)
 
 #### <a name="configure-the-grafana-prometheus-data-source"></a>Konfigurowanie źródła danych Grafana Prometheus
 
 Po pomyślnym zalogowaniu się do aplikacji Grafana następnym krokiem jest dodanie prometheus jako źródeł danych dla Grafana. W tym celu przejdź do ikony konfiguracji w menu po lewej stronie i wybierz pozycję Źródła danych, jak pokazano poniżej.
 
-![Obraz interfejsu użytkownika strony ŹRÓDLE danych Grafana](./media/aks-osm-addon/osm-grafana-ui-datasources.png)
+![Obraz interfejsu użytkownika strony ELEMENT Grafana Datasources](./media/aks-osm-addon/osm-grafana-ui-datasources.png)
 
 Kliknij przycisk **Dodaj źródło danych i** wybierz pozycję Prometheus w obszarze baz danych szeregów czasu.
 
-![Obraz interfejsu użytkownika strony wyboru Grafana Datasources](./media/aks-osm-addon/osm-grafana-ui-datasources-select-prometheus.png)
+![Obraz interfejsu użytkownika strony wyboru ŹRÓDŁA danych Grafana](./media/aks-osm-addon/osm-grafana-ui-datasources-select-prometheus.png)
 
-Na **poniższej stronie Configure your Prometheus data source** (Konfigurowanie źródła danych Prometheus) wprowadź nazwę FQDN klastra Kubernetes dla usługi Prometheus dla ustawienia adresu URL protokołu HTTP. Domyślna WQDN powinna być `stable-prometheus-server.default.svc.cluster.local` . Po wprowadzeniu punktu końcowego usługi Prometheus przewiń w dół strony i wybierz pozycję Zapisz & **Test.** Powinno zostać wyświetlony zielony pole wyboru wskazujące, że źródło danych działa.
+Na **poniższej stronie Configure your Prometheus data source** (Konfigurowanie źródła danych Prometheus) wprowadź nazwę FQDN klastra Kubernetes dla usługi Prometheus dla ustawienia adresu URL protokołu HTTP. Domyślna fQDN powinna być `stable-prometheus-server.default.svc.cluster.local` . Po wprowadzeniu punktu końcowego usługi Prometheus przewiń w dół strony i wybierz pozycję Zapisz & **Test.** Powinno zostać wyświetlony zielony pole wyboru wskazujące, że źródło danych działa.
 
 #### <a name="importing-osm-dashboards"></a>Importowanie pulpitów nawigacyjnych CRM
 
-Pulpity nawigacyjne INTERFEJSU SĄ dostępne za pośrednictwem:
+Pulpity nawigacyjne DESK są dostępne za pośrednictwem:
 
-- [Nasze repozytorium i](https://github.com/grafana/grafana)można importować jako obiekty blob JSON za pośrednictwem internetowego portalu administracyjnego
+- [Nasze repozytorium](https://github.com/grafana/grafana)i można importować jako obiekty blob JSON za pośrednictwem internetowego portalu administracyjnego
 - lub [online w Grafana.com](https://grafana.com/grafana/dashboards/14145)
 
-Aby zaimportować pulpit nawigacyjny, poszukaj znaku `+` w menu po lewej stronie i wybierz pozycję `import` .
-Możesz bezpośrednio zaimportować pulpit nawigacyjny według jego identyfikatora w jednakowy `Grafana.com` sposób. Na przykład nasz pulpit nawigacyjny używa identyfikatora , możesz użyć identyfikatora bezpośrednio `OSM Mesh Details` `14145` w formularzu i wybrać pozycję `import` :
+Aby zaimportować pulpit nawigacyjny, poszukaj znaku w menu po `+` lewej stronie i wybierz pozycję `import` .
+Pulpit nawigacyjny można zaimportować bezpośrednio według jego identyfikatora na stronie `Grafana.com` . Na przykład nasz pulpit nawigacyjny używa identyfikatora , możesz użyć identyfikatora `OSM Mesh Details` `14145` bezpośrednio w formularzu i wybrać pozycję `import` :
 
-![Obraz interfejsu użytkownika importu strony pulpitu nawigacyjnego SYSTEMU Grafana](./media/aks-osm-addon/osm-grafana-dashboard-import.png)
+![Obraz interfejsu użytkownika importowania strony pulpitu nawigacyjnego SYSTEMU Grafana](./media/aks-osm-addon/osm-grafana-dashboard-import.png)
 
-Po wybraniu opcji importowania automatycznie pojawi się zaimportowany pulpit nawigacyjny.
+Po wybraniu opcji importu zostanie automatycznie zaimportowany pulpit nawigacyjny.
 
-![Obraz interfejsu użytkownika strony szczegółów siatki pulpitu nawigacyjnego Grafana Grafana](./media/aks-osm-addon/osm-grafana-mesh-dashboard-details.png)
+![Obraz interfejsu użytkownika strony szczegółów siatki pulpitu nawigacyjnego SYSTEMU Grafana](./media/aks-osm-addon/osm-grafana-mesh-dashboard-details.png)
 
-### <a name="deploy-and-configure-a-jaeger-operator-on-kubernetes-for-osm"></a>Wdrażanie i konfigurowanie operatora Jaeger na platformie Kubernetes dla systemu SYSTEM
+### <a name="deploy-and-configure-a-jaeger-operator-on-kubernetes-for-osm"></a>Wdrażanie i konfigurowanie operatora Jaeger na platformie Kubernetes na platformie AND
 
-[Jaeger to](https://www.jaegertracing.io/) system śledzenia typu open source używany do monitorowania i rozwiązywania problemów z systemami rozproszonymi. Można ją wdrożyć za pomocą rozwiązania IT jako nowego wystąpienia. Można też użyć własnego wystąpienia. Poniższe instrukcje wdrażają nowe wystąpienie jaeger w przestrzeni `jaeger` nazw w klastrze usługi AKS.
+[Jaeger to](https://www.jaegertracing.io/) system śledzenia typu open source używany do monitorowania i rozwiązywania problemów z systemami rozproszonymi. Można ją wdrożyć przy użyciu rozwiązania DOC jako nowego wystąpienia lub użyć własnego wystąpienia. Poniższe instrukcje wdrażają nowe wystąpienie jaeger w przestrzeni `jaeger` nazw w klastrze usługi AKS.
 
 #### <a name="deploy-jaeger-to-the-aks-cluster"></a>Wdrażanie aplikacji Jaeger w klastrze usługi AKS
 
-Zastosuj następujący manifest, aby zainstalować program Jaeger:
+Zastosuj następujący manifest, aby zainstalować aplikację Jaeger:
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -2231,12 +2231,12 @@ service/jaeger created
 
 #### <a name="enable-tracing-for-the-osm-add-on"></a>Włączanie śledzenia dla dodatku CZAS
 
-Następnie należy włączyć śledzenie dla dodatku DOSTĘP.
+Następnie należy włączyć śledzenie dla dodatku CZAS.
 
 > [!NOTE]
-> Obecnie właściwości śledzenia nie są obecnie dostępne w mapie konfiguracji w pliku do konfiguracji. Stanie się to widoczna w nowej wersji dodatku AKS DLA.
+> Obecnie właściwości śledzenia nie są dostępne w mapie konfiguracji do śledzenia. Będzie to można znaleźć w nowej wersji dodatku AKS o wysokiej jakości.
 
-Uruchom następujące polecenie, aby włączyć śledzenie dla dodatku DOSTĘP:
+Uruchom następujące polecenie, aby włączyć śledzenie dla dodatku THE:
 
 ```azurecli-interactive
 kubectl patch configmap osm-config -n kube-system -p '{"data":{"tracing_enable":"true", "tracing_address":"jaeger.jaeger.svc.cluster.local", "tracing_port":"9411", "tracing_endpoint":"/api/v2/spans"}}' --type=merge
@@ -2256,23 +2256,23 @@ kubectl port-forward -n jaeger $JAEGER_POD  16686:16686
 http://localhost:16686/
 ```
 
-W przeglądarce powinna zostać wyświetlony lista rozwijana Usługa, która umożliwia wybranie aplikacji wdrożonych przez pokaz sklepu z książkami. Wybierz usługę, aby wyświetlić wszystkie jej zakresy. Jeśli na przykład wybierzesz bookbuyer z 1-godzinnym lookbackiem, możesz zobaczyć jego interakcje z księgarniami v1 i bookstore-v2 posortowane według czasu.
+W przeglądarce powinna zostać wyświetlony lista rozwijana Usługa, która umożliwia wybór aplikacji wdrożonych w pokazie sklepu z książkami. Wybierz usługę, aby wyświetlić wszystkie jej zakresy. Jeśli na przykład wybierzesz bookbuyer z 1-godzinnym zwrotem, możesz zobaczyć jego interakcje z księgarnią-v1 i bookstore-v2 posortowane według czasu.
 
-![Obraz interfejsu użytkownika strony śledzenia JAEGER](./media/aks-osm-addon/osm-jaeger-trace-view-ui.png)
+![Obraz interfejsu użytkownika strony śledzenia JAeger](./media/aks-osm-addon/osm-jaeger-trace-view-ui.png)
 
-Wybierz dowolny element, aby wyświetlić go bardziej szczegółowo. Wybierz wiele elementów, aby porównać ślady. Na przykład można porównać interakcje księgarni z księgarnią i księgarnią v2 w określonym momencie w czasie.
+Wybierz dowolny element, aby wyświetlić go bardziej szczegółowo. Wybierz wiele elementów, aby porównać ślady. Można na przykład porównać interakcje księgarni z księgarnią i księgarnią v2 w określonym momencie w czasie.
 
-Możesz również wybrać kartę Architektura systemu, aby wyświetlić wykres sposobu interakcji/komunikacji różnych aplikacji. Dzięki temu można dowiedzieć się, jak ruch przepływa między aplikacjami.
+Możesz również wybrać kartę Architektura systemu, aby wyświetlić wykres sposobu interakcji/komunikacji różnych aplikacji. Dzięki temu można zobaczyć, jak ruch przepływa między aplikacjami.
 
-![Obraz interfejsu użytkownika architektury systemu ISO Jaeger](./media/aks-osm-addon/osm-jaeger-sys-arc-view-ui.png)
+![Obraz interfejsu użytkownika architektury systemu DLA FIRMY JAEGER](./media/aks-osm-addon/osm-jaeger-sys-arc-view-ui.png)
 
-## <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>Przewodniki rozwiązywania problemów z dodawaniem dodatku AKS w usłudze Open Service Mesh (SYSTEM)
+## <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>Przewodniki rozwiązywania problemów z dodatku Open Service Mesh (ICH) dla usługi AKS
 
-Podczas wdrażania dodatku AKS DLA SYSTEMU OD CZASU DO CZASU może wystąpić problem. Poniższe przewodniki pomagają w rozwiązywaniu problemów z błędami i rozwiązywaniu typowych problemów.
+Podczas wdrażania dodatku AKS DOKS od czasu do czasu może wystąpić problem. Poniższe przewodniki pomagają w rozwiązywaniu problemów z błędami i rozwiązywaniu typowych problemów.
 
-### <a name="verifying-and-troubleshooting-osm-components"></a>Weryfikowanie i rozwiązywanie problemów ze składnikami SYSTEM
+### <a name="verifying-and-troubleshooting-osm-components"></a>Weryfikowanie i rozwiązywanie problemów ze składnikami FILTRU
 
-#### <a name="check-osm-controller-deployment"></a>Sprawdzanie wdrożenia kontrolera APLIKACJI
+#### <a name="check-osm-controller-deployment"></a>Sprawdzanie wdrożenia kontrolera SKALA
 
 ```azurecli-interactive
 kubectl get deployment -n kube-system --selector app=osm-controller
@@ -2285,13 +2285,13 @@ NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 osm-controller   1/1     1            1           59m
 ```
 
-#### <a name="check-the-osm-controller-pod"></a>Sprawdzanie zasobnika kontrolera THE Controller
+#### <a name="check-the-osm-controller-pod"></a>Sprawdzanie zasobnika kontrolera THE CONTROLLER
 
 ```azurecli-interactive
 kubectl get pods -n kube-system --selector app=osm-controller
 ```
 
-Zasobnik w dobrej kondycji w 2018 roku będzie wyglądać tak:
+Zasobnik w dobrej kondycji BĘDZIE wyglądać w ten sposób:
 
 ```Output
 NAME                            READY   STATUS    RESTARTS   AGE
@@ -2299,19 +2299,19 @@ osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
 osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 ```
 
-Mimo że w pewnym momencie został eksmitowany jeden kontroler, mamy jeszcze jeden, który jest GOTOWY 1/1 i Uruchomiony z 0 ponownymi uruchomieniami. Jeśli kolumna READY ma wartości inne niż 1/1, siatka usług będzie w stanie przerwanym.
-Kolumna READY z wartością 0/1 wskazuje, że kontener płaszczyzny sterowania ulega awarii — musimy pobrać dzienniki. Zobacz sekcję Pobierz dzienniki kontrolera POMOC TECHNICZNA PLATFORMY AZURE Center poniżej. Kolumna READY z liczbą większą niż 1 po ciągu / wskazuje, że są zainstalowane boczne. Kontroler TERAZ najprawdopodobniej nie będzie działał z dołączonymi do niego przyczepkami.
+Mimo że w pewnym momencie został eksmitowany jeden kontroler, mamy jeszcze jeden, który jest GOTOWY 1/1 i uruchomiony z 0 ponownymi uruchomieniami. Jeśli kolumna READY jest inna niż 1/1, siatka usług będzie w stanie przerwanym.
+Kolumna READY z wartością 0/1 wskazuje, że kontener płaszczyzny sterowania ulega awarii — musimy pobrać dzienniki. Zobacz sekcję Get FITNESS Controller Logs from pomoc techniczna platformy Azure Center (Uzyskiwanie dzienników kontrolera SYSTEM SYSTEM Z centrum danych) poniżej. Kolumna READY z liczbą większą niż 1 po / wskazuje, że są zainstalowanecars sidecars. Kontroler TERAZ najprawdopodobniej nie będzie działał z dołączonymi do niego przyczepkami.
 
 > [!NOTE]
-> Od wersji 0.8.2 kontroler OFC nie jest w trybie HA i będzie uruchamiany w wdrożonej z licznikiem replik 1 — pojedynczym zasobniku. Zasobnik ma sondy kondycji i w razie potrzeby zostanie ponownie uruchomiony przez kubelet.
+> Od wersji 0.8.2 kontroler OFE nie jest w trybie WYSOKIEJ dostępności i będzie uruchamiany we wdrożeniu z licznikiem repliki 1 — jednym zasobnikiem. Zasobnik ma sondy kondycji i w razie potrzeby zostanie ponownie uruchomiony przez kubelet.
 
-#### <a name="check-osm-controller-service"></a>Sprawdź usługę kontrolera ELITE
+#### <a name="check-osm-controller-service"></a>Sprawdź usługę kontrolera CONTROLLER
 
 ```azurecli-interactive
 kubectl get service -n kube-system osm-controller
 ```
 
-Usługa kontrolera TERAZ w dobrej kondycji będzie wyglądać w ten sposób:
+Usługa kontrolera CONTROLLER w dobrej kondycji będzie wyglądać w ten sposób:
 
 ```Output
 NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)              AGE
@@ -2319,7 +2319,7 @@ osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67
 ```
 
 > [!NOTE]
-> Adres CLUSTER-IP będzie inny. Nazwa usługi i port(S) muszą być takie same jak w powyższym przykładzie.
+> Klaster-IP będzie inny. Nazwa usługi i port(S) muszą być takie same jak w powyższym przykładzie.
 
 #### <a name="check-osm-controller-endpoints"></a>Sprawdzanie punktów końcowych kontrolera APLIKACJI
 
@@ -2327,46 +2327,46 @@ osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67
 kubectl get endpoints -n kube-system osm-controller
 ```
 
-Punkty końcowe kontrolera KONDYCJI w dobrej kondycji będą wyglądać w ten sposób:
+Punkty końcowe kontrolera TERAZ w dobrej kondycji będą wyglądać w ten sposób:
 
 ```Output
 NAME             ENDPOINTS                              AGE
 osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
 ```
 
-#### <a name="check-osm-injector-deployment"></a>Sprawdzanie wdrożenia iniekcji DOC
+#### <a name="check-osm-injector-deployment"></a>Sprawdzanie wdrażania iniekcji INIEKCJI
 
 ```azurecli-interactive
 kubectl get pod -n kube-system --selector app=osm-injector
 ```
 
-Wdrożenie iniekcji INIEKCJI w dobrej kondycji wyglądałoby tak:
+Wdrożenie iniekcji INIEKCJI w dobrej kondycji wyglądałoby w ten sposób:
 
 ```Output
 NAME                            READY   STATUS    RESTARTS   AGE
 osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
 ```
 
-#### <a name="check-osm-injector-pod"></a>Sprawdzanie zasobnika iniekcji DO WSTRZYKIWANIA
+#### <a name="check-osm-injector-pod"></a>Sprawdzanie zasobnika iniekcji INIEKCJI
 
 ```azurecli-interactive
 kubectl get pod -n kube-system --selector app=osm-injector
 ```
 
-Zasobnik iniekcji WSTRZYKIWANIA w dobrej kondycji będzie wyglądać tak:
+Zasobnik iniekcji INIekcji w dobrej kondycji będzie wyglądać tak:
 
 ```Output
 NAME                            READY   STATUS    RESTARTS   AGE
 osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
 ```
 
-#### <a name="check-osm-injector-service"></a>Sprawdzanie usługi WSTRZYKIWANIA
+#### <a name="check-osm-injector-service"></a>Sprawdzanie usługi iniekcji INIEKTOR
 
 ```azurecli-interactive
 kubectl get service -n kube-system osm-injector
 ```
 
-Usługa iniekcji WSTRZYKIWANIA w dobrej kondycji będzie wyglądać tak:
+Usługa wstrzykiwania w dobrej kondycji będzie wyglądać tak:
 
 ```Output
 NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
@@ -2379,20 +2379,20 @@ osm-injector   ClusterIP   10.0.39.54   <none>        9090/TCP   75m
 kubectl get endpoints -n kube-system osm-injector
 ```
 
-Punkt końcowy BARDZO w dobrej kondycji będzie wyglądać w ten sposób:
+Punkt końcowy w dobrej kondycji APLIKACJI będzie wyglądać w ten sposób:
 
 ```Output
 NAME           ENDPOINTS           AGE
 osm-injector   10.240.1.172:9090   75m
 ```
 
-#### <a name="check-validating-and-mutating-webhooks"></a>Sprawdzanie sprawdzania poprawności i wyciszania webhook
+#### <a name="check-validating-and-mutating-webhooks"></a>Sprawdzanie sprawdzania poprawności i modyfikowania webhook
 
 ```azurecli-interactive
 kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
 ```
 
-Prawidłowa kondycja kondycji sprawdzania poprawności webhook wyglądałaby tak:
+W dobrej kondycji pośglądanie webhook z prawidłowym poziomem kondycji będzie wyglądać tak:
 
 ```Output
 NAME              WEBHOOKS   AGE
@@ -2403,14 +2403,14 @@ aks-osm-webhook-osm   1      81m
 kubectl get MutatingWebhookConfiguration --selector app=osm-injector
 ```
 
-Modyfikujący w dobrej kondycji poziomej kondycji webhook będzie wyglądać w ten sposób:
+Wyciszanie webhook w dobrej kondycji PRZEZ 2018 r. wyglądałoby tak:
 
 ```Output
 NAME              WEBHOOKS   AGE
 aks-osm-webhook-osm   1      102m
 ```
 
-#### <a name="check-for-the-service-and-the-ca-bundle-of-the-validating-webhook"></a>Sprawdź usługę i pakiet urzędu certyfikacji w witrynie Webhook Sprawdzania poprawności
+#### <a name="check-for-the-service-and-the-ca-bundle-of-the-validating-webhook"></a>Sprawdź usługę i pakiet urzędu certyfikacji w węzłem webhook Sprawdzania poprawności
 
 ```azurecli-interactive
 kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
@@ -2433,7 +2433,7 @@ Dobrze skonfigurowana konfiguracja sprawdzania poprawności konfiguracji urządz
 kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
 ```
 
-Dobrze skonfigurowana konfiguracja mutowania webhook wyglądałaby dokładnie tak:
+Dobrze skonfigurowana konfiguracja mutowania konfiguracji webhook będzie wyglądać dokładnie tak:
 
 ```json
 {
@@ -2444,10 +2444,10 @@ Dobrze skonfigurowana konfiguracja mutowania webhook wyglądałaby dokładnie ta
 }
 ```
 
-#### <a name="check-whether-osm-controller-has-given-the-validating-or-mutating-webhook-a-ca-bundle"></a>Sprawdź, czy kontroler SYSTEM SYSTEMOWY nadał pakietowi urzędu certyfikacji czek sprawdzania poprawności (lub wyciszania)
+#### <a name="check-whether-osm-controller-has-given-the-validating-or-mutating-webhook-a-ca-bundle"></a>Sprawdź, czy kontrolerKU nadał pakietowi urzędu certyfikacji czek z czekiem sprawdzania poprawności (lub wyciszania)
 
 > [!NOTE]
-> Od wersji 0.8.2 Ważne jest, aby wiedzieć, że składnik AKS RP instaluje element webhook sprawdzania poprawności, AKS Reconciler zapewnia, że istnieje, ale kontroler JEDNOSTKI JEST tym, który wypełnia pakiet urzędu certyfikacji.
+> Od wersji 0.8.2 Ważne jest, aby wiedzieć, że element webhook sprawdzania poprawności instaluje element webhook usługi AKS, AKS Reconciler zapewnia, że istnieje, ale kontroler JEDNOSTKI JEST tym, który wypełnia pakiet urzędu certyfikacji.
 
 ```azurecli-interactive
 kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
@@ -2461,11 +2461,11 @@ kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.w
 1845
 ```
 
-Ta liczba wskazuje liczbę bajtów lub rozmiar pakietu urzędu certyfikacji. Jeśli ta liczba jest pusta, 0 lub liczba poniżej 1000, oznacza to, że pakiet urzędu certyfikacji nie jest poprawnie aprowowany. Bez poprawnego pakietu urzędu certyfikacji podczas sprawdzania poprawności elementu webhook występuje błąd i użytkownik nie może wprowadzać zmian w pliku ConfigMap w przestrzeni nazw kube-system.
+Ta liczba wskazuje liczbę bajtów lub rozmiar pakietu urzędu certyfikacji. Jeśli ta liczba jest pusta, wynosi 0 lub jest nieco poniżej 1000, oznacza to, że pakiet urzędu certyfikacji nie jest poprawnie aprowony. Bez poprawnego pakietu urzędu certyfikacji podczas sprawdzania poprawności elementu webhook występuje błąd i użytkownik nie może wprowadzać zmian w pliku ConfigMap w przestrzeni nazw kube-system.
 
 Przykładowy błąd, gdy pakiet urzędu certyfikacji jest nieprawidłowy:
 
-- Próba zmiany pliku ConfigMap w pliku do konfiguracji:
+- Próba zmiany konfiguracji pliku ConfigMap:
 
 ```azurecli-interactive
 kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
@@ -2477,21 +2477,21 @@ kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":
 Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.kube-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
 ```
 
-Informacje dotyczące sytuacji, w których konfiguracja **sprawdzania poprawności** urządzenia webhook ma nieprawidłowy certyfikat:
+Informacje dotyczące sytuacji, w których **konfiguracja sprawdzania poprawności** urządzenia webhook ma nieprawidłowy certyfikat:
 
-- Opcja 1 — ponowne uruchomienie kontrolera STEROWANIA — spowoduje to ponowne uruchomienie kontrolera THE. Po uruchomieniu zastąpi pakiet urzędu certyfikacji dla zarówno modyfikujących, jak i ważnych webhook.
+- Opcja 1 — Uruchom ponownie kontrolerZE MOŻLIWOŚCI — spowoduje to ponowne uruchomienie kontrolera THE. Po uruchomieniu zastąpi pakiet urzędu certyfikacji dla obu modyfikujących i ważnych webhook.
 
 ```azurecli-interactive
 kubectl rollout restart deployment -n kube-system osm-controller
 ```
 
-- Opcja 2 — opcja 2. Usuń walidujący webhook — usunięcie walidacyjnego webhook sprawia, że pliki `osm-config` ConfigMap nie są już weryfikowane. Każda poprawka zostanie przejścia. W pewnym momencie uzgadnianie usługi AKS upewni się, że istnieje ważnych webhook i ponownie go utworzyć. Może być konieczne ponowne uruchomienie kontrolera THE, aby szybko ponownie napisać pakiet urzędu certyfikacji.
+- Opcja 2 — opcja 2. Usuń walidujący webhook — usunięcie walidacyjnego typu webhook sprawia, że pliki `osm-config` ConfigMap nie są już weryfikowane. Każda poprawka zostanie przejednana. W pewnym momencie uzgadnianie usługi AKS upewni się, że istnieje i zostanie utworzony ponownie podczas sprawdzania poprawności. Aby szybko ponownie napisać pakiet urzędu certyfikacji, może być konieczne ponowne uruchomienie kontrolera SYSTEMU WINDOWS.
 
 ```azurecli-interactive
 kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm
 ```
 
-- Opcja 3 — usuwanie i stosowanie poprawek: następujące polecenie spowoduje usunięcie ważnych elementy webhook, co pozwoli nam dodać dowolne wartości i natychmiast spróbuje zastosować poprawkę. Najprawdopodobniej uzgadniający AKS nie będzie mieć wystarczająco dużo czasu, aby uzgodnić i przywrócić ważnych webhook daje nam możliwość zastosowania zmiany w ostateczności:
+- Opcja 3 — usuwanie i stosowanie poprawek: następujące polecenie spowoduje usunięcie ważnych elementy webhook, dzięki czemu możemy dodać dowolne wartości i natychmiast spróbujemy zastosować poprawkę. Najprawdopodobniej uzgadniający usługę AKS nie będzie mieć wystarczająco dużo czasu, aby uzgodnić i przywrócić ważnych webhook daje nam możliwość zastosowania zmiany w ostateczności:
 
 ```azurecli-interactive
 kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm; kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
@@ -2500,7 +2500,7 @@ kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm; kubectl patch
 #### <a name="check-the-osm-config-configmap"></a>Sprawdź `osm-config` **ConfigMap**
 
 > [!NOTE]
-> Kontroler DNS nie wymaga, aby mapa ConfigMap była obecna `osm-config` w przestrzeni nazw kube-system. Kontroler ma uzasadnione wartości domyślne dla konfiguracji i może działać bez niego.
+> Kontroler DNS nie wymaga, aby mapa ConfigMap była obecna `osm-config` w przestrzeni nazw kube-system. Kontroler ma odpowiednie wartości domyślne dla konfiguracji i może działać bez niego.
 
 Sprawdź istnienie:
 
@@ -2508,7 +2508,7 @@ Sprawdź istnienie:
 kubectl get ConfigMap -n kube-system osm-config
 ```
 
-Sprawdzanie zawartości pliku ConfigMap z poleceniem do konfiguracji
+Sprawdź zawartość pliku ConfigMap
 
 ```azurecli-interactive
 kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
@@ -2533,29 +2533,29 @@ kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
 | Klucz                              | Typ   | Dozwolone wartości                                          | Wartość domyślna                          | Funkcja                                                                                                                                                                                                                                |
 | -------------------------------- | ------ | ------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Wyjście                           | bool   | wartość true, false                                             | `"false"`                              | Włącza ruch wychodzący w siatce.                                                                                                                                                                                                             |
-| enable_debug_server              | bool   | wartość true, false                                             | `"true"`                               | Umożliwia punktowi końcowemu debugowania w zasobniku debug-controller wyświetlanie informacji dotyczących siatki, takich jak połączenia serwera proxy, certyfikaty i zasady SMI.                                                                                    |
-| enable_privileged_init_container | bool   | wartość true, false                                             | `"false"`                              | Włącza kontenery privileged init dla zasobników w siatce. W przypadku false kontenery init mają tylko NET_ADMIN.                                                                                                                                   |
-| envoy_log_level                  | ciąg | trace, debug, info, warning, warn, error, critical, off | `"error"`                              | Ustawia poziom szczegółowości rejestrowania dla bocznej aplikacji Envoy proxy, która ma zastosowanie tylko do nowo utworzonych zasobników przyłączanych do siatki. Aby zaktualizować poziom dziennika dla istniejących zasobników, uruchom ponownie wdrożenie za pomocą programu `kubectl rollout restart` .                            |
-| outbound_ip_range_exclusion_list | ciąg | rozdzielana przecinkami lista zakresów adresów IP w postaci a.b.c.d/x | `-`                                    | Globalna lista zakresów adresów IP do wykluczenia z przechwycenia ruchu wychodzącego przez serwer proxy usługi Sidecar.                                                                                                                                    |
-| permissive_traffic_policy_mode   | bool   | wartość true, false                                             | `"false"`                              | Ustawienie wartości `true` na , włącza tryb zezwalania wszystkim w siatce, czyli brak wymuszania zasad ruchu w siatce. W przypadku ustawienia na wartość , włącza zasady ruchu typu "odmów wszystkim" w siatce, tj. element jest niezbędny do komunikowania `false` `SMI Traffic Target` się usług. |
-| prometheus_scraping              | bool   | wartość true, false                                             | `"true"`                               | Włącza skrobanie metryk Prometheus na proxych zbocznymi.                                                                                                                                                                                 |
-| service_cert_validity_duration   | ciąg | 24h, 1h30 m (dowolny czas trwania)                          | `"24h"`                                | Ustawia czas trwania ważności certyfikatu usługi reprezentowany jako sekwencja liczb dziesiętnych z opcjonalnym ułamkiem i sufiksem jednostkowym.                                                                                             |
+| enable_debug_server              | bool   | wartość true, false                                             | `"true"`                               | Umożliwia punktowi końcowemu debugowania w zasobniku z programem Do-Controller wyświetlanie informacji dotyczących siatki, takich jak połączenia serwera proxy, certyfikaty i zasady SMI.                                                                                    |
+| enable_privileged_init_container | bool   | wartość true, false                                             | `"false"`                              | Włącza uprzywilejowane kontenery init dla zasobników w siatce. W przypadku false kontenery init mają tylko NET_ADMIN.                                                                                                                                   |
+| envoy_log_level                  | ciąg | trace, debug, info, warning, warn, error, critical, off | `"error"`                              | Ustawia poziom szczegółowości rejestrowania sidecar serwera proxy usługi Envoy, który ma zastosowanie tylko do nowo utworzonych zasobników przyłączanych do siatki. Aby zaktualizować poziom dziennika dla istniejących zasobników, uruchom ponownie wdrożenie za pomocą programu `kubectl rollout restart` .                            |
+| outbound_ip_range_exclusion_list | ciąg | rozdzielana przecinkami lista zakresów adresów IP w postaci a.b.c.d/x | `-`                                    | Globalna lista zakresów adresów IP do wykluczenia z przechwycenia ruchu wychodzącego przez serwer proxy sidecar.                                                                                                                                    |
+| permissive_traffic_policy_mode   | bool   | wartość true, false                                             | `"false"`                              | Ustawienie wartości `true` na , włącza tryb zezwalania na wszystkie w siatce, czyli brak wymuszania zasad ruchu w siatce. Jeśli ustawiono `false` wartość , włącza zasady ruchu "odmów wszystkim" w siatce, tzn. element jest niezbędny do `SMI Traffic Target` komunikowania się usług. |
+| prometheus_scraping              | bool   | wartość true, false                                             | `"true"`                               | Włącza wycinki metryk Prometheus dla serwerów proxy sidecar.                                                                                                                                                                                 |
+| service_cert_validity_duration   | ciąg | 24h, 1h30 m (dowolny czas trwania)                          | `"24h"`                                | Ustawia czas trwania ważności certyfikatu usługi reprezentowany jako sekwencja liczb dziesiętnych z opcjonalnym ułamkiem i sufiksem jednostki.                                                                                             |
 | tracing_enable                   | bool   | wartość true, false                                             | `"false"`                              | Włącza śledzenie Jaegera dla siatki.                                                                                                                                                                                                    |
 | tracing_address                  | ciąg | jaeger.mesh-namespace.svc.cluster.local                 | `jaeger.kube-system.svc.cluster.local` | Adres wdrożenia jaeger, jeśli śledzenie jest włączone.                                                                                                                                                                                |
 | tracing_endpoint                 | ciąg | /api/v2/spans                                           | /api/v2/spans                          | Punkt końcowy do śledzenia danych, jeśli śledzenie jest włączone.                                                                                                                                                                                          |
-| tracing_port                     | int    | dowolna wartość całkowita o wartości niezerowej                              | `"9411"`                               | Port, na którym jest włączone śledzenie.                                                                                                                                                                                                       |
-| use_https_ingress                | bool   | wartość true, false                                             | `"false"`                              | Włącza ruch przychodzący HTTPS dla siatki.                                                                                                                                                                                                      |
-| config_resync_interval           | ciąg | w obszarze 1 minuta powoduje wyłączenie tego                            | 0 (wyłączone)                           | Po podano wartość powyżej 1 m (60s), kontroler THE wyśle wszystkie dostępne konfiguracje do każdego połączonej aplikacji Envoy w danym interwale                                                                                                    |
+| tracing_port                     | int    | dowolna niezerowa wartość całkowita                              | `"9411"`                               | Port, na którym jest włączone śledzenie.                                                                                                                                                                                                       |
+| use_https_ingress                | bool   | wartość true, false                                             | `"false"`                              | Włącza ruch przychodzący HTTPS w siatce.                                                                                                                                                                                                      |
+| config_resync_interval           | ciąg | w obszarze 1 minuta powoduje wyłączenie tej opcji                            | 0 (wyłączone)                           | Gdy zostanie podana wartość powyżej 1 m (60s), kontroler FILTRU wyśle wszystkie dostępne konfiguracje do każdej połączonej aplikacji Envoy w danym interwale                                                                                                    |
 
 #### <a name="check-namespaces"></a>Sprawdzanie przestrzeni nazw
 
 > [!NOTE]
-> Przestrzeń nazw kube-system nigdy nie będzie uczestniczyć w siatce usług i nigdy nie będzie oznaczona i/lub oznaczona poniższym kluczem/wartościami.
+> Przestrzeń nazw kube-system nigdy nie będzie uczestniczyć w siatce usług i nigdy nie zostanie oznaczona etykietą i/lub adnotacją za pomocą poniższego klucza/wartości.
 
-Używamy polecenia `osm namespace add` , aby dołączyć przestrzenie nazw do danej siatki usług.
+Użyjemy `osm namespace add` polecenia , aby dołączyć przestrzenie nazw do danej siatki usług.
 Jeśli przestrzeń nazw k8s jest częścią siatki (lub aby była częścią siatki), muszą być spełnione następujące kwestie:
 
-Wyświetlanie adnotacji za pomocą
+Wyświetl adnotacje za pomocą
 
 ```azurecli-interactive
 kubectl get namespace bookbuyer -o json | jq '.metadata.annotations'
@@ -2583,9 +2583,9 @@ Musi być obecna następująca etykieta:
 }
 ```
 
-Jeśli przestrzeń nazw nie ma adnotacji lub nie jest oznaczona za pomocą iniekcji WSTRZYKIWANIA, nie zostaną dodawane `"openservicemesh.io/sidecar-injection": "enabled"` `"openservicemesh.io/monitored-by": "osm"` etykiety sidecars aplikacji Envoy.
+Jeśli przestrzeń nazw nie ma adnotacji lub nie jest oznaczona za pomocą iniekcji THE, nie dodasz `"openservicemesh.io/sidecar-injection": "enabled"` `"openservicemesh.io/monitored-by": "osm"` sidecars aplikacji Envoy.
 
-> Uwaga: Po `osm namespace add` wywołaniu tylko **nowe** zasobniki zostaną wstrzykniętą do bocznej aplikacji Envoy. Istniejące zasobniki muszą zostać ponownie uruchomione za pomocą `kubectl rollout restart deployment ...`
+> Uwaga: Po `osm namespace add` wywołaniu tylko **nowe** zasobniki zostaną wstrzykniętą do bocznej aplikacji Envoy. Istniejące zasobniki muszą zostać uruchomione ponownie za pomocą `kubectl rollout restart deployment ...`
 
 #### <a name="verify-the-smi-crds"></a>Sprawdź identyfikatory CRD SMI:
 
@@ -2603,7 +2603,7 @@ W klastrze muszą być zainstalowane następujące elementy:
 - traffictargets.access.smi-spec.io
 - udproutes.specs.smi-spec.io
 
-Pobierz wersje CLD zainstalowane za pomocą tego polecenia:
+Pobierz wersje plików CRD zainstalowane za pomocą tego polecenia:
 
 ```azurecli-interactive
 for x in $(kubectl get crds --no-headers | awk '{print $1}' | grep 'smi-spec.io'); do
@@ -2650,13 +2650,13 @@ v1alpha2
 v1alpha1
 ```
 
-Kontroler SYSTEM PLIKÓW w wersji 0.8.2 wymaga następujących wersji:
+Kontroler THE w wersji 0.8.2 wymaga następujących wersji:
 
 - traffictargets.access.smi-spec.io — [v1alpha3](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha3/traffic-access.md)
-- httproutegroups.specs.smi-spec.io — [wersja 1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#httproutegroup)
-- tcproutes.specs.smi-spec.io — [wersja 1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#tcproute)
+- httproutegroups.specs.smi-spec.io — [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#httproutegroup)
+- tcproutes.specs.smi-spec.io — [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#tcproute)
 - udproutes.specs.smi-spec.io — nie jest obsługiwana
-- trafficsplits.split.smi-spec.io — [wersja 1alpha2](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-split/v1alpha2/traffic-split.md)
+- trafficsplits.split.smi-spec.io — [v1alpha2](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-split/v1alpha2/traffic-split.md)
 - \*.metrics.smi-spec.io - [v1alpha1](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-metrics/v1alpha1/traffic-metrics.md)
 
 Jeśli brakuje dysków C CRD, zainstaluj je w klastrze za pomocą następujących poleceń:
@@ -2673,9 +2673,9 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/ch
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/split.yaml
 ```
 
-## <a name="disable-open-service-mesh-osm-add-on-for-your-aks-cluster"></a>Wyłączanie dodatku Open Service Mesh (ICH) dla klastra usługi AKS
+## <a name="disable-open-service-mesh-osm-add-on-for-your-aks-cluster"></a>Wyłączanie dodatku Open Service Mesh (MESH) dla klastra usługi AKS
 
-Aby wyłączyć dodatek DOSTĘPNĄ, uruchom następujące polecenie:
+Aby wyłączyć dodatek DOSTĘP, uruchom następujące polecenie:
 
 ```azurecli-interactive
 az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open-service-mesh

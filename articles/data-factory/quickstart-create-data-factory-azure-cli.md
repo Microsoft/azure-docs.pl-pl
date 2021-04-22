@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie Azure Data Factory przy użyciu interfejsu wiersza polecenia platformy Azure'
-description: Ten przewodnik Szybki Start tworzy Azure Data Factory, w tym połączonej usługi, zestawów danych i potoku. Można uruchomić potok, aby wykonać akcję kopiowania plików.
+title: 'Szybki start: tworzenie aplikacji przy użyciu Azure Data Factory wiersza polecenia platformy Azure'
+description: Ten przewodnik Szybki start tworzy Azure Data Factory, w tym usługę połączona, zestawy danych i potok. Możesz uruchomić potok, aby wykonać akcję kopiowania plików.
 author: linda33wj
 ms.author: jingwang
 ms.service: azure-cli
@@ -9,16 +9,16 @@ ms.date: 03/24/2021
 ms.custom:
 - template-quickstart
 - devx-track-azurecli
-ms.openlocfilehash: 9af5f276e49e9eb2756dc544db353c75c99bc5a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b40407f4c4fb81bbf76bd0b552f3c9f2c827232a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105938064"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871528"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>Szybki Start: Tworzenie Azure Data Factory przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>Szybki start: tworzenie aplikacji przy użyciu Azure Data Factory wiersza polecenia platformy Azure
 
-W tym przewodniku szybki start opisano, jak utworzyć Azure Data Factory przy użyciu interfejsu wiersza polecenia platformy Azure. Potok tworzony w tej fabryce danych kopiuje dane z jednego folderu do innego folderu w usłudze Azure Blob Storage. Aby uzyskać informacje na temat przekształcania danych przy użyciu Azure Data Factory, zobacz [Przekształć dane w Azure Data Factory](transform-data.md).
+W tym przewodniku Szybki start opisano, jak utworzyć interfejs wiersza polecenia platformy Azure Azure Data Factory. Potok, który tworzysz w tej fabryce danych, kopiuje dane z jednego folderu do innego folderu w Azure Blob Storage. Aby uzyskać informacje na temat przekształcania danych przy użyciu Azure Data Factory, zobacz [Przekształcanie danych w Azure Data Factory](transform-data.md).
 
 Aby zapoznać się z wprowadzeniem do usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
 
@@ -27,53 +27,53 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 [!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!NOTE]
-> Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli współautora lub właściciela albo administratorem subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [role platformy Azure](quickstart-create-data-factory-powershell.md#azure-roles).
+> Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli współautora lub właściciela albo administratorem subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Role platformy Azure.](quickstart-create-data-factory-powershell.md#azure-roles)
 
 ## <a name="prepare-a-container-and-test-file"></a>Przygotowywanie kontenera i pliku testowego
 
-Ten przewodnik Szybki Start używa konta usługi Azure Storage, które zawiera kontener z plikiem.
+W tym przewodniku Szybki start jest używane konto usługi Azure Storage, które zawiera kontener z plikiem.
 
-1. Aby utworzyć grupę zasobów o nazwie `ADFQuickStartRG` , użyj polecenia [AZ Group Create](/cli/azure/group#az_group_create) :
+1. Aby utworzyć grupę zasobów o nazwie `ADFQuickStartRG` , użyj polecenia az group [create:](/cli/azure/group#az_group_create)
 
    ```azurecli
    az group create --name ADFQuickStartRG --location eastus
    ```
 
-1. Utwórz konto magazynu przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/container#az_storage_container_create) :
+1. Utwórz konto magazynu za pomocą [polecenia az storage account create:](/cli/azure/storage/container#az_storage_container_create)
 
    ```azurecli
    az storage account create --resource-group ADFQuickStartRG \
        --name adfquickstartstorage --location eastus
    ```
 
-1. Utwórz kontener o nazwie przy `adftutorial` użyciu polecenia [AZ Storage Container Create](/cli/azure/storage/container#az_storage_container_create) :
+1. Utwórz kontener o nazwie `adftutorial` za pomocą polecenia az storage container [create:](/cli/azure/storage/container#az_storage_container_create)
 
    ```azurecli
    az storage container create --resource-group ADFQuickStartRG --name adftutorial \
        --account-name adfquickstartstorage --auth-mode key
    ```
 
-1. W katalogu lokalnym Utwórz plik o nazwie `emp.txt` do przekazania. Jeśli pracujesz w Azure Cloud Shell, możesz znaleźć bieżący katalog roboczy przy użyciu `echo $PWD` polecenia bash. Aby utworzyć plik, można użyć standardowych poleceń bash, takich jak `cat` :
+1. W katalogu lokalnym utwórz plik o nazwie do `emp.txt` przekazania. Jeśli pracujesz w usłudze Azure Cloud Shell, możesz znaleźć bieżący katalog roboczy przy użyciu `echo $PWD` polecenia powłoki Bash. Aby utworzyć plik, możesz użyć standardowych poleceń powłoki Bash, `cat` takich jak , :
 
    ```console
    cat > emp.txt
    This is text.
    ```
 
-   Aby zapisać nowy plik, użyj **kombinacji klawiszy CTRL + D** .
+   Użyj **klawiszy Ctrl+D,** aby zapisać nowy plik.
 
-1. Aby przekazać nowy plik do kontenera usługi Azure Storage, użyj polecenia [AZ Storage BLOB upload](/cli/azure/storage/blob#az_storage_blob_upload) :
+1. Aby przekazać nowy plik do kontenera usługi Azure Storage, użyj [polecenia az storage blob upload:](/cli/azure/storage/blob#az_storage_blob_upload)
 
    ```azurecli
    az storage blob upload --account-name adfquickstartstorage --name input/emp.txt \
        --container-name adftutorial --file emp.txt --auth-mode key
    ```
 
-   To polecenie przekazuje do nowego folderu o nazwie `input` .
+   To polecenie zostanie przesłane do nowego folderu o nazwie `input` .
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-Aby utworzyć fabrykę danych Azure, uruchom polecenie [AZ DataFactory Factory Create](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_create) :
+Aby utworzyć fabrykę danych Azure, uruchom [polecenie az datafactory factory create:](/cli/azure/datafactory/factory#az_datafactory_factory_create)
 
 ```azurecli
 az datafactory factory create --resource-group ADFQuickStartRG \
@@ -81,9 +81,9 @@ az datafactory factory create --resource-group ADFQuickStartRG \
 ```
 
 > [!IMPORTANT]
-> Zamień na `ADFTutorialFactory` globalnie unikatową nazwę fabryki danych, na przykład ADFTutorialFactorySP1127.
+> Zastąp `ADFTutorialFactory` nazwą globalnie unikatowej fabryki danych, na przykład ADFTutorialFactorySP1127.
 
-Można wyświetlić fabrykę danych utworzoną za pomocą polecenia [AZ DataFactory Factory show](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show) :
+Fabrykę danych utworzoną za pomocą polecenia [az datafactory factory show](/cli/azure/datafactory/factory#az_datafactory_factory_show) można wyświetlić:
 
 ```azurecli
 az datafactory factory show --resource-group ADFQuickStartRG \
@@ -92,16 +92,16 @@ az datafactory factory show --resource-group ADFQuickStartRG \
 
 ## <a name="create-a-linked-service-and-datasets"></a>Tworzenie połączonej usługi i zestawów danych
 
-Następnie Utwórz połączoną usługę i dwa zestawy danych.
+Następnie utwórz usługę połączona i dwa zestawy danych.
 
-1. Pobierz parametry połączenia dla konta magazynu za pomocą polecenia [AZ Storage account show-Connection-String](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show) :
+1. Pobierz ciąg połączenia dla konta magazynu za pomocą polecenia [az storage account show-connection-string:](/cli/azure/datafactory/factory#az_datafactory_factory_show)
 
    ```azurecli
    az storage account show-connection-string --resource-group ADFQuickStartRG \
        --name adfquickstartstorage --key primary
    ```
 
-1. W katalogu roboczym Utwórz plik JSON z tą zawartością, który zawiera własne parametry połączenia z poprzedniego kroku. Nazwij plik `AzureStorageLinkedService.json` :
+1. W katalogu roboczy utwórz plik JSON z tą zawartością, która zawiera twoje własne ciągi połączenia z poprzedniego kroku. Nadaj plikowi nazwę `AzureStorageLinkedService.json` :
 
    ```json
    {
@@ -115,7 +115,7 @@ Następnie Utwórz połączoną usługę i dwa zestawy danych.
    }
    ```
 
-1. Utwórz połączoną usługę o nazwie przy `AzureStorageLinkedService` użyciu polecenia [AZ DataFactory Linked-Service Create](/cli/azure/ext/datafactory/datafactory/linked-service#ext_datafactory_az_datafactory_linked_service_create) :
+1. Utwórz połączona usługę o nazwie `AzureStorageLinkedService` za pomocą polecenia az [datafactory linked-service create:](/cli/azure/datafactory/linked-service#az_datafactory_linked_service_create)
 
    ```azurecli
    az datafactory linked-service create --resource-group ADFQuickStartRG \
@@ -123,7 +123,7 @@ Następnie Utwórz połączoną usługę i dwa zestawy danych.
        --properties @AzureStorageLinkedService.json
    ```
 
-1. W katalogu roboczym Utwórz plik JSON o nazwie `InputDataset.json` :
+1. W katalogu roboczy utwórz plik JSON o tej zawartości o nazwie `InputDataset.json` :
 
    ```json
    {
@@ -146,7 +146,7 @@ Następnie Utwórz połączoną usługę i dwa zestawy danych.
    }
    ```
 
-1. Utwórz wejściowy zestaw danych o nazwie przy `InputDataset` użyciu polecenia [AZ DataFactory DataSet Create](/cli/azure/ext/datafactory/datafactory/dataset#ext_datafactory_az_datafactory_dataset_create) :
+1. Utwórz wejściowy zestaw danych o `InputDataset` nazwie za pomocą polecenia az [datafactory dataset create:](/cli/azure/datafactory/dataset#az_datafactory_dataset_create)
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
@@ -154,7 +154,7 @@ Następnie Utwórz połączoną usługę i dwa zestawy danych.
        --properties @InputDataset.json
    ```
 
-1. W katalogu roboczym Utwórz plik JSON o nazwie `OutputDataset.json` :
+1. W katalogu roboczy utwórz plik JSON o tej zawartości o nazwie `OutputDataset.json` :
 
    ```json
    {
@@ -177,7 +177,7 @@ Następnie Utwórz połączoną usługę i dwa zestawy danych.
    }
    ```
 
-1. Utwórz wyjściowy zestaw danych o nazwie przy `OutputDataset` użyciu polecenia [AZ DataFactory DataSet Create](/cli/azure/ext/datafactory/datafactory/dataset#ext_datafactory_az_datafactory_dataset_create) :
+1. Utwórz wyjściowy zestaw danych `OutputDataset` o nazwie za pomocą polecenia az [datafactory dataset create:](/cli/azure/datafactory/dataset#az_datafactory_dataset_create)
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
@@ -187,9 +187,9 @@ Następnie Utwórz połączoną usługę i dwa zestawy danych.
 
 ## <a name="create-and-run-the-pipeline"></a>Tworzenie i uruchamianie potoku
 
-Na koniec Utwórz i uruchom potok.
+Na koniec utwórz i uruchom potok.
 
-1. W katalogu roboczym Utwórz plik JSON o nazwie `Adfv2QuickStartPipeline.json` :
+1. W katalogu roboczy utwórz plik JSON o tej zawartości o nazwie `Adfv2QuickStartPipeline.json` :
 
    ```json
    {
@@ -243,7 +243,7 @@ Na koniec Utwórz i uruchom potok.
    }
    ```
 
-1. Utwórz potok o nazwie `Adfv2QuickStartPipeline` przy użyciu polecenia [AZ DataFactory Pipeline Create](/cli/azure/ext/datafactory/datafactory/pipeline#ext_datafactory_az_datafactory_pipeline_create) :
+1. Utwórz potok o nazwie `Adfv2QuickStartPipeline` za pomocą polecenia az [datafactory pipeline create:](/cli/azure/datafactory/pipeline#az_datafactory_pipeline_create)
 
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
@@ -251,7 +251,7 @@ Na koniec Utwórz i uruchom potok.
        --pipeline @Adfv2QuickStartPipeline.json
    ```
 
-1. Uruchom potok za pomocą polecenia [AZ DataFactory potoku Create-Run](/cli/azure/ext/datafactory/datafactory/pipeline#ext_datafactory_az_datafactory_pipeline_create_run) :
+1. Uruchom potok przy użyciu polecenia [az datafactory pipeline create-run:](/cli/azure/datafactory/pipeline#az_datafactory_pipeline_create_run)
 
    ```azurecli
    az datafactory pipeline create-run --resource-group ADFQuickStartRG \
@@ -260,33 +260,33 @@ Na koniec Utwórz i uruchom potok.
 
    To polecenie zwraca identyfikator uruchomienia. Skopiuj go do użycia w następnym poleceniu.
 
-1. Sprawdź, czy uruchomienie potoku zakończyło się pomyślnie za pomocą polecenia [AZ DataFactory Pipeline-Run show](/cli/azure/ext/datafactory/datafactory/pipeline-run#ext_datafactory_az_datafactory_pipeline_run_show) :
+1. Sprawdź, czy uruchomienie potoku zakończyło się pomyślnie, używając [polecenia az datafactory pipeline-run show:](/cli/azure/datafactory/pipeline-run#az_datafactory_pipeline_run_show)
 
    ```azurecli
    az datafactory pipeline-run show --resource-group ADFQuickStartRG \
        --factory-name ADFTutorialFactory --run-id 00000000-0000-0000-0000-000000000000
    ```
 
-Możesz również sprawdzić, czy potok działał zgodnie z oczekiwaniami przy użyciu [Azure Portal](https://portal.azure.com/). Aby uzyskać więcej informacji, zobacz [Przegląd wdrożonych zasobów](quickstart-create-data-factory-powershell.md#review-deployed-resources).
+Możesz również sprawdzić, czy potok został uruchomienia zgodnie z oczekiwaniami, używając [Azure Portal](https://portal.azure.com/). Aby uzyskać więcej informacji, zobacz [Review deployed resources (Przegląd wdrożonych zasobów).](quickstart-create-data-factory-powershell.md#review-deployed-resources)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Wszystkie zasoby w tym przewodniku Szybki Start są częścią tej samej grupy zasobów. Aby je usunąć, użyj polecenia [AZ Group Delete](/cli/azure/group#az_group_delete) :
+Wszystkie zasoby w tym przewodniku Szybki start są częścią tej samej grupy zasobów. Aby usunąć wszystkie te dane, użyj [polecenia az group delete:](/cli/azure/group#az_group_delete)
 
 ```azurecli
 az group delete --name ADFQuickStartRG
 ```
 
-W przypadku korzystania z tej grupy zasobów dla wszystkich innych elementów, należy usunąć poszczególne zasoby. Na przykład aby usunąć połączoną usługę, użyj polecenia [AZ DataFactory Linked-Service Delete](/cli/azure/ext/datafactory/datafactory/linked-service#ext_datafactory_az_datafactory_linked_service_delete) .
+Jeśli używasz tej grupy zasobów do czegokolwiek innego, usuń poszczególne zasoby. Aby na przykład usunąć połączona usługę, użyj [polecenia az datafactory linked-service delete.](/cli/azure/datafactory/linked-service#az_datafactory_linked_service_delete)
 
-W tym przewodniku szybki start utworzono następujące pliki JSON:
+W tym przewodniku Szybki start utworzono następujące pliki JSON:
 
-- AzureStorageLinkedService.jsna
-- InputDataset.jsna
-- OutputDataset.jsna
-- Adfv2QuickStartPipeline.jsna
+- AzureStorageLinkedService.jswł.
+- InputDataset.jswł.
+- OutputDataset.jswł.
+- Adfv2QuickStartPipeline.jswł.
 
-Usuń je za pomocą standardowych poleceń bash.
+Usuń je za pomocą standardowych poleceń powłoki Bash.
 
 ## <a name="next-steps"></a>Następne kroki
 

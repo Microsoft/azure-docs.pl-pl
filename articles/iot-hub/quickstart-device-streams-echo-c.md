@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — komunikacja z aplikacją urządzenia w języku C za pomocą strumieni urządzeń usługi Azure IoT Hub
-description: W tym przewodniku szybki start uruchomisz aplikację po stronie urządzenia, która komunikuje się z urządzeniem IoT za pośrednictwem strumienia urządzeń.
+title: Szybki start — komunikacja z aplikacją urządzenia w języku C przy użyciu Azure IoT Hub strumieni urządzeń
+description: W tym przewodniku Szybki start uruchamiasz aplikację języka C po stronie urządzenia, która komunikuje się z urządzeniem IoT za pośrednictwem strumienia urządzenia.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: fd179bf17f481ae84f768d619c6ddc0b9afab280
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ce0d0f9df4862d3c8ac8417e257fbf340e41961f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202556"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864126"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Szybki Start: komunikacja z aplikacją urządzenia w języku C za pośrednictwem IoT Hub strumieni urządzenia (wersja zapoznawcza)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Szybki start: komunikacja z aplikacją urządzenia w języku C za pośrednictwem IoT Hub strumieni urządzeń (wersja zapoznawcza)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Usługa Azure IoT Hub obecnie obsługuje strumienie urządzeń jako [funkcję w wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure IoT Hub obecnie obsługuje strumienie urządzeń jako funkcję w [wersji zapoznawczej.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-[Strumienie urządzeń usługi IoT Hub](iot-hub-device-streams-overview.md) umożliwiają aplikacjom usług i urządzeń bezpieczną komunikację w sposób przyjazny dla zapory. W publicznej wersji zapoznawczej zestaw SDK języka C obsługuje strumienie urządzeń tylko po stronie urządzenia. W efekcie w tym przewodniku szybki start przedstawiono instrukcje dotyczące uruchamiania tylko aplikacji po stronie urządzenia. Aby uruchomić odpowiednią aplikację po stronie usługi, zobacz następujące artykuły:
+[Strumienie urządzeń usługi IoT Hub](iot-hub-device-streams-overview.md) umożliwiają aplikacjom usług i urządzeń bezpieczną komunikację w sposób przyjazny dla zapory. W publicznej wersji zapoznawczej zestaw SDK języka C obsługuje strumienie urządzeń tylko po stronie urządzenia. W związku z tym ten przewodnik Szybki start zawiera instrukcje uruchamiania tylko aplikacji po stronie urządzenia. Aby uruchomić odpowiednią aplikację po stronie usługi, zobacz następujące artykuły:
 
 * [Komunikacja z aplikacjami urządzeń w języku C# za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-csharp.md)
 
@@ -32,9 +32,9 @@ Aplikacja C po stronie urządzenia w tym przewodniku Szybki start zawiera nastę
 
 * Tworzenie strumienia urządzenia do urządzenia IoT.
 
-* Odbieraj dane wysyłane z aplikacji po stronie usługi i wyłączaj je ponownie.
+* Odbieranie danych wysyłanych z aplikacji po stronie usługi i ich powtarzanie.
 
-Kod demonstruje proces inicjowania strumienia urządzenia, a także sposób korzystania z niego do wysyłania i odbierania danych.
+Kod przedstawia proces inicjowania strumienia urządzenia, a także sposób używania go do wysyłania i odbierania danych.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,7 +42,7 @@ Kod demonstruje proces inicjowania strumienia urządzenia, a także sposób korz
 
 Wymagane są następujące wymagania wstępne:
 
-* Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/vs/) z włączonym **programowaniem pulpitu przy użyciu języka C++** .
+* Zainstaluj [Visual Studio 2019 r. z](https://www.visualstudio.com/vs/) włączonym obciążeniem Tworzenie aplikacji klasycznych w języku **C++.**
 
 * Zainstaluj najnowszą wersję usługi [Git](https://git-scm.com/download/).
 
@@ -50,7 +50,7 @@ Wymagane są następujące wymagania wstępne:
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które zostały utworzone w następujących regionach:
+Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które są tworzone w następujących regionach:
 
   * Central US
   * Środkowe stany USA — EUAP
@@ -59,14 +59,14 @@ Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centr�
 
 ## <a name="prepare-the-development-environment"></a>Przygotowywanie środowiska deweloperskiego
 
-W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla języka C](iot-hub-device-sdk-c-intro.md). Przygotuj środowisko programistyczne służące do klonowania i kompilowania [zestawu SDK usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-c) w witrynie GitHub. Zestaw SDK w witrynie GitHub zawiera przykładowy kod, który jest używany w tym przewodniku Szybki Start.
+W tym przewodniku Szybki start użyjemy zestawu [SDK urządzenia usługi Azure IoT dla języka C.](iot-hub-device-sdk-c-intro.md) Przygotowujesz środowisko deweloperskie używane do klonowania i kompilowania zestawu [SDK języka C usługi Azure IoT z](https://github.com/Azure/azure-iot-sdk-c) usługi GitHub. Zestaw SDK w usłudze GitHub zawiera przykładowy kod używany w tym przewodniku Szybki start.
 
    > [!NOTE]
-   > Przed rozpoczęciem tej procedury należy się upewnić, że program Visual Studio jest instalowany z **programowaniem dla komputerów stacjonarnych przy użyciu obciążenia języka C++** .
+   > Przed rozpoczęciem tej procedury upewnij się, że program Visual Studio z obciążeniem Tworzenie aplikacji **klasycznych przy użyciu języka C++.**
 
-1. Zainstaluj [system kompilacji CMAKE](https://cmake.org/download/) zgodnie z opisem na stronie pobierania.
+1. Zainstaluj system [kompilacji CMake zgodnie](https://cmake.org/download/) z opisem na stronie pobierania.
 
-1. Otwórz wiersz polecenia lub powłokę Git Bash. Uruchom następujące polecenia, aby sklonować repozytorium GitHub [zestawu SDK usługi Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) :
+1. Otwórz wiersz polecenia lub powłokę Git Bash. Uruchom następujące polecenia, aby sklonować repozytorium [GitHub zestawu SDK języka C usługi Azure IoT:](https://github.com/Azure/azure-iot-sdk-c)
 
     ```cmd/sh
     git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
@@ -74,16 +74,16 @@ W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla j�
     git submodule update --init
     ```
 
-    Ta operacja może potrwać kilka minut.
+    Ta operacja powinna potrwać kilka minut.
 
-1. Utwórz podkatalog *CMAKE* w katalogu głównym repozytorium git i przejdź do tego folderu. Uruchom następujące polecenia w katalogu *Azure-IoT-SDK-c* :
+1. Utwórz *podkatalog cmake* w katalogu głównym repozytorium git i przejdź do tego folderu. Uruchom następujące polecenia z katalogu *azure-iot-sdk-c:*
 
     ```cmd/sh
     mkdir cmake
     cd cmake
     ```
 
-1. Uruchom następujące polecenia z katalogu *CMAKE* , aby skompilować wersję zestawu SDK specyficzną dla platformy klienta deweloperskiego.
+1. Uruchom następujące polecenia z katalogu *cmake,* aby utworzyć wersję zestawu SDK specyficzną dla platformy klienta dewelopera.
 
    * W systemie Linux:
 
@@ -92,7 +92,7 @@ W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla j�
       make -j
       ```
 
-   * W systemie Windows Otwórz [wiersz polecenia dla deweloperów dla programu Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Uruchom polecenie dla używanej wersji programu Visual Studio. Ten przewodnik Szybki Start używa programu Visual Studio 2019. Te polecenia tworzą rozwiązanie programu Visual Studio dla symulowanego urządzenia w katalogu *CMAKE* .
+   * W systemie Windows otwórz [wiersz polecenia dla deweloperów dla Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Uruchom polecenie dla swojej wersji Visual Studio. W tym przewodniku Szybki start Visual Studio 2019 r. Te polecenia tworzą Visual Studio dla urządzenia symulowanego w katalogu *cmake.*
 
       ```cmd
       rem For VS2015
@@ -114,40 +114,40 @@ W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla j�
 
 ## <a name="register-a-device"></a>Rejestrowanie urządzenia
 
-Aby można było nawiązać połączenie, musisz zarejestrować urządzenie w usłudze IoT Hub. W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azure-iot/iot) , aby zarejestrować symulowane urządzenie.
+Aby można było nawiązać połączenie, należy zarejestrować urządzenie w centrum IoT. W tej sekcji użyjesz Azure Cloud Shell z rozszerzeniem [IoT,](/cli/azure/iot) aby zarejestrować urządzenie symulowane.
 
 1. Aby utworzyć tożsamość urządzenia, uruchom następujące polecenie w Cloud Shell:
 
    > [!NOTE]
-   > * Zastąp symbol zastępczy *YourIoTHubName* nazwą wybraną dla Centrum IoT Hub.
-   > * W przypadku nazwy urządzenia, które rejestrujesz, zaleca się użycie *urządzenia* w sposób przedstawiony. Jeśli wybierzesz inną nazwę urządzenia, Użyj tej nazwy w tym artykule i zaktualizuj nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
+   > * Zastąp symbol *zastępczy YourIoTHubName* nazwą wybraną dla centrum IoT.
+   > * W przypadku nazwy rejestrowanego urządzenia zaleca się użycie urządzenia *MyDevice w* pokazany sposób. Jeśli wybierzesz inną nazwę dla swojego urządzenia, użyj tej nazwy w tym artykule i zaktualizuj nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Aby uzyskać *Parametry połączenia urządzenia* dla zarejestrowanego urządzenia, uruchom następujące polecenie w Cloud Shell:
+1. Aby uzyskać *parametrów połączenia urządzenia* dla urządzenia, które zostało właśnie zarejestrowane, uruchom następujące polecenie w Cloud Shell:
 
    > [!NOTE]
-   > Zastąp symbol zastępczy *YourIoTHubName* nazwą wybraną dla Centrum IoT Hub.
+   > Zastąp symbol *zastępczy YourIoTHubName* nazwą wybraną dla centrum IoT.
 
     ```azurecli-interactive
     az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Zwróć uwagę na zwrócone parametry połączenia urządzenia do późniejszego użycia w tym przewodniku Szybki Start. Wygląda to następująco:
+    Zanotuj zwrócone ciągi połączenia urządzenia do późniejszego użycia w tym przewodniku Szybki start. Wygląda to następująco:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
 ## <a name="communicate-between-the-device-and-the-service-via-device-streams"></a>Komunikacja między urządzeniem i usługą za pośrednictwem strumieni urządzeń
 
-W tej sekcji uruchomisz aplikację po stronie urządzenia i aplikację po stronie usługi i komunikują się między nimi.
+W tej sekcji uruchamiasz zarówno aplikację po stronie urządzenia, jak i aplikację po stronie usługi i komunikujemy się między nimi.
 
 ### <a name="run-the-device-side-application"></a>Uruchamianie aplikacji po stronie urządzenia
 
 Aby uruchomić aplikację po stronie urządzenia, wykonaj następujące kroki:
 
-1. Podaj poświadczenia urządzenia, edytując plik źródłowy **iothub_client_c2d_streaming_sample. c** w `iothub_client/samples/iothub_client_c2d_streaming_sample` folderze i dodając parametry połączenia urządzenia.
+1. Podaj poświadczenia urządzenia, edytując plik **źródłowy iothub_client_c2d_streaming_sample.c** w `iothub_client/samples/iothub_client_c2d_streaming_sample` folderze i dodając ciąg połączenia urządzenia.
 
    ```C
    /* Paste in your iothub connection string  */
@@ -184,7 +184,7 @@ Aby uruchomić aplikację po stronie urządzenia, wykonaj następujące kroki:
 
 ### <a name="run-the-service-side-application"></a>Uruchamianie aplikacji po stronie usługi
 
-Jak wspomniano wcześniej, zestaw SDK IoT Hub C obsługuje strumienie urządzeń tylko po stronie urządzenia. Aby skompilować i uruchomić towarzyszącą aplikację po stronie usług, postępuj zgodnie z instrukcjami w jednym z następujących przewodników szybki start:
+Jak wspomniano wcześniej, zestaw SDK IoT Hub C obsługuje strumienie urządzeń tylko po stronie urządzenia. Aby skompilować i uruchomić towarzyszącej aplikacji po stronie usługi, postępuj zgodnie z instrukcjami w jednym z następujących przewodników Szybki start:
 
 * [Komunikacja z aplikacją urządzenia w języku C# za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-csharp.md)
 
@@ -196,9 +196,9 @@ Jak wspomniano wcześniej, zestaw SDK IoT Hub C obsługuje strumienie urządzeń
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start skonfigurujesz usługę IoT Hub, zarejestrowano urządzenie, nałożyłeś strumień urządzenia między aplikacją C na urządzeniu a inną aplikacją po stronie usługi, a następnie użyto strumienia do przesyłania danych z powrotem i między aplikacjami.
+W tym przewodniku Szybki start skonfigurujesz centrum IoT Hub, zarejestrujesz urządzenie, nawiązesz strumień urządzenia między aplikacją języka C na urządzeniu a inną aplikacją po stronie usługi i za pomocą strumienia wyślesz dane między aplikacjami.
 
-Aby dowiedzieć się więcej o strumieniach urządzeń, zobacz:
+Aby dowiedzieć się więcej na temat strumieni urządzeń, zobacz:
 
 > [!div class="nextstepaction"]
 > [Omówienie strumieni urządzeń](./iot-hub-device-streams-overview.md)

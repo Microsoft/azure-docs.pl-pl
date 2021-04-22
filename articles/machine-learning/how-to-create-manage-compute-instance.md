@@ -1,7 +1,7 @@
 ---
-title: Tworzenie wystąpienia obliczeniowego i zarządzanie nim
+title: Tworzenie wystąpienia obliczeniowego i zarządzanie nimi
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć wystąpienie obliczeniowe Azure Machine Learning i zarządzać nim. Używaj jako środowiska deweloperskiego lub jako celu obliczeń dla celów deweloperskich/testowych.
+description: Dowiedz się, jak utworzyć wystąpienie obliczeniowe Azure Machine Learning zarządzać nimi. Należy używać jako środowiska projektowego lub jako docelowego obiektu obliczeniowego na potrzeby tworzenia i testowania.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,44 +11,44 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5ac525ae062efca25601c9e63a5c8f16f2be29be
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628955"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861232"
 ---
-# <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim
+# <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning zarządzanie nimi
 
-Dowiedz się, jak utworzyć [wystąpienie obliczeniowe](concept-compute-instance.md) w obszarze roboczym Azure Machine Learning i zarządzać nim.
+Dowiedz się, jak utworzyć wystąpienie obliczeniowe i [zarządzać nimi](concept-compute-instance.md) w Azure Machine Learning roboczym.
 
-Użyj wystąpienia obliczeniowego jako w pełni skonfigurowanego i zarządzanego środowiska programistycznego w chmurze. Na potrzeby programowania i testowania można również użyć wystąpienia jako [elementu docelowego obliczeń szkoleniowych](concept-compute-target.md#train) lub dla [celu wnioskowania](concept-compute-target.md#deploy).   Wystąpienie obliczeniowe może uruchamiać wiele zadań równolegle i ma kolejkę zadań. Jako środowisko programistyczne wystąpienie obliczeniowe nie może być współużytkowane z innymi użytkownikami w obszarze roboczym.
+Używaj wystąpienia obliczeniowego jako w pełni skonfigurowanego i zarządzanego środowiska projektowego w chmurze. Na użytek testowania i testowania można również użyć wystąpienia jako docelowego obiektu obliczeniowego trenowania [lub](concept-compute-target.md#train) [docelowego wnioskowania.](concept-compute-target.md#deploy)   Wystąpienie obliczeniowe może uruchamiać wiele zadań równolegle i ma kolejkę zadań. Jako środowisko projektowe wystąpienie obliczeniowe nie może być udostępniane innym użytkownikom w Twoim obszarze roboczym.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 * Tworzenie wystąpienia obliczeniowego 
-* Zarządzanie (uruchamianie, zatrzymywanie, ponowne uruchamianie, usuwanie) wystąpienia obliczeniowego
-* Dostęp do okna terminalu 
-* Zainstaluj pakiety języka R lub Python
-* Twórz nowe środowiska lub jądra Jupyter
+* Zarządzanie wystąpieniem obliczeniowym (uruchamianie, zatrzymywanie, ponowne uruchamianie, usuwanie)
+* Uzyskiwanie dostępu do okna terminalu 
+* Instalowanie pakietów języka R lub Python
+* Tworzenie nowych środowisk lub jąder Jupyter
 
-Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku sieci wirtualnej](how-to-secure-training-vnet.md), bez konieczności otwierania portów SSH przez przedsiębiorstwa. Zadanie jest wykonywane w środowisku kontenerowym i pakuje zależności modelu w kontenerze platformy Docker. 
+Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w środowisku sieci [wirtualnej](how-to-secure-training-vnet.md)bez konieczności otwierania portów SSH przez przedsiębiorstwa. Zadanie jest wykonywane w środowisku konteneryzowym i pakuje zależności modelu w kontenerze platformy Docker. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
+* Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie Azure Machine Learning roboczego.](how-to-manage-workspace.md)
 
-* [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](/python/api/overview/azure/ml/intro)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+* Rozszerzenie [interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)platformy Azure Machine Learning service , Azure Machine Learning python [SDK](/python/api/overview/azure/ml/intro)lub rozszerzenie [Azure Machine Learning Visual Studio Code .](tutorial-setup-vscode-extension.md)
 
 ## <a name="create"></a>Utwórz
 
-**Szacowany czas**: około 5 minut.
+**Szacowany czas:** około 5 minut.
 
-Tworzenie wystąpienia obliczeniowego to jednorazowy proces dla Twojego obszaru roboczego. Można ponownie użyć obliczeń jako stacji roboczej deweloperskiej lub jako elementu docelowego obliczeń do szkolenia. Do obszaru roboczego można dołączyć wiele wystąpień obliczeniowych.
+Tworzenie wystąpienia obliczeniowego jest procesem tylko raz dla obszaru roboczego. Możesz ponownie użyć zasobów obliczeniowych jako dewelopera stacji roboczej lub jako docelowego obiektu obliczeniowego do trenowania. Do obszaru roboczego może być dołączonych wiele wystąpień obliczeniowych.
 
-Dedykowane rdzenie dla poszczególnych regionów na poszczególne regiony i łączne limity przydziału regionalnego, które mają zastosowanie do tworzenia wystąpienia obliczeniowego, są ujednolicone i udostępniane przy użyciu Azure Machine Learninggo przydziału klastra obliczeniowego. Zatrzymanie wystąpienia obliczeniowego nie powoduje zwolnienia przydziału w celu zapewnienia, że będzie można ponownie uruchomić wystąpienie obliczeniowe. Należy pamiętać, że nie można zmienić rozmiaru maszyny wirtualnej wystąpienia obliczeniowego po jego utworzeniu.
+Dedykowane rdzenie na region na limit przydziału rodziny maszyn wirtualnych i całkowity limit przydziału regionalnego, który ma zastosowanie do tworzenia wystąpień obliczeniowych, są ujednolicone i współdzielone z Azure Machine Learning przydziału klastra obliczeniowego trenowania. Zatrzymanie wystąpienia obliczeniowego nie zwalnia limitu przydziału, aby zapewnić możliwość ponownego uruchomienia wystąpienia obliczeniowego. Pamiętaj, że nie można zmienić rozmiaru maszyny wirtualnej wystąpienia obliczeniowego po jego utworzeniu.
 
-Poniższy przykład ilustruje sposób tworzenia wystąpienia obliczeniowego:
+W poniższym przykładzie pokazano, jak utworzyć wystąpienie obliczeniowe:
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -82,8 +82,8 @@ except ComputeTargetException:
 
 Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w tym przykładzie, zobacz następujące dokumenty referencyjne:
 
-* [Klasa ComputeInstance](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
-* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance, klasa](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
+* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
 * [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
@@ -93,31 +93,31 @@ Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w 
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) Reference.
+Aby uzyskać więcej informacji, zobacz [az ml computetarget create computeinstance reference (Az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance) reference).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-W obszarze roboczym programu Azure Machine Learning Studio Utwórz nowe wystąpienie obliczeniowe z sekcji **obliczenia** lub w sekcji **notesy** , gdy wszystko będzie gotowe do uruchomienia jednego z notesów.
+W obszarze roboczym Azure Machine Learning studio utwórz nowe wystąpienie obliczeniowe w  sekcji Obliczenia lub w sekcji **Notesy,** gdy wszystko będzie gotowe do uruchomienia jednego z notesów.
 
-Aby uzyskać informacje na temat tworzenia wystąpienia obliczeniowego w programie Studio, zobacz [Tworzenie obiektów docelowych obliczeń w programie Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#compute-instance).
+Aby uzyskać informacje na temat tworzenia wystąpienia obliczeniowego w studio, zobacz Create compute targets in Azure Machine Learning studio (Tworzenie docelowych obiektów obliczeniowych w [programie Azure Machine Learning studio).](how-to-create-attach-compute-studio.md#compute-instance)
 
 ---
 
-Można również utworzyć wystąpienie obliczeniowe z [szablonem Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
+Wystąpienie obliczeniowe można również utworzyć za pomocą szablonu [Azure Resource Manager obliczeniowego](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
 
-### <a name="create-on-behalf-of-preview"></a>Utwórz w imieniu (wersja zapoznawcza)
+### <a name="create-on-behalf-of-preview"></a>Utwórz w imieniu użytkownika (wersja zapoznawcza)
 
-Jako administrator możesz utworzyć wystąpienie obliczeniowe w imieniu Analityka danych i przypisać do nich wystąpienie:
-* [Szablon Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Aby uzyskać szczegółowe informacje na temat sposobu wyszukiwania TenantID i ObjectID wymaganych w tym szablonie, zobacz [Znajdowanie identyfikatorów obiektów tożsamości dla konfiguracji uwierzytelniania](../healthcare-apis/fhir/find-identity-object-ids.md).  Te wartości można również znaleźć w portalu Azure Active Directory.
+Jako administrator możesz utworzyć wystąpienie obliczeniowe w imieniu analityka danych i przypisać do nich wystąpienie za pomocą:
+* [Azure Resource Manager szablonu .](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Aby uzyskać szczegółowe informacje na temat sposobu znalezienia identyfikatorów TenantID i ObjectID wymaganych w tym szablonie, zobacz Znajdowanie identyfikatorów obiektów [tożsamości na potrzeby konfiguracji uwierzytelniania.](../healthcare-apis/fhir/find-identity-object-ids.md)  Te wartości można również znaleźć w portalu Azure Active Directory portal.
 * Interfejs API REST
 
-Analityk danych, dla którego tworzysz wystąpienie obliczeniowe, musi mieć następujące uprawnienia [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md) : 
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/applicationaccess/akcja*
+Analityk danych, dla którego tworzysz wystąpienie obliczeniowe, musi mieć następujące uprawnienia: Kontrola dostępu na podstawie ról [(RBAC)](../role-based-access-control/overview.md) platformy Azure: 
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
 
-Analityk danych może uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienie obliczeniowe. Mogą używać wystąpienia obliczeniowego dla:
+Analityk danych może uruchomić, zatrzymać i ponownie uruchomić wystąpienie obliczeniowe. Mogą używać wystąpienia obliczeniowego do:
 * Jupyter
 * JupyterLab
 * RStudio
@@ -125,16 +125,16 @@ Analityk danych może uruchamiać, zatrzymywać i ponownie uruchamiać wystąpie
 
 ## <a name="manage"></a>Zarządzanie
 
-Uruchamianie, zatrzymywanie, ponowne uruchamianie i usuwanie wystąpienia obliczeniowego. Wystąpienie obliczeniowe nie jest automatycznie skalowane w dół, dlatego pamiętaj o zatrzymaniu zasobu, aby uniknąć naliczania opłat.
+Uruchamianie, zatrzymywanie, ponowne uruchamianie i usuwanie wystąpienia obliczeniowego. Wystąpienie obliczeniowe nie jest automatycznie skalowane w dół, dlatego należy zatrzymać zasób, aby zapobiec bieżącym opłatom.
 
 > [!TIP]
-> Wystąpienie obliczeniowe ma dysk systemu operacyjnego o 120 GB. Jeśli zabraknie miejsca na [dysku, przed](how-to-access-terminal.md) zatrzymaniem lub ponownym uruchomieniem wystąpienia obliczeniowego należy wyczyścić co najmniej 1-2 GB pamięci.
+> Wystąpienie obliczeniowe ma dysk systemu operacyjnego o pojemności 120 GB. Jeśli zabraknie miejsca na dysku, użyj [terminalu,](how-to-access-terminal.md) aby wyczyścić co najmniej 1–2 GB przed zatrzymaniem lub ponownym uruchomieniem wystąpienia obliczeniowego.
 
 # <a name="python"></a>[Python](#tab/python)
 
 W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
 
-* Pobierz stan
+* Uzyskiwanie stanu
 
     ```python
     # get_status() gets the latest status of the ComputeInstance target
@@ -181,7 +181,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 * Rozpocznij 
 
@@ -189,7 +189,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 * Uruchom ponownie 
 
@@ -197,7 +197,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget restart computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
 
 * Usuń
 
@@ -205,43 +205,43 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     az ml computetarget delete -n instance -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Aby uzyskać więcej informacji, zobacz [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia**, a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
+W obszarze roboczym w Azure Machine Learning studio wybierz pozycję **Obliczenia,** a następnie wybierz pozycję **Wystąpienie obliczeniowe** u góry.
 
 ![Zarządzanie wystąpieniem obliczeniowym](./media/concept-compute-instance/manage-compute-instance.png)
 
 Można wykonać następujące czynności:
 
 * Tworzenie nowego wystąpienia obliczeniowego 
-* Odśwież kartę wystąpienia obliczeniowe.
-* Uruchamianie, zatrzymywanie i ponowne uruchamianie wystąpienia obliczeniowego.  Płatność za wystąpienie jest dokonywana za każdym razem, gdy jest ono uruchomione. Zatrzymaj wystąpienie obliczeniowe, gdy nie jest używane, aby obniżyć koszty. Zatrzymywanie wystąpienia obliczeniowego powoduje jego przydział. Następnie uruchom ją ponownie, gdy będzie potrzebna.
-* Usuń wystąpienie obliczeniowe.
+* Odśwież kartę wystąpień obliczeniowych.
+* Uruchamianie, zatrzymywanie i ponowne uruchamianie wystąpienia obliczeniowego.  Płacisz za wystąpienie zawsze wtedy, gdy jest uruchomione. Zatrzymaj wystąpienie obliczeniowe, gdy nie używasz go w celu obniżenia kosztów. Zatrzymanie wystąpienia obliczeniowego cofnie jego alokację. Następnie uruchom go ponownie, gdy będzie potrzebny.
+* Usuwanie wystąpienia obliczeniowego.
 * Przefiltruj listę wystąpień obliczeniowych, aby wyświetlić tylko te, które zostały utworzone.
 
-Dla każdego wystąpienia obliczeniowego w utworzonym obszarze roboczym (lub który został utworzony przez Ciebie) można:
+Dla każdego wystąpienia obliczeniowego w utworzonym obszarze roboczym (lub utworzonym automatycznie) można:
 
-* Dostęp do Jupyter, JupyterLab, RStudio w wystąpieniu obliczeniowym
-* Użyj protokołu SSH do wystąpienia obliczeniowego. Dostęp SSH jest domyślnie wyłączony, ale można go włączyć podczas tworzenia wystąpienia obliczeniowego. Dostęp SSH odbywa się za pośrednictwem mechanizmu publicznego/prywatnego klucza. Karta przekaże szczegóły dotyczące połączenia SSH, takie jak adres IP, nazwa użytkownika i numer portu.
-* Pobierz szczegóły dotyczące określonego wystąpienia obliczeniowego, takiego jak adres IP i region.
+* Uzyskiwanie dostępu do aplikacji Jupyter, JupyterLab i RStudio w wystąpieniu obliczeniowym
+* SSH do wystąpienia obliczeniowego. Dostęp SSH jest domyślnie wyłączony, ale można go włączyć podczas tworzenia wystąpienia obliczeniowego. Dostęp za pomocą SSH jest za pośrednictwem mechanizmu klucza publicznego/prywatnego. Karta zawiera szczegółowe informacje dotyczące połączenia SSH, takie jak adres IP, nazwa użytkownika i numer portu.
+* Uzyskaj szczegółowe informacje o określonym wystąpieniu obliczeniowym, takie jak adres IP i region.
 
 ---
 
 
-[Usługa Azure RBAC](../role-based-access-control/overview.md) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie miało Logowanie jednokrotne i wszystkie akcje będą korzystać z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
+[Kontrola RBAC platformy Azure](../role-based-access-control/overview.md) umożliwia kontrolowanie, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy w roli współautora i właściciela obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli zostało utworzone w jego imieniu, może uzyskać dostęp do aplikacji Jupyter, JupyterLab i RStudio w tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla jednego użytkownika, który ma dostęp z uprawnieniami administratora i może być terminalem za pośrednictwem programu Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie logować się za pomocą jednego użytkownika, a wszystkie akcje będą używać tożsamości tego użytkownika do kontroli RBAC platformy Azure i przypisania przebiegów eksperymentu. Dostęp do SSH jest kontrolowany za pomocą mechanizmu klucza publicznego/prywatnego.
 
-Te akcje mogą być kontrolowane przez funkcję RBAC platformy Azure:
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*
+Te akcje mogą być kontrolowane przez kontrolę RBAC platformy Azure:
+* *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
+* *Microsoft.MachineLearningServices/workspaces/computes/delete*
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dostęp do terminalu wystąpienia obliczeniowego](how-to-access-terminal.md)
+* [Uzyskiwanie dostępu do terminalu wystąpienia obliczeniowego](how-to-access-terminal.md)
 * [Tworzenie plików i zarządzanie nimi](how-to-manage-files.md)
-* [Prześlij przebieg szkoleniowy](how-to-set-up-training-targets.md)
+* [Przesyłanie uruchomienia trenowania](how-to-set-up-training-targets.md)

@@ -345,7 +345,7 @@
             - name: Łączenie z usługą Azure Storage (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Dostęp danych oparty na tożsamości do magazynu
+            - name: Dostęp do magazynu na podstawie tożsamości
               displayName: 'blob, access, data lake, datastore, managed identity'
               href: how-to-identity-based-data-access.md
             - name: Pobieranie danych z magazynu danych (Python)
@@ -393,7 +393,7 @@
             - name: 'Śledzenie, monitorowanie i analizowanie przebiegów'
               displayName: 'cancel, fail, status, child run'
               href: how-to-track-monitor-analyze-runs.md
-            - name: Dziennik & metryki i pliki dziennika
+            - name: Dziennik & wyświetlić metryki i pliki dziennika
               displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-log-view-metrics.md
             - name: Wizualizacja przebiegów za pomocą narzędzia TensorBoard
@@ -437,9 +437,6 @@
         - name: Używanie zautomatyzowanego uczenia maszynowego z usługą Databricks
           displayName: automl
           href: how-to-configure-databricks-automl-environment.md
-        - name: Używanie miejsc docelowych obliczania zdalnego
-          displayName: automl automated auto ml
-          href: how-to-auto-train-remote.md
         - name: Automatyczne trenowanie modelu prognozy
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -456,7 +453,7 @@
           href: how-to-understand-automated-ml.md
         - name: Korzystanie z modelu ONNX w aplikacji .NET
           href: how-to-use-automl-onnx-model-dotnet.md
-        - name: Rozwiązywanie problemów z zautomatyzowanym mle
+        - name: Rozwiązywanie problemów z zautomatyzowanym uczenia maszynowego
           href: how-to-troubleshoot-auto-ml.md
     - name: Wdrażanie i obsługa modeli
       items:
@@ -622,7 +619,7 @@
       displayName: 'environments, curated environments'
       href: resource-curated-environments.md
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/azure-cli-ml/ml
+      href: /cli/azure/ml
 - name: Zasoby
   items:
     - name: Informacje o wersji

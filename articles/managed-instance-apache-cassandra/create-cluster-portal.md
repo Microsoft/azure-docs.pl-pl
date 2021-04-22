@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra z Azure Portal
+title: Szybki start — tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra na Azure Portal
 description: W tym przewodniku Szybki start pokazano, jak utworzyć wystąpienie zarządzane platformy Azure dla klastra Apache Cassandra przy użyciu Azure Portal.
 author: TheovanKraay
 ms.author: thvankra
@@ -7,14 +7,14 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e42f85bb79dcb1bfe14cacbbfda3576888b841c9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 315b505e9de853fbe4663eacdfe929149dbaa458
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481332"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873149"
 ---
-# <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Szybki start: tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra z Azure Portal (wersja zapoznawcza)
+# <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Szybki start: tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra na Azure Portal (wersja zapoznawcza)
  
 Usługa Azure Managed Instance dla systemu Apache Cassandra zapewnia zautomatyzowane operacje wdrażania i skalowania dla zarządzanych centrów danych Apache Cassandra typu open source, przyspieszając scenariusze hybrydowe i zmniejszając bieżącą konserwację.
 
@@ -37,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
    :::image type="content" source="./media/create-cluster-portal/search-portal.png" alt-text="Wyszukaj wystąpienie zarządzane dla rozwiązania Apache Cassandra." lightbox="./media/create-cluster-portal/search-portal.png" border="true":::
 
-1. Wybierz **przycisk Utwórz wystąpienie zarządzane dla klastra Apache Cassandra.**
+1. Wybierz przycisk Create Managed Instance for Apache Cassandra cluster (Utwórz wystąpienie zarządzane dla klastra **Apache Cassandra).**
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster.png" alt-text="Tworzenie klastra." lightbox="./media/create-cluster-portal/create-cluster.png" border="true":::
 
@@ -79,7 +79,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
    ```
 
    > [!NOTE]
-   > Wartości `assignee` i w poprzednim poleceniu są wartościami stałymi. Wprowadź te wartości dokładnie tak, jak `role` wspomniano w poleceniu . Nie spowoduje to błędów podczas tworzenia klastra. Jeśli podczas wykonywania tego polecenia wystąpią błędy, być może nie masz uprawnień do jego uruchomienia. Skontaktuj się z administratorem, aby uzyskać uprawnienia.
+   > Wartości `assignee` i w poprzednim poleceniu są wartościami stałymi. Wprowadź te wartości dokładnie tak, jak `role` wspomniano w poleceniu . Jeśli tego nie zrobisz, spowoduje to błędy podczas tworzenia klastra. Jeśli podczas wykonywania tego polecenia wystąpią błędy, być może nie masz uprawnień do jego uruchomienia. Skontaktuj się z administratorem, aby uzyskać uprawnienia.
 
 1. Teraz, po zakończeniu pracy z siecią, kliknij pozycję **Przejrzyj i utwórz**  >  **utwórz**
 
@@ -100,7 +100,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="connecting-to-your-cluster"></a>Nawiązywanie połączenia z klastrem
 
-Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra nie tworzy węzłów z publicznymi adresami IP, dlatego aby nawiązać połączenie z nowo utworzonym klastrem Cassandra, należy utworzyć inny zasób w sieci wirtualnej. Może to być aplikacja lub maszyna wirtualna z zainstalowanym narzędziem do zapytań typu open source [języka CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) firmy Apache. Do wdrożenia maszyny [wirtualnej z](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) systemem Ubuntu można użyć szablonu. Po wdrożeniu połącz się z maszyną za pomocą połączenia SSH, a następnie zainstaluj język CQLSH przy użyciu poniższych poleceń:
+Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra nie tworzy węzłów z publicznymi adresami IP, dlatego aby nawiązać połączenie z nowo utworzonym klastrem Cassandra, należy utworzyć inny zasób w sieci wirtualnej. Może to być aplikacja lub maszyna wirtualna z zainstalowanym narzędziem do wykonywania zapytań typu open source [języka CQLSH.](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) Do wdrożenia maszyny [wirtualnej z](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) systemem Ubuntu można użyć szablonu. Po wdrożeniu połącz się z maszyną za pomocą połączenia SSH, a następnie zainstaluj język CQLSH przy użyciu poniższych poleceń:
 
 ```bash
 # Install default-jre and default-jdk

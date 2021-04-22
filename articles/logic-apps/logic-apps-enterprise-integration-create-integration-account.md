@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/04/2020
-ms.openlocfilehash: 9a7a0795a15de52c34b8591c4224c3ca5883445c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ae5ca6ac822dabd32b6463c3a742901f32b34323
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772077"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862259"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Tworzenie kont integracji na potrzeby integracji przedsiębiorstw B2B i zarządzanie nimi w usłudze Azure Logic Apps
 
@@ -71,7 +71,7 @@ W tym zadaniu możesz użyć interfejsu wiersza Azure Portal, korzystając z pro
    | **Subskrypcja** | Tak | <*Nazwa subskrypcji platformy Azure*> | Nazwa subskrypcji platformy Azure |
    | **Grupa zasobów** | Tak | <*Nazwa grupy zasobów platformy Azure*> | Nazwa grupy zasobów [platformy Azure do organizowania](../azure-resource-manager/management/overview.md) powiązanych zasobów. W tym przykładzie utwórz nową grupę zasobów o nazwie "FabrikamIntegration-RG". |
    | **Warstwa cenowa** | Tak | <*poziom cen*> | Warstwa cenowa konta integracji, którą można później zmienić. W tym przykładzie wybierz pozycję **Bezpłatna.** Więcej informacji można znaleźć w następujących tematach: <p>- [Logic Apps cen](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps i konfiguracja](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps cen](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Lokalizacja** | Tak | <*Region świadczenia usługi Azure*> | Region, w którym mają być przechowywane metadane konta integracji. Wybierz tę samą lokalizację co aplikacja logiki lub utwórz aplikacje logiki w tej samej lokalizacji co konto integracji. W tym przykładzie użyj "Zachodnie stany USA". <p>**Uwaga:** Aby utworzyć konto integracji w środowisku usługi integracji [(ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wybierz to środowisko ISE jako lokalizację. Aby uzyskać więcej informacji, zobacz Create integration accounts in an ISE (Tworzenie kont [integracji w programie ISE).](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment) |
+   | **Lokalizacja** | Tak | <*Region świadczenia usługi Azure*> | Region, w którym mają być przechowywane metadane konta integracji. Wybierz tę samą lokalizację co aplikacja logiki lub utwórz aplikacje logiki w tej samej lokalizacji co konto integracji. W tym przykładzie użyj "Zachodnie stany USA". <p>**Uwaga:** Aby utworzyć konto integracji w środowisku usługi integracji [(ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wybierz to środowisko ISE jako lokalizację. Aby uzyskać więcej informacji, zobacz [Tworzenie kont integracji w programie ISE.](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment) |
    | **Log Analytics** | Nie | Wyłączone, Wł. | W tym **przykładzie** zachowaj ustawienie Wyłączone. |
    |||||
 
@@ -93,7 +93,7 @@ Konto integracji można utworzyć przy użyciu poleceń interfejsu wiersza polec
 
 Użyj tych poleceń, aby utworzyć konto integracji.
 
-1. Aby dodać [rozszerzenie az logic integration-account,](/cli/azure/ext/logic/logic/integration-account) użyj polecenia az extension [add:](/cli/azure/extension#az_extension_add)
+1. Aby dodać [rozszerzenie az logic integration-account,](/cli/azure/logic/integration-account) użyj polecenia az extension [add:](/cli/azure/extension#az_extension_add)
 
    ```azurecli
    az extension add –-name logic
@@ -105,13 +105,13 @@ Użyj tych poleceń, aby utworzyć konto integracji.
    az group create --name myresourcegroup --location westus
    ```
 
-   Aby wyświetlić listę kont integracji dla grupy zasobów, użyj [polecenia az logic integration-account list:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_list)
+   Aby wyświetlić listę kont integracji dla grupy zasobów, użyj [polecenia az logic integration-account list:](/cli/azure/logic/integration-account#az_logic_integration_account_list)
 
    ```azurecli
    az logic integration-account list --resource-group myresourcegroup
    ```
 
-1. Aby utworzyć konto integracji, uruchom [polecenie az logic integration-account create:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create)
+1. Aby utworzyć konto integracji, uruchom [polecenie az logic integration-account create:](/cli/azure/logic/integration-account#az_logic_integration_account_create)
 
    ```azurecli
    az logic integration-account create --resource-group myresourcegroup \
@@ -123,13 +123,13 @@ Użyj tych poleceń, aby utworzyć konto integracji.
    > [!TIP]
    > Aby utworzyć konto integracji w środowisku usługi integracji [(ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wybierz to środowisko ISE jako lokalizację. Aby uzyskać więcej informacji, zobacz Create integration accounts in an ISE (Tworzenie kont [integracji w programie ISE).](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)
 
-   Aby wyświetlić określone konto integracji, użyj [polecenia az logic integration-account show:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_show)
+   Aby wyświetlić określone konto integracji, użyj [polecenia az logic integration-account show:](/cli/azure/logic/integration-account#az_logic_integration_account_show)
 
    ```azurecli
    az logic integration-account show --name integration_account_01 --resource-group myresourcegroup
    ```
 
-   Możesz zmienić swoją sku lub warstwę cenową za pomocą [polecenia az logic integration-account update:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_update)
+   Możesz zmienić swoją sku lub warstwę cenową za pomocą [polecenia az logic integration-account update:](/cli/azure/logic/integration-account#az_logic_integration_account_update)
 
    ```azurecli
    az logic integration-account update --sku name=Basic --name integration_account_01 \
@@ -142,20 +142,20 @@ Użyj tych poleceń, aby utworzyć konto integracji.
    * [Logic Apps i konfiguracja](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
    * [Logic Apps cen](https://azure.microsoft.com/pricing/details/logic-apps/)
 
-Aby zaimportować konto integracji przy użyciu pliku JSON, użyj [polecenia az logic integration-account import:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_import)
+Aby zaimportować konto integracji przy użyciu pliku JSON, użyj [polecenia az logic integration-account import:](/cli/azure/logic/integration-account#az_logic_integration_account_import)
 
 ```azurecli
 az logic integration-account import --name integration_account_01 \
     --resource-group myresourcegroup --input-path integration.json
 ```
 
-Konto integracji można usunąć za pomocą [polecenia az logic integration-account delete:](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_delete)
+Konto integracji można usunąć za pomocą [polecenia az logic integration-account delete:](/cli/azure/logic/integration-account#az_logic_integration_account_delete)
 
 ```azurecli
 az logic integration-account delete --name integration_account_01 --resource-group myresourcegroup
 ```
 
-Zanim aplikacja logiki będzie korzystać z konta integracji, połącz konto integracji i aplikację logiki. W następnej sekcji opisano łączenie.
+Aby aplikacja logiki może korzystać z twojego konta integracji, połącz konto integracji i aplikację logiki. W następnej sekcji opisano łączenie.
 
 ---
 <a name="link-account"></a>
@@ -249,7 +249,7 @@ Aby wprowadzić tę zmianę, użyj interfejsu wiersza [polecenia platformy Azure
 
    ![Otwieranie usługi Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. W wierszu polecenia wprowadź [ **polecenie az resource** i](/cli/azure/resource#az_resource_update) ustaw niższą `skuName` warstwę, której potrzebujesz.
+1. W wierszu polecenia wprowadź [ **polecenie az resource**](/cli/azure/resource#az_resource_update) i ustaw niższą warstwę, której `skuName` potrzebujesz.
 
    ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>

@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3dd971ff36bde02072d14c465dbafec2823b256d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 63c7fe703a1fbf4cb46532085a33efd74e6a76ef
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780321"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875381"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Szybki start: tworzenie serwera Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!TIP]
-> Rozważ użycie prostszego [polecenia az mysql up interfejsu](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) wiersza polecenia platformy Azure (obecnie w wersji zapoznawczej). Wypróbuj przewodnik [Szybki start.](./quickstart-create-server-up-azure-cli.md)
+> Rozważ użycie prostszego [polecenia az mysql up interfejsu](/cli/azure/mysql#az_mysql_up) wiersza polecenia platformy Azure (obecnie w wersji zapoznawczej). Wypróbuj przewodnik [Szybki start.](./quickstart-create-server-up-azure-cli.md)
 
 W tym przewodniku Szybki start pokazano, jak za pomocą poleceń interfejsu wiersza polecenia platformy [Azure](/cli/azure/get-started-with-azure-cli) Azure Cloud Shell [utworzyć](https://shell.azure.com) serwer Azure Database for MySQL w ciągu pięciu minut. 
 
@@ -64,9 +64,9 @@ sku-name|GP_Gen5_2|Wprowadź nazwę warstwy cenowej i konfiguracji obliczeniowej
 >- Protokół SSL jest domyślnie włączony na serwerze . Aby uzyskać więcej informacji o infrastrukturze protokołu SSL, zobacz [Konfigurowanie łączności SSL](howto-configure-ssl.md)
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurowanie reguły zapory na poziomie serwera 
-Domyślnie nowy utworzony serwer jest chroniony za pomocą reguł zapory i nie jest dostępny publicznie. Regułę zapory można skonfigurować na serwerze za pomocą polecenia [az mysql server firewall-rule create.](/cli/azure/mysql/server/firewall-rule) Umożliwi to połączenie z serwerem lokalnie.
+Domyślnie nowy utworzony serwer jest chroniony za pomocą reguł zapory i nie jest dostępny publicznie. Regułę zapory można skonfigurować na serwerze za pomocą [polecenia az mysql server firewall-rule create.](/cli/azure/mysql/server/firewall-rule) Umożliwi to połączenie z serwerem lokalnie.
 
-Poniższy przykład powoduje utworzenie reguły zapory o nazwie `AllowMyIP`, która zezwala na połączenia z określonego adresu IP – 192.168.0.1. Zastąp adres IP, z którego będziesz nawiązywać połączenie. W razie potrzeby można użyć zakresu adresów IP. Nie wiem, jak poszukać adresu IP, a następnie przejdź do strony , [https://whatismyipaddress.com/](https://whatismyipaddress.com/) aby uzyskać adres IP.
+Poniższy przykład powoduje utworzenie reguły zapory o nazwie `AllowMyIP`, która zezwala na połączenia z określonego adresu IP – 192.168.0.1. Zastąp adres IP, z którego będzie nawiązywane połączenie. W razie potrzeby można użyć zakresu adresów IP. Nie wiem, jak poszukać adresu IP, a następnie przejdź do adresu , [https://whatismyipaddress.com/](https://whatismyipaddress.com/) aby uzyskać swój adres IP.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -114,7 +114,7 @@ Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **a
 ```
 
 ## <a name="connect-to-azure-database-for-mysql-server-using-mysql-command-line-client"></a>Nawiązywanie połączenia Azure Database for MySQL serwerem przy użyciu klienta wiersza polecenia mysql
-Połączenie z serwerem można nawiązać za pomocą popularnego narzędzia klienckiego, **[mysql.exe](https://dev.mysql.com/downloads/)** wiersza polecenia za pomocą [Azure Cloud Shell](../cloud-shell/overview.md). Alternatywnie możesz użyć wiersza polecenia mysql w środowisku lokalnym.
+Połączenie z serwerem można nawiązać za pomocą popularnego narzędzia **[ klienckiego](https://dev.mysql.com/downloads/)** mysql.exewiersza polecenia za pomocą [Azure Cloud Shell](../cloud-shell/overview.md). Alternatywnie możesz użyć wiersza polecenia mysql w środowisku lokalnym.
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```

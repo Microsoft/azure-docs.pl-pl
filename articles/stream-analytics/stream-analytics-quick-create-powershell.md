@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell
+title: Szybki start — tworzenie zadania Stream Analytics pomocą Azure PowerShell
 description: W tym przewodniku Szybki start przedstawiono sposób korzystania z modułu Azure PowerShell w celu wdrożenia i uruchomienia zadania usługi Azure Stream Analytics.
 author: enkrumah
 ms.author: ebnkruma
@@ -7,14 +7,14 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 377abef31dbc4364f37161194923bbf74d272d80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 193c8b1f47960b9b42c61a9b0e394e5ebedf7bf7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98012295"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867587"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Szybki start: tworzenie zadania Stream Analytics pomocą Azure PowerShell
 
 Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą poleceń cmdlet programu PowerShell lub skryptów. W tym przewodniku Szybki start zawarto szczegółowe instrukcje korzystania z modułu Azure PowerShell w celu wdrożenia i uruchomienia zadania usługi Azure Stream Analytics.
 
@@ -24,11 +24,11 @@ Przykładowe zadanie odczytuje dane przesyłane strumieniowo z urządzenia usłu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto.](https://azure.microsoft.com/free/)
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto.](https://azure.microsoft.com/free/)
 
 * Dla tego przewodnika Szybki start jest wymagany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby znaleźć wersję zainstalowaną na komputerze lokalnym. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 
-* Niektóre IoT Hub akcje nie są obsługiwane przez Azure PowerShell i muszą zostać ukończone przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i użyj polecenia `az extension add --name azure-iot`, aby zainstalować rozszerzenie IoT.
+* Niektóre IoT Hub nie są obsługiwane przez usługę Azure PowerShell i muszą zostać wykonane przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i użyj polecenia `az extension add --name azure-iot`, aby zainstalować rozszerzenie IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -96,7 +96,7 @@ Poniższy blok kodu interfejsu wiersza polecenia platformy Azure wykonuje wiele 
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. Pobierz parametry połączenia tego urządzenia za pomocą polecenia [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string). Skopiuj całe parametry połączenia i zapisz je, ponieważ będą używane podczas tworzenia symulatora urządzenia Raspberry Pi.
+4. Pobierz parametry połączenia tego urządzenia za pomocą polecenia [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show_connection_string). Skopiuj całe parametry połączenia i zapisz je, ponieważ będą używane podczas tworzenia symulatora urządzenia Raspberry Pi.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table

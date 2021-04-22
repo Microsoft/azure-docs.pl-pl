@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: korzystanie z usługi Azure Storage v11 dla platformy .NET do zarządzania kolejką'
+title: 'Szybki start: zarządzanie kolejką przy użyciu usługi Azure Storage w wersji 11 dla platformy .NET'
 description: Z tego przewodnika Szybki start dowiesz się, jak używać biblioteki klienta usługi Azure Storage dla platformy .NET do tworzenia kolejki i dodawania do niej komunikatów. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki.
 author: twooley
 ms.author: twooley
@@ -9,19 +9,19 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ab1c487095fe1587a3c665d8a06e0d5cbab7e0
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: df2f3593f904c5c6c6c9af0ae635a2e152f9eb82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275893"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871079"
 ---
-# <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Szybki Start: korzystanie z usługi Azure Storage SDK v11 for .NET do zarządzania kolejką
+# <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Szybki start: zarządzanie kolejką przy użyciu zestawu Sdk usługi Azure Storage w wersji 11 dla platformy .NET
 
-W tym przewodniku szybki start dowiesz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki klienta usługi Azure Storage v11 dla platformy .NET. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki.
+Z tego przewodnika Szybki start dowiesz się, jak za pomocą biblioteki klienta usługi Azure Storage w wersji 11 dla platformy .NET utworzyć kolejkę i dodać do niego komunikaty. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki.
 
 > [!NOTE]
-> Ten przewodnik Szybki Start używa starszej wersji biblioteki klienta Queue Storage platformy Azure. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Azure queue storage Client Library V12 for .NET](storage-quickstart-queues-dotnet.md).
+> W tym przewodniku Szybki start jest używana starsza wersja Azure Queue Storage klienta. Aby rozpocząć pracę z najnowszą wersją, zobacz Szybki start: Azure Queue Storage klienta w wersji [12 dla programu .NET.](storage-quickstart-queues-dotnet.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,32 +31,32 @@ Następnie pobierz i zainstaluj program .NET Core 2.0 dla swojego systemu operac
 
 ### <a name="windows"></a>Windows
 
-- Zainstaluj program[.NET Core dla systemu Windows](https://www.microsoft.com/net/download/windows) lub program [.NET Framework](https://www.microsoft.com/net/download/windows) (dołączony do programu Visual Studio dla systemu Windows)
+- Zainstaluj [zestaw .NET Core SDK dla systemu Windows](https://dotnet.microsoft.com/download) lub .NET Framework (dołączone do Visual Studio dla systemu Windows) [](https://dotnet.microsoft.com/download/dotnet-framework)
 - Zainstaluj program [Visual Studio dla systemu Windows](https://www.visualstudio.com/). Jeśli używasz programu .NET Core, instalacja programu Visual Studio jest opcjonalna.
 
 Aby uzyskać informacje dotyczące wyboru między programem.NET Core i programem.NET Framework, zobacz [Choose between .NET Core and .NET Framework for server apps (Wybieranie między programami .NET Core i .NET Framework w przypadku aplikacji serwera)](/dotnet/standard/choosing-core-framework-server).
 
 ### <a name="linux"></a>Linux
 
-- Zainstaluj program [.NET Core dla systemu Linux](https://www.microsoft.com/net/download/linux)
+- Instalowanie [zestaw .NET Core SDK dla systemu Linux](/dotnet/core/install/linux)
 - Opcjonalnie zainstaluj program [Visual Studio Code](https://www.visualstudio.com/) i [rozszerzenie języka C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### <a name="macos"></a>macOS
 
-- Zainstaluj program [.NET Core dla systemu macOS](https://www.microsoft.com/net/download/macos)
+- Zainstaluj [zestaw .NET Core SDK dla systemu macOS.](https://dotnet.microsoft.com/download)
 - Opcjonalnie zainstaluj program [Visual Studio dla komputerów Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 
 Przykładowa aplikacja używana w tym przewodniku Szybki start to podstawowa aplikacja konsoli. Przykładową aplikację można eksplorować w serwisie [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Użyj [narzędzia Git](https://git-scm.com/) , aby pobrać kopię aplikacji do środowiska deweloperskiego.
+Użyj [narzędzia Git,](https://git-scm.com/) aby pobrać kopię aplikacji do środowiska projektowego.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-To polecenie klonuje repozytorium do lokalnego folderu git. Aby otworzyć rozwiązanie Visual Studio, poszukaj `storage-queues-dotnet-quickstart` folderu, otwórz go i kliknij dwukrotnie `storage-queues-dotnet-quickstart.sln` .
+To polecenie klonuje repozytorium do lokalnego folderu Git. Aby otworzyć Visual Studio, odszukaj folder, otwórz `storage-queues-dotnet-quickstart` go, a następnie kliknij dwukrotnie pozycję `storage-queues-dotnet-quickstart.sln` .
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -98,7 +98,7 @@ Przykładowa aplikacja tworzy kolejkę i dodaje do niej komunikat. Aplikacja naj
 
 ### <a name="windows"></a>Windows
 
-Jeśli używasz programu Visual Studio jako edytora, możesz nacisnąć klawisz, `F5` Aby uruchomić.
+Jeśli używasz narzędzia Visual Studio jako edytora, możesz nacisnąć klawisz `F5` , aby uruchomić.
 
 W pozostałych przypadkach przejdź do katalogu aplikacji, a następnie uruchom aplikację za pomocą polecenia `dotnet run`.
 
@@ -148,7 +148,7 @@ Następnie omówimy przykładowy kod, aby wyjaśnić, w jaki sposób działa.
 
 ### <a name="try-parsing-the-connection-string"></a>Próba analizowania parametrów połączenia
 
-Przykład najpierw sprawdza, czy zmienna środowiskowa zawiera parametry połączenia, które mogą być analizowane w celu utworzenia [`CloudStorageAccount`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) obiektu wskazującego na konto magazynu. Aby sprawdzić, czy parametry połączenia są prawidłowe, przykład używa [`TryParse`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) metody. Jeśli `TryParse` się powiedzie, inicjuje `storageAccount` zmienną i zwraca `true` .
+Przykład najpierw sprawdza, czy zmienna środowiskowa zawiera ciąg połączenia, które mogą być analizowane w celu utworzenia [`CloudStorageAccount`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) obiektu, który wskaże konto magazynu. Aby sprawdzić, czy ciąg połączenia jest prawidłowy, w przykładzie użyto [`TryParse`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) metody . Jeśli `TryParse` to się powiedzie, inicjuje `storageAccount` zmienną i zwraca wartość `true` .
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -190,9 +190,9 @@ Console.WriteLine();
 
 Następnie przykładowy kod dodaje komunikat na końcu kolejki.
 
-Wiadomość musi być w formacie, który można uwzględnić w żądaniu XML z kodowaniem UTF-8, a jego maksymalny rozmiar może wynosić maksymalnie 64 KB. Jeśli komunikat zawiera dane binarne, zalecamy kodowanie Base64 wiadomości.
+Wiadomość musi być w formacie, który można uwzględnić w żądaniu XML z kodowaniem UTF-8, a jego maksymalny rozmiar może wynosić maksymalnie 64 KB. Jeśli komunikat zawiera dane binarne, zalecamy zakodowanie komunikatu w formacie Base64.
 
-Domyślnie maksymalny czas wygaśnięcia komunikatu wynosi 7 dni. Można określić dowolną liczbę dodatnią dla komunikatu czas wygaśnięcia.
+Domyślnie maksymalny czas wygaśnięcia komunikatu wynosi 7 dni. Możesz określić dowolną liczbę dodatnią czasu transmisji wiadomości.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -204,7 +204,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-Aby dodać komunikat, który nie wygasa, użyj `Timespan.FromSeconds(-1)` w wywołaniu metody [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) .
+Aby dodać komunikat, który nie wygasa, użyj w `Timespan.FromSeconds(-1)` wywołaniu funkcji [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) .
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -262,25 +262,25 @@ if (queue != null)
 
 ## <a name="resources-for-developing-net-applications-with-queues"></a>Zasoby używane do tworzenia aplikacji .NET z kolejkami
 
-Zapoznaj się z tymi dodatkowymi zasobami na potrzeby programowania .NET za pomocą usługi Azure Queue Storage:
+Zapoznaj się z tymi dodatkowymi zasobami na temat tworzenia aplikacji na platformie .NET przy użyciu Azure Queue Storage:
 
 ### <a name="binaries-and-source-code"></a>Pliki binarne i kod źródłowy
 
-- Pobierz pakiety NuGet dla najnowszej wersji [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
+- Pobierz pakiety NuGet dla najnowszej wersji biblioteki klienta [usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
   - [Wspólne](https://www.nuget.org/packages/microsoft.azure.storage.common/)
   - [Kolejki](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Wyświetl [kod źródłowy biblioteki klienta .NET](https://github.com/Azure/azure-storage-net) w usłudze GitHub.
 
-### <a name="azure-storage-client-library-reference-and-samples"></a>Dokumentacja biblioteki klienta usługi Azure Storage i przykłady
+### <a name="azure-storage-client-library-reference-and-samples"></a>Przykłady i odwołanie do biblioteki klienta usługi Azure Storage
 
-- Aby uzyskać więcej informacji na temat bibliotek klienckich platformy .NET, zobacz [Dokumentacja biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage) .
-- Eksploruj [queue storage przykładów](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) pisanych przy użyciu biblioteki klienckiej .NET.
+- Aby uzyskać więcej informacji na temat bibliotek klienckich platformy .NET, zobacz biblioteki klienta usługi Azure Storage dla [platformy .NET.](/dotnet/api/overview/azure/storage)
+- Zapoznaj [Queue Storage przykładami napisanymi](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) przy użyciu biblioteki klienta .NET.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start przedstawiono sposób dodawania komunikatów do kolejki, uzyskiwania wglądu w komunikaty w kolejce oraz usuwania komunikatów z kolejki i przetwarzania ich przy użyciu platformy .NET.
 
 > [!div class="nextstepaction"]
-> [Komunikacja między aplikacjami przy użyciu usługi Azure Queue Storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Komunikacja między aplikacjami za pomocą Azure Queue Storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
-- Aby dowiedzieć się więcej na temat platformy .NET Core, zobacz [Get started with .NET in 10 minutes (Rozpoczynanie pracy z platformą .NET w 10 minut)](https://www.microsoft.com/net/learn/get-started/).
+- Aby dowiedzieć się więcej na temat platformy .NET Core, zobacz [Get started with .NET in 10 minutes (Rozpoczynanie pracy z platformą .NET w 10 minut)](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).

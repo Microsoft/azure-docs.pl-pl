@@ -480,13 +480,13 @@
           href: transform-data-databricks-notebook.md
         - name: Działanie języka Python w ucieku Databricks
           href: transform-data-databricks-python.md
-        - name: Eksplorator danych Działania polecenia
+        - name: Eksplorator danych działania polecenia
           href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
         - name: Działanie języka U-SQL usługi Data Lake
           href: transform-data-using-data-lake-analytics.md
         - name: Działanie technologii Hive w umacie HDInsight
           href: transform-data-using-hadoop-hive.md
-        - name: Działanie mapReduce w umacie HDInsight
+        - name: Działanie MapReduce w umacie HDInsight
           href: transform-data-using-hadoop-map-reduce.md
         - name: Działanie technologii Pig w umacie HDInsight
           href: transform-data-using-hadoop-pig.md
@@ -514,15 +514,15 @@
           href: control-flow-filter-activity.md
         - name: Dla każdego działania
           href: control-flow-for-each-activity.md
-        - name: Działanie Get Metadata (Pobierz metadane)
+        - name: Działanie Get Metadata
           href: control-flow-get-metadata-activity.md
         - name: działanie Warunek „jeśli”
           href: control-flow-if-condition-activity.md
         - name: Działanie Lookup
           href: control-flow-lookup-activity.md
-        - name: Działanie Ustaw zmienną
+        - name: Ustawianie działania zmiennej
           href: control-flow-set-variable-activity.md
-        - name: Działanie przełączania
+        - name: Działanie przełącznika
           href: control-flow-switch-activity.md
         - name: działanie Dopóki
           href: control-flow-until-activity.md
@@ -708,7 +708,7 @@
           href: tumbling-window-trigger-dependency.md
         - name: Tworzenie wyzwalacza zdarzenia magazynu
           href: how-to-create-event-trigger.md
-        - name: Tworzenie niestandardowego wyzwalacza zdarzeń
+        - name: Tworzenie niestandardowego wyzwalacza zdarzenia
           href: how-to-create-custom-event-trigger.md
         - name: Odwołania do metadanych wyzwalacza w potoku
           href: how-to-use-trigger-parameterization.md
@@ -716,7 +716,7 @@
       items:
         - name: Łączenie usługi Data Factory z usługą Azure Purview
           href: connect-data-factory-to-azure-purview.md
-        - name: Odnajdywanie i eksplorowanie danych w u usługach ADF przy użyciu programu Purview
+        - name: Odnajdywanie i eksplorowanie danych w u usługi ADF przy użyciu programu Purview
           href: how-to-discover-explore-purview-data.md
     - name: Scenariusze
       items:
@@ -827,7 +827,7 @@
     - name: Elementy wbudowane usługi Azure Policy
       href: policy-reference.md
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/datafactory/datafactory
+      href: /cli/azure/datafactory
 - name: Zasoby
   items:
     - name: Oficjalne dokumenty

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: b2419c9d1fe32390afcd81b77d1cf32900b9fe8a
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ea22e6a3afe8ee90cb7b59d1aca0a37fc4fa03d6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836217"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864923"
 ---
 # <a name="get-supported-glossary-formats"></a>Uzyskiwanie obsługiwanych formatów słownika
 
@@ -60,7 +60,7 @@ Typ podstawowy zwracanych list w interfejsie API Pobierz obsługiwane formaty s�
 
 ### <a name="successful-get-supported-glossary-formats-response"></a>Pomyślna odpowiedź na pytanie o obsługiwane formaty słownika
 
-Typ podstawowy zwracany przez listę w interfejsie API Pobierz obsługiwane formaty słownika.
+Typ podstawowy zwracanych list w interfejsie API Pobierz obsługiwane formaty słownika.
 
 |Kod stanu|Opis|
 |--- |--- |
@@ -116,7 +116,7 @@ Poniżej przedstawiono przykład pomyślnej odpowiedzi.
 }
 ```
 
-### <a name="example-error-response"></a>Przykładowa odpowiedź o błędzie
+### <a name="example-error-response"></a>Przykładowa odpowiedź z błędem
 Poniżej przedstawiono przykład odpowiedzi z błędem. Schemat innych kodów błędów jest taki sam.
 
 Kod stanu: 500

@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 2d94640e1c6a037893fb1ad9198b82195c46dd24
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: da099aa75168e52d0024f4a4381c77b3e9ce67ab
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768129"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876656"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Szybki start: tworzenie nowego Azure Blockchain Service łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -46,7 +46,7 @@ Jeśli wolisz zainstalować interfejs wiersza polecenia i używać go lokalnie, 
 
     Aby pracować z odwołaniami do rozszerzenia dla interfejsu wiersza polecenia platformy Azure, należy najpierw zainstalować rozszerzenie.  Rozszerzenia interfejsu wiersza polecenia platformy Azure dają dostęp do poleceń eksperymentalnych i w wersji wstępnej, które nie zostały jeszcze dostarczone jako część podstawowego interfejsu wiersza polecenia.  Aby dowiedzieć się więcej na temat rozszerzeń, w tym aktualizacji i odinstalowywania, zobacz [Używanie rozszerzeń z interfejsem wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
 
-    Zainstaluj [rozszerzenie dla Azure Blockchain Service,](/cli/azure/ext/blockchain/blockchain) uruchamiając następujące polecenie:
+    Zainstaluj [rozszerzenie dla Azure Blockchain Service,](/cli/azure/blockchain) uruchamiając następujące polecenie:
 
     ```azurecli-interactive
     az extension add --name blockchain
@@ -87,17 +87,17 @@ az blockchain member create \
 | **grupa zasobów** | Nazwa grupy zasobów, w Azure Blockchain Service zasoby są tworzone. Użyj grupy zasobów utworzonej w poprzedniej sekcji.
 | **Nazwa** | Unikatowa nazwa identyfikująca twój Azure Blockchain Service łańcucha bloków. Nazwa jest używana dla publicznego adresu punktu końcowego. Na przykład `myblockchainmember.blockchain.azure.com`.
 | **Lokalizacji** | Region świadczenia usługi Azure, w którym jest tworzony członek łańcucha bloków. Na przykład `westus2`. Wybierz lokalizację najbliżej użytkowników lub innych aplikacji Azure. Funkcje mogą nie być dostępne w niektórych regionach. Azure Blockchain Data Manager jest dostępna w następujących regionach świadczenia usługi Azure: Wschodnie stany USA i Europa Zachodnia.
-| **hasło** | Hasło domyślnego węzła transakcji członka. Użyj hasła do uwierzytelniania podstawowego podczas nawiązywania połączenia z domyślnym publicznym punktem końcowym węzła transakcji członka łańcucha bloków.
+| **hasło** | Hasło domyślnego węzła transakcji członka. Użyj hasła do uwierzytelniania podstawowego podczas nawiązywania połączenia z domyślnym publicznym punktem końcowym węzła transakcji węzła łańcucha bloków.
 | **Protokół** | Protokół łańcucha bloków. Obecnie obsługiwany *jest* protokół kworum.
-| **Konsorcjum** | Nazwa konsorcjum, które ma dołączyć lub utworzyć. Aby uzyskać więcej informacji na temat consortia, zobacz [Azure Blockchain Service consortium](consortium.md).
-| **consortium-management-account-password** | Hasło do konta konsorcjum jest również nazywane hasłem konta członkowskiego. Hasło konta członkowskiego jest używane do szyfrowania klucza prywatnego dla konta Ethereum utworzonego dla członka. Do zarządzania konsorcjum należy użyć konta członkowskiego i hasła do konta członka.
-| **Numer jednostki magazynowej** | Typ warstwy. *Standardowa* lub *Podstawowa.* Użyj warstwy *Podstawowa* do tworzenia, testowania i weryfikacji koncepcji. Użyj warstwy *Standardowa* dla wdrożeń klasy produkcyjnej. Użyj również warstwy *Standardowa,* jeśli używasz Blockchain Data Manager lub wysyłasz dużą ilość transakcji prywatnych. Zmiana warstwy cenowej między podstawową i standardową po utworzeniu członków nie jest obsługiwana.
+| **Konsorcjum** | Nazwa konsorcjum, które ma dołączyć lub utworzyć. Aby uzyskać więcej informacji na temat konsorcjum, zobacz [Azure Blockchain Service consortium](consortium.md).
+| **consortium-management-account-password** | Hasło do konta konsorcjum jest również nazywane hasłem konta członkowskiego. Hasło konta członkowskiego jest używane do szyfrowania klucza prywatnego dla konta Ethereum utworzonego dla członka. Do zarządzania konsorcjum używa się konta członkowskiego i hasła konta członkowskiego.
+| **Numer jednostki magazynowej** | Typ warstwy. *Standardowa* *lub Podstawowa.* Użyj warstwy *Podstawowa* do tworzenia, testowania i weryfikacji koncepcji. Użyj warstwy *Standardowa* dla wdrożeń klasy produkcyjnej. Użyj również warstwy *Standardowa,* jeśli używasz Blockchain Data Manager lub wysyłasz dużą ilość transakcji prywatnych. Zmiana warstwy cenowej między podstawową i standardową po utworzeniu członka nie jest obsługiwana.
 
 Utworzenie członka łańcucha bloków i zasobów obsługi trwa około 10 minut.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz użyć członka łańcucha bloków utworzonego w następnym przewodniku Szybki start lub samouczku. Gdy zasoby nie będą już potrzebne, możesz je usunąć, usuwając `myResourceGroup` grupę zasobów utworzoną na potrzeby przewodnika Szybki start.
+Możesz użyć członka łańcucha bloków utworzonego w następnym przewodniku Szybki start lub samouczku. Gdy zasoby nie będą już potrzebne, możesz je usunąć, usuwając `myResourceGroup` grupę zasobów utworzoną na potrzeby tego przewodnika Szybki start.
 
 Uruchom następujące polecenie, aby usunąć grupę zasobów i wszystkie powiązane zasoby.
 
@@ -109,7 +109,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wdrożono Azure Blockchain Service i nowe konsorcjum. Wypróbuj następny przewodnik Szybki start, aby użyć Azure Blockchain Development Kit for Ethereum w celu dołączenia do Azure Blockchain Service członkowskiego.
+W tym przewodniku Szybki start wdrożono członka Azure Blockchain Service i nowego konsorcjum. Wypróbuj następny przewodnik Szybki start, aby użyć Azure Blockchain Development Kit for Ethereum w celu dołączenia do Azure Blockchain Service członkowskiego.
 
 > [!div class="nextstepaction"]
-> [Nawiązywanie połączenia Visual Studio Code za pomocą Azure Blockchain Service](connect-vscode.md)
+> [Nawiązywanie Visual Studio Code z Azure Blockchain Service](connect-vscode.md)

@@ -1,7 +1,7 @@
 ---
-title: Obrazy tagów w projekcie etykietowania
+title: Tagowanie obrazów w projekcie etykietowania
 title.suffix: Azure Machine Learning
-description: Dowiedz się, jak za pomocą narzędzi do tagowania danych szybko przygotować dane dla Machine Learning w Azure Machine Learning projekcie etykietowania.
+description: Dowiedz się, jak używać narzędzi do tagowania danych, aby szybko przygotować dane do Machine Learning w projekcie Azure Machine Learning etykietowania.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8f1d648c38760865752c87624dfcb112933650c7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096969"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872627"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
+# <a name="tag-images-in-a-labeling-project"></a>Tagowanie obrazów w projekcie etykietowania 
 
-Gdy administrator projektu [tworzy projekt etykietowania danych](./how-to-create-labeling-projects.md#create-a-data-labeling-project) w Azure Machine Learning, można użyć narzędzia do etykietowania, aby szybko przygotować dane dla projektu Machine Learning. W tym artykule opisano:
+Gdy administrator projektu utworzy [projekt etykietowania](./how-to-create-labeling-projects.md#create-a-data-labeling-project) danych w Azure Machine Learning, możesz użyć narzędzia do etykietowania, aby szybko przygotować dane do Machine Learning projektu. W tym artykule opisano:
 
 > [!div class="checklist"]
 > * Jak uzyskać dostęp do projektów etykietowania
@@ -27,140 +27,135 @@ Gdy administrator projektu [tworzy projekt etykietowania danych](./how-to-create
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Konto Microsoft](https://account.microsoft.com/account) lub konto Azure Active Directory dla organizacji i projektu
-* Dostęp na poziomie współautor do obszaru roboczego, który zawiera projekt etykietowania.
+* Konto [konto Microsoft](https://account.microsoft.com/account) lub Azure Active Directory dla organizacji i projektu
+* Dostęp na poziomie współautora do obszaru roboczego zawierającego projekt etykietowania.
 
 ## <a name="sign-in-to-the-workspace"></a>Logowanie do obszaru roboczego
 
-1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com).
+1. Zaloguj się do [Azure Machine Learning studio](https://ml.azure.com).
 
-1. Wybierz subskrypcję i obszar roboczy, który zawiera projekt etykietowania.  Pobierz te informacje z administratora projektu.
+1. Wybierz subskrypcję i obszar roboczy, który zawiera projekt etykietowania.  Uzyskaj te informacje od administratora projektu.
 
-1. Wybierz pozycję **dane z etykietami** po lewej stronie, aby znaleźć projekt.  
+1. Wybierz **pozycję Etykiety** danych po lewej stronie, aby znaleźć projekt.  
 
-## <a name="understand-the-labeling-task"></a>Zrozumienie zadania etykietowania
+## <a name="understand-the-labeling-task"></a>Opis zadania etykietowania
 
-W tabeli z etykietami danych wybierz **łącze etykieta** dla projektu.
+W tabeli projektów etykietowania danych wybierz **link Etykieta** dla projektu.
 
-Zobaczysz instrukcje, które są specyficzne dla Twojego projektu. Wyjaśniają one typ danych, na które się znajdują, jak należy podjąć decyzje i inne istotne informacje. Po odczytaniu tych informacji w górnej części strony wybierz pozycję **zadania**.  Lub w dolnej części strony wybierz pozycję **Rozpocznij etykietowanie**.
+Zostaną wyświetlony instrukcje specyficzne dla projektu. Wyjaśniają one typy danych, z którymi masz do czynienia, sposób podejmowania decyzji i inne istotne informacje. Po przeczytaniu tych informacji w górnej części strony wybierz pozycję **Zadania**.  Lub w dolnej części strony wybierz pozycję **Rozpocznij etykietowanie**.
 
 ## <a name="common-features-of-the-labeling-task"></a>Typowe funkcje zadania etykietowania
 
-We wszystkich zadaniach etykietowania obrazów należy wybrać odpowiedni tag lub Tagi z zestawu, który jest określony przez administratora projektu. Można wybrać pierwsze dziewięć tagów przy użyciu klawiszy liczbowych na klawiaturze.  
+We wszystkich zadaniach etykietowania obrazów należy wybrać odpowiedni tag lub tagi z zestawu określonego przez administratora projektu. Pierwsze dziewięć tagów można wybrać przy użyciu klawiszy liczbowych na klawiaturze.  
 
-W zadaniach klasyfikacji obrazów można wybrać opcję wyświetlania wielu obrazów jednocześnie. Użyj ikon powyżej obszaru obrazu, aby wybrać układ. 
+W zadaniach klasyfikacji obrazów można wybrać jednoczesne wyświetlanie wielu obrazów. Użyj ikon powyżej obszaru obrazu, aby wybrać układ. 
 
-Aby jednocześnie zaznaczyć wszystkie wyświetlane obrazy, użyj **opcji Zaznacz wszystko**. Aby zaznaczyć poszczególne obrazy, użyj przycisku zaznaczania cyklicznego w prawym górnym rogu obrazu. Musisz wybrać co najmniej jeden obraz, aby zastosować tag. W przypadku wybrania wielu obrazów każdy wybrany tag zostanie zastosowany do wszystkich zaznaczonych obrazów.
+Aby wybrać wszystkie wyświetlane obrazy jednocześnie, użyj **opcji Zaznacz wszystkie**. Aby wybrać poszczególne obrazy, użyj cyklicznego przycisku wyboru w prawym górnym rogu obrazu. Aby zastosować tag, musisz wybrać co najmniej jeden obraz. W przypadku wybrania wielu obrazów każdy wybrany tag zostanie zastosowany do wszystkich wybranych obrazów.
 
-W tym miejscu wybieramy układ dwóch przez dwa i zamierzamy zastosować tag "ssak" do obrazów obrazu i programu Orca. Obraz rekina został już oznaczony jako "Cartilaginous ryba", a Iguana nie został jeszcze oznaczony.
+W tym miejscu wybraliśmy układ "dwa po dwa" i zajmijmy się zastosowaniem tagu "Chylić" do obrazów niedźwiedzia i orki. Obraz otagowany już jako "Cartilaginous gos", a iguana nie została jeszcze otagowana.
 
-![Wiele układów i opcji obrazu](./media/how-to-label-images/layouts.png)
+![Wiele układów obrazów i wybór](./media/how-to-label-images/layouts.png)
 
 > [!Important] 
-> Przełączaj układy tylko wtedy, gdy masz nową stronę bez etykietowania danych. Przełączenie układu czyści działanie tagowania strony w toku.
+> Układy są przełączane tylko wtedy, gdy masz nową stronę danych bez etykiet. Przełączanie układów wyczyści pracę tagowania w toku na stronie.
 
-System Azure włącza przycisk **Prześlij** , gdy Otagowano wszystkie obrazy na stronie. Wybierz pozycję **Prześlij** , aby zapisać swoją służbę.
+Platforma Azure włącza **przycisk Prześlij** po otagowaniu wszystkich obrazów na stronie. Wybierz **pozycję Prześlij,** aby zapisać swoją pracę.
 
-Po przesłaniu tagów dla danych, platforma Azure Odświeża stronę nowym zestawem obrazów z kolejki roboczej.
+Po przesłaniu tagów dla danych platforma Azure odświeża stronę przy użyciu nowego zestawu obrazów z kolejki służbowej.
 
-### <a name="assisted-machine-learning"></a>Uczenie maszynowe z asystą
+### <a name="assisted-machine-learning"></a>Wspomagane uczenie maszynowe
 
-Mogą zostać wyzwolone algorytmy uczenia maszynowego. Jeśli te algorytmy są włączone w projekcie, mogą pojawić się następujące elementy:
+Algorytmy uczenia maszynowego mogą być wyzwalane. Jeśli te algorytmy są włączone w projekcie, mogą zostać wyświetlony następujące informacje:
 
-* Po oznaczeniu pewnej ilości obrazów można zobaczyć **zadania klastrowane** w górnej części ekranu obok nazwy projektu.  Oznacza to, że obrazy są pogrupowane w taki sposób, aby przedstawić podobne obrazy na tej samej stronie.  Jeśli tak, przejdź do jednego z widoków wielu obrazów, aby skorzystać z grupowania.  
+* Po oznaczeniu niektórych obrazów etykietami  obok nazwy projektu może być widać zadania klastrowane w górnej części ekranu.  Oznacza to, że obrazy są grupowane w celu przedstawienia podobnych obrazów na tej samej stronie.  Jeśli tak, przełącz się do jednego z wielu widoków obrazów, aby skorzystać z grupowania.  
 
-* W późniejszym czasie można zobaczyć, jakie **zadania są oznaczone** obok nazwy projektu.  Następnie zostaną wyświetlone obrazy z sugerowaną etykietą, która pochodzi z modelu klasyfikacji uczenia maszynowego. Żaden model uczenia maszynowego nie ma dokładności do 100%. Chociaż używamy tylko obrazów, dla których model jest pewny, te obrazy mogą nadal być nieprawidłowo oznaczone etykietami.  Gdy zobaczysz te etykiety, Popraw wszelkie niewłaściwe etykiety przed przesłaniem strony.  
+* W późniejszym momencie obok  nazwy projektu może zostać wyświetlony etykietą Zadania.  Następnie zostaną wyświetlone obrazy z sugerowaną etykietą pochodzącą z modelu klasyfikacji uczenia maszynowego. Żaden model uczenia maszynowego nie ma 100% dokładności. Chociaż używamy tylko obrazów, dla których model jest pewien, te obrazy mogą być nadal niepoprawnie oznaczane etykietami wstępnymi.  Gdy zobaczysz te etykiety, popraw wszelkie niewłaściwe etykiety przed przesłaniem strony.  
 
-* W przypadku modeli identyfikacji obiektów mogą pojawić się pola ograniczenia i etykiety już obecne.  Popraw te, które są nieprawidłowe przed przesłaniem strony.
+* W przypadku modeli identyfikacji obiektów mogą być już obecne pola i etykiety.  Popraw te, które są nieprawidłowe przed przesłaniem strony.
 
-* W przypadku modeli segmentacji można zobaczyć wielokąty i etykiety już obecne.  Popraw te, które są nieprawidłowe przed przesłaniem strony. 
+* W przypadku modeli segmentacji mogą być już obecne wielokąty i etykiety.  Popraw te, które są nieprawidłowe przed przesłaniem strony. 
 
-    > [!IMPORTANT]
-    > Funkcje wymienione w (wersja zapoznawcza) są dostępne w publicznej wersji zapoznawczej.   
-    > Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-W szczególności przede wszystkim w projekcie etykietowania model uczenia maszynowego może być wystarczająco dokładny tylko, aby można było oznaczyć mały podzestaw obrazów. Gdy te obrazy są oznaczone etykietami, projekt etykietowania powróci do ręcznego etykietowania, aby zebrać więcej danych dla następnej rundy szkolenia modeli. W miarę upływu czasu model będzie bardziej wiedział o większej liczbie obrazów, co spowodowało bardziej szczegółowe zadanie zadań w dalszej części projektu.
+Szczególnie na wczesnym etapie projektu etykietowania model uczenia maszynowego może być wystarczająco dokładny, aby wstępnie oznaczać mały podzbiór obrazów. Gdy te obrazy zostaną oznaczone etykietami, projekt etykietowania powróci do etykietowania ręcznego, aby zebrać więcej danych na następną rundę trenowania modelu. Z czasem model będzie mieć większą pewność co do większej proporcji obrazów, co spowoduje więcej zadań dotyczących etykiet wstępnych w dalszej części projektu.
 
 ## <a name="tag-images-for-multi-class-classification"></a>Tagowanie obrazów na potrzeby klasyfikacji z wieloma klasami
 
-Jeśli projekt jest typu "Klasyfikacja obrazu wiele klas", przypiszesz jeden tag do całego obrazu. Aby zapoznać się ze wskazówkami w dowolnym momencie, przejdź do strony z **instrukcjami** i wybierz pozycję **Wyświetl szczegółowe instrukcje**.
+Jeśli projekt jest typu "Klasyfikacja obrazów wieloklasowa", przypiszesz pojedynczy tag do całego obrazu. Aby przejrzeć wskazówki w dowolnym momencie, przejdź do strony **Instrukcje** i wybierz **pozycję Wyświetl szczegółowe instrukcje.**
 
-Jeśli zauważysz, że po przypisaniu znacznika do obrazu wystąpi błąd, możesz go naprawić. Wybierz znak "**X**" na etykiecie, która jest wyświetlana poniżej obrazu, aby wyczyścić tag. Lub zaznacz obraz i wybierz inną klasę. Nowo wybrana wartość zastąpi poprzednio zastosowany tag.
+Jeśli po przypisaniu tagu do obrazu popełnisz błąd, możesz go naprawić. Wybierz znak **"X"** na etykiecie wyświetlanej poniżej obrazu, aby wyczyścić tag. Możesz też wybrać obraz i wybrać inną klasę. Nowo wybrana wartość zastąpi wcześniej zastosowany tag.
 
 ## <a name="tag-images-for-multi-label-classification"></a>Tagowanie obrazów na potrzeby klasyfikacji z wieloma etykietami
 
-Jeśli pracujesz nad projektem typu "Klasyfikacja obrazu z wieloma etykietami", zastosujesz jeden *lub więcej* tagów do obrazu. Aby wyświetlić wskazówki właściwe dla projektu, wybierz **instrukcje** i przejdź do szczegółów, aby **wyświetlić szczegółowe instrukcje**.
+Jeśli pracujesz nad projektem typu "Klasyfikacja obrazów z wieloma etykietami", zastosujesz do obrazu co najmniej jeden tag.  Aby wyświetlić wskazówki specyficzne dla projektu, wybierz pozycję **Instrukcje** i przejdź do **tematu Wyświetlanie szczegółowych instrukcji**.
 
-Wybierz obraz, który chcesz oznaczyć etykietą, a następnie wybierz tag. Tag zostanie zastosowany do wszystkich zaznaczonych obrazów, a następnie zostaną odwybrane. Aby zastosować więcej tagów, należy ponownie wybrać obrazy. Następujące animacje przedstawiają znakowanie wieloetykietowe:
+Wybierz obraz, który chcesz oznaczyć etykietą, a następnie wybierz tag. Tag jest stosowany do wszystkich wybranych obrazów, a następnie obrazy są odznaczane. Aby zastosować więcej tagów, należy ponownie wybrać obrazy. Następująca animacja przedstawia tagowanie z wieloma etykietami:
 
-1. **Opcja Zaznacz wszystko** służy do zastosowania tagu "Ocean".
-1. Wybrano pojedynczy obraz i otagowano "Closeup".
-1. Wybrano trzy obrazy i otagowano "szeroki kąt".
+1. **Wybierz pozycję wszystkie,** aby zastosować tag "Ocean".
+1. Wybrany jest pojedynczy obraz z tagiem "Closeup" (Zbliżenie).
+1. Wybierane są trzy obrazy z tagiem "Szeroki kąt".
 
-![Animacja pokazuje przepływ wieloetykietowy](./media/how-to-label-images/multilabel.gif)
+![Animacja przedstawia przepływ z wieloma etykietami](./media/how-to-label-images/multilabel.gif)
 
-Aby poprawić błąd, kliknij znak "**X**", aby wyczyścić pojedynczy tag, lub wybierz obrazy, a następnie wybierz tag, który czyści tag ze wszystkich zaznaczonych obrazów. Ten scenariusz jest przedstawiony tutaj. Kliknięcie pozycji "Ziemia" spowoduje wyczyszczenie tego tagu z dwóch zaznaczonych obrazów.
+Aby naprawić błąd, kliknij znak **"X",** aby wyczyścić pojedynczy tag lub wybrać obrazy, a następnie wybierz tag, który wyczyści tag ze wszystkich wybranych obrazów. Ten scenariusz przedstawiono tutaj. Kliknięcie pozycji "Land" (Kraj) spowoduje wyczyszczenie tego tagu z dwóch wybranych obrazów.
 
-![Zrzut ekranu przedstawia wiele selektorów](./media/how-to-label-images/multiple-deselection.png)
+![Zrzut ekranu przedstawiający wiele desekrów](./media/how-to-label-images/multiple-deselection.png)
 
-Na platformie Azure zostanie włączony przycisk **Prześlij** tylko po zastosowaniu co najmniej jednego znacznika do każdego obrazu. Wybierz pozycję **Prześlij** , aby zapisać swoją służbę.
+Platforma Azure włączy przycisk **Prześlij** tylko po zastosowaniu co najmniej jednego tagu do każdego obrazu. Wybierz **pozycję Prześlij,** aby zapisać swoją pracę.
 
 
 ## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Tagowanie obrazów i określanie pól ograniczeń na potrzeby wykrywania obiektów
 
-Jeśli projekt jest typu "Identyfikacja obiektu (pola ograniczające)", należy określić jedno lub więcej pól ograniczenia w obrazie i zastosować tag do każdego pola. Obrazy mogą zawierać wiele pól, z których każdy ma jeden tag. Użyj **widoku szczegółowe instrukcje** , aby określić, czy w projekcie są używane wiele pól ograniczenia.
+Jeśli projekt jest typu "Identyfikacja obiektu (pola ograniczone)", określ co najmniej jedno pole graniczujące na obrazie i zastosujesz tag do każdego pola. Obrazy mogą mieć wiele pól ograniczonych, z których każdy ma jeden tag. Użyj **opcji Wyświetl szczegółowe instrukcje,** aby określić, czy w projekcie jest używanych wiele pól ograniczonych.
 
-1. Wybierz tag dla powiązanego pola, które ma zostać utworzone.
-1. Wybierz **prostokątne** narzędzie ![ prostokątnego pola ](./media/how-to-label-images/rectangular-box-tool.png) i wybierz pozycję "R".
-3. Kliknij i przeciągnij ukośnie na miejsce docelowe, aby utworzyć niedalekią ramkę. Aby dostosować pole ograniczenia, przeciągnij krawędzie lub rogi.
+1. Wybierz tag dla pola granicy, które zamierzasz utworzyć.
+1. Wybierz narzędzie **Prostokątne pole** ![ narzędzie Prostokątne pole lub wybierz pozycję ](./media/how-to-label-images/rectangular-box-tool.png) "R".
+3. Kliknij i przeciągnij po przekątnej obiekt docelowy, aby utworzyć nierówne pole granicy. Aby dostosować pole granicy, przeciągnij krawędzie lub narożniki.
 
-![Tworzenie pola ograniczenia](./media/how-to-label-images/bounding-box-sequence.png)
+![Tworzenie pola ograniczonego](./media/how-to-label-images/bounding-box-sequence.png)
 
-Aby usunąć pole ograniczenia, kliknij obiekt docelowy w kształcie X, który pojawia się obok pola ograniczenia po utworzeniu.
+Aby usunąć pole granicy, kliknij element docelowy w kształcie X, który zostanie wyświetlony obok pola granicy po utworzeniu.
 
-Nie można zmienić znacznika istniejącego pola ograniczenia. Jeśli wprowadzisz błąd przypisania znacznika, musisz usunąć pole ograniczenia i utworzyć nowe z prawidłowym tagiem.
+Nie można zmienić tagu istniejącego pola granicy. Jeśli popełnisz błąd przypisania tagu, musisz usunąć pole granicy i utworzyć nowe z poprawnym tagiem.
 
-Domyślnie można edytować istniejące pola ograniczenia. Narzędzie **blokowania/odblokowywania** regionów narzędzie do ![ blokowania/odblokowywania regionów ](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego pola ograniczenia.
+Domyślnie można edytować istniejące pola ograniczone. To **zachowanie można przełączać** za pomocą narzędzia Do blokowania/odblokowywania regionów ![ ](./media/how-to-label-images/lock-bounding-boxes-tool.png) blokady/odblokowywania regionów lub "L". Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego pola granicy.
 
-Użyj narzędzia do **manipulowania regionami** ![ ikona narzędzia do manipulowania regionami — cztery strzałki wskazujące na zewnątrz od środka, w górę, w prawo, w dół i w lewo.](./media/how-to-label-images/regions-tool.png) lub "M", aby dostosować istniejące pole ograniczenia. Przeciągnij krawędzie lub rogi, aby dostosować kształt. Kliknij wewnątrz, aby można było przeciągnąć całe pole ograniczenia. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
+Użyj narzędzia **do manipulowania regionami** To jest ikona narzędzia do manipulowania regionami — cztery strzałki wskazująca na zewnątrz od środka, w ![ górę, w prawo, w dół i w lewo.](./media/how-to-label-images/regions-tool.png) lub "M", aby dostosować istniejące pole granicy. Przeciągnij krawędzie lub narożniki, aby dostosować kształt. Kliknij wewnątrz, aby przeciągać całe pole granicy. Jeśli nie możesz edytować regionu, prawdopodobnie masz przełączone narzędzie **Regiony blokady/odblokowania.**
 
-Użyj narzędzia **opartego na szablonie** narzędzia Box ![ ](./media/how-to-label-images/template-box-tool.png) lub "T", aby utworzyć wiele pól o tym samym rozmiarze. Jeśli obraz nie ma żadnych pól ograniczenia i uaktywniasz pola oparte na szablonach, narzędzie spowoduje utworzenie pól o 50 do 50 pikseli. W przypadku utworzenia pola ograniczenia, a następnie aktywowania pól opartych na szablonach wszystkie nowe pola ograniczenia będą rozmiarem ostatniego utworzonego pola. Po umieszczeniu można zmienić rozmiar pól opartych na szablonie. Zmienianie rozmiaru pola opartego na szablonie zmienia rozmiar tylko określonego pola.
+Użyj narzędzia **pola opartego** na szablonach Narzędzia pola szablonu lub "T", aby utworzyć wiele pól ograniczonych ![ o tym samym ](./media/how-to-label-images/template-box-tool.png) rozmiarze. Jeśli obraz nie ma pól ograniczonych i aktywujesz pola oparte na szablonach, narzędzie wyprodukuje pola o rozmiarze 50 na 50 pikseli. Jeśli utworzysz pole granicy, a następnie aktywujesz pola oparte na szablonie, wszystkie nowe pola będą mieć rozmiar ostatniego utworzonego pola. Rozmiar pól opartych na szablonach można zmieniać po umieszczeniu. Zmiana rozmiaru pola opartego na szablonie zmienia rozmiar tylko tego pola.
 
-Aby usunąć *wszystkie* pola związane z bieżącym obrazem, wybierz narzędzie **Usuń wszystkie regiony** narzędzia ![ Usuń regiony ](./media/how-to-label-images/delete-regions-tool.png) .
+Aby usunąć *wszystkie* pola granic na bieżącym obrazie, wybierz narzędzie Usuń wszystkie **regiony** ![ Usuń ](./media/how-to-label-images/delete-regions-tool.png) regiony.
 
-Po utworzeniu pól ograniczenia dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
+Po utworzeniu pól ograniczonych dla obrazu  wybierz pozycję Prześlij, aby zapisać swoją pracę lub praca w toku nie zostanie zapisana.
 
-## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Tworzenie tagów obrazów i określanie wielokątów dla segmentacji obrazów 
+## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Tagowanie obrazów i określanie wielokątów dla segmentacji obrazów 
 
-Jeśli projekt jest typu "segmentacja wystąpienia (Wielokąt)", należy określić jeden lub więcej wielokątów w obrazie i zastosować tag do każdego wielokąta. Obrazy mogą zawierać wiele wielokątów, z których każdy ma jeden tag. Użyj **widoku szczegółowe instrukcje** , aby określić, czy w projekcie są używane wiele wielokątów powiązanych.
+Jeśli projekt ma typ "Segmentacja wystąpienia (wielokąt),należy określić co najmniej jeden wielokąt na obrazie i zastosować tag do każdego wielokąta. Obrazy mogą mieć wiele wielokątów granicznych, z których każdy ma jeden tag. Użyj **opcji Wyświetl szczegółowe instrukcje,** aby określić, czy w projekcie jest używanych wiele wielokątów powiązanych.
 
-1. Wybierz tag dla wielokąta, który ma zostać utworzony.
-1. Wybierz narzędzie **Rysuj region wielokąta** , ![ rysując region wielokąta ](./media/how-to-label-images/polygon-tool.png) lub wybierz "P".
-1. Kliknij dla każdego punktu w wielokąta.  Po zakończeniu kształtu kliknij dwukrotnie, aby zakończyć.
+1. Wybierz tag dla wielokąta, który chcesz utworzyć.
+1. Wybierz narzędzie **Rysowanie regionu wielokąta** ![ Narzędzie Rysowanie regionu wielokąta ](./media/how-to-label-images/polygon-tool.png) lub wybierz pozycję "P".
+1. Kliknij każdy punkt wielokąta.  Po zakończeniu kształtowania kliknij dwukrotnie, aby zakończyć.
 
-    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Tworzenie wielokątów dla klas Cat i Dog":::
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Tworzenie wielokątów dla kotów i psów":::
 
-Aby usunąć Wielokąt, kliknij obiekt docelowy w kształcie X, który pojawia się obok wielokąta po utworzeniu.
+Aby usunąć wielokąt, kliknij element docelowy w kształcie X, który zostanie wyświetlony obok wielokąta po utworzeniu.
 
-Jeśli chcesz zmienić tag dla wielokąta, wybierz narzędzie do **przenoszenia regionów** , kliknij Wielokąt i wybierz odpowiedni tag.
+Jeśli chcesz zmienić tag wielokąta, wybierz narzędzie **Przenoszenie regionu,** kliknij wielokąt i wybierz poprawny tag.
 
-Można edytować istniejące wielokąty. Narzędzie **blokowania/odblokowywania regionów** ![ edytuje wielokąty za pomocą narzędzia do blokowania/odblokowywania regionów ](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego wielokąta.
+Istniejące wielokąty można edytować. Narzędzie **Regiony blokady/odblokowania** Edytuj wielokąty za pomocą narzędzia regiony blokady/odblokowania lub ![ ](./media/how-to-label-images/lock-bounding-boxes-tool.png) "L" przełącza to zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego wielokąta.
 
-Za pomocą narzędzia **Dodaj lub Usuń punkty wielokąta** ![ jest to ikona narzędzia Dodaj lub Usuń punkty wielokąta.](./media/how-to-label-images/add-remove-points-tool.png) lub "U", aby dostosować istniejący wielokąt. Kliknij Wielokąt, aby dodać lub usunąć punkt. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
+Użyj narzędzia **Dodaj lub usuń punkty wielokąta.** Jest to ikona narzędzia Dodaj lub usuń punkty ![ wielokąta.](./media/how-to-label-images/add-remove-points-tool.png) lub "U", aby dostosować istniejący wielokąt. Kliknij wielokąt, aby dodać lub usunąć punkt. Jeśli nie możesz edytować regionu, prawdopodobnie masz przełączone narzędzie **Regiony blokady/odblokowania.**
 
-Aby usunąć *wszystkie* wielokąty w bieżącym obrazie, wybierz narzędzie **Usuń wszystkie regiony** narzędzia ![ Usuń wszystkie regiony ](./media/how-to-label-images/delete-regions-tool.png) .
+Aby usunąć *wszystkie wielokąty* na bieżącym obrazie, wybierz narzędzie **Usuń wszystkie regiony** Usuń wszystkie ![ ](./media/how-to-label-images/delete-regions-tool.png) regiony.
 
-Po utworzeniu wielokątów dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
+Po utworzeniu wielokątów dla obrazu wybierz pozycję **Prześlij,** aby zapisać swoją pracę lub praca w toku nie zostanie zapisana.
 
 ## <a name="finish-up"></a>Kończenie
 
-Gdy przesyłasz stronę oznakowanych danych, platforma Azure przypisze Ci nowe dane bez etykiet do użytkownika z kolejki służbowej. Jeśli nie ma więcej dostępnych danych bez etykiet, zostanie wyświetlony komunikat z linkiem do strony głównej portalu.
+Po przesłaniu strony otagowanych danych platforma Azure przypisuje nowe dane bez etykiet z kolejki służbowej. Jeśli nie ma już dostępnych danych bez etykiet, zostanie wyświetlony komunikat z tym komunikatem wraz z linkiem do strony głównej portalu.
 
-Gdy skończysz etykietowanie, wybierz swoją nazwę w prawym górnym rogu portalu etykietowania, a następnie wybierz pozycję **Wyloguj się**. Jeśli nie wylogujesz się, ostatecznie platforma Azure przekroczy czas, a następnie przypisze dane do innego Labeler.
+Po oznaczeniu etykiet wybierz swoją nazwę w prawym górnym rogu portalu etykietowania, a następnie wybierz **pozycję wyloguj się.** Jeśli się nie wylogujesz, platforma Azure "wyloguje się" i przypisze dane do innego etykiety.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak [uczenie modeli klasyfikacji obrazów na platformie Azure](./tutorial-train-models-with-aml.md)
+* Dowiedz się, jak [trenować modele klasyfikacji obrazów na platformie Azure](./tutorial-train-models-with-aml.md)
 
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: af050ae95b4ab161028229299a8de5ed3426430b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 08bf165254c8759a978b406b3e9a990a41ab7a30
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482837"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873213"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Samouczek: Eksportowanie danych i zarządzanie nimi
 
@@ -35,9 +35,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 ## <a name="prerequisites"></a>Wymagania wstępne
 Eksportowanie danych jest dostępne dla różnych typów kont platformy Azure, w tym dla klientów z umową [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) i [umową klienta firmy Microsoft](get-started-partners.md). Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md). Na potrzeby eksportu danych przez użytkownika i grupę w ramach subskrypcji są obsługiwane następujące uprawnienia, czyli zakresy, platformy Azure. Aby uzyskać więcej informacji na temat zakresów, zobacz [Omówienie zakresów i praca z nimi](understand-work-scopes.md).
 
-- Właściciel â €" może tworzyć, modyfikować lub usuwać zaplanowane eksporty dla subskrypcji.
+- Właściciel â€" Może tworzyć, modyfikować lub usuwać zaplanowane eksporty dla subskrypcji.
 - Współautor â€" Może tworzyć, modyfikować lub usuwać własne zaplanowane eksporty. Może modyfikować nazwy zaplanowanych eksportów utworzonych przez innych użytkowników.
-- Czytelnik â €" Może zaplanować eksporty, do których mają uprawnienia.
+- Czytelnik â€" Może zaplanować eksporty, do których mają uprawnienia.
 
 W przypadku kont usługi Azure Storage:
 - Niezależnie od uprawnień dotyczących eksportu, do zmiany skonfigurowanego konta magazynu wymagane są uprawnienia zapisu.
@@ -64,8 +64,8 @@ Aby utworzyć lub wyświetlić eksport danych bądź zaplanować eksport, otwór
     - **Koszt zamortyzowany (użycie i zakupy)** — wybierz tę opcję, aby wyeksportować zamortyzowane koszty zakupów, takich jak rezerwacje platformy Azure
 1. W obszarze **Typ eksportu** zaznacz pozycję:
     - **Codzienny eksport kosztów od** miesiąca do daty — codziennie udostępnia nowy plik eksportu dla kosztów od tego miesiąca. Najnowsze dane są agregowane z poprzednich codziennych eksportów.
-    - **Tygodniowy eksport kosztów z** ostatnich siedmiu dni " Tworzy tygodniowy eksport kosztów z ostatnich siedmiu dni od wybranej daty rozpoczęcia eksportu.
-    - **Miesięczny eksport kosztów** z ostatniego miesiąca — umożliwia wyeksportowanie kosztów z ostatniego miesiąca w porównaniu do bieżącego miesiąca, w których został on przez Ciebie utworzyć. Eksport jest uruchamiany zgodnie z harmonogramem w piątym dniu każdego nowego miesiąca i zawiera koszty z poprzednich miesięcy.
+    - **Tygodniowy eksport kosztów** z ostatnich siedmiu dni " Tworzy tygodniowy eksport kosztów z ostatnich siedmiu dni od wybranej daty rozpoczęcia eksportu.
+    - **Miesięczny eksport kosztów** z ostatniego miesiąca — umożliwia wyeksportowanie kosztów z ostatniego miesiąca w porównaniu z bieżącym miesiącem, w przypadku których został on przez Ciebie utworzyć. Eksport jest uruchamiany zgodnie z harmonogramem w piątym dniu każdego nowego miesiąca i zawiera koszty z poprzednich miesięcy.
     - **Eksport jeden raz** — umożliwia wybranie zakresu dat dla danych historycznych do wyeksportowania do usługi Azure Blob Storage. Możesz wyeksportować koszty historyczne obejmujące maksymalnie 90 dni począwszy od wskazanego dnia. Eksport jest uruchamiany natychmiast, a na koncie magazynu jest dostępny w ciągu dwóch godzin.
         W zależności od typu eksportu możesz wybrać datę rozpoczęcia lub przedział czasowy, wskazując datę początkową (**Od**) i datę końcową (**Do**).
 1. Podaj subskrypcję zawierającą konto usługi Azure Storage, a następnie wybierz grupę zasobów lub utwórz nową.
@@ -87,7 +87,7 @@ Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platfor
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. Po zalogowaniu w celu wyświetlenia bieżących eksportów, użyj polecenia [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list):
+1. Po zalogowaniu w celu wyświetlenia bieżących eksportów, użyj polecenia [az costmanagement export list](/cli/azure/costmanagement/export#az_costmanagement_export_list):
 
    ```azurecli
    az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
@@ -110,7 +110,7 @@ Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platfor
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Uruchom polecenie [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create), aby utworzyć eksport:
+1. Uruchom polecenie [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create), aby utworzyć eksport:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
@@ -124,14 +124,14 @@ Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platfor
 
    W tym przykładzie użyto wartości `MonthToDate`. Eksport tworzy codziennie plik eksportu dotyczący kosztów dla bieżącego miesiąca. Najnowsze dane są agregowane z poprzednich codziennych eksportów w tym miesiącu.
 
-1. Aby wyświetlić szczegóły operacji eksportowania, użyj polecenia [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show):
+1. Aby wyświetlić szczegóły operacji eksportowania, użyj polecenia [az costmanagement export show](/cli/azure/costmanagement/export#az_costmanagement_export_show):
 
    ```azurecli
    az costmanagement export show --name DemoExport \
       --scope "subscriptions/00000000-0000-0000-0000-000000000000"
    ```
 
-1. Zaktualizuj eksport za pomocą polecenia [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update):
+1. Zaktualizuj eksport za pomocą polecenia [az costmanagement export update](/cli/azure/costmanagement/export#az_costmanagement_export_update):
 
    ```azurecli
    az costmanagement export update --name DemoExport
@@ -143,7 +143,7 @@ Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platfor
 >[!NOTE]
 >Początkowo uruchomienie eksportu może zająć od 12 do 24 godzin. Jednak wyświetlenie danych w wyeksportowanych plikach może potrwać dłużej.
 
-Eksport można usunąć przy użyciu polecenia [az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete):
+Eksport można usunąć przy użyciu polecenia [az costmanagement export delete](/cli/azure/costmanagement/export#az_costmanagement_export_delete):
 
 ```azurecli
 az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"

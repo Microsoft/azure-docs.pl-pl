@@ -6,16 +6,16 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: be51d4db6c98b63fcb1c9c60df045b494536d78f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4999bd93f338ca7b34b141b88e06e4a769a4aaa1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766530"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876437"
 ---
 W poniższych sekcjach skonfigurujemy terminal i użyjemy interfejsu wiersza polecenia platformy Azure do utworzenia centrum IoT. Aby skonfigurować terminal z poleceniami interfejsu wiersza polecenia platformy Azure, możesz użyć interfejsu Azure Cloud Shell lub terminala lokalnego.
 * Aby użyć Cloud Shell, przejdź do następnej sekcji: [Uruchamianie Cloud Shell](#launch-the-cloud-shell). 
-* Aby użyć terminalu lokalnego, pomiń następną sekcję i przejdź [do sekcji Otwieranie lokalnego terminalu](#open-a-local-terminal).
+* Aby użyć terminalu lokalnego, pomiń następną sekcję i przejdź [do sekcji Otwieranie terminalu lokalnego.](#open-a-local-terminal)
 
 ## <a name="launch-the-cloud-shell"></a>Uruchom Cloud Shell
 W tej sekcji utworzysz sesję Cloud Shell i skonfigurujesz środowisko terminalu.
@@ -79,7 +79,7 @@ Aby utworzyć centrum IoT i grupę zasobów:
 
 1. Uruchom polecenie [az group create,](/cli/azure/group#az_group_create) aby utworzyć grupę zasobów. Następujące polecenie tworzy grupę zasobów o *nazwie MyResourceGroup* w *lokalizacji eastus.* 
     >[!NOTE]
-    > Opcjonalnie możesz ustawić alternatywną lokalizację. Aby wyświetlić dostępne lokalizacje, `az account list-locations` uruchom . W tym samouczku jest *używany region eastus,* jak pokazano w przykładowym poleceniu. 
+    > Opcjonalnie możesz ustawić alternatywną lokalizację. Aby wyświetlić dostępne lokalizacje, `az account list-locations` uruchom . W tym samouczku *jest używany region eastus,* jak pokazano w przykładowym poleceniu. 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
@@ -97,7 +97,7 @@ Aby utworzyć centrum IoT i grupę zasobów:
 W tej sekcji utworzysz symulowane urządzenie IoT połączone z centrum IoT. 
 
 Aby utworzyć urządzenie symulowane:
-1. Uruchom polecenie [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) w powłoki interfejsu wiersza polecenia. Powoduje to utworzenie tożsamości urządzenia symulowanego. 
+1. Uruchom polecenie [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) w powłoki interfejsu wiersza polecenia. Powoduje to utworzenie tożsamości urządzenia symulowanego. 
 
     *YourIotHubName*. zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub. 
 
@@ -107,7 +107,7 @@ Aby utworzyć urządzenie symulowane:
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
-1.  Uruchom polecenie [az iot hub device-identity connection-string show.](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) 
+1.  Uruchom polecenie [az iot hub device-identity connection-string show.](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) 
 
     ```azurecli
     az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}

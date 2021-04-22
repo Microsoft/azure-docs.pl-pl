@@ -93,7 +93,7 @@
     - name: Interfejs wiersza polecenia i zestaw SDK
       items:
         - name: Interfejs wiersza polecenia platformy Azure
-          href: /cli/azure/ext/resource-graph/graph
+          href: /cli/azure/graph
         - name: Azure PowerShell
           href: /powershell/module/az.resourcegraph/#resourcegraph
         - name: Zestaw Azure SDK dla platformy .NET

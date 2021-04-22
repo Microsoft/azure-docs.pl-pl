@@ -62,7 +62,7 @@
           href: hana-concept-preparation.md
         - name: Procedura przechodzenia w tryb failover odzyskiwania po awarii
           href: hana-failover-procedure.md
-        - name: Ha ha dla dużych wystąpień dla oprogramowania SAP w systemie RHEL
+        - name: Ha ha dla dużych wystąpień oprogramowania SAP w systemie RHEL
           href: large-instance-high-availability-rhel.md
     - name: Rozwiązywanie problemów i monitorowanie
       items:
@@ -136,11 +136,11 @@
           href: ../../../backup/sap-hana-db-restore.md
         - name: Zarządzanie i monitorowanie
           href: ../../../backup/sap-hana-db-manage.md
-        - name: Macierz obsługi kopii zapasowych baz SAP HANA danych
+        - name: Macierz obsługi kopii zapasowych SAP HANA baz danych
           href: ../../../backup/sap-hana-backup-support-matrix.md
-        - name: Często zadawane pytania — back up SAP HANA databases on Azure VMs (Często zadawane pytania — SAP HANA kopii zapasowej baz danych na maszynach wirtualnych platformy Azure
+        - name: Często zadawane pytania — back up SAP HANA databases on Azure VMs (Często zadawane pytania — SAP HANA kopii zapasowej baz danych na platformie Azure
           href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
-        - name: Rozwiązywanie problemów z tworzeniem kopii zapasowych baz SAP HANA na platformie Azure
+        - name: Rozwiązywanie problemów z tworzeniem kopii zapasowych SAP HANA baz danych na platformie Azure
           href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
         - name: Samouczek — back up SAP HANA databases in an Azure VM (Samouczek — SAP HANA kopii zapasowych baz danych na maszynie wirtualnej platformy Azure
           href: ../../../backup/tutorial-backup-sap-hana-db.md
@@ -332,7 +332,7 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/sap-hana/hanainstance
+      href: /cli/azure/hanainstance
     - name: Azure PowerShell
       href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Zasoby

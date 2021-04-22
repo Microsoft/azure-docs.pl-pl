@@ -1,40 +1,40 @@
 ---
-title: Przekierowywanie protokołu HTTP do protokołu HTTPS przy użyciu programu PowerShell — Application Gateway platformy Azure
-description: Dowiedz się, jak utworzyć bramę aplikacji z przekierowanym ruchem z protokołu HTTP do HTTPS przy użyciu Azure PowerShell.
+title: Przekierowywanie z protokołu HTTP do HTTPS przy użyciu programu PowerShell — Azure Application Gateway
+description: Dowiedz się, jak utworzyć bramę aplikacji z przekierowywanym ruchem z protokołu HTTP do https przy użyciu Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: 86eaa645cd6a81b9180d1241695240a71aa8202d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9118d0e5b314f05e89334991c68ec1b3b5751e2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397267"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866309"
 ---
-# <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP w celu przekierowania HTTPS za pomocą Azure PowerShell
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowywaniem protokołu HTTP do HTTPS przy użyciu Azure PowerShell
 
-Za pomocą Azure PowerShell można utworzyć [bramę aplikacji](overview.md) z certyfikatem dla zakończenia protokołu TLS/SSL. Reguła routingu służy do przekierowywania ruchu HTTP do portu HTTPS w bramie aplikacji. W tym przykładzie utworzysz również [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) dla puli zaplecza bramy aplikacji, która zawiera dwa wystąpienia maszyn wirtualnych. 
+Możesz użyć tej Azure PowerShell, aby utworzyć bramę aplikacji [z](overview.md) certyfikatem zakończenia protokołu TLS/SSL. Reguła routingu służy do przekierowywania ruchu HTTP do portu HTTPS w bramie aplikacji. W tym przykładzie utworzysz również zestaw [skalowania](../virtual-machine-scale-sets/overview.md) maszyn wirtualnych dla puli zaplecza bramy aplikacji, która zawiera dwa wystąpienia maszyn wirtualnych. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 * Tworzenie certyfikatu z podpisem własnym
 * Konfigurowanie sieci
 * Tworzenie bramy aplikacji z certyfikatem
-* Dodaj odbiornik i regułę przekierowania
+* Dodawanie odbiornika i reguły przekierowania
 * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ten samouczek wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Aby uruchomić polecenia z tego samouczka, należy również uruchomić polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
+Ten samouczek wymaga Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Aby uruchomić polecenia w tym samouczku, należy również uruchomić polecenie , aby `Login-AzAccount` utworzyć połączenie z platformą Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym samouczku utworzysz certyfikat z podpisem własnym przy użyciu polecenia [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
+Do użytku produkcyjnego należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym samouczku utworzysz certyfikat z podpisem własnym przy użyciu polecenia [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -64,7 +64,7 @@ Export-PfxCertificate `
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów platformy Azure o nazwie *myResourceGroupAG* przy użyciu polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów platformy Azure *o nazwie myResourceGroupAG* przy [użyciu narzędzia New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) 
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -72,7 +72,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Tworzenie zasobów sieciowych
 
-Utwórz konfiguracje podsieci dla *myBackendSubnet* i *myAGSubnet* przy użyciu polecenia [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Utwórz sieć wirtualną o nazwie *myVNet* przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) z konfiguracjami podsieci. Na koniec Utwórz publiczny adres IP o nazwie *myAGPublicIPAddress* przy użyciu polecenia [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Te zasoby służą do zapewniania łączności sieciowej z bramą aplikacji i skojarzonymi z nią zasobami.
+Utwórz konfiguracje podsieci *myBackendSubnet* i *myAGSubnet* przy użyciu [narzędzia New-AzVirtualNetworkSubnetConfig.](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) Utwórz sieć wirtualną o nazwie *myVNet* przy [użyciu narzędzia New-AzVirtualNetwork z](/powershell/module/az.network/new-azvirtualnetwork) konfiguracjami podsieci. Na koniec utwórz publiczny adres IP o nazwie *myAGPublicIPAddress przy* użyciu [new-AzPublicIpAddress.](/powershell/module/az.network/new-azpublicipaddress) Te zasoby służą do zapewniania łączności sieciowej z bramą aplikacji i skojarzonymi z nią zasobami.
 
 ```powershell
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -98,7 +98,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Tworzenie konfiguracji adresów IP i portu frontonu
 
-Skojarz *myAGSubnet* , który został wcześniej utworzony do bramy aplikacji przy użyciu polecenia [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Przypisz *myAGPublicIPAddress* do bramy aplikacji przy użyciu polecenia [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Następnie można utworzyć port HTTPS za pomocą polecenia [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
+*Skojarz wcześniej utworzoną podsieć myAGSubnet* z bramą aplikacji przy użyciu [narzędzia New-AzApplicationGatewayIPConfiguration.](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) Przypisz *adres myAGPublicIPAddress* do bramy aplikacji przy użyciu [polecenie New-AzApplicationGatewayFrontendIPConfig.](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) Następnie możesz utworzyć port HTTPS przy użyciu [narzędzia New-AzApplicationGatewayFrontendPort.](/powershell/module/az.network/new-azapplicationgatewayfrontendport)
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `
@@ -118,7 +118,7 @@ $frontendPort = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Tworzenie puli zaplecza i ustawień
 
-Utwórz pulę zaplecza o nazwie *appGatewayBackendPool* dla bramy aplikacji za pomocą polecenia [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Skonfiguruj ustawienia puli zaplecza przy użyciu polecenia [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Utwórz pulę zaplecza o *nazwie appGatewayBackendPool* dla bramy aplikacji przy użyciu [new-AzApplicationGatewayBackendAddressPool.](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) Skonfiguruj ustawienia puli zaplecza przy użyciu [pozycji New-AzApplicationGatewayBackendHttpSettings.](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)
 
 ```powershell
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -135,7 +135,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 Odbiornik jest wymagany, aby brama aplikacji mogła właściwie kierować ruch do puli zaplecza. W tym przykładzie utworzysz podstawowy odbiornik, który nasłuchuje ruchu HTTPS pod głównym adresem URL. 
 
-Utwórz obiekt certyfikatu za pomocą polecenia [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) , a następnie utwórz odbiornik o nazwie *appGatewayHttpListener* przy użyciu polecenia [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) z konfiguracją frontonu, portem frontonu i certyfikatem, który został wcześniej utworzony. Reguła jest wymagana, aby odbiornik wiedział, której puli zaplecza używać dla ruchu przychodzącego. Utwórz podstawową regułę o nazwie *RULE1* przy użyciu polecenia [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Utwórz obiekt certyfikatu przy użyciu narzędzia [New-AzApplicationGatewaySslCertificate,](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) a następnie utwórz odbiornik o nazwie *appGatewayHttpListener* przy użyciu [pozycji New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) z wcześniej utworzonymi konfiguracjami frontona, portem frontonia i certyfikatem. Reguła jest wymagana, aby odbiornik wiedział, której puli zaplecza używać dla ruchu przychodzącego. Utwórz podstawową regułę o nazwie *rule1* przy [użyciu narzędzia New-AzApplicationGatewayRequestRoutingRule.](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)
 
 ```powershell
 $pwd = ConvertTo-SecureString `
@@ -162,7 +162,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Tworzenie bramy aplikacji
 
-Po utworzeniu niezbędnych zasobów pomocniczych Określ parametry bramy aplikacji o nazwie *myAppGateway* przy użyciu polecenia [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku), a następnie utwórz go przy użyciu polecenia [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) z certyfikatem.
+Po utworzeniu niezbędnych zasobów obsługi określ parametry bramy aplikacji o nazwie *myAppGateway* przy użyciu [polecenia New-AzApplicationGatewaySku,](/powershell/module/az.network/new-azapplicationgatewaysku)a następnie utwórz ją przy użyciu [polecenia New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) z certyfikatem.
 
 ```powershell
 $sku = New-AzApplicationGatewaySku `
@@ -184,11 +184,11 @@ $appgw = New-AzApplicationGateway `
   -SslCertificates $cert
 ```
 
-## <a name="add-a-listener-and-redirection-rule"></a>Dodaj odbiornik i regułę przekierowania
+## <a name="add-a-listener-and-redirection-rule"></a>Dodawanie odbiornika i reguły przekierowania
 
 ### <a name="add-the-http-port"></a>Dodawanie portu HTTP
 
-Dodaj port HTTP do bramy aplikacji przy użyciu polecenia [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
+Dodaj port HTTP do bramy aplikacji przy użyciu [narzędzia Add-AzApplicationGatewayFrontendPort.](/powershell/module/az.network/add-azapplicationgatewayfrontendport)
 
 ```powershell
 $appgw = Get-AzApplicationGateway `
@@ -202,7 +202,7 @@ Add-AzApplicationGatewayFrontendPort `
 
 ### <a name="add-the-http-listener"></a>Dodawanie odbiornika HTTP
 
-Dodaj odbiornik HTTP o nazwie " *Listen* " do bramy aplikacji przy użyciu polecenia [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
+Dodaj odbiornik HTTP o nazwie *myListener* do bramy aplikacji przy użyciu [narzędzia Add-AzApplicationGatewayHttpListener.](/powershell/module/az.network/add-azapplicationgatewayhttplistener)
 
 ```powershell
 $fipconfig = Get-AzApplicationGatewayFrontendIPConfig `
@@ -221,7 +221,7 @@ Add-AzApplicationGatewayHttpListener `
 
 ### <a name="add-the-redirection-configuration"></a>Dodawanie konfiguracji przekierowania
 
-Dodaj konfigurację przekierowania HTTP do protokołu HTTPS do bramy aplikacji przy użyciu polecenia [Add-AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
+Dodaj konfigurację przekierowania protokołu HTTP do https do bramy aplikacji przy użyciu narzędzia [Add-AzApplicationGatewayRedirectConfiguration.](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration)
 
 ```powershell
 $defaultListener = Get-AzApplicationGatewayHttpListener `
@@ -235,9 +235,9 @@ Add-AzApplicationGatewayRedirectConfiguration -Name httpToHttps `
   -ApplicationGateway $appgw
 ```
 
-### <a name="add-the-routing-rule"></a>Dodawanie reguły routingu
+### <a name="add-the-routing-rule"></a>Dodawanie reguły rozsyłania
 
-Dodaj regułę routingu z konfiguracją przekierowania do bramy aplikacji przy użyciu polecenia [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+Dodaj regułę routingu z konfiguracją przekierowania do bramy aplikacji przy użyciu narzędzia [Add-AzApplicationGatewayRequestRoutingRule.](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)
 
 ```powershell
 $myListener = Get-AzApplicationGatewayHttpListener `
@@ -319,7 +319,7 @@ Update-AzVmss `
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Aby uzyskać publiczny adres IP bramy aplikacji, można użyć [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) . Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład http://52.170.203.149
+Aby uzyskać publiczny adres IP bramy aplikacji, możesz użyć [get-AzPublicIPAddress.](/powershell/module/az.network/get-azpublicipaddress) Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład http://52.170.203.149
 
 ```powershell
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -333,4 +333,4 @@ Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zapisz ponownie nagłówki HTTP i adres URL przy użyciu Application Gateway](rewrite-http-headers-url.md)
+- [Ponowne przepisanie nagłówków HTTP i adresów URL przy użyciu Application Gateway](rewrite-http-headers-url.md)
