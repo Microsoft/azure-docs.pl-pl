@@ -2,21 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f8975abd479abe7e04a7a8e87ae4d2bf15c220a9
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6ed7347b5c277dbc4f3b59df44732e6079c4213c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500904"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876383"
 ---
 ## <a name="azure-security-benchmark"></a>Test porównawczy zabezpieczeń platformy Azure
 
-Test [porównawczy zabezpieczeń platformy Azure](../../../../articles/security/benchmarks/overview.md) zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Aby zobaczyć, jak ta usługa całkowicie mapuje się na test porównawczy zabezpieczeń platformy Azure, zobacz pliki [mapowania testu porównawczego zabezpieczeń platformy Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
+Test [porównawczy zabezpieczeń platformy Azure](/security/benchmark/azure/introduction) zawiera zalecenia dotyczące zabezpieczania rozwiązań w chmurze na platformie Azure. Aby zobaczyć, jak ta usługa całkowicie mapuje się na test porównawczy zabezpieczeń platformy Azure, zobacz pliki mapowania testu porównawczego zabezpieczeń [platformy Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
 
-Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure są mapowe na ten standard zgodności, zobacz Azure Policy Regulatory Compliance - Azure Security Benchmark (Zgodność z przepisami — test porównawczy zabezpieczeń platformy [Azure).](../../../../articles/governance/policy/samples/azure-security-benchmark.md)
+Aby sprawdzić, jak dostępne wbudowane Azure Policy dla wszystkich usług platformy Azure są mapowe na ten standard zgodności, zobacz Azure Policy Regulatory Compliance - Azure Security Benchmark (Zgodność z przepisami — test porównawczy zabezpieczeń platformy [Azure).](../../../../articles/governance/policy/samples/azure-security-benchmark.md)
 
 |Domena |Identyfikator kontrolki |Tytuł kontrolki |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -24,9 +24,9 @@ Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure
 
 ## <a name="azure-security-benchmark-v1"></a>Test porównawczy zabezpieczeń platformy Azure w wersji 1
 
-Test [porównawczy zabezpieczeń platformy Azure](../../../../articles/security/benchmarks/overview.md) zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Aby zobaczyć, jak ta usługa całkowicie mapuje się na test porównawczy zabezpieczeń platformy Azure, zobacz pliki [mapowania testu porównawczego zabezpieczeń platformy Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
+Test [porównawczy zabezpieczeń platformy Azure](/security/benchmark/azure/introduction) zawiera zalecenia dotyczące zabezpieczania rozwiązań w chmurze na platformie Azure. Aby zobaczyć, jak ta usługa całkowicie mapuje się na test porównawczy zabezpieczeń platformy Azure, zobacz pliki mapowania testu porównawczego zabezpieczeń [platformy Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
 
-Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure są mapowe na ten standard zgodności, zobacz Azure Policy Regulatory Compliance - Azure Security Benchmark (Zgodność z przepisami — test porównawczy zabezpieczeń platformy [Azure).](../../../../articles/governance/policy/samples/azure-security-benchmark.md)
+Aby sprawdzić, jak dostępne wbudowane Azure Policy dla wszystkich usług platformy Azure są mapowe na ten standard zgodności, zobacz Azure Policy Regulatory Compliance - Azure Security Benchmark (Zgodność z przepisami — test porównawczy zabezpieczeń platformy [Azure).](../../../../articles/governance/policy/samples/azure-security-benchmark.md)
 
 |Domena |Identyfikator kontrolki |Tytuł kontrolki |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -43,10 +43,10 @@ Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [CIS 
 
 ## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
 
-Aby sprawdzić, jak dostępne wbudowane Azure Policy dla wszystkich usług platformy Azure są mapowanie na ten standard zgodności, zobacz [Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
-Aby uzyskać więcej informacji na temat tego standardu zgodności, [zobacz HIPAA HITRUST 9.2.](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)
+Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure są mapowe na ten standard zgodności, zobacz [Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2 (Zgodność z przepisami hipaa hitrust 9.2).](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md)
+Aby uzyskać więcej informacji na temat tego standardu zgodności, [zobacz HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
 |Domena |Identyfikator kontrolki |Tytuł kontrolki |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Rejestrowanie inspekcji |1203.09aa1System.2 — 09.aa |Rekordy inspekcji obejmują unikatowy identyfikator użytkownika, unikatowy identyfikator podmiotu danych, wykonaną funkcję i datę/czas wykonania zdarzenia. |[Dzienniki zasobów w Logic Apps powinny być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34f95f76-5386-4de7-b824-0d8478470c9d) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Logic%20Apps/LogicApps_AuditDiagnosticLog_Audit.json) |
+|Rejestrowanie inspekcji |1203.09aa1System.2 – 09.aa |Rekordy inspekcji obejmują unikatowy identyfikator użytkownika, unikatowy identyfikator podmiotu danych, wykonaną funkcję i datę/czas wykonania zdarzenia. |[Dzienniki zasobów w Logic Apps powinny być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34f95f76-5386-4de7-b824-0d8478470c9d) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Logic%20Apps/LogicApps_AuditDiagnosticLog_Audit.json) |
 

@@ -1,52 +1,52 @@
 ---
 title: Co to jest Azure Static Web Apps?
-description: Najważniejsze funkcje i funkcje statycznej Web Apps platformy Azure.
+description: Najważniejsze funkcje i funkcje Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
 ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 945979daa3c766b737e5b312a6c14e60204a6a55
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166409"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874067"
 ---
-# <a name="what-is-azure-static-web-apps-preview"></a>Co to jest usługa Azure static Web Apps Preview?
+# <a name="what-is-azure-static-web-apps-preview"></a>Co to jest Azure Static Web Apps zapoznawcza?
 
-Azure static Web Apps to usługa, która automatycznie kompiluje i wdraża aplikacje sieci Web w pełnym stosie na platformie Azure z repozytorium kodu.
+Azure Static Web Apps to usługa, która automatycznie tworzy i wdraża aplikacje internetowe pełnego stosu na platformie Azure z repozytorium kodu.
 
-:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Diagram omówienia Web Apps statycznej platformy Azure":::
+:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps diagram przeglądowy":::
 
-Przepływ pracy Web Apps statycznej platformy Azure jest dostosowany do codziennego przepływu pracy dewelopera. Aplikacje są kompilowane i wdrażane na podstawie zmian w kodzie.
+Przepływ pracy Azure Static Web Apps jest dostosowany do codziennego przepływu pracy dewelopera. Aplikacje są budowane i wdrażane na podstawie zmian w kodzie.
 
-Po utworzeniu zasobu statycznego Web Apps platformy Azure współdziała bezpośrednio z usługą GitHub lub Azure DevOps w celu monitorowania wybranej gałęzi. Przy każdym wypchnięciu zatwierdzeń lub zaakceptowaniu żądań ściągnięcia do rozgałęzienia czujka kompilacja jest uruchamiana automatycznie, a aplikacja i interfejs API są wdrażane na platformie Azure.
+Po utworzeniu zasobu Azure Static Web Apps platforma Azure współdziała bezpośrednio z usługą GitHub lub Azure DevOps w celu monitorowania wybranej gałęzi. Za każdym razem, gdy wypychasz zatwierdzenia lub akceptujesz żądania ściągnięć do obserwowanych gałęzi, kompilacja jest uruchamiana automatycznie, a aplikacja i interfejs API są wdrażane na platformie Azure.
 
-Statyczne aplikacje sieci Web są często kompilowane przy użyciu bibliotek i platform, takich jak kątowy, reaguje, Svelte, VUE lub Blazor, gdzie renderowanie po stronie serwera nie jest wymagane. Te aplikacje obejmują zasoby HTML, CSS, JavaScript i obrazy, które tworzą aplikację. W przypadku tradycyjnego serwera sieci Web te zasoby są obsługiwane z jednego serwera wraz z dowolnym wymaganym punktami końcowymi interfejsu API.
+Statyczne aplikacje internetowe są często budowane przy użyciu bibliotek i platform, takich jak Angular, React, Svelte, Vue lub Blazor, gdzie renderowanie po stronie serwera nie jest wymagane. Te aplikacje obejmują zasoby HTML, CSS, JavaScript i obrazy, które tworzą aplikację. W przypadku tradycyjnego serwera internetowego te zasoby są obsługiwane z jednego serwera wraz z dowolnymi wymaganymi punktami końcowymi interfejsu API.
 
-W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego serwera sieci Web i zamiast tego są obsługiwane z punktów geograficznie rozmieszczonych na całym świecie. Takie rozproszenie sprawia, że pliki są obsługiwane znacznie szybciej, ponieważ znajdują się fizycznie bliżej użytkowników końcowych. Ponadto punkty końcowe interfejsu API są hostowane przy użyciu [architektury bezserwerowej](../azure-functions/functions-overview.md), co pozwala uniknąć konieczności pełnego serwera zaplecza.
+W Static Web Apps statyczne są oddzielone od tradycyjnego serwera internetowego i zamiast nich są obsługiwane z punktów geograficznie rozproszonych po całym świecie. Takie rozproszenie sprawia, że pliki są obsługiwane znacznie szybciej, ponieważ znajdują się fizycznie bliżej użytkowników końcowych. Ponadto punkty końcowe interfejsu API są hostowane przy użyciu architektury bez serwera [,](../azure-functions/functions-overview.md)co pozwala uniknąć konieczności stosowania pełnego serwera końcowego.
 
 ## <a name="key-features"></a>Najważniejsze funkcje
 
-- **Hosting internetowy** dla zawartości statycznej, takiej jak HTML, CSS, JavaScript i obrazy.
+- **Hosting internetowy** zawartości statycznej, np. HTML, CSS, JavaScript i obrazy.
 - **Zintegrowana obsługa interfejsu API** zapewniana przez Azure Functions.
-- **Pierwsza klasa Integracja usług GitHub i Azure DevOps, w** której zmiany repozytorium wyzwala kompilacje i wdrożenia.
-- **Globalnie dystrybuowana** zawartość statyczna, która umieszcza zawartość bliżej użytkowników.
-- **Bezpłatne certyfikaty SSL**, które są automatycznie odnawiane.
-- **Domeny niestandardowe** umożliwiające dostosowanie marką do aplikacji.
-- **Bezproblemowe model zabezpieczeń** z zwrotnym serwerem proxy podczas wywoływania interfejsów API, które nie wymagają konfiguracji mechanizmu CORS.
-- **Integracja dostawcy uwierzytelniania** z usługami Azure Active Directory, Facebook, Google, GitHub i Twitter.
-- **Dostosowywalne definicje i przypisania ról autoryzacji** .
-- **Reguły routingu zaplecza** umożliwiają pełną kontrolę nad zawartością i trasami, które obsługujesz.
-- **Wygenerowane wersje przemieszczania** obsługiwane przez żądania ściągnięcia włączające wersje zapoznawcze witryny przed opublikowaniem.
+- **Najwyższej klasy usługa GitHub i Azure DevOps,** w której zmiany repozytorium wyzwalają kompilacje i wdrożenia.
+- **Globalnie dystrybuowana** zawartość statyczna, przybliżając zawartość do użytkowników.
+- **Bezpłatne certyfikaty SSL,** które są automatycznie odnawiane.
+- **Domeny niestandardowe** w celu zapewnienia dostosowywania aplikacji pod marką.
+- **Bezproblemowy model zabezpieczeń** z zwrotny serwer proxy podczas wywoływania interfejsów API, który nie wymaga konfiguracji mechanizmu CORS.
+- **Integracje dostawców uwierzytelniania z** Azure Active Directory, Facebook, Google, GitHub i Twitter.
+- **Dostosowywalne definicje i przypisania roli** autoryzacji.
+- **Reguły rozsyłania na** zadomowiu umożliwiające pełną kontrolę nad zawartością i trasami, które są przez Ciebie dostarczane.
+- **Wygenerowano wersje przejściowe obsługiwane przez** żądania ściągnięcia umożliwiające wersje zapoznawcze witryny przed opublikowaniem.
 
-## <a name="what-you-can-do-with-static-web-apps"></a>Co możesz zrobić za pomocą Web Apps statycznej
+## <a name="what-you-can-do-with-static-web-apps"></a>Co można zrobić za pomocą Static Web Apps
 
-- Twórz **nowoczesne aplikacje sieci Web** za pomocą platform i bibliotek języka JavaScript, takich jak [kątowy](getting-started.md?tabs=angular), [reaguje](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react)lub [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) , aby tworzyć aplikacje webassembly przy użyciu zaplecza [Azure Functions](apis.md) .
-- **Publikuj Lokacje statyczne** przy użyciu struktur takich jak [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
-- **Wdrażaj aplikacje sieci Web** za pomocą platform, takich jak [Next.js](deploy-nextjs.md) i [Nuxt.js](deploy-nuxtjs.md).
+- Twórz nowoczesne **aplikacje** internetowe za pomocą platform i bibliotek języka JavaScript, takich jak [Angular,](getting-started.md?tabs=angular) [React,](getting-started.md?tabs=react) [Svelte,](/learn/modules/publish-app-service-static-web-app-api/) [Vue](getting-started.md?tabs=vue)lub używając [blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) do tworzenia aplikacji WebAssembly z Azure Functions serwera. [](apis.md)
+- **Publikowanie witryn statycznych** przy użyciu platform takich jak [Gatsby,](publish-gatsby.md) [Hugo,](publish-hugo.md) [VuePress.](publish-vuepress.md)
+- **Wdrażanie aplikacji internetowych za** pomocą platform takich [ jakNext.js](deploy-nextjs.md) i [Nuxt.js](deploy-nuxtjs.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,7 +5,7 @@
   items:
     - name: Co to są usługi Azure Communication Services?
       href: overview.md
-    - name: Opcje pomocy i pomocy
+    - name: Opcje pomocy technicznej i pomocy
       href: support.md
 - name: Przewodniki Szybki start
   expanded: true
@@ -42,9 +42,9 @@
       items:
         - name: Dodawanie połączenia głosowego do aplikacji
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
-        - name: Dodawanie połączenia wideo do aplikacji (JavaScript)
+        - name: Dodawanie wywołania wideo do aplikacji (JavaScript)
           href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-        - name: Korzystanie z zestawu SDK wywoływania
+        - name: Korzystanie z zestawu SDK wywołującego
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Dołączanie aplikacji do obsługi połączeń głosowych do spotkania w usłudze Teams
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -63,9 +63,9 @@
       href: tutorials/trusted-service-tutorial.md
     - name: 'Podpisywanie żądania HTTP przy użyciu podpisu HMAC przy użyciu języka C #'
       href: tutorials/hmac-header-tutorial.md
-    - name: Przygotowywanie aplikacji internetowej na Communication Services (Node.js)
+    - name: Przygotowywanie aplikacji internetowej do Communication Services (Node.js)
       href: tutorials/building-app-start.md
-    - name: Podpisywanie i żądanie do klienta ACS za interfejs API Wiadomości SMS postman
+    - name: Podpisywanie i żądania do klientów ACS interfejs API Wiadomości SMS postman
       href: tutorials/postman-tutorial.md
 - name: Pojęcia
   expanded: false
@@ -152,7 +152,7 @@
     - name: Przegląd dokumentacji referencyjnej
       href: concepts/reference.md
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/communication/communication
+      href: /cli/azure/communication
     - name: Dokumentacja interfejsu API REST
       href: /rest/api/communication/
     - name: Wywoływanie bibliotek

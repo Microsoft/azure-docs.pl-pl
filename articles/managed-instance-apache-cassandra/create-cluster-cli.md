@@ -6,19 +6,19 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.openlocfilehash: 53fe53e1406bfcde1f2d8c7b2a1ce8369303426f
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 56fe69ad7f56d62c9f61738448ea0276fee47063
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379370"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862529"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Szybki start: tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
 Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra zapewnia zautomatyzowane operacje wdrażania i skalowania dla zarządzanych centrów danych Apache Cassandra typu open source. Ta usługa pomaga przyspieszyć scenariusze hybrydowe i ograniczyć bieżącą konserwację.
 
 > [!IMPORTANT]
-> Wystąpienie zarządzane platformy Azure dla serwera Apache Cassandra jest obecnie dostępne w publicznej wersji zapoznawczej.
+> Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra jest obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -31,7 +31,7 @@ W tym przewodniku Szybki start pokazano, jak za pomocą poleceń interfejsu wier
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
-> Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.17.1 lub wyższej. Jeśli używasz usługi Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
+> Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.17.1 lub wyższej. Jeśli używasz programu Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Tworzenie klastra wystąpienia zarządzanego
 
@@ -49,7 +49,7 @@ W tym przewodniku Szybki start pokazano, jak za pomocą poleceń interfejsu wier
    az network vnet create -n <VNet_Name> -l eastus2 -g <Resource_Group_Name> --subnet-name <Subnet Name>
    ```
     > [!NOTE]
-    > Wdrożenie wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra wymaga dostępu do Internetu. Wdrożenie kończy się niepowodzeniem w środowiskach, w których dostęp do Internetu jest ograniczony. Upewnij się, że nie blokujesz dostępu w sieci wirtualnej do następujących istotnych usług platformy Azure, które są niezbędne do prawidłowego działania zarządzanej platformy Cassandra:
+    > Wdrożenie wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra wymaga dostępu do Internetu. Wdrażanie kończy się niepowodzeniem w środowiskach, w których dostęp do Internetu jest ograniczony. Upewnij się, że nie blokujesz dostępu w sieci wirtualnej do następujących istotnych usług platformy Azure, które są niezbędne do prawidłowego działania zarządzanej platformy Cassandra:
     > - Azure Storage
     > - Azure KeyVault
     > - Azure Virtual Machine Scale Sets
@@ -64,9 +64,9 @@ W tym przewodniku Szybki start pokazano, jak za pomocą poleceń interfejsu wier
    ```
 
    > [!NOTE]
-   > Wartości `assignee` i w poprzednim poleceniu są wartościami stałymi. Wprowadź te wartości dokładnie tak, jak `role` wspomniano w poleceniu . Nie spowoduje to błędów podczas tworzenia klastra. Jeśli podczas wykonywania tego polecenia wystąpią błędy, być może nie masz uprawnień do jego uruchomienia. Skontaktuj się z administratorem, aby uzyskać uprawnienia.
+   > Wartości `assignee` i w poprzednim poleceniu są stałymi wartościami. Wprowadź te wartości dokładnie tak, `role` jak wspomniano w poleceniu . Nie spowoduje to błędów podczas tworzenia klastra. Jeśli podczas wykonywania tego polecenia wystąpią jakiekolwiek błędy, możesz nie mieć uprawnień do jego uruchomienia. Skontaktuj się z administratorem, aby uzyskać uprawnienia.
 
-1. Następnie utwórz klaster w nowo utworzonym Virtual Network za pomocą polecenia [az managed-cassandra cluster create.](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) Uruchom następujące polecenie jako wartość `delegatedManagementSubnetId` zmiennej:
+1. Następnie utwórz klaster w nowo utworzonym klastrze Virtual Network za pomocą polecenia [az managed-cassandra cluster create.](/cli/azure/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_cluster_create) Uruchom następujące polecenie, aby wartość `delegatedManagementSubnetId` zmiennej:
 
    > [!NOTE]
    > Wartość zmiennej, która zostanie dostarczona poniżej, jest dokładnie taka sama jak wartość zmiennej podanej `delegatedManagementSubnetId` `--scope` w poleceniu powyżej:
@@ -87,7 +87,7 @@ W tym przewodniku Szybki start pokazano, jak za pomocą poleceń interfejsu wier
       --debug
    ```
 
-1. Na koniec utwórz centrum danych dla klastra z trzema węzłami za pomocą [polecenia az managed-cassandra datacenter create:](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create)
+1. Na koniec utwórz centrum danych dla klastra z trzema węzłami za pomocą polecenia [az managed-cassandra datacenter create:](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create)
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -102,7 +102,7 @@ W tym przewodniku Szybki start pokazano, jak za pomocą poleceń interfejsu wier
       --node-count 3 
    ```
 
-1. Po utworzeniu centrum danych, jeśli chcesz skalować w górę lub skalować w dół węzły w centrum danych, uruchom polecenie [az managed-cassandra datacenter update.](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) Zmień wartość `node-count` parametru na żądaną wartość:
+1. Po utworzeniu centrum danych, jeśli chcesz skalować w górę lub skalować w dół węzły w centrum danych, uruchom polecenie [az managed-cassandra datacenter update.](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) Zmień wartość `node-count` parametru na żądaną wartość:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
@@ -119,7 +119,7 @@ W tym przewodniku Szybki start pokazano, jak za pomocą poleceń interfejsu wier
 
 ## <a name="connect-to-your-cluster"></a>Nawiązywanie połączenia z klastrem
 
-Wystąpienie zarządzane platformy Azure dla serwera Apache Cassandra nie tworzy węzłów z publicznymi adresami IP. Aby nawiązać połączenie z nowo utworzonym klastrem Cassandra, musisz utworzyć inny zasób w sieci wirtualnej. Ten zasób może być aplikacją lub maszyną wirtualną z zainstalowanym narzędziem do zapytań typu open source [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) firmy Apache. Do wdrożenia maszyny [wirtualnej z systemem](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) Ubuntu Resource Manager szablonu aplikacji. Po wdrożeniu połącz się z maszyną za pomocą połączenia SSH i zainstaluj język CQLSH, jak pokazano w następujących poleceniach:
+Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra nie tworzy węzłów z publicznymi adresami IP. Aby nawiązać połączenie z nowo utworzonym klastrem Cassandra, musisz utworzyć inny zasób w sieci wirtualnej. Ten zasób może być aplikacją lub maszyną wirtualną z zainstalowanym narzędziem do zapytań typu open source [języka CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) firmy Apache. Do wdrożenia maszyny [wirtualnej z systemem](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) Ubuntu Resource Manager szablonu aplikacji. Po wdrożeniu połącz się z maszyną za pomocą połączenia SSH i zainstaluj język CQLSH, jak pokazano w poniższych poleceniach:
 
 ```bash
 # Install default-jre and default-jdk

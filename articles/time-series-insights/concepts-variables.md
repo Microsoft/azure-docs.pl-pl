@@ -6,35 +6,35 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01184a4eb2aac81bbcabcebf89ef10afeabddbe8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736738"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872969"
 ---
-# <a name="time-series-model-variables"></a>Zmienne modelu szeregów czasowych
+# <a name="time-series-model-variables"></a>Zmienne modelu szeregów czasu
 
-W tym artykule opisano zmienne modelu szeregów czasowych, które określają reguły formuł i obliczeń dla zdarzeń.
+W tym artykule opisano zmienne modelu szeregów czasu, które określają reguły formuł i obliczeń dla zdarzeń.
 
-Każda zmienna może być jednym z trzech rodzajów: *liczbowej*, *kategorii* i *agregacji*.
+Każda zmienna może być jednym z trzech rodzajów: *liczbowych,* kategorii i *agregacji*.
 
-* Rodzaje **liczbowe** pracują z ciągłymi wartościami liczbowymi.
-* Rodzaje **kategorii** działają ze zdefiniowanym zestawem wartości dyskretnych.
-* Rodzaje **agregacji** łączą wiele zmiennych pojedynczego rodzaju (wszystkie wartości liczbowe lub wszystkie kategorii).
+* **Rodzaje liczbowe** działają z ciągłymi wartościami liczbowych.
+* **Rodzaje podzielone na kategorie** działają ze zdefiniowanym zestawem wartości dyskretnych.
+* **Agregowane** rodzaje łączą wiele zmiennych jednego rodzaju (wszystkich liczbowych lub wszystkich kategorii).
 
-W poniższej tabeli przedstawiono właściwości, które są istotne dla poszczególnych rodzajów zmiennych.
+W poniższej tabeli przedstawiono właściwości, które są istotne dla każdego rodzaju zmiennej.
 
-[![Tabela zmiennych modelu szeregów czasowych](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
+[![Tabela zmiennych modelu szeregów czasu](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
 ## <a name="numeric-variables"></a>Zmienne liczbowe
 
-| Variable — Właściwość | Opis |
+| Właściwość zmiennej | Opis |
 | --- | ---|
-| Filtr zmiennych | Filtry są opcjonalnymi klauzulami warunkowymi, aby ograniczyć liczbę wierszy, które są brane pod uwagę podczas obliczania. |
-| Wartość zmiennej | Wartości telemetryczne używane do obliczeń pochodzących z urządzenia lub czujników lub przekształcone przy użyciu wyrażeń szeregów czasowych. Zmienne rodzaju liczbowego muszą być typu *Double*.|
-| Interpolacja zmiennych | Interpolacja określa, jak odtworzyć sygnał przy użyciu istniejących danych. Opcje interpolacji *krokowej* i *liniowej* są dostępne dla zmiennych liczbowych. |
-| Agregacja zmiennych | Wykonywanie obliczeń za pomocą obsługiwanych [funkcji agregacji dla zmiennych liczbowych](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
+| Filtr zmiennych | Filtry to opcjonalne klauzule warunkowe, które ograniczają liczbę wierszy rozważanych do obliczenia. |
+| Wartość zmiennej | Wartości telemetryczne używane do obliczeń pochodzących z urządzenia lub czujników albo przekształcane przy użyciu wyrażeń szeregów czasu. Zmienne liczbowe typu muszą mieć wartość lub , `Double` `Long` aby dopasować typ danych przychodzących.|
+| Interpolacja zmiennych | Interpolacja określa, jak odtworzyć sygnał przy użyciu istniejących danych. *Opcje* *interpolacji* krokowej i liniowej są dostępne dla zmiennych liczbowych. |
+| Agregacja zmiennych | Wykonywanie obliczeń za pomocą obsługiwanych funkcji [agregacji dla rodzajów zmiennych liczbowych](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Zmienne są zgodne z następującym przykładem JSON:
 
@@ -57,15 +57,15 @@ Zmienne są zgodne z następującym przykładem JSON:
 }
 ```
 
-## <a name="categorical-variables"></a>Zmienne kategorii
+## <a name="categorical-variables"></a>Zmienne podzielone na kategorii
 
-| Variable — Właściwość | Opis |
+| Właściwość zmiennej | Opis |
 | --- | ---|
-| Filtr zmiennych | Filtry są opcjonalnymi klauzulami warunkowymi, aby ograniczyć liczbę wierszy, które są brane pod uwagę podczas obliczania. |
-| Wartość zmiennej | Wartości telemetryczne używane do obliczeń pochodzących z urządzenia lub czujników. Zmienne typu kategorii muszą mieć wartość *Long* lub *String*. |
-| Interpolacja zmiennych | Interpolacja określa, jak odtworzyć sygnał przy użyciu istniejących danych. Opcja interpolacji *kroku* jest dostępna dla zmiennych kategorii. |
-| Kategorie zmiennych | Kategorie tworzą mapowanie między wartościami pochodzącymi z urządzenia lub czujników do etykiety. |
-| Kategoria domyślna zmiennej | Kategoria domyślna dotyczy wszystkich wartości, które nie są mapowane we właściwości "Kategorie". |
+| Filtr zmiennych | Filtry to opcjonalne klauzule warunkowe, które ograniczają liczbę wierszy rozważanych do obliczenia. |
+| Wartość zmiennej | Wartości telemetryczne używane do obliczeń pochodzących z urządzenia lub czujników. Zmienne rodzaju podzielonego na kategorii muszą być albo lub , aby dopasować `Long` `String` typ danych przychodzących. |
+| Interpolacja zmiennych | Interpolacja określa, jak odtworzyć sygnał przy użyciu istniejących danych. Opcja  Interpolacja kroków jest dostępna dla zmiennych kategorii. |
+| Kategorie zmiennych | Kategorie tworzą mapowanie wartości pochodzących z urządzenia lub czujników na etykietę. |
+| Domyślna kategoria zmiennej | Kategoria domyślna jest dla wszystkich wartości, które nie są mapowane we właściwości "categories". |
 
 Zmienne są zgodne z następującym przykładem JSON:
 
@@ -97,12 +97,12 @@ Zmienne są zgodne z następującym przykładem JSON:
 }
 ```
 
-## <a name="aggregate-variables"></a>Zmienne agregujące
+## <a name="aggregate-variables"></a>Zmienne agregowane
 
-| Variable — Właściwość | Opis |
+| Właściwość zmiennej | Opis |
 | --- | ---|
-| Filtr zmiennych | Filtry są opcjonalnymi klauzulami warunkowymi, aby ograniczyć liczbę wierszy, które są brane pod uwagę podczas obliczania. |
-| Agregacja zmiennych | Wykonywanie obliczeń za pomocą obsługiwanych [funkcji agregacji dla typów zmiennych agregacji](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
+| Filtr zmiennych | Filtry to opcjonalne klauzule warunkowe, które ograniczają liczbę wierszy rozważanych do obliczenia. |
+| Agregacja zmiennych | Wykonywanie obliczeń za pomocą obsługiwanych funkcji [agregacji dla typu zmiennych agregowania](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Zmienne są zgodne z następującym przykładem JSON:
 
@@ -116,10 +116,10 @@ Zmienne są zgodne z następującym przykładem JSON:
 }
 ```
 
-Zmienne są przechowywane w definicji typu w modelu szeregów czasowych i mogą być dostarczane wewnętrznie za pośrednictwem interfejsów API w celu przesłonięcia lub uzupełnienia przechowywanej definicji.
+Zmienne są przechowywane w definicji typu modelu szeregów czasowych i mogą być udostępniane w tekście za pośrednictwem interfejsów API w celu zastąpienia lub uzupełnienia przechowywanej definicji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat [modelu szeregów czasowych](./concepts-model-overview.md).
+* Dowiedz się więcej o [modelu szeregów czasu](./concepts-model-overview.md).
 
-* Przeczytaj więcej na temat sposobu definiowania zmiennych wbudowanych przy użyciu [interfejsów API zapytań](./concepts-query-overview.md).
+* Przeczytaj więcej na temat sposobu definiowania zmiennych w tekście przy użyciu [interfejsów API zapytań.](./concepts-query-overview.md)

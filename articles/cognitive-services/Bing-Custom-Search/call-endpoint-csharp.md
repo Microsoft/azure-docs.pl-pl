@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: wywoływanie punktu końcowego wyszukiwanie niestandardowe Bing przy użyciu języka C# | Microsoft Docs'
+title: 'Szybki start: wywołanie punktu końcowego wyszukiwanie niestandardowe Bing przy użyciu języka C# | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Użyj tego przewodnika Szybki start, aby rozpocząć żądanie wyników z wystąpienia wyszukiwania niestandardowego Bing w języku C#.
 services: cognitive-services
@@ -11,37 +11,37 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b892194a0e716aa3de218bc6edb6c38cdc898935
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1d3accdb20073bd1e9b29988b78d7eacd49976b8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338660"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862313"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Szybki Start: wywoływanie punktu końcowego wyszukiwanie niestandardowe Bing przy użyciu języka C # 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Szybki start: wywołanie punktu końcowego wyszukiwanie niestandardowe Bing przy użyciu języka C # 
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Wyszukiwanie Bing API są przechodnie z Cognitive Services do Wyszukiwanie Bing Services. Od **30 października 2020** r. wszystkie nowe wystąpienia usługi Wyszukiwanie Bing należy aprowizować zgodnie z procesem [udokumentowanym tutaj.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
+> Wyszukiwanie Bing aprowizowane przy użyciu usługi Cognitive Services będą obsługiwane przez następne trzy lata lub do Enterprise Agreement, w zależności od tego, co nastąpi najpierw.
+> Aby uzyskać instrukcje dotyczące migracji, [zobacz Wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać wyników wyszukiwania z wystąpienia wyszukiwanie niestandardowe Bing. Mimo że aplikacja jest zapisywana w języku C#, interfejs API wyszukiwania niestandardowego Bing jest usługą sieci Web RESTful zgodną z większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
+Skorzystaj z tego przewodnika Szybki start, aby dowiedzieć się, jak żądać wyników wyszukiwania z wyszukiwanie niestandardowe Bing wystąpienia. Mimo że ta aplikacja jest napisana w języku C#, interfejs API wyszukiwanie niestandardowe Bing jest usługą internetową RESTful zgodną z większością języków programowania. Kod źródłowy tego przykładu jest dostępny w witrynie [GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wystąpienie wyszukiwania niestandardowego Bing. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie pierwszego wystąpienia wyszukiwanie niestandardowe Bing](quick-start.md).
-- [Microsoft .NET rdzeń](https://www.microsoft.com/net/download/core).
-- Dowolna wersja programu [Visual Studio 2019 lub nowszego](https://www.visualstudio.com/downloads/).
+- Wystąpienie wyszukiwania niestandardowego Bing. Aby uzyskać więcej informacji, zobacz [Szybki start: tworzenie pierwszego wyszukiwanie niestandardowe Bing wystąpienia .](quick-start.md)
+- [Microsoft .NET Core](https://dotnet.microsoft.com/download).
+- Dowolna wersja [programu Visual Studio 2019 lub nowszy.](https://www.visualstudio.com/downloads/)
 - Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację przy użyciu środowiska [Mono](https://www.mono-project.com/).
-- Pakiet NuGet [wyszukiwanie niestandardowe Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) . 
+- Pakiet [Wyszukiwanie niestandardowe Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet. 
 
    Aby zainstalować ten pakiet w programie Visual Studio: 
-     1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. 
-     2. Wyszukaj i wybierz pozycję *Microsoft. Azure. CognitiveServices. Search. CustomSearch*, a następnie zainstaluj pakiet.
+     1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**, a następnie wybierz pozycję **Zarządzaj pakietami NuGet.** 
+     2. Wyszukaj i wybierz *pozycję Microsoft.Azure.CognitiveServices.Search.CustomSearch,* a następnie zainstaluj pakiet.
 
-   Po zainstalowaniu pakietu NuGet wyszukiwanie niestandardowe Bing program Visual Studio instaluje również następujące pakiety:
+   Podczas instalowania wyszukiwanie niestandardowe Bing NuGet program Visual Studio także następujące pakiety:
      - **Microsoft.Rest.ClientRuntime**
-     - **Microsoft. Rest. ClientRuntime. Azure**
+     - **Microsoft.Rest.ClientRuntime.Azure**
      - **Newtonsoft.Json**
 
 
@@ -49,7 +49,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać w
 
 ## <a name="create-and-initialize-the-application"></a>Tworzenie i inicjowanie aplikacji
 
-1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio. Następnie Dodaj następujące pakiety do projektu:
+1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio. Następnie dodaj następujące pakiety do projektu:
 
     ```csharp
     using System;
@@ -58,7 +58,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać w
     using Newtonsoft.Json;
     ```
 
-2. Utwórz następujące klasy do przechowywania wyników wyszukiwania zwróconych przez interfejs API wyszukiwania niestandardowego Bing:
+2. Utwórz następujące klasy do przechowywania wyników wyszukiwania zwracanych przez interfejs API wyszukiwanie niestandardowe Bing API:
 
     ```csharp
     public class BingCustomSearchResponse {        
@@ -82,7 +82,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać w
     }
     ```
 
-3. W głównej metodzie projektu Utwórz następujące zmienne dla klucza subskrypcji interfejs API wyszukiwania niestandardowego Bing, identyfikator niestandardowej konfiguracji wystąpienia wyszukiwania i termin wyszukiwania:
+3. W metodzie głównej projektu utwórz następujące zmienne dla klucza subskrypcji interfejsu API wyszukiwanie niestandardowe Bing, niestandardowego identyfikatora konfiguracji wystąpienia wyszukiwania i terminu wyszukiwania:
 
     ```csharp
     var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
@@ -90,7 +90,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać w
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Utwórz adres URL żądania przez dołączenie terminu wyszukiwania do `q=` parametru zapytania i NIESTANDARDOWEGO identyfikatora konfiguracji wystąpienia wyszukiwania do `customconfig=` parametru. Oddziel parametry znakiem handlowego "i" ( `&` ). Dla `url` wartości zmiennej można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu.
+4. Skonstruuj adres URL żądania, dołączając termin wyszukiwania do parametru zapytania oraz niestandardowy identyfikator konfiguracji wystąpienia wyszukiwania `q=` do `customconfig=` parametru . Oddziel parametry za pomocą ampersand ( `&` ). Dla wartości zmiennej możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego poddomeny `url` wyświetlanego w Azure Portal zasobu. [](../../cognitive-services/cognitive-services-custom-subdomains.md)
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +

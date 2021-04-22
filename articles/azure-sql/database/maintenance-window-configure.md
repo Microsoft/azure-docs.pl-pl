@@ -1,6 +1,6 @@
 ---
-title: Konfiguruj okno obsługi (wersja zapoznawcza)
-description: Dowiedz się, jak ustawić czas, w którym planowana konserwacja powinna być wykonywana w bazach danych Azure SQL Database, elastycznych pulach i zarządzanych wystąpieniach.
+title: Konfigurowanie okna obsługi (wersja zapoznawcza)
+description: Dowiedz się, jak ustawić czas, w którym planowana konserwacja ma być wykonywana w bazach danych Azure SQL, elastycznych pulach i bazach danych wystąpień zarządzanych.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -9,66 +9,66 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/23/2021
-ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9771c68dda6f457586f27ea45fbc52aa118e8006
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047355"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874787"
 ---
-# <a name="configure-maintenance-window-preview"></a>Konfiguruj okno obsługi (wersja zapoznawcza)
+# <a name="configure-maintenance-window-preview"></a>Konfigurowanie okna obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 
-Skonfiguruj [okno obsługi (wersja zapoznawcza)](maintenance-window.md) dla bazy danych Azure SQL Database, puli elastycznej lub bazy danych wystąpienia zarządzanego Azure SQL podczas tworzenia zasobów lub w dowolnym momencie po utworzeniu zasobu. 
+Skonfiguruj okno [obsługi (wersja zapoznawcza)](maintenance-window.md) dla bazy Azure SQL, elastycznej puli lub bazy danych Azure SQL Managed Instance podczas tworzenia zasobu lub w dowolnym momencie po utworzeniu zasobu. 
 
-Domyślne okno obsługi *systemu* to 17:00 8:00 (czas lokalny w regionie platformy Azure, w którym znajduje się zasób), aby uniknąć szczytu przerw w pracy w godzinach pracy. Jeśli domyślny czas okna obsługi *systemu* nie jest najlepszy, wybierz jedno z innych dostępnych okien obsługi.
+Domyślne *okno obsługi* systemu jest codziennie od 17:00 do 20:00 (lokalny czas regionu świadczenia usługi Azure, w ramach których znajduje się zasób), aby uniknąć przerw w godzinach szczytu. Jeśli domyślne *okno obsługi* System nie jest najlepszym czasem, wybierz jedno z innych dostępnych okien obsługi.
 
-Możliwość zmiany w innym oknie obsługi nie jest dostępna dla każdego poziomu usług lub w każdym regionie. Aby uzyskać szczegółowe informacje na temat dostępności, zobacz [dostępność okna obsługi](maintenance-window.md#availability).
+Możliwość zmiany na inne okno obsługi nie jest dostępna dla każdego poziomu usługi ani w każdym regionie. Aby uzyskać szczegółowe informacje na temat dostępności, zobacz [Dostępność okna obsługi](maintenance-window.md#availability).
 
 > [!Important]
-> Konfigurowanie okna obsługi jest długotrwałą operacją asynchroniczną, podobną do zmiany warstwy usług zasobu SQL platformy Azure. Zasób jest dostępny podczas operacji, z wyjątkiem krótkiej ponownej konfiguracji, która odbywa się na koniec operacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ ponownej konfiguracji, należy wykonać operację poza godzinami szczytu.
+> Konfigurowanie okna obsługi jest długotrwałą operacją asynchroniczną podobną do zmiany warstwy usługi Azure SQL zasobów. Zasób jest dostępny podczas operacji, z wyjątkiem krótkiej ponownej konfiguracji, która ma miejsce na końcu operacji i zwykle trwa do 8 sekund, nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ ponownej konfiguracji, należy wykonać operację poza godzinami szczytu.
 
-## <a name="configure-maintenance-window-during-database-creation"></a>Konfiguruj okno obsługi podczas tworzenia bazy danych 
+## <a name="configure-maintenance-window-during-database-creation"></a>Konfigurowanie okna obsługi podczas tworzenia bazy danych 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby skonfigurować okno obsługi podczas tworzenia bazy danych, puli elastycznej lub wystąpienia zarządzanego, należy ustawić odpowiednie **okno obsługi** na stronie **Ustawienia dodatkowe** . 
+Aby skonfigurować okno obsługi podczas tworzenia bazy danych, elastycznej puli lub wystąpienia zarządzanego, ustaw odpowiednie okno **Konserwacja** na **stronie Ustawienia** dodatkowe. 
 
-## <a name="set-the-maintenance-window-while-creating-a-single-database-or-elastic-pool"></a>Ustawianie okna obsługi podczas tworzenia pojedynczej bazy danych lub puli elastycznej
+## <a name="set-the-maintenance-window-while-creating-a-single-database-or-elastic-pool"></a>Ustawianie okna obsługi podczas tworzenia pojedynczej bazy danych lub elastycznej puli
 
-Aby uzyskać informacje krok po kroku dotyczące tworzenia nowej bazy danych lub puli, zobacz [tworzenie Azure SQL Database pojedynczej bazy danych](single-database-create-quickstart.md).
+Aby uzyskać szczegółowe informacje na temat tworzenia nowej bazy danych lub puli, zobacz Tworzenie bazy [Azure SQL Database pojedynczej bazy danych.](single-database-create-quickstart.md)
 
-   :::image type="content" source="media/maintenance-window-configure/additional-settings.png" alt-text="Karta Tworzenie dodatkowych ustawień bazy danych":::
+   :::image type="content" source="media/maintenance-window-configure/additional-settings.png" alt-text="Karta Dodatkowych ustawień tworzenia bazy danych":::
 
 
-## <a name="set-the-maintenance-window-while-creating-a-managed-instance"></a>Ustaw okno obsługi podczas tworzenia wystąpienia zarządzanego
+## <a name="set-the-maintenance-window-while-creating-a-managed-instance"></a>Ustawianie okna obsługi podczas tworzenia wystąpienia zarządzanego
 
-Informacje krok po kroku dotyczące tworzenia nowego wystąpienia zarządzanego można znaleźć w temacie [Tworzenie wystąpienia zarządzanego usługi Azure SQL](../managed-instance/instance-create-quickstart.md).
+Aby uzyskać szczegółowe informacje na temat tworzenia nowego wystąpienia zarządzanego, zobacz [Tworzenie Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
-   :::image type="content" source="media/maintenance-window-configure/additional-settings-mi.png" alt-text="Karta Tworzenie ustawień dodatkowych wystąpienia zarządzanego":::
+   :::image type="content" source="media/maintenance-window-configure/additional-settings-mi.png" alt-text="Karta Tworzenie dodatkowych ustawień wystąpienia zarządzanego":::
 
 
 
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-W poniższych przykładach pokazano, jak skonfigurować okno obsługi przy użyciu Azure PowerShell. Można [zainstalować Azure PowerShell](/powershell/azure/install-az-ps)lub użyć Azure Cloud Shell.
+Poniższe przykłady pokazują, jak skonfigurować okno obsługi przy użyciu Azure PowerShell. Możesz zainstalować [program Azure PowerShell](/powershell/azure/install-az-ps)lub użyć Azure Cloud Shell.
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić Cloud Shell na osobnej karcie przeglądarki, przechodząc do strony [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 
-## <a name="discover-available-maintenance-windows"></a>Odkryj dostępne okna obsługi
+## <a name="discover-available-maintenance-windows"></a>Odnajdywanie dostępnych okien obsługi
 
-Podczas ustawiania okna obsługi każdy region ma własne opcje okna obsługi odpowiadające strefie czasowej dla regionu, w którym znajduje się baza danych lub Pula. 
+Podczas ustawiania okna obsługi każdy region ma własne opcje okna obsługi, które odpowiadają strefie czasowej dla regionu, w którym znajduje się baza danych lub pula. 
 
-### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Odnajdź okna obsługi SQL Database i elastycznych pul 
+### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Odnajdywanie SQL Database i okien obsługi puli elastycznej 
 
-Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* przy użyciu polecenia cmdlet [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) . W przypadku baz danych i pul elastycznych ustaw wartość `MaintenanceScope` `SQLDB` .
+Poniższy przykład zwraca dostępne okna obsługi dla *regionu eastus2* za pomocą polecenia cmdlet [Get-AzMaintenancePublicConfiguration.](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) W przypadku baz danych i pul elastycznych ustaw `MaintenanceScope` wartość `SQLDB` .
 
    ```powershell-interactive
    $location = "eastus2"
@@ -78,9 +78,9 @@ Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* przy u�
    $configurations | ?{ $_.Location -eq $location -and $_.MaintenanceScope -eq "SQLDB"}
    ```
 
-### <a name="discover-sql-managed-instance-maintenance-windows"></a>Odnajdź okna obsługi wystąpienia zarządzanego SQL 
+### <a name="discover-sql-managed-instance-maintenance-windows"></a>Odnajdywanie SQL Managed Instance okien obsługi 
 
-Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* przy użyciu polecenia cmdlet [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) . Dla wystąpień zarządzanych ustaw wartość `MaintenanceScope` `SQLManagedInstance` .
+Poniższy przykład zwraca dostępne okna obsługi dla *regionu eastus2* za pomocą polecenia cmdlet [Get-AzMaintenancePublicConfiguration.](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) W przypadku wystąpień zarządzanych ustaw `MaintenanceScope` wartość `SQLManagedInstance` .
 
    ```powershell-interactive
    $location = "eastus2"
@@ -91,9 +91,9 @@ Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* przy u�
    ```
 
 
-## <a name="set-the-maintenance-window-while-creating-a-single-database"></a>Ustaw okno obsługi podczas tworzenia pojedynczej bazy danych
+## <a name="set-the-maintenance-window-while-creating-a-single-database"></a>Ustawianie okna obsługi podczas tworzenia pojedynczej bazy danych
 
-Poniższy przykład tworzy nową bazę danych i ustawia okno obsługi przy użyciu polecenia cmdlet [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) . `-MaintenanceConfigurationId`Dla regionu bazy danych musi być ustawiona prawidłowa wartość. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład tworzy nową bazę danych i ustawia okno obsługi przy użyciu polecenia cmdlet [New-AzSqlDatabase.](/powershell/module/az.sql/new-azsqldatabase) Musi `-MaintenanceConfigurationId` być ustawiona na prawidłową wartość dla regionu bazy danych. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
 
 
    ```powershell-interactive
@@ -121,7 +121,7 @@ Poniższy przykład tworzy nową bazę danych i ustawia okno obsługi przy użyc
 
 ## <a name="set-the-maintenance-window-while-creating-an-elastic-pool"></a>Ustawianie okna obsługi podczas tworzenia puli elastycznej
 
-Poniższy przykład tworzy nową pulę elastyczną i ustawia okno obsługi przy użyciu polecenia cmdlet [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) . Okno obsługi jest ustawiane w puli elastycznej, więc wszystkie bazy danych w puli mają harmonogram okna obsługi puli. `-MaintenanceConfigurationId`Dla regionu puli musi być ustawiona prawidłowa wartość. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład tworzy nową pulę elastyczną i ustawia okno obsługi przy użyciu polecenia cmdlet [New-AzSqlElasticPool.](/powershell/module/az.sql/new-azsqlelasticpool) Okno obsługi jest ustawiane w elastycznej puli, więc wszystkie bazy danych w puli mają harmonogram okna obsługi puli. Wartość `-MaintenanceConfigurationId` musi być ustawiona na prawidłową wartość dla regionu puli. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Discover available maintenance windows (Odnajdywanie dostępnych okien obsługi).](#discover-available-maintenance-windows)
 
 
    ```powershell-interactive
@@ -146,9 +146,9 @@ Poniższy przykład tworzy nową pulę elastyczną i ustawia okno obsługi przy 
     $pool
    ```
 
-## <a name="set-the-maintenance-window-while-creating-a-managed-instance"></a>Ustaw okno obsługi podczas tworzenia wystąpienia zarządzanego
+## <a name="set-the-maintenance-window-while-creating-a-managed-instance"></a>Ustawianie okna obsługi podczas tworzenia wystąpienia zarządzanego
 
-Poniższy przykład tworzy nowe wystąpienie zarządzane i ustawia okno obsługi przy użyciu polecenia cmdlet [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) . Okno obsługi jest ustawione na wystąpienie, więc wszystkie bazy danych w wystąpieniu mają harmonogram okna obsługi. W przypadku elementu `-MaintenanceConfigurationId` *MaintenanceConfigName* musi być prawidłową wartością dla regionu wystąpienia. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład tworzy nowe wystąpienie zarządzane i ustawia okno obsługi przy użyciu polecenia cmdlet [New-AzSqlInstance.](/powershell/module/az.sql/new-azsqlinstance) Okno obsługi jest ustawiane w wystąpieniu, więc wszystkie bazy danych w wystąpieniu mają harmonogram okna obsługi wystąpienia. W `-MaintenanceConfigurationId` przypadku *parametru nazwa_konfiguracji_konserwacji* musi być prawidłową wartością dla regionu wystąpienia. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Discover available maintenance windows (Odnajdywanie dostępnych okien obsługi).](#discover-available-maintenance-windows)
 
 
    ```powershell
@@ -162,23 +162,23 @@ Poniższy przykład tworzy nowe wystąpienie zarządzane i ustawia okno obsługi
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
 
-W poniższych przykładach pokazano, jak skonfigurować okno obsługi przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz [zainstalować interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)lub użyć Azure Cloud Shell. 
+Poniższe przykłady pokazują, jak skonfigurować okno obsługi przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz zainstalować [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)lub użyć Azure Cloud Shell. 
 
-Konfigurowanie okna obsługi przy użyciu interfejsu wiersza polecenia platformy Azure jest dostępne tylko dla wystąpienia zarządzanego SQL.
+Konfigurowanie okna obsługi za pomocą interfejsu wiersza polecenia platformy Azure jest dostępne tylko dla SQL Managed Instance.
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/cli](https://shell.azure.com/cli) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić aplikację Cloud Shell osobnej karcie przeglądarki, przechodząc do strony [https://shell.azure.com/cli](https://shell.azure.com/cli) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
-## <a name="discover-available-maintenance-windows"></a>Odkryj dostępne okna obsługi
+## <a name="discover-available-maintenance-windows"></a>Odnajdywanie dostępnych okien obsługi
 
-Podczas ustawiania okna obsługi każdy region ma własne opcje okna obsługi odpowiadające strefie czasowej dla regionu, w którym znajduje się baza danych lub Pula.
+Podczas ustawiania okna obsługi każdy region ma własne opcje okna obsługi, które odpowiadają strefie czasowej dla regionu, w którym znajduje się baza danych lub pula.
 
-### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Odnajdź okna obsługi SQL Database i elastycznych pul
+### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Odnajdywanie SQL Database i okien obsługi puli elastycznej
 
-Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* za pomocą polecenia [AZ Maintenance Public-Configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) . W przypadku baz danych i pul elastycznych ustaw wartość `maintenanceScope` `SQLDB` .
+Poniższy przykład zwraca dostępne okna obsługi dla *regionu eastus2* za pomocą [polecenia az maintenance public-configuration list.](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) W przypadku baz danych i pul elastycznych ustaw `maintenanceScope` wartość `SQLDB` .
 
    ```azurecli
    location="eastus2"
@@ -186,17 +186,17 @@ Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* za pomo
    az maintenance public-configuration list --query "[?location=='$location'&&contains(maintenanceScope,'SQLDB')]"
    ```
 
-### <a name="discover-sql-managed-instance-maintenance-windows"></a>Odnajdź okna obsługi wystąpienia zarządzanego SQL
+### <a name="discover-sql-managed-instance-maintenance-windows"></a>Odnajdywanie SQL Managed Instance okien obsługi
 
-Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* za pomocą polecenia [AZ Maintenance Public-Configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) . Dla wystąpień zarządzanych ustaw wartość `maintenanceScope` `SQLManagedInstance` .
+Poniższy przykład zwraca dostępne okna obsługi dla *regionu eastus2* za pomocą [polecenia az maintenance public-configuration list.](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) W przypadku wystąpień zarządzanych ustaw `maintenanceScope` wartość `SQLManagedInstance` .
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"
    ```
 
-## <a name="set-the-maintenance-window-while-creating-a-single-database"></a>Ustaw okno obsługi podczas tworzenia pojedynczej bazy danych
+## <a name="set-the-maintenance-window-while-creating-a-single-database"></a>Ustawianie okna obsługi podczas tworzenia pojedynczej bazy danych
 
-Poniższy przykład tworzy nową bazę danych i ustawia okno obsługi przy użyciu polecenia [AZ SQL DB Create](/cli/azure/sql/db#az_sql_db_create) . `--maint-config-id`Dla (lub `-m` ) musi być ustawiona prawidłowa wartość dla regionu bazy danych. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład tworzy nową bazę danych i ustawia okno obsługi za pomocą [polecenia az sql db create.](/cli/azure/sql/db#az_sql_db_create) Wartość `--maint-config-id` (lub `-m` ) musi być ustawiona na prawidłową wartość dla regionu bazy danych. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Discover available maintenance windows (Odnajdywanie dostępnych okien obsługi).](#discover-available-maintenance-windows)
 
 
    ```azurecli
@@ -219,9 +219,9 @@ Poniższy przykład tworzy nową bazę danych i ustawia okno obsługi przy użyc
       --maint-config-id $maintenanceConfig
    ```
 
-## <a name="set-the-maintenance-window-while-creating-an-elastic-pool"></a>Ustawianie okna obsługi podczas tworzenia puli elastycznej
+## <a name="set-the-maintenance-window-while-creating-an-elastic-pool"></a>Ustawianie okna obsługi podczas tworzenia elastycznej puli
 
-Poniższy przykład tworzy nową pulę elastyczną i ustawia okno obsługi, korzystając z polecenia [AZ SQL Elastic-Pool Create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create) . Okno obsługi jest ustawiane w puli elastycznej, więc wszystkie bazy danych w puli mają harmonogram okna obsługi puli. `--maint-config-id`Dla (lub `-m` ) musi być ustawiona prawidłowa wartość dla regionu puli. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład tworzy nową pulę elastyczną i ustawia okno obsługi za pomocą polecenia cmdlet [az sql elastic-pool create.](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create) Okno obsługi jest ustawione w elastycznej puli, więc wszystkie bazy danych w puli mają harmonogram okna obsługi puli. Wartość `--maint-config-id` (lub `-m` ) musi być ustawiona na prawidłową wartość dla regionu puli. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Discover available maintenance windows (Odnajdywanie dostępnych okien obsługi).](#discover-available-maintenance-windows)
 
 
    ```azurecli
@@ -244,9 +244,9 @@ Poniższy przykład tworzy nową pulę elastyczną i ustawia okno obsługi, korz
       --maint-config-id $maintenanceConfig
    ```
 
-## <a name="set-the-maintenance-window-while-creating-a-managed-instance"></a>Ustaw okno obsługi podczas tworzenia wystąpienia zarządzanego
+## <a name="set-the-maintenance-window-while-creating-a-managed-instance"></a>Ustawianie okna obsługi podczas tworzenia wystąpienia zarządzanego
 
-Poniższy przykład tworzy nowe wystąpienie zarządzane i ustawia okno obsługi przy użyciu polecenia [AZ SQL mi Create](/cli/azure/sql/mi#az_sql_mi_create). Okno obsługi jest ustawione na wystąpienie, więc wszystkie bazy danych w wystąpieniu mają harmonogram okna obsługi. *MaintenanceConfigName* musi być prawidłową wartością dla regionu wystąpienia. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład tworzy nowe wystąpienie zarządzane i ustawia okno obsługi za pomocą [polecenia az sql mi create](/cli/azure/sql/mi#az_sql_mi_create). Okno obsługi jest ustawiane w wystąpieniu, więc wszystkie bazy danych w wystąpieniu mają harmonogram okna obsługi wystąpienia. *Parametr MaintenanceConfigName* musi być prawidłową wartością regionu wystąpienia. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Discover available maintenance windows (Odnajdywanie dostępnych okien obsługi).](#discover-available-maintenance-windows)
 
    ```azurecli
    az sql mi create -g mygroup -n myinstance -l mylocation -i -u myusername -p mypassword --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNETName}/subnets/{SubnetName} -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MaintenanceConfigName}
@@ -257,25 +257,25 @@ Poniższy przykład tworzy nowe wystąpienie zarządzane i ustawia okno obsługi
 ## <a name="configure-maintenance-window-for-existing-databases"></a>Konfigurowanie okna obsługi dla istniejących baz danych
 
 
-Podczas stosowania wyboru okna obsługi do bazy danych w niektórych przypadkach może wystąpić krótka ponowna konfiguracja (kilka sekund), ponieważ platforma Azure stosuje wymagane zmiany.
+Podczas stosowania okna obsługi do bazy danych może w niektórych przypadkach wystąpić krótka ponowna konfiguracja (kilka sekund), ponieważ platforma Azure stosuje wymagane zmiany.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Poniższe kroki ustawiają okno obsługi w istniejącej bazie danych, puli elastycznej lub wystąpieniu zarządzanym przy użyciu Azure Portal:
+Poniższe kroki ustawiają okno obsługi w istniejącej bazie danych, elastycznej puli lub wystąpieniu zarządzanym przy użyciu Azure Portal:
 
 
-## <a name="set-the-maintenance-window-for-an-existing-database-or-elastic-pool"></a>Ustawianie okna obsługi dla istniejącej bazy danych lub puli elastycznej
+## <a name="set-the-maintenance-window-for-an-existing-database-or-elastic-pool"></a>Ustawianie okna obsługi dla istniejącej bazy danych lub elastycznej puli
 
-1. Przejdź do bazy danych SQL lub puli elastycznej, dla której chcesz ustawić okno obsługi.
-1. W menu **Ustawienia** wybierz pozycję **konserwacja**, a następnie wybierz odpowiednie okno obsługi.
+1. Przejdź do bazy danych SQL lub elastycznej puli, dla której chcesz ustawić okno obsługi.
+1. W menu **Ustawienia** wybierz pozycję **Konserwacja,** a następnie wybierz odpowiednie okno obsługi.
 
-   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="Strona obsługi bazy danych SQL":::
+   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="Strona konserwacji bazy danych SQL":::
 
 
 ## <a name="set-the-maintenance-window-for-an-existing-managed-instance"></a>Ustawianie okna obsługi dla istniejącego wystąpienia zarządzanego
 
 1. Przejdź do wystąpienia zarządzanego, dla którego chcesz ustawić okno obsługi.
-1. W menu **Ustawienia** wybierz pozycję **konserwacja**, a następnie wybierz odpowiednie okno obsługi.
+1. W menu **Ustawienia** wybierz pozycję **Konserwacja,** a następnie wybierz odpowiednie okno obsługi.
 
    :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="Strona konserwacji wystąpienia zarządzanego SQL":::
 
@@ -285,7 +285,7 @@ Poniższe kroki ustawiają okno obsługi w istniejącej bazie danych, puli elast
 
 ## <a name="set-the-maintenance-window-for-an-existing-database"></a>Ustawianie okna obsługi dla istniejącej bazy danych
 
-Poniższy przykład ustawia okno obsługi w istniejącej bazie danych przy użyciu polecenia cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . `-MaintenanceConfigurationId`Dla regionu bazy danych musi być ustawiona prawidłowa wartość. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład ustawia okno obsługi w istniejącej bazie danych przy użyciu polecenia cmdlet [Set-AzSqlDatabase.](/powershell/module/az.sql/set-azsqldatabase) Musi `-MaintenanceConfigurationId` być ustawiona na prawidłową wartość dla regionu bazy danych. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Discover available maintenance windows (Odnajdywanie dostępnych okien obsługi).](#discover-available-maintenance-windows)
 
    ```powershell-interactive
     # Select different maintenance window
@@ -302,7 +302,7 @@ Poniższy przykład ustawia okno obsługi w istniejącej bazie danych przy użyc
 
 ## <a name="set-the-maintenance-window-on-an-existing-elastic-pool"></a>Ustawianie okna obsługi w istniejącej puli elastycznej
 
-Poniższy przykład ustawia okno obsługi w istniejącej puli elastycznej przy użyciu polecenia cmdlet [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool) . Ważne jest, aby upewnić się, że `$maintenanceConfig` wartość jest prawidłową wartością dla regionu puli.  Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład ustawia okno obsługi w istniejącej puli elastycznej przy użyciu polecenia cmdlet [Set-AzSqlElasticPool.](/powershell/module/az.sql/set-azsqlelasticpool) Ważne jest, aby upewnić się, że wartość jest prawidłową wartością dla `$maintenanceConfig` regionu puli.  Aby uzyskać prawidłowe wartości dla regionu, zobacz [Odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
 
    ```powershell-interactive
     # Select different maintenance window
@@ -319,9 +319,9 @@ Poniższy przykład ustawia okno obsługi w istniejącej puli elastycznej przy u
 
 
 
-## <a name="set-the-maintenance-window-on-an-existing-managed-instance"></a>Ustaw okno obsługi na istniejącym wystąpieniu zarządzanym
+## <a name="set-the-maintenance-window-on-an-existing-managed-instance"></a>Ustawianie okna obsługi w istniejącym wystąpieniu zarządzanym
 
-Poniższy przykład ustawia okno obsługi na istniejącym wystąpieniu zarządzanym za pomocą polecenia cmdlet [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) . Ważne jest, aby upewnić się, że `$maintenanceConfig` wartość musi być prawidłową wartością dla regionu wystąpienia.  Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład ustawia okno obsługi w istniejącym wystąpieniu zarządzanym przy użyciu polecenia cmdlet [Set-AzSqlInstance.](/powershell/module/az.sql/set-azsqlinstance) Ważne jest, aby upewnić się, że wartość musi być prawidłową wartością dla `$maintenanceConfig` regionu wystąpienia.  Aby uzyskać prawidłowe wartości dla regionu, zobacz [Odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
 
 
    ```powershell-interactive
@@ -333,11 +333,11 @@ Poniższy przykład ustawia okno obsługi na istniejącym wystąpieniu zarządza
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
 
-W poniższych przykładach pokazano, jak skonfigurować okno obsługi przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz [zainstalować interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)lub użyć Azure Cloud Shell.
+Poniższe przykłady pokazują, jak skonfigurować okno obsługi przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz zainstalować [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)lub użyć Azure Cloud Shell.
 
 ## <a name="set-the-maintenance-window-for-an-existing-database"></a>Ustawianie okna obsługi dla istniejącej bazy danych
 
-Poniższy przykład ustawia okno obsługi w istniejącej bazie danych przy użyciu polecenia [AZ SQL DB Update](/cli/azure/sql/db#az_sql_db_update) . `--maint-config-id`Dla (lub `-m` ) musi być ustawiona prawidłowa wartość dla regionu bazy danych. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład ustawia okno obsługi w istniejącej bazie danych za pomocą [polecenia az sql db update.](/cli/azure/sql/db#az_sql_db_update) Wartość `--maint-config-id` (lub `-m` ) musi być ustawiona na prawidłową wartość dla regionu bazy danych. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
 
    ```azurecli
     # Select different maintenance window
@@ -353,7 +353,7 @@ Poniższy przykład ustawia okno obsługi w istniejącej bazie danych przy użyc
 
 ## <a name="set-the-maintenance-window-on-an-existing-elastic-pool"></a>Ustawianie okna obsługi w istniejącej puli elastycznej
 
-Poniższy przykład ustawia okno obsługi w istniejącej puli elastycznej przy użyciu polecenia [AZ SQL Elastic-Pool Update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) . Ważne jest, aby upewnić się, że `maintenanceConfig` wartość jest prawidłową wartością dla regionu puli.  Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład ustawia okno obsługi w istniejącej puli elastycznej przy użyciu [polecenia az sql elastic-pool update.](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) Ważne jest, aby upewnić się, że wartość jest prawidłową wartością dla `maintenanceConfig` regionu puli.  Aby uzyskać prawidłowe wartości dla regionu, zobacz [Odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
 
    ```azurecli
     # Select different maintenance window
@@ -367,9 +367,9 @@ Poniższy przykład ustawia okno obsługi w istniejącej puli elastycznej przy u
       --maint-config-id $maintenanceConfig
    ```
 
-## <a name="set-the-maintenance-window-on-an-existing-managed-instance"></a>Ustaw okno obsługi na istniejącym wystąpieniu zarządzanym
+## <a name="set-the-maintenance-window-on-an-existing-managed-instance"></a>Ustawianie okna obsługi w istniejącym wystąpieniu zarządzanym
 
-Poniższy przykład ustawia okno obsługi przy użyciu polecenia [AZ SQL mi Update](/cli/azure/sql/mi#az_sql_mi_update). Okno obsługi jest ustawione na wystąpienie, więc wszystkie bazy danych w wystąpieniu mają harmonogram okna obsługi. W przypadku elementu `-MaintenanceConfigurationId` *MaintenanceConfigName* musi być prawidłową wartością dla regionu wystąpienia. Aby uzyskać prawidłowe wartości dla regionu, zobacz [odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
+Poniższy przykład ustawia okno obsługi przy użyciu [polecenia az sql mi update](/cli/azure/sql/mi#az_sql_mi_update). Okno obsługi jest ustawione na wystąpieniu, więc wszystkie bazy danych w wystąpieniu mają harmonogram okna obsługi wystąpienia. W `-MaintenanceConfigurationId` przypadku *parametru MaintenanceConfigName* musi być prawidłową wartością regionu wystąpienia. Aby uzyskać prawidłowe wartości dla swojego regionu, zobacz [Odnajdywanie dostępnych okien obsługi](#discover-available-maintenance-windows).
 
    ```azurecli
    az sql mi update -g mygroup  -n myinstance -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MainteanceConfigName}
@@ -379,11 +379,11 @@ Poniższy przykład ustawia okno obsługi przy użyciu polecenia [AZ SQL mi Upda
 
 ## <a name="cleanup-resources"></a>Oczyszczanie zasobów
 
-Pamiętaj o usunięciu niepotrzebnych zasobów po zakończeniu ich pracy, aby uniknąć niepotrzebnych opłat.
+Pamiętaj o usunięciu niepotrzebnych zasobów po zakończeniu pracy z nimi, aby uniknąć niepotrzebnych opłat.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Przejdź do bazy danych SQL lub puli elastycznej, która nie jest już potrzebna.
+1. Przejdź do bazy danych SQL lub elastycznej puli, która nie jest już potrzebna.
 1. W menu **Przegląd** wybierz opcję usunięcia zasobu.
 
 
@@ -421,6 +421,6 @@ Pamiętaj o usunięciu niepotrzebnych zasobów po zakończeniu ich pracy, aby un
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o oknie obsługi, zobacz [okno obsługi (wersja zapoznawcza)](maintenance-window.md).
-- Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące okna obsługi](maintenance-window-faq.yml).
-- Aby dowiedzieć się więcej o optymalizacji wydajności, zobacz [monitorowanie i dostrajanie wydajności w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL](monitor-tune-overview.md).
+- Aby dowiedzieć się więcej na temat okna obsługi, zobacz [Okno obsługi (wersja zapoznawcza).](maintenance-window.md)
+- Aby uzyskać więcej informacji, zobacz [Okno obsługi — często zadawane pytania.](maintenance-window-faq.yml)
+- Aby dowiedzieć się więcej na temat optymalizacji wydajności, zobacz Monitorowanie i dostrajanie [wydajności w Azure SQL Database i Azure SQL Managed Instance](monitor-tune-overview.md).

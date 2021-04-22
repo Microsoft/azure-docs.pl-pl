@@ -1,5 +1,5 @@
 ---
-title: Wyszukiwanie w sieci Web Bing przewodniku szybki start dotyczącej biblioteki klienta C#
+title: wyszukiwanie w sieci Web Bing szybki start dla biblioteki klienta języka C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: ff4a29cd2da98d6782d2e3bae5078e92bc43eaca
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94386652"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880983"
 ---
-Wyszukiwanie w sieci Web Bing Biblioteka kliencka ułatwia integrację wyszukiwanie w sieci Web Bing z aplikacją w języku C#. Z tego przewodnika Szybki start dowiesz się, jak utworzyć wystąpienie klienta, wysłać żądanie i wyświetlić odpowiedź.
+Biblioteka wyszukiwanie w sieci Web Bing klienta ułatwia integrację aplikacji wyszukiwanie w sieci Web Bing z aplikacją języka C#. Z tego przewodnika Szybki start dowiesz się, jak utworzyć wystąpienie klienta, wysłać żądanie i wyświetlić odpowiedź.
 
-Chcesz zobaczyć kod teraz? Przykłady dla [bibliotek klienckich wyszukiwanie Bing dla platformy .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) są dostępne w witrynie GitHub.
+Chcesz zobaczyć kod teraz? Przykłady dla [bibliotek Wyszukiwanie Bing klienta dla programu .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) są dostępne w witrynie GitHub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szybki start:
@@ -27,16 +27,16 @@ Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szyb
 * [Program Visual Studio Code 2017](https://code.visualstudio.com/download)
   * [Rozszerzenie C# for Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [Menedżer pakietów NuGet](https://github.com/jmrog/vscode-nuget-package-manager)
-* [Zestaw .NET Core SDK](https://www.microsoft.com/net/download)
+* [Zestaw .NET Core SDK](https://dotnet.microsoft.com/download)
 
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-install-dependencies"></a>Tworzenie projektu i instalowanie zależności
 
 > [!TIP]
-> Pobierz najnowszy kod jako rozwiązanie programu Visual Studio z usługi [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
+> Pobierz najnowszy kod jako Visual Studio z [usługi GitHub.](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
 
-Pierwszym krokiem jest utworzenie nowego projektu konsoli. Jeśli potrzebujesz pomocy przy konfigurowaniu projektu konsoli, zobacz [Hello World — pierwszy program (Przewodnik programowania w języku C#)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Aby korzystać z zestawu SDK wyszukiwania w Internecie Bing w aplikacji, musisz zainstalować element `Microsoft.Azure.CognitiveServices.Search.WebSearch` przy użyciu Menedżera pakietów NuGet.
+Pierwszym krokiem jest utworzenie nowego projektu konsoli. Jeśli potrzebujesz pomocy przy konfigurowaniu projektu konsoli, zobacz Hello world — Twój pierwszy program (Przewodnik programowania [w języku C#).](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program) Aby korzystać z zestawu SDK wyszukiwania w Internecie Bing w aplikacji, musisz zainstalować element `Microsoft.Azure.CognitiveServices.Search.WebSearch` przy użyciu Menedżera pakietów NuGet.
 
 [Pakiet zestawu SDK wyszukiwania w Internecie](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) instaluje także następujące elementy:
 
@@ -59,7 +59,7 @@ using System.Threading.Tasks;
 
 ## <a name="create-project-scaffolding"></a>Tworzenie szkieletu projektu
 
-Podczas tworzenia nowego projektu konsoli powinna zostać utworzona przestrzeń nazw i klasa dla aplikacji. Program powinien wyglądać podobnie do tego przykładu:
+Podczas tworzenia nowego projektu konsoli powinna zostać utworzona przestrzeń nazw i klasa dla aplikacji. Twój program powinien wyglądać podobnie do tego przykładu:
 
 ```csharp
 namespace WebSearchSDK

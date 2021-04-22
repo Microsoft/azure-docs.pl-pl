@@ -1,65 +1,65 @@
 ---
-title: 'Samouczek: akceptowanie & odbierania danych — udział danych platformy Azure'
-description: Samouczek — akceptowanie i odbieranie danych za pomocą udziału danych platformy Azure
+title: 'Samouczek: akceptowanie & odbierania danych — Azure Data Share'
+description: Samouczek — akceptowanie i odbieranie danych przy użyciu Azure Data Share
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d063a0870616b5b977df18c56d9d66515b03d0a5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644886"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870863"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Samouczek: Akceptowanie i odbieranie danych przy użyciu usługi Azure Data Share  
 
-W tym samouczku dowiesz się, jak zaakceptować zaproszenie do udziału danych przy użyciu udziału danych platformy Azure. Dowiesz się, jak odbierać dane udostępniane Tobie, a także jak włączyć okres regularnego odświeżania, aby upewnić się, że zawsze masz najnowszą migawkę danych udostępnionych Tobie. 
+Z tego samouczka dowiesz się, jak zaakceptować zaproszenie do udostępniania danych przy użyciu Azure Data Share. Dowiesz się, jak odbierać dane udostępniane, a także jak włączyć regularny interwał odświeżania, aby mieć pewność, że zawsze masz najnowszą migawkę danych, która jest Ci udostępniana. 
 
 > [!div class="checklist"]
-> * Jak zaakceptować zaproszenie do udziału danych platformy Azure
-> * Tworzenie konta udziału danych platformy Azure
-> * Określ miejsce docelowe dla danych
-> * Utwórz subskrypcję udziału danych na potrzeby zaplanowanego odświeżania
+> * Jak zaakceptować zaproszenie Azure Data Share
+> * Tworzenie Azure Data Share konta
+> * Określanie miejsca docelowego dla danych
+> * Tworzenie subskrypcji udziału danych w celu zaplanowanego odświeżania
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed zaakceptowaniem zaproszenia do udziału danych musisz udostępnić kilka zasobów platformy Azure, które są wymienione poniżej. 
+Zanim będzie można zaakceptować zaproszenie do udostępniania danych, należy aprowizć kilka zasobów platformy Azure wymienionych poniżej. 
 
-Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wymagania wstępne zostały ukończone. 
+Przed zaakceptowaniem zaproszenia do udostępniania danych upewnij się, że wszystkie wymagania wstępne zostały ukończone. 
 
-* Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
-* Zaproszenie do udziału danych: zaproszenie od Microsoft Azure z podmiotem zatytułowanym "zaproszenie do udziału danych platformy Azure **<yourdataprovider@domain.com>** ".
-* Zarejestruj [dostawcę zasobów Microsoft. datashare](concepts-roles-permissions.md#resource-provider-registration) w subskrypcji platformy Azure, w której utworzysz zasób udziału danych i subskrypcję platformy Azure, w której znajdują się docelowe magazyny danych platformy Azure.
+* Subskrypcja platformy Azure: jeśli nie masz subskrypcji platformy Azure, przed [rozpoczęciem](https://azure.microsoft.com/free/) utwórz bezpłatne konto.
+* Zaproszenie Data Share: zaproszenie od Microsoft Azure z tematem zatytułowanym "Azure Data Share zaproszenie z **<yourdataprovider@domain.com>** ".
+* Zarejestruj dostawcę [zasobów Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) w subskrypcji platformy Azure, w której utworzysz zasób usługi Data Share i subskrypcję platformy Azure, w której znajdują się docelowe magazyny danych platformy Azure.
 
-### <a name="receive-data-into-a-storage-account"></a>Odbieranie danych do konta magazynu
+### <a name="receive-data-into-a-storage-account"></a>Odbieranie danych na konto magazynu
 
-* Konto usługi Azure Storage: Jeśli jeszcze go nie masz, możesz utworzyć [konto usługi Azure Storage](../storage/common/storage-account-create.md). 
-* Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli Współautor. 
-* Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli Właściciel.  
+* Konto usługi Azure Storage: jeśli jeszcze go nie masz, możesz utworzyć konto [usługi Azure Storage.](../storage/common/storage-account-create.md) 
+* Uprawnienie do zapisu na koncie magazynu, które znajduje się w *microsoft.storage/storageAccounts/write.* To uprawnienie istnieje w roli Współautor. 
+* Uprawnienie do dodawania przypisania roli do konta magazynu, które znajduje się w witrynie *Microsoft.Authorization/role assignments/write.* To uprawnienie istnieje w roli Właściciel.  
 
 ### <a name="receive-data-into-a-sql-based-target"></a>Odbieranie danych do obiektu docelowego opartego na języku SQL
-Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Azure Synapse Analytics poniżej stanowi listę wymagań wstępnych. 
+Jeśli zdecydujesz się odbierać dane do Azure SQL Database, Azure Synapse Analytics, poniżej znajduje się lista wymagań wstępnych. 
 
-#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Wymagania wstępne dotyczące otrzymywania danych w usłudze Azure SQL Database lub Azure Synapse Analytics (dawniej: Azure SQL DW)
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Wymagania wstępne dotyczące odbierania danych do Azure SQL Database lub Azure Synapse Analytics (wcześniej Azure SQL DW)
 
-* Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW).
-* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli **Współautor**. 
-* **Azure Active Directory administrator** programu SQL Server
-* SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
-    1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
-    1. Kliknij  przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
-    1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
+* Konto Azure SQL Database lub Azure Synapse Analytics (wcześniej Azure SQL DW).
+* Uprawnienie do zapisu w bazach danych na serwerze SQL, które znajduje się w *microsoft.sql/servers/databases/write.* To uprawnienie istnieje w roli **Współautor**. 
+* **Azure Active Directory administratora** serwera SQL
+* SQL Server dostęp do zapory. W tym celu należy wykonać następujące czynności: 
+    1. W programie SQL Server Azure Portal przejdź do *zapór i sieci wirtualnych*
+    1. Kliknij **przycisk Tak,** *aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera.*
+    1. Kliknij **pozycję +Dodaj adres IP klienta.** Adres IP klienta może ulec zmianie. Może być konieczne powtórzenie tego procesu przy następnym udostępnianiu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
     1. Kliknij pozycję **Zapisz**. 
  
-#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Wymagania wstępne dotyczące otrzymywania danych w puli SQL usługi Azure Synapse Analytics (Workspace)
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Wymagania wstępne dotyczące odbierania danych do puli SQL Azure Synapse Analytics (obszar roboczy)
 
-* Dedykowana Pula SQL usługi Azure Synapse Analytics (Workspace). Otrzymywanie danych do puli SQL bez serwera nie jest obecnie obsługiwane.
-* Uprawnienia do zapisu w puli SQL w obszarze roboczym Synapse, które znajdują się w *witrynie Microsoft. Synapse/Workspaces/Sqlpools/Write*. To uprawnienie istnieje w roli **Współautor**.
-* Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do puli SQL obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
-    1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję SQL Active Directory administrator na lewym panelu nawigacyjnym i ustaw siebie jako **administratora Azure Active Directory**.
-    1. Otwórz program Synapse Studio, wybierz pozycję *Zarządzaj* w lewym obszarze nawigacji. Wybierz pozycję *Kontrola dostępu* w obszarze zabezpieczenia. Przypisz siebie do roli administratora **SQL** lub **obszaru roboczego** .
-    1. W programie Synapse Studio wybierz pozycję *programowanie* na lewym pasku nawigacyjnym. Wykonaj następujący skrypt w puli SQL, aby dodać tożsamość zarządzaną zasobu udziału danych jako "db_datareader, db_datawriter, db_ddladmin". 
+* Dedykowana Azure Synapse Analytics SQL (obszar roboczy). Odbieranie danych do bez serwera puli SQL nie jest obecnie obsługiwane.
+* Uprawnienie do zapisu w puli SQL w obszarze roboczym usługi Synapse, który znajduje się w obszarze *Microsoft.Synapse/workspaces/sqlPools/write.* To uprawnienie istnieje w roli **Współautor**.
+* Uprawnienie do Data Share zarządzanego zasobu usługi Synapse na dostęp do puli SQL obszaru roboczego usługi Synapse. W tym celu należy wykonać następujące czynności: 
+    1. W Azure Portal przejdź do obszaru roboczego synapse. Wybierz pozycję Administrator usługi SQL Active Directory w lewym panelu nawigacyjnym i ustaw siebie jako **Azure Active Directory administratora.**
+    1. Otwórz Synapse Studio wybierz pozycję *Zarządzaj w* lewym panelu nawigacyjnym. Wybierz *pozycję Kontrola dostępu w* obszarze Zabezpieczenia. Przypisz sobie **rolę administratora SQL** lub administratora obszaru **roboczego.**
+    1. W Synapse Studio wybierz pozycję *Opracuj* w lewym panelu nawigacyjnym. Wykonaj następujący skrypt w puli SQL, aby dodać tożsamość zarządzaną Data Share zasobu jako db_datareader, db_datawriter, db_ddladmin". 
     
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -67,32 +67,32 @@ Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Az
         exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
         exec sp_addrolemember db_ddladmin, "<share_acc_name>";
         ```                   
-       Należy pamiętać, że *<share_acc_name>* to nazwa zasobu udziału danych. Jeśli zasób udział danych nie został jeszcze utworzony, możesz wrócić do tego wymagania wstępnego później.  
+       Pamiętaj, *<share_acc_name>* to nazwa zasobu Data Share zasobów. Jeśli jeszcze nie utworzono zasobu Data Share, możesz wrócić do tego wymagania wstępnego później.  
 
-* Dostęp do zapory obszaru roboczego Synapse. Można to zrobić, wykonując następujące czynności: 
-    1. W Azure Portal przejdź do obszaru roboczego Synapse. Wybierz pozycję *zapory* na lewym pasku nawigacyjnym.
-    1. Kliknij  pozycję Włącz *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego*.
-    1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
+* Dostęp zapory obszaru roboczego usługi Synapse. Można to zrobić za pomocą następujących kroków: 
+    1. W Azure Portal przejdź do obszaru roboczego synapse. Wybierz *pozycję Zapory w lewym* panelu nawigacyjnym.
+    1. Kliknij **pozycję WŁ.,** *aby zezwolić usługom i zasobom platformy Azure na dostęp do tego obszaru roboczego.*
+    1. Kliknij **pozycję +Dodaj adres IP klienta.** Adres IP klienta może ulec zmianie. Może być konieczne powtórzenie tego procesu przy następnym udostępnianiu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
     1. Kliknij pozycję **Zapisz**. 
 
-### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Odbieraj dane w klastrze Eksplorator danych platformy Azure: 
+### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Odbieranie danych do klastra Azure Data Explorer klastra: 
 
-* Klaster usługi Azure Eksplorator danych w tym samym centrum danych platformy Azure co klaster Eksplorator danych dostawcy danych: Jeśli jeszcze tego nie masz, możesz utworzyć [klaster Eksplorator danych platformy Azure](/azure/data-explorer/create-cluster-database-portal). Jeśli nie znasz centrum danych platformy Azure w klastrze dostawcy danych, możesz utworzyć klaster w dalszej części procesu.
-* Uprawnienie do zapisu w klastrze usługi Azure Eksplorator danych, który znajduje się w *witrynie Microsoft. Kusto/klastrów/Write*. To uprawnienie istnieje w roli Współautor. 
+* Klaster Azure Data Explorer w tym samym centrum danych platformy Azure co klaster usługi Eksplorator danych dostawcy danych: jeśli jeszcze go nie masz, możesz utworzyć klaster Azure Data Explorer [danych.](/azure/data-explorer/create-cluster-database-portal) Jeśli nie znasz centrum danych platformy Azure klastra dostawcy danych, możesz utworzyć klaster w dalszej części tego procesu.
+* Uprawnienie do zapisu w klastrze Azure Data Explorer, który znajduje się w *microsoft.kusto/clusters/write.* To uprawnienie istnieje w roli Współautor. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-## <a name="open-invitation"></a>Otwórz zaproszenie
+## <a name="open-invitation"></a>Otwieranie zaproszenia
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Możesz otworzyć zaproszenie z poczty e-mail lub bezpośrednio z Azure Portal. 
+1. Zaproszenie możesz otworzyć za pomocą wiadomości e-mail lub bezpośrednio z Azure Portal. 
 
-   Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure, zatytułowane **zaproszenie <yourdataprovider@domain.com> udziału danych platformy Azure**. Kliknij pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
+   Aby otworzyć zaproszenie z wiadomości e-mail, sprawdź w skrzynce odbiorczej zaproszenie od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure o tytule Azure Data Share **z <yourdataprovider@domain.com> .** Kliknij pozycję **Wyświetl zaproszenie,** aby wyświetlić zaproszenie na platformie Azure. 
 
-   Aby otworzyć zaproszenie z Azure Portal bezpośrednio, Wyszukaj **zaproszenia udziału danych** w Azure Portal. Ta akcja spowoduje przejście do listy zaproszeń udziału danych.
+   Aby otworzyć zaproszenie bezpośrednio z Azure Portal, wyszukaj Data Share **zaproszenia w** Azure Portal. Ta akcja przenosi cię do listy Data Share zaproszenia.
 
    ![Lista zaproszeń](./media/invitations.png "Lista zaproszeń") 
 
@@ -100,47 +100,47 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Przygotuj środowisko interfejsu wiersza polecenia platformy Azure, a następnie Wyświetl zaproszenia.
+Przygotuj środowisko interfejsu wiersza polecenia platformy Azure, a następnie wyświetl zaproszenia.
 
 Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platformy Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Uruchom polecenie [AZ datashare zaproszenia użytkownika list](/cli/azure/ext/datashare/datashare/consumer/invitation#ext_datashare_az_datashare_consumer_invitation_list) , aby wyświetlić bieżące zaproszenia:
+Uruchom polecenie [az datashare consumer invitation list,](/cli/azure/datashare/consumer/invitation#az_datashare_consumer_invitation_list) aby wyświetlić bieżące zaproszenia:
 
 ```azurecli
 az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
 ```
 
-Skopiuj swój identyfikator zaproszenia do użycia w następnej sekcji.
+Skopiuj identyfikator zaproszenia do użycia w następnej sekcji.
 
 ---
 
-## <a name="accept-invitation"></a>Zaakceptuj zaproszenie
+## <a name="accept-invitation"></a>Akceptowanie zaproszenia
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Upewnij się, że wszystkie pola są przeglądane, w tym **warunki użytkowania**. Jeśli akceptujesz warunki użytkowania, musisz zaznaczyć pole wyboru, aby wskazać, że zgadzasz się. 
+1. Upewnij się, że wszystkie pola, w tym warunki **użytkowania, są przeglądane.** Jeśli akceptujesz warunki użytkowania, musisz zaznaczyć pole wyboru, aby wskazać, że się zgadzasz. 
 
    ![Warunki użytkowania](./media/terms-of-use.png "Warunki użytkowania") 
 
-1. W obszarze *docelowe konto udziału danych* wybierz subskrypcję i grupę zasobów, w ramach której będziesz wdrażać udział danych. 
+1. W *obszarze Data Share docelowe* wybierz subskrypcję i grupę zasobów, w których będziesz wdrażać Data Share zasobów. 
 
-   W polu **konto udostępniania danych** wybierz pozycję **Utwórz nową** , jeśli nie masz istniejącego konta udziału danych. W przeciwnym razie wybierz istniejące konto udziału danych, do którego chcesz zaakceptować udział danych. 
+   W polu **Data Share Konto** wybierz pozycję **Utwórz** nowe, jeśli nie masz istniejącego Data Share konta. W przeciwnym razie wybierz istniejące Data Share, na które chcesz zaakceptować udział danych. 
 
-   W polu **Nazwa otrzymanego udziału** można pozostawić wartość domyślną określoną przez dane lub określić nową nazwę dla odebranego udziału. 
+   W polu **Odebrano nazwę** udziału możesz pozostawić wartość domyślną określoną przez podane dane lub określić nową nazwę odebranego udziału. 
 
-   Po uzgodnieniu warunków użytkowania i określeniu konta udziału danych do zarządzania odebranym udziałem wybierz pozycję **Zaakceptuj i skonfiguruj**. Zostanie utworzona subskrypcja udziału. 
+   Po zaakceptowaniu warunków użytkowania i po wybraniu konta usługi Data Share do zarządzania odebranym udziałem wybierz pozycję **Zaakceptuj i skonfiguruj**. Zostanie utworzona subskrypcja udziału. 
 
    ![Zaakceptuj opcje](./media/accept-options.png "Zaakceptuj opcje") 
 
-   Ta akcja spowoduje przejście do otrzymanego udziału na koncie udziału danych. 
+   Ta akcja przenosi Cię do odebranego udziału na twoim Data Share konta. 
 
-   Jeśli nie chcesz zaakceptować zaproszenia, wybierz pozycję *Odrzuć*. 
+   Jeśli nie chcesz akceptować zaproszenia, wybierz pozycję *Odrzuć*. 
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Użyj polecenia [AZ datashare Consumer Share-Subscription Create](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_create) , aby utworzyć udział danych.
+Użyj polecenia [az datashare consumer share-subscription create,](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_create) aby utworzyć Data Share.
 
 ```azurecli
 az datashare consumer share-subscription create --resource-group share-rg \
@@ -151,31 +151,31 @@ az datashare consumer share-subscription create --resource-group share-rg \
 
 ---
 
-## <a name="configure-received-share"></a>Konfiguruj odebrany udział
+## <a name="configure-received-share"></a>Konfigurowanie odebranego udziału
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Wykonaj poniższe kroki, aby skonfigurować miejsce, w którym chcesz otrzymywać dane.
+Wykonaj poniższe kroki, aby skonfigurować miejsce, w którym chcesz odbierać dane.
 
-1. Wybierz kartę **zestawy danych** . Zaznacz pole wyboru obok zestawu danych, do którego chcesz przypisać miejsce docelowe. Wybierz pozycję **+ Mapuj, aby** wybrać docelowy magazyn danych. 
+1. Wybierz **kartę Zestawy** danych. Zaznacz pole wyboru obok zestawu danych, do którego chcesz przypisać miejsce docelowe. Wybierz **pozycję + Mapuj, aby** wybrać docelowy magazyn danych. 
 
-   ![Mapuj do elementu docelowego](./media/dataset-map-target.png "Mapuj do elementu docelowego") 
+   ![Mapowanie na element docelowy](./media/dataset-map-target.png "Mapowanie na element docelowy") 
 
-1. Wybierz docelowy typ magazynu danych, w którym chcesz umieścić dane. Wszystkie pliki danych lub tabele w docelowym magazynie danych o tej samej ścieżce i nazwie zostaną zastąpione. Jeśli otrzymujesz dane do Azure SQL Database lub usługi Azure Synapse Analytics (dawniej Azure SQL DW), zaznacz pole wyboru **Zezwól usłudze udostępnianie danych na uruchamianie skryptu "Create User" w moim imieniu**.
+1. Wybierz typ docelowego magazynu danych, do których mają trafiać dane. Wszystkie pliki danych lub tabele w docelowym magazynie danych o tej samej ścieżce i nazwie zostaną zastąpione. Jeśli odbierasz dane do systemu Azure SQL Database lub Azure Synapse Analytics (dawniej Azure SQL DW), zaznacz pole wyboru Zezwalaj Data Share na uruchamianie powyższego skryptu "utwórz użytkownika" w **moim imieniu.**
 
-   W przypadku udostępniania w miejscu wybierz magazyn danych w określonej lokalizacji. Lokalizacja to centrum danych platformy Azure, w którym znajduje się źródłowy magazyn danych dostawcy danych. Po zmapowaniu zestawu danych możesz użyć linku w ścieżce docelowej, aby uzyskać dostęp do danych.
+   W przypadku udostępniania w miejscu wybierz magazyn danych w określonej lokalizacji. Lokalizacja to centrum danych platformy Azure, w którym znajduje się źródłowy magazyn danych dostawcy danych. Gdy zestaw danych zostanie zamapowany, możesz użyć linku w ścieżce docelowej, aby uzyskać dostęp do danych.
 
    ![Docelowe konto magazynu](./media/dataset-map-target-sql.png "Magazyn docelowy") 
 
-1. W przypadku udostępniania opartego na migawce, jeśli dostawca danych utworzył harmonogram migawek w celu zapewnienia regularnej aktualizacji danych, można również włączyć harmonogram migawek, wybierając kartę **harmonogram migawek** . Zaznacz pole wyboru obok harmonogramu migawek i wybierz pozycję **+ Włącz**. Należy pamiętać, że pierwsza zaplanowana migawka rozpocznie się w ciągu minuty od czasu zaplanowanego, a kolejne migawki rozpocznie się w ciągu kilku sekund od zaplanowanego czasu.
+1. W przypadku udostępniania opartego na migawkach, jeśli dostawca danych utworzył harmonogram migawek w celu zapewnienia regularnej aktualizacji danych, możesz również włączyć harmonogram migawek, wybierając kartę **Harmonogram migawek.** Zaznacz pole wyboru obok harmonogramu migawek i wybierz **pozycję + Włącz**. Należy pamiętać, że pierwsza zaplanowana migawka rozpocznie się w ciągu jednej minuty od harmonogramu, a kolejne migawki będą rozpoczynać się w ciągu sekund od zaplanowanego czasu.
 
-   ![Włącz harmonogram migawek](./media/enable-snapshot-schedule.png "Włącz harmonogram migawek")
+   ![Włączanie harmonogramu migawek](./media/enable-snapshot-schedule.png "Włączanie harmonogramu migawek")
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Te polecenia służą do konfigurowania miejsca, w którym mają być odbierane dane.
+Użyj tych poleceń, aby skonfigurować miejsce, w którym chcesz odbierać dane.
 
-1. Uruchom polecenie [AZ datashare Consumer Share-Subscription-DataSet](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_dataset) , aby uzyskać identyfikator zestawu danych:
+1. Uruchom polecenie [az datashare consumer share-subscription list-source-dataset,](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_dataset) aby uzyskać identyfikator zestawu danych:
 
    ```azurecli
    az datashare consumer share-subscription list-source-dataset \
@@ -184,28 +184,28 @@ Te polecenia służą do konfigurowania miejsca, w którym mają być odbierane 
      --subscription 11111111-1111-1111-1111-111111111111 --query "[0].dataSetId"
    ```
 
-1. Uruchom polecenie [AZ Storage account Create](/cli/azure/storage/account#az_storage_account_create) , aby utworzyć konto magazynu dla tego udziału danych:
+1. Uruchom polecenie [az storage account create,](/cli/azure/storage/account#az_storage_account_create) aby utworzyć konto magazynu dla tego Data Share:
 
    ```azurecli
    az storage account create --resource-group "share-rg" --name "FabrikamDataShareAccount" \
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Aby uzyskać identyfikator konta magazynu, użyj polecenia [AZ Storage account show](/cli/azure/storage/account#az_storage_account_show) :
+1. Użyj polecenia [az storage account show,](/cli/azure/storage/account#az_storage_account_show) aby uzyskać identyfikator konta magazynu:
 
    ```azurecli
    az storage account show --resource-group "share-rg" --name "FabrikamDataShareAccount" \
      --subscription 11111111-1111-1111-1111-111111111111 --query "id"
    ```
 
-1. Użyj następującego polecenia, aby uzyskać identyfikator podmiotu zabezpieczeń konta:
+1. Użyj następującego polecenia, aby uzyskać identyfikator jednostki konta:
 
    ```azurecli
    az datashare account show --resource-group "share-rg" --name "cli_test_consumer_account" \
      --subscription 11111111-1111-1111-1111-111111111111 --query "identity.principalId"
    ```
 
-1. Użyj polecenia [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby utworzyć przypisanie roli dla podmiotu zabezpieczeń konta:
+1. Użyj polecenia [az role assignment create,](/cli/azure/role/assignment#az_role_assignment_create) aby utworzyć przypisanie roli dla jednostki konta:
 
    ```azurecli
    az role assignment create --role "01234567-89ab-cdef-0123-456789abcdef" \
@@ -214,14 +214,14 @@ Te polecenia służą do konfigurowania miejsca, w którym mają być odbierane 
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Utwórz zmienną dla mapowania opartą na IDENTYFIKATORze zestawu danych:
+1. Utwórz zmienną dla mapowania na podstawie identyfikatora zestawu danych:
 
    ```azurecli
    $mapping='{\"data_set_id\":\"' + $dataset_id + '\",\"container_name\":\"newcontainer\",
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Użyj polecenia [AZ datashare Consumer DataSet-Mapping Create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) , aby utworzyć mapowanie zestawu danych:
+1. Użyj polecenia [az datashare consumer dataset-mapping create,](/cli/azure/datashare/consumer/dataset-mapping#az_datashare_consumer_dataset_mapping_create) aby utworzyć mapowanie zestawu danych:
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
@@ -230,7 +230,7 @@ Te polecenia służą do konfigurowania miejsca, w którym mają być odbierane 
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Uruchom polecenie [AZ datashare Consumer Share-Subscription Synchronize Start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) , aby rozpocząć synchronizację zestawu danych.
+1. Uruchom polecenie [az datashare consumer share-subscription synchronization start,](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_start) aby rozpocząć synchronizację zestawu danych.
 
    ```azurecli
    az datashare consumer share-subscription synchronization start \
@@ -239,7 +239,7 @@ Te polecenia służą do konfigurowania miejsca, w którym mają być odbierane 
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Uruchom polecenie [AZ datashare Consumer Share-Subscription list synchronizacji](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_list) , aby wyświetlić listę Twoich synchronizacji:
+   Uruchom polecenie [az datashare consumer share-subscription synchronization list,](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_list) aby wyświetlić listę synchronizacji:
 
    ```azurecli
    az datashare consumer share-subscription synchronization list \
@@ -248,7 +248,7 @@ Te polecenia służą do konfigurowania miejsca, w którym mają być odbierane 
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Aby wyświetlić ustawienia synchronizacji ustawione w udziale, użyj polecenia [AZ datashare Consumer Share-Subscription-Source-Synchronization-Setting](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) .
+   Użyj polecenia [az datashare consumer share-subscription list-source-share-synchronization-setting,](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) aby wyświetlić ustawienia synchronizacji ustawione dla udziału.
 
    ```azurecli
    az datashare consumer share-subscription list-source-share-synchronization-setting \
@@ -262,19 +262,19 @@ Te polecenia służą do konfigurowania miejsca, w którym mają być odbierane 
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Te kroki dotyczą tylko udostępniania opartego na migawce.
+Te kroki dotyczą tylko udostępniania opartego na migawkach.
 
-1. Możesz wyzwolić migawkę, wybierając kartę **szczegóły** , a następnie pozycję **Wyzwalaj migawkę**. Tutaj można wyzwolić pełną lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane od dostawcy danych, wybierz pozycję pełna kopia. 
+1. Migawkę można wyzwolić, wybierając **kartę Szczegóły,** a następnie **pozycję Wyzwolij migawkę.** W tym miejscu możesz wyzwolić pełną lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane od dostawcy danych, wybierz pozycję Pełna kopia. 
 
-   ![Wyzwalanie migawki](./media/trigger-snapshot.png "Wyzwalanie migawki") 
+   ![Migawka wyzwalacza](./media/trigger-snapshot.png "Migawka wyzwalacza") 
 
-1. Po *pomyślnym* zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych**, a następnie kliknij link w ścieżce docelowej. 
+1. Po pomyślnym ostatnim uruchomieniu *przejdź* do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz **pozycję Zestawy** danych i kliknij link w ścieżce docelowej. 
 
-   ![Zestawy danych dla odbiorców](./media/consumer-datasets.png "Mapowanie zestawu danych klienta") 
+   ![Zestawy danych konsumentów](./media/consumer-datasets.png "Mapowanie zestawu danych odbiorców") 
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Uruchom polecenie [AZ datashare Consumer Trigger Create](/cli/azure/ext/datashare/datashare/consumer/trigger#ext_datashare_az_datashare_consumer_trigger_create) , aby wyzwolić migawkę:
+Uruchom polecenie [az datashare consumer trigger create,](/cli/azure/datashare/consumer/trigger#az_datashare_consumer_trigger_create) aby wyzwolić migawkę:
 
 ```azurecli
 az datashare consumer trigger create --resource-group "share-rg" \
@@ -285,19 +285,19 @@ az datashare consumer trigger create --resource-group "share-rg" \
 ```
 
 > [!NOTE]
-> Użyj tego polecenia tylko dla udostępniania opartego na migawce.
+> Tego polecenia należy używać tylko w przypadku udostępniania opartego na migawkach.
 
 ---
 
 ## <a name="view-history"></a>Wyświetlanie historii
-Ten krok dotyczy tylko udostępniania opartego na migawce. Aby wyświetlić historię migawek, wybierz pozycję Karta **historia** . W tym miejscu znajdziesz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni.
+Ten krok dotyczy tylko udostępniania opartego na migawkach. Aby wyświetlić historię migawek, wybierz **kartę** Historia. Tutaj znajdziesz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy zasób nie jest już wymagany, przejdź do strony **Przegląd udziału danych** i wybierz pozycję **Usuń** , aby go usunąć.
+Gdy zasób nie będzie już potrzebny, przejdź do Data Share **Przegląd** i wybierz pozycję **Usuń,** aby go usunąć.
 
 ## <a name="next-steps"></a>Następne kroki
-W ramach tego samouczka nauczysz się akceptować i odbierać udział danych platformy Azure. Aby dowiedzieć się więcej na temat pojęć związanych z udostępnianiem danych platformy Azure, przejdź do terminologii dotyczącej udostępniania danych platformy Azure.
+W tym samouczku opisano sposób akceptowania i odbierania Azure Data Share. Aby dowiedzieć się więcej na Azure Data Share pojęć, przejdź do Azure Data Share Terminologia.
 
 > [!div class="nextstepaction"]
-> [Pojęcia dotyczące udziałów danych platformy Azure](terminology.md)
+> [Azure Data Share pojęcia](terminology.md)

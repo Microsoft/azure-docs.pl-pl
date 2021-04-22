@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 284ef8de1c672fdc0a5bb1a996a3446010253f57
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 64b9ce78f05e1c8d14317f33f21758a86baeabd6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816795"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869189"
 ---
 # <a name="deploy-azure-file-sync"></a>Wdrażanie usługi Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików organizacji w programie Azure Files przy zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć tyle pamięci podręcznych, ile potrzebujesz na całym świecie.
@@ -41,7 +41,7 @@ Zdecydowanie zalecamy przeczytanie artykułów Planowanie [wdrożenia](../files/
     $PSVersionTable.PSVersion
     ```
 
-    Jeśli wartość **PSVersion** jest mniejsza niż 5.1. , tak jak w przypadku najbardziej nowych instalacji systemu Windows Server 2012 R2, możesz łatwo uaktualnić, pobierając i \* instalując program Windows Management Framework [(WMF) 5.1.](https://www.microsoft.com/download/details.aspx?id=54616) Odpowiedni pakiet do pobrania i zainstalowania dla systemu Windows Server 2012 R2 to **Win8.1AndW2K12R2-KB \* \* \* \* \* \* \* -x64.msu.** 
+    Jeśli wartość **psversion** jest mniejsza niż 5.1. , jak ma to miejsce w przypadku najbardziej nowych instalacji systemu Windows Server 2012 R2, można łatwo uaktualnić, pobierając i \* instalując program Windows Management Framework [(WMF) 5.1.](https://www.microsoft.com/download/details.aspx?id=54616) Odpowiedni pakiet do pobrania i zainstalowania dla systemu Windows Server 2012 R2 to **Win8.1AndW2K12R2-KB \* \* \* \* \* \* \* -x64.msu.** 
 
     Programu PowerShell 6+ można używać z dowolnym obsługiwanym systemem i można go pobrać za pośrednictwem strony [usługi GitHub.](https://github.com/PowerShell/PowerShell#get-powershell) 
 
@@ -88,7 +88,7 @@ Zdecydowanie zalecamy przeczytanie artykułów Planowanie [wdrożenia](../files/
 
     Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.
 
-1. Zainstaluj rozszerzenie [az filesync interfejsu](/cli/azure/ext/storagesync/storagesync) wiersza polecenia platformy Azure.
+1. Zainstaluj rozszerzenie [az filesync interfejsu](/cli/azure/storagesync) wiersza polecenia platformy Azure.
 
    ```azurecli
    az extension add --name storagesync
@@ -380,7 +380,7 @@ New-AzStorageSyncCloudEndpoint `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Użyj polecenia [az storagesync sync-group,](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) aby utworzyć nową grupę synchronizacji.  Aby skonfigurować grupę zasobów dla wszystkich poleceń interfejsu wiersza polecenia, użyj [polecenia az configure](/cli/azure/reference-index#az_configure).
+Użyj polecenia [az storagesync sync-group,](/cli/azure/storagesync/sync-group#az_storagesync_sync_group_create) aby utworzyć nową grupę synchronizacji.  Aby skonfigurować grupę zasobów dla wszystkich poleceń interfejsu wiersza polecenia, użyj [polecenia az configure](/cli/azure/reference-index#az_configure).
 
 ```azurecli
 az storagesync sync-group create --resource-group myResourceGroupName \
@@ -388,7 +388,7 @@ az storagesync sync-group create --resource-group myResourceGroupName \
                                  --storage-sync-service myStorageSyncServiceName \
 ```
 
-Użyj polecenia [az storagesync sync-group cloud-endpoint,](/cli/azure/ext/storagesync/storagesync/sync-group/cloud-endpoint#ext-storagesync-az-storagesync-sync-group-cloud-endpoint-create) aby utworzyć nowy punkt końcowy w chmurze.
+Użyj polecenia [az storagesync sync-group cloud-endpoint,](/cli/azure/storagesync/sync-group/cloud-endpoint#az_storagesync_sync_group_cloud_endpoint_create) aby utworzyć nowy punkt końcowy w chmurze.
 
 ```azurecli
 az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
@@ -464,7 +464,7 @@ if ($cloudTieringDesired) {
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Użyj polecenia [az storagesync sync-group server-endpoint,](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) aby utworzyć nowy punkt końcowy serwera.
+Użyj polecenia [az storagesync sync-group server-endpoint,](/cli/azure/storagesync/sync-group/server-endpoint#az_storagesync_sync_group_server_endpoint_create) aby utworzyć nowy punkt końcowy serwera.
 
 ```azurecli
 # Create a new sync group server endpoint 
@@ -556,7 +556,7 @@ Migawki usługi VSS są wykonane dla całego woluminu. Domyślnie dla danego wol
 
 > [!Note]  
 > Należy zwrócić uwagę na dwie ważne rzeczy:
->- Jeśli używasz parametru -Force, a usługa VSS jest obecnie włączona, zastąpi bieżący harmonogram migawek usługi VSS i zastąpi go harmonogramem domyślnym. Przed uruchomieniem polecenia cmdlet upewnij się, że konfiguracja niestandardowa jest zapisywana.
+>- Jeśli używasz parametru -Force, a usługa VSS jest obecnie włączona, zastąpi bieżący harmonogram migawek usługi VSS i zastąpi go harmonogramem domyślnym. Przed uruchomieniem polecenia cmdlet zapisz konfigurację niestandardową.
 > - Jeśli używasz tego polecenia cmdlet w węźle klastra, musisz również uruchomić je na wszystkich innych węzłach w klastrze. 
 
 Aby sprawdzić, czy włączono zgodność samoobsługowego przywracania, możesz uruchomić następujące polecenie cmdlet.

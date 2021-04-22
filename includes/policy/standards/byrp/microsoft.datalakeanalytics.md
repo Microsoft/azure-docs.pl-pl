@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 39193e59e167dc88bf3e4cd36dc31e1f0631081e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 0230e6aba1e272b5b54e8657764a2978bca359d3
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502637"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861623"
 ---
 ## <a name="azure-security-benchmark"></a>Test porównawczy zabezpieczeń platformy Azure
 
-Test [porównawczy zabezpieczeń platformy Azure](../../../../articles/security/benchmarks/overview.md) zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Aby zobaczyć, jak ta usługa całkowicie mapuje się na test porównawczy zabezpieczeń platformy Azure, zobacz pliki [mapowania testu porównawczego zabezpieczeń platformy Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
+Test [porównawczy zabezpieczeń platformy Azure](/security/benchmark/azure/introduction) zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Aby zobaczyć, jak ta usługa całkowicie mapuje się na test porównawczy zabezpieczeń platformy Azure, zobacz pliki mapowania testu [porównawczego zabezpieczeń platformy Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
 
 Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure są mapowe na ten standard zgodności, zobacz Azure Policy Regulatory Compliance - Azure Security Benchmark (Zgodność z przepisami — test porównawczy zabezpieczeń platformy [Azure).](../../../../articles/governance/policy/samples/azure-security-benchmark.md)
 
@@ -24,7 +24,7 @@ Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure
 
 ## <a name="azure-security-benchmark-v1"></a>Test porównawczy zabezpieczeń platformy Azure w wersji 1
 
-Test [porównawczy zabezpieczeń platformy Azure](../../../../articles/security/benchmarks/overview.md) zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Aby zobaczyć, jak ta usługa całkowicie mapuje się na test porównawczy zabezpieczeń platformy Azure, zobacz pliki [mapowania testu porównawczego zabezpieczeń platformy Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
+Test [porównawczy zabezpieczeń platformy Azure](/security/benchmark/azure/introduction) zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Aby zobaczyć, jak ta usługa całkowicie mapuje się na test porównawczy zabezpieczeń platformy Azure, zobacz pliki mapowania testu [porównawczego zabezpieczeń platformy Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
 
 Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure są mapowe na ten standard zgodności, zobacz Azure Policy Regulatory Compliance - Azure Security Benchmark (Zgodność z przepisami — test porównawczy zabezpieczeń platformy [Azure).](../../../../articles/governance/policy/samples/azure-security-benchmark.md)
 
@@ -48,5 +48,5 @@ Aby uzyskać więcej informacji na temat tego standardu zgodności, [zobacz HIPA
 
 |Domena |Identyfikator kontrolki |Tytuł kontrolki |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Rejestrowanie inspekcji |1210.09aa3System.3 — 09.aa |Wszystkie ujawnione informacje objęte usługą w organizacji lub poza nią są rejestrowane, w tym informacje o typie ujawnienia, dacie/godzinie zdarzenia, odbiorcy i nadawcy. |[Dzienniki zasobów w Data Lake Analytics powinny być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc95c74d9-38fe-4f0d-af86-0c7d626a315c) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeAnalytics_AuditDiagnosticLog_Audit.json) |
+|Rejestrowanie inspekcji |1210.09aa3System.3 – 09.aa |Wszystkie ujawnione informacje objęte usługą w organizacji lub poza nią są rejestrowane, w tym informacje o typie ujawnienia, dacie/godzinie zdarzenia, odbiorcy i nadawcy. |[Dzienniki zasobów w Data Lake Analytics powinny być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc95c74d9-38fe-4f0d-af86-0c7d626a315c) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeAnalytics_AuditDiagnosticLog_Audit.json) |
 

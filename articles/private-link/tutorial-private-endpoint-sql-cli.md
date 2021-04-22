@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: a8fafeaaf974893c9a1a71115912f2a7b019ddd9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5a66749a3e773328e6c6c02375e76998bd6531cd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771825"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871961"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Samouczek: nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — interfejs wiersza polecenia platformy Azure
 
-Prywatny punkt końcowy platformy Azure to podstawowy blok Private Link platformie Azure. Umożliwia ona zasobom platformy Azure, np. maszynom wirtualnym, prywatną komunikację Private Link zasobami.
+Prywatny punkt końcowy platformy Azure to podstawowy blok Private Link platformie Azure. Umożliwia ona zasobom platformy Azure, na przykład maszynom wirtualnym, prywatną komunikację Private Link zasobami.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -31,7 +31,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Zaloguj się do Azure Portal i sprawdź, czy Twoja subskrypcja jest aktywna, uruchamiając . `az login`
-* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w oknie terminalu lub polecenia, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zobacz najnowsze [informacje o wersji.](/cli/azure/release-notes-azure-cli?tabs=azure-cli)
+* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w terminalu lub oknie poleceń, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zobacz [najnowsze informacje o wersji.](/cli/azure/release-notes-azure-cli?tabs=azure-cli)
   * Jeśli nie masz najnowszej wersji, zaktualizuj instalację, korzystając z przewodnika instalacji dla systemu [operacyjnego lub platformy](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
@@ -162,8 +162,8 @@ W tej sekcji utworzysz serwer SQL i bazę danych.
 Użyj [polecenia az sql server create,](/cli/azure/sql/server#az_sql_server_create) aby utworzyć serwer SQL:
 
 * **\<sql-server-name>** Zamień na unikatową nazwę serwera.
-* Zastąp **\<your-password>** swoim hasłem.
-* W **edycie CreateSQLEndpointTutorial-rg**.
+* Zastąp **\<your-password>** hasłem.
+* W **createSQLEndpointTutorial-rg**.
 * W **regionie eastus.**
 
 ```azurecli-interactive
@@ -220,9 +220,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Konfigurowanie prywatnej strefy DNS
 
-W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS przy użyciu narzędzia [az network private-dns zone create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS przy użyciu narzędzia [az network private-dns zone create](/cli/azure/network/private-dns/zone#az_network_private_dns_zone_create).  
 
-Użyjesz az [network private-dns link vnet create,](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) aby utworzyć połączenie sieci wirtualnej ze strefą DNS.
+Użyjesz az [network private-dns link vnet create,](/cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create) aby utworzyć połączenie sieci wirtualnej ze strefą DNS.
 
 Utworzysz grupę stref DNS za pomocą az [network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 

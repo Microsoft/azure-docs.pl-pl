@@ -1,18 +1,18 @@
 ---
-title: Przewodnik dotyczący uwierzytelniania klientów usługi Azure sygnalizujących
-description: Dowiedz się, jak wdrożyć własne uwierzytelnianie i zintegrować je z usługą Azure Signal Service, wykonując przykład E2E.
+title: Przewodnik dotyczący uwierzytelniania Azure SignalR Service klientów
+description: Dowiedz się, jak zaimplementować własne uwierzytelnianie i zintegrować je z Azure SignalR Service, korzystając z przykładu e2e.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cd5b709843ba2d98170aaa58eb5c3cc1ec8883af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aace45f78bab273b792d10754be431ed3949e4c6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734685"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869855"
 ---
 # <a name="azure-signalr-service-authentication"></a>Uwierzytelnianie w usłudze Azure SignalR Service
 
@@ -47,15 +47,15 @@ Do ukończenia tego samouczka niezbędne są:
 
 - Konto utworzone w usłudze [GitHub](https://github.com/)
 - [Usługa Git](https://git-scm.com/)
-- [Zestaw .NET Core SDK](https://www.microsoft.com/net/download/windows)
-- [Azure Cloud Shell](../cloud-shell/quickstart.md) skonfigurowany dla środowiska bash.
+- [Zestaw .NET Core SDK](https://dotnet.microsoft.com/download)
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) skonfigurowane dla środowiska powłoki bash.
 - Pobrane lub sklonowane repozytorium GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples)
 
 ## <a name="create-an-oauth-app"></a>Tworzenie aplikacji OAuth
 
 1. Otwórz przeglądarkę internetową, przejdź do witryny `https://github.com` i zaloguj się na swoje konto.
 
-2. W przypadku konta przejdź do pozycji **Ustawienia**  >  **Ustawienia dewelopera** i kliknij pozycję **zarejestruj nową aplikację** lub **nową aplikację OAuth** w obszarze *aplikacje uwierzytelniania OAuth*.
+2. Dla swojego konta przejdź do ustawień **Ustawienia** Deweloper i kliknij pozycję Zarejestruj nową aplikację lub Pozycję Nowa  >   aplikacja **OAuth w** obszarze Aplikacje *OAuth.* 
 
 3. Użyj następujących ustawień dla nowej aplikacji OAuth, a następnie kliknij pozycję **Register application** (Zarejestruj aplikację):
 
@@ -386,11 +386,11 @@ W tej sekcji włączysz prawdziwe uwierzytelnianie, dodając atrybut `Authorize`
 
 ## <a name="deploy-the-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure:
+Przygotowywanie środowiska dla interfejsu wiersza polecenia platformy Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-W tej sekcji użyjesz interfejsu wiersza polecenia (CLI) platformy Azure, aby utworzyć nową aplikację sieci Web w [Azure App Service](../app-service/index.yml) na potrzeby hostowania aplikacji ASP.NET na platformie Azure. Aplikacja internetowa zostanie skonfigurowana do używania lokalnego wdrożenia usługi Git. Aplikacja internetowa będzie również skonfigurowana za pomocą parametrów połączenia usługi SignalR, wpisów tajnych aplikacji OAuth usługi GitHub i użytkownika wdrożenia.
+W tej sekcji użyjemy interfejsu wiersza polecenia platformy Azure, aby utworzyć nową aplikację internetową w usłudze [Azure App Service](../app-service/index.yml) do hostować aplikację ASP.NET platformie Azure. Aplikacja internetowa zostanie skonfigurowana do używania lokalnego wdrożenia usługi Git. Aplikacja internetowa będzie również skonfigurowana za pomocą parametrów połączenia usługi SignalR, wpisów tajnych aplikacji OAuth usługi GitHub i użytkownika wdrożenia.
 
 Podczas tworzenia poniższych zasobów upewnij się, że jest używana ta sama grupa zasobów, w której znajdują się zasoby usługi SignalR Service. Takie podejście znacznie ułatwi późniejsze oczyszczanie, gdy zechcesz usunąć wszystkie zasoby. W podanych przykładach założono, że użyto nazwy grupy zalecanej w poprzednich samouczkach — *SignalRTestResources*.
 
@@ -546,7 +546,7 @@ Aby wdrożyć swój kod, należy wykonać następujące polecenia w powłoce Git
 
 Ostatnim zadaniem, które należy wykonać, jest aktualizacja **adresu URL strony głównej** i **adresu URL wywołania zwrotnego autoryzacji** aplikacji OAuth usługi GitHub, aby wskazywał nową hostowaną aplikację.
 
-1. Otwórz [https://github.com](https://github.com) w przeglądarce i przejdź do **ustawień** ustawienia  >  **dewelopera**  >  **aplikacje OAuth**.
+1. Otwórz w przeglądarce i przejdź do ustawień konta Ustawienia [https://github.com](https://github.com)   >  **Dla deweloperów**  >  **Aplikacje Oauth.**
 
 2. Kliknij aplikację uwierzytelniania oraz zaktualizuj **adres URL strony głównej** i **adres URL wywołania zwrotnego autoryzacji** w sposób przedstawiony poniżej:
 

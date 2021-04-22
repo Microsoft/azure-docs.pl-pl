@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 28fc465627032522afb9da8f6ec0fad704834d09
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: d3ca94524c334a20f5ee75e5300ad419fa1542c5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813708"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873275"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv4.1), protokołu SMB3 lub podwójnego protokołu (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. 
 
-W tym artykule pokazano, jak utworzyć wolumin SMB3. W przypadku woluminów NFS zobacz [Tworzenie woluminu NFS](azure-netapp-files-create-volumes.md). W przypadku woluminów z dwoma protokołami zobacz Create a dual-protocol volume (Tworzenie [woluminu dwu protokołowego).](create-volumes-dual-protocol.md)
+W tym artykule pokazano, jak utworzyć wolumin SMB3. W przypadku woluminów NFS zobacz [Tworzenie woluminu NFS](azure-netapp-files-create-volumes.md). W przypadku woluminów z dwoma protokołami zobacz Create a dual-protocol volume (Tworzenie [woluminu dwu protokołów).](create-volumes-dual-protocol.md)
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
@@ -34,7 +34,7 @@ W tym artykule pokazano, jak utworzyć wolumin SMB3. W przypadku woluminów NFS 
 
 ## <a name="configure-active-directory-connections"></a>Konfigurowanie połączeń usługi Active Directory 
 
-Przed utworzeniem woluminu SMB należy utworzyć połączenie usługi Active Directory. Jeśli nie skonfigurowano połączeń usługi Active Directory dla plików usługi Azure NetApp, postępuj zgodnie z instrukcjami opisanymi w tesłudze Tworzenie połączeń [usługi Active Directory i zarządzanie nimi.](create-active-directory-connections.md)
+Przed utworzeniem woluminu SMB należy utworzyć połączenie usługi Active Directory. Jeśli nie skonfigurowano połączeń usługi Active Directory dla plików usługi Azure NetApp, postępuj zgodnie z instrukcjami opisanymi w te tematach Create and manage Active Directory connections (Tworzenie połączeń usługi Active Directory i zarządzanie [nimi).](create-active-directory-connections.md)
 
 ## <a name="add-an-smb-volume"></a>Dodawanie woluminu SMB
 
@@ -45,11 +45,11 @@ Przed utworzeniem woluminu SMB należy utworzyć połączenie usługi Active Dir
 2. Kliknij pozycję **+ Dodaj wolumin**, aby utworzyć wolumin.  
     Zostanie wyświetlone okno Tworzenie woluminu.
 
-3. W oknie Tworzenie woluminu kliknij przycisk **Utwórz** i podaj informacje dla następujących pól na karcie Podstawowe informacje:   
+3. W oknie Tworzenie woluminu kliknij przycisk **Utwórz** i podaj informacje dla następujących pól na karcie Podstawy:   
     * **Nazwa woluminu**      
         Określ nazwę tworzonego woluminu.   
 
-        Nazwa woluminu musi być unikatowa w obrębie każdej puli pojemności. Musi zawierać co najmniej trzy znaki. Możesz użyć dowolnych znaków alfanumerycznych.   
+        Nazwa woluminu musi być unikatowa w obrębie każdej puli pojemności. Musi zawierać co najmniej trzy znaki. Można użyć dowolnych znaków alfanumerycznych.   
 
         Nie można użyć ani `default` `bin` jako nazwy woluminu.
 
@@ -75,13 +75,13 @@ Przed utworzeniem woluminu SMB należy utworzyć połączenie usługi Active Dir
         Określ podsieć, której chcesz użyć na potrzeby woluminu.  
         Określana podsieć musi być delegowana do usługi Azure NetApp Files. 
         
-        Jeśli podsieć nie jest delegowana, możesz kliknąć pozycję Utwórz nową **na** stronie Tworzenie woluminu. Następnie na stronie Utwórz podsieć określ informacje o podsieci i wybierz pozycję **Microsoft.NetApp/woluminy**, aby delegować podsieć dla usługi Azure NetApp Files. W każdej sieci wirtualnej można delegować tylko jedną podsieć do Azure NetApp Files.   
+        Jeśli podsieć nie jest delegowana, możesz kliknąć pozycję **Utwórz** nową na stronie Tworzenie woluminu. Następnie na stronie Utwórz podsieć określ informacje o podsieci i wybierz pozycję **Microsoft.NetApp/woluminy**, aby delegować podsieć dla usługi Azure NetApp Files. W każdej sieci wirtualnej można delegować tylko jedną podsieć do Azure NetApp Files.   
  
         ![Tworzenie woluminu](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Tworzenie podsieci](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Jeśli chcesz zastosować istniejące zasady migawki do  woluminu, kliknij pozycję Pokaż sekcję Zaawansowane, aby ją rozwinąć, określ, czy chcesz ukryć ścieżkę migawki, a następnie wybierz zasady migawki z menu rozwijanego. 
+    * Jeśli chcesz zastosować istniejące zasady migawek  do woluminu, kliknij pozycję Pokaż sekcję Zaawansowane, aby ją rozwinąć, określ, czy chcesz ukryć ścieżkę migawki, a następnie wybierz zasady migawek w menu rozwijanych. 
 
         Aby uzyskać informacje na temat tworzenia zasad migawek, zobacz [Zarządzanie zasadami migawek.](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
 
@@ -91,11 +91,11 @@ Przed utworzeniem woluminu SMB należy utworzyć połączenie usługi Active Dir
     * Wybierz **SMB** jako typ protokołu dla woluminu. 
     * Wybierz połączenie **z usługą Active Directory** z listy rozwijanej.
     * Określ nazwę woluminu udostępnionego w nazwa  **udziału**.
-    * Jeśli chcesz włączyć szyfrowanie dla protokołu SMB3, wybierz pozycję Włącz szyfrowanie **protokołu SMB3.**   
-        Ta funkcja umożliwia szyfrowanie danych W locie SMB3. Klienci SMB, którzy nie korzystali z szyfrowania SMB3, nie będą mogli uzyskać dostępu do tego woluminu.  Dane w spoczynku są szyfrowane niezależnie od tego ustawienia.  
+    * Jeśli chcesz włączyć szyfrowanie dla protokołu SMB3, wybierz pozycję Włącz szyfrowanie protokołu **SMB3.**   
+        Ta funkcja umożliwia szyfrowanie danych SMB3 w locie. Klienci SMB, którzy nie korzystali z szyfrowania SMB3, nie będą mogli uzyskać dostępu do tego woluminu.  Dane przechowywane są szyfrowane niezależnie od tego ustawienia.  
         Aby uzyskać dodatkowe informacje, zobacz Często zadawane pytania dotyczące szyfrowania [SMB.](azure-netapp-files-faqs.md#smb-encryption-faqs) 
 
-        Funkcja **szyfrowania protokołu SMB3** jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz tej funkcji po raz pierwszy, zarejestruj ją przed jej użyciem: 
+        Funkcja **szyfrowania protokołu SMB3 jest** obecnie dostępna w wersji zapoznawczej. Jeśli używasz tej funkcji po raz pierwszy, zarejestruj ją przed jej użyciem: 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
@@ -104,19 +104,19 @@ Przed utworzeniem woluminu SMB należy utworzyć połączenie usługi Active Dir
         Sprawdź stan rejestracji funkcji: 
 
         > [!NOTE]
-        > Stan **RegistrationState** może być w `Registering` stanie do 60 minut przed zmianą na `Registered` . Przed kontynuowaniem poczekaj, aż `Registered` stan będzie się zmienił.
+        > **RegistrationState** może być w stanie do `Registering` 60 minut przed zmianą na `Registered` . Przed kontynuowaniem poczekaj, aż `Registered` stan będzie się zmienił.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
         ```
         
-        Możesz również użyć poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) oraz zarejestrować funkcję i wyświetlić stan `az feature register` `az feature show` rejestracji.  
+        Możesz również użyć poleceń interfejsu [wiersza polecenia platformy Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) oraz zarejestrować funkcję i wyświetlić stan `az feature register` `az feature show` rejestracji.  
     * Jeśli chcesz włączyć ciągłą dostępność dla woluminu SMB, wybierz **pozycję Włącz ciągłą dostępność.**    
 
         > [!IMPORTANT]   
-        > Funkcja ciągłej dostępności SMB jest obecnie dostępna w publicznej wersji zapoznawczej. Musisz przesłać żądanie listy oczekiwania w celu uzyskania dostępu do funkcji za pośrednictwem strony przesyłania listy oczekiwania udziałów ciągłej dostępności Azure NetApp Files SMB w **[publicznej wersji zapoznawczej.](https://aka.ms/anfsmbcasharespreviewsignup)** Przed użyciem funkcji ciągłej dostępności poczekaj na oficjalną wiadomość e-Azure NetApp Files e-mail od zespołu.   
+        > Funkcja ciągłej dostępności SMB jest obecnie dostępna w publicznej wersji zapoznawczej. Musisz przesłać żądanie listy oczekiwania w celu uzyskania dostępu do funkcji za pośrednictwem strony przesyłania listy oczekiwania udziałów ciągłej dostępności Azure NetApp Files SMB w **[publicznej wersji zapoznawczej.](https://aka.ms/anfsmbcasharespreviewsignup)** Przed rozpoczęciem korzystania z funkcji ciągłej dostępności poczekaj na oficjalny Azure NetApp Files e-mail od zespołu.   
         > 
-        > Ciągłą dostępność należy włączyć tylko dla kontenerów SQL Server [i fsLogix.](../virtual-desktop/create-fslogix-profile-container.md) Używanie udziałów ciągłej dostępności SMB dla obciążeń innych niż SQL Server i kontenery profilu użytkownika FsLogix nie *jest* obsługiwane. Ta funkcja jest obecnie obsługiwana w systemie Windows SQL Server. System Linux SQL Server nie jest obecnie obsługiwany. Jeśli używasz konta bez uprawnień administratora (domeny) do instalowania SQL Server, upewnij się, że konto ma przypisane wymagane uprawnienia zabezpieczeń. Jeśli konto domeny nie ma wymaganych uprawnień zabezpieczeń ( ), a uprawnienia nie można ustawić na poziomie domeny, możesz udzielić tego uprawnienia kontu przy użyciu pola Użytkownicy uprawnień zabezpieczeń połączeń usługi `SeSecurityPrivilege` Active Directory.  Zobacz [Create an Active Directory connection (Tworzenie połączenia usługi Active Directory).](create-active-directory-connections.md#create-an-active-directory-connection)
+        > Ciągłą dostępność należy włączyć tylko dla kontenerów profilu SQL Server [i FSLogix.](../virtual-desktop/create-fslogix-profile-container.md) Używanie udziałów ciągłej dostępności SMB dla obciążeń innych niż SQL Server i FSLogix nie *jest obsługiwane.* Ta funkcja jest obecnie obsługiwana w systemie Windows SQL Server. System Linux SQL Server nie jest obecnie obsługiwany. Jeśli używasz konta bez uprawnień administratora (domeny) do instalowania SQL Server, upewnij się, że konto ma przypisane wymagane uprawnienia zabezpieczeń. Jeśli konto domeny nie ma wymaganych uprawnień zabezpieczeń ( ), a uprawnienia nie można ustawić na poziomie domeny, możesz udzielić tego uprawnienia kontu przy użyciu pola Użytkownicy uprawnień zabezpieczeń połączeń usługi `SeSecurityPrivilege` Active Directory.  Zobacz [Tworzenie połączenia usługi Active Directory.](create-active-directory-connections.md#create-an-active-directory-connection)
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 
@@ -144,20 +144,20 @@ Przed utworzeniem woluminu SMB należy utworzyć połączenie usługi Active Dir
  
     Wolumin dziedziczy atrybuty Subskrypcja, Grupa zasobów i Lokalizacja z puli pojemności. Stan wdrożenia woluminu możesz monitorować na karcie Powiadomienia.
 
-## <a name="control-access-to-an-smb-volume"></a>Kontrola dostępu do woluminu SMB  
+## <a name="control-access-to-an-smb-volume"></a>Kontrolowanie dostępu do woluminu SMB  
 
 Dostępem do woluminu SMB zarządza się za pomocą uprawnień.  
 
 ### <a name="share-permissions"></a>Uprawnienia do udostępniania  
 
-Domyślnie nowy wolumin ma uprawnienia **wszyscy/pełna** kontrola udziału. Członkowie grupy Administratorzy domeny mogą zmienić uprawnienia udziału w następujący sposób:  
+Domyślnie nowy wolumin ma uprawnienia udziału **Wszyscy/Pełna** kontrola. Członkowie grupy Administratorzy domeny mogą zmieniać uprawnienia udziału w następujący sposób:  
 
 1. Zamapuj udział na dysk.  
-2. Kliknij dysk prawym przyciskiem myszy, wybierz **pozycję Właściwości,** a następnie przejdź do **karty** Zabezpieczenia.
+2. Kliknij prawym przyciskiem myszy dysk, wybierz **pozycję Właściwości,** a następnie przejdź do **karty** Zabezpieczenia.
 
 [![Ustawianie uprawnień udziału](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 
-### <a name="ntfs-file-and-folder-permissions"></a>Uprawnienia do plików i folderów NTFS  
+### <a name="ntfs-file-and-folder-permissions"></a>Uprawnienia plików i folderów NTFS  
 
 Uprawnienia do pliku lub folderu można  ustawić przy użyciu karty Zabezpieczenia właściwości obiektu w kliencie SMB systemu Windows.
  

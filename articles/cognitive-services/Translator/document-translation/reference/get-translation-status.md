@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 8b129974396e420948737c9bdf47a5707decab6b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c17cd6cb97aaac3cd08342270e4eafa07eb5fd7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836211"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864887"
 ---
 # <a name="get-translation-status"></a>Uzyskiwanie stanu tłumaczenia
 
@@ -75,24 +75,24 @@ Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 |identyfikator|ciąg|Identyfikator operacji.|
 |createdDateTimeUtc|ciąg|Data i godzina utworzenia operacji.|
 |lastActionDateTimeUtc|ciąg|Data i godzina aktualizacji stanu operacji.|
-|status|Ciąg|Lista możliwych stanów zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>Błąd walidacji</li></ul>|
+|status|Ciąg|Lista możliwych stanów zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>ValidationFailed</li></ul>|
 |Podsumowanie|StatusSummary|Podsumowanie zawierające szczegóły wymienione poniżej.|
 |summary.total|liczba całkowita|Łączna liczba.|
-|summary.failed|liczba całkowita|Liczba nieudanych awarii.|
+|summary.failed|liczba całkowita|Liczba nieudanych.|
 |summary.success|liczba całkowita|Liczba pomyślnych.|
 |summary.inProgress|liczba całkowita|Liczba w toku.|
-|summary.notYetStarted|liczba całkowita|Liczba jeszcze nie uruchomionych.|
+|summary.notYetStarted|liczba całkowita|Liczba nie została jeszcze uruchomiona.|
 |summary.cancelled|liczba całkowita|Liczba anulowanych.|
-|summary.totalCharacterCharged|liczba całkowita|Łączna liczba znaków naliczanych przez interfejs API.|
+|summary.totalCharacterCharged|liczba całkowita|Łączna liczba znaków naliczana przez interfejs API.|
 
-###<a name="error-response"></a>Odpowiedź o błędzie
+###<a name="error-response"></a>Odpowiedź z błędem
 
 |Nazwa|Typ|Opis|
 |--- |--- |--- |
 |kod|ciąg|Wylinia zawierające kody błędów wysokiego poziomu. Możliwe wartości:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Brak autoryzacji</li></ul>|
 |message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 |Docelowego|ciąg|Pobiera źródło błędu. Na przykład w przypadku nieprawidłowego dokumentu będzie to "dokumenty" lub "identyfikator dokumentu".|
-|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera on wymagane właściwości ErrorCode, komunikat i opcjonalny element docelowy właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
+|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, komunikat i opcjonalny element docelowy właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
 |innerError.code|ciąg|Pobiera ciąg błędu kodu.|
 |innerError.message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 

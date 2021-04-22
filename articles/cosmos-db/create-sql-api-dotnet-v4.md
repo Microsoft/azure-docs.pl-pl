@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie zasobami Azure Cosmos DB API SQL przy użyciu zestawu SDK platformy .NET w wersji 4
-description: Przewodnik Szybki start tworzenia aplikacji konsolowej przy użyciu zestawu SDK platformy .NET w wersji 4 do zarządzania Azure Cosmos DB konta interfejsu API SQL.
+description: Przewodnik Szybki start tworzenia aplikacji konsolowej przy użyciu zestawu SDK platformy .NET w wersji 4 do zarządzania Azure Cosmos DB kontami interfejsu API SQL.
 author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/07/2021
 ms.custom: devx-track-dotnet, devx-track-azurecli
-ms.openlocfilehash: 495191dfcdfd7a4d318bef508878e951d88b3ae6
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6d3728596842702f20a96ca568ecd1a16d20c4d8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483898"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873851"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Szybki start: tworzenie aplikacji konsolowej przy użyciu zestawu SDK platformy .NET w wersji 4 (wersja zapoznawcza) do zarządzania Azure Cosmos DB konta interfejsu API SQL.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +36,7 @@ Rozpoczynanie pracy z biblioteką Azure Cosmos DB klienta interfejsu API SQL dla
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Cosmos DB to szybka baza danych NoSQL firmy Microsoftâ€™ z otwartymi interfejsami API dla dowolnej skali. Za pomocą Azure Cosmos DB można szybko tworzyć i tworzyć zapytania dotyczące klucza/wartości, dokumentu i grafowych baz danych. Użyj biblioteki Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET, aby:
+Azure Cosmos DB to szybka baza danych NoSQL firmy Microsoftâ€™ z otwartymi interfejsami API dla dowolnej skali. Za pomocą Azure Cosmos DB można szybko tworzyć i odpytować bazy danych klucz/wartość, dokument i graf. Użyj biblioteki Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET, aby:
 
 * Tworzenie bazy danych i kontenera usługi Azure Cosmos
 * Dodawanie przykładowych danych do kontenera
@@ -56,13 +56,13 @@ Ta sekcja zawiera instrukcje tworzenia konta usługi Azure Cosmos i konfigurowan
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>tworzenie konta usługi Azure Cosmos
 
-Jeśli do utworzenia konta usługi Azure Cosmos [używasz](https://azure.microsoft.com/try/cosmosdb/) Azure Cosmos DB Wypróbuj bezpłatnie, musisz utworzyć konto usługi Azure Cosmos DB typu **INTERFEJS API SQL.** Konto Azure Cosmos DB testowe zostało już utworzone. Nie musisz jawnie tworzyć konta, więc możesz pominąć tę sekcję i przejść do następnej sekcji.
+Jeśli używasz opcji [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) usługi Azure Cosmos, musisz utworzyć konto usługi Azure Cosmos DB typu INTERFEJS API **SQL.** Konto Azure Cosmos DB testowe zostało już utworzone. Nie musisz jawnie tworzyć konta, więc możesz pominąć tę sekcję i przejść do następnej sekcji.
 
 Jeśli masz własną subskrypcję platformy Azure lub bezpłatnie utworzono subskrypcję, musisz jawnie utworzyć konto usługi Azure Cosmos. Poniższy kod spowoduje utworzenie konta usługi Azure Cosmos ze spójnością sesji. Konto jest replikowane w `South Central US` programach i `North Central US` .  
 
 Możesz użyć Azure Cloud Shell, aby utworzyć konto usługi Azure Cosmos. Azure Cloud Shell to interaktywna, uwierzytelniona, dostępna w przeglądarce powłoka służąca do zarządzania zasobami platformy Azure. Oferuje ona elastyczny wybór środowiska powłoki, Bash lub PowerShell, które najlepiej pasuje do sposobu, w jaki wykonujesz swoją pracę. Na przykład w tym przewodniku Szybki start wybierz **pozycję Tryb powłoki Bash.** Azure Cloud Shell wymaga również konta magazynu, można je utworzyć po wyświetleniu monitu.
 
-Wybierz przycisk **Wypróbuj** obok poniższego kodu, wybierz pozycję Tryb **powłoki Bash,** a następnie wybierz pozycję Utwórz **konto magazynu** i zaloguj się do Cloud Shell. Następnie skopiuj i wklej następujący kod, aby Azure Cloud Shell i uruchom go. Nazwa konta usługi Azure Cosmos musi być globalnie unikatowa. Pamiętaj o zaktualizowaniu wartości przed `mysqlapicosmosdb` uruchomieniem polecenia.
+Wybierz przycisk **Wypróbuj obok** poniższego kodu, wybierz pozycję Tryb **powłoki Bash,** a następnie wybierz pozycję Utwórz konto **magazynu** i zaloguj się do Cloud Shell. Następnie skopiuj i wklej następujący kod, aby Azure Cloud Shell i uruchom go. Nazwa konta usługi Azure Cosmos musi być globalnie unikatowa. Pamiętaj o zaktualizowaniu wartości przed `mysqlapicosmosdb` uruchomieniem polecenia.
 
 ```azurecli-interactive
 
@@ -137,7 +137,7 @@ Przykładowa aplikacja wymaga uwierzytelnienia na koncie usługi Azure Cosmos. A
 
 1. Otwórz okienko **Klucze** i skopiuj dane **URI** i **KLUCZ PODSTAWOWY** konta. W następnym kroku dodasz wartości URI i keys do zmiennej środowiskowej.
 
-## <a name="object-model"></a><a id="object-model"></a>Model obiektów
+## <a name="object-model"></a><a id="object-model"></a>Model obiektu
 
 Przed rozpoczęciem tworzenia aplikacji przyjrzyjmy się hierarchii zasobów w programie Azure Cosmos DB i modelowi obiektów używanego do tworzenia tych zasobów i uzyskiwania do nich dostępu. Ten Azure Cosmos DB tworzy zasoby w następującej kolejności:
 

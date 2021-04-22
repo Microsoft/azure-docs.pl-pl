@@ -1,6 +1,6 @@
 ---
 title: Szybki start — tworzenie wystąpienia kontenera — Azure Resource Manager szablonu
-description: W tym przewodniku Szybki start użyjemy szablonu usługi Azure Resource Manager, aby szybko wdrożyć konteneryzowana aplikację internetową, która działa w izolowanym wystąpieniu kontenera platformy Azure.
+description: W tym przewodniku Szybki start użyjemy szablonu usługi Azure Resource Manager, aby szybko wdrożyć konteneryzowana aplikację internetową uruchamianą w izolowanym wystąpieniu kontenera platformy Azure.
 services: azure-resource-manager
 ms.date: 04/30/2020
 ms.topic: quickstart
@@ -9,16 +9,16 @@ ms.custom:
 - subject-armqs
 - devx-track-js
 - mode-arm
-ms.openlocfilehash: 5e8b9e1b2a396bb20b35dd69efe26758ba0db543
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 2f57e86421f7522467a3f4adf4a4e9a21456ba4c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537511"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878744"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Szybki start: wdrażanie wystąpienia kontenera na platformie Azure przy użyciu szablonu usługi ARM
 
-Używaj Azure Container Instances do uruchamiania bez serwera kontenerów platformy Docker na platformie Azure z prostotą i szybkością. Wdrażanie aplikacji w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy orkiestracji kontenerów, na przykład Azure Kubernetes Service. W tym przewodniku Szybki start użyjemy szablonu usługi Azure Resource Manager (arm), aby wdrożyć izolowany kontener platformy Docker i udostępnić jego aplikację internetową przy użyciu publicznego adresu IP.
+Używaj Azure Container Instances, aby uruchamiać bez serwera kontenery platformy Docker na platformie Azure z prostotą i szybkością. Wdrażanie aplikacji w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy orkiestracji kontenerów, na przykład Azure Kubernetes Service. W tym przewodniku Szybki start użyjemy szablonu usługi Azure Resource Manager (arm), aby wdrożyć izolowany kontener platformy Docker i udostępnić jego aplikację internetową przy użyciu publicznego adresu IP.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,13 +34,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
-:::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.containerinstance/aci-linuxcontainer-public-ip/azuredeploy.json":::
 
 W szablonie zdefiniowano następujący zasób:
 
 * **[Microsoft.ContainerInstance/containerGroups:](/azure/templates/microsoft.containerinstance/containergroups)** utwórz grupę kontenerów platformy Azure. Ten szablon definiuje grupę składającą się z jednego wystąpienia kontenera.
 
-Więcej Azure Container Instances przykładów szablonów można znaleźć w [galerii szablonów szybkiego startu.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular)
+Więcej Azure Container Instances przykładów szablonów można znaleźć w galerii szablonów [szybkiego startu.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -53,12 +53,12 @@ Więcej Azure Container Instances przykładów szablonów można znaleźć w [ga
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
     * **Grupa zasobów:** wybierz **pozycję Utwórz nową,** wprowadź unikatową nazwę grupy zasobów, a następnie wybierz przycisk **OK.**
     * **Lokalizacja**: wybierz lokalizację grupy zasobów. Przykład: **Środkowe usa**.
-    * **Nazwa:** zaakceptuj wygenerowaną nazwę wystąpienia lub wprowadź nazwę.
-    * **Obraz:** zaakceptuj domyślną nazwę obrazu. Ten przykładowy obraz systemu Linux zawiera małą aplikację internetową napisaną w Node.js, która obsługuje statyczną stronę HTML. 
+    * **Nazwa**: zaakceptuj wygenerowaną nazwę wystąpienia lub wprowadź nazwę.
+    * **Obraz:** zaakceptuj domyślną nazwę obrazu. Ten przykładowy obraz systemu Linux pakuje małą aplikację internetową napisaną Node.js, która obsługuje statyczną stronę HTML. 
 
     Zaakceptuj wartości domyślne dla pozostałych właściwości.
 
-    Przejrzyj warunki i postanowienia. Jeśli się zgadzasz, wybierz **pozycję Wyrażam zgodę na powyższe warunki i postanowienia.**
+    Zapoznaj się z warunkami i postanowieniami. Jeśli się zgadzasz, wybierz pozycję Wyrażam zgodę na **powyższe warunki i postanowienia.**
 
     ![Właściwości szablonu](media/container-instances-quickstart-template/template-properties.png)
 
@@ -70,7 +70,7 @@ Więcej Azure Container Instances przykładów szablonów można znaleźć w [ga
 
 ## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
-Użyj Azure Portal lub narzędzia, takiego jak interfejs wiersza polecenia platformy [Azure,](container-instances-quickstart.md) aby przejrzeć właściwości wystąpienia kontenera.
+Użyj Azure Portal lub narzędzia, takiego jak interfejs wiersza polecenia [platformy Azure,](container-instances-quickstart.md) aby przejrzeć właściwości wystąpienia kontenera.
 
 1. W portalu wyszukaj pozycję Container Instances i wybierz utworzone wystąpienie kontenera.
 

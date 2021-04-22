@@ -1,56 +1,56 @@
 ---
-title: Informacje o adresie IP Centrum IoT Hub | Microsoft Docs
-description: Zapoznaj się z badaniem adresu IP Centrum IoT i jego właściwości. Adres IP Centrum IoT Hub może ulec zmianie w niektórych scenariuszach, takich jak odzyskiwanie po awarii lub regionalne przełączanie do trybu failover.
+title: Opis adresu IP centrum IoT Hub | Microsoft Docs
+description: Dowiedz się, jak odpytować adres IP centrum IoT i jego właściwości. Adres IP centrum IoT może ulec zmianie w niektórych scenariuszach, takich jak odzyskiwanie po awarii lub regionalny tryb failover.
 author: philmea
 ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 1bfae8c7afbfdc6e73dd8bb17b94e6543361e9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 7d807a15d358bd621baedbff253f0c731e43ed26
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83848232"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874175"
 ---
-# <a name="iot-hub-ip-addresses"></a>IoT Hub adresy IP
+# <a name="iot-hub-ip-addresses"></a>IoT Hub ip
 
-Prefiksy adresów IP IoT Hub publicznych punktów końcowych są publikowane okresowo w  [tagu usługi](../virtual-network/service-tags-overview.md)AzureIoTHub.
+Prefiksy adresów IP publicznych IoT Hub są okresowo publikowane pod tagiem _usługi AzureIoTHub_ [.](../virtual-network/service-tags-overview.md)
 
 > [!NOTE]
-> W przypadku urządzeń wdrożonych wewnątrz sieci lokalnych platforma Azure IoT Hub obsługuje integrację łączności sieci wirtualnej z prywatnymi punktami końcowymi. Aby uzyskać więcej informacji, zobacz [obsługa IoT Hub sieci wirtualnej](./virtual-network-support.md) .
+> W przypadku urządzeń wdrożonych w sieciach lokalnych program Azure IoT Hub integrację łączności z siecią wirtualną z prywatnymi punktami końcowymi. Zobacz [IoT Hub pomocy technicznej dotyczącej sieci wirtualnej,](./virtual-network-support.md) aby uzyskać więcej informacji.
 
 
-Te prefiksy adresów IP mogą być używane do kontrolowania łączności między IoT Hub i urządzeniami i zasobami sieciowymi w celu zaimplementowania różnych celów izolacji sieci:
+Możesz użyć tych prefiksów adresów IP, aby kontrolować łączność między usługą IoT Hub i urządzeniami lub zasobami sieci w celu zaimplementowania różnych celów izolacji sieci:
 
 | Cel | Odpowiednie scenariusze | Podejście |
 |------|-----------|----------|
-| Upewnij się, że urządzenia i usługi komunikują się tylko z IoT Hub punktami końcowymi | Przesyłanie komunikatów [z urządzeń do chmury](./iot-hub-devguide-messaging.md)i [komunikacji między urządzeniami,](./iot-hub-devguide-messages-c2d.md) [metodami bezpośrednimi](./iot-hub-devguide-direct-methods.md), [bliźniaczych reprezentacji urządzeń i modułów](./iot-hub-devguide-device-twins.md) oraz [strumienie urządzeń](./iot-hub-device-streams-overview.md) | Użyj tagów usługi _AzureIoTHub_ i _EventHub_ , aby odnaleźć prefiksy adresów IP IoT Hub i centrum zdarzeń, a następnie skonfiguruj reguły zezwalania dla ustawień zapory urządzenia i usług odpowiednio dla tych prefiksów adresów IP. upuść ruch na inne docelowe adresy IP, z którymi nie chcesz komunikować się z urządzeniami ani usługami. |
-| Upewnij się, że punkt końcowy urządzenia IoT Hub odbiera połączenia tylko z urządzeń i zasobów sieciowych | Przesyłanie komunikatów [z urządzeń do chmury](./iot-hub-devguide-messaging.md)i [komunikacji między urządzeniami,](./iot-hub-devguide-messages-c2d.md) [metodami bezpośrednimi](./iot-hub-devguide-direct-methods.md), [bliźniaczych reprezentacji urządzeń i modułów](./iot-hub-devguide-device-twins.md) oraz [strumienie urządzeń](./iot-hub-device-streams-overview.md) | Użyj [funkcji IoT Hub filtr IP](iot-hub-ip-filtering.md) , aby zezwolić na połączenia z urządzeń i adresów IP zasobów sieciowych (patrz sekcja [ograniczenia](#limitations-and-workarounds) ). | 
-| Upewnij się, że niestandardowe zasoby punktu końcowego (konta magazynu, Magistrala usług i centrów zdarzeń) są dostępne tylko dla zasobów sieci | [Routing komunikatów](./iot-hub-devguide-messages-d2c.md) | Postępuj zgodnie ze wskazówkami dotyczącymi zasobów, aby ograniczyć łączność (na przykład za pośrednictwem [reguł zapory](../storage/common/storage-network-security.md), [linków prywatnych](../private-link/private-endpoint-overview.md)lub [punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md)); Użyj tagów usługi _AzureIoTHub_ , aby odnaleźć prefiksy adresów IP IoT Hub i dodać reguły zezwalania dla tych prefiksów IP w konfiguracji zapory zasobu (patrz sekcja [ograniczenia](#limitations-and-workarounds) ). |
+| Upewnij się, że urządzenia i usługi komunikują się IoT Hub punktami końcowymi | [Przesyłanie komunikatów z urządzenia do](./iot-hub-devguide-messaging.md) [chmury](./iot-hub-devguide-messages-c2d.md) i z chmury do urządzeń, [metody](./iot-hub-devguide-direct-methods.md)bezpośrednie, bliźniacze [bliźniacze](./iot-hub-devguide-device-twins.md) reprezentacji urządzenia i modułu oraz [strumienie urządzeń](./iot-hub-device-streams-overview.md) | Użyj _tagów usług AzureIoTHub_ i _EventHub,_ aby odnaleźć prefiksy adresów IP usług IoT Hub i Event Hub oraz odpowiednio skonfigurować reguły ZEZWALAJ dla ustawień zapory urządzeń i usług dla tych prefiksów adresów IP; porzuć ruch do innych docelowych adresów IP, z których urządzenia lub usługi nie mają się komunikować. |
+| Upewnij się IoT Hub punkt końcowy urządzenia odbiera połączenia tylko z urządzeń i zasobów sieciowych | [Przesyłanie komunikatów z urządzenia do](./iot-hub-devguide-messaging.md) [chmury](./iot-hub-devguide-messages-c2d.md) i z chmury do urządzeń, [metody](./iot-hub-devguide-direct-methods.md)bezpośrednie, bliźniacze [bliźniacze](./iot-hub-devguide-device-twins.md) reprezentacji urządzenia i modułu oraz [strumienie urządzeń](./iot-hub-device-streams-overview.md) | Użyj IoT Hub [filtrowania adresów IP,](iot-hub-ip-filtering.md) aby zezwolić na połączenia z urządzeń i adresów IP zasobów sieciowych (zobacz [sekcję ograniczenia).](#limitations-and-workarounds) | 
+| Upewnij się, że niestandardowe zasoby punktu końcowego tras (konta magazynu, usługa Service Bus i centra zdarzeń) są dostępne tylko z zasobów sieciowych | [Routing komunikatów](./iot-hub-devguide-messages-d2c.md) | Postępuj zgodnie ze wskazówkami zasobu w zakresie ograniczania łączności (na przykład za pośrednictwem reguł [zapory,](../storage/common/storage-network-security.md)linków prywatnych [lub](../private-link/private-endpoint-overview.md)punktów [końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md)). Użyj _tagów usługi AzureIoTHub,_ IoT Hub prefiksów adresów IP i dodaj reguły ALLOW dla tych prefiksów IP w konfiguracji zapory zasobu (zobacz [sekcję](#limitations-and-workarounds) ograniczenia). |
 
 
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-* W przypadku dodawania reguł ZEZWALAnia w konfiguracji zapory urządzeń najlepiej jest podać określone [porty używane przez odpowiednie protokoły](./iot-hub-devguide-protocols.md#port-numbers).
+* Podczas dodawania reguł ALLOW w konfiguracji zapory urządzeń najlepiej jest podać określone porty [używane przez odpowiednie protokoły.](./iot-hub-devguide-protocols.md#port-numbers)
 
-* Prefiksy adresów IP w usłudze IoT Hub mogą ulec zmianie. Te zmiany są okresowo publikowane za pośrednictwem tagów usługi przed rozpoczęciem działania. W związku z tym ważne jest, aby opracować procesy do regularnego pobierania i używania najnowszych tagów usługi. Ten proces można zautomatyzować za pomocą [interfejsu API odnajdywania tagów usług](../virtual-network/service-tags-overview.md#service-tags-on-premises). Należy pamiętać, że interfejs API odnajdowania tagów usług jest nadal w wersji zapoznawczej, a w niektórych przypadkach może nie być możliwe utworzenie pełnej listy tagów i adresów IP. Dopóki interfejs API odnajdowania jest ogólnie dostępny, należy rozważyć użycie [tagów usługi w formacie JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
+* Prefiksy adresów IP centrum IoT mogą ulec zmianie. Te zmiany są publikowane okresowo za pośrednictwem tagów usługi, zanim zajdą one w życie. Dlatego ważne jest, aby opracowywać procesy w celu regularnego pobierania i używania najnowszych tagów usługi. Ten proces można zautomatyzować za pomocą [interfejsu API odnajdywania tagów usług](../virtual-network/service-tags-overview.md#service-tags-on-premises). Należy pamiętać, że interfejs API odnajdywania tagów usługi jest nadal w wersji zapoznawczej i w niektórych przypadkach może nie tworzyć pełnej listy tagów i adresów IP. Dopóki interfejs API odnajdywania nie będzie ogólnie dostępny, rozważ użycie tagów usługi [w formacie JSON](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)do pobrania. 
 
-* Użyj *AzureIoTHub. [ Nazwa regionu]* tag do identyfikowania prefiksów IP używanych przez punkty końcowe Centrum IoT Hub w określonym regionie. W przypadku odzyskiwania po awarii centrum danych lub [regionalnej pracy w trybie failover](iot-hub-ha-dr.md) upewnij się również, że połączenie z PREFIKSAMI adresów IP w regionie pary geograficznej IoT Hub jest włączone.
+* Użyj usługi *AzureIoTHub.[ nazwa regionu]* identyfikujący prefiksy IP używane przez punkty końcowe centrum IoT w określonym regionie. Aby uwzględnić odzyskiwanie po awarii centrum danych lub regionalny tryb [failover,](iot-hub-ha-dr.md) upewnij się, że włączono również łączność z prefiksami IP regionu pary geograficznej IoT Hub twojej firmy.
 
-* Skonfigurowanie reguł zapory w IoT Hub może uniemożliwić nawiązywanie połączeń wymaganych do uruchamiania poleceń interfejsu wiersza polecenia platformy Azure i programu PowerShell w IoT Hub. Aby tego uniknąć, można dodać reguły ZEZWALAnia dla prefiksów adresów IP klientów, aby ponownie włączyć klienta interfejsu wiersza polecenia lub programu PowerShell w celu komunikowania się z IoT Hub.  
+* Skonfigurowanie reguł zapory w usłudze IoT Hub może zablokować łączność potrzebną do uruchamiania poleceń interfejsu wiersza polecenia platformy Azure i programu PowerShell względem IoT Hub. Aby tego uniknąć, można dodać reguły ZEZWALAJ dla prefiksów adresów IP klientów, aby ponownie włączyć interfejs wiersza polecenia lub klientów programu PowerShell do komunikowania się z IoT Hub.  
 
 
 ## <a name="limitations-and-workarounds"></a>Ograniczenia i obejścia
 
-* Funkcja filtru IP IoT Hub ma limit 10 reguł. Ten limit może być zgłaszany przez żądania za pośrednictwem obsługi klienta platformy Azure. 
+* IoT Hub filtrowania adresów IP ma limit 100 reguł. Ten limit i można go podnieść za pośrednictwem żądań za pośrednictwem działu pomocy technicznej platformy Azure. 
 
-* Skonfigurowane [reguły filtrowania adresów IP](iot-hub-ip-filtering.md) są stosowane tylko w przypadku punktów końcowych IP IoT Hub, a nie do wbudowanego punktu końcowego centrum zdarzeń centrum IoT Hub. Jeśli trzeba również zastosować filtrowanie adresów IP w centrum zdarzeń, w którym są przechowywane wiadomości, można to zrobić przy użyciu własnego zasobu centrum zdarzeń, w którym można bezpośrednio skonfigurować żądane reguły filtrowania adresów IP. W tym celu należy udostępnić własny zasób centrum zdarzeń i skonfigurować [Routing komunikatów](./iot-hub-devguide-messages-d2c.md) w celu wysyłania komunikatów do tego zasobu zamiast wbudowanego centrum zdarzeń IoT Hub. Na koniec, zgodnie z opisem w powyższej tabeli, aby włączyć funkcję routingu wiadomości, należy również zezwolić na połączenie z prefiksami adresów IP IoT Hub z zainicjowanym zasobem centrum zdarzeń.
+* Skonfigurowane reguły [filtrowania adresów IP](iot-hub-ip-filtering.md) są stosowane tylko do punktów końcowych IoT Hub IP, a nie do wbudowanego punktu końcowego centrum zdarzeń usługi IoT Hub. Jeśli wymagane jest również zastosowanie filtrowania adresów IP w centrum zdarzeń, w którym są przechowywane komunikaty, możesz to zrobić, przenosząc własny zasób centrum zdarzeń, w którym można bezpośrednio skonfigurować żądane reguły filtrowania adresów IP. W tym celu należy aprowizować własny zasób centrum zdarzeń i skonfigurować routing komunikatów w celu wysyłania komunikatów do tego zasobu zamiast wbudowanego centrum zdarzeń IoT Hub usługi IoT Hub. [](./iot-hub-devguide-messages-d2c.md) Na koniec, jak omówiono w powyższej tabeli, aby włączyć funkcję routingu komunikatów, należy również zezwolić na łączność z prefiksami adresów IP usługi IoT Hub do aprowizowanych zasobów centrum zdarzeń.
 
-* W przypadku routingu do konta magazynu Zezwalanie na ruch z prefiksów adresów IP IoT Hub jest możliwe tylko wtedy, gdy konto magazynu znajduje się w innym regionie niż IoT Hub.
+* W przypadku routingu do konta magazynu zezwolenie na ruch z prefiksów adresów IP IoT Hub jest możliwe tylko wtedy, gdy konto magazynu znajduje się w innym regionie niż IoT Hub.
 
 ## <a name="support-for-ipv6"></a>Obsługa protokołu IPv6 
 
-Protokół IPv6 nie jest obecnie obsługiwany w IoT Hub.
+Protokół IPv6 nie jest obecnie obsługiwany na IoT Hub.

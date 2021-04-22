@@ -1,5 +1,5 @@
 ---
-title: Wysyłanie danych telemetrycznych urządzenia do Azure IoT Hub Szybki start (Node.js)
+title: Wysyłanie danych telemetrycznych urządzenia Azure IoT Hub szybki start (Node.js)
 description: W tym przewodniku Szybki start użyjemy zestawu SDK Azure IoT Hub dla usługi Node.js do wysyłania danych telemetrycznych z urządzenia do centrum IoT.
 author: timlt
 ms.author: timlt
@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: 3d42ac814678136c2f6342cd1064e3c3ff394507
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0e1c99124228da9490abaa17ecc41b931631d9fb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777243"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876980"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>Szybki start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT (Node.js)
 
@@ -21,11 +21,11 @@ ms.locfileid: "107777243"
 W tym przewodniku Szybki start poznasz podstawowy przepływ pracy tworzenia aplikacji urządzeń IoT. Interfejs wiersza polecenia platformy Azure umożliwia utworzenie centrum Azure IoT Hub i symulowanego urządzenia, a następnie użycie zestawu SDK usługi Azure IoT Node.js w celu uzyskania dostępu do urządzenia i wysłania danych telemetrycznych do centrum.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) je bezpłatnie.
-- Interfejs wiersza polecenia platformy Azure. Wszystkie polecenia w tym przewodniku Szybki start można uruchamiać przy użyciu Azure Cloud Shell, interaktywnej powłoki interfejsu wiersza polecenia uruchamianej w przeglądarce. Jeśli używasz Cloud Shell, nie musisz niczego instalować. Jeśli wolisz używać interfejsu wiersza polecenia lokalnie, ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Aby odnaleźć wersję, uruchom polecenie az --version. Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
-- [Node.js 10+](https://nodejs.org). Jeśli używasz programu Azure Cloud Shell, nie aktualizuj zainstalowanej wersji Node.js. W Azure Cloud Shell jest już najnowsza Node.js wersji.
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz subskrypcję [bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Interfejs wiersza polecenia platformy Azure. Wszystkie polecenia w tym przewodniku Szybki start można uruchomić przy użyciu Azure Cloud Shell, interaktywnej powłoki interfejsu wiersza polecenia, która działa w przeglądarce. Jeśli używasz Cloud Shell, nie musisz niczego instalować. Jeśli wolisz używać interfejsu wiersza polecenia lokalnie, ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Aby odnaleźć wersję, uruchom polecenie az --version. Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+- [Node.js 10+](https://nodejs.org). Jeśli używasz programu Azure Cloud Shell, nie aktualizuj zainstalowanej wersji programu Node.js. Ten Azure Cloud Shell ma już najnowszą Node.js wersję.
 
-    Sprawdź bieżącą wersję Node.js na komputerze dewelopera przy użyciu następującego polecenia:
+    Sprawdź bieżącą wersję aplikacji Node.js komputerze dewelopera przy użyciu następującego polecenia:
 
     ```cmd/sh
         node --version
@@ -33,12 +33,12 @@ W tym przewodniku Szybki start poznasz podstawowy przepływ pracy tworzenia apli
 
 [!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
-## <a name="use-the-nodejs-sdk-to-send-messages"></a>Wysyłanie komunikatów przy użyciu Node.js SDK
-W tej sekcji użyjemy zestawu SDK Node.js do wysyłania komunikatów z symulowanego urządzenia do centrum IoT. 
+## <a name="use-the-nodejs-sdk-to-send-messages"></a>Wysyłanie komunikatów za pomocą Node.js SDK
+W tej sekcji użyjemy zestawu SDK usługi Node.js do wysyłania komunikatów z urządzenia symulowanego do centrum IoT. 
 
-1. Otwórz nowe okno terminalu. Użyjesz tego terminalu do zainstalowania zestawu SDK Node.js i pracy z Node.js przykładowym kodem. Powinny być teraz otwarte dwa terminale: ten, który właśnie został otwarty do pracy z usługą Node.js, oraz powłoka interfejsu wiersza polecenia, która została użyta w poprzednich sekcjach do wprowadzania poleceń interfejsu wiersza polecenia platformy Azure.
+1. Otwórz nowe okno terminalu. Użyjesz tego terminalu do zainstalowania zestawu SDK Node.js i pracy z Node.js przykładowym kodem. Powinny być teraz otwarte dwa terminale: ten, który został właśnie otwarty do pracy z usługą Node.js, oraz powłoka interfejsu wiersza polecenia użyta w poprzednich sekcjach do wprowadzania poleceń interfejsu wiersza polecenia platformy Azure.
 
-1. Skopiuj [przykłady urządzeń zestawu SDK usługi Azure IoT Node.js na](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) maszynę lokalną:
+1. Skopiuj [przykłady urządzeń zestawu SDK usługi Azure IoT Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) na maszynę lokalną:
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-node
@@ -58,7 +58,7 @@ W tej sekcji użyjemy zestawu SDK Node.js do wysyłania komunikatów z symulowan
 
     To polecenie instaluje odpowiednie zależności określone w pliku *package.jsw* katalogu przykładów urządzeń.
 
-1. Ustaw obie poniższe zmienne środowiskowe, aby umożliwić urządzeniu symulowanym łączenie się z usługą Azure IoT.
+1. Ustaw obie poniższe zmienne środowiskowe, aby umożliwić urządzeniu symulowanemu łączenie się z usługą Azure IoT.
     * Ustaw zmienną środowiskową o nazwie `IOTHUB_DEVICE_CONNECTION_STRING` . Jako wartości zmiennej użyj parametrów połączenia urządzenia, które zostały zapisane w poprzedniej sekcji.
     * Ustaw zmienną środowiskową o nazwie `IOTHUB_DEVICE_SECURITY_TYPE` . Dla zmiennej użyj wartości ciągu literału `connectionString` .
 
@@ -72,7 +72,7 @@ W tej sekcji użyjemy zestawu SDK Node.js do wysyłania komunikatów z symulowan
     ```
 
     > [!NOTE]
-    > W przypadku polecenia cmd systemu Windows nie ma znaków cudzysłowu otaczających wartości ciągu dla każdej zmiennej.
+    > W przypadku usługi CMD systemu Windows nie ma znaków cudzysłowu otaczających wartości ciągu dla każdej zmiennej.
 
     **Program PowerShell**
 
@@ -91,7 +91,7 @@ W tej sekcji użyjemy zestawu SDK Node.js do wysyłania komunikatów z symulowan
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
-1. W otwartej powłoki interfejsu wiersza polecenia uruchom polecenie [az iot hub monitor-events,](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) aby rozpocząć monitorowanie zdarzeń na symulowanym urządzeniu IoT.  Komunikaty o zdarzeniach będą wyświetlane w terminalu po ich przybyciu.
+1. W otwartej powłoki interfejsu wiersza polecenia uruchom polecenie [az iot hub monitor-events,](/cli/azure/iot/hub#az_iot_hub_monitor_events) aby rozpocząć monitorowanie zdarzeń na symulowanym urządzeniu IoT.  Komunikaty o zdarzeniach będą wyświetlane w terminalu po ich przybyciu.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -104,9 +104,9 @@ W tej sekcji użyjemy zestawu SDK Node.js do wysyłania komunikatów z symulowan
     node ./simple_thermostat.js
     ```
     > [!NOTE]
-    > Ten przykładowy kod używa usługi Azure IoT Plug and Play, która umożliwia integrowanie inteligentnych urządzeń z rozwiązaniami bez konieczności ręcznej konfiguracji.  Domyślnie większość przykładów w tej dokumentacji używa IoT Plug and Play. Aby dowiedzieć się więcej o zaletach usługi IoT PnP i przypadkach jej używania lub nie, zobacz Co to jest [IoT Plug and Play?](../iot-pnp/overview-iot-plug-and-play.md)
+    > Ten przykładowy kod używa usługi Azure IoT Plug and Play, która umożliwia integrowanie urządzeń inteligentnych z rozwiązaniami bez konieczności ręcznej konfiguracji.  Domyślnie większość przykładów w tej dokumentacji używa IoT Plug and Play. Aby dowiedzieć się więcej o zaletach usługi IoT PnP i przypadkach jej używania, zobacz Co to [jest IoT Plug and Play?](../iot-pnp/overview-iot-plug-and-play.md)
 
-Gdy kod Node.js wysyła symulowany komunikat telemetrii z urządzenia do centrum IoT Hub, komunikat jest wyświetlany w powłoki interfejsu wiersza polecenia, która monitoruje zdarzenia:
+Ponieważ kod Node.js wysyła symulowany komunikat telemetrii z urządzenia do centrum IoT Hub, komunikat jest wyświetlany w powłoki interfejsu wiersza polecenia, która monitoruje zdarzenia:
 
 ```output
 Starting event monitor, use ctrl-c to stop...
@@ -141,8 +141,8 @@ Aby usunąć grupę zasobów na podstawie nazwy:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start poznaliśmy podstawowy przepływ pracy aplikacji usługi Azure IoT, który umożliwia bezpieczne łączenie urządzenia z chmurą i wysyłanie danych telemetrycznych z urządzenia do chmury. Interfejs wiersza polecenia platformy Azure został użyty do utworzenia centrum IoT i symulowanego urządzenia, a następnie zestaw SDK usługi Azure IoT Node.js został użyty do uzyskania dostępu do urządzenia i wysłania danych telemetrycznych do centrum. 
+W tym przewodniku Szybki start poznano podstawowy przepływ pracy aplikacji usługi Azure IoT, który umożliwia bezpieczne łączenie urządzenia z chmurą i wysyłanie danych telemetrycznych z urządzenia do chmury. Interfejs wiersza polecenia platformy Azure został użyty do utworzenia centrum IoT i symulowanego urządzenia, a następnie usłudze Azure IoT Node.js SDK w celu uzyskania dostępu do urządzenia i wysłania danych telemetrycznych do centrum. 
 
-W następnym kroku zapoznaj się z zestawem SDK usługi Azure IoT Node.js przykładami aplikacji.
+Następnym krokiem jest eksplorowanie zestawu SDK usługi Azure IoT Node.js za pomocą przykładów aplikacji.
 
-- [Więcej Node.js przykładów:](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)ten katalog zawiera więcej przykładów z repozytorium zestawu SDK Node.js, aby zaprezentować IoT Hub scenariuszy.
+- [Więcej Node.js przykładów:](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)ten katalog zawiera więcej przykładów z repozytorium zestawu SDK Node.js, które zawierają IoT Hub scenariuszy.

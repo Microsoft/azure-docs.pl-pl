@@ -1,6 +1,6 @@
 ---
-title: Dostrajanie zapory aplikacji sieci Web (WAF) dla drzwi platformy Azure
-description: W tym artykule dowiesz się, jak dostosować WAF do przodu.
+title: Dostrajanie Web Application Firewall (WAF) dla Azure Front Door
+description: Z tego artykułu dowiesz się, jak dostroić WAF do Front Door.
 services: web-application-firewall
 author: mohitkusecurity
 ms.service: web-application-firewall
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: b2f551257fb6869d5dec47014be3a8522b61b9fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0879edc0e3fbd6cf6bcadc26dd862f95ecf4fd4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506637"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872357"
 ---
-# <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Dostrajanie zapory aplikacji sieci Web (WAF) dla drzwi platformy Azure
+# <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Dostrajanie Web Application Firewall (WAF) dla Azure Front Door
  
-Domyślny zestaw reguł zarządzany przez platformę Azure jest oparty na [zestawie reguł OWASP Core (KSR)](https://github.com/SpiderLabs/owasp-modsecurity-crs/tree/v3.1/dev) i został zaprojektowany z myślą o tym, aby był bardziej rygorystyczny. Często oczekuje się, że reguły WAF muszą być dostosowane do konkretnych potrzeb aplikacji lub organizacji przy użyciu WAF. Jest to często osiągane przez zdefiniowanie wykluczeń reguł, utworzenie reguł niestandardowych, a nawet wyłączenie reguł, które mogą powodować problemy lub fałszywie dodatnich. Istnieje kilka rzeczy, które można wykonać, jeśli żądania, które powinny zostać przekazane przez zaporę aplikacji sieci Web (WAF), są blokowane.
+Domyślny zestaw reguł zarządzany przez platformę Azure jest oparty na podstawowym zestawie reguł [OWASP (CRS)](https://github.com/SpiderLabs/owasp-modsecurity-crs/tree/v3.1/dev) i został zaprojektowany tak, aby był ściśle zaprojektowany. Często oczekuje się, że reguły WAF muszą być dostosowane do konkretnych potrzeb aplikacji lub organizacji korzystających z tej aplikacji. Jest to często osiągane przez zdefiniowanie wykluczeń reguł, utworzenie reguł niestandardowych, a nawet wyłączenie reguł, które mogą powodować problemy lub wyniki fałszywie dodatnie. Istnieje kilka czynności, które można wykonać, jeśli żądania, które powinny przechodzić przez Web Application Firewall (WAF), są zablokowane.
 
-Najpierw upewnij się, że zapoznaj się z [omówieniem WAF drzwi z góry](afds-overview.md) i [zasad WAF dla dokumentów z drzwiami](waf-front-door-create-portal.md) . Upewnij się również, że włączono [monitorowanie WAF i rejestrowanie](waf-front-door-monitor.md). W tych artykułach wyjaśniono, jak działają funkcje WAF, jak działa zestaw reguł WAF oraz jak uzyskiwać dostęp do dzienników WAF.
+Najpierw upewnij się, że przeczytasz omówienie Front Door [WAF](waf-front-door-create-portal.md) i zasady aplikacji sieci Front Door aplikacji sieci Szkieletowej dla dokumentów. [](afds-overview.md) Upewnij się również, że włączono monitorowanie i rejestrowanie w funkcji [WAF.](waf-front-door-monitor.md) W tych artykułach wyjaśniono, jak działa ta funkcja, jak działają zestawy reguł aplikacji sieci Szkieletowej oraz jak uzyskać dostęp do dzienników aplikacji sieci Szkieletowej.
  
-## <a name="understanding-waf-logs"></a>Omówienie dzienników WAF
+## <a name="understanding-waf-logs"></a>Understanding WAF logs (Informacje o dziennikach aplikacji sieci Szkieletowej)
  
-W dziennikach WAF są wyświetlane wszystkie żądania, które są dopasowane lub blokowane przez WAF. Jest to kolekcja wszystkich ocenionych żądań, które są dopasowane lub blokowane. Jeśli zauważysz, że WAF blokuje żądanie, które nie powinno (fałszywie dodatni), można wykonać kilka czynności. Po pierwsze, Zawęź i Znajdź konkretne żądanie. W razie potrzeby można [skonfigurować niestandardowy komunikat odpowiedzi](./waf-front-door-configure-custom-response-code.md) , aby uwzględnić `trackingReference` pole w celu łatwego identyfikowania zdarzenia i wykonać zapytanie dziennika dla tej konkretnej wartości. Zapoznaj się z dziennikami, aby znaleźć konkretny identyfikator URI, sygnaturę czasową lub adres IP klienta żądania. Po znalezieniu powiązanych wpisów dziennika można zacząć działać na fałszywie dodatnich. 
+Dzienniki WAF mają na celu pokazanie każdego żądania, które jest dopasowane lub zablokowane przez usługę WAF. Jest to kolekcja wszystkich ocenianych żądań, które są dopasowane lub zablokowane. Jeśli zauważysz, żeafaf blokuje żądanie, które nie powinno (wynik fałszywie dodatni), możesz wykonać kilka czynności. Najpierw zawęzij i znajdź określone żądanie. W razie potrzeby można skonfigurować [niestandardowy komunikat](./waf-front-door-configure-custom-response-code.md) odpowiedzi, aby uwzględnić pole, aby łatwo zidentyfikować zdarzenie i wykonać zapytanie dziennika dla `trackingReference` tej określonej wartości. Sprawdź dzienniki, aby znaleźć określony adres URI, sygnaturę czasową lub adres IP klienta żądania. Po odnalezieniu powiązanych wpisów dziennika można rozpocząć działanie na podstawie wyników fałszywie dodatnich. 
  
-Załóżmy na przykład, że masz legalny ruch zawierający ciąg `1=1` , który chcesz przekazać przez WAF. Oto jak wygląda żądanie:
+Załóżmy na przykład, że masz legalny ruch zawierający ciąg, który chcesz `1=1` przekazać za pośrednictwem twojej aplikacji sieci WAF. Oto jak wygląda żądanie:
 
 ```
 POST http://afdwafdemosite.azurefd.net/api/Feedbacks HTTP/1.1
@@ -36,9 +36,9 @@ Content-Length: 55
 UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 ```
 
-Jeśli spróbujesz ponowić żądanie, WAF blokuje ruch, który zawiera *1 = 1* ciąg w dowolnym parametrze lub polu. Jest to ciąg często skojarzony z atakiem iniekcji SQL. Możesz przejrzeć dzienniki i sprawdzić sygnaturę czasową żądania oraz reguły, które zostały zablokowane/dopasowane.
+Jeśli spróbujesz wykonać żądanie, taafaf blokuje ruch zawierający ciąg *1=1* w dowolnym parametrze lub polu. Jest to ciąg często skojarzony z atakiem przez wstrzyknięcie kodu SQL. Możesz sprawdzić dzienniki i wyświetlić sygnaturę czasową żądania oraz reguły, które zablokowały/pasują.
  
-W poniższym przykładzie eksplorujemy `FrontdoorWebApplicationFirewallLog` Dziennik wygenerowany ze względu na zgodność z regułą. Następujące zapytanie Log Analytics może służyć do znajdowania żądań zablokowanych w ciągu ostatnich 24 godzin:
+W poniższym przykładzie eksplorujesz `FrontdoorWebApplicationFirewallLog` dziennik wygenerowany z powodu dopasowania reguły. Następujące zapytanie usługi Log Analytics może służyć do wyszukiwania żądań, które zostały zablokowane w ciągu ostatnich 24 godzin:
 
 ```kusto
 AzureDiagnostics
@@ -48,11 +48,11 @@ AzureDiagnostics
 
 ```
  
-W tym `requestUri` polu można zobaczyć, że żądanie zostało wykonane w specjalny sposób `/api/Feedbacks/` . Dodatkowo znajdziesz Identyfikator reguły `942110` w `ruleName` polu. Wiedząc, że identyfikator reguły, możesz przejść do [OWASPego zestawu reguł zapory ModSecurity Core](https://github.com/coreruleset/coreruleset) [, aby przejrzeć](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) jego kod i zrozumieć dokładnie, co ta reguła pasuje. 
+W polu `requestUri` widać, że żądanie zostało wykonane w szczególności `/api/Feedbacks/` do tego celu. Przechodząc dalej, w polu znajdujemy `942110` identyfikator `ruleName` reguły. Znając identyfikator reguły, możesz przejść do oficjalnego repozytorium zestawu reguł [](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) [OWASP ModSecurity Core i](https://github.com/coreruleset/coreruleset) wyszukać go według tego identyfikatora reguły, aby przejrzeć jego kod i dokładnie zrozumieć, na czym dokładnie odpowiada ta reguła. 
  
-Następnie sprawdzając `action` pole, że ta reguła jest ustawiona do blokowania żądań po dopasowaniu, a my potwierdzamy, że żądanie zostało zablokowane przez WAF, ponieważ `policyMode` jest ustawione na `prevention` . 
+Następnie, sprawdzając pole, widzimy, że ta reguła jest ustawiona na blokowanie żądań po dopasowaniu i potwierdzamy, że żądanie zostało faktycznie zablokowane przez tę regułę, ponieważ ustawiono wartość `action` `policyMode` `prevention` . 
  
-Teraz Sprawdźmy informacje w `details` polu. Jest to miejsce, w którym można zobaczyć `matchVariableName` i `matchVariableValue` informacje. Dowiesz się, że ta reguła została wyzwolona, ponieważ w polu aplikacji sieci Web wprowadzono *1 = 1* `comment` .
+Teraz sprawdźmy informacje w `details` polu . W tym miejscu można zobaczyć `matchVariableName` informacje i `matchVariableValue` . Wiemy, że ta reguła została wyzwolona, ponieważ ktoś w polu aplikacji internetowej wprowadź *wartość 1=1.* `comment`
  
 ```json
 {
@@ -85,9 +85,9 @@ Teraz Sprawdźmy informacje w `details` polu. Jest to miejsce, w którym można 
 }
 ```
  
-Jest również dostępna wartość w obszarze Sprawdzanie dzienników dostępu w celu zwiększenia wiedzy o danym zdarzeniu WAF. Poniżej znajdziesz `FrontdoorAccessLog` Dziennik, który został wygenerowany jako odpowiedź na powyższe zdarzenie.
+Istnieje również wartość podczas sprawdzania dzienników dostępu w celu rozwinięcia wiedzy o danym zdarzeniu WAF. Poniżej znajduje się `FrontdoorAccessLog` dziennik, który został wygenerowany jako odpowiedź na powyższe zdarzenie.
  
-Te dzienniki są powiązane z `trackingReference` tą samą wartością. Spośród różnych pól, które zapewniają ogólne informacje, takie jak `userAgent` i `clientIP` , należy zwrócić uwagę na `httpStatusCode` pola i `httpStatusDetails` . W tym miejscu możemy potwierdzić, że klient otrzymał odpowiedź HTTP 403, która absolutnie potwierdza, że to żądanie zostało odrzucone i zablokowane. 
+Możesz zobaczyć, że są to powiązane dzienniki na podstawie `trackingReference` wartości, która jest taka sama. Między różnymi polami, które zapewniają ogólne informacje szczegółowe, takie jak `userAgent` i `clientIP` , zwracamy uwagę na pola `httpStatusCode` i `httpStatusDetails` . W tym miejscu możemy potwierdzić, że klient otrzymał odpowiedź HTTP 403, co zdecydowanie potwierdza, że to żądanie zostało odrzucone i zablokowane. 
  
 ```json
 {
@@ -121,112 +121,112 @@ Te dzienniki są powiązane z `trackingReference` tą samą wartością. Spośr�
 }
 ```
 
-## <a name="resolving-false-positives"></a>Rozpoznawanie fałszywych dodatnich
+## <a name="resolving-false-positives"></a>Rozwiązywanie wyników fałszywie dodatnich
  
-Aby podjąć świadomą decyzję dotyczącą obsługi fałszywych wartości dodatnich, ważne jest zapoznanie się z technologiami używanymi przez aplikację. Załóżmy na przykład, że nie ma programu SQL Server w stosie technologii i otrzymujesz fałszywe dodatnie powiązane z tymi regułami. Wyłączenie tych reguł nie musi osłabiać zabezpieczeń. 
+Aby podjąć świadomą decyzję o obsłudze wyników fałszywie dodatnich, należy zapoznać się z technologiami używanymi przez aplikację. Załóżmy na przykład, że w stosie technologii nie ma serwera SQL, a z tymi regułami są związane wyniki fałszywie dodatnie. Wyłączenie tych reguł niekoniecznie zniechęca bezpieczeństwo. 
 
-Korzystając z tych informacji, a wiedzą, że reguła 942110 jest zgodna z `1=1` ciągiem w naszym przykładzie, możemy zrobić kilka rzeczy, aby zatrzymać to wiarygodne żądanie przed zablokowaniem:
+Dzięki tym informacjom i wiedzy, że reguła 942110 jest taka, która pasuje do ciągu w naszym przykładzie, możemy wykonać kilka czynności, aby zatrzymać blokowanie tego uzasadnionego `1=1` żądania:
  
-* Użyj list wykluczeń
-  * Aby uzyskać więcej informacji na temat list wykluczeń, zobacz [Zapora aplikacji sieci Web (WAF) z listami wykluczeń usługi front-drzwi](waf-front-door-exclusion.md) . 
-* Zmień akcje WAF
-  * Zobacz [WAF akcji](afds-overview.md#waf-actions) , aby uzyskać więcej informacji na temat akcji, które można wykonać, gdy żądanie pasuje do warunków reguły.
-* Korzystanie z reguł niestandardowych
-  * Aby uzyskać więcej informacji na temat reguł niestandardowych, zobacz [reguły niestandardowe zapory aplikacji sieci Web z usługami Azure Front drzwiczks](waf-front-door-custom-rules.md) .
+* Korzystanie z list wykluczeń
+  * Zobacz [Web Application Firewall (WAF) with Front Door Service exclusion lists](waf-front-door-exclusion.md) (Lista wykluczeń usługi Front Door Service), aby uzyskać więcej informacji na temat list wykluczeń. 
+* Zmienianie akcji WAF
+  * Zobacz [Akcje WAF,](afds-overview.md#waf-actions) aby uzyskać więcej informacji na temat akcji, które można podjąć, gdy żądanie jest spełnione warunki reguły.
+* Używanie reguł niestandardowych
+  * Aby uzyskać więcej informacji na [temat reguł niestandardowych,](waf-front-door-custom-rules.md) zobacz Reguły niestandardowe Web Application Firewall z Azure Front Door niestandardowych.
 * Wyłączanie reguł 
 
 > [!TIP]
-> W przypadku wybrania podejścia do zezwalania na legalne żądania przez WAF spróbuj to zrobić tak, jak to możliwe. Na przykład lepiej jest użyć listy wykluczeń, aby całkowicie wyłączyć regułę.
+> Wybierając podejście umożliwiające zezwalanie na uzasadnione żądania za pośrednictwem aplikacji sieci Szkieletowej aplikacji sieci Szkieletowej, staraj się, aby było to jak najbardziej wąskie. Na przykład lepiej jest użyć listy wykluczeń niż całkowite wyłączenie reguły.
 
 ### <a name="using-exclusion-lists"></a>Korzystanie z list wykluczeń
 
-Jedną z zalet korzystania z listy wykluczeń jest to, że tylko zmienna dopasowania wybrana do wykluczenia nie będzie już sprawdzana dla danego żądania. Oznacza to, że można wybrać między określonymi nagłówkami żądań, plików cookie żądania, argumentów ciągu zapytania lub argumentów post treści żądania, które mają zostać wykluczone w przypadku spełnienia określonego warunku, w przeciwieństwie do wykluczania całego żądania z inspekcji. Inne nieokreślone zmienne żądania będą nadal sprawdzane w normalny sposób.
+Jedną z zalet korzystania z listy wykluczeń jest to, że tylko zmienna dopasowania, która ma zostać wykluczona, nie będzie już sprawdzana dla danego żądania. Oznacza to, że można wybrać między określonymi nagłówkami żądania, plikami cookie żądania, argumentami ciągu zapytania lub argumentami wpisów treści żądania do wykluczenia, jeśli zostanie spełniony określony warunek, zamiast wykluczać całe żądanie z inspekcji. Inne nieo określone zmienne żądania będą nadal sprawdzane normalnie.
  
-Należy wziąć pod uwagę, że wykluczenia są ustawieniem globalnym. Oznacza to, że skonfigurowane wykluczenie ma zastosowanie do całego ruchu przechodzącego przez WAF, a nie tylko dla konkretnej aplikacji sieci Web lub identyfikatora URI. Na przykład może to być problem, jeśli *1 = 1* to prawidłowe żądanie w treści dla określonej aplikacji sieci Web, ale nie dla innych osób w ramach tych samych zasad WAFymi. Jeśli warto używać różnych list wykluczeń dla różnych aplikacji, należy rozważyć użycie różnych zasad WAFymi dla każdej aplikacji i zastosowanie ich do frontonu poszczególnych aplikacji.
+Należy wziąć pod uwagę, że wykluczenia są ustawieniem globalnym. Oznacza to, że skonfigurowane wykluczenie będzie stosowane do całego ruchu przechodzącego przez twoją aplikację internetową, a nie tylko do określonej aplikacji internetowej lub URI. Może to być na przykład problemem, jeśli *wartość 1=1* jest prawidłowym żądaniem w treści dla określonej aplikacji internetowej, ale nie dla innych użytkowników w ramach tych samych zasad WAF. Jeśli użycie różnych list wykluczeń dla różnych aplikacji ma sens, rozważ użycie różnych zasad WAF dla każdej aplikacji i zastosowanie ich do frontendu każdej aplikacji.
  
-Podczas konfigurowania list wykluczeń dla reguł zarządzanych można wykluczyć wszystkie reguły w ramach zestawu reguł, wszystkie reguły w grupie reguł lub pojedynczą regułę. Listę wykluczeń można skonfigurować przy użyciu [programu PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), interfejsu [wiersza polecenia platformy Azure lub usługi](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add) [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)lub Azure Portal.
+Podczas konfigurowania list wykluczeń dla reguł zarządzanych można wykluczyć wszystkie reguły w zestawie reguł, wszystkie reguły w grupie reguł lub pojedynczą regułę. Listę wykluczeń można skonfigurować przy użyciu programu [PowerShell,](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject)interfejsu wiersza polecenia platformy [Azure,](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az_network_front_door_waf_policy_managed_rules_exclusion_add)interfejsu [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)lub Azure Portal.
 
 * Wykluczenia na poziomie reguły
-  * Zastosowanie wykluczeń na poziomie reguły oznacza, że określone wykluczenia nie będą analizowane tylko względem tej pojedynczej reguły, podczas gdy nadal będą analizowane przez wszystkie inne reguły w zestawie reguł. Jest to najbardziej szczegółowy poziom wykluczeń i można go użyć do dostosowania zestawu reguł zarządzanych na podstawie informacji znajdujących się w dziennikach WAF podczas rozwiązywania problemów dotyczących zdarzenia.
+  * Zastosowanie wykluczeń na poziomie reguły oznacza, że określone wykluczenia nie będą analizowane tylko względem tej indywidualnej reguły, podczas gdy będą analizowane przez wszystkie inne reguły w zestawie reguł. Jest to najbardziej szczegółowy poziom w przypadku wykluczeń i może służyć do dostrojenia zarządzanego zestawu reguł na podstawie informacji w dziennikach aplikacji sieci Szkieletowej podczas rozwiązywania problemów ze zdarzeniem.
 * Wykluczenia na poziomie grupy reguł
-  * Zastosowanie wykluczeń na poziomie grupy reguł oznacza, że określone wykluczenia nie będą analizowane względem tego określonego zestawu typów reguł. Na przykład wybranie *SQLi* jako wykluczonej grupy reguł wskazuje, że zdefiniowane wykluczenia żądań nie będą kontrolowane przez żadną z reguł SQLi, ale nadal będzie ona sprawdzana przez reguły w innych grupach, takich jak *php*, *RFI* lub *XSS*. Ten typ wykluczenia może być przydatny, gdy mamy pewność, że aplikacja nie jest podatna na określone typy ataków. Na przykład aplikacja, która nie ma żadnych baz danych SQL, może mieć wykluczone wszystkie reguły *SQLi* bez naruszania jej poziomu zabezpieczeń.
+  * Zastosowanie wykluczeń na poziomie grupy reguł oznacza, że określone wykluczenia nie będą analizowane względem tego określonego zestawu typów reguł. Na przykład wybranie *sqli* jako wykluczonej grupy reguł wskazuje, że zdefiniowane wykluczenia żądań nie będą sprawdzane przez żadne reguły specyficzne dla języka SQLI, ale nadal będą sprawdzane przez reguły w innych grupach, takich jak *PHP,* *RFI* lub *XSS.* Ten typ wykluczenia może być przydatny, gdy mamy pewność, że aplikacja nie jest podatna na określone typy ataków. Na przykład aplikacja, która nie ma żadnych baz danych SQL, może mieć wszystkie reguły *SQLI* wykluczone bez zagrożenia dla poziomu zabezpieczeń.
 * Wykluczenia na poziomie zestawu reguł 
-  * Zastosowanie wykluczeń na poziomie zestawu reguł oznacza, że określone wykluczenia nie będą analizowane względem żadnych reguł zabezpieczeń dostępnych w tym zestawie reguł. Jest to kompleksowe wykluczenie, dlatego powinno być używane uważnie.
+  * Zastosowanie wykluczeń na poziomie zestawu reguł oznacza, że określone wykluczenia nie będą analizowane względem żadnych reguł zabezpieczeń dostępnych w tym zestawie reguł. Jest to kompleksowe wykluczenie, dlatego należy z niego korzystać ostrożnie.
 
-W tym przykładzie zostanie wykluczane na poziomie największej szczegółowości (zastosowanie wykluczenia do jednej reguły) i chcemy wykluczyć zmienną dopasowania zmienna **żądania nazwa** , która zawiera `comment` . Jest to oczywiste, ponieważ w dzienniku zapory można zobaczyć szczegóły zmiennej dopasowania: `"matchVariableName": "PostParamValue:comment"` . Ten atrybut jest `comment` . Możesz również znaleźć nazwę tego atrybutu kilka innych sposobów, zobacz [Znajdowanie nazw atrybutów żądania](#finding-request-attribute-names).
+W tym przykładzie będziemy wykonywać wykluczenia na najbardziej szczegółowym poziomie (stosując wykluczenie do pojedynczej reguły) i chcemy wykluczyć zmienną dopasowania Treść żądania po nazwie grupy **args,** która zawiera element `comment` . Jest to oczywiste, ponieważ szczegóły zmiennej dopasowania są widoczne w dzienniku zapory: `"matchVariableName": "PostParamValue:comment"` . Atrybut to `comment` . Możesz również znaleźć tę nazwę atrybutu na kilka innych sposobów. Zobacz [Znajdowanie nazw atrybutów żądania](#finding-request-attribute-names).
 
-![Reguły wykluczania](../media/waf-front-door-tuning/exclusion-rules.png)
+![Reguły wykluczeń](../media/waf-front-door-tuning/exclusion-rules.png)
 
-![Wykluczanie reguły dla określonej reguły](../media/waf-front-door-tuning/exclusion-rule.png)
+![Wykluczenie reguły dla określonej reguły](../media/waf-front-door-tuning/exclusion-rule.png)
 
-Sporadycznie istnieją przypadki, w których określone parametry są przenoszone do WAF w sposób, który może nie być intuicyjny. Na przykład istnieje token, który jest przesyłany podczas uwierzytelniania przy użyciu Azure Active Directory. Ten token, `__RequestVerificationToken` , zazwyczaj jest przenoszona jako plik cookie żądania. Jednak w niektórych przypadkach, gdy pliki cookie są wyłączone, ten token jest również przesyłany jako argument post żądania. Z tego powodu, aby rozwiązać wynik fałszywie dodatnich dla tokenu usługi Azure AD, należy upewnić się, że `__RequestVerificationToken` zostanie on dodany do listy wykluczeń dla obu `RequestCookieNames` i `RequestBodyPostArgsNames` .
+Czasami zdarzają się przypadki, w których określone parametry są przekazywane do aplikacji sieci WAF w sposób, który może nie być intuicyjny. Na przykład istnieje token, który jest przekazywany podczas uwierzytelniania przy użyciu Azure Active Directory. Ten token, `__RequestVerificationToken` , zwykle jest przekazywany jako plik cookie żądania. Jednak w niektórych przypadkach, gdy pliki cookie są wyłączone, ten token jest również przekazywany jako argument post żądania. Z tego powodu w celu rozwiązania fałszywych alarmów tokenu usługi Azure AD należy upewnić się, że jest on dodawany do listy wykluczeń `__RequestVerificationToken` zarówno dla elementów , jak i `RequestCookieNames` `RequestBodyPostArgsNames` .
 
-Wykluczenia w nazwie pola (*Selektor*) oznacza, że wartość nie będzie już oceniana przez WAF. Jednak sama nazwa pola nadal jest szacowana i w rzadkich przypadkach może być zgodna z regułą WAF i wyzwalać akcję.
+Wykluczenia nazwy pola *(selektora)* oznaczają, że wartość nie będzie już oceniana przezafaf. Jednak sama nazwa pola jest nadal oceniana i w rzadkich przypadkach może być ona dopasowana do reguły WAF i wyzwalać akcję.
 
-![Wykluczanie reguły dla zestawu reguł](../media/waf-front-door-tuning/exclusion-rule-selector.png)
+![Wykluczanie reguł dla zestawu reguł](../media/waf-front-door-tuning/exclusion-rule-selector.png)
 
-### <a name="changing-waf-actions"></a>Zmiana akcji WAF
+### <a name="changing-waf-actions"></a>Zmienianie akcji WAF
 
-Innym sposobem obsługi zachowania reguł WAF jest wybranie akcji, która zostanie podjęta, gdy żądanie pasuje do warunków reguły. Dostępne akcje to: [Zezwalaj, Blokuj, Rejestruj i Przekieruj](afds-overview.md#waf-actions).
+Innym sposobem obsługi zachowania reguł WAF jest wybranie akcji, która będzie akcję, która będzie akcję, gdy żądanie pasuje do warunków reguły. Dostępne akcje to: [Zezwalaj, Blokuj, Dziennik i Przekieruj.](afds-overview.md#waf-actions)
 
-W tym przykładzie został zmieniony domyślny *blok* akcji na akcję *dziennika* na zasadzie 942110. To spowoduje, że WAF rejestruje żądanie i kontynuuje ocenę tego samego żądania względem pozostałych reguł o niższym priorytecie.
+W tym przykładzie zmieniliśmy domyślną akcję *Blokuj* na akcję *Dziennik* w regułę 942110. Spowoduje to rejestrowanie żądania przez WAF i kontynuowanie oceny tego samego żądania względem pozostałych reguł o niższym priorytecie.
 
 ![Akcje WAF](../media/waf-front-door-tuning/actions.png)
 
-Po przeprowadzeniu tego samego żądania możemy odwoływać się do dzienników, a zobaczymy, że to żądanie było zgodne z IDENTYFIKATORem reguły 942110 i że `action_s` pole wskazuje teraz jako *Dziennik* zamiast *bloku*. Następnie rozwinięcie zapytania dziennika w celu uwzględnienia `trackingReference_s` informacji i zobacz, co jeszcze się stało z tym żądaniem.
+Po wykonaniu tego samego żądania możemy odwołać się do dzienników i zobaczymy, że to żądanie było zgodne z regułą o identyfikatorze 942110 i że pole zawiera teraz pole Log zamiast `action_s` *Blokuj*  . Następnie rozszerzyliśmy zapytanie dziennika, aby uwzględnić informacje i zobaczyć, co jeszcze `trackingReference_s` się stało z tym żądaniem.
 
-![Dziennik pokazujący wiele dopasowania reguł](../media/waf-front-door-tuning/actions-log.png)
+![Dziennik przedstawiający wiele dopasowania reguł](../media/waf-front-door-tuning/actions-log.png)
 
-W interesującej sekcji zobaczymy inne dopasowanie reguły SQLI w milisekundach po przetworzeniu identyfikatora reguły 942110. To samo żądanie dopasowane do identyfikatora reguły 942310 i ten czas jest wyzwalany przez domyślny *blok* akcji.
+Co ciekawe, widzimy, że dopasowanie innej reguły SQLI występuje w milisekundach po przetworzeniu reguły o identyfikatorze 942110. To samo żądanie zostało dopasowane do reguły o identyfikatorze 942310 i tym razem została wyzwolona domyślna akcja Blokuj. 
 
-Inną zaletą korzystania z akcji *rejestrowania* podczas dostrajania WAF lub rozwiązywania problemów jest możliwość zidentyfikowania, czy wiele reguł w danej grupie reguł jest zgodnych i blokuje dane żądanie. Następnie można utworzyć wykluczenia na odpowiednim poziomie, na przykład na poziomie reguły lub grupy reguł. 
+Inną zaletą  korzystania z akcji Dziennika podczas dostrajania lub rozwiązywania problemów z WAF jest możliwość określenia, czy wiele reguł w określonej grupie reguł jest zgodnych i blokuje dane żądanie. Następnie można utworzyć wykluczenia na odpowiednim poziomie, tj. na poziomie reguły lub grupy reguł. 
 
 ### <a name="using-custom-rules"></a>Używanie reguł niestandardowych
 
-Po zidentyfikowaniu, co powoduje dopasowanie reguły WAF, możesz użyć niestandardowych reguł, aby dostosować sposób, w jaki WAF reaguje na zdarzenie. Reguły niestandardowe są przetwarzane przed regułami zarządzanymi, ale mogą zawierać więcej niż jeden warunek, a ich akcje mogą być [dozwolone, odrzucanie, rejestrowanie lub przekierowywanie](afds-overview.md#waf-actions). W przypadku dopasowania reguły aparat WAF zatrzyma przetwarzanie. Oznacza to, że inne niestandardowe reguły o niższym priorytecie i reguły zarządzane nie są już wykonywane.
+Po zidentyfikowaniu, co powoduje dopasowanie reguły aplikacji sieci Szkieletowej, możesz użyć reguł niestandardowych, aby dostosować sposób, w jaki taafaf odpowiada na zdarzenie. Reguły niestandardowe są przetwarzane przed regułami zarządzanymi, mogą zawierać więcej niż jeden warunek, a ich akcje mogą być [zezwalania, odmowy, dziennika lub przekierowania.](afds-overview.md#waf-actions) W przypadku dopasowania reguły aparat WAF przestaje przetwarzać dane. Oznacza to, że inne reguły niestandardowe o niższym priorytecie i reguły zarządzane nie są już wykonywane.
 
-W poniższym przykładzie została utworzona reguła niestandardowa o dwóch warunkach. Pierwszy warunek poszukuje `comment` wartości w treści żądania. Drugi warunek poszukuje `/api/Feedbacks/` wartości w identyfikatorze URI żądania.
+W poniższym przykładzie utworzono regułę niestandardową z dwoma warunkami. Pierwszy warunek szuka wartości `comment` w treści żądania. Drugi warunek szuka wartości `/api/Feedbacks/` w żądaniu URI.
 
-Korzystanie z reguły niestandardowej pozwala być najbardziej szczegółowym warunkiem dostrajania reguł WAF i w celu poradzenia z fałszywie dodatnimi. W tym przypadku firma Microsoft nie podejmuje działania wyłącznie na podstawie `comment` wartości treści żądania, która może istnieć w wielu witrynach lub aplikacjach objętych tymi samymi zasadami WAFymi. Dzięki dołączeniu innego warunku do dopasowania do określonego identyfikatora URI żądania `/api/Feedbacks/` upewnij się, że ta reguła niestandardowa dotyczy tego jawnego przypadku użycia, który zbadane. Gwarantuje to, że w przypadku przeprowadzenia tego samego ataku w odniesieniu do różnych warunków nadal będzie on sprawdzany i uniemożliwiany przez aparat WAF.
+Użycie reguły niestandardowej pozwala uzyskać najbardziej szczegółowy poziom podczas dostrajania reguł WAF i radzenia sobie z fałszywymi alarmami. W tym przypadku nie robimy akcji tylko na podstawie wartości treści żądania, która może istnieć w wielu witrynach lub aplikacjach w ramach tych `comment` samych zasad aplikacji internetowych. Uwzględniając inny warunek, który będzie również odpowiadać konkretnej uri żądania, upewniamy się, że ta reguła niestandardowa naprawdę ma zastosowanie do tego jawnego przypadku użycia, który został `/api/Feedbacks/` zweryfikowany. Dzięki temu ten sam atak, jeśli zostanie przeprowadzony w różnych warunkach, będzie nadal sprawdzany i blokowany przez aparat WAF.
 
 ![Dziennik](../media/waf-front-door-tuning/custom-rule.png)
 
-Podczas eksplorowania dziennika można zobaczyć, że `ruleName_s` pole zawiera nazwę nadaną dla utworzonej reguły niestandardowej: `redirectcomment` . W `action_s` polu można zobaczyć, że wykonano akcję *przekierowania* dla tego zdarzenia. W `details_matches_s` polu można zobaczyć szczegóły obu warunków.
+Podczas eksplorowania dziennika można zobaczyć, że pole zawiera nazwę nadaną utworzonej przez nas `ruleName_s` niestandardowych regułom: `redirectcomment` . W polu widać, że dla tego zdarzenia została `action_s` podjęta akcja  Przekierowanie. W polu widać, że zostały dopasowane szczegóły dla `details_matches_s` obu warunków.
 
 ### <a name="disabling-rules"></a>Wyłączanie reguł
 
-Innym sposobem na odliczanie fałszywych wyników jest wyłączenie reguły dopasowanej do danych wejściowych WAF uważany za złośliwy. Po przeanalizowaniu dzienników WAF i zawężaniu reguły do 942110 można wyłączyć ją w Azure Portal. Zobacz [Dostosowywanie reguł zapory aplikacji sieci Web przy użyciu Azure Portal](../ag/application-gateway-customize-waf-rules-portal.md#disable-rule-groups-and-rules).
+Innym sposobem na ominiecie wyników fałszywie dodatnich jest wyłączenie reguły dopasowanej do danych wejściowych, które zdaniem aplikacji WAF były złośliwe. Ponieważ dzienniki WAF zostały przejmowane i reguła jest zawężona do 942110, można ją wyłączyć w Azure Portal. Zobacz [Dostosowywanie Web Application Firewall reguł przy użyciu Azure Portal](../ag/application-gateway-customize-waf-rules-portal.md#disable-rule-groups-and-rules).
  
-Wyłączenie reguły jest korzystne, gdy masz pewność, że wszystkie żądania, które spełniają określony warunek, są w rzeczywistości legalnymi żądaniami lub jeśli masz pewność, że reguła po prostu nie ma zastosowania do Twojego środowiska (na przykład wyłączenie reguły iniekcji SQL z powodu braku instrukcji SQL). 
+Wyłączenie reguły jest korzystne, gdy masz pewność, że wszystkie żądania, które spełnia określony warunek, są w rzeczywistości uprawnionymi żądaniami lub gdy masz pewność, że reguła po prostu nie ma zastosowania do Twojego środowiska (na przykład wyłączenie reguły iniekcji SQL, ponieważ masz zaplecza inne niż SQL). 
  
-Jednak wyłączenie reguły jest ustawieniem globalnym, które ma zastosowanie do wszystkich hostów frontonu skojarzonych z zasadami WAFymi. Po wybraniu opcji wyłączenia reguły mogą występować luki w zabezpieczeniach, które nie zostały ujawnione lub wykryją inne hosty frontonu skojarzone z zasadami WAFymi.
+Wyłączenie reguły jest jednak ustawieniem globalnym, które ma zastosowanie do wszystkich hostów frontonu skojarzonych z zasadami WAF. Jeśli zdecydujesz się wyłączyć regułę, możesz pozostawić luki w zabezpieczeniach bez ochrony lub wykrywania innych hostów frontonu skojarzonych z zasadami WAF.
  
-Jeśli chcesz użyć Azure PowerShell, aby wyłączyć regułę zarządzaną, zobacz [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) dokumentację obiektu. Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure, zapoznaj się z [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override) dokumentacją.
+Jeśli chcesz użyć usługi Azure PowerShell, aby wyłączyć regułę zarządzaną, zapoznaj się z [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) dokumentacją obiektu. Jeśli chcesz używać interfejsu wiersza polecenia platformy Azure, zapoznaj się z [`az network front-door waf-policy managed-rules override`](/cli/azure/network/front-door/waf-policy/managed-rules/override) dokumentacją.
 
-![Reguły WAF](../media/waf-front-door-tuning/waf-rules.png)
+![Regułyaf (WAF)](../media/waf-front-door-tuning/waf-rules.png)
 
 > [!TIP]
-> Dobrym pomysłem jest udokumentowanie wszelkich zmian wprowadzonych w zasadach WAF. Dołącz przykładowe żądania do zilustrowania fałszywego wykrywania pozytywnego i jasno Wyjaśnij, dlaczego dodano regułę niestandardową, wyłączono regułę lub zestaw reguł lub dodaliśmy wyjątek. Ta dokumentacja może być przydatna w przypadku ponownego projektowania aplikacji w przyszłości i sprawdzenia, czy zmiany są nadal ważne. Może również pomóc w ewentualnym inspekcji lub zawieszeniu, dlaczego zasady WAF zostały ponownie skonfigurowane przy użyciu ustawień domyślnych.
+> Dobrym pomysłem jest udokumentowanie wszelkich zmian wprowadzonych w zasadach aplikacji sieci WAF. Dołącz przykładowe żądania, aby zilustrować wykrywanie wyników fałszywie dodatnich, i jasno wyjaśnić, dlaczego dodano regułę niestandardową, wyłączono regułę lub zestaw reguł albo dodano wyjątek. Ta dokumentacja może być przydatna, jeśli w przyszłości przeprojektujemy aplikację i będzie trzeba sprawdzić, czy zmiany są nadal prawidłowe. Może to również pomóc, jeśli kiedykolwiek będziesz podlegać inspekcji lub musisz uzasadnić, dlaczego zasady aplikacji internetowej zostały ponownie skonfigurowane z ich ustawień domyślnych.
 
 ## <a name="finding-request-fields"></a>Znajdowanie pól żądania
 
-Korzystając z serwera proxy przeglądarki, takiego jak [programu Fiddler](https://www.telerik.com/fiddler), można sprawdzić poszczególne żądania i określić, które określone pola strony sieci Web są wywoływane. Jest to przydatne, gdy konieczne jest wykluczenie niektórych pól z inspekcji przy użyciu list wykluczeń w WAF.
+Za pomocą serwera proxy przeglądarki, takiego jak [Fiddler,](https://www.telerik.com/fiddler)można sprawdzić poszczególne żądania i określić, jakie określone pola strony internetowej są wywoływane. Jest to przydatne, gdy musimy wykluczyć niektóre pola z inspekcji przy użyciu list wykluczeń w funkcji WAF.
 
 ### <a name="finding-request-attribute-names"></a>Znajdowanie nazw atrybutów żądania
  
-W tym przykładzie można zobaczyć pole, w którym `1=1` wprowadzono ciąg `comment` . Te dane zostały przesłane w treści żądania POST.
+W tym przykładzie widać pole, w którym wprowadzono `1=1` ciąg, ma nazwę `comment` . Te dane przekazano w treści żądania POST.
 
-![Żądanie programu Fiddler pokazujące treść](../media/waf-front-door-tuning/fiddler-request-attribute-name.png)
+![Żądanie fiddler z wyświetloną treścią](../media/waf-front-door-tuning/fiddler-request-attribute-name.png)
 
-Jest to pole, które można wykluczyć. Aby dowiedzieć się więcej na temat list wykluczeń, zobacz [listy wykluczeń zapory aplikacji sieci Web](./waf-front-door-exclusion.md). Ocenę można wyłączyć w tym przypadku, konfigurując następujące wykluczenie:
+Jest to pole, które można wykluczyć. Aby dowiedzieć się więcej na temat list wykluczeń, zobacz [Listy wykluczeń zapory aplikacji internetowej](./waf-front-door-exclusion.md). W takim przypadku można wykluczyć ocenę, konfigurując następujące wykluczenie:
 
 ![Reguła wykluczania](../media/waf-front-door-tuning/fiddler-request-attribute-name-exclusion.png)
 
-Możesz również sprawdzić dzienniki zapory, aby uzyskać informacje, które należy dodać do listy wykluczeń. Aby włączyć rejestrowanie, zobacz [monitorowanie metryk i dzienników w usłudze Azure front-drzwi](./waf-front-door-monitor.md).
+Możesz również zbadać dzienniki zapory, aby uzyskać informacje, aby zobaczyć, co należy dodać do listy wykluczeń. Aby włączyć rejestrowanie, zobacz Monitorowanie metryk i [dzienników w Azure Front Door](./waf-front-door-monitor.md).
 
-Sprawdź, czy w pliku dziennika zapory jest `PT1H.json` godzina, o której wystąpiło żądanie, które chcesz sprawdzić. `PT1H.json` pliki są dostępne w kontenerach konta magazynu, w których `FrontDoorWebApplicationFirewallLog` `FrontDoorAccessLog` są przechowywane dzienniki diagnostyczne i.
+Sprawdź dziennik zapory w pliku dla godziny, przez którą wystąpiło żądanie, `PT1H.json` które chcesz sprawdzić. `PT1H.json` Pliki są dostępne w kontenerach konta magazynu, w których są przechowywane dzienniki `FrontDoorWebApplicationFirewallLog` `FrontDoorAccessLog` diagnostyczne i .
 
-W tym przykładzie można zobaczyć regułę, która zablokowała żądanie (z tym samym odwołaniem do transakcji) i wystąpiła w dokładnie tym samym czasie:
+W tym przykładzie można zobaczyć regułę, która zablokowała żądanie (z tym samym odwołaniem do transakcji) i wystąpiła dokładnie w tym samym czasie:
 
 ```json
 {
@@ -259,23 +259,23 @@ W tym przykładzie można zobaczyć regułę, która zablokowała żądanie (z t
 }
 ```
 
-Mając wiedzę o sposobie działania zestawów reguł zarządzanych przez platformę Azure (zobacz [Zapora aplikacji sieci Web na platformie Azure](afds-overview.md)), wiadomo, że reguła z *akcją: Block* blokuje się na podstawie danych dopasowanych w treści żądania. Można zobaczyć szczegóły, które pasują do wzorca ( `1=1` ), a pole ma nazwę `comment` . Postępuj zgodnie z tymi samymi poprzednimi krokami, aby wykluczyć treść żądania, która zawiera `comment` .
+Mając wiedzę na temat działania zestawów reguł zarządzanych przez platformę Azure (zobacz Web Application Firewall w witrynie [Azure Front Door),](afds-overview.md)wiesz, że reguła z akcją: Blokuj właściwość blokuje się na podstawie danych dopasowanych w treści żądania.  W szczegółach widać, że pasuje ono do wzorca ( ), a `1=1` pole ma nazwę `comment` . Wykonaj te same poprzednie kroki, aby wykluczyć nazwę wpisów treści żądania, która `comment` zawiera .
 
 ### <a name="finding-request-header-names"></a>Znajdowanie nazw nagłówków żądań
 
-Programu Fiddler to przydatne narzędzie ponownie, aby znaleźć nazwy nagłówka żądania. Na poniższym zrzucie ekranu widoczne są nagłówki tego żądania GET, w tym typ zawartości, agent użytkownika i tak dalej. Można również użyć nagłówków żądań do tworzenia wykluczeń i reguł niestandardowych w WAF.
+Fiddler to ponownie przydatne narzędzie do znalezienia nazw nagłówków żądań. Na poniższym zrzucie ekranu widać nagłówki tego żądania GET, w tym Content-Type, User-Agent i tak dalej. Nagłówków żądań można również używać do tworzenia wykluczeń i reguł niestandardowych w funkcji WAF.
 
-![Żądanie programu Fiddler z nagłówkiem](../media/waf-front-door-tuning/fiddler-request-header-name.png)
+![Żądanie narzędzia Fiddler z nagłówkiem](../media/waf-front-door-tuning/fiddler-request-header-name.png)
 
-Innym sposobem wyświetlania nagłówków żądań i odpowiedzi jest zaszukiwanie w narzędziach deweloperskich przeglądarki, takich jak Edge lub Chrome. Możesz nacisnąć klawisz F12 lub kliknąć prawym przyciskiem myszy > **sprawdzić**  ->  **Narzędzia deweloperskie** i wybrać kartę **Sieć** . Załaduj stronę sieci Web, a następnie kliknij żądanie, które chcesz sprawdzić.
+Innym sposobem wyświetlania nagłówków żądań i odpowiedzi jest przejrzenie w narzędziach programistów przeglądarki, takich jak Edge lub Chrome. Możesz nacisnąć klawisz F12 lub kliknąć prawym przyciskiem myszy pozycję -> **Inspect** Narzędzia deweloperskie i wybrać kartę Sieć. Załaduj stronę internetową, a następnie kliknij żądanie, które  ->  chcesz sprawdzić. 
 
 ![Żądanie inspektora sieci](../media/waf-front-door-tuning/network-inspector-request.png)
 
-### <a name="finding-request-cookie-names"></a>Znajdowanie nazw plików cookie żądania
+### <a name="finding-request-cookie-names"></a>Znajdowanie nazw plików cookie żądań
 
-Jeśli żądanie zawiera pliki cookie, można wybrać kartę pliki cookie, aby wyświetlić je w programu Fiddler. Informacje o pliku cookie mogą również służyć do tworzenia wykluczeń lub reguł niestandardowych w programie WAF.
+Jeśli żądanie zawiera pliki cookie, można wybrać kartę Pliki cookie, aby wyświetlić je w programie Fiddler. Informacje o plikach cookie mogą również służyć do tworzenia wykluczeń lub reguł niestandardowych w aplikacji internetowej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [zaporze aplikacji sieci Web platformy Azure](../overview.md).
+- Dowiedz się więcej [o zaporze aplikacji internetowej platformy Azure.](../overview.md)
 - Dowiedz się, jak [utworzyć usługę Front Door](../../frontdoor/quickstart-create-front-door.md).

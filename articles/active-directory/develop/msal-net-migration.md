@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 2ec4ca8b24f1e8534e7f8434bc86a2eb2745e946
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 0e7dc3540dc54e0563a5ea416510bddb9a41fb65
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727046"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861701"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrowanie aplikacji do MSAL.NET
 
@@ -49,7 +49,7 @@ Jeśli znasz już punkt końcowy usługi Azure AD dla deweloperów (w wersji 1.0
 
 Jednak nadal musisz używać usługi ADAL.NET, jeśli aplikacja musi zalogować użytkowników przy użyciu wcześniejszych wersji [usługi Active Directory Federation Services (ADFS).](/windows-server/identity/active-directory-federation-services) Aby uzyskać więcej informacji, zobacz [Obsługa usług AD FS.](https://aka.ms/msal-net-adfs-support)
 
-Na poniższej ilustracji przedstawiono podsumowanie niektórych różnic między ADAL.NET i MSAL.NET ![ kodu side-by-side](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
+Na poniższej ilustracji przedstawiono podsumowanie niektórych różnic między ADAL.NET i MSAL.NET dla kodu ![ side-by-side aplikacji klienta publicznego](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
 
 ### <a name="nuget-packages-and-namespaces"></a>Pakiety NuGet i przestrzenie nazw
 
@@ -128,20 +128,20 @@ Oto granty obsługiwane w usługach ADAL.NET i MSAL.NET dla aplikacji klasycznyc
 
 Uprawnienie | ADAL.NET | MSAL.NET
 ----- |----- | -----
-Interaktywne | [Uwierzytelnianie interakcyjne](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Interaktywne uzyskiwanie tokenów w MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-Zintegrowane uwierzytelnianie systemu Windows | [Zintegrowane uwierzytelnianie w systemie Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Zintegrowane uwierzytelnianie systemu Windows](msal-authentication-flows.md#integrated-windows-authentication)
-Nazwa użytkownika/hasło | [Uzyskiwanie tokenów przy użyciu nazwy użytkownika i hasła](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Uwierzytelnianie za pomocą hasła nazwy użytkownika](msal-authentication-flows.md#usernamepassword)
-Przepływ kodu urządzenia | [Profil urządzenia dla urządzeń bez przeglądarek internetowych](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Przepływ kodu urządzenia](msal-authentication-flows.md#device-code)
+Interaktywne | [Uwierzytelnianie interakcyjne](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Interaktywne uzyskiwanie tokenów w MSAL.NET](scenario-desktop-acquire-token.md?tabs=dotnet#acquire-a-token-interactively)
+Zintegrowane uwierzytelnianie systemu Windows | [Zintegrowane uwierzytelnianie w systemie Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Zintegrowane uwierzytelnianie systemu Windows](scenario-desktop-acquire-token.md?tabs=dotnet#integrated-windows-authentication)
+Nazwa użytkownika/hasło | [Uzyskiwanie tokenów przy użyciu nazwy użytkownika i hasła](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Uwierzytelnianie za pomocą hasła nazwy użytkownika](scenario-desktop-acquire-token.md?tabs=dotnet#username-and-password)
+Przepływ kodu urządzenia | [Profil urządzenia dla urządzeń bez przeglądarek internetowych](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Przepływ kodu urządzenia](scenario-desktop-acquire-token.md?tabs=dotnet#command-line-tool-without-a-web-browser)
 
 #### <a name="confidential-client-applications"></a>Poufne aplikacje klienckie
 
-Oto granty obsługiwane w ADAL.NET i MSAL.NET dla aplikacji internetowych, internetowych interfejsów API i aplikacji demona:
+Oto granty obsługiwane w usługach ADAL.NET, MSAL.NET i Microsoft.Identity.Web dla aplikacji internetowych, internetowych interfejsów API i aplikacji demona:
 
 Typ aplikacji | Uprawnienie | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
-Aplikacja internetowa, internetowy interfejs API, demon | Poświadczenia klienta | [Przepływy poświadczeń klienta w ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Przepływy poświadczeń klienta w MSAL.NET](msal-authentication-flows.md#client-credentials)
-Interfejs API sieci Web | W imieniu | [Wywołania usługi do usługi w imieniu użytkownika za pomocą ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [W imieniu użytkownika w MSAL.NET](msal-authentication-flows.md#on-behalf-of)
-Aplikacja internetowa | Kod uwierzytelniania | [Uzyskiwanie tokenów za pomocą kodów autoryzacji w aplikacjach internetowych przy użyciu ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Uzyskiwanie tokenów za pomocą kodów autoryzacji w aplikacjach internetowych za pomocą MSAL.NET](msal-authentication-flows.md#authorization-code)
+Aplikacja internetowa, internetowy interfejs API, demon | Poświadczenia klienta | [Przepływy poświadczeń klienta w ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Przepływy poświadczeń klienta w MSAL.NET](scenario-daemon-acquire-token.md?tabs=dotnet#acquiretokenforclient-api)
+Interfejs API sieci Web | W imieniu | [Wywołania usługi do usługi w imieniu użytkownika za pomocą ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [W imieniu użytkownika w MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/on-behalf-of)
+Aplikacja internetowa | Kod uwierzytelniania | [Uzyskiwanie tokenów za pomocą kodów autoryzacji w aplikacjach internetowych przy użyciu ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Uzyskiwanie tokenów za pomocą kodów autoryzacji w aplikacjach internetowych za pomocą MSAL.NET](scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
 
 ### <a name="cache-persistence"></a>Trwałość pamięci podręcznej
 

@@ -36,7 +36,7 @@
           href: connect-ios.md
         - name: Nawiązywanie połączenia z klientem sklepu Microsoft Store
           href: connect-microsoft-store.md
-        - name: Nawiązywanie połączenia z klientami zuni ciemniami
+        - name: Nawiązywanie połączenia z klientami zunidzy
           href: linux-overview.md
     - name: Konfigurowanie przekierowań urządzeń
       href: configure-device-redirections.md
@@ -66,7 +66,7 @@
           href: create-profile-container-adds.md
         - name: Korzystanie z usług Azure Files i AD DS
           href: create-file-share.md
-        - name: Instalowanie pakietu Office z kontenerami aplikacji FSLogix
+        - name: Instalowanie pakietu Office przy użyciu kontenerów aplikacji FSLogix
           href: fslogix-office-app-rule-editor.md
     - name: Konfigurowanie ustawień puli hostów
       items:
@@ -128,9 +128,9 @@
       href: key-distribution-center-proxy.md
     - name: Uruchamianie maszyny wirtualnej przy nawiązywanie połączenia
       items:
-        - name: Konfigurowanie uruchamiania maszyny wirtualnej przy nawiązywaniu połączenia
+        - name: Konfigurowanie uruchamiania maszyny wirtualnej w programie Connect
           href: start-virtual-machine-connect.md
-        - name: Uruchamianie maszyny wirtualnej na stronie Łączenie — często zadawane pytania
+        - name: Uruchamianie maszyny wirtualnej na stronie Połącz — często zadawane pytania
           href: start-virtual-machine-connect-faq.md
     - name: Ustawianie trybu opróżniania
       href: drain-mode.md
@@ -215,7 +215,7 @@
     - name: Obsługa systemu Linux
       href: linux-overview.md
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
+      href: /cli/azure/desktopvirtualization
     - name: Szacowanie Azure Monitor kosztów
       href: azure-monitor-costs.md
     - name: Obsługiwane ustawienia pliku RDP
@@ -223,7 +223,7 @@
     - name: Wskazówki dotyczące określania rozmiarów maszyn wirtualnych
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/desktopvirtualization/
+      href: /cli/azure/
     - name: Przykładowe scenariusze dla platformy Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: Odnajdowanie poczty e-mail

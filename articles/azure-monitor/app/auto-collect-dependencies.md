@@ -1,39 +1,39 @@
 ---
-title: Funkcja autokolekcje Application Insights platformy Azure | Microsoft Docs
+title: Azure Application Insights — automatyczne zbieranie zależności | Microsoft Docs
 description: Application Insights automatycznie zbierać i wizualizować zależności
 ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
-ms.openlocfilehash: 8a4d79e52465e93fb4db2625217cb37a06917218
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa4d39ca8964e95ca787d236223e2b475a9597c1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91930870"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873833"
 ---
 # <a name="dependency-auto-collection"></a>Automatyczne zbieranie zależności
 
-Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które są automatycznie wykrywane jako zależności bez konieczności wprowadzania jakichkolwiek dodatkowych modyfikacji w kodzie aplikacji. Te zależności są wizualizowane w Application Insights [mapy aplikacji](./app-map.md) i [diagnostyki transakcji](./transaction-diagnostics.md) . Jeśli zależność nie znajduje się na poniższej liście, nadal możesz ją ręcznie śledzić przy użyciu [wywołania zależności śledzenia](./api-custom-events-metrics.md#trackdependency).
+Poniżej znajduje się obecnie obsługiwana lista wywołań zależności, które są automatycznie wykrywane jako zależności bez konieczności wprowadzania żadnych dodatkowych modyfikacji kodu aplikacji. Te zależności są wizualizowane w widokach mapy Application Insights [i](./app-map.md) [diagnostyki](./transaction-diagnostics.md) transakcji. Jeśli zależności nie ma na poniższej liście, nadal możesz śledzić ją ręcznie za pomocą wywołania [zależności śledzenia](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="net"></a>.NET
 
 | Struktury aplikacji| Wersje |
 | ------------------------|----------|
-| ASP.NET WebForms | 4.5 + |
-| ASP.NET MVC | 4 + |
-| ASP.NET WebAPI | 4.5 + |
-| ASP.NET Core | 1.1 + |
-| <b> Biblioteki komunikacji</b> |
-| [HttpClient](https://www.microsoft.com/net/) | 4.5 +, .NET Core 1.1 + |
-| [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0 +, NuGet 4.3.0 |
-| [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 — Najnowsza stabilna wersja. (Zobacz uwagi poniżej).
-| [Zestaw SDK klienta EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
-| [Zestaw SDK klienta ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
+| ASP.NET formularzy internetowych | 4.5+ |
+| ASP.NET MVC | 4+ |
+| ASP.NET WebAPI | 4.5+ |
+| ASP.NET Core | 1.1+ |
+| <b> Biblioteki komunikacyjne</b> |
+| [HttpClient](https://dotnet.microsoft.com) | 4.5+, .NET Core 1.1+ |
+| [Sqlclient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
+| [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 — najnowsza stabilna wersja. (Zobacz uwaga poniżej).
+| [Zestaw SDK klienta usługi EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
+| [Zestaw SDK klienta usługi ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Klienci magazynu</b>|  |
-| ADO.NET | 4.5 + |
+| ADO.NET | 4.5+ |
 
 > [!NOTE]
-> Istnieje [znany problem](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) ze starszymi wersjami programu Microsoft. Data. SqlClient. Zalecamy użycie usługi 1.1.0 lub nowszej w celu ograniczenia tego problemu. Entity Framework Core nie musi być dostarczany z najnowszą stabilną wersją firmy Microsoft. Data. SqlClient, dlatego zalecamy potwierdzenie, że masz co najmniej 1.1.0, aby uniknąć tego problemu.   
+> Istnieje znany [problem ze starszymi](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) wersjami pakietu Microsoft.Data.SqlClient. Aby rozwiązać ten problem, zalecamy użycie programu 1.1.0 lub nowszego. Entity Framework Core nie musi być w najnowszej stabilnej wersji pakietu Microsoft.Data.SqlClient, dlatego zalecamy potwierdzenie, że używasz co najmniej wersji 1.1.0, aby uniknąć tego problemu.   
 
 
 ## <a name="java"></a>Java
@@ -44,53 +44,53 @@ Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>Struktury aplikacji </b> |  |
 | [Spring](https://spring.io/) | 3.0 |
-| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup>*</sup> |
-| Serwletu Java | 3.1 + |
-| <b>Biblioteki komunikacji</b> |  |
-| [Klient Apache http](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3 +<sup>†</sup> |
+| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
+| Serwlet Java | 3.1+ |
+| <b>Biblioteki komunikacyjne</b> |  |
+| [Apache Http Client](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | Ponad 4,3<sup>†</sup> |
 | <b>Klienci magazynu</b> | |
-| [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1 +<sup>†</sup> |
+| [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | Ponad 1<sup>†</sup> |
 | [PostgreSQL (obsługa wersji beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
-| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1 +<sup>†</sup> |
-| [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1 +<sup>†</sup> |
-| <b>Biblioteki rejestrowania</b> | |
-| [Logback](https://logback.qos.ch/) | 1 + |
-| [Log4J](https://logging.apache.org/log4j/) | 1.2 + |
+| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | Ponad 1<sup>†</sup> |
+| [Mysql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | Ponad 1<sup>†</sup> |
+| <b>Rejestrowanie bibliotek</b> | |
+| [Logback (Logback)](https://logback.qos.ch/) | 1+ |
+| [Log4j](https://logging.apache.org/log4j/) | 1.2+ |
 | <b>Biblioteki metryk</b> |  |
-| JMX | 1.0 + |
+| Jmx | 1.0+ |
 
 > [!NOTE]
-> * Z wyjątkiem obsługi programu Reactive Programs.
-> <br>† Wymaga instalacji [agenta JVM](./java-agent.md#install-the-application-insights-agent-for-java).
+> *Z wyjątkiem obsługi programowania reaktywnego.
+> <br>† Wymaga instalacji agenta [JVM.](./java-agent.md#install-the-application-insights-agent-for-java)
 
 ## <a name="nodejs"></a>Node.js
 
-| Biblioteki komunikacji | Wersje |
+| Biblioteki komunikacyjne | Wersje |
 | ------------------------|----------|
-| [http](https://nodejs.org/api/http.html), [https](https://nodejs.org/api/https.html) | 0.10 + |
+| [HTTP,](https://nodejs.org/api/http.html) [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Klienci magazynu</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2.x |
-| [MongoDB](https://www.npmjs.com/package/mongodb); [MongoDB rdzeń](https://www.npmjs.com/package/mongodb-core) | 2. x-3. x |
-| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0 — 2.16. x |
-| [PostgreSQL](https://www.npmjs.com/package/pg); | 6. x-7. x |
-| [PG — Pula](https://www.npmjs.com/package/pg-pool) | 1. x-2. x |
+| [MongoDb;](https://www.npmjs.com/package/mongodb) [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x–3.x |
+| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0–2.16.x |
+| [PostgreSql;](https://www.npmjs.com/package/pg) | 6.x–7.x |
+| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x–2.x |
 | <b>Biblioteki rejestrowania</b> | |
-| [konsoli](https://nodejs.org/api/console.html) | 0.10 + |
-| [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [Winston](https://www.npmjs.com/package/winston) | 2. x-3. x |
+| [Konsoli](https://nodejs.org/api/console.html) | 0.10+ |
+| [Łańka](https://www.npmjs.com/package/bunyan) | 1.x |
+| [Winston](https://www.npmjs.com/package/winston) | 2.x–3.x |
 
 ## <a name="javascript"></a>JavaScript
 
-| Biblioteki komunikacji | Wersje |
+| Biblioteki komunikacyjne | Wersje |
 | ------------------------|----------|
 | [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Wszystko |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Skonfiguruj niestandardowe Śledzenie zależności dla [platformy .NET](./asp-net-dependencies.md).
-- Skonfiguruj niestandardowe Śledzenie zależności dla [języka Java](./java-agent.md).
-- Skonfiguruj niestandardowe Śledzenie zależności dla języka [Python OpenCensus](./opencensus-python-dependency.md).
-- [Napisz niestandardową telemetrię zależności](./api-custom-events-metrics.md#trackdependency)
-- Zobacz [model danych](./data-model.md) dla typów Application Insights i modelu danych.
-- Sprawdź [platformy](./platforms.md) obsługiwane przez Application Insights.
+- Skonfiguruj niestandardowe śledzenie zależności dla [.NET.](./asp-net-dependencies.md)
+- Skonfiguruj niestandardowe śledzenie zależności dla języka [Java.](./java-agent.md)
+- Skonfiguruj niestandardowe śledzenie zależności dla [zestawu OpenCensus Python.](./opencensus-python-dependency.md)
+- [Pisanie niestandardowej telemetrii zależności](./api-custom-events-metrics.md#trackdependency)
+- Zobacz [model danych,](./data-model.md) Application Insights typy danych i model danych.
+- Zapoznaj się [z platformami](./platforms.md) obsługiwanymi przez Application Insights.
 

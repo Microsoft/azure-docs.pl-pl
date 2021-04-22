@@ -1,22 +1,22 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Cognitive Services
 description: Wyświetla Azure Policy kontroli zgodności z przepisami dostępnych dla Azure Cognitive Services. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3cea751e63fba8c3b9bb9a763d9fb15e2593b23e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 65a4c085fd67258e1777d281feb26ca44d27104e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498066"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877857"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-services"></a>Azure Policy kontroli zgodności z przepisami dla Azure Cognitive Services
 
-[Zgodność z przepisami](../governance/policy/concepts/regulatory-compliance.md) w Azure Policy udostępnia definicje inicjatyw utworzonych przez firmę  Microsoft i  zarządzanych, znane jako _wbudowane,_ dla domen zgodności i kontroli zabezpieczeń związanych z różnymi standardami zgodności. Na tej stronie **wymieniono domeny zgodności i** **mechanizmy kontroli zabezpieczeń dla** Azure Cognitive Services. Możesz przypisać wbudowane elementy kontroli  zabezpieczeń indywidualnie, aby ułatwić zgodność zasobów platformy Azure z określonym standardem.
+[Zgodność z przepisami](../governance/policy/concepts/regulatory-compliance.md) w Azure Policy udostępnia definicje inicjatyw utworzonych przez firmę  Microsoft i  zarządzanych, znane jako _wbudowane,_ dla domen zgodności i kontroli zabezpieczeń związanych z różnymi standardami zgodności. Na tej stronie **wymieniono domeny zgodności i** **mechanizmy kontroli zabezpieczeń** dla Azure Cognitive Services. Możesz indywidualnie przypisać wbudowane elementy  kontroli zabezpieczeń, aby zapewnić zgodność zasobów platformy Azure z określonym standardem.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

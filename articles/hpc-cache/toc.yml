@@ -8,9 +8,9 @@
   items:
     - name: Planowanie zagregowanej przestrzeni nazw
       href: hpc-cache-namespace.md
-    - name: Omówienie modeli użycia pamięci podręcznej
+    - name: Informacje o modelach użycia pamięci podręcznej
       href: cache-usage-models.md
-    - name: 'Zdecyduj, czy pamięć podręczna HPC jest odpowiednim rozwiązaniem'
+    - name: 'Decydowanie, HPC Cache to właściwe rozwiązanie'
       href: usage-scenarios.md
     - name: Zabezpieczenia
       items:
@@ -57,7 +57,7 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/hpc-cache/hpc-cache
+      href: /cli/azure/hpc-cache
     - name: Azure PowerShell
       href: /powershell/module/Az.HPCCache
 - name: Zasoby
@@ -70,7 +70,7 @@
       href: hpc-cache-blob-firewall-fix.md
     - name: Rozwiązywanie problemów z tworzeniem lokalizacji docelowej magazynu NFS
       href: troubleshoot-nas.md
-    - name: Używanie magazynu obiektów BLOB zainstalowanego w systemie plików NFS z pamięcią podręczną platformy Azure HPC
+    - name: Używanie magazynu obiektów blob zainstalowanego w nfs z Azure HPC Cache
       href: nfs-blob-considerations.md
     - name: Odzyskiwanie sprawności po awarii regionalnej
       href: hpc-region-recovery.md
