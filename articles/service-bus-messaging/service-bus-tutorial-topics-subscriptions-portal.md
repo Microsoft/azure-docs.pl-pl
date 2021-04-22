@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a7b03727c574dcee1cd56144a521f36de6dc48c6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179667"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861377"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Samouczek: aktualizowanie magazynu przy użyciu witryny Azure Portal oraz tematów/subskrypcji
 
@@ -29,14 +29,14 @@ Przykładem tego scenariusza jest aktualizacja asortymentu magazynu na potrzeby 
 
 ![temat](./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
 
-Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto][] przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem możesz utworzyć [bezpłatne][] konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć kroki tego samouczka, upewnij się, że zainstalowano następujące elementy:
 
 - [Program Visual Studio 2017 Update 3 (wersja 15.3, 26730.01)](https://www.visualstudio.com/vs) lub nowszy.
-- [Zestaw NET Core SDK](https://www.microsoft.com/net/download/windows), wersja 2.0 lub nowsza.
+- [Zestaw NET Core SDK](https://dotnet.microsoft.com/download), wersja 2.0 lub nowsza.
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Tematy i subskrypcje usługi Service Bus
 
@@ -97,7 +97,7 @@ Aby uruchomić kod, wykonaj następujące czynności:
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy nie jest już potrzebne, Usuń przestrzeń nazw i temat. W tym celu wybierz te zasoby w portalu i kliknij przycisk **Usuń**.
+Gdy przestrzeń nazw i temat nie będą już potrzebne, usuń je. W tym celu wybierz te zasoby w portalu i kliknij przycisk **Usuń**.
 
 ## <a name="understand-the-sample-code"></a>Omówienie przykładowego kodu
 
@@ -396,7 +396,7 @@ private async Task ReceiveMessages(string subscription)
 ```
 
 > [!NOTE]
-> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
+> Za pomocą Service Bus można zarządzać [zasobami Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Usługa Service Bus Explorer umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie udostępnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematu, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -93,10 +93,10 @@
           href: export-data.md
         - name: Eksport bez danych identyfikujących
           href: de-identified-export.md
-    - name: Konwertuj dane
+    - name: Konwertowanie danych
       expanded: false
       items:
-        - name: Szablony rozszerzenia konwertera danych $convert i FHIR
+        - name: $convert-data i szablony rozszerzeń konwertera FHIR
           href: convert-data.md
     - name: Znajdowanie identyfikatorów obiektów tożsamości
       href: find-identity-object-ids.md
@@ -137,14 +137,14 @@
       href: fhir-faq.md
     - name: Obsługiwane funkcje
       href: fhir-features-supported.md
-    - name: Projekty GitHub
+    - name: GitHub Projects
       href: fhir-github-projects.md
     - name: Ekosystem partnerów
       href: partner-ecosystem.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/healthcareapis/healthcareapis
+      href: /cli/azure/healthcareapis
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

@@ -1,36 +1,36 @@
 ---
 title: Uzyskiwanie stanu tłumaczeń
 titleSuffix: Azure Cognitive Services
-description: Metoda stanu get translations zwraca listę przesłanych żądań wsadowych oraz stan każdego żądania.
+description: Metoda get translations status zwraca listę przesłanych żądań wsadowych oraz stan każdego żądania.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: a67544dc4f654a692338c76099daa19934a9ea45
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c3301283f0a7334a7c207ff7c80b4f71a13de465
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836210"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864833"
 ---
 # <a name="get-translations-status"></a>Uzyskiwanie stanu tłumaczeń
 
 Metoda Get translations status zwraca listę przesłanych żądań wsadowych oraz stan każdego żądania. Ta lista zawiera tylko żądania wsadowe przesłane przez użytkownika (na podstawie subskrypcji). Stan każdego żądania jest sortowany według identyfikatora.
 
-Jeśli liczba żądań przekracza limit stronicowania, jest używane stronicowanie po stronie serwera. Odpowiedzi z podziałem na strony wskazują wynik częściowy i zawierają token kontynuacji w odpowiedzi. Brak tokenu kontynuacji oznacza, że żadne dodatkowe strony nie są dostępne.
+Jeśli liczba żądań przekracza limit stronicowania, jest używane stronicowanie po stronie serwera. Odpowiedzi z podziałem na strony wskazują wynik częściowy i zawierają w odpowiedzi token kontynuacji. Brak tokenu kontynuacji oznacza, że żadne dodatkowe strony nie są dostępne.
 
 $top i $skip można użyć do określenia liczby wyników do zwrócenia oraz przesunięcia dla kolekcji.
 
 Serwer honoruje wartości określone przez klienta. Klienci muszą być jednak przygotowani do obsługi odpowiedzi, które zawierają inny rozmiar strony lub token kontynuacji.
 
-Gdy są $top i $skip, serwer powinien najpierw zastosować $skip, a $top do kolekcji. 
+Jeśli są $top i $skip, serwer powinien najpierw zastosować $skip, a $top do kolekcji. 
 
 > [!NOTE]
-> Jeśli serwer nie może honorować $top i/lub $skip, serwer musi zwrócić klientowi komunikat o błędzie, zamiast po prostu zignorować opcje zapytania. Zmniejsza to ryzyko, że klient będzie przyjmował założenia dotyczące zwracanych danych.
+> Jeśli serwer nie może honorować $top i/lub $skip, serwer musi zwrócić komunikat o błędzie do klienta, który o nim informuje, zamiast po prostu zignorować opcje zapytania. Zmniejsza to ryzyko, że klient będzie przyjmował założenia dotyczące zwracanych danych.
 
 ## <a name="request-url"></a>Adres URL żądania
 
@@ -39,12 +39,12 @@ Wyślij `GET` żądanie do:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
 ```
 
-Dowiedz się, jak znaleźć [niestandardową nazwę domeny.](../get-started-with-document-translation.md#find-your-custom-domain-name)
+Dowiedz się, jak znaleźć [niestandardową nazwę domeny](../get-started-with-document-translation.md#find-your-custom-domain-name).
 
 > [!IMPORTANT]
 >
 > * **Wszystkie żądania interfejsu API do usługi tłumaczenia dokumentów wymagają niestandardowego punktu końcowego domeny**.
-> * Nie można użyć punktu końcowego znalezionego na  stronie kluczy Azure Portal punktu końcowego ani globalnego punktu końcowego translatora — do przesyłania żądań HTTP do `api.cognitive.microsofttranslator.com` tłumaczenia dokumentów.
+> * Nie można użyć punktu końcowego znalezionego na  stronie kluczy Azure Portal punktu końcowego ani globalnego punktu końcowego usługi Translator — do przesyłania żądań HTTP do tłumaczenia `api.cognitive.microsofttranslator.com` dokumentów.
 
 ## <a name="request-parameters"></a>Parametry żądania
 
@@ -52,8 +52,8 @@ Parametry żądania przekazane w ciągu zapytania to:
 
 |Parametr zapytania|Wymagane|Opis|
 |--- |--- |--- |
-|$skip|Fałsz|Pomiń $skip wpisów w kolekcji. Po po $top i $skip są dostarczane $skip najpierw stosowane.|
-|$top|Fałsz|Weź $top wpisów w kolekcji. Po po $top i $skip są dostarczane $skip najpierw stosowane.|
+|$skip|Fałsz|Pomiń $skip w kolekcji. Po po $top i $skip są dostarczane $skip najpierw stosowane.|
+|$top|Fałsz|Weź $top wpisów w kolekcji. Po po $top i $skip zostaną podane $skip zostaną zastosowane jako pierwsze.|
 
 ## <a name="request-headers"></a>Nagłówki żądań
 
@@ -86,7 +86,7 @@ Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 |identyfikator|ciąg|Identyfikator operacji.|
 |createdDateTimeUtc|ciąg|Data i godzina utworzenia operacji.|
 |lastActionDateTimeUtc|ciąg|Data i godzina aktualizacji stanu operacji.|
-|status|Ciąg|Lista możliwych stanów zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>ValidationFailed</li></ul>|
+|status|Ciąg|Lista możliwych stanów zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>Błąd walidacji</li></ul>|
 |Podsumowanie|StatusSummary[]|Podsumowanie zawierające szczegóły wymienione poniżej.|
 |summary.total|liczba całkowita|Liczba wszystkich dokumentów.|
 |summary.failed|liczba całkowita|Liczba dokumentów nie powiodła się.|
@@ -94,16 +94,16 @@ Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 |summary.inProgress|liczba całkowita|Liczba dokumentów w toku.|
 |summary.notYetStarted|liczba całkowita|Liczba dokumentów, których przetwarzanie nie zostało jeszcze rozpoczęte.|
 |summary.cancelled|liczba całkowita|Liczba anulowanych dokumentów.|
-|summary.totalCharacterCharged|liczba całkowita|Łączna liczba znaków, dla których naliczane są opłaty.|
+|summary.totalCharacterCharged|liczba całkowita|Łączna liczba naliczonych znaków.|
 
-### <a name="error-response"></a>Odpowiedź z błędem
+### <a name="error-response"></a>Odpowiedź o błędzie
 
 |Nazwa|Typ|Opis|
 |--- |--- |--- |
 |kod|ciąg|Wylinia zawierające kody błędów wysokiego poziomu. Możliwe wartości:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Brak autoryzacji</li></ul>|
 |message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 |Docelowego|ciąg|Pobiera źródło błędu. Na przykład w przypadku nieprawidłowego dokumentu będzie to "dokumenty" lub "identyfikator dokumentu".|
-|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, docelowy komunikat i opcjonalne właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
+|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, komunikat i opcjonalny element docelowy właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
 |innerError.code|ciąg|Pobiera ciąg błędu kodu.|
 |innerError.message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 
@@ -135,7 +135,7 @@ Poniżej przedstawiono przykład pomyślnej odpowiedzi.
 }
 ```
 
-### <a name="example-error-response"></a>Przykładowa odpowiedź o błędzie
+### <a name="example-error-response"></a>Przykładowa odpowiedź z błędem
 
 Poniżej przedstawiono przykład odpowiedzi z błędem. Schemat innych kodów błędów jest taki sam.
 

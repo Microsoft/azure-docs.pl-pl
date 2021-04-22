@@ -1,48 +1,48 @@
 ---
 title: Zarządzanie wystąpieniem zarządzanym platformy Azure dla zasobów Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Poznaj typowe polecenia służące do automatyzowania zarządzania wystąpieniem zarządzanym platformy Azure dla usługi Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: Dowiedz się więcej o typowych poleceniach automatyzowania zarządzania wystąpieniem zarządzanym platformy Azure dla platformy Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: thvankra
-ms.openlocfilehash: 3e44625d23a302c58ea065a4fc3ecec5605e60b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea28bf21424f0624b4f1bb5856a17672c1c7b106
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103564528"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875453"
 ---
-# <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Zarządzanie wystąpieniem zarządzanym Azure dla zasobów Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
+# <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Zarządzanie wystąpieniem zarządzanym platformy Azure dla zasobów Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
-W tym artykule opisano typowe polecenia służące do automatyzowania zarządzania wystąpieniem zarządzanym platformy Azure na potrzeby klastrów Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure.
+W tym artykule opisano typowe polecenia służące do automatyzowania zarządzania wystąpieniem zarządzanym platformy Azure dla klastrów Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 > [!IMPORTANT]
-> Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra jest obecnie w publicznej wersji zapoznawczej.
+> Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra jest obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.17.1 lub nowszej. Jeśli używasz Azure Cloud Shell, Najnowsza wersja jest już zainstalowana.
+> Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.17.1 lub wyższej. Jeśli używasz programu Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 >
-> Nie można zmienić nazwy zarządzania wystąpieniem zarządzanym platformy Azure dla zasobów Apache Cassandra, ponieważ to narusza sposób, w jaki Azure Resource Manager współpracuje z identyfikatorami URI zasobów.
+> Nie można zmienić nazwy zarządzania wystąpieniem zarządzanym platformy Azure dla zasobów apache Cassandra, ponieważ narusza Azure Resource Manager z interfejsami URI zasobów.
 
 ## <a name="azure-managed-instance-for-apache-cassandra-clusters"></a>Wystąpienie zarządzane platformy Azure dla klastrów Apache Cassandra
 
 W poniższych sekcjach pokazano, jak zarządzać wystąpieniem zarządzanym platformy Azure dla klastrów Apache Cassandra, w tym:
 
 * [Tworzenie klastra wystąpienia zarządzanego](#create-cluster)
-* [Usuń klaster wystąpienia zarządzanego](#delete-cluster)
-* [Pobierz szczegóły klastra](#get-cluster-details)
-* [Pobierz stan węzła klastra](#get-cluster-status)
-* [Wyświetl listę klastrów według grupy zasobów](#list-clusters-resource-group)
-* [Wyświetl listę klastrów według identyfikatora subskrypcji](#list-clusters-subscription)
+* [Usuwanie klastra wystąpienia zarządzanego](#delete-cluster)
+* [Uzyskiwanie szczegółów klastra](#get-cluster-details)
+* [Uzyskiwanie stanu węzła klastra](#get-cluster-status)
+* [Lista klastrów według grupy zasobów](#list-clusters-resource-group)
+* [Lista klastrów według identyfikatora subskrypcji](#list-clusters-subscription)
 
 ### <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Tworzenie klastra wystąpienia zarządzanego
 
-Utwórz wystąpienie zarządzane platformy Azure dla klastra Apache Cassandra za pomocą polecenia [AZ Managed-Cassandra Cluster Create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) :
+Utwórz wystąpienie zarządzane platformy Azure dla klastra Apache Cassandra za pomocą polecenia [az managed-cassandra cluster create:](/cli/azure/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_cluster_create)
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -63,9 +63,9 @@ az managed-cassandra cluster create \
     --initial-cassandra-admin-password $initialCassandraAdminPassword \
 ```
 
-### <a name="delete-a-managed-instance-cluster"></a><a id="delete-cluster"></a>Usuń klaster wystąpienia zarządzanego
+### <a name="delete-a-managed-instance-cluster"></a><a id="delete-cluster"></a>Usuwanie klastra wystąpienia zarządzanego
 
-Usuń klaster za pomocą polecenia [AZ Managed-Cassandra Cluster Delete](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_delete) :
+Usuń klaster za pomocą [polecenia az managed-cassandra cluster delete:](/cli/azure/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_cluster_delete)
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -76,9 +76,9 @@ az managed-cassandra cluster delete \
     --resource-group $resourceGroupName
 ```
 
-### <a name="get-the-cluster-details"></a><a id="get-cluster-details"></a>Pobierz szczegóły klastra
+### <a name="get-the-cluster-details"></a><a id="get-cluster-details"></a>Uzyskiwanie szczegółów klastra
 
-Pobierz szczegóły klastra za pomocą polecenia [AZ Managed-Cassandra klastra show](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_show) :
+Pobierz szczegóły klastra za pomocą [polecenia az managed-cassandra cluster show:](/cli/azure/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_cluster_show)
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -89,9 +89,9 @@ az managed-cassandra cluster show \
     --resource-group $resourceGroupName
 ```
 
-### <a name="get-the-cluster-node-status"></a><a id="get-cluster-status"></a>Pobierz stan węzła klastra
+### <a name="get-the-cluster-node-status"></a><a id="get-cluster-status"></a>Uzyskiwanie stanu węzła klastra
 
-Pobierz szczegóły klastra za pomocą polecenia [AZ Managed-Cassandra Cluster Node-status](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_node_status) :
+Pobierz szczegóły klastra za pomocą [polecenia az managed-cassandra cluster node-status:](/cli/azure/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_cluster_node_status)
 
 ```azurecli-interactive
 clusterName='cassandra-hybrid-cluster'
@@ -102,9 +102,9 @@ az managed-cassandra cluster node-status \
     --resource-group $resourceGroupName
 ```
 
-### <a name="list-the-clusters-by-resource-group"></a><a id="list-clusters-resource-group"></a>Wyświetl listę klastrów według grupy zasobów
+### <a name="list-the-clusters-by-resource-group"></a><a id="list-clusters-resource-group"></a>Lista klastrów według grupy zasobów
 
-Wyświetl listę klastrów według grupy zasobów przy użyciu polecenia [AZ Managed-Cassandra klastra list](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_list) :
+Aby wyświetlić listę klastrów według grupy zasobów, za pomocą [polecenia az managed-cassandra cluster list:](/cli/azure/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_cluster_list)
 
 ```azurecli-interactive
 subscriptionId='MySubscriptionId'
@@ -114,9 +114,9 @@ az managed-cassandra cluster list\
     --resource-group $resourceGroupName
 ```
 
-### <a name="list-clusters-by-subscription-id"></a><a id="list-clusters-subscription"></a>Wyświetl listę klastrów według identyfikatora subskrypcji
+### <a name="list-clusters-by-subscription-id"></a><a id="list-clusters-subscription"></a>Lista klastrów według identyfikatora subskrypcji
 
-Wyświetl listę klastrów według identyfikatora subskrypcji za pomocą polecenia [AZ Managed-Cassandra klastra list](/cli/azure/ext/cosmosdb-preview/managed-cassandra?view=azure-cli-latest&preserve-view=true) :
+Aby wyświetlić listę klastrów według identyfikatora subskrypcji, należy [użyć polecenia az managed-cassandra cluster list:](/cli/azure/managed-cassandra?view=azure-cli-latest&preserve-view=true)
 
 ```azurecli-interactive
 # set your subscription id
@@ -131,13 +131,13 @@ W poniższych sekcjach pokazano, jak zarządzać wystąpieniem zarządzanym plat
 
 * [Tworzenie centrum danych](#create-datacenter)
 * [Usuwanie centrum danych](#delete-datacenter)
-* [Pobierz szczegóły centrum danych](#get-datacenter-details)
+* [Uzyskiwanie szczegółów centrum danych](#get-datacenter-details)
 * [Aktualizowanie lub skalowanie centrum danych](#update-datacenter)
-* [Pobieranie centrów danych w klastrze](#get-datacenters-cluster)
+* [Uzyskiwanie centrów danych w klastrze](#get-datacenters-cluster)
 
 ### <a name="create-a-datacenter"></a><a id="create-datacenter"></a>Tworzenie centrum danych
 
-Utwórz centrum danych za pomocą polecenia [AZ Managed-Cassandra Datacenter Create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) :
+Utwórz centrum danych za pomocą [polecenia az managed-cassandra datacenter create:](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create)
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -157,7 +157,7 @@ az managed-cassandra datacenter create \
 
 ### <a name="delete-a-datacenter"></a><a id="delete-datacenter"></a>Usuwanie centrum danych
 
-Usuń centrum danych za pomocą polecenia [AZ Managed-Cassandra Datacenter Delete](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_delete) :
+Usuń centrum danych za pomocą [polecenia az managed-cassandra datacenter delete:](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_delete)
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -170,9 +170,9 @@ az managed-cassandra datacenter delete \
     --data-center-name $dataCenterName 
 ```
 
-### <a name="get-datacenter-details"></a><a id="get-datacenter-details"></a>Pobierz szczegóły centrum danych
+### <a name="get-datacenter-details"></a><a id="get-datacenter-details"></a>Uzyskiwanie szczegółów centrum danych
 
-Pobierz szczegóły centrum danych za pomocą polecenia [AZ Managed-Cassandra Datacenter show](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_show) :
+Pobierz szczegóły centrum danych za pomocą [polecenia az managed-cassandra datacenter show:](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_show)
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -187,7 +187,7 @@ az managed-cassandra datacenter show \
 
 ### <a name="update-or-scale-a-datacenter"></a><a id="update-datacenter"></a>Aktualizowanie lub skalowanie centrum danych
 
-Aktualizowanie lub skalowanie centrum danych (w celu skalowania wartości zmiany nodeCount) za pomocą polecenia [AZ Managed-Cassandra centrum danych Update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) :
+Zaktualizuj lub skaluj centrum danych (aby skalować zmianę wartości nodeCount) za pomocą [polecenia az managed-cassandra datacenter update:](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update)
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -203,9 +203,9 @@ az managed-cassandra datacenter update \
     --node-count 13 
 ```
 
-### <a name="get-the-datacenters-in-a-cluster"></a><a id="get-datacenters-cluster"></a>Pobieranie centrów danych w klastrze
+### <a name="get-the-datacenters-in-a-cluster"></a><a id="get-datacenters-cluster"></a>Uzyskiwanie centrów danych w klastrze
 
-Pobierz centra danych w klastrze za pomocą polecenia [AZ Managed-Cassandra Datacenter list](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_list) :
+Pobierz centra danych w klastrze za pomocą [polecenia az managed-cassandra datacenter list:](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_list)
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -218,5 +218,5 @@ az managed-cassandra datacenter list \
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Utwórz klaster wystąpienia zarządzanego na podstawie Azure Portal](create-cluster-portal.md)
-* [Wdróż zarządzany Klaster Apache Spark z Azure Databricks](deploy-cluster-databricks.md)
+* [Tworzenie klastra wystąpień zarządzanych na Azure Portal](create-cluster-portal.md)
+* [Wdrażanie zarządzanego klastra Apache Spark za pomocą Azure Databricks](deploy-cluster-databricks.md)

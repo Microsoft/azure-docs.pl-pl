@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start — Inicjowanie obsługi symulowanego urządzenia X. 509 na platformie Azure IoT Hub przy użyciu języka C #'
-description: Szybki Start — tworzenie i Inicjowanie obsługi urządzenia X. 509 za pomocą zestawu SDK języka C# dla usługi Azure IoT Hub Device Provisioning Service (DPS). W tym przewodniku Szybki start używane są rejestracje indywidualne.
+title: 'Szybki start — aprowizować symulowane urządzenie X.509 w celu Azure IoT Hub przy użyciu języka C #'
+description: Szybki start — tworzenie i aprowizowanie urządzenia X.509 przy użyciu zestawu SDK języka C# dla usługi Azure IoT Hub Device Provisioning Service (DPS). W tym przewodniku Szybki start używane są rejestracje indywidualne.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/01/2021
@@ -9,22 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aca75d1abed5470d51de22f9285459381f684bd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101705547"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868595"
 ---
-# <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i Inicjowanie obsługi urządzenia X. 509 za pomocą zestawu SDK języka C# dla IoT Hub Device Provisioning Service
+# <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki start: tworzenie i aprowizować urządzenie X.509 przy użyciu zestawu SDK języka C# dla IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-W tych krokach pokazano, jak za pomocą kodu urządzenia z [przykładów usługi Azure IoT dla języka C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) zainicjować obsługę administracyjną urządzenia X. 509. W tym artykule zostanie uruchomiony przykładowy kod urządzenia na komputerze deweloperskim w celu nawiązania połączenia z IoT Hub przy użyciu usługi Device Provisioning.
+Te kroki pokazują, jak aprowizować urządzenie X.509 za pomocą kodu urządzenia z przykładów [usługi Azure IoT dla języka C#.](https://github.com/Azure-Samples/azure-iot-samples-csharp) W tym artykule zostanie uruchomiony przykładowy kod urządzenia na komputerze dewelopera, aby nawiązać połączenie z IoT Hub przy użyciu usługi Device Provisioning Service.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie znasz procesu autozastrzegania, zapoznaj się z omówieniem [aprowizacji](about-iot-dps.md#provisioning-process) . Pamiętaj również, aby wcześniej wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](./quick-setup-auto-provision.md).
+Jeśli nie masz jeszcze informacji na temat procesu automatycznego aprowizowania, zapoznaj się z [omówieniem aprowacji.](about-iot-dps.md#provisioning-process) Pamiętaj również, aby wcześniej wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](./quick-setup-auto-provision.md).
 
 Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 - [Grupy rejestracji](concepts-service.md#enrollment-group): służą do rejestrowania wielu pokrewnych urządzeń.
@@ -45,7 +45,7 @@ W tym artykule przedstawiono rejestracje indywidualne.
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. Upewnij się, że na maszynie jest zainstalowany [zestaw SDK platformy .NET Core 3.0.0 lub nowszy](https://www.microsoft.com/net/download/windows) . Aby sprawdzić swoją wersję, możesz użyć poniższego polecenia.
+1. Upewnij się, że na maszynie jest zainstalowany zestaw [SDK platformy .NET Core 3.1](https://dotnet.microsoft.com/download) lub nowszy. Aby sprawdzić swoją wersję, możesz użyć następującego polecenia.
 
     ```bash
     dotnet --info
@@ -53,28 +53,28 @@ W tym artykule przedstawiono rejestracje indywidualne.
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>Tworzenie certyfikatu urządzenia X.509 z podpisem własnym
 
-W tej sekcji utworzysz certyfikat testu X. 509 z podpisem własnym za pomocą `iothubx509device1` nazwy pospolitej podmiotu. Należy pamiętać o następujących ważnych kwestiach:
+W tej sekcji utworzysz certyfikat testowy X.509 z podpisem własnym przy użyciu `iothubx509device1` nazwy pospolitej podmiotu. Należy pamiętać o następujących ważnych kwestiach:
 
 * Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowania i nie powinny być używane w środowisku produkcyjnym.
 * Domyślny termin wygaśnięcia certyfikatu z podpisem własnym to jeden rok.
-* Identyfikator urządzenia dla urządzenia IoT będzie wspólną nazwą podmiotu w certyfikacie. Upewnij się, że używasz nazwy podmiotu, która jest zgodna z [wymaganiami dotyczącymi ciągu identyfikatora urządzenia](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
+* Identyfikator urządzenia IoT będzie nazwą pospolitą podmiotu w certyfikacie. Upewnij się, że używasz nazwy podmiotu, która jest zgodna z wymaganiami [ciągów identyfikatorów urządzeń.](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties)
 
-Użyjesz przykładowego kodu z [X509Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) , aby utworzyć certyfikat, który będzie używany z wpisem rejestracji indywidualnej dla urządzenia.
+Przykładowy kod z przykładu [X509Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) zostanie użyty do utworzenia certyfikatu do użycia z indywidualnym wpisem rejestracji dla urządzenia.
 
 
-1. W wierszu polecenia programu PowerShell zmień katalogi na katalog projektu dla przykładu aprowizacji urządzenia X. 509.
+1. W wierszu polecenia programu PowerShell zmień katalogi na katalog projektu dla przykładu aprowowania urządzeń X.509.
 
     ```powershell
     cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample
     ```
 
-2. Przykładowy kod jest skonfigurowany do używania certyfikatów X.509 przechowywanych w chronionym hasłem sformatowanym pliku PKCS12 (certificate.pfx). Ponadto do utworzenia rejestracji indywidualnej w dalszej części tego przewodnika Szybki Start potrzebny jest plik certyfikatu klucza publicznego (Certificate. cer). Aby wygenerować certyfikat z podpisem własnym i skojarzone z nim pliki CER i PFX, uruchom następujące polecenie:
+2. Przykładowy kod jest skonfigurowany do używania certyfikatów X.509 przechowywanych w chronionym hasłem sformatowanym pliku PKCS12 (certificate.pfx). Ponadto potrzebny jest plik certyfikatu klucza publicznego (certificate.cer), aby utworzyć rejestrację indywidualną w dalszej części tego przewodnika Szybki start. Aby wygenerować certyfikat z podpisem własnym i skojarzone z nim pliki cer i pfx, uruchom następujące polecenie:
 
     ```powershell
     PS D:\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample> .\GenerateTestCertificate.ps1 iothubx509device1
     ```
 
-3. Skrypt wyświetli monit o podanie hasła PFX. Zapamiętaj to hasło, należy później użyć go ponownie po uruchomieniu przykładu. Można uruchomić `certutil` zrzut certyfikatu i zweryfikować nazwę podmiotu.
+3. Skrypt wyświetli monit o podanie hasła PFX. Zapamiętaj to hasło, ponieważ będzie ono konieczne później, po uruchomieniu przykładu. Możesz uruchomić program `certutil` , aby zrzucić certyfikat i zweryfikować nazwę podmiotu.
 
     ```powershell
     PS D:\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample> certutil .\certificate.pfx
@@ -96,51 +96,51 @@ Użyjesz przykładowego kodu z [X509Sample](https://github.com/Azure-Samples/azu
     CertUtil: -dump command completed successfully.    
     ```
 
- ## <a name="create-an-individual-enrollment-entry-for-the-device"></a>Tworzenie indywidualnego wpisu rejestracji dla urządzenia
+ ## <a name="create-an-individual-enrollment-entry-for-the-device"></a>Tworzenie wpisu rejestracji indywidualnej dla urządzenia
 
 
-1. Zaloguj się do Azure Portal, wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz swoją usługę aprowizacji.
+1. Zaloguj się do Azure Portal, wybierz przycisk **Wszystkie** zasoby w menu po lewej stronie i otwórz swoją usługę aprowowania.
 
-2. W menu usługi Device Provisioning wybierz pozycję **Zarządzaj rejestracjami**. Wybierz kartę **indywidualne rejestracje** i wybierz u góry przycisk **Dodaj rejestrację indywidualną** . 
+2. W menu Device Provisioning Service wybierz pozycję **Zarządzaj rejestracjami.** Wybierz **kartę Rejestracje** indywidualne i wybierz przycisk **Dodaj rejestrację indywidualną** u góry strony. 
 
-3. W panelu **Dodawanie rejestracji** wprowadź następujące informacje:
+3. W **panelu Dodawanie** rejestracji wprowadź następujące informacje:
    - Wybierz opcję **X.509** jako *Mechanizm* poświadczania tożsamości.
-   - W obszarze *plik PEM lub CER certyfikatu podstawowego* wybierz *pozycję Wybierz plik* , aby wybrać certyfikat pliku certyfikatu **. cer** utworzony w poprzednich krokach.
-   - Zostaw pole **Identyfikator urządzenia** puste. Urządzenie zostanie zaaprowizowane z identyfikatorem urządzenia ustawionym na nazwę pospolitą (CN) w certyfikacie X.509 **iothubx509device1**. Ta nazwa pospolita będzie również nazwą użytą dla identyfikatora rejestracji dla wpisu rejestracji indywidualnej. 
+   - W obszarze *Plik PEM* lub CER certyfikatu podstawowego wybierz *pozycję* Wybierz plik, aby wybrać plik certyfikatu **certificate.cer** utworzony w poprzednich krokach.
+   - Zostaw pole **Identyfikator urządzenia** puste. Urządzenie zostanie zaaprowizowane z identyfikatorem urządzenia ustawionym na nazwę pospolitą (CN) w certyfikacie X.509 **iothubx509device1**. Ta nazwa pospolita będzie również nazwą używaną dla identyfikatora rejestracji dla wpisu rejestracji indywidualnej. 
    - Opcjonalnie można podać następujące informacje:
        - Wybierz centrum IoT połączone z Twoją usługą aprowizacji.
        - Zaktualizuj pole **Początkowy stan bliźniaczej reprezentacji urządzenia** za pomocą wybranej konfiguracji początkowej dla urządzenia.
-   - Po zakończeniu naciśnij przycisk **Zapisz** . 
+   - Po zakończeniu naciśnij **przycisk** Zapisz. 
 
-     [![Dodawanie rejestracji indywidualnej dla zaświadczania X. 509 w portalu](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
+     [![Dodawanie indywidualnej rejestracji dla zaświadczenia X.509 w portalu](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
     
    Po pomyślnej rejestracji wpis rejestracji X.509 jest wyświetlany jako **iothubx509device1** w kolumnie *Identyfikator rejestracji* na karcie *Indywidualne rejestracje*. 
 
 
 
-## <a name="provision-the-device"></a>Udostępnianie urządzenia
+## <a name="provision-the-device"></a>Aprowizuj urządzenie
 
-1. W bloku **Przegląd** dla usługi aprowizacji Zanotuj wartość **_Identyfikator zakresu_** .
+1. **Zanotuj** wartość **_Zakres_** identyfikatorów w bloku Przegląd dla usługi aprowiwizowania.
 
     ![Wyodrębnianie informacji o punkcie końcowym usługi Device Provisioning Service z bloku portalu](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
 
 
 2. Wpisz następujące polecenie, aby skompilować i uruchomić przykład aprowizacji urządzenia X.509. Zastąp wartość `<IDScope>` zakresem identyfikatorów Twojej usługi aprowizacji. 
 
-    Plik certyfikatu będzie domyślnie mieć wartość *./Certificate.pfx* i zostanie wyświetlony monit o podanie hasła PFX.  
+    Domyślnie plik certyfikatu to *./certificate.pfx* i jest wyświetlany monit o hasło pfx.  
 
     ```powershell
     dotnet run -- -s <IDScope>
     ```
 
-    Jeśli chcesz przekazać wszystkie elementy jako parametry, możesz użyć następującego przykładowego formatu.
+    Jeśli chcesz przekazać wszystko jako parametr, możesz użyć następującego przykładowego formatu.
 
     ```powershell
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
     ```
 
 
-3. Urządzenie nawiąże połączenie z usługą DPS i zostanie przypisane do IoT Hub. Urządzenie wyśle Dodatkowo komunikat telemetrii do centrum.
+3. Urządzenie połączy się z dps i zostanie przypisane do IoT Hub. Urządzenie dodatkowo wyśle komunikat telemetrii do centrum.
 
     ```output
     Loading the certificate...
@@ -157,25 +157,25 @@ Użyjesz przykładowego kodu z [X509Sample](https://github.com/Azure-Samples/azu
     Finished.
     ```
 
-4. Upewnij się, że urządzenie zostało zaaprowizowane. Po pomyślnej aprowizacji urządzenia w usłudze IoT Hub połączonej z usługą aprowizacji identyfikator urządzenia jest wyświetlany w bloku **urządzenia IoT** centrum. 
+4. Upewnij się, że urządzenie zostało zaaprowizowane. Po pomyślnej aprowice urządzenia w centrum IoT Połączonym z twoją usługą aprowiwizowania identyfikator urządzenia zostanie wyświetlony w bloku **Urządzenia IoT** centrum. 
 
     ![Urządzenie jest rejestrowane w centrum IoT](./media/quick-create-simulated-device-x509-csharp/registration.png) 
 
-    Jeśli zmienisz wartość w polu *Początkowy stan bliźniaczej reprezentacji urządzenia* z domyślnej na inną we wpisie rejestracji dla Twojego urządzenia, może to spowodować pobranie z centrum żądanego stanu reprezentacji bliźniaczej i odpowiednie do niego działanie. Aby uzyskać więcej informacji, zobacz [Omówienie i używanie urządzenia bliźniaczych reprezentacji w IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
+    Jeśli zmienisz wartość w polu *Początkowy stan bliźniaczej reprezentacji urządzenia* z domyślnej na inną we wpisie rejestracji dla Twojego urządzenia, może to spowodować pobranie z centrum żądanego stanu reprezentacji bliźniaczej i odpowiednie do niego działanie. Aby uzyskać więcej informacji, zobacz [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
+Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w tym przewodniku Szybki start.
 
 1. Zamknij okno danych wyjściowych przykładu klienta urządzenia na swojej maszynie.
 1. Zamknij okno symulatora modułu TPM na swojej maszynie.
-1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz usługę Device Provisioning. W górnej części bloku **Przegląd** naciśnij pozycję **Usuń** w górnej części okienka.  
-1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz swoje centrum IoT Hub. W górnej części bloku **Przegląd** naciśnij pozycję **Usuń** w górnej części okienka.  
+1. W menu po lewej stronie w Azure Portal wybierz pozycję **Wszystkie** zasoby, a następnie wybierz swoją usługę Device Provisioning Service. W górnej części **bloku Przegląd** naciśnij pozycję **Usuń** w górnej części okienka.  
+1. W menu po lewej stronie w Azure Portal wybierz pozycję **Wszystkie zasoby,** a następnie wybierz swoje centrum IoT. W górnej części **bloku Przegląd** naciśnij pozycję **Usuń** w górnej części okienka.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start zostało zainicjowane urządzenie X. 509 w usłudze IoT Hub przy użyciu IoT Hub Device Provisioning Service platformy Azure. Aby dowiedzieć się, jak zarejestrować urządzenie X. 509 programowo, przejdź do przewodnika Szybki Start dotyczącego rejestrowania na urządzeniach X. 509. 
+W tym przewodniku Szybki start aprowizowanie urządzenia X.509 w centrum IoT przy użyciu usługi Azure IoT Hub Device Provisioning. Aby dowiedzieć się, jak zarejestrować urządzenie X.509 programowo, przejdź do przewodnika Szybki start na temat programowej rejestracji urządzeń X.509. 
 
 > [!div class="nextstepaction"]
-> [Przewodnik Szybki Start platformy Azure — rejestrowanie urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-csharp.md)
+> [Przewodnik Szybki start platformy Azure — rejestrowanie urządzeń X.509 w Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-csharp.md)

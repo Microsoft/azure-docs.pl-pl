@@ -1,5 +1,5 @@
 ---
-title: Narzędzie do wykrywania anomalii Szybki start dla wielowątkowa biblioteka klienta języka Python
+title: Narzędzie do wykrywania anomalii Szybki start dla wielowariiowej biblioteki klienta języka Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -8,30 +8,30 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/25/2020
 ms.author: mbullwin
-ms.openlocfilehash: 684c61dfb34d55681904943160ca389c19a4c8db
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: b0eba6d0be1d6a65b911f05dabf3cdbecc9c666d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107732531"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880283"
 ---
-Rozpoczynanie pracy z Narzędzie do wykrywania anomalii kowariantną biblioteką klienta dla języka Python. Wykonaj następujące kroki, aby rozpocząć instalację pakietu przy użyciu algorytmów dostarczonych przez usługę. Nowe, wielowariacyjne interfejsy API wykrywania anomalii umożliwiają deweloperom łatwe integrowanie zaawansowanej ai do wykrywania anomalii z grup metryk bez konieczności znajomości uczenia maszynowego ani danych oznaczonych etykietami. Zależności i wzajemne korelacje między różnymi sygnałami są automatycznie liczone jako kluczowe czynniki. Pomaga to aktywnie chronić złożone systemy przed awariami.
+Wprowadzenie do wielozmianowej Narzędzie do wykrywania anomalii klienta dla języka Python. Wykonaj następujące kroki, aby rozpocząć instalację pakietu przy użyciu algorytmów dostarczonych przez usługę. Nowe, wielowariacyjne interfejsy API wykrywania anomalii umożliwiają deweloperom łatwe integrowanie zaawansowanych rozwiązań AI do wykrywania anomalii z grup metryk bez konieczności znajomości uczenia maszynowego ani danych oznaczonych etykietami. Zależności i korelacje między różnymi sygnałami są automatycznie liczone jako kluczowe czynniki. Pomaga to aktywnie chronić złożone systemy przed awariami.
 
 Użyj wielo Narzędzie do wykrywania anomalii biblioteki klienta dla języka Python, aby:
 
 * Wykrywanie anomalii na poziomie systemu z grupy szeregów czasu.
-* Gdy poszczególne szeregi czasowe nie będą zbyt wiele powiedzą, a ty musisz przyjrzeć się wszystkim sygnałom, aby wykryć problem.
-* Predykcyjna konserwacja drogich zasobów fizycznych z dziesiątkami do setek różnych typów czujników mierzące różne aspekty kondycji systemu.
+* Gdy dowolny szereg czasowy nie będzie ci za dużo mówić i musisz przyjrzeć się wszystkim sygnałom, aby wykryć problem.
+* Predykatywna konserwacja drogich zasobów fizycznych z dziesiątkami do setek różnych typów czujników mierząca różne aspekty kondycji systemu.
 
-[Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pakiet (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/)
+[Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pakiet (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/)  |  [Przykładowy kod](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)  |  [Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Python 3.x](https://www.python.org/)
 * Biblioteka [analizy danych biblioteki Pandas](https://pandas.pydata.org/)
-* Subskrypcja platformy Azure [— tworzenie bezpłatnej subskrypcji](https://azure.microsoft.com/free/cognitive-services)
-* Po utworzeniu subskrypcji platformy Azure utwórz zasób Narzędzie do wykrywania anomalii utwórz zasób Narzędzie do wykrywania anomalii w witrynie Azure Portal, aby uzyskać <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Poczekaj na wdrożenie i kliknij przycisk **Przejdź do** zasobu.
-    * Klucz i punkt końcowy będą potrzebne z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API Narzędzie do wykrywania anomalii API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
+* Subskrypcja platformy Azure [— utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób Narzędzie do wykrywania anomalii utwórz zasób Narzędzie do wykrywania anomalii w witrynie Azure Portal, aby <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" uzyskać klucz i punkt "  target="_blank"> </a> końcowy. Poczekaj na wdrożenie, a następnie kliknij **przycisk Przejdź do** zasobu.
+    * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z interfejsem API Narzędzie do wykrywania anomalii API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
     Możesz użyć bezpłatnej warstwy cenowej ( ), aby wypróbować usługę, a następnie uaktualnić ją do warstwy `F0` płatnej w środowisku produkcyjnym.
 
 
@@ -39,7 +39,7 @@ Użyj wielo Narzędzie do wykrywania anomalii biblioteki klienta dla języka Pyt
 
 ### <a name="create-a-new-python-application"></a>Tworzenie nowej aplikacji w języku Python
 
- Utwórz nowy plik w języku Python i zaimportuj następujące biblioteki.
+ Utwórz nowy plik języka Python i zaimportuj następujące biblioteki.
 
 ```python
 import os
@@ -61,7 +61,7 @@ anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"
 
 ### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
 
-Po zainstalowaniu języka Python bibliotekę klienta można zainstalować za pomocą:
+Po zainstalowaniu języka Python możesz zainstalować bibliotekę klienta za pomocą:
 
 ```console
 pip install --upgrade azure-ai-anomalydetector
@@ -69,7 +69,7 @@ pip install --upgrade azure-ai-anomalydetector
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą Narzędzie do wykrywania anomalii klienta dla języka Python:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności przy użyciu Narzędzie do wykrywania anomalii klienta dla języka Python:
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Trenowanie modelu](#train-the-model)
@@ -79,9 +79,9 @@ Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą Na
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Aby utworzyć nowe Narzędzie do wykrywania anomalii, należy przekazać klucz subskrypcji Narzędzie do wykrywania anomalii skojarzony punkt końcowy. Ustanowimy również źródło danych.  
+Aby utworzyć wystąpienia nowego klienta Narzędzie do wykrywania anomalii należy przekazać klucz subskrypcji Narzędzie do wykrywania anomalii skojarzony punkt końcowy. Ustanowimy również źródło danych.  
 
-Aby użyć Narzędzie do wykrywania anomalii wielozmianowych interfejsów API, musimy wytszkolić własny model przed użyciem wykrywania. Dane używane do trenowania to partia szeregów czasu. Każdy szereg czasowy powinien być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie serie czasu powinny być spakowane w jednym pliku zip i przekazane do [usługi Azure Blob Storage.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Domyślnie nazwa pliku będzie służyć do reprezentowania zmiennej szeregów czasu. Alternatywnie można meta.jspliku zip, jeśli chcesz, aby nazwa zmiennej różniła się od nazwy pliku zip. Po [wygenerowaniu adresu URL sygnatury](../../../../storage/common/storage-sas-overview.md)dostępu współdzielonego obiektu blob możemy użyć adresu URL do pliku zip na użytek szkolenia.
+Aby użyć Narzędzie do wykrywania anomalii wielozmianowych interfejsów API, musimy wytterować własny model przed użyciem wykrywania. Dane używane do trenowania to partia szeregów czasu. Każdy szereg czasowy powinien być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie serie czasu powinny być spakowane w jednym pliku zip i przekazane do [usługi Azure Blob Storage.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Domyślnie nazwa pliku będzie służyć do reprezentowania zmiennej dla szeregów czasu. Alternatywnie można meta.jspliku zip, jeśli chcesz, aby nazwa zmiennej różniła się od nazwy pliku zip. Po [wygenerowaniu adresu URL sygnatury](../../../../storage/common/storage-sas-overview.md)dostępu współdzielonego obiektu blob możemy użyć adresu URL do pliku zip w celu szkolenia.
 
 ```python
 def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None):
@@ -103,7 +103,7 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
 
 ## <a name="train-the-model"></a>Trenowanie modelu
 
-Najpierw przeszkolimy model, sprawdzimy jego stan podczas trenowania, aby ustalić, kiedy trenowanie zostanie ukończone, a następnie pobierzemy najnowszy identyfikator modelu, którego będziemy potrzebować po zakończeniu fazy wykrywania.
+Najpierw przeszkolimy model, sprawdzimy jego stan podczas trenowania, aby ustalić, kiedy trenowanie zostanie ukończone, a następnie pobierzemy najnowszy identyfikator modelu, który będzie nam potrzebny podczas przechodzenia do fazy wykrywania.
 
 ```python
 def train(self, start_time, end_time, max_tryout=500):
@@ -143,7 +143,7 @@ def train(self, start_time, end_time, max_tryout=500):
 
 ## <a name="detect-anomalies"></a>Wykrywanie anomalii
 
-Użyj i , aby określić, czy w źródle danych `detect_anomaly` `get_dectection_result` występują jakieś anomalie. Musisz przekazać identyfikator modelu, który właśnie został wytrenowany.
+Użyj i , aby określić, czy istnieją `detect_anomaly` `get_dectection_result` jakieś anomalie w źródle danych. Musisz przekazać identyfikator modelu, który właśnie został wytrenowany.
 
 ```python
 def detect(self, model_id, start_time, end_time, max_tryout=500):
@@ -177,7 +177,7 @@ def detect(self, model_id, start_time, end_time, max_tryout=500):
 
 ## <a name="export-model"></a>Eksportowanie modelu
 
-Jeśli chcesz wyeksportować model, użyj go i przekaż identyfikator modelu, `export_model` który chcesz wyeksportować:
+Jeśli chcesz wyeksportować model, użyj go i przekaż identyfikator `export_model` modelu, który chcesz wyeksportować:
 
 ```python
 def export_model(self, model_id, model_path="model.zip"):
@@ -196,7 +196,7 @@ def export_model(self, model_id, model_path="model.zip"):
 
 ## <a name="delete-model"></a>Usuwanie modelu
 
-Aby usunąć model, `delete_multivariate_model` użyj i przekaż identyfikator modelu, który chcesz usunąć:
+Aby usunąć użycie modelu `delete_multivariate_model` i przekazać identyfikator modelu, który chcesz usunąć:
 
 ```python
 def delete_model(self, model_id):
@@ -236,6 +236,11 @@ if __name__ == '__main__':
 
 ```
 
+Przed uruchomieniem warto sprawdzić projekt pod względem pełnego przykładowego kodu, [z](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) których pochodzi ten przewodnik Szybki start.
+
+Mamy również szczegółowe [informacje Jupyter Notebook,](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) które pomogą Ci rozpocząć pracę.
+
 Uruchom aplikację za pomocą `python` polecenia i nazwy pliku.
+
 
 [!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]

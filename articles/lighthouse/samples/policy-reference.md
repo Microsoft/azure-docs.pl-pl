@@ -1,21 +1,21 @@
 ---
 title: Wbudowane definicje zasad dla Azure Lighthouse
 description: Wyświetla Azure Policy wbudowane definicje zasad dla Azure Lighthouse. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ab3596c8c14e7d82e2c90117dff6d9f2e676f66e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 14698e2d620346157dc07c08a8cf1d6c273eb82a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505692"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871146"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Azure Policy wbudowane definicje dla Azure Lighthouse
 
-Ta strona jest indeksem [Azure Policy](../../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Lighthouse. Aby uzyskać Azure Policy wbudowanych funkcji dla innych usług, [Azure Policy wbudowane definicje](../../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Lighthouse. Aby uzyskać Azure Policy wbudowanych dla innych usług, [zobacz Azure Policy wbudowane definicje](../../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad jest linkiem do definicji zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w Azure Policy [GitHub.](https://github.com/Azure/azure-policy)
+Nazwa każdej wbudowanej definicji zasad jest linkiem do definicji zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w [repozytorium Azure Policy GitHub.](https://github.com/Azure/azure-policy)
 
 ## <a name="azure-lighthouse"></a>Azure Lighthouse
 

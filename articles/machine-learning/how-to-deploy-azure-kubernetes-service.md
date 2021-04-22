@@ -1,7 +1,7 @@
 ---
-title: Wdróż modele ML w usłudze Kubernetes Service
+title: Wdrażanie modeli uczenia maszynowego w usłudze Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wdrożyć modele Azure Machine Learning jako usługę sieci Web przy użyciu usługi Azure Kubernetes Service.
+description: Dowiedz się, jak wdrażać modele Azure Machine Learning jako usługę internetową przy użyciu Azure Kubernetes Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,142 +11,142 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 68fc4a10f5a54af7bab82843b7a921fd84e7af40
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 6030462fc7c9678200aa14fa852a82d35f8703b6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259272"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877826"
 ---
-# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
+# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze Azure Kubernetes Service klastra
 
-Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model jako usługę sieci Web w usłudze Azure Kubernetes Service (AKS). Usługa Azure Kubernetes Service jest dobra w przypadku dużych wdrożeń produkcyjnych. Użyj usługi Azure Kubernetes Service, jeśli potrzebujesz co najmniej jednej z następujących możliwości:
+Dowiedz się, jak używać Azure Machine Learning do wdrażania modelu jako usługi internetowej w usłudze Azure Kubernetes Service (AKS). Azure Kubernetes Service jest dobrym rozwiązaniem w przypadku wdrożeń produkcyjnych na dużą skalę. Użyj usługi Azure Kubernetes, jeśli potrzebujesz co najmniej jednej z następujących możliwości:
 
 - __Krótki czas odpowiedzi__
-- __Skalowanie__ automatyczne wdrożonej usługi
+- __Skalowanie automatyczne__ wdrożonej usługi
 - __Rejestrowanie__
 - __Zbieranie danych modelu__
 - __Authentication__
-- __Zakończenie protokołu TLS__
-- Opcje __przyspieszania sprzętowego__ , takie jak macierze oparte na procesorach GPU i polach (FPGA)
+- __Zakończenie TLS__
+- __Opcje przyspieszania__ sprzętowego, takie jak procesor GPU i układ FPGA (Field-Programmable Gate Array)
 
-Podczas wdrażania w usłudze Azure Kubernetes należy wdrożyć klaster AKS, który jest __połączony z obszarem roboczym__. Aby uzyskać informacje na temat łączenia klastra AKS z obszarem roboczym, zobacz [Tworzenie i dołączanie klastra usługi Azure Kubernetes](how-to-create-attach-kubernetes.md).
+Podczas wdrażania w Azure Kubernetes Service wdrażania w klastrze usługi AKS, który __jest połączony z obszarem roboczym.__ Aby uzyskać informacje na temat łączenia klastra usługi AKS z obszarem roboczym, zobacz Create and attach an Azure Kubernetes Service cluster (Tworzenie i [dołączanie klastra Azure Kubernetes Service usługi](how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> Zalecamy debugowanie lokalnie przed wdrożeniem w usłudze sieci Web. Aby uzyskać więcej informacji, zobacz [debugowanie lokalne](./how-to-troubleshoot-deployment-local.md)
+> Zalecamy debugowanie lokalne przed wdrożeniem w usłudze internetowej. Aby uzyskać więcej informacji, zobacz [Debugowanie lokalne](./how-to-troubleshoot-deployment-local.md)
 >
 > Możesz również skorzystać z usługi Azure Machine Learning — [Wdrażanie w notesie lokalnym](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
+- Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie Azure Machine Learning roboczego.](how-to-manage-workspace.md)
 
-- Model uczenia maszynowego zarejestrowany w obszarze roboczym. Jeśli nie masz zarejestrowanego modelu, zapoznaj [się z tematem jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
+- Model uczenia maszynowego zarejestrowany w obszarze roboczym. Jeśli nie masz zarejestrowanego modelu, zobacz [Jak i gdzie wdrażać modele.](how-to-deploy-and-where.md)
 
-- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](/python/api/overview/azure/ml/intro)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- Rozszerzenie [interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)platformy Azure Machine Learning service , Azure Machine Learning python [SDK](/python/api/overview/azure/ml/intro)lub rozszerzenie [Azure Machine Learning Visual Studio Code .](tutorial-setup-vscode-extension.md)
 
-- W fragmentach kodu w języku __Python__ w tym artykule założono, że ustawiono następujące zmienne:
+- We __fragmentach__ kodu w języku Python w tym artykule założono, że ustawiono następujące zmienne:
 
-    * `ws` -Ustaw na obszar roboczy.
-    * `model` -Ustaw na zarejestrowany model.
-    * `inference_config` -Ustaw na konfigurację wnioskowania dla modelu.
+    * `ws` — Ustaw na swój obszar roboczy.
+    * `model` — ustaw wartość na zarejestrowany model.
+    * `inference_config` — ustaw na konfigurację wnioskowania dla modelu.
 
-    Aby uzyskać więcej informacji na temat ustawiania tych zmiennych, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
+    Aby uzyskać więcej informacji na temat ustawiania tych zmiennych, zobacz [How and where to deploy models (Jak i gdzie wdrażać modele).](how-to-deploy-and-where.md)
 
-- W fragmentach __interfejsu wiersza polecenia__ w tym artykule przyjęto założenie, że dokument został utworzony `inferenceconfig.json` . Aby uzyskać więcej informacji na temat tworzenia tego dokumentu, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
+- Fragmenty __kodu__ interfejsu wiersza polecenia w tym artykule zakładają, że utworzono `inferenceconfig.json` dokument. Aby uzyskać więcej informacji na temat tworzenia tego dokumentu, zobacz How and where to deploy models (Jak [i gdzie wdrażać modele).](how-to-deploy-and-where.md)
 
-- Klaster usługi Kubernetes platformy Azure połączony z obszarem roboczym. Aby uzyskać więcej informacji, zobacz [Tworzenie i dołączanie klastra usługi Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
+- Klaster Azure Kubernetes Service połączony z obszarem roboczym. Aby uzyskać więcej informacji, [zobacz Tworzenie i dołączanie klastra Azure Kubernetes Service klastra](how-to-create-attach-kubernetes.md).
 
-    - Jeśli chcesz wdrożyć modele na węzłach GPU lub węzłach FPGA (lub dowolnej określonej jednostce SKU), należy utworzyć klaster z określoną jednostką SKU. Nie jest obsługiwane tworzenie puli węzłów pomocniczych w istniejącym klastrze i wdrażanie modeli w puli węzłów pomocniczych.
+    - Jeśli chcesz wdrożyć modele w węzłach procesora GPU lub węzłach FPGA (lub dowolnej konkretnej sku), musisz utworzyć klaster z określoną sku. Nie ma obsługi tworzenia puli węzłów pomocniczych w istniejącym klastrze i wdrażania modeli w puli węzłów pomocniczych.
 
-## <a name="understand-the-deployment-processes"></a>Informacje o procesach wdrażania
+## <a name="understand-the-deployment-processes"></a>Opis procesów wdrażania
 
-Słowo "Deployment" jest używane zarówno w Kubernetes, jak i Azure Machine Learning. "Wdrożenie" ma inne znaczenie w tych dwóch kontekstach. W Kubernetes, a `Deployment` jest konkretną jednostką określoną przy użyciu deklaratywnego pliku YAML. Kubernetes `Deployment` ma zdefiniowany cykl życia i konkretne relacje z innymi jednostkami Kubernetes, takimi jak `Pods` i `ReplicaSets` . Aby dowiedzieć się więcej na temat Kubernetes z dokumentów i filmów wideo, zobacz [co to jest Kubernetes?](https://aka.ms/k8slearning).
+Wyraz "wdrożenie" jest używany zarówno w u usługi Kubernetes, jak i Azure Machine Learning. "Wdrożenie" ma różne znaczenie w tych dwóch kontekstach. Na platformie Kubernetes element to `Deployment` konkretna jednostka określona za pomocą deklaratywnego pliku YAML. Kubernetes ma zdefiniowany cykl życia i konkretne relacje z `Deployment` innymi jednostkami kubernetes, takimi jak `Pods` i `ReplicaSets` . Więcej informacji na temat kubernetes można znaleźć na stronie [Co to jest kubernetes?](https://aka.ms/k8slearning).
 
-W Azure Machine Learning "wdrożenie" jest używane w bardziej ogólnym sensie udostępniania i czyszczenia zasobów projektu. Kroki, które Azure Machine Learning rozważają część wdrożenia, to:
+W Azure Machine Learning", "wdrożenie" jest używane w bardziej ogólnym sensie, że zasoby projektu są dostępne i czyszczące. Kroki, które Azure Machine Learning część wdrożenia, to:
 
-1. Zapakowywanie plików w folderze projektu, ignorując te określone w. amlignore lub. gitignore
-1. Skalowanie w górę klastra obliczeniowego (odnosi się do Kubernetes)
-1. Kompilowanie lub pobieranie pliku dockerfile do węzła obliczeniowego (odnosi się do Kubernetes)
-    1. System oblicza wartość skrótu: 
+1. Spakowanie plików w folderze projektu z pominięciem plików określonych w pliku amlignore lub gitignore
+1. Skalowanie w górę klastra obliczeniowego (odnosi się do usługi Kubernetes)
+1. Budowania lub pobierania pliku dockerfile do węzła obliczeniowego (w odniesieniu do platformy Kubernetes)
+    1. System oblicza skrót: 
         - Obraz podstawowy 
-        - Niestandardowe kroki platformy Docker (zobacz [Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker](./how-to-deploy-custom-docker-image.md))
-        - Conda Definition YAML (zobacz [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](./how-to-use-environments.md))
-    1. System używa tego skrótu jako klucza w odnośniku Azure Container Registry obszaru roboczego (ACR)
-    1. Jeśli nie zostanie znaleziona, szuka dopasowania w ACR globalnym
-    1. Jeśli nie zostanie znaleziona, system kompiluje nowy obraz (który zostanie zbuforowany i wypychany do obszaru roboczego ACR)
-1. Pobieranie spakowanego pliku projektu do tymczasowego magazynu w węźle obliczeniowym
-1. Rozpakowywanie pliku projektu
+        - Niestandardowe kroki platformy Docker (zobacz [Wdrażanie modelu przy użyciu niestandardowego obrazu podstawowego platformy Docker)](./how-to-deploy-custom-docker-image.md)
+        - Definicja conda YAML (zobacz [Create & use software environments in Azure Machine Learning](./how-to-use-environments.md))
+    1. System używa tego skrótu jako klucza w wyszukiwaniach obszaru roboczego Azure Container Registry (ACR)
+    1. Jeśli nie zostanie znaleziony, szuka dopasowania w globalnym acr
+    1. Jeśli nie zostanie znaleziony, system skompilował nowy obraz (który będzie buforowany i wypychany do usługi ACR obszaru roboczego)
+1. Pobieranie pliku zip projektu do magazynu tymczasowego w węźle obliczeniowym
+1. Rozpakowanie pliku projektu
 1. Wykonywanie węzła obliczeniowego `python <entry script> <arguments>`
 1. Zapisywanie dzienników, plików modelu i innych plików zapisywanych na `./outputs` koncie magazynu skojarzonym z obszarem roboczym
-1. Skalowanie zasobów obliczeniowych w dół, w tym Usuwanie magazynu tymczasowego (odnosi się do Kubernetes)
+1. Skalowanie w dół zasobów obliczeniowych, w tym usuwanie magazynu tymczasowego (odnosi się do usługi Kubernetes)
 
-### <a name="azure-ml-router"></a>Router Azure ML
+### <a name="azure-ml-router"></a>Router usługi Azure ML
 
-Składnik frontonu (Azure-Fe), który przekierowuje przychodzące żądania wnioskowania do wdrożonych usług automatycznie skaluje się w razie potrzeby. Skalowanie programu Uczenie maszynowe — Fe opiera się na przeznaczeniu i rozmiarze klastra AKS (liczba węzłów). Przeznaczenie i węzły klastra są konfigurowane podczas [tworzenia lub dołączania klastra AKS](how-to-create-attach-kubernetes.md). Istnieje jedna usługa Azure-Fe na klaster, która może być uruchomiona w wielu zasobnikach.
+Składnik frontony (azureml-fe), który kieruje przychodzące żądania wnioskowania do wdrożonych usług, automatycznie skaluje się zgodnie z potrzebami. Skalowanie pliku azureml-fe zależy od przeznaczenia i rozmiaru klastra AKS (liczby węzłów). Przeznaczenie klastra i węzły są konfigurowane podczas tworzenia lub dołączania klastra [usługi AKS.](how-to-create-attach-kubernetes.md) Istnieje jedna usługa azureml-fe na klaster, która może być uruchomiona w wielu zasobnikach.
 
 > [!IMPORTANT]
-> W przypadku korzystania z klastra skonfigurowanego jako programowanie __-testowanie__ samodzielny jest **wyłączony**.
+> W przypadku korzystania z klastra skonfigurowanego jako __dev-test__ samoobsługowy program skalowania jest **wyłączony.**
 
-Uczenie maszynowe — Fe skaluje się w górę (w pionie), aby używać większej liczby rdzeni i wychodzące (w poziomie) do korzystania z więcej wartości Gdy podejmowana jest decyzja o skalowaniu w górę, używany jest czas potrzebny do rozesłania przychodzących żądań wnioskowania. Jeśli ten czas przekroczy wartość progową, nastąpi skalowanie w górę. Jeśli czas do skierowania żądań przychodzących nadal przekroczy wartość progową, nastąpi skalowanie w poziomie.
+Narzędzie Azureml-fe skaluje w górę (w pionie), aby używać większej liczby rdzeni, i w poziomie (w poziomie), aby używać większej liczby zasobników. Podczas podejmowania decyzji o skalowania w górę jest używany czas, który zajmuje do przekierowania przychodzących żądań wnioskowania. Jeśli ten czas przekroczy wartość progową, nastąpi skalowanie w górę. Jeśli czas do przekierowania żądań przychodzących będzie nadal przekraczać próg, nastąpi skalowanie w zewnątrz.
 
-Podczas skalowania w dół i w programie używane jest użycie procesora CPU. Jeśli zostanie osiągnięty próg użycia procesora CPU, fronton zostanie najpierw przeskalowany w dół. Jeśli użycie procesora spadnie do wartości progowej skalowania, odbywa się Operacja skalowania w poziomie. Skalowanie w górę i w dół będzie odbywać się tylko wtedy, gdy dostępne są wystarczające zasoby klastra.
+Podczas skalowania w dół i do dołu używane jest użycie procesora CPU. Jeśli próg użycia procesora CPU zostanie osiągnięty, frontony najpierw zostaną przeskalowane w dół. Jeśli użycie procesora CPU spadnie do progu skalowania w skali w, nastąpi operacja skalowania w skali w. Skalowanie w górę i w górę będzie mieć miejsce tylko wtedy, gdy jest dostępna wystarczająca ilość zasobów klastra.
 
 ## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Informacje o wymaganiach dotyczących łączności dla klastra wnioskowania usługi AKS
 
-Gdy Azure Machine Learning tworzy lub dołącza klaster AKS, klaster AKS jest wdrażany z jednym z następujących dwóch modeli sieci:
-* Korzystającą wtyczki kubenet Networking — zasoby sieciowe są zwykle tworzone i konfigurowane jako wdrożony klaster AKS.
+Gdy Azure Machine Learning tworzy lub dołącza klaster AKS, klaster usługi AKS jest wdrażany przy użyciu jednego z następujących dwóch modeli sieciowych:
+* Sieć Kubenet — zasoby sieciowe są zwykle tworzone i konfigurowane podczas wdrażania klastra usługi AKS.
 * Sieć Azure Container Networking Interface (CNI) — klaster usługi AKS jest połączony z istniejącymi zasobami i konfiguracjami sieci wirtualnej.
 
-W przypadku pierwszego trybu sieci sieć jest tworzona i skonfigurowana prawidłowo dla usługi Azure Machine Learning. W przypadku drugiego trybu sieci, ponieważ klaster jest połączony z istniejącą siecią wirtualną, szczególnie gdy dla istniejącej sieci wirtualnej jest używany niestandardowy serwer DNS, klient musi zwrócić szczególną uwagę na wymagania dotyczące łączności dla klastra AKS inferencing i zapewnić rozwiązanie DNS i łączność wychodzącą dla AKS inferencing.
+W pierwszym trybie sieci sieć jest tworzona i skonfigurowana prawidłowo dla Azure Machine Learning service. W przypadku drugiego trybu sieciowego, ponieważ klaster jest połączony z istniejącą siecią wirtualną, szczególnie gdy dla istniejącej sieci wirtualnej jest używany niestandardowy system DNS, klient musi zwrócić szczególną uwagę na wymagania dotyczące łączności dla klastra wnioskowania usługi AKS i zapewnić rozpoznawanie nazw DNS oraz łączność wychodzącą na potrzeby wnioskowania usługi AKS.
 
-Poniższy diagram przechwytuje wszystkie wymagania dotyczące łączności dla AKS inferencing. Czarne strzałki reprezentują rzeczywistą komunikację, a niebieskie strzałki reprezentują nazwy domen, które powinny być rozpoznawane przez klienta DNS.
+Na poniższym diagramie przedstawiono wszystkie wymagania dotyczące łączności w przypadku wnioskowania usługi AKS. Czarne strzałki reprezentują rzeczywistą komunikację, a niebieskie strzałki reprezentują nazwy domen, które powinien rozpoznać system DNS kontrolowany przez klienta.
 
- ![Wymagania dotyczące łączności dla AKS Inferencing](./media/how-to-deploy-aks/aks-network.png)
+ ![Wymagania dotyczące łączności dla wnioskowania usługi AKS](./media/how-to-deploy-aks/aks-network.png)
 
 ### <a name="overall-dns-resolution-requirements"></a>Ogólne wymagania dotyczące rozpoznawania nazw DNS
-Rozpoznawanie nazw DNS w ramach istniejącej sieci wirtualnej jest kontrolowane przez klienta. Należy rozpoznać następujące wpisy DNS:
-* Serwer interfejsu API AKS w postaci \<cluster\> . HCP. \<region\> . azmk8s.io
+Rozpoznawanie nazw DNS w istniejącej sieci wirtualnej jest pod kontrolą klienta. Następujące wpisy DNS powinny być rozpoznawalne:
+* Serwer interfejsu API usługi AKS w postaci \<cluster\> \<region\> hcp. . azmk8s.io
 * Microsoft Container Registry (MCR): mcr.microsoft.com
-* Azure Container Registry klienta (łuk) w postaci \<ACR name\> . azurecr.IO
-* Konto usługi Azure Storage w postaci \<account\> . Table.Core.Windows.NET i \<account\> . blob.Core.Windows.NET
-* Obowiązkowe Uwierzytelnianie w usłudze AAD: api.azureml.ms
-* Ocenianie nazwy domeny punktu końcowego, automatycznie generowanej przez usługę Azure ML lub niestandardową nazwę domeny. Automatycznie wygenerowana nazwa domeny będzie wyglądać następująco: \<leaf-domain-label \+ auto-generated suffix\> . \<region\> . cloudapp.azure.com
+* Klienta Azure Container Registry (ARC) w postaci \<ACR name\> .azurecr.io
+* Konto usługi Azure Storage w postaci \<account\> plików table.core.windows.net \<account\> i blob.core.windows.net
+* (Opcjonalnie) W przypadku uwierzytelniania usługi AAD: api.azureml.ms
+* Nazwa domeny punktu końcowego oceniania wygenerowana automatycznie przez usługę Azure ML lub niestandardowa nazwa domeny. Automatycznie wygenerowana nazwa domeny będzie wyglądać tak: \<leaf-domain-label \+ auto-generated suffix\> \<region\> . cloudapp.azure.com
 
-### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Wymagania dotyczące łączności w kolejności chronologicznej: od tworzenia klastra do wdrożenia modelu
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Wymagania dotyczące łączności w kolejności chronologicznej: od utworzenia klastra do wdrożenia modelu
 
-W procesie AKS tworzenia lub dołączania usługa Azure ML router (Azure-Fe) jest wdrażana w klastrze AKS. Aby można było wdrożyć router Azure ML, węzeł AKS powinien mieć możliwość:
-* Rozpoznawanie usługi DNS dla serwera interfejsu API AKS
-* Rozwiązywanie problemów z usługą MCR w celu pobrania obrazów platformy Docker dla routera Azure ML
-* Pobierz obrazy z MCR, gdzie jest wymagana łączność wychodząca
+W procesie tworzenia lub dołączania usługi AKS router usługi Azure ML (azureml-fe) jest wdrażany w klastrze usługi AKS. Aby wdrożyć router usługi Azure ML, węzeł usługi AKS powinien mieć możliwość:
+* Rozpoznawanie usługi DNS dla serwera interfejsu API usługi AKS
+* Rozpoznawanie systemu DNS dla mcr w celu pobrania obrazów platformy Docker dla routera usługi Azure ML
+* Pobieranie obrazów z mcr, gdzie łączność wychodząca jest wymagana
 
-Po wdrożeniu programu Azure — Fe zostanie podjęta próba uruchomienia i będzie to wymagało:
-* Rozpoznawanie usługi DNS dla serwera interfejsu API AKS
-* Zapytanie serwera interfejsu API AKS w celu odnajdywania innych wystąpień samego siebie (jest to usługa wieloskładnikowa)
-* Łączenie z innymi wystąpieniami samego siebie
+Zaraz po wdrożeniu narzędzia azureml-fe zostanie podejmowana próba uruchomienia, co wymaga:
+* Rozpoznawanie usługi DNS dla serwera interfejsu API usługi AKS
+* Wykonywanie zapytań do serwera interfejsu API usługi AKS w celu odnajdywania innych wystąpień (jest to usługa z wieloma zasobnikami)
+* Nawiązywanie połączenia z innymi wystąpieniami
 
-Po uruchomieniu usługi Azure-Fe wymagane jest dodatkowe połączenie, aby zapewnić prawidłowe działanie:
-* Łączenie z usługą Azure Storage w celu pobrania konfiguracji dynamicznej
-* Rozwiąż serwer DNS dla serwera uwierzytelniania usługi AAD api.azureml.ms i Komunikuj się z nim, gdy wdrożona usługa korzysta z uwierzytelniania w usłudze AAD.
-* Zapytanie serwera interfejsu API AKS w celu odnalezienia wdrożonych modeli
-* Komunikacja ze wdrożonym modelem — zasobniki
+Po zakończeniu działania narzędzia azureml-fe wymagana jest dodatkowa łączność:
+* Nawiązywanie połączenia z usługą Azure Storage w celu pobrania konfiguracji dynamicznej
+* Rozpoznawanie nazw DNS dla serwera uwierzytelniania usługi AAD api.azureml.ms i komunikowanie się z nim, gdy wdrożona usługa korzysta z uwierzytelniania usługi AAD.
+* Wykonywanie zapytań o serwer interfejsu API usługi AKS w celu odnajdywania wdrożonych modeli
+* Komunikacja z wdrożonym modelem POD
 
-W czasie wdrażania modelu w celu pomyślnego wdrożenia modelu AKS węzeł powinien mieć możliwość: 
-* Rozwiązywanie problemów z usługą DNS ACR klienta
-* Pobierz obrazy z ACR klienta
-* Rozpoznawanie usługi DNS dla obiektów blob platformy Azure, w których jest przechowywany model
-* Pobierz modele z obiektów blob platformy Azure
+W czasie wdrażania modelu węzeł usługi AKS powinien mieć możliwość: 
+* Rozpoznawanie systemu DNS dla usługi ACR klienta
+* Pobieranie obrazów z ACR klienta
+* Rozpoznawanie systemu DNS dla bloków BLOB platformy Azure, w których jest przechowywany model
+* Pobieranie modeli z plików BLOB platformy Azure
 
-Po wdrożeniu modelu i uruchomieniu usługi, usługa Azure-Fe wykryje ją automatycznie przy użyciu interfejsu API AKS i będzie gotowa do rozesłania żądania do niego. Musi być w stanie komunikować się z modelami.
+Po wdrożeniu modelu i wdrożeniu usługi azureml-fe automatycznie odnajduje go przy użyciu interfejsu API usługi AKS i będzie gotowy do przekierowania do niego żądania. Musi mieć możliwość komunikowania się z modelem POD.
 >[!Note]
->Jeśli wdrożony model wymaga łączności (np. wykonywania zapytań dotyczących zewnętrznej bazy danych lub innej usługi REST, pobierania obiektów BLOB itp.), należy włączyć zarówno rozpoznawanie nazw DNS, jak i komunikację wychodzącą dla tych usług.
+>Jeśli wdrożony model wymaga łączności (np. odpytując zewnętrzną bazę danych lub inną usługę REST, pobierając obiekt BLOB itp.), należy włączyć rozpoznawanie nazw DNS i komunikację wychodzącą dla tych usług.
 
 ## <a name="deploy-to-aks"></a>Wdrażanie w usłudze AKS
 
-Aby wdrożyć model w usłudze Azure Kubernetes Service, Utwórz __konfigurację wdrożenia__ opisującą wymaganą wartość zasobów obliczeniowych. Na przykład liczba rdzeni i pamięć. Potrzebna jest również __Konfiguracja wnioskowania__ opisująca środowisko wymagane do hostowania modelu i usługi sieci Web. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
+Aby wdrożyć model do Azure Kubernetes Service, utwórz konfigurację wdrożenia __opisującą__ wymagane zasoby obliczeniowe. Na przykład liczba rdzeni i pamięć. Potrzebna jest również konfiguracja __wnioskowania__ opisującą środowisko potrzebne do hostowania modelu i usługi internetowej. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz How and where to deploy models (Jak [i gdzie wdrażać modele).](how-to-deploy-and-where.md)
 
 > [!NOTE]
-> Liczba modeli do wdrożenia jest ograniczona do 1 000 modeli na wdrożenie (na kontener).
+> Liczba modeli do wdrożenia jest ograniczona do 1000 modeli na wdrożenie (na kontener).
 
 <a id="using-the-cli"></a>
 
@@ -171,12 +171,12 @@ Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w 
 
 * [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute)
 * [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration)
-* [Model. deploy](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Model.deploy](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29#wait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby wdrożyć przy użyciu interfejsu wiersza polecenia, należy użyć poniższe polecenie. Zamień `myaks` na nazwę elementu docelowego obliczeń AKS. Zastąp `mymodel:1` wartość nazwą i wersją zarejestrowanego modelu. Zamień na `myservice` nazwę, która ma zostać przydana do tej usługi:
+Aby wdrożyć przy użyciu interfejsu wiersza polecenia, użyj następującego polecenia. Zastąp `myaks` element nazwą docelowego obiektu obliczeniowego AKS. Zastąp `mymodel:1` nazwą i wersją zarejestrowanego modelu. Zastąp `myservice` nazwą, aby nadać tej usłudze:
 
 ```azurecli-interactive
 az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.json --dc deploymentconfig.json
@@ -184,27 +184,27 @@ az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.jso
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Aby uzyskać więcej informacji, zobacz [AZ ml model Deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) Reference.
+Aby uzyskać więcej informacji, zobacz informacje dotyczące [wdrażania modelu az ml.](/cli/azure/ml/model#az_ml_model_deploy)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Aby uzyskać informacje na temat korzystania z VS Code, zobacz [wdrażanie do AKS za pomocą rozszerzenia vs Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+Aby uzyskać informacje na temat używania VS Code, zobacz [wdrażanie do usługi AKS za pośrednictwem VS Code usługi](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 > [!IMPORTANT]
-> Wdrożenie za pomocą VS Code wymaga, aby klaster AKS został utworzony lub dołączony do obszaru roboczego z wyprzedzeniem.
+> Wdrażanie za pośrednictwem VS Code wymaga wcześniejszego utworzenia klastra usługi AKS lub dołączeniu go do obszaru roboczego.
 
 ---
 
 ### <a name="autoscaling"></a>Skalowanie automatyczne
 
-Składnik obsługujący Skalowanie automatyczne dla wdrożeń modeli Azure ML to platforma Azure-FE, która jest routerem żądania inteligentnego. Ze względu na to, że wszystkie żądania wnioskowania przechodzą przez niego, ma dane niezbędne do automatycznego skalowania wdrożonych modeli.
+Składnik, który obsługuje skalowanie automatyczne dla wdrożeń modelu usługi Azure ML, to azureml-fe, który jest routerem żądań inteligentnych. Ponieważ wszystkie żądania wnioskowania przechodzi przez ten proces, zawiera on dane niezbędne do automatycznego skalowania wdrożonych modeli.
 
 > [!IMPORTANT]
-> * **Nie należy włączać funkcji automatycznego skalowania w poziomie Kubernetes pod kątem wdrożeń modeli**. W takim przypadku dwa składniki skalowania automatycznego będą konkurować ze sobą nawzajem. Usługa Uczenie maszynowe — Fe została zaprojektowana w celu automatycznego skalowania modeli wdrożonych przez usługę Azure ML, gdzie HPA musiałaby odgadnąć lub przybliżyć użycie modelu z ogólnej metryki, takiej jak użycie procesora CPU lub Konfiguracja metryki niestandardowej.
+> * **Nie włączaj rozwiązania Kubernetes Horizontal Pod Autoscaler (HPA) dla wdrożeń modeli.** Może to spowodować, że dwa składniki skalowania automatycznego będą ze sobą konkurować. Projekt Azureml-fe jest przeznaczony do automatycznego skalowania modeli wdrożonych przez usługę Azure ML, gdzie narzędzie HPA musi odgadnąć lub przybliżone wykorzystanie modelu na podstawie metryk ogólnych, takich jak użycie procesora CPU lub konfiguracja metryk niestandardowych.
 > 
-> * Usługa **Azure-Fe nie skaluje liczby węzłów w KLASTRZE AKS**, ponieważ może to prowadzić do nieoczekiwanego wzrostu kosztów. Zamiast tego **skaluje liczbę replik dla modelu** w granicach klastra fizycznego. Jeśli potrzebujesz skalować liczbę węzłów w klastrze, możesz ręcznie skalować klaster lub [skonfigurować automatyczne skalowanie klastra AKS](../aks/cluster-autoscaler.md).
+> * **Narzędzie Azureml-fe nie skaluje** liczby węzłów w klastrze usługi AKS, ponieważ może to prowadzić do nieoczekiwanego wzrostu kosztów. Zamiast tego **skaluje liczbę replik dla modelu w** granicach klastra fizycznego. Jeśli musisz skalować liczbę węzłów w klastrze, możesz ręcznie skalować klaster lub skonfigurować automatyczne skalowanie [klastra usługi AKS.](../aks/cluster-autoscaler.md)
 
-Skalowanie automatyczne może być kontrolowane przez ustawienie `autoscale_target_utilization` , `autoscale_min_replicas` i `autoscale_max_replicas` dla usługi sieci Web AKS. W poniższym przykładzie pokazano, jak włączyć skalowanie automatyczne:
+Autoskalowanie można kontrolować za pomocą ustawień `autoscale_target_utilization` , i dla usługi internetowej `autoscale_min_replicas` `autoscale_max_replicas` AKS. W poniższym przykładzie pokazano, jak włączyć skalowanie automatyczne:
 
 ```python
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
@@ -213,9 +213,9 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                 autoscale_max_replicas=4)
 ```
 
-Decyzje dotyczące skalowania w górę/w dół opierają się na wykorzystaniu bieżących replik kontenerów. Liczba replik, które są zajęte (przetwarzanie żądania) podzielona przez łączną liczbę bieżących replik jest bieżącym wykorzystaniem. Jeśli ta liczba przekroczy `autoscale_target_utilization` , zostanie utworzona więcej replik. Jeśli jest niższa, repliki są skracane. Domyślnie użycie docelowe to 70%.
+Decyzje dotyczące skalowania w górę/w dół są podejmowane na podstawie użycia bieżących replik kontenerów. Liczba replik zajętych (przetwarzanych w żądaniu) podzielona przez łączną liczbę bieżących replik to bieżące wykorzystanie. Jeśli ta liczba przekracza `autoscale_target_utilization` wartość , tworzone są kolejne repliki. Jeśli jest niższa, repliki są zmniejszane. Domyślnie wykorzystanie docelowe wynosi 70%.
 
-Decyzje dotyczące dodawania replik to eager i Fast (około 1 s). Decyzje dotyczące usuwania replik są ostrożne (około 1 minutę).
+Decyzje dotyczące dodawania replik są wczesne i szybkie (około 1 sekundy). Decyzje dotyczące usuwania replik są ostrożne (około 1 minuty).
 
 Wymagane repliki można obliczyć przy użyciu następującego kodu:
 
@@ -236,31 +236,31 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Aby uzyskać więcej informacji na temat ustawienia `autoscale_target_utilization` , `autoscale_max_replicas` , i `autoscale_min_replicas` , zobacz odwołanie do modułu [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) .
+Aby uzyskać więcej informacji na temat `autoscale_target_utilization` ustawiania , i , zobacz `autoscale_max_replicas` `autoscale_min_replicas` AksWebservice module reference (Informacje o module [AksWebservice).](/python/api/azureml-core/azureml.core.webservice.akswebservice)
 
-## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Wdróż modele do AKS przy użyciu kontrolowanego wdrożenia (wersja zapoznawcza)
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Wdrażanie modeli do usługi AKS przy użyciu kontrolowanego wdrażania (wersja zapoznawcza)
 
-Analizuj i podnieś wersje modeli w kontrolowany sposób za pomocą punktów końcowych. Można wdrożyć maksymalnie sześć wersji za pojedynczym punktem końcowym. Punkty końcowe zapewniają następujące możliwości:
+Analizowanie i podszycie wersji modelu w kontrolowany sposób przy użyciu punktów końcowych. Za pojedynczym punktem końcowym można wdrożyć maksymalnie sześć wersji. Punkty końcowe zapewniają następujące możliwości:
 
-* Skonfiguruj __procent ruchu oceniania wysyłany do każdego punktu końcowego__. Na przykład Roześlij 20% ruchu do punktu końcowego "test" i 80% do "produkcji".
+* Skonfiguruj procent __oceniania ruchu wysyłanego do każdego punktu końcowego.__ Na przykład przekieruj 20% ruchu do punktu końcowego "test" i 80% do "produkcyjnego".
 
     > [!NOTE]
-    > W przypadku braku konta dla 100% ruchu każdy pozostały procent jest kierowany do __domyślnej__ wersji punktu końcowego. Na przykład jeśli skonfigurujesz punkt końcowy w wersji "test", aby uzyskać 10% ruchu i "prod" dla 30%, pozostałe 60% zostanie wysłane do domyślnej wersji punktu końcowego.
+    > Jeśli nie uwzględniasz 100% ruchu, wszelkie pozostałe wartości procentowe są kierowane do __domyślnej wersji__ punktu końcowego. Jeśli na przykład skonfigurujesz wersję punktu końcowego "test" w celu uzyskania 10% ruchu, a "prod" dla 30%, pozostałe 60% zostanie wysłanych do domyślnej wersji punktu końcowego.
     >
-    > Utworzona wersja pierwszego punktu końcowego jest automatycznie konfigurowana jako domyślna. Można to zmienić przez ustawienie `is_default=True` podczas tworzenia lub aktualizowania wersji punktu końcowego.
+    > Pierwsza utworzona wersja punktu końcowego jest automatycznie konfigurowana jako domyślna. Można to zmienić, ustawiając `is_default=True` ustawienia podczas tworzenia lub aktualizowania wersji punktu końcowego.
      
-* Oznacz wersję punktu końcowego jako __kontrolkę__ lub __leczenie__. Na przykład bieżąca wersja punktu końcowego produkcji może być kontrolką, podczas gdy potencjalne nowe modele są wdrażane jako wersje obróbki. Po ocenie wydajności wersji obróbki, jeśli jeden z nich wykonuje bieżącą kontrolkę, można ją podnieść do nowej produkcji/kontroli.
+* Otaguj wersję punktu końcowego __jako kontrolę__ lub __leczenie.__ Na przykład bieżącą wersją produkcyjnego punktu końcowego może być kontrolka, podczas gdy potencjalne nowe modele są wdrażane jako wersje leczenia. Po dokonaniu oceny wydajności wersji leczenia, jeśli jedna z nich będzie okazać się atńsza od bieżącej kontrolki, może zostać podniesiena do nowej produkcji/kontroli.
 
     > [!NOTE]
-    > Możesz mieć tylko __jedną__ kontrolkę. Można mieć wiele przeróbek.
+    > Możesz mieć tylko jedną __kontrolkę.__ Można mieć wiele sposobów na leczenie.
 
-Możesz włączyć usługi App Insights, aby wyświetlać metryki operacyjne punktów końcowych i wdrożonych wersji.
+Możesz włączyć usługę App Insights, aby wyświetlać metryki operacyjne punktów końcowych i wdrożonych wersji.
 
 ### <a name="create-an-endpoint"></a>Tworzenie punktu końcowego
-Gdy wszystko będzie gotowe do wdrożenia modeli, Utwórz punkt końcowy oceniania i Wdróż swoją pierwszą wersję. Poniższy przykład pokazuje, jak wdrożyć i utworzyć punkt końcowy przy użyciu zestawu SDK. Pierwsze wdrożenie zostanie zdefiniowane jako wersja domyślna, co oznacza, że nieokreślony ruch o percentylu we wszystkich wersjach będzie przechodził do wersji domyślnej.  
+Gdy wszystko będzie gotowe do wdrożenia modeli, utwórz punkt końcowy oceniania i wdobyj swoją pierwszą wersję. W poniższym przykładzie pokazano, jak wdrożyć i utworzyć punkt końcowy przy użyciu zestawu SDK. Pierwsze wdrożenie zostanie zdefiniowane jako wersja domyślna, co oznacza, że nieokreślony percentyl ruchu we wszystkich wersjach zostanie przejść do wersji domyślnej.  
 
 > [!TIP]
-> W poniższym przykładzie konfiguracja ustawia początkową wersję punktu końcowego, aby obsługiwała 20% ruchu. Ponieważ jest to pierwszy punkt końcowy, jest to również wersja domyślna. I ponieważ nie mamy żadnych innych wersji dla innych 80% ruchu, jest on również kierowany do wartości domyślnej. Dopóki nie zostaną wdrożone inne wersje, które pobierają procent ruchu, to jeden z nich przybierze 100% ruchu.
+> W poniższym przykładzie konfiguracja ustawia początkową wersję punktu końcowego do obsługi 20% ruchu. Ponieważ jest to pierwszy punkt końcowy, jest to również wersja domyślna. A ponieważ nie mamy żadnych innych wersji dla pozostałych 80% ruchu, jest on również przekierowyny do wartości domyślnej. Do momentu wdrożenia innych wersji, które przejmują procent ruchu, ta skutecznie odbiera 100% ruchu.
 
 ```python
 import azureml.core,
@@ -286,12 +286,12 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
  endpoint.wait_for_deployment(True)
  ```
 
-### <a name="update-and-add-versions-to-an-endpoint"></a>Aktualizowanie i Dodawanie wersji do punktu końcowego
+### <a name="update-and-add-versions-to-an-endpoint"></a>Aktualizowanie i dodawanie wersji do punktu końcowego
 
-Dodaj kolejną wersję do punktu końcowego i skonfiguruj przechodzenie oceniające ruch do wersji. Istnieją dwa typy wersji, kontrolki i wersja leczenia. Może istnieć wiele wersji obróbki, które ułatwią porównanie z wersją jednego formantu.
+Dodaj kolejną wersję do punktu końcowego i skonfiguruj percentyl ruchu oceniania przechodzący do wersji. Istnieją dwa typy wersji: wersja kontrolna i wersja do leczenia. Istnieje wiele wersji leczenia, które ułatwiają porównanie z pojedynczą wersją kontrolną.
 
 > [!TIP]
-> Druga wersja utworzona przez Poniższy fragment kodu akceptuje 10% ruchu. Pierwsza wersja została skonfigurowana pod kątem 20%, więc skonfigurowano tylko 30% ruchu dla określonych wersji. Pozostałe 70% jest wysyłane do pierwszej wersji punktu końcowego, ponieważ jest to również wersja domyślna.
+> Druga wersja, utworzona przez poniższy fragment kodu, akceptuje 10% ruchu. Pierwsza wersja jest skonfigurowana dla 20%, więc tylko 30% ruchu jest konfigurowane dla określonych wersji. Pozostałe 70% jest wysyłanych do pierwszej wersji punktu końcowego, ponieważ jest to również wersja domyślna.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -307,10 +307,10 @@ endpoint.create_version(version_name = version_name_add,
 endpoint.wait_for_deployment(True)
 ```
 
-Zaktualizuj istniejące wersje lub usuń je w punkcie końcowym. Można zmienić domyślny typ wersji, typ kontrolki i percentyl ruchu. W poniższym przykładzie druga wersja zwiększa swój ruch do 40% i jest teraz domyślnie.
+Zaktualizuj istniejące wersje lub usuń je w punkcie końcowym. Możesz zmienić domyślny typ wersji, typ kontrolki i percentyl ruchu. W poniższym przykładzie druga wersja zwiększa ruch do 40% i jest teraz wartością domyślną.
 
 > [!TIP]
-> Po poniższym fragmencie kodu druga wersja jest teraz domyślna. Jest teraz skonfigurowany do 40%, podczas gdy wersja oryginalna jest nadal skonfigurowana dla 20%. Oznacza to, że 40% ruchu nie jest uwzględniana przez konfiguracje wersji. Ruch pozostały do drugiej wersji, ponieważ jest teraz domyślny. Skutecznie otrzymuje 80% ruchu.
+> Po poniższym fragmencie kodu druga wersja jest teraz domyślna. Jest ona teraz skonfigurowana dla 40%, podczas gdy oryginalna wersja jest nadal skonfigurowana dla 20%. Oznacza to, że 40% ruchu nie jest uwzględnianych przez konfiguracje wersji. Pozostałą część ruchu będzie przekierowywaną do drugiej wersji, ponieważ jest ona teraz domyślna. Efektywnie odbiera 80% ruchu.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -330,19 +330,19 @@ endpoint.delete_version(version_name="versionb")
 
 ## <a name="web-service-authentication"></a>Uwierzytelnianie usługi internetowej
 
-W przypadku wdrażania w usłudze Azure Kubernetes uwierzytelnianie __oparte na kluczach__ jest domyślnie włączone. Można również włączyć uwierzytelnianie __oparte na tokenach__ . Uwierzytelnianie oparte na tokenach wymaga, aby klienci używali konta Azure Active Directory do żądania tokenu uwierzytelniania, który jest używany do wysyłania żądań do wdrożonej usługi.
+Podczas wdrażania w Azure Kubernetes Service __uwierzytelnianie__ oparte na kluczach jest domyślnie włączone. Można również włączyć __uwierzytelnianie oparte na tokenach.__ Uwierzytelnianie oparte na tokenach wymaga, aby klienci używali konta Azure Active Directory do żądania tokenu uwierzytelniania, który jest używany do żądania do wdrożonej usługi.
 
-Aby __wyłączyć__ uwierzytelnianie, należy ustawić `auth_enabled=False` parametr podczas tworzenia konfiguracji wdrożenia. Poniższy przykład powoduje wyłączenie uwierzytelniania przy użyciu zestawu SDK:
+Aby __wyłączyć__ uwierzytelnianie, `auth_enabled=False` ustaw parametr podczas tworzenia konfiguracji wdrożenia. Poniższy przykład wyłącza uwierzytelnianie przy użyciu zestawu SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
-Informacje o uwierzytelnianiu z aplikacji klienckiej można znaleźć w temacie [Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web](how-to-consume-web-service.md).
+Aby uzyskać informacje na temat uwierzytelniania z aplikacji klienckiej, zobacz Temat Consume an Azure Machine Learning model deployed as a web service (Stosowanie modelu Azure Machine Learning [wdrożonego jako usługa internetowa).](how-to-consume-web-service.md)
 
 ### <a name="authentication-with-keys"></a>Uwierzytelnianie przy użyciu kluczy
 
-Jeśli uwierzytelnianie klucza jest włączone, można użyć metody, `get_keys` Aby pobrać podstawowy i pomocniczy klucz uwierzytelniania:
+Jeśli jest włączone uwierzytelnianie klucza, możesz użyć metody , aby pobrać podstawowy i `get_keys` pomocniczy klucz uwierzytelniania:
 
 ```python
 primary, secondary = service.get_keys()
@@ -354,13 +354,13 @@ print(primary)
 
 ### <a name="authentication-with-tokens"></a>Uwierzytelnianie przy użyciu tokenów
 
-Aby włączyć uwierzytelnianie tokenu, należy ustawić `token_auth_enabled=True` parametr podczas tworzenia lub aktualizowania wdrożenia. Poniższy przykład umożliwia uwierzytelnianie tokenu przy użyciu zestawu SDK:
+Aby włączyć uwierzytelnianie tokenu, `token_auth_enabled=True` ustaw parametr podczas tworzenia lub aktualizowania wdrożenia. Poniższy przykład umożliwia uwierzytelnianie tokenu przy użyciu zestawu SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-Jeśli jest włączone uwierzytelnianie tokenu, można użyć metody, `get_token` Aby pobrać token JWT i czas wygaśnięcia tokenu:
+Jeśli uwierzytelnianie tokenu jest włączone, możesz użyć metody , aby pobrać token JWT i czas `get_token` wygaśnięcia tego tokenu:
 
 ```python
 token, refresh_by = service.get_token()
@@ -368,25 +368,25 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Po upływie czasu tokenu trzeba będzie zażądać nowego tokenu `refresh_by` .
+> Po upływie czasu tokenu należy zażądać nowego `refresh_by` tokenu.
 >
-> Firma Microsoft zdecydowanie zaleca utworzenie obszaru roboczego Azure Machine Learning w tym samym regionie, w którym znajduje się klaster usługi Azure Kubernetes. W celu uwierzytelnienia przy użyciu tokenu usługa sieci Web wykona wywołanie do regionu, w którym jest tworzony obszar roboczy Azure Machine Learning. Jeśli region obszaru roboczego jest niedostępny, nie będzie można pobrać tokenu dla usługi sieci Web nawet wtedy, gdy klaster znajduje się w innym regionie niż obszar roboczy. W efekcie uwierzytelnianie oparte na tokenach jest niedostępne do momentu ponownego udostępnienia regionu obszaru roboczego. Ponadto im większa odległość między regionem klastra a regionem obszaru roboczego, tym dłużej potrwa pobieranie tokenu.
+> Firma Microsoft zdecydowanie zaleca utworzenie obszaru roboczego Azure Machine Learning w tym samym regionie, w Azure Kubernetes Service klastra. Aby uwierzytelnić się przy użyciu tokenu, usługa internetowa wywoła region, w którym Azure Machine Learning obszar roboczy. Jeśli region obszaru roboczego jest niedostępny, nie będzie można pobrać tokenu dla usługi internetowej, nawet jeśli klaster znajduje się w innym regionie niż obszar roboczy. Dzięki temu uwierzytelnianie oparte na tokenach będzie niedostępne, dopóki region obszaru roboczego nie będzie ponownie dostępny. Ponadto im większa odległość między regionem klastra i regionem obszaru roboczego, tym dłużej będzie trwać pobieranie tokenu.
 >
-> Aby pobrać token, należy użyć zestawu SDK Azure Machine Learning lub polecenia [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token) .
+> Aby pobrać token, musisz użyć zestawu SDK Azure Machine Learning lub [polecenia az ml service get-access-token.](/cli/azure/ml/service#az_ml_service_get_access_token)
 
 
 ### <a name="vulnerability-scanning"></a>Skanowanie pod kątem luk w zabezpieczeniach
 
-Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Należy zezwolić Azure Security Center na skanowanie zasobów i postępować zgodnie z zaleceniami. Aby uzyskać więcej informacji, zobacz [Integracja usług Azure Kubernetes Services z usługą Security Center](../security-center/defender-for-kubernetes-introduction.md).
+Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Należy zezwolić Azure Security Center na skanowanie zasobów i postępuj zgodnie z zaleceniami. Aby uzyskać więcej informacji, [zobacz Integracja usług Azure Kubernetes Services z Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](../aks/manage-azure-rbac.md)
-* [Bezpieczne środowisko inferencing z platformą Azure Virtual Network](how-to-secure-inferencing-vnet.md)
+* [Używanie kontroli RBAC platformy Azure na użytek autoryzacji platformy Kubernetes](../aks/manage-azure-rbac.md)
+* [Bezpieczne środowisko wnioskowania za pomocą usługi Azure Virtual Network](how-to-secure-inferencing-vnet.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Rozwiązywanie problemów z wdrażaniem](how-to-troubleshoot-deployment.md)
 * [Aktualizowanie usługi internetowej](how-to-deploy-update-web-service.md)
 * [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
-* [Korzystanie z modelu ML wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)
-* [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
+* [Wykorzystanie modelu uczenia maszynowego wdrożonego jako usługa internetowa](how-to-consume-web-service.md)
+* [Monitorowanie modeli Azure Machine Learning za pomocą Application Insights](how-to-enable-app-insights.md)
 * [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: b-juche
-ms.openlocfilehash: 3c6da2137f2db43284ce7a533ff763e9ef157f35
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: fa028d8fffd2a4097b5bf7d7326d355ae56aebd7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726650"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862817"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Co nowego w programie Azure NetApp Files
 
@@ -27,13 +27,17 @@ Azure NetApp Files są regularnie aktualizowane. Ten artykuł zawiera podsumowan
 
 ## <a name="april-2021"></a>Kwiecień 2021 r.
 
+* [Obsługa udziałów ciągłej dostępności SMB dla kontenerów profilu użytkownika produktu FSLogix](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (wersja zapoznawcza)  
+
+    [FSLogix](/fslogix/overview) to zestaw rozwiązań, które rozszerzają, włączają i upraszczają nietrwałe środowiska obliczeniowe systemu Windows. Rozwiązania FSLogix są odpowiednie dla środowisk wirtualnych w chmurach publicznych i prywatnych. Rozwiązania FSLogix mogą być również używane do tworzenia bardziej przenośnych sesji obliczeniowych podczas korzystania z urządzeń fizycznych. Produktu FSLogix można użyć do zapewnienia dynamicznego dostępu do trwałych kontenerów profilu użytkownika przechowywanych w udostępnionym magazynie sieciowym SMB, w tym Azure NetApp Files. Aby jeszcze bardziej zwiększyć odporność produktu FSLogix na zdarzenia konserwacji usługi magazynu, system Azure NetApp Files ma rozszerzoną obsługę przezroczystego trybu failover SMB za pośrednictwem udziałów ciągłej dostępności [SMB w](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) usłudze Azure NetApp Files dla kontenerów profilu użytkownika. Aby uzyskać dodatkowe informacje, zobacz [Azure NetApp Files Windows Virtual Desktop rozwiązania.](azure-netapp-files-solution-architectures.md#windows-virtual-desktop)  
+
 * [Szyfrowanie protokołu SMB3](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (wersja zapoznawcza) 
 
-    Teraz można włączyć szyfrowanie protokołu SMB3 na Azure NetApp Files woluminach SMB i dwóch protokołów. Ta funkcja umożliwia szyfrowanie danych SMB3 w locie przy użyciu algorytmu AES-CCM w przypadku szyfrowania [SMB 3.0 i algorytmu AES-GCM w połączeniach SMB 3.1.1.](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) Klienci SMB, którzy nie korzystali z szyfrowania SMB3, nie będą mogli uzyskać dostępu do tego woluminu. Dane w spoczynku są szyfrowane niezależnie od tego ustawienia. Szyfrowanie SMB dodatkowo zwiększa bezpieczeństwo. Może to jednak mieć wpływ na klienta (obciążenie procesora CPU związane z szyfrowaniem i odszyfrowywaniem komunikatów). Może to również mieć wpływ na wykorzystanie zasobów magazynu (zmniejszenie przepływności). Przed wdrożeniem obciążeń w środowisku produkcyjnym należy przetestować wpływ na wydajność szyfrowania aplikacji.
+    Teraz można włączyć szyfrowanie protokołu SMB3 na Azure NetApp Files woluminach SMB i dwóch protokołów. Ta funkcja umożliwia szyfrowanie danych SMB3 w locie przy użyciu algorytmu AES-CCM w przypadku szyfrowania [SMB 3.0 i algorytmu AES-GCM w połączeniach SMB 3.1.1.](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) Klienci SMB, którzy nie korzystali z szyfrowania SMB3, nie będą mogli uzyskać dostępu do tego woluminu. Dane przechowywane są szyfrowane niezależnie od tego ustawienia. Szyfrowanie SMB dodatkowo zwiększa bezpieczeństwo. Może to jednak mieć wpływ na klienta (obciążenie procesora CPU związane z szyfrowaniem i odszyfrowywaniem komunikatów). Może to również mieć wpływ na wykorzystanie zasobów magazynu (zmniejszenie przepływności). Przed wdrożeniem obciążeń w środowisku produkcyjnym należy przetestować wpływ szyfrowania na wydajność aplikacji.
 
-* [Active Directory Domain Services (ADDS) Mapowanie użytkowników LDAP przy użyciu rozszerzonych grup NFS](configure-ldap-extended-groups.md) (wersja zapoznawcza)   
+* [Active Directory Domain Services (ADDS) Mapowanie użytkowników LDAP](configure-ldap-extended-groups.md) za pomocą rozszerzonych grup NFS (wersja zapoznawcza)   
 
-    Domyślnie program Azure NetApp Files maksymalnie 16 identyfikatorów grup podczas obsługi poświadczeń użytkownika systemu plików NFS zgodnie z definicją w dokumencie [RFC 5531.](https://tools.ietf.org/html/rfc5531) Dzięki tej nowej możliwości można teraz zwiększyć maksymalną liczbę do 1024, jeśli użytkownicy są członkami więcej niż domyślna liczba grup. W celu obsługi tej funkcji woluminy NFS można teraz również dodać do protokołu ADDS LDAP, co umożliwia użytkownikom LDAP usługi Active Directory z rozszerzonymi wpisami grup (z maksymalnie 1024 grupami) dostęp do woluminu. 
+    Domyślnie program Azure NetApp Files do 16 identyfikatorów grup podczas obsługi poświadczeń użytkownika NFS zgodnie z definicją w dokumencie [RFC 5531.](https://tools.ietf.org/html/rfc5531) Dzięki tej nowej możliwości można teraz zwiększyć maksymalną liczbę do 1024, jeśli użytkownicy są członkami więcej niż domyślna liczba grup. Aby obsługiwać tę funkcję, woluminy NFS można teraz również dodać do protokołu ADDS LDAP, co umożliwia użytkownikom usługi Active Directory LDAP z rozszerzonymi wpisami grup (z maksymalnie 1024 grupami) dostęp do woluminu. 
 
 ## <a name="march-2021"></a>Marzec 2021 r.
  
@@ -69,15 +73,15 @@ Azure NetApp Files są regularnie aktualizowane. Ten artykuł zawiera podsumowan
 
 * [Azure NetApp Files replikacji między regionami](cross-region-replication-introduction.md) (wersja zapoznawcza)
 
-  Azure NetApp Files obsługuje teraz replikację między regionami. Ta nowa funkcja odzyskiwania po awarii umożliwia szybkie i ekonomiczne replikowanie woluminów usługi Azure NetApp Files z jednego regionu świadczenia usługi Azure do innego, chroniąc dane przed nieprzewidzianymi awariami regionalnymi. Azure NetApp Files replikacji między regionami korzysta z technologii NetApp SnapMirror® technologii; Tylko zmienione bloki są wysyłane przez sieć w skompresowanym, wydajnym formacie. Ta zastrzeżona technologia minimalizuje ilość danych wymaganych do replikacji między regionami, co pozwala zmniejszyć koszty transferu danych. Skraca również czas replikacji, dzięki czemu można osiągnąć mniejszy cel punktu przywracania (RPO, Restore Point Objective).
+  Azure NetApp Files obsługuje teraz replikację między regionami. Ta nowa funkcja odzyskiwania po awarii umożliwia szybkie i ekonomiczne replikowanie woluminów usługi Azure NetApp Files z jednego regionu świadczenia usługi Azure do innego, chroniąc dane przed nieprzewidzianymi awariami regionalnymi. Azure NetApp Files replikacji między regionami korzysta z technologii NetApp SnapMirror® technologii; Tylko zmienione bloki są wysyłane przez sieć w skompresowanym, wydajnym formacie. Ta zastrzeżona technologia minimalizuje ilość danych wymaganych do replikacji między regionami, co pozwala zmniejszyć koszty transferu danych. Skraca to również czas replikacji, dzięki czemu można osiągnąć mniejszy cel punktu przywracania (RPO, Restore Point Objective).
 
 * [Ręczna pula pojemności QoS](manual-qos-capacity-pool-introduction.md) (wersja zapoznawcza)  
 
-    W ręcznej puli pojemności QoS można niezależnie przypisać pojemność i przepływność dla woluminu. Łączna przepływność wszystkich woluminów utworzonych za pomocą ręcznej puli pojemności QoS jest ograniczona przez łączną przepływność puli. Zależy to od kombinacji rozmiaru puli i przepływności na poziomie usługi. Alternatywnie typ [QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) puli pojemności może być automatyczny (automatyczny), co jest ustawieniem domyślnym. W puli automatycznej pojemności QoS przepływność jest przypisywana automatycznie do woluminów w puli proporcjonalnie do limitu przydziału rozmiaru przypisanego do woluminów.
+    W ręcznej puli pojemności QoS można niezależnie przypisywać pojemność i przepływność dla woluminu. Łączna przepływność wszystkich woluminów utworzonych za pomocą ręcznej puli pojemności QoS jest ograniczona przez łączną przepływność puli. Jest on określany przez kombinację rozmiaru puli i przepływności na poziomie usługi. Alternatywnie typ [QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) puli pojemności może być automatyczny (automatyczny), co jest ustawieniem domyślnym. W puli pojemności automatycznego QoS przepływność jest przypisywana automatycznie do woluminów w puli proporcjonalnie do limitu przydziału rozmiaru przypisanego do woluminów.
 
 * [Podpisywanie LDAP](azure-netapp-files-create-volumes-smb.md) (wersja zapoznawcza)   
 
-    Azure NetApp Files obsługuje teraz podpisywanie LDAP w celu bezpiecznego wyszukiwania LDAP między usługą Azure NetApp Files a kontrolerami domeny określonymi przez Active Directory Domain Services użytkownika. Ta funkcja jest obecnie w wersji zapoznawczej.
+    Azure NetApp Files obsługuje teraz podpisywanie LDAP w celu bezpiecznego wyszukiwania LDAP między usługą Azure NetApp Files a określonymi przez użytkownika Active Directory Domain Services kontrolerami domeny. Ta funkcja jest obecnie w wersji zapoznawczej.
 
 * [Szyfrowanie AES dla uwierzytelniania usługi AD](azure-netapp-files-create-volumes-smb.md) (wersja zapoznawcza)
 
@@ -95,11 +99,11 @@ Azure NetApp Files są regularnie aktualizowane. Ten artykuł zawiera podsumowan
 
 * [Wolumin z podwójnym protokołem (NFSv3 i SMB)](create-volumes-dual-protocol.md)
 
-    Teraz można utworzyć wolumin Azure NetApp Files, który umożliwia równoczesny dostęp za pomocą dwóch protokołów (NFS v3 i SMB) z obsługą mapowania użytkowników LDAP. Ta funkcja umożliwia stosowanie przypadków użycia, w których może wystąpić obciążenie oparte na systemie Linux, które generuje i przechowuje dane w Azure NetApp Files woluminie. W tym samym czasie pracownicy muszą używać klientów systemu Windows i oprogramowania do analizowania nowo wygenerowanych danych z tego samego Azure NetApp Files woluminu. Funkcja jednoczesnego dostępu za pomocą dwóch protokołów usuwa konieczność kopiowania danych generowanych przez obciążenie do oddzielnego woluminu przy użyciu innego protokołu na potrzeby analizy po analizie, oszczędzania kosztów magazynu i czasu działania. Ta funkcja jest bezpłatna (normalny [koszt Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) magazynu nadal obowiązuje) i jest ogólnie dostępna. Dowiedz się więcej z [dokumentacji jednoczesnego dostępu z dwoma protokołami.](create-volumes-dual-protocol.MD)
+    Teraz można utworzyć wolumin Azure NetApp Files, który umożliwia równoczesny dostęp za pomocą dwóch protokołów (NFS v3 i SMB) z obsługą mapowania użytkowników LDAP. Ta funkcja umożliwia stosowanie przypadków użycia, w których może wystąpić obciążenie oparte na systemie Linux, które generuje i przechowuje dane w Azure NetApp Files woluminie. W tym samym czasie pracownicy muszą używać klientów systemu Windows i oprogramowania do analizowania nowo wygenerowanych danych z tego samego Azure NetApp Files woluminu. Funkcja jednoczesnego dostępu za pomocą dwóch protokołów usuwa konieczność kopiowania danych generowanych przez obciążenie do oddzielnego woluminu przy użyciu innego protokołu na potrzeby analizy po analizie, oszczędzania kosztów magazynu i czasu działania. Ta funkcja jest bezpłatna (normalny [koszt Azure NetApp Files magazynu](https://azure.microsoft.com/pricing/details/netapp/) nadal obowiązuje) i jest ogólnie dostępna. Dowiedz się więcej z [dokumentacji jednoczesnego dostępu za dwa protokoły.](create-volumes-dual-protocol.MD)
 
-* [Szyfrowanie Kerberos systemu plików NFS w wersji 4.1 podczas przesyłania](configure-kerberos-encryption.MD)
+* [Szyfrowanie Kerberos NFS 4.1 podczas przesyłania](configure-kerberos-encryption.MD)
 
-    Azure NetApp Files obsługuje teraz szyfrowanie klienta NFS w trybach Kerberos (krb5, krb5i i krb5p) z szyfrowaniem AES-256, zapewniając dodatkowe zabezpieczenia danych. Ta funkcja jest bezpłatna (normalny [koszt Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) magazynu nadal obowiązuje) i jest ogólnie dostępna. Dowiedz się więcej z dokumentacji dotyczącej szyfrowania [Kerberos systemu plików NFS w wersji 4.1.](configure-kerberos-encryption.MD)
+    Azure NetApp Files obsługuje teraz szyfrowanie klienta NFS w trybach protokołu Kerberos (krb5, krb5i i krb5p) z szyfrowaniem AES-256, zapewniając dodatkowe zabezpieczenia danych. Ta funkcja jest bezpłatna (normalny [koszt Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) magazynu nadal obowiązuje) i jest ogólnie dostępna. Dowiedz się więcej z [dokumentacji szyfrowania Kerberos systemu plików NFS w wersji 4.1.](configure-kerberos-encryption.MD)
 
 * [Dynamiczna zmiana poziomu usługi woluminu](dynamic-change-volume-service-level.MD)
 
@@ -107,7 +111,7 @@ Azure NetApp Files są regularnie aktualizowane. Ten artykuł zawiera podsumowan
 
 * [Zasady migawek woluminów](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) (wersja zapoznawcza) 
 
-    Azure NetApp Files umożliwia tworzenie migawek woluminów do punktu w czasie. Teraz możesz utworzyć zasady migawek, aby Azure NetApp Files automatycznie tworzyć migawki woluminów z dostępem do wybranej częstotliwości. Możesz zaplanować tworzenie migawek w cyklach godzinowych, codziennych, tygodniowych lub miesięcznych. Można również określić maksymalną liczbę migawek do utrzymania w ramach zasad migawek. Ta funkcja jest bezpłatna (normalny [koszt magazynu Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) nadal obowiązuje) i jest obecnie dostępna w wersji zapoznawczej. Możesz zarejestrować się, aby korzystać z wersji zapoznawczej funkcji, korzystając z [dokumentacji zasad migawek woluminu.](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
+    Azure NetApp Files umożliwia tworzenie migawek do punktu w czasie woluminów. Teraz możesz utworzyć zasady migawek, aby Azure NetApp Files automatycznie tworzyć migawki woluminów z dostępem do wybranej częstotliwości. Możesz zaplanować tworzenie migawek w cyklach godzinowych, codziennych, tygodniowych lub miesięcznych. Można również określić maksymalną liczbę migawek do utrzymania w ramach zasad migawek. Ta funkcja jest bezpłatna (normalny [koszt magazynu Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) nadal obowiązuje) i jest obecnie dostępna w wersji zapoznawczej. Możesz zarejestrować się, aby korzystać z wersji zapoznawczej funkcji, korzystając z [dokumentacji zasad migawek woluminu.](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
 
 * [Zasady eksportowania dostępu do głównego systemu plików NFS](azure-netapp-files-configure-export-policy.md)
 
@@ -121,7 +125,7 @@ Azure NetApp Files są regularnie aktualizowane. Ten artykuł zawiera podsumowan
 
 * [Użytkownicy zasad kopii zapasowych](create-active-directory-connections.md) (wersja zapoznawcza)
 
-    Azure NetApp Files można uwzględnić dodatkowe konta, które wymagają podniesionych uprawnień do konta komputera utworzonego do użytku z Azure NetApp Files. Określone konta będą mogły zmieniać uprawnienia systemu plików NTFS na poziomie pliku lub folderu. Można na przykład określić konto usługi bez uprawnień używane do migrowania danych do udziału plików SMB w Azure NetApp Files. Funkcja użytkownicy zasad kopii zapasowych jest obecnie dostępna w wersji zapoznawczej.
+    Azure NetApp Files można uwzględnić dodatkowe konta, które wymagają podniesionych uprawnień do konta komputera utworzonego do użytku z Azure NetApp Files. Określone konta będą mogły zmieniać uprawnienia systemu plików NTFS na poziomie pliku lub folderu. Można na przykład określić konto usługi bez uprawnień używane do migrowania danych do udziału plików SMB w usłudze Azure NetApp Files. Funkcja użytkownicy zasad kopii zapasowych jest obecnie w wersji zapoznawczej.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Co to jest usługa Azure NetApp Files](azure-netapp-files-introduction.md)

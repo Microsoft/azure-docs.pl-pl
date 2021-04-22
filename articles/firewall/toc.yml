@@ -32,11 +32,11 @@
   items:
     - name: Funkcje usługi Azure Firewall
       href: features.md
-    - name: Funkcje usługi Azure firewall Premium
+    - name: Azure Firewall Premium
       href: premium-features.md
-    - name: Usługa Azure firewall Premium w portalu
+    - name: Azure Firewall Premium w portalu
       href: premium-portal.md
-    - name: Certyfikaty usługi Azure firewall Premium
+    - name: Azure Firewall Premium
       href: premium-certificates.md
     - name: Tagi w pełni kwalifikowanych nazw domen
       href: fqdn-tags.md
@@ -64,7 +64,7 @@
       href: fqdn-filtering-network-rules.md
     - name: Punkt odniesienia zabezpieczeń
       href: security-baseline.md
-    - name: Obsługa Active FTP
+    - name: Obsługa aktywnego protokołu FTP
       href: active-ftp-support.md
 - name: Przewodniki z instrukcjami
   items:
@@ -97,16 +97,16 @@
       displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Skoroszyt usługi Azure Firewall
       href: firewall-workbook.md
-    - name: Wdrażanie i Konfigurowanie warstwy Premium zapory
+    - name: Wdrażanie i konfigurowanie zapory Premium
       href: premium-deploy.md
-    - name: Wdróż certyfikaty urzędu certyfikacji przedsiębiorstwa dla wersji Premium
+    - name: Wdrażanie certyfikatów urzędu certyfikacji przedsiębiorstwa dla wersji Premium
       href: premium-deploy-certificates-enterprise-ca.md
-    - name: Migrowanie do usługi Azure firewall Premium
+    - name: Migrowanie do Azure Firewall Premium
       href: premium-migrate.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/azure-firewall/network/firewall
+      href: /cli/azure/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET

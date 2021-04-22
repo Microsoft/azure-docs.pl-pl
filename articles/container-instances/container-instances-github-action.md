@@ -1,21 +1,21 @@
 ---
-title: Wdrażanie wystąpienia kontenera za pomocą akcji usługi GitHub
-description: Konfigurowanie akcji usługi GitHub, która automatyzuje kroki kompilowania, wypychania i wdrażania obrazu kontenera do Azure Container Instances
+title: Wdrażanie wystąpienia kontenera przez akcję usługi GitHub
+description: Konfigurowanie akcji usługi GitHub, która automatyzuje kroki kompilowania, wypychania i wdrażania obrazu kontenera w Azure Container Instances
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e6a4d9ecff292d79f132f933c36b0030e04f4efa
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: df8f7a546767f1198cee6fc6ceb6032645c14989
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771303"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868991"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurowanie akcji usługi GitHub w celu utworzenia wystąpienia kontenera
 
 [GitHub Actions](https://docs.github.com/en/actions) to pakiet funkcji w usłudze GitHub, które automatyzują przepływy pracy tworzenia oprogramowania w tym samym miejscu, w którym przechowujesz kod oraz współpracujesz nad żądaniami ściągnięć i problemami.
 
-Użyj akcji [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) w usłudze GitHub, aby zautomatyzować wdrażanie pojedynczego kontenera w Azure Container Instances. Akcja umożliwia ustawienie właściwości wystąpienia kontenera podobnych do tych w [poleceniu az container create.][az-container-create]
+Użyj akcji [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) GitHub (Wdrażanie w usłudze GitHub), aby zautomatyzować wdrażanie pojedynczego kontenera w Azure Container Instances. Akcja umożliwia ustawienie właściwości wystąpienia kontenera podobnych do tych w [poleceniu az container create.][az-container-create]
 
 W tym artykule pokazano, jak skonfigurować przepływ pracy w repozytorium GitHub, który wykonuje następujące akcje:
 
@@ -26,20 +26,20 @@ W tym artykule pokazano, jak skonfigurować przepływ pracy w repozytorium GitHu
 W tym artykule przedstawiono dwa sposoby skonfigurowania przepływu pracy:
 
 * [Konfigurowanie przepływu pracy usługi GitHub](#configure-github-workflow) — tworzenie przepływu pracy w repozytorium GitHub przy użyciu akcji Wd wdrażaj Azure Container Instances i innych akcji.  
-* [Użyj rozszerzenia interfejsu](#use-deploy-to-azure-extension) wiersza polecenia — użyj `az container app up` polecenia w rozszerzeniu Deploy to Azure (Wdrażanie na [platformie Azure)](https://github.com/Azure/deploy-to-azure-cli-extension) w interfejsie wiersza polecenia platformy Azure. To polecenie usprawnia tworzenie przepływu pracy usługi GitHub i kroków wdrażania.
+* [Użyj rozszerzenia interfejsu](#use-deploy-to-azure-extension) wiersza polecenia — `az container app up` użyj polecenia w rozszerzeniu Deploy to Azure (Wdrażanie na [platformie Azure)](https://github.com/Azure/deploy-to-azure-cli-extension) w interfejsie wiersza polecenia platformy Azure. To polecenie usprawnia tworzenie przepływu pracy usługi GitHub i kroków wdrażania.
 
 > [!IMPORTANT]
 > Akcja usługi GitHub dla usługi Azure Container Instances jest obecnie w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Konto usługi GitHub** — utwórz konto w usłudze https://github.com , jeśli jeszcze go nie masz.
-* **Interfejs wiersza** polecenia platformy Azure — możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure, aby wykonać kroki interfejsu wiersza polecenia platformy Azure. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
-* **Rejestr kontenerów platformy Azure** — jeśli go nie [masz,](../container-registry/container-registry-get-started-portal.md)utwórz rejestr kontenerów platformy Azure w warstwie Podstawowa przy użyciu interfejsu wiersza polecenia platformy [Azure,](../container-registry/container-registry-get-started-azure-cli.md)interfejsu Azure Portal lub innych metod. Zanotuj grupę zasobów używaną dla wdrożenia, która jest używana w przepływie pracy usługi GitHub.
+* **Konto usługi GitHub** — utwórz konto, https://github.com jeśli jeszcze go nie masz.
+* **Interfejs wiersza polecenia** platformy Azure — możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure, aby wykonać kroki interfejsu wiersza polecenia platformy Azure. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
+* **Rejestr kontenerów platformy Azure** — jeśli go [nie masz,](../container-registry/container-registry-get-started-portal.md)utwórz rejestr kontenerów platformy Azure w warstwie Podstawowa przy użyciu interfejsu wiersza polecenia platformy [Azure,](../container-registry/container-registry-get-started-azure-cli.md)usługi Azure Portal lub innych metod. Zanotuj grupę zasobów używaną do wdrożenia, która jest używana w przepływie pracy usługi GitHub.
 
 ## <a name="set-up-repo"></a>Konfigurowanie repo
 
-* W przykładach w tym artykule użyj usługi GitHub, aby skuć następujące repozytorium: https://github.com/Azure-Samples/acr-build-helloworld-node
+* W przykładach w tym artykule użyj usługi GitHub, aby wydychać następujące repozytorium: https://github.com/Azure-Samples/acr-build-helloworld-node
 
   To repo zawiera plik Dockerfile i pliki źródłowe służące do tworzenia obrazu kontenera małej aplikacji internetowej.
 
@@ -87,7 +87,7 @@ Dane wyjściowe są podobne do następujących:
 }
 ```
 
-Zapisz dane wyjściowe JSON, ponieważ będą używane w późniejszym kroku. Ponadto zanotuj `clientId` obiekt , który należy zaktualizować jednostkę usługi w następnej sekcji.
+Zapisz dane wyjściowe JSON, ponieważ będą używane w późniejszym kroku. Ponadto zanotuj `clientId` , który należy zaktualizować jednostkę usługi w następnej sekcji.
 
 ### <a name="update-service-principal-for-registry-authentication"></a>Aktualizowanie jednostki usługi na celu uwierzytelnianie rejestru
 
@@ -112,24 +112,24 @@ az role assignment create \
 
 ### <a name="save-credentials-to-github-repo"></a>Zapisywanie poświadczeń w repozytorium GitHub
 
-1. W interfejsie użytkownika usługi GitHub przejdź do swojego repozytorium z forkedem i wybierz **pozycję Wpisy tajne**  >  **ustawień.** 
+1. W interfejsie użytkownika usługi GitHub przejdź do repozytorium z forkedem i wybierz pozycję **Wpisy**  >  **tajne ustawień.** 
 
 1. Wybierz **pozycję Dodaj nowy wpis tajny,** aby dodać następujące wpisy tajne:
 
 |Wpis tajny  |Wartość  |
 |---------|---------|
-|`AZURE_CREDENTIALS`     | Całe dane wyjściowe JSON z kroku tworzenia jednostki usługi |
+|`AZURE_CREDENTIALS`     | Wszystkie dane wyjściowe JSON z kroku tworzenia jednostki usługi |
 |`REGISTRY_LOGIN_SERVER`   | Nazwa serwera logowania rejestru (wszystkie małe litery). Przykład: *myregistry.azurecr.io*        |
 |`REGISTRY_USERNAME`     |  Z `clientId` danych wyjściowych JSON z tworzenia jednostki usługi       |
 |`REGISTRY_PASSWORD`     |  Z `clientSecret` danych wyjściowych JSON z tworzenia jednostki usługi |
-| `RESOURCE_GROUP` | Nazwa grupy zasobów używanej do zakresu jednostki usługi |
+| `RESOURCE_GROUP` | Nazwa grupy zasobów użytej do zastosowania zakresu jednostki usługi |
 
 ### <a name="create-workflow-file"></a>Tworzenie pliku przepływu pracy
 
 1. W interfejsie użytkownika usługi GitHub wybierz pozycję **Akcje Nowy**  >  **przepływ pracy.**
-1. Wybierz **pozycję Skonfiguruj przepływ pracy samodzielnie.**
-1. W **obszarze Edytowanie nowego pliku** wklej następującą zawartość YAML, aby zastąpić przykładowy kod. Zaakceptuj domyślną nazwę `main.yml` pliku lub podaj nazwę pliku, który wybierzesz.
-1. Wybierz **pozycję Rozpocznij zatwierdzanie**, opcjonalnie podaj krótkie i rozszerzone opisy zatwierdzenia, a następnie wybierz pozycję **Zat zatwierdzanie nowego pliku.**
+1. Wybierz **samodzielnie pozycję Skonfiguruj przepływ pracy.**
+1. W **obszarze Edytuj nowy plik** wklej następującą zawartość YAML, aby zastąpić przykładowy kod. Zaakceptuj domyślną nazwę `main.yml` pliku lub podaj nazwę pliku.
+1. Wybierz **pozycję Rozpocznij zatwierdzanie**, opcjonalnie podaj krótkie i rozszerzone opisy zatwierdzenia, a następnie wybierz **pozycję Zat zatwierdzeniu nowego pliku.**
 
 ```yml
 on: [push]
@@ -173,7 +173,7 @@ jobs:
 
 ### <a name="validate-workflow"></a>Weryfikowanie przepływu pracy
 
-Po zatwierdzeniu pliku przepływu pracy zostanie wyzwolony przepływ pracy. Aby przejrzeć postęp przepływu pracy, przejdź do  >  **przepływów pracy akcji.** 
+Po zatwierdzeniu pliku przepływu pracy przepływ pracy jest wyzwalany. Aby przejrzeć postęp przepływu pracy, przejdź do **akcji**  >  **Przepływy pracy.** 
 
 ![Wyświetlanie postępu przepływu pracy](./media/container-instances-github-action/github-action-progress.png)
 
@@ -319,4 +319,4 @@ Przejrzyj witryny [GitHub Marketplace,](https://github.com/marketplace?type=acti
 [az-container-show]: /cli/azure/container#az_container_show
 [az-container-delete]: /cli/azure/container#az_container_delete
 [az-extension-add]: /cli/azure/extension#az_extension_add
-[az-container-app-up]: /cli/azure/ext/deploy-to-azure/container/app#ext-deploy-to-azure-az-container-app-up
+[az-container-app-up]: /cli/azure/container/app#az_container_app_up

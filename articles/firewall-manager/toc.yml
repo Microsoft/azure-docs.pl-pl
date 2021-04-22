@@ -10,7 +10,7 @@
     - name: Bezpieczny koncentrator wirtualny — szablon usługi Resource Manager
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
-    - name: Wdrażanie zapory przy użyciu zasad — szablon ARM
+    - name: Wdrażanie zapory za pomocą zasad — szablon usługi ARM
       displayName: Resource Manager
       href: quick-firewall-policy.md
 - name: Samouczki
@@ -51,7 +51,7 @@
   items:
     - name: Wdrażanie dostawców partnerów w zakresie zabezpieczeń
       href: deploy-trusted-security-partner.md
-    - name: Bezpieczne prywatne punkty końcowe
+    - name: Zabezpieczanie prywatnych punktów końcowych
       href: private-link-inspection-secure-virtual-hub.md
     - name: Migrowanie do zasad zapory — PowerShell
       href: migrate-to-policy.md
@@ -64,7 +64,7 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/azure-firewall/network/firewall/policy
+      href: /cli/azure/network/firewall/policy
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewallpolicy
     - name: .NET

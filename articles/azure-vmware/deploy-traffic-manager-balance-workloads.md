@@ -1,138 +1,138 @@
 ---
-title: Wdróż Traffic Manager, aby zrównoważyć obciążenia rozwiązań VMware platformy Azure
-description: Dowiedz się, jak zintegrować Traffic Manager z rozwiązaniem VMware platformy Azure, aby zrównoważyć obciążenia aplikacji w wielu punktach końcowych w różnych regionach.
+title: Wdrażanie Traffic Manager równoważenia Azure VMware Solution obciążeń
+description: Dowiedz się, jak zintegrować Traffic Manager z Azure VMware Solution, aby równoważyć obciążenia aplikacji w wielu punktach końcowych w różnych regionach.
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 029bb9512bd19effd1c7aeb5104c7bb6d7ccdca5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988597"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876926"
 ---
-# <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Wdróż Traffic Manager, aby zrównoważyć obciążenia rozwiązań VMware platformy Azure
+# <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Wdrażanie Traffic Manager równoważenia Azure VMware Solution obciążeń
 
-W tym artykule omówiono procedurę integrowania [usługi azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) z rozwiązaniem VMware platformy Azure. Integracja równoważy obciążenia aplikacji w wielu punktach końcowych. W tym artykule przedstawiono również procedurę konfigurowania Traffic Manager w celu kierowania ruchu między trzema [Application Gateway platformy Azure](../application-gateway/overview.md) , obejmujących kilka regionów rozwiązań VMware platformy Azure. 
+W tym artykule opisano kroki integracji Azure Traffic Manager [z](../traffic-manager/traffic-manager-overview.md) Azure VMware Solution. Integracja równoważy obciążenia aplikacji w wielu punktach końcowych. W tym artykule opisano również kroki konfigurowania usługi Traffic Manager [](../application-gateway/overview.md) do kierowania ruchu między trzema Azure Application Gateway obejmującymi kilka Azure VMware Solution regionów. 
 
-Bramy mają maszyny wirtualne rozwiązania Azure VMware, które zostały skonfigurowane jako elementy członkowskie puli zaplecza do równoważenia obciążenia przychodzących żądań warstwy 7. Aby uzyskać więcej informacji, zobacz [Korzystanie z usługi azure Application Gateway do ochrony aplikacji sieci Web na platformie Azure VMware](protect-azure-vmware-solution-with-application-gateway.md)
+Bramy mają skonfigurowane Azure VMware Solution wirtualne jako elementy członkowskie puli zaplecza w celu równoważenia obciążenia przychodzących żądań warstwy 7. Aby uzyskać więcej informacji, zobacz [Używanie Azure Application Gateway do ochrony aplikacji internetowych w Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
 
-Na diagramie przedstawiono sposób, w jaki Traffic Manager zapewnia Równoważenie obciążenia dla aplikacji na poziomie systemu DNS między regionalnymi punktami końcowymi. Bramy mają członków puli zaplecza skonfigurowanych jako serwery IIS i przywoływanych jako zewnętrzne punkty końcowe rozwiązania Azure VMware. Połączenie przez sieć wirtualną między dwoma regionami chmury prywatnej używa bramy ExpressRoute.   
+Na diagramie pokazano, Traffic Manager równoważenie obciążenia dla aplikacji na poziomie systemu DNS między regionalnymi punktami końcowymi. Bramy mają składowe puli zaplecza skonfigurowane jako serwery usług IIS i są przywołyne Azure VMware Solution zewnętrznych punktów końcowych. Połączenie za pośrednictwem sieci wirtualnej między dwoma regionami chmury prywatnej używa bramy usługi ExpressRoute.   
 
-:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram architektury Traffic Manager integracji z rozwiązaniem VMware platformy Azure" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram architektury integracji Traffic Manager z Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
-Przed rozpoczęciem należy najpierw przejrzeć [wymagania wstępne](#prerequisites) , a następnie zapoznać się z procedurami, aby:
+Przed rozpoczęciem zapoznaj się z tematem [Wymagania wstępne,](#prerequisites) a następnie zapoznaj się z procedurami, aby:
 
 > [!div class="checklist"]
 > * Weryfikowanie konfiguracji bram aplikacji i segmentu NSX-T
-> * Tworzenie profilu Traffic Manager
-> * Dodawanie zewnętrznych punktów końcowych do profilu Traffic Manager
+> * Tworzenie profilu Traffic Manager aplikacji
+> * Dodawanie zewnętrznych punktów końcowych do profilu Traffic Manager końcowego
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Trzy maszyny wirtualne skonfigurowane jako serwery usług IIS firmy Microsoft działające w różnych regionach rozwiązań VMware platformy Azure: 
+- Trzy maszyny wirtualne skonfigurowane jako serwery microsoft IIS działające w różnych Azure VMware Solution regionach: 
    - Zachodnie stany USA
    - West Europe
-   - Wschodnie stany USA (lokalnie) 
+   - Wschodnie usa (lokalne) 
 
-- Brama aplikacji z zewnętrznymi punktami końcowymi w regionach rozwiązań platformy Azure VMware wymienionych powyżej.
+- Brama aplikacji z zewnętrznymi punktami końcowymi w regionach Azure VMware Solution wymienionych powyżej.
 
-- Host z łącznością internetową w celu weryfikacji. 
+- Hostuj z łącznością z Internetem na celu weryfikacji. 
 
-- [Segment sieci NSX-T utworzony w rozwiązaniu VMware platformy Azure](tutorial-nsx-t-network-segment.md).
+- Segment [sieci NSX-T utworzony w Azure VMware Solution](tutorial-nsx-t-network-segment.md).
 
 ## <a name="verify-your-application-gateways-configuration"></a>Weryfikowanie konfiguracji bram aplikacji
 
 Poniższe kroki weryfikują konfigurację bram aplikacji.
 
-1. W Azure Portal wybierz pozycję **bramy aplikacji** , aby wyświetlić listę bieżących bram aplikacji:
+1. W Azure Portal wybierz pozycję **Bramy aplikacji,** aby wyświetlić listę bieżących bram aplikacji:
 
-   - AUTOMATYCZNA SYNCHRONIZACJA — GW-WUS
-   - Automatyczna synchronizacja — GW-EUS (lokalna)
-   - AUTOMATYCZNA SYNCHRONIZACJA — GW-UZE
+   - AVS-GW-WUS
+   - AVS-GW-EUS (lokalnie)
+   - AVS-GW-WEU
 
-   :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Zrzut ekranu przedstawiający stronę bramy Application Gateway z listą skonfigurowanych bram aplikacji." lightbox="media/traffic-manager/app-gateways-list-1.png":::
+   :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Zrzut ekranu przedstawiający stronę bramy aplikacji z listą skonfigurowanych bram aplikacji." lightbox="media/traffic-manager/app-gateways-list-1.png":::
 
 1. Wybierz jedną z wcześniej wdrożonych bram aplikacji. 
 
-   Zostanie otwarte okno zawierające różne informacje o bramie aplikacji. 
+   Zostanie otwarte okno z różnymi informacjami o bramie aplikacji. 
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Zrzut ekranu strony bramy Application Gateway przedstawiający szczegóły wybranej bramy aplikacji." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Zrzut ekranu przedstawiający stronę bramy aplikacji ze szczegółami wybranej bramy aplikacji." lightbox="media/traffic-manager/backend-pool-config.png":::
 
-1. Wybierz pozycję **Pule zaplecza** , aby zweryfikować konfigurację jednej z pul zaplecza. Zostanie wyświetlony jeden element członkowski puli zaplecza maszyny wirtualnej skonfigurowany jako serwer sieci Web z adresem IP 172.29.1.10.
+1. Wybierz **pozycję Pule zaplecza,** aby zweryfikować konfigurację jednej z pul zaplecza. Zobaczysz jeden element członkowski puli zaplecza maszyny wirtualnej skonfigurowany jako serwer internetowy o adresie IP 172.29.1.10.
  
-   :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Zrzut ekranu strony edytowanie puli zaplecza z wyróżnionym docelowym adresem IP.":::
+   :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Zrzut ekranu przedstawiający stronę Edytowanie puli zaplecza z wyróżnionym docelowym adresem IP.":::
 
-1. Sprawdź konfigurację innych bram aplikacji i członków puli zaplecza. 
+1. Sprawdź konfigurację innych bram aplikacji i elementów członkowskich puli zaplecza. 
 
 ## <a name="verify-the-nsx-t-segment-configuration"></a>Weryfikowanie konfiguracji segmentu NSX-T
 
-Poniższe kroki weryfikują konfigurację segmentu NSX-T w środowisku rozwiązań VMware platformy Azure.
+Poniższe kroki weryfikują konfigurację segmentu NSX-T w Azure VMware Solution środowisku.
 
-1. Wybierz **segmenty** , aby wyświetlić skonfigurowane segmenty.  Zobaczysz, że contoso-SEGMENT1 połączono z bramą contoso-T01, elastycznym routerem warstwy 1.
+1. Wybierz **pozycję Segmenty,** aby wyświetlić skonfigurowane segmenty.  Zostanie wyświetlony ekran Contoso-segment1 połączony z bramą Contoso-T01, elastycznym routerem warstwy 1.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Zrzut ekranu przedstawiający profile segmentów w Menedżerze NSX-T." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Zrzut ekranu przedstawiający profile segmentów w NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
 
-1. Wybierz **bramy warstwy 1** , aby wyświetlić listę bram warstwy 1 z liczbą połączonych segmentów. 
+1. Wybierz **pozycję Bramy warstwy 1,** aby wyświetlić listę bram warstwy 1 z liczbą połączonych segmentów. 
 
    :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Zrzut ekranu przedstawiający adres bramy wybranego segmentu.":::    
 
-1. Wybierz segment połączony z Contoso-T01. Zostanie otwarte okno z interfejsem logicznym skonfigurowanym na routerze warstwy-01. Służy jako brama do maszyny wirtualnej elementu członkowskiego puli zaplecza połączonej z segmentem.
+1. Wybierz segment połączony z contoso-T01. Zostanie otwarte okno z interfejsem logicznym skonfigurowanym na routerze warstwy 01. Służy jako brama maszyny wirtualnej członka puli zaplecza podłączonej do segmentu.
 
 1. W kliencie vSphere wybierz maszynę wirtualną, aby wyświetlić jej szczegóły. 
 
    >[!NOTE]
-   >Jego adres IP jest zgodny z elementem członkowskim puli zaplecza maszyny wirtualnej skonfigurowanym jako serwer sieci Web w poprzedniej sekcji: 172.29.1.10.
+   >Jej adres IP pasuje do członka puli zaplecza maszyny wirtualnej skonfigurowanego jako serwer internetowy z poprzedniej sekcji: 172.29.1.10.
 
    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły maszyny wirtualnej w kliencie vSphere." lightbox="media/traffic-manager/nsx-t-vm-details.png":::    
 
-4. Wybierz maszynę wirtualną, a następnie wybierz pozycję **akcje > Edytuj ustawienia** , aby zweryfikować połączenie z segmentem NSX-T.
+4. Wybierz maszynę wirtualną, a następnie wybierz pozycję ACTIONS > Edit Settings (Edytuj **ustawienia),** aby zweryfikować połączenie z segmentem NSX-T.
 
-## <a name="create-your-traffic-manager-profile"></a>Tworzenie profilu Traffic Manager
+## <a name="create-your-traffic-manager-profile"></a>Tworzenie profilu Traffic Manager aplikacji
 
-1. Zaloguj się w witrynie [Azure Portal](https://rc.portal.azure.com/#home). W obszarze **usługi platformy Azure > sieć** wybierz pozycję **Traffic Manager profile**.
+1. Zaloguj się w witrynie [Azure Portal](https://rc.portal.azure.com/#home). W **obszarze Azure Services > Networking** wybierz pozycję Traffic Manager **profilów.**
 
-2. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy profil Traffic Manager.
+2. Wybierz **pozycję + Dodaj,** aby utworzyć nowy Traffic Manager profilu.
  
-3. Podaj następujące informacje, a następnie wybierz pozycję **Utwórz**:
+3. Podaj następujące informacje, a następnie wybierz pozycję **Utwórz:**
 
    - Nazwa profilu
-   - Routing — Metoda (użycie [ważone](../traffic-manager/traffic-manager-routing-methods.md)
+   - Metoda routingu (użyj [ważonej)](../traffic-manager/traffic-manager-routing-methods.md)
    - Subskrypcja
    - Grupa zasobów
 
-## <a name="add-external-endpoints-into-the-traffic-manager-profile"></a>Dodawanie zewnętrznych punktów końcowych do profilu Traffic Manager
+## <a name="add-external-endpoints-into-the-traffic-manager-profile"></a>Dodawanie zewnętrznych punktów końcowych do profilu Traffic Manager końcowego
 
-1. Wybierz profil Traffic Manager z okienka wyników wyszukiwania, wybierz **punkty końcowe**, a następnie **+ Dodaj**.
+1. Wybierz profil Traffic Manager w okienku wyników wyszukiwania, wybierz pozycję **Punkty końcowe,** a następnie **pozycję + Dodaj**.
 
 1. Dla każdego z zewnętrznych punktów końcowych w różnych regionach wprowadź wymagane szczegóły, a następnie wybierz pozycję **Dodaj**: 
    - Typ
    - Nazwa
    - W pełni kwalifikowana nazwa domeny (FQDN) lub adres IP
-   - Waga (Przypisz wagę 1 do każdego punktu końcowego). 
+   - Waga (przypisz wagę 1 do każdego punktu końcowego). 
 
-   Po utworzeniu wszystkie trzy są wyświetlane w profilu Traffic Manager. Stan monitora wszystkich trzech musi być w **trybie online**.
+   Po utworzeniu wszystkie trzy są Traffic Manager profilu. Stan monitora wszystkich trzech musi mieć stan **Online.**
 
-3. Wybierz pozycję **Przegląd** i skopiuj adres URL pod **nazwą DNS**.
+3. Wybierz **pozycję Przegląd** i skopiuj adres URL w obszarze Nazwa **DNS.**
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Zrzut ekranu przedstawiający przegląd Traffic Manager punktu końcowego z wyróżnioną nazwą DNS." lightbox="media/traffic-manager/traffic-manager-endpoints.png"::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Zrzut ekranu przedstawiający przegląd Traffic Manager punktu końcowego z wyróżniona nazwą DNS." lightbox="media/traffic-manager/traffic-manager-endpoints.png"::: 
 
-4. Wklej adres URL nazwy DNS w przeglądarce. Zrzut ekranu przedstawia ruch kierowany do regionu Europa Zachodnia.
+4. Wklej adres URL nazwy DNS w przeglądarce. Zrzut ekranu przedstawia ruch skierowany do regionu Europa Zachodnia.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Zrzut ekranu okna przeglądarki przedstawiający ruch kierowany do Europa Zachodnia."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Zrzut ekranu przedstawiający okno przeglądarki z ruchem kierowanego do Europy Zachodniej."::: 
 
-5. Odśwież przeglądarkę. Zrzut ekranu przedstawia ruch kierowany do innego zestawu elementów członkowskich puli zaplecza w regionie zachodnie stany USA.
+5. Odśwież przeglądarkę. Zrzut ekranu przedstawia ruch skierowany do innego zestawu elementów członkowskich puli zaplecza w regionie Zachodnie stany USA.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Zrzut ekranu okna przeglądarki przedstawiający ruch kierowany do regionu zachodnie stany USA."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Zrzut ekranu przedstawiający okno przeglądarki z ruchem kierowanego do zachodnie stany USA."::: 
 
-6. Odśwież przeglądarkę ponownie. Zrzut ekranu przedstawia ruch kierowany do końcowego zestawu członków puli zaplecza lokalnie.
+6. Odśwież przeglądarkę ponownie. Zrzut ekranu przedstawia ruch skierowany do końcowego zestawu lokalnych elementów członkowskich puli zaplecza.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Zrzut ekranu okna przeglądarki przedstawiający ruch kierowany do lokalnego.":::
+   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Zrzut ekranu przedstawiający okno przeglądarki z ruchem kierowanego do sieci lokalnej.":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy omówiono integrację usługi Azure Traffic Manager z rozwiązaniem VMware platformy Azure, warto zapoznać się z tematem:
+Teraz, gdy już wiesz, jak zintegrować Azure Traffic Manager z Azure VMware Solution, możesz dowiedzieć się więcej na temat:
 
-- [Korzystanie z usługi azure Application Gateway w rozwiązaniu VMware platformy Azure](protect-azure-vmware-solution-with-application-gateway.md).
-- [Traffic Manager metod routingu](../traffic-manager/traffic-manager-routing-methods.md).
-- [Łączenie usług równoważenia obciążenia na platformie Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- [Mierzenie wydajności Traffic Manager](../traffic-manager/traffic-manager-performance-considerations.md).
+- [Korzystanie Azure Application Gateway na Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
+- [Metody routingu w usłudze Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md)
+- [Łączenie usług równoważenia obciążenia na platformie Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
+- [Mierzenie Traffic Manager wydajności](../traffic-manager/traffic-manager-performance-considerations.md)

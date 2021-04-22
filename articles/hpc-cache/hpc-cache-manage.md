@@ -1,81 +1,81 @@
 ---
-title: Zarządzanie i aktualizowanie pamięci podręcznej platformy Azure HPC
-description: Jak zarządzać i aktualizować pamięć podręczną Azure HPC przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure
+title: Zarządzanie i aktualizowanie Azure HPC Cache
+description: Jak zarządzać maszyną i aktualizować Azure HPC Cache przy użyciu interfejsu wiersza Azure Portal platformy Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a831aa7b2f3b0d438d9db8fefa3d26428fea3680
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471880"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862601"
 ---
 # <a name="manage-your-cache"></a>Zarządzanie pamięcią podręczną
 
-Na stronie Przegląd pamięci podręcznej w Azure Portal są wyświetlane szczegóły projektu, stan pamięci podręcznej i podstawowe statystyki pamięci podręcznej. Ma także kontrolki do zatrzymywania lub uruchamiania pamięci podręcznej, usuwania pamięci podręcznej, opróżniania danych do długoterminowego przechowywania i aktualizacji oprogramowania.
+Strona przeglądu pamięci podręcznej w Azure Portal zawiera szczegóły projektu, stan pamięci podręcznej i podstawowe statystyki dotyczące pamięci podręcznej. Ma również kontrolki służące do zatrzymania lub uruchomienia pamięci podręcznej, usunięcia pamięci podręcznej, opróżninia danych do magazynu długoterminowego i zaktualizowania oprogramowania.
 
-W tym artykule opisano również sposób wykonywania tych podstawowych zadań przy użyciu interfejsu wiersza polecenia platformy Azure.
+W tym artykule wyjaśniono również, jak wykonywać te podstawowe zadania za pomocą interfejsu wiersza polecenia platformy Azure.
 
-Aby otworzyć stronę przegląd, wybierz zasób pamięci podręcznej w Azure Portal. Na przykład Załaduj stronę **wszystkie zasoby** i kliknij nazwę pamięci podręcznej.
+Aby otworzyć stronę przeglądu, wybierz zasób pamięci podręcznej w Azure Portal. Na przykład załaduj **stronę Wszystkie zasoby** i kliknij nazwę pamięci podręcznej.
 
-![zrzut ekranu przedstawiający stronę omówienia wystąpienia pamięci podręcznej platformy Azure HPC](media/hpc-cache-overview.png)
+![zrzut ekranu przedstawiający Azure HPC Cache przegląd wystąpienia](media/hpc-cache-overview.png)
 
-Przyciski w górnej części strony mogą pomóc w zarządzaniu pamięcią podręczną:
+Przyciski w górnej części strony mogą ułatwić zarządzanie pamięcią podręczną:
 
-* **Uruchamianie** i [**Zatrzymywanie**](#stop-the-cache) — wznawianie lub wstrzymywanie operacji pamięci podręcznej
-* [**Opróżnianie**](#flush-cached-data) — zapisuje zmienione dane w celu przechowywania
-* [**Upgrade**](#upgrade-cache-software) — aktualizuje oprogramowanie pamięci podręcznej
+* **Uruchamianie** i [**zatrzymywanie**](#stop-the-cache) — wznawia lub wstrzymuje działanie pamięci podręcznej
+* [**Opróżnianie**](#flush-cached-data) — zapisuje zmienione dane w celach magazynu
+* [**Uaktualnianie**](#upgrade-cache-software) — aktualizuje oprogramowanie pamięci podręcznej
 * [**Zbieranie danych diagnostycznych**](#collect-diagnostics) — przekazywanie informacji debugowania
-* **Refresh** -ponownie ładuje stronę przeglądu
-* [**Usuń**](#delete-the-cache) — trwale niszczy pamięć podręczną
+* **Odświeżanie** — ponownie ładuje stronę przeglądu
+* [**Usuwanie**](#delete-the-cache) — trwałe niszczenie pamięci podręcznej
 
 Przeczytaj więcej na temat tych opcji poniżej.
 
-Kliknij poniższy obraz, aby obejrzeć [film wideo](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) przedstawiający zadania zarządzania pamięcią podręczną.
+Kliknij poniższy obraz, aby obejrzeć [film wideo,](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) w których przedstawiono zadania zarządzania pamięcią podręczną.
 
-[![Miniatura wideo: Azure HPC cache: zarządzanie (kliknij, aby odwiedzić stronę wideo)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
+[![miniatura wideo: Azure HPC Cache: Zarządzanie (kliknij, aby odwiedzić stronę wideo)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
-## <a name="stop-the-cache"></a>Zatrzymaj pamięć podręczną
+## <a name="stop-the-cache"></a>Zatrzymywanie pamięci podręcznej
 
-Można zatrzymać pamięć podręczną, aby zmniejszyć koszty w nieaktywnym okresie. Nie są naliczane opłaty za czas przestoju, gdy pamięć podręczna jest zatrzymana, ale opłaty są naliczane za przydzieloną pamięć podręczną. (Aby uzyskać szczegółowe informacje, zobacz stronę z [cennikiem](https://aka.ms/hpc-cache-pricing) ).
+Pamięć podręczną można zatrzymać, aby zmniejszyć koszty w okresie nieaktywnym. Nie są naliczane opłaty za czas pracy, gdy pamięć podręczna jest zatrzymana, ale opłaty są naliczane za przydzielony magazyn dyskowy pamięci podręcznej. (Aby uzyskać [szczegółowe informacje,](https://aka.ms/hpc-cache-pricing) zobacz stronę cennika).
 
 Zatrzymana pamięć podręczna nie odpowiada na żądania klientów. Przed zatrzymaniem pamięci podręcznej należy odinstalować klientów.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Przycisk **Zatrzymaj** wstrzymuje aktywną pamięć podręczną. Przycisk **Zatrzymaj** jest dostępny, gdy stan pamięci podręcznej jest w **dobrej kondycji** lub ma negatywny wpływ na **wydajność**.
+Przycisk **Zatrzymaj** wstrzymuje aktywną pamięć podręczną. Przycisk **Zatrzymaj** jest dostępny, gdy stan pamięci podręcznej to **W dobrej kondycji** lub **Obniżona wydajność.**
 
-![zrzut ekranu górnych przycisków z wyróżnioną pozycją Zatrzymaj i podręczny komunikat opisujący akcję zatrzymania i pytanie "czy chcesz kontynuować?" z opcją Yes (domyślnie) i bez przycisków](media/stop-cache.png)
+![zrzut ekranu przedstawiający górne przyciski z wyróżniona akcję Zatrzymaj i komunikatem podręcznym z opisem akcji zatrzymania i pytaniem "Czy chcesz kontynuować?". z przyciskami Tak (ustawienie domyślne) i Bez](media/stop-cache.png)
 
-Po kliknięciu przycisku tak, aby potwierdzić zatrzymywanie pamięci podręcznej, pamięć podręczna automatycznie opróżni swoją zawartość do miejsc docelowych magazynu. Ten proces może zająć trochę czasu, ale zapewnia spójność danych. Na koniec stan pamięci podręcznej zmieni się na **zatrzymany**.
+Po kliknięciu przycisku Tak w celu potwierdzenia zatrzymania pamięci podręcznej pamięć podręczna automatycznie opróżnia jej zawartość do obiektów docelowych magazynu. Ten proces może zająć trochę czasu, ale zapewnia spójność danych. Na koniec stan pamięci podręcznej zmieni się **na Zatrzymano.**
 
-Aby ponownie uaktywnić zatrzymaną pamięć podręczną, kliknij przycisk **Uruchom** . Nie jest wymagany żaden monit.
+Aby ponownie uaktywnić zatrzymaną pamięć podręczną, kliknij **przycisk** Uruchom. Nie jest wymagane żadne potwierdzenie.
 
-![zrzut ekranu górnych przycisków z wyróżnioną pozycją Start](media/start-cache.png)
+![zrzut ekranu przedstawiający górne przyciski z wyróżnionem menu Start](media/start-cache.png)
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
+[Skonfiguruj interfejs wiersza polecenia platformy Azure dla Azure HPC Cache](./az-cli-prerequisites.md).
 
-Tymczasowe wstrzymywanie pamięci podręcznej za pomocą polecenia [AZ HPC-cache Stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) . Ta akcja jest prawidłowa tylko wtedy, gdy stan pamięci podręcznej jest w **dobrej kondycji** lub ma negatywny wpływ na **wydajność**.
+Tymczasowo wstrzymaj pamięć podręczną za pomocą [polecenia az hpc-cache stop.](/cli/azure/hpc-cache#az_hpc_cache_stop) Ta akcja jest prawidłowa tylko wtedy, gdy stan pamięci podręcznej to **W dobrej kondycji** lub **Obniżona wydajność.**
 
-Pamięć podręczna automatycznie opróżnia zawartość do miejsc docelowych magazynu przed zatrzymaniem. Ten proces może zająć trochę czasu, ale zapewnia spójność danych.
+Pamięć podręczna automatycznie opróżnia zawartość do obiektów docelowych magazynu przed zatrzymaniem. Ten proces może zająć trochę czasu, ale zapewnia spójność danych.
 
-Po zakończeniu akcji stan pamięci podręcznej zmieni się na **zatrzymany**.
+Po zakończeniu akcji stan pamięci podręcznej zmieni się na **Zatrzymano.**
 
-Ponownie Aktywuj zatrzymaną pamięć podręczną za pomocą [AZ HPC-cache Start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+Ponownie uaktywnij zatrzymaną pamięć podręczną za pomocą [az hpc-cache start](/cli/azure/hpc-cache#az_hpc_cache_start).
 
-Po wydaniu polecenia Uruchom lub Zatrzymaj w wierszu polecenia zostanie wyświetlony komunikat o stanie "uruchomiona", dopóki operacja nie zostanie ukończona.
+Po uruchomieniu polecenia uruchamiania lub zatrzymania wiersz polecenia wyświetla komunikat o stanie "Running" (Uruchomiona), dopóki operacja nie zostanie ukończona.
 
 ```azurecli
 $ az hpc-cache start --name doc-cache0629
  - Running ..
 ```
 
-Po zakończeniu komunikat zostanie zaktualizowany do "zakończony" i są wyświetlane kody powrotne i inne informacje.
+Po zakończeniu komunikat zostanie uaktualniony do stanu "Zakończono" i będzie zawierał kody powrotne oraz inne informacje.
 
 ```azurecli
 $ az hpc-cache start --name doc-cache0629
@@ -92,30 +92,30 @@ $ az hpc-cache start --name doc-cache0629
 
 ---
 
-## <a name="flush-cached-data"></a>Opróżnij buforowane dane
+## <a name="flush-cached-data"></a>Opróżnij dane w pamięci podręcznej
 
-Przycisk **opróżniania** na stronie Przegląd informuje pamięć podręczną, aby natychmiast napisać wszystkie zmienione dane przechowywane w pamięci podręcznej do obiektów docelowych magazynu zaplecza. Pamięć podręczna zapisuje w sposób rutynowy dane do miejsc docelowych magazynu, dlatego nie trzeba tego robić ręcznie, chyba że chcesz upewnić się, że system przechowywania zaplecza jest aktualny. Można na przykład użyć operacji **opróżniania** przed wykonaniem migawki magazynu lub sprawdzaniem rozmiaru zestawu danych.
+Przycisk **Opróżnij** na stronie przeglądu nakazuje pamięci podręcznej natychmiastowe zapisanie wszystkich zmienionych danych przechowywanych w pamięci podręcznej w docelowych magazynach na zadomowie. Pamięć podręczna regularnie zapisuje dane w celach magazynu, więc nie trzeba tego robić ręcznie, chyba że chcesz upewnić się, że system magazynowania na zakładzie jest aktualny. Można na przykład użyć funkcji **Flush przed** zrobieniem migawki magazynu lub sprawdzeniem rozmiaru zestawu danych.
 
 > [!NOTE]
-> W procesie opróżniania pamięć podręczna nie może udostępniać żądań klientów. Dostęp do pamięci podręcznej jest zawieszony i wznawiany po zakończeniu operacji.
+> Podczas procesu opróżniania pamięć podręczna nie może obsługiwać żądań klientów. Dostęp do pamięci podręcznej zostanie wstrzymany i wznowiony po zakończeniu operacji.
 
-Po uruchomieniu operacji opróżniania pamięci podręcznej pamięć podręczna nie akceptuje żądań klientów, a stan pamięci podręcznej na stronie Przegląd zmieni się na wartość **opróżniania**.
+Po uruchomieniu operacji opróżniania pamięci podręcznej pamięć podręczna przestaje akceptować żądania klientów, a stan pamięci podręcznej na stronie przeglądu zmienia się **na Opróżnianie**.
 
-Dane w pamięci podręcznej są zapisywane do odpowiednich obiektów docelowych magazynu. W zależności od ilości danych, które muszą zostać opróżnione, proces może potrwać kilka minut lub za godzinę.
+Dane w pamięci podręcznej są zapisywane w odpowiednich celach magazynu. W zależności od tego, ile danych należy opróżnić, proces może potrwać kilka minut lub ponad godzinę.
 
-Po zapisaniu wszystkich danych w celu przechowania pamięci podręcznej automatycznie zaczynają ponownie żądania klientów. Stan pamięci podręcznej powraca do stanu **dobrej kondycji**.
+Po zapisaniu wszystkich danych w celach magazynu pamięć podręczna automatycznie ponownie zacznie pobierać żądania klientów. Stan pamięci podręcznej jest przywracany do stanu **W dobrej kondycji.**
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby opróżnić pamięć podręczną, kliknij przycisk **opróżniania** , a następnie kliknij przycisk **tak** w celu potwierdzenia akcji.
+Aby opróżnić pamięć podręczną, kliknij przycisk **Opróżnij,** a następnie kliknij przycisk **Tak,** aby potwierdzić akcję.
 
-![zrzut ekranu górnych przycisków z wyróżnioną opcją Opróżnij i podręczny komunikat opisujący akcję opróżniania i pytanie "czy chcesz kontynuować?" z opcją Yes (domyślnie) i bez przycisków](media/hpc-cache-flush.png)
+![zrzut ekranu przedstawiający górne przyciski z wyróżniona akcję Opróżnij i wyskakującym komunikatem z opisem akcji opróżniania i pytaniem "Czy chcesz kontynuować?". z przyciskami Tak (ustawienie domyślne) i Bez](media/hpc-cache-flush.png)
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
+[Skonfiguruj interfejs wiersza polecenia platformy Azure dla Azure HPC Cache](./az-cli-prerequisites.md).
 
-Użyj [AZ HPC-cache Flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) , aby wymusić zapisanie wszystkich zmienionych danych w pamięci podręcznej dla obiektów docelowych magazynu.
+Użyj [az hpc-cache flush,](/cli/azure/hpc-cache#az_hpc_cache_flush) aby wymusić, aby pamięć podręczna zapisywała wszystkie zmienione dane w celach magazynu.
 
 Przykład:
 
@@ -124,7 +124,7 @@ $ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
  - Running ..
 ```
 
-Po zakończeniu opróżniania zostanie zwrócony komunikat o powodzeniu.
+Po zakończeniu opróżnień jest zwracany komunikat o sukcesie.
 
 ```azurecli
 {- Finished ..
@@ -141,35 +141,35 @@ $
 
 ---
 
-## <a name="upgrade-cache-software"></a>Uaktualnij oprogramowanie pamięci podręcznej
+## <a name="upgrade-cache-software"></a>Uaktualnianie oprogramowania pamięci podręcznej
 
-Jeśli dostępna jest nowa wersja oprogramowania, przycisk **Uaktualnij** zostanie uaktywniony. W górnej części strony pojawi się również komunikat o aktualizowaniu oprogramowania.
+Jeśli dostępna jest nowa wersja oprogramowania, **przycisk Uaktualnij** staje się aktywny. W górnej części strony powinien zostać również wyświetlony komunikat o aktualizowaniu oprogramowania.
 
 ![zrzut ekranu przedstawiający górny wiersz przycisków z włączonym przyciskiem Uaktualnij](media/hpc-cache-upgrade-button.png)
 
-Dostęp klienta nie zostanie przerwany podczas uaktualniania oprogramowania, ale wydajność pamięci podręcznej jest niska. Zaplanuj uaktualnienie oprogramowania w godzinach użycia poza szczytem lub w planowanym okresie konserwacji.
+Dostęp klienta nie jest przerywany podczas uaktualniania oprogramowania, ale wydajność pamięci podręcznej jest niska. Zaplanuj uaktualnienie oprogramowania poza godzinami szczytu lub w okresie planowanej konserwacji.
 
-Aktualizacja oprogramowania może potrwać kilka godzin. W przypadku pamięci podręcznych skonfigurowanych do większej przepływności trwa dłużej niż w przypadku pamięci podręcznych o mniejszych wartościach o najwyższej wydajności.
+Aktualizacja oprogramowania może potrwać kilka godzin. Uaktualnianie pamięci podręcznych skonfigurowanych z wyższą przepływnością trwa dłużej niż w przypadku pamięci podręcznych o mniejszych wartościach szczytowej przepływności.
 
-Po udostępnieniu uaktualnienia oprogramowania użytkownik będzie miał tydzień lub powinien go zastosować ręcznie. Data końcowa jest wyświetlana w komunikacie uaktualniania. Jeśli w tym czasie nie zostanie uaktualniony, platforma Azure automatycznie zastosuje aktualizację do pamięci podręcznej. Nie można skonfigurować chronometrażu automatycznego uaktualniania. Jeśli chodzi o wpływ na wydajność pamięci podręcznej, należy uaktualnić oprogramowanie samodzielnie przed upływem czasu.
+Jeśli uaktualnienie oprogramowania jest dostępne, będziesz mieć tydzień lub tak, aby zastosować je ręcznie. Data zakończenia jest wymieniona w komunikacie o uaktualnieniu. Jeśli nie uaktualnisz w tym czasie, platforma Azure automatycznie stosuje aktualizację do pamięci podręcznej. Nie można skonfigurować chronometrażu automatycznego uaktualniania. Jeśli martwisz się o wpływ na wydajność pamięci podręcznej, przed upływem okresu należy samodzielnie uaktualnić oprogramowanie.
 
-Jeśli pamięć podręczna zostanie zatrzymana po upływie daty zakończenia, pamięć podręczna będzie automatycznie uaktualniać oprogramowanie przy kolejnym uruchomieniu. (Aktualizacja może nie zacząć od razu, ale rozpocznie się w ciągu pierwszej godziny).
+Jeśli pamięć podręczna zostanie zatrzymana po dacie zakończenia, pamięć podręczna automatycznie uaktualni oprogramowanie przy następnym jej uruchamianiu. (Aktualizacja może nie rozpoczynać się od razu, ale rozpocznie się od pierwszej godziny).
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Kliknij przycisk **Uaktualnij** , aby rozpocząć aktualizację oprogramowania. Stan pamięci podręcznej zmieni się na **uaktualnienie** do momentu zakończenia operacji.
+Kliknij przycisk **Uaktualnij,** aby rozpocząć aktualizację oprogramowania. Stan pamięci podręcznej zmienia się **na Uaktualnianie** do momentu ukończenia operacji.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
+[Skonfiguruj interfejs wiersza polecenia platformy Azure dla Azure HPC Cache](./az-cli-prerequisites.md).
 
-W interfejsie wiersza polecenia platformy Azure na końcu raportu o stanie pamięci podręcznej są uwzględniane nowe informacje o oprogramowaniu. (Użyj [AZ HPC-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) do check). Wyszukaj ciąg "upgradeStatus" w komunikacie.
+W interfejsie wiersza polecenia platformy Azure nowe informacje o oprogramowaniu są uwzględniane na końcu raportu o stanie pamięci podręcznej. (Użyj [az hpc-cache show,](/cli/azure/hpc-cache#az_hpc_cache_show) aby to sprawdzić). Poszukaj ciągu "upgradeStatus" w komunikacie.
 
-Użyj [AZ HPC-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) , aby zastosować aktualizację, jeśli istnieje.
+Użyj [az hpc-cache upgrade-firmware,](/cli/azure/hpc-cache#az_hpc_cache_upgrade-firmware) aby zastosować aktualizację, jeśli taka istnieje.
 
-Jeśli aktualizacja nie jest dostępna, ta operacja nie ma żadnego wpływu.
+Jeśli żadna aktualizacja nie jest dostępna, ta operacja nie ma wpływu.
 
-Ten przykład pokazuje stan pamięci podręcznej (brak dostępnej aktualizacji) oraz wyniki polecenia upgrade-firmware.
+W tym przykładzie pokazano stan pamięci podręcznej (nie jest dostępna żadna aktualizacja) i wyniki polecenia upgrade-firmware.
 
 ```azurecli
 $ az hpc-cache show --name doc-cache0629
@@ -200,34 +200,34 @@ $
 
 ## <a name="collect-diagnostics"></a>Zbieranie danych diagnostycznych
 
-Przycisk **Zbierz diagnostykę** ręcznie uruchamia proces zbierania informacji o systemie i przekazywania go do usługi firmy Microsoft i pomocy technicznej w celu rozwiązywania problemów. Pamięć podręczna zbiera i przekazuje te same informacje diagnostyczne w przypadku wystąpienia poważnego problemu z pamięcią podręczną.
+Przycisk **Zbieraj** dane diagnostyczne ręcznie uruchamia proces zbierania informacji o systemie i przekazywania ich do usług i pomocy technicznej firmy Microsoft w celu rozwiązywania problemów. Pamięć podręczna automatycznie zbiera i przesyła te same informacje diagnostyczne w przypadku wystąpienia poważnego problemu z pamięcią podręczną.
 
-Użyj tej kontrolki, jeśli usługa i pomoc techniczna firmy Microsoft żądają tego formantu.
+Użyj tej kontrolki, jeśli zażąda tego usługa firmy Microsoft i pomoc techniczna.
 
-Po kliknięciu przycisku kliknij przycisk **tak** , aby potwierdzić przekazywanie.
+Po kliknięciu przycisku kliknij przycisk **Tak,** aby potwierdzić przekazanie.
 
-![zrzut ekranu przedstawiający podręczny komunikat potwierdzający rozpoczęcie zbierania danych diagnostycznych. Przycisk domyślny "tak" jest wyróżniony.](media/diagnostics-confirm.png)
+![zrzut ekranu przedstawiający wyskakujący komunikat z potwierdzeniem uruchomienia kolekcji diagnostyki. Przycisk domyślny "tak" jest wyróżniony.](media/diagnostics-confirm.png)
 
-## <a name="delete-the-cache"></a>Usuń pamięć podręczną
+## <a name="delete-the-cache"></a>Usuwanie pamięci podręcznej
 
-Przycisk **Usuń** niszczy pamięć podręczną. Po usunięciu pamięci podręcznej wszystkie jej zasoby zostaną zniszczone i nie będą już naliczane opłaty za konto.
+Przycisk **Usuń** niszczy pamięć podręczną. Po usunięciu pamięci podręcznej wszystkie jej zasoby są niszczone i nie są już naliczane opłaty za konto.
 
-W przypadku usunięcia pamięci podręcznej nie ma to żadnego oddziaływania na woluminy magazynu zaplecza używane jako cele magazynu. Możesz dodać je do przyszłej pamięci podręcznej później lub zlikwidować je osobno.
+Usunięcie pamięci podręcznej nie ma wpływu na woluminy magazynu na zadużych używane jako obiekty docelowe magazynu. Później możesz dodać je do przyszłej pamięci podręcznej lub zlikwidować je oddzielnie.
 
 > [!NOTE]
-> Pamięć podręczna Azure HPC nie zapisuje automatycznie zmienionych danych z pamięci podręcznej w systemach magazynu zaplecza przed usunięciem pamięci podręcznej.
+> Azure HPC Cache nie zapisuje automatycznie zmienionych danych z pamięci podręcznej do systemów magazynowania na zadumie przed usunięciem pamięci podręcznej.
 >
-> Aby upewnić się, że wszystkie dane w pamięci podręcznej zostały zapisaną do magazynu długoterminowego, [Zatrzymaj pamięć podręczną](#stop-the-cache) przed jego usunięciem. Upewnij się, że jest wyświetlany stan **zatrzymane** przed usunięciem.
+> Aby upewnić się, że wszystkie dane w pamięci podręcznej zostały zapisane w magazynie długoterminowym, zatrzymaj pamięć [podręczną](#stop-the-cache) przed jej usunięciem. Przed usunięciem upewnij się, że jest **on w stanie** Zatrzymano.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Po zatrzymaniu pamięci podręcznej kliknij przycisk **Usuń** , aby trwale usunąć pamięć podręczną.
+Po zatrzymaniu pamięci podręcznej kliknij przycisk **Usuń,** aby trwale usunąć pamięć podręczną.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
+[Skonfiguruj interfejs wiersza polecenia platformy Azure dla Azure HPC Cache](./az-cli-prerequisites.md).
 
-Użyj interfejsu wiersza polecenia platformy Azure [AZ HPC-cache Delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) , aby trwale usunąć pamięć podręczną.
+Użyj polecenia interfejsu wiersza polecenia platformy Azure [az hpc-cache delete,](/cli/azure/hpc-cache#az_hpc_cache_delete) aby trwale usunąć pamięć podręczną.
 
 Przykład:
 ```azurecli
@@ -247,29 +247,29 @@ $
 
 ---
 
-## <a name="cache-metrics-and-monitoring"></a>Metryki pamięci podręcznej i monitorowanie
+## <a name="cache-metrics-and-monitoring"></a>Metryki i monitorowanie pamięci podręcznej
 
-Na stronie Przegląd przedstawiono wykresy dla niektórych podstawowych statystyk pamięci podręcznej — przepływność pamięci podręcznej, operacje na sekundę i opóźnienie.
+Na stronie przeglądu przedstawiono wykresy dla niektórych podstawowych statystyk pamięci podręcznej — przepływności pamięci podręcznej, operacji na sekundę i opóźnienia.
 
-![zrzut ekranu przedstawiający trzy wykresy liniowe pokazujący wymienione powyżej dane statystyczne dla przykładowej pamięci podręcznej](media/hpc-cache-overview-stats.png)
+![zrzut ekranu przedstawiający trzy liniowe wykresy przedstawiające wspomniane powyżej statystyki przykładowej pamięci podręcznej](media/hpc-cache-overview-stats.png)
 
-Te wykresy są częścią wbudowanych narzędzi do monitorowania i analizowania danych platformy Azure. Dodatkowe narzędzia i alerty są dostępne na stronach pod nagłówkiem **monitorowanie** na pasku bocznym portalu. Więcej informacji znajduje się w sekcji Portal dokumentacji dotyczącej [monitorowania platformy Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+Te wykresy są częścią wbudowanych narzędzi do monitorowania i analizy platformy Azure. Dodatkowe narzędzia i alerty są dostępne na stronach pod **nagłówkiem Monitorowanie** na pasku bocznym portalu. Dowiedz się więcej w sekcji portalu [dokumentacji monitorowania platformy Azure.](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal)
 
-## <a name="view-warnings"></a>Wyświetl ostrzeżenia
+## <a name="view-warnings"></a>Wyświetlanie ostrzeżeń
 
-Jeśli pamięć podręczna przejdzie w stan złej kondycji, sprawdź stronę **ostrzeżenia** . Na tej stronie są wyświetlane powiadomienia dotyczące oprogramowania pamięci podręcznej, które mogą pomóc w zrozumieniu jego stanu.
+Jeśli pamięć podręczna przejdzie w stan złej kondycji, sprawdź **stronę Ostrzeżenia.** Na tej stronie są wyświetlane powiadomienia z oprogramowania pamięci podręcznej, które mogą pomóc w zrozumieniu jego stanu.
 
-Te powiadomienia nie są wyświetlane w dzienniku aktywności, ponieważ nie są kontrolowane przez Azure Portal. Są one często skojarzone z ustawieniami niestandardowymi, które mogły zostać wykonane.
+Te powiadomienia nie są wyświetlane w dzienniku aktywności, ponieważ nie są kontrolowane przez Azure Portal. Są one często skojarzone z ustawieniami niestandardowymi, które mogły zostać wprowadzone.
 
-Rodzaje ostrzeżeń, które mogą zostać wyświetlone w tym miejscu, to m.in.:
+Rodzaje ostrzeżeń, które mogą być wyświetlane w tym miejscu, obejmują:
 
-* Pamięć podręczna nie może nawiązać połączenia z serwerem NTP
-* Nie powiodło się pobranie przez pamięć podręczną informacji o nazwie użytkownika
-* Niestandardowe ustawienia DNS zostały zmienione w miejscu docelowym magazynu
+* Pamięć podręczna nie może uzyskać do serwera NTP
+* Pamięć podręczna nie może pobrać informacji o nazwie użytkownika rozszerzonych grup
+* Niestandardowe ustawienia DNS zostały zmienione dla obiektu docelowego magazynu
 
-![zrzut ekranu przedstawiający stronę ostrzeżenia > monitorowania z komunikatem, że nie można pobrać nazw użytkowników rozszerzonej grupy](media/warnings-page.png)
+![zrzut ekranu przedstawiający stronę > monitorowania z komunikatem informujący o tym, że nie można pobrać nazw użytkowników grup rozszerzonych](media/warnings-page.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [narzędziach metryk i statystyk dotyczących platformy Azure](../azure-monitor/index.yml)
-* Uzyskaj [Pomoc dotyczącą pamięci podręcznej platformy Azure HPC](hpc-cache-support-ticket.md)
+* Dowiedz się więcej o [metrykach i narzędziach statystyk platformy Azure](../azure-monitor/index.yml)
+* Uzyskaj [pomoc Azure HPC Cache](hpc-cache-support-ticket.md)

@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 04/20/2021
-  ms.openlocfilehash: 8c754c7855848db3119d987a4147b08cd3aa2115
-  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.openlocfilehash: 54a304e145d995e484f149488fbf5d4f0ad7854f
+  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107765345"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107878060"
 landingContent:
 - title: Informacje o usłudze Azure VMware Solution
   linkLists:
@@ -108,7 +108,7 @@ landingContent:
     links:
     - text: Zarządzanie protokołem DHCP
       url: manage-dhcp.md
-    - text: Konfigurowanie składników sieciowych NSX
+    - text: Konfigurowanie składników sieci NSX
       url: configure-nsx-network-components-azure-portal.md
     - text: Wdrażanie odzyskiwania po awarii dla maszyn wirtualnych
       url: disaster-recovery-for-virtual-machines.md
@@ -163,7 +163,7 @@ landingContent:
     - text: Interfejs API REST
       url: /rest/api/avs
     - text: Interfejs wiersza polecenia platformy Azure
-      url: /cli/azure/ext/vmware/vmware
+      url: /cli/azure/vmware
     - text: Azure PowerShell
       url: /powershell/module/az.vmware
     - text: Dostawca programu Terraform na platformie Azure
@@ -178,7 +178,7 @@ landingContent:
       url: https://youtu.be/BoQYvqzb6Y8
     - text: Planowanie migracji i pojemności
       url: https://youtu.be/NoNG-hkksrA
-    - text: Obracanie haseł programu vCenter & NSX-T przy użyciu aplikacji logiki platformy Azure
+    - text: Obracanie haseł NSX-T & vCenter przy użyciu aplikacji logiki platformy Azure
       url: https://youtu.be/cK1qY3knj88
 - title: Rozwiązywanie problemów
   linkLists:
@@ -186,5 +186,5 @@ landingContent:
     links:
     - text: Otwieranie wniosku o pomoc techniczną dla niepowodzeń wdrażania
       url: fix-deployment-provisioning-failures.md
-    - text: VMware tools vix error code = 21009
+    - text: Kod błędu narzędzia VMware = 21009
       url: https://kb.vmware.com/s/article/2129927

@@ -1,71 +1,65 @@
 ---
-title: Dostosowywanie reguł przy użyciu portalu — Zapora aplikacji sieci Web platformy Azure
-description: Ten artykuł zawiera informacje dotyczące sposobu dostosowywania reguł zapory aplikacji sieci Web w Application Gateway z Azure Portal.
+title: Dostosowywanie reguł przy użyciu portalu — Azure Web Application Firewall
+description: Ten artykuł zawiera informacje na temat dostosowywania reguł Web Application Firewall w Application Gateway za pomocą Azure Portal.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 04/21/2021
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab122d178e5390a53e5a3a39f1b7763b298dc6d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74048381"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878330"
 ---
-# <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Dostosowywanie reguł zapory aplikacji sieci Web przy użyciu Azure Portal
+# <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Dostosowywanie Web Application Firewall reguł przy użyciu Azure Portal
 
-Zapora aplikacji sieci Web Application Gateway Azure (WAF) zapewnia ochronę aplikacji sieci Web. Te zabezpieczenia są udostępniane przez zestaw reguł programu Open Web Application Security (OWASP) Core (KSR). Niektóre reguły mogą spowodować fałszywie dodatnie i blokować rzeczywisty ruch. Z tego powodu Application Gateway oferuje możliwość dostosowywania grup reguł i reguł. Aby uzyskać więcej informacji na temat określonych grup reguł i reguł, zobacz [Lista zasad i reguł reguł KSR aplikacji sieci Web](application-gateway-crs-rulegroups-rules.md).
+Aplikacja Azure Application Gateway Web Application Firewall (WAF) zapewnia ochronę aplikacji internetowych. Te zabezpieczenia są zapewniane przez Open Web Application Security Project (OWASP) Core Rule Set (CRS). Niektóre reguły mogą powodować wyniki fałszywie dodatnie i blokować rzeczywisty ruch. Z tego powodu Application Gateway możliwość dostosowywania grup reguł i reguł. Aby uzyskać więcej informacji na temat określonych grup reguł i reguł, zobacz [List of Web Application Firewall CRS rule groups and rules (Lista](application-gateway-crs-rulegroups-rules.md)grup i reguł crs).
 
 >[!NOTE]
-> Jeśli Brama aplikacji nie korzysta z warstwy WAF, opcja uaktualnienia bramy aplikacji do warstwy WAF zostanie wyświetlona w okienku po prawej stronie. 
+> Jeśli brama aplikacji nie korzysta z warstwy aplikacji internetowej, opcja uaktualnienia bramy aplikacji do warstwy WAF jest wyświetlana w okienku po prawej stronie. 
 
-![Włącz WAF][fig1]
+:::image type="content" source="../media/application-gateway-customize-waf-rules-portal/1.png" alt-text="Włączanie funkcji WAF"::: 
 
-## <a name="view-rule-groups-and-rules"></a>Wyświetlanie zasad i grup reguł
+## <a name="view-rule-groups-and-rules"></a>Wyświetlanie grup reguł i reguł
 
-**Aby wyświetlić grupy i reguły reguł**
-1. Przejdź do bramy aplikacji, a następnie wybierz pozycję **Zapora aplikacji sieci Web**.  
-2. Wybierz **zasady WAF**.
-2. Wybierz **reguły zarządzane**.
+**Aby wyświetlić grupy reguł i reguły**
+1. Przejdź do bramy aplikacji, a następnie wybierz **pozycję Zapora aplikacji internetowej.**  
+2. Wybierz zasady **WAF.**
+2. Wybierz **pozycję Reguły zarządzane.**
 
-   Ten widok przedstawia tabelę na stronie wszystkich grup reguł dostarczonych z wybranym zestawem reguł. Zaznaczone są wszystkie pola wyboru reguły.
+   Ten widok przedstawia tabelę na stronie wszystkich grup reguł dostarczonych z wybranym zestawem reguł. Wszystkie pola wyboru reguły są zaznaczone.
 
 ## <a name="disable-rule-groups-and-rules"></a>Wyłączanie grup reguł i reguł
 
 > [!IMPORTANT]
-> Należy zachować ostrożność podczas wyłączania reguł lub grup reguł. Może to spowodować zwiększenie zagrożeń bezpieczeństwa.
-
-Po wyłączeniu reguł można wyłączyć całą grupę reguł lub określone reguły w jednej lub kilku grupach reguł. 
+> Podczas wyłączania grup reguł lub reguł należy zachować ostrożność. Może to spowodować zwiększone zagrożenia bezpieczeństwa.
 
 **Aby wyłączyć grupy reguł lub określone reguły**
 
    1. Wyszukaj reguły lub grupy reguł, które chcesz wyłączyć.
    2. Zaznacz pola wyboru dla reguł, które chcesz wyłączyć. 
-   3. Wybierz akcję w górnej części strony (Włącz/Wyłącz) dla wybranych reguł.
-   2. Wybierz pozycję **Zapisz**. 
-
-![Zapisz zmiany][3]
+   3. Wybierz akcję w górnej części strony (włącz/wyłącz) dla wybranych reguł.
+   2. Wybierz pozycję **Zapisz**.
+    :::image type="content" source="../media/application-gateway-customize-waf-rules-portal/figure3.png" alt-text="Zapisywanie wyłączonych reguł"::: 
 
 ## <a name="mandatory-rules"></a>Reguły obowiązkowe
 
-Poniższa lista zawiera warunki, które powodują, że WAF zablokują żądanie w trybie zapobiegania. W trybie wykrywania są one rejestrowane jako wyjątki.
+Na poniższej liście znajdują się warunki, które powodują zablokowanie żądania przez WAF w trybie zapobiegania. W trybie wykrywania są rejestrowane jako wyjątki.
 
 Nie można ich skonfigurować ani wyłączyć:
 
-* Nie można przeanalizować treści żądania w wyniku zablokowania żądania, chyba że inspekcja treści jest wyłączona (XML, JSON, dane formularza)
+* Niepowodzenie analizy treści żądania powoduje zablokowanie żądania, chyba że inspekcja treści jest wyłączona (dane XML, JSON, formularz)
 * Długość danych treści żądania (bez plików) jest większa niż skonfigurowany limit
 * Treść żądania (w tym pliki) jest większa niż limit
-* Wystąpił błąd wewnętrzny w aparacie WAF
+* Wystąpił wewnętrzny błąd w a aparatze aplikacji sieci Szkieletowej
 
-Specyficzne dla KSR 3. x:
+Specyficzny dla crs 3.x:
 
-* Próg limitu przychodzącego wyniku anomalii
+* Wynik anomalii ruchu przychodzącego przekroczył próg
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu wyłączonych reguł można dowiedzieć się, jak wyświetlić dzienniki WAF. Aby uzyskać więcej informacji, zobacz [Application Gateway Diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-
-[fig1]: ../media/application-gateway-customize-waf-rules-portal/1.png
-[3]: ../media/application-gateway-customize-waf-rules-portal/figure3.png
+Po skonfigurowaniu wyłączonych reguł możesz dowiedzieć się, jak wyświetlać dzienniki usługi WAF. Aby uzyskać więcej informacji, zobacz [Application Gateway diagnostyki](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).

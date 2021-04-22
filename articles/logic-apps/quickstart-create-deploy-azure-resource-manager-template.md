@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 04/01/2021
-ms.openlocfilehash: bdeb80dc487d8418e21a40a29e5d2baab49d7b05
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a177cf48c479f2e2afb0d6d23b1f4695ed57cfe4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771897"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875615"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Szybki start: tworzenie i wdrażanie przepływu pracy aplikacji logiki przy użyciu szablonu usługi ARM
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpła
 
 W tym przewodniku Szybki start jest używany szablon Tworzenie aplikacji [**logiki,**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) który można znaleźć w galerii szablonów szybkiego startu platformy [Azure,](https://azure.microsoft.com/resources/templates) ale jego wyświetlanie w tym miejscu trwa zbyt długo. Zamiast tego możesz przejrzeć szablon szybkiego startu ["azuredeploy.jsw pliku"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) w galerii szablonów.
 
-Szablon szybkiego startu tworzy przepływ pracy aplikacji logiki, który używa wyzwalacza Cyklicznie, który jest ustawiany do uruchamiania co godzinę, oraz wbudowanej akcji [  HTTP](../connectors/built-in.md), która wywołuje adres URL, który zwraca stan dla platformy Azure. Wbudowana akcja jest natywna dla Azure Logic Apps platformy.
+Szablon szybkiego startu tworzy przepływ pracy aplikacji logiki, który używa wyzwalacza Cyklicznie, który jest ustawiany do uruchamiania co godzinę, oraz wbudowanej akcji [  HTTP](../connectors/built-in.md), która wywołuje adres URL, który zwraca stan platformy Azure. Wbudowana akcja jest natywna dla Azure Logic Apps platformy.
 
 Ten szablon tworzy następujący zasób platformy Azure:
 
@@ -49,7 +49,7 @@ Postępuj zgodnie z opcją, której chcesz użyć do wdrożenia szablonu szybkie
 | Opcja | Opis |
 |--------|-------------|
 | [Witryna Azure Portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | Jeśli środowisko platformy Azure spełnia wymagania wstępne i znasz szablony usługi ARM, te kroki ułatwiają logowanie się bezpośrednio do platformy Azure i otwieranie szablonu szybkiego startu w Azure Portal. Aby uzyskać więcej informacji, zobacz [Deploy resources with ARM templates and Azure Portal](../azure-resource-manager/templates/deploy-portal.md)(Wdrażanie zasobów za pomocą szablonów usługi ARM i Azure Portal ). |
-| [Interfejs wiersza polecenia platformy Azure](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | Interfejs wiersza polecenia platformy Azure (Azure CLI) to zestaw poleceń do tworzenia zasobów platformy Azure i zarządzania nimi. Do uruchomienia tych poleceń potrzebny jest interfejs wiersza polecenia platformy Azure w wersji 2.6 lub nowszej. Aby sprawdzić wersję interfejsu wiersza polecenia, wpisz `az --version` . Więcej informacji można znaleźć w następujących tematach: <p><p>- [Co to jest interfejs wiersza polecenia platformy Azure](/cli/azure/what-is-azure-cli) <br>- [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) |
+| [Interfejs wiersza polecenia platformy Azure](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | Interfejs wiersza polecenia platformy Azure (Azure CLI) to zestaw poleceń do tworzenia zasobów platformy Azure i zarządzania nimi. Do uruchomienia tych poleceń potrzebny jest interfejs wiersza polecenia platformy Azure w wersji 2.6 lub nowszej. Aby sprawdzić wersję interfejsu wiersza polecenia, wpisz `az --version` . Więcej informacji można znaleźć w następujących tematach: <p><p>- [Co to jest interfejs wiersza polecenia platformy Azure](/cli/azure/what-is-azure-cli) <br>- [Wprowadzenie do interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) |
 | [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Program Azure PowerShell udostępnia zestaw poleceń cmdlet, które pozwalają zarządzać zasobami platformy Azure przy użyciu modelu usługi Azure Resource Manager. Więcej informacji można znaleźć w następujących tematach: <p><p>- [Azure PowerShell omówienie](/powershell/azure/azurerm/overview) <br>- [Wprowadzenie do Azure PowerShell Az](/powershell/azure/new-azureps-module-az) <br>- [Wprowadzenie do Azure PowerShell](/powershell/azure/get-started-azureps) |
 | [Azure Resource Management REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Platforma Azure Representational State Transfer interfejsy API rest (REST), czyli punkty końcowe usługi, które obsługują operacje HTTP (metody), których używasz do tworzenia, pobierania, aktualizowania lub usuwania dostępu do zasobów usługi. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z interfejsem API REST platformy Azure.](/rest/api/azure/) |
 |||
@@ -78,9 +78,9 @@ Postępuj zgodnie z opcją, której chcesz użyć do wdrożenia szablonu szybkie
 
    ![Podaj informacje dotyczące szablonu szybkiego startu](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
-1. Gdy wszystko będzie gotowe, wybierz pozycję **Przejrzyj i utwórz.**
+1. Gdy wszystko będzie gotowe, wybierz pozycję **Przejrzyj i utwórz**.
 
-1. Przejdź do kroków z tematu [Review deployed resources (Przeglądanie wdrożonych zasobów).](#review-deployed-resources)
+1. Przejdź do kroków z [tematu Review deployed resources (Przeglądanie wdrożonych zasobów).](#review-deployed-resources)
 
 #### <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
 
@@ -119,7 +119,7 @@ Więcej informacji można znaleźć w następujących tematach:
 
 * [Azure PowerShell: New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 * [Azure PowerShell: New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)
-* [Wdrażanie zasobów przy użyciu szablonów usługi ARM i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Wdrażanie zasobów za pomocą szablonów usługi ARM i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
 #### <a name="rest-api"></a>[Interfejs API REST](#tab/rest-api)
 
@@ -189,7 +189,7 @@ Więcej informacji można znaleźć w następujących tematach:
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
    | `location`| <*Region świadczenia usługi Azure*> | Region świadczenia usługi Azure do użycia na użytek wdrożenia. W tym przykładzie użyto wartości `West US`. |
-   | `templateLink` : `uri` | <*szybki start — adres URL szablonu*> | Lokalizacja adresu URL szablonu szybkiego startu do użycia podczas wdrażania: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
+   | `templateLink` : `uri` | <*szybki start — adres URL szablonu*> | Lokalizacja adresu URL szablonu szybkiego startu do użycia na użytek wdrożenia: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
    | `parametersLink` : `uri` | <*quickstart-template-parameter-file-URL*> | Lokalizacja adresu URL pliku parametrów szablonu szybkiego startu do użycia podczas wdrażania: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json` <p><p>Aby uzyskać więcej informacji o Resource Manager parametrów, zobacz następujące tematy: <p><p>- [Tworzenie Resource Manager parametrów](../azure-resource-manager/templates/parameter-files.md) <br>- [Samouczek: wdrażanie szablonu usługi ARM przy użyciu plików parametrów](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
    | `mode` | <*tryb wdrażania*> | Uruchom aktualizację przyrostową lub pełną. W tym przykładzie `Incremental` użyto wartości , która jest wartością domyślną. Aby uzyskać więcej informacji, [zobacz Azure Resource Manager wdrażania.](../azure-resource-manager/templates/deployment-modes.md) |
    |||
@@ -245,7 +245,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Aby uzyskać więcej informacji, zobacz [Interfejs wiersza polecenia platformy Azure: az logic workflow show](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show).
+Aby uzyskać więcej informacji, zobacz [Interfejs wiersza polecenia platformy Azure: az logic workflow show](/cli/azure/logic/workflow#az_logic_workflow_show).
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -282,7 +282,7 @@ Aby uzyskać więcej informacji, zobacz [Logic Apps API REST: Workflows - Get](/
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start i samouczkami, warto zachować te zasoby. Gdy aplikacja logiki nie jest już potrzebna, usuń grupę zasobów przy użyciu interfejsu API REST usługi Azure Portal, interfejsu wiersza polecenia platformy Azure Azure PowerShell lub usługi Resource Management.
+Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start i samouczkami, możesz zachować te zasoby. Jeśli aplikacja logiki nie jest już potrzebna, usuń grupę zasobów przy użyciu interfejsu API REST usługi Azure Portal, interfejsu wiersza polecenia platformy Azure Azure PowerShell lub usługi Resource Management.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 

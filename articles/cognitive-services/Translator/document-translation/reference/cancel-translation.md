@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 3de052f50676065a6656f77a0ea68cf8c9ab46a8
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: e3b7da30f54b9d9468b46a2cd0972a3397e5cdce
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107836204"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865111"
 ---
 # <a name="cancel-translation"></a>Anulowanie tłumaczenia
 
-Anulowanie operacji przetwarzania lub operacji w kolejce. Operacja nie zostanie anulowana, jeśli została już ukończona, nie powiodła się lub została anulowana. Zostanie zwrócone złe żądanie. Wszystkie dokumenty, które zostały przetłumaczone, nie zostaną anulowane i zostaną naliczone opłaty. Jeśli to możliwe, wszystkie oczekujące dokumenty zostaną anulowane.
+Anulowanie operacji przetwarzania lub operacji w kolejce. Operacja nie zostanie anulowana, jeśli została już ukończona, nie powiodła się lub została anulowana. Zostanie zwrócone złe żądanie. Wszystkie dokumenty, które zostały ukończone, nie zostaną anulowane i zostaną naliczone opłaty. Jeśli to możliwe, wszystkie oczekujące dokumenty zostaną anulowane.
 
 ## <a name="request-url"></a>Adres URL żądania
 
@@ -29,12 +29,12 @@ Wyślij `DELETE` żądanie do:
 https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
 ```
 
-Dowiedz się, jak znaleźć [niestandardową nazwę domeny](../get-started-with-document-translation.md#find-your-custom-domain-name).
+Dowiedz się, jak znaleźć [niestandardową nazwę domeny.](../get-started-with-document-translation.md#find-your-custom-domain-name)
 
 > [!IMPORTANT]
 >
 > * **Wszystkie żądania interfejsu API do usługi tłumaczenia dokumentów wymagają niestandardowego punktu końcowego domeny**.
-> * Nie można użyć punktu końcowego znalezionego na  stronie kluczy Azure Portal punktu końcowego ani globalnego punktu końcowego usługi Translator — do przesyłania żądań HTTP do tłumaczenia `api.cognitive.microsofttranslator.com` dokumentów.
+> * Nie można użyć punktu końcowego znalezionego na  stronie kluczy Azure Portal punktu końcowego ani globalnego punktu końcowego translatora — do przesyłania żądań HTTP do `api.cognitive.microsofttranslator.com` tłumaczenia dokumentów.
 
 ## <a name="request-parameters"></a>Parametry żądania
 
@@ -75,7 +75,7 @@ Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 |identyfikator|ciąg|Identyfikator operacji.|
 |createdDateTimeUtc|ciąg|Data i godzina utworzenia operacji.|
 |lastActionDateTimeUtc|ciąg|Data i godzina aktualizacji stanu operacji.|
-|status|Ciąg|Lista możliwych stanów zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>ValidationFailed</li></ul>|
+|status|Ciąg|Lista możliwych stanów zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>Błąd walidacji</li></ul>|
 |Podsumowanie|StatusSummary|Podsumowanie zawierające szczegóły wymienione poniżej.|
 |summary.total|liczba całkowita|Liczba wszystkich dokumentów.|
 |summary.failed|liczba całkowita|Liczba dokumentów nie powiodła się.|
@@ -83,16 +83,16 @@ Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 |summary.inProgress|liczba całkowita|Liczba dokumentów w toku.|
 |summary.notYetStarted|liczba całkowita|Liczba dokumentów, których przetwarzanie nie zostało jeszcze rozpoczęte.|
 |summary.cancelled|liczba całkowita|Liczba anulowanych.|
-|summary.totalCharacterCharged|liczba całkowita|Łączna liczba znaków naliczana przez interfejs API.|
+|summary.totalCharacterCharged|liczba całkowita|Łączna liczba znaków naliczanych przez interfejs API.|
 
-### <a name="error-response"></a>Odpowiedź z błędem
+### <a name="error-response"></a>Odpowiedź o błędzie
 
 |Nazwa|Typ|Opis|
 |--- |--- |--- |
 |kod|ciąg|Wylinia zawierające kody błędów wysokiego poziomu. Możliwe wartości:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Brak autoryzacji</li></ul>|
 |message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
-|Docelowego|ciąg|Pobiera źródło błędu. Na przykład będzie to "dokumenty" lub "identyfikator dokumentu" dla nieprawidłowego dokumentu.|
-|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, komunikat i opcjonalne właściwości docelowe, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
+|Docelowego|ciąg|Pobiera źródło błędu. Na przykład w przypadku nieprawidłowego dokumentu będzie to "dokumenty" lub "identyfikator dokumentu".|
+|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera on wymagane właściwości ErrorCode, komunikat i opcjonalny element docelowy właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
 |innerError.code|ciąg|Pobiera ciąg błędu kodu.|
 |Wewnętrzny. Eroor.message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 
@@ -100,7 +100,7 @@ Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 
 ### <a name="example-successful-response"></a>Przykład pomyślnej odpowiedzi
 
-Poniższy obiekt JSON jest przykładem pomyślnej odpowiedzi.
+Następujący obiekt JSON jest przykładem pomyślnej odpowiedzi.
 
 Kod stanu: 200
 
@@ -122,9 +122,9 @@ Kod stanu: 200
 }
 ```
 
-### <a name="example-error-response"></a>Przykładowa odpowiedź o błędzie
+### <a name="example-error-response"></a>Przykładowa odpowiedź z błędem
 
-Poniższy obiekt JSON jest przykładem odpowiedzi błędu. Schemat innych kodów błędów jest taki sam.
+Następujący obiekt JSON jest przykładem odpowiedzi o błędzie. Schemat innych kodów błędów jest taki sam.
 
 Kod stanu: 500
 

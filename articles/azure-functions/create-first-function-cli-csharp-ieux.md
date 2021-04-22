@@ -8,12 +8,12 @@ ms.custom:
 - devx-track-azurecli
 - devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: fb287333ba8b0b4fc0bb35ce91d2e3113ff50e2b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 45173a74c0e3189c1f356aea2f8024ff15409f32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831118"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866201"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji języka C# na platformie Azure z wiersza polecenia
 
@@ -35,7 +35,7 @@ Istnieje również wersja [Visual Studio Code tego](create-first-function-vs-cod
 
 + Uzyskiwanie konta platformy Azure <abbr title="Profil, który przechowuje informacje rozliczeniowe dotyczące użycia platformy Azure.">account</abbr> z aktywną <abbr title="Podstawowa struktura organizacyjna, w której zarządzasz zasobami na platformie Azure, zwykle skojarzona z jednostką lub działem w organizacji.">subskrypcja</abbr>. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ Instalowanie [zestaw .NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ Instalowanie zestawu SDK platformy [.NET Core 3.1](https://dotnet.microsoft.com/download)
 
 + Zainstaluj [Azure Functions Core Tools](functions-run-local.md#v2) wersji 3.x.
 
@@ -117,7 +117,7 @@ W tej sekcji utworzysz lokalną <abbr title="Kontener logiczny dla co najmniej j
 
 ## <a name="4-run-the-function-locally"></a>4. Uruchom funkcję lokalnie
 
-1. Uruchom funkcję przez uruchomienie lokalnego Azure Functions uruchomieniowego z folderu *LocalFunctionProj:*
+1. Uruchom funkcję, uruchamiać lokalnego hosta Azure Functions uruchomieniowego z folderu *LocalFunctionProj:*
 
     ```
     func start
@@ -140,7 +140,7 @@ W tej sekcji utworzysz lokalną <abbr title="Kontener logiczny dla co najmniej j
 
     <br/>
     <details>
-    <summary><strong>Nie widzę w danych wyjściowych programu HttpExample</strong></summary>
+    <summary><strong>Nie widzę programu HttpExample w danych wyjściowych</strong></summary>
 
     Jeśli nie zostanie wyświetlony przykład HttpExample, prawdopodobnie uruchomiliśmy hosta spoza folderu głównego projektu. W takim przypadku użyj <kbd>klawiszy Ctrl+C,</kbd> aby zatrzymać hosta, przejść do folderu głównego projektu i ponownie uruchomić poprzednie polecenie.
     </details>

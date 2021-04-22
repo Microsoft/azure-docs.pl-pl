@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: 5088b4e50899a2643488103ba29a7e36a7f256ea
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 036052dc45b8d029dac6e137b3a878b75e6e015c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778359"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873401"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Szybki start: tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -29,7 +29,7 @@ Prywatne punkty końcowe można tworzyć dla różnych rodzajów usług platform
     * Aby uzyskać więcej informacji i przykład, zobacz [Szybki start: tworzenie aplikacji internetowej ASP.NET Core na platformie Azure.](../app-service/quickstart-dotnetcore.md) 
     * Aby uzyskać szczegółowy samouczek dotyczący tworzenia aplikacji internetowej i punktu końcowego, zobacz Samouczek: nawiązywanie połączenia z aplikacją [internetową przy użyciu prywatnego punktu końcowego platformy Azure.](tutorial-private-endpoint-webapp-portal.md)
 * Zaloguj się do Azure Portal i sprawdź, czy Twoja subskrypcja jest aktywna, uruchamiając . `az login`
-* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w oknie terminalu lub polecenia, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zobacz najnowsze [informacje o wersji.](/cli/azure/release-notes-azure-cli?tabs=azure-cli)
+* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w terminalu lub oknie poleceń, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zobacz [najnowsze informacje o wersji.](/cli/azure/release-notes-azure-cli?tabs=azure-cli)
   * Jeśli nie masz najnowszej wersji, zaktualizuj instalację, korzystając z przewodnika instalacji dla systemu [operacyjnego lub platformy](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
@@ -55,11 +55,11 @@ Host bastionu będzie używany do bezpiecznego nawiązywania połączenia z masz
 
 Tworzenie sieci wirtualnej za pomocą [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)
 
-* Nazwane **myVNet.**
+* Nosi **nazwę myVNet.**
 * Prefiks adresu **10.0.0.0/16.**
 * Podsieć **o nazwie myBackendSubnet.**
 * Prefiks podsieci **10.0.0.0/24.**
-* W grupie **zasobów CreatePrivateEndpointQS-rg.**
+* W **grupie zasobów CreatePrivateEndpointQS-rg.**
 * Lokalizacja **regionu eastus**.
 
 ```azurecli-interactive
@@ -82,10 +82,10 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-Użyj [az network public-ip create,](/cli/azure/network/public-ip#az_network_public_ip_create) aby utworzyć publiczny adres IP hosta bastionu:
+Użyj [az network public-ip create,](/cli/azure/network/public-ip#az_network_public_ip_create) aby utworzyć publiczny adres IP dla hosta bastionu:
 
-* Utwórz standardowy strefowo nadmiarowy publiczny adres IP o nazwie **myBastionIP.**
-* W **jęz. CreatePrivateEndpointQS-rg**.
+* Utwórz standardowy strefowo nadmiarowy publiczny adres IP o **nazwie myBastionIP.**
+* W **createPrivateEndpointQS-rg**.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -111,8 +111,8 @@ az network vnet subnet create \
 
 Użyj [az network bastion create,](/cli/azure/network/bastion#az_network_bastion_create) aby utworzyć hosta bastionu:
 
-* O **nazwie myBastionHost.**
-* W **jęz. CreatePrivateEndpointQS-rg**.
+* Nazwane **myBastionHost**.
+* W **createPrivateEndpointQS-rg**.
 * Skojarzony z publicznym adresem IP **myBastionIP.**
 * Skojarzone z siecią **wirtualną myVNet.**
 * W **lokalizacji eastus.**
@@ -134,7 +134,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
 
 Utwórz maszynę wirtualną za pomocą [az vm create](/cli/azure/vm#az_vm_create). Po wyświetleniu monitu podaj hasło, które będzie używane jako poświadczenia dla maszyny wirtualnej:
 
-* O **nazwie myVM.**
+* Nazwana **myVM.**
 * W **jęz. CreatePrivateEndpointQS-rg**.
 * W sieci **myVNet**.
 * W podsieci **myBackendSubnet**.
@@ -185,9 +185,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Konfigurowanie prywatnej strefy DNS
 
-W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS przy użyciu narzędzia [az network private-dns zone create.](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create)  
+W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS przy użyciu narzędzia [az network private-dns zone create.](/cli/azure/network/private-dns/zone#az_network_private_dns_zone_create)  
 
-Użyjesz az [network private-dns link vnet create,](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) aby utworzyć połączenie sieci wirtualnej ze strefą DNS.
+Użyjesz az [network private-dns link vnet create,](/cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create) aby utworzyć połączenie sieci wirtualnej ze strefą DNS.
 
 Utworzysz grupę stref DNS za pomocą az [network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 
@@ -250,11 +250,11 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
     Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-    Prywatny adres IP **10.0.0.5** jest zwracany dla nazwy aplikacji internetowej.  Ten adres znajduje się w podsieci utworzonej wcześniej sieci wirtualnej.
+    Prywatny adres IP **10.0.0.5** jest zwracany jako nazwa aplikacji internetowej.  Ten adres znajduje się w podsieci utworzonej wcześniej sieci wirtualnej.
 
 10. W połączeniu bastionu z **myVM** otwórz Internet Explorer.
 
-11. Wprowadź adres URL aplikacji internetowej, a **następnie https:// \<your-webapp-name> .azurewebsites.net**.
+11. Wprowadź adres URL aplikacji internetowej, a **https:// \<your-webapp-name> .azurewebsites.net**.
 
 12. Jeśli aplikacja nie została wdrożona, otrzymasz domyślną stronę aplikacji internetowej:
 
