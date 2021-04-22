@@ -1,31 +1,31 @@
 ---
-title: Szybki Start — uruchamianie pierwszego zadania Azure Batch za pomocą interfejsu API platformy .NET
-description: W tym przewodniku szybki start uruchomiono Azure Batch przykładowe zadanie i zadania z aplikacji C# przy użyciu biblioteki klienckiej usługi Batch .NET.
+title: Szybki start — uruchamianie pierwszego zadania Azure Batch za pomocą interfejsu API platformy .NET
+description: W tym przewodniku Szybki start uruchamiasz przykładowe Azure Batch i zadania z aplikacji języka C# przy użyciu biblioteki klienta .NET usługi Batch.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 48166faa016defb719d8b48c2fff84de32f6c2e4
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1c2328db520042ceff1861b740313befbed0e20d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168250"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876728"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Szybki start: uruchamianie pierwszego zadania usługi Azure Batch za pomocą interfejsu API platformy .NET
 
-Wprowadzenie do Azure Batch przez uruchomienie zadania z aplikacji języka C# skompilowanej na Azure Batch API platformy .NET. Aplikacja przekazuje kilka plików danych wejściowych do usługi Azure Storage oraz tworzy pulę węzłów obliczeniowych (maszyn wirtualnych) usługi Batch. Następnie aplikacja tworzy przykładowe zadanie, które uruchamia zadania podrzędne w celu przetworzenia każdego pliku wejściowego w puli przy użyciu podstawowego polecenia.
+Rozpoczynanie pracy z Azure Batch przez uruchomienie zadania z aplikacji języka C# zbudowanej na podstawie interfejsu API platformy .NET Azure Batch. Aplikacja przekazuje kilka plików danych wejściowych do usługi Azure Storage oraz tworzy pulę węzłów obliczeniowych (maszyn wirtualnych) usługi Batch. Następnie aplikacja tworzy przykładowe zadanie, które uruchamia zadania podrzędne w celu przetworzenia każdego pliku wejściowego w puli przy użyciu podstawowego polecenia.
 
 Po ukończeniu tego przewodnika Szybki start będziesz rozumieć kluczowe pojęcia związane z usługą Batch, co pozwoli na wypróbowanie tej usługi z bardziej realistycznymi obciążeniami na większą skalę.
 
-![Diagram przedstawiający omówienie przepływu pracy aplikacji Azure Batch.](./media/quick-run-dotnet/sampleapp.png)
+![Diagram przedstawiający przegląd przepływu pracy Azure Batch aplikacji.](./media/quick-run-dotnet/sampleapp.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 - Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-- [Program Visual Studio 2017 lub nowszy](https://www.visualstudio.com/vs)lub [.NET Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) dla systemów Linux, macOS i Windows. 
+- [Visual Studio 2017 lub nowszy](https://www.visualstudio.com/vs)albo [zestaw SDK platformy .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1) dla systemu Linux, macOS lub Windows. 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -66,7 +66,7 @@ Aby zobaczyć działanie przepływu pracy usługi Batch, skompiluj i uruchom apl
 
 - Jeśli zostanie wyświetlony monit, potwierdź przywrócenie pakietów NuGet. Jeśli musisz pobrać brakujące pakiety, upewnij się, że zainstalowano [menedżera pakietów NuGet](https://docs.nuget.org/consume/installing-nuget).
 
-Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej następująco. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia komunikatu `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Zadania podrzędne zostaną umieszczone w kolejce do uruchomienia zaraz po uruchomieniu pierwszego węzła obliczeniowego. Przejdź do konta partii w [Azure Portal](https://portal.azure.com) , aby monitorować pulę, węzły obliczeniowe, zadanie i zadania.
+Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej następująco. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia komunikatu `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Zadania podrzędne zostaną umieszczone w kolejce do uruchomienia zaraz po uruchomieniu pierwszego węzła obliczeniowego. Przejdź do konta usługi Batch w [Azure Portal,](https://portal.azure.com) aby monitorować pulę, węzły obliczeniowe, zadanie i zadania podrzędne.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM

@@ -1,201 +1,201 @@
 ---
-title: Podstawowa usługa Azure Security dla zapory aplikacji sieci Web platformy Azure
-description: Linia bazowa zabezpieczeń zapory aplikacji sieci Web platformy Azure zawiera wskazówki i zasoby dotyczące procedur związanych z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń Azure.
+title: Punkt odniesienia zabezpieczeń platformy Azure dla Azure Web Application Firewall
+description: Punkt Azure Web Application Firewall zabezpieczeń zawiera wskazówki proceduralne i zasoby dotyczące wdrażania zaleceń dotyczących zabezpieczeń określonych w te testach porównawczych zabezpieczeń platformy Azure.
 author: msmbaldwin
 ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 54582456e5c55f7cbe513f8ab83fbc87ef6a3931
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 6aa3e2b84c4349e2134ddeb2a60fd193f56f84e8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285415"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875970"
 ---
-# <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Podstawowa usługa Azure Security dla zapory aplikacji sieci Web platformy Azure
+# <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Punkt odniesienia zabezpieczeń platformy Azure dla Azure Web Application Firewall
 
-Ta linia bazowa zabezpieczeń ma zastosowanie do zapory aplikacji sieci Web platformy Azure ze wskazówkami dotyczącymi [usługi Azure Security test w wersji 1,0](../security/benchmarks/overview-v1.md) . Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez usługę Azure Security test i powiązane wskazówki dotyczące zapory aplikacji sieci Web platformy Azure. 
+Ten punkt odniesienia zabezpieczeń stosuje wskazówki z testu porównawczego zabezpieczeń platformy [Azure w wersji 1.0](../security/benchmarks/overview-v1.md) do Azure Web Application Firewall. Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontrolek zabezpieczeń zdefiniowanych** przez test porównawczy zabezpieczeń platformy Azure i powiązanych wskazówek dotyczących Azure Web Application Firewall. 
 
 > [!NOTE]
-> **Formanty** nie mają zastosowania do zapory aplikacji sieci Web platformy Azure lub dla których odpowiedzialności są wykluczane przez firmę Microsoft. Aby dowiedzieć się, jak Zapora aplikacji sieci Web platformy Azure jest całkowicie mapowana na test porównawczy zabezpieczeń platformy Azure, zobacz **[pełny plik mapowania zabezpieczeń zapory aplikacji sieci Web platformy Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/azure-web-application-firewall-security-baseline-v1.1.xlsx)**.
+> **Wykluczono** mechanizmy kontroli Azure Web Application Firewall, w przypadku których odpowiedzialność należy do firmy Microsoft. Aby zobaczyć, Azure Web Application Firewall mapowanie na test porównawczy zabezpieczeń platformy Azure, zobacz pełny **[Azure Web Application Firewall mapowania punktów odniesienia zabezpieczeń.](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/azure-web-application-firewall-security-baseline-v1.1.xlsx)**
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
 *Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: bezpieczeństwo sieci](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="13-protect-critical-web-applications"></a>1,3: Ochrona krytycznych aplikacji sieci Web
+### <a name="13-protect-critical-web-applications"></a>1.3: Ochrona krytycznych aplikacji internetowych
 
-**Wskazówki**: Użyj Microsoft Azure zapory aplikacji sieci Web (WAF) do scentralizowanej ochrony aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach, takimi jak iniekcja kodu SQL i obsługa skryptów między lokacjami. 
+**Wskazówki:** używanie Microsoft Azure Web Application Firewall (WAF) do scentralizowanej ochrony aplikacji internetowych przed powszechnymi lukami w zabezpieczeniach i lukami w zabezpieczeniach, takimi jak iniekcja SQL i wykonywanie skryptów między witrynami. 
 
-- Tryb wykrywania: Użyj tego trybu do uczenia ruchu sieciowego, zrozumienia i przejrzenia fałszywych wyników pozytywnych. Monitoruje i rejestruje wszystkie alerty dotyczące zagrożeń. Upewnij się, że dziennik diagnostyki i WAF jest wybrany i włączony. Należy pamiętać, że WAF nie blokuje żądań przychodzących, gdy działa w trybie wykrywania.
-- Tryb zapobiegania: blokuje wtargnięcie i ataki wykryte przez zasady. Osoba atakująca otrzymuje wyjątek "403 nieautoryzowany dostęp", a połączenie jest zamknięte. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
+- Tryb wykrywania: użyj tego trybu do uczenia ruchu sieciowego, rozumienia i przeglądania wyników fałszywie dodatnich. Monitoruje i rejestruje wszystkie alerty o zagrożeniach. Upewnij się, że wybrano i włączona opcja Diagnostyka i dziennik aplikacji sieci Szkieletowej. Należy pamiętać, że serwer WAF nie blokuje żądań przychodzących, gdy działa w trybie wykrywania.
+- Tryb zapobiegania: blokuje włamania i ataki wykryte przez reguły. Osoba atakująca otrzymuje wyjątek "403 brak autoryzacji dostępu" i połączenie jest zamykane. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
 
-Linia bazowa ruchu sieciowego z trybem wykrywania WAF. Po ustaleniu potrzeb związanych z ruchem Skonfiguruj WAF w trybie zapobiegania, aby Bock niepożądany ruch.
+Przekieruj ruch sieciowy do trybu wykrywania aplikacji sieci Szkieletowej. Po określeniu potrzeb w zakresie ruchu należy skonfigurować w trybie zapobiegania aplikację WAF tak, aby ruch był niepożądany.
 
-Postępuj zgodnie z zaleceniami dotyczącymi wysokiej ważności Security Center wszystkich zasobów z obsługą sieci Web, które nie są chronione przez WAF.  
+Postępuj zgodnie z zaleceniami o wysokiej ważności z witryny Security Center dla wszystkich zasobów internetowych, które nie są chronione przez funkcję WAF.  
 
-- [Zasady i reguły reguły KSR zapory aplikacji sieci Web](ag/application-gateway-crs-rulegroups-rules.md) 
-
-- [Tryby WAF na Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
-
-- [Tryby WAF na przednich drzwiach](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
-
-**Odpowiedzialność**: Klient
-
-**Monitorowanie Azure Security Center**: brak
-
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi niezłośliwymi adresami IP
-
-**Wskazówki**: Użyj reguł niestandardowych z zaporą aplikacji sieci Web platformy Azure (WAF), aby zezwalać na ruch i blokować go. Na przykład można zablokować cały ruch pochodzący z zakresu adresów IP. Skonfiguruj usługę Azure WAF do uruchamiania w trybie zapobiegania, który blokuje wtargnięcie i ataki wykryte przez zasady. Osoba atakująca otrzymuje wyjątek "403 nieautoryzowany dostęp", a połączenie jest zamknięte. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
+- [Web Application Firewall reguły i grupy reguł CRS](ag/application-gateway-crs-rulegroups-rules.md) 
 
 - [Tryby WAF na Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
 
-- [Tryby WAF na przednich drzwiach](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
+- [Tryby WAF na Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
+**Azure Security Center monitorowania:** Brak
 
-**Azure Policy wbudowane definicje — Microsoft. Network**:
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Odmowa komunikacji ze znanymi złośliwymi adresami IP
+
+**Wskazówki:** Używaj reguł niestandardowych z regułami Azure Web Application Firewall (WAF), aby zezwalać na ruch i go blokować. Na przykład cały ruch wychodzący z zakresu adresów IP może być blokowany. Skonfiguruj usługę Azure WAF do uruchamiania w trybie zapobiegania, który blokuje włamania i ataki wykryte przez reguły. Osoba atakująca otrzymuje wyjątek "403 brak autoryzacji dostępu" i połączenie jest zamykane. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
+
+- [Tryby WAF na Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
+
+- [Tryby WAF na Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
+
+**Odpowiedzialność**: Klient
+
+**Azure Security Center:** Test porównawczy zabezpieczeń platformy [Azure](/azure/governance/policy/samples/azure-security-benchmark) to domyślna inicjatywa zasad dla usługi Security Center i stanowi podstawę rekomendacji Security Center [firmy .](/azure/security-center/security-center-recommendations) Definicje Azure Policy związane z tą kontrolką są włączane automatycznie przez Security Center. Alerty związane z tą kontrolą mogą [wymagać Azure Defender](/azure/security-center/azure-defender) planu dla powiązanych usług.
+
+**Azure Policy wbudowane definicje — Microsoft.Network:**
 
 [!INCLUDE [Resource Policy for Microsoft.Network 1.4](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-4.md)]
 
-### <a name="17-manage-traffic-to-web-applications"></a>1,7: zarządzanie ruchem do aplikacji sieci Web
+### <a name="17-manage-traffic-to-web-applications"></a>1.7: Zarządzanie ruchem do aplikacji internetowych
 
-**Wskazówki**: Zapora aplikacji sieci Web platformy Azure (WAF) jest podstawowym składnikiem ochrony aplikacji sieci Web platformy Azure. Użyj usługi Azure WAF, aby zapewnić scentralizowaną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach i z wstępnie skonfigurowanym, zarządzanym zestawem reguł w odniesieniu do znanych podpisów ataków z głównych
+**Wskazówki:** Azure Web Application Firewall (WAF) to podstawowy składnik ochrony aplikacji internetowych platformy Azure. Użyj usługi Azure WAF, aby zapewnić scentralizowaną ochronę aplikacji internetowych przed powszechnymi lukami w zabezpieczeniach i lukami w zabezpieczeniach dzięki wstępnie skonfigurowanemu zarządzanemu grupowi reguł przed znanymi sygnaturami ataków z OWASP TOP 10 kategorii.
 
-Dostosuj usługę Azure WAF z regułami i grupami reguł w taki sposób, aby spełniały wymagania aplikacji sieci Web i wyeliminować fałszywe pozytywne. Skojarz zasady usługi Azure WAF dla każdej lokacji za WAF, aby umożliwić konfigurację specyficzną dla lokacji. Usługa Azure WAF obsługuje filtrowanie geograficzne, ograniczanie szybkości, domyślne reguły zestawu reguł zarządzane przez platformę Azure. można też utworzyć reguły niestandardowe, aby odpowiadały potrzebom aplikacji. 
+Dostosuj usługę Azure WAF przy użyciu reguł i grup reguł, aby dopasować je do wymagań aplikacji internetowej i wyeliminować wyniki fałszywie dodatnie. Skojarz zasady usługi Azure WAF dla każdej witryny za witryną WAF, aby umożliwić konfigurację specyficzną dla lokacji. Usługa Azure WAF obsługuje filtrowanie geograficzne, ograniczanie szybkości i reguły domyślnego zestawu reguł zarządzane przez platformę Azure. Reguły niestandardowe i można tworzyć zgodnie z potrzebami aplikacji. 
 
-Skonfiguruj usługę Azure WAF do uruchamiania w trybie zapobiegania po określania poziomu odniesienia ruchu sieciowego w trybie wykrywania przez określony czas. Usługa Azure WAF blokuje wtargnięcie i ataki wykryte przez reguły w trybie zapobiegania. Osoba atakująca otrzymuje wyjątek "403 nieautoryzowany dostęp", a połączenie jest zamknięte. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
+Skonfiguruj usługę Azure WAF do uruchamiania w trybie zapobiegania po ujednaniu ruchu sieciowego w trybie wykrywania przez określony czas. Usługa Azure WAF blokuje włamań i ataki wykryte przez reguły w trybie zapobiegania. Osoba atakująca otrzymuje wyjątek "403 brak autoryzacji dostępu" i połączenie jest zamykane. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
 
 - [Tryby WAF na Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
 
-- [Tryby WAF na przednich drzwiach](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
+- [Tryby WAF na Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
 
-- [Zasady i reguły reguły KSR zapory aplikacji sieci Web](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules?tabs=owasp31)
+- [Grupy reguł i reguły CRS zapory aplikacji internetowej](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules?tabs=owasp31)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: Minimalizacja złożoności i kosztów administracyjnych reguł zabezpieczeń sieci
+### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8. Zminimalizuj złożoność i koszty administracyjne związane z regułami zabezpieczeń sieci
 
-**Wskazówki**: Tworzenie, kojarzenie i logicznie organizowanie zasobów w ramach subskrypcji platformy Azure za pomocą tagów służących do wykrywania typowych nieprawidłowych konfiguracji aplikacji (np. Apache i IIS). 
+**Wskazówki:** Tworzenie, kojarzenie i logiczne organizowanie zasobów w ramach subskrypcji platformy Azure z tagami do wykrywania typowych błędów konfiguracji aplikacji (na przykład Apache i IIS). 
 
-Stosuj reguły i grupy reguł do zasad zapory aplikacji sieci Web platformy Azure (WAF) na podstawie zastosowanych metadanych tagów.
+Stosowanie reguł i grup reguł do Azure Web Application Firewall (WAF) na podstawie zastosowanych metadanych tagów.
 
 - [Zasady WAF na Application Gateway](/cli/azure/network/application-gateway/waf-policy)
 
-- [Zasady WAFymi na wierzchu drzwi](/cli/azure/ext/front-door/network/front-door/waf-policy)
+- [Zasady WAF na Front Door](/cli/azure/network/front-door/waf-policy)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="110-document-traffic-configuration-rules"></a>1,10: udokumentowanie reguł konfiguracji ruchu
+### <a name="110-document-traffic-configuration-rules"></a>1.10. Udokumentuj reguły konfiguracji ruchu
 
-**Wskazówki**: Użyj tagów dla sieciowych grup zabezpieczeń skojarzonych z zaporą aplikacji sieci Web platformy Azure (WAF) w podsieci Application Gateway platformy Azure, a także innych zasobów związanych z zabezpieczeniami sieci i przepływem ruchu. Dla poszczególnych reguł grup zabezpieczeń sieci Użyj pola "opis", aby określić potrzebę biznesową, czas trwania itd., dla każdej reguły, która zezwala na ruch do lub z sieci.
+**Wskazówki:** Użyj tagów dla sieciowych grup zabezpieczeń skojarzonych z Azure Web Application Firewall (WAF) w podsieci Azure Application Gateway, a także innych zasobów związanych z zabezpieczeniami sieci i przepływem ruchu. W przypadku poszczególnych reguł sieciowej grupy zabezpieczeń użyj pola "Opis", aby określić potrzebę biznesową, czas trwania i tak dalej dla wszystkich reguł, które zezwalają na ruch do lub z sieci.
 
-Użyj dowolnych wbudowanych definicji Azure Policy związanych ze znakiem, takich jak "Wymagaj tagu i jego wartości", aby upewnić się, że wszystkie zasoby są tworzone przy użyciu tagów i powiadomienia o istniejących nieoznakowanych zasobach.
+Użyj dowolnej wbudowanej definicji usługi Azure Policy związanej z tagami, takiej jak "Wymagaj tagu i jego wartości", aby upewnić się, że wszystkie zasoby są tworzone przy użyciu tagów i powiadomić o istniejących nieotagowanych zasobach.
 
-Wybierz Azure PowerShell lub interfejs wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje dotyczące zasobów na podstawie ich tagów.
+Wybierz Azure PowerShell interfejsu wiersza polecenia platformy Azure, aby szukać lub wykonywać akcje na zasobach na podstawie ich tagów.
 
-- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
+- [Jak tworzyć tagi i ich używać](../azure-resource-manager/management/tag-resources.md)
 
 - [Jak utworzyć Virtual Network](../virtual-network/quick-create-portal.md)
 
-- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)
+- [Tworzenie sieciowej grupy zabezpieczeń za pomocą konfiguracji zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Użyj zautomatyzowanych narzędzi do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian
+### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11. Używanie zautomatyzowanych narzędzi do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian
 
-**Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian ustawień sieciowych i zasobów związanych z wdrożeniami zapory aplikacji sieci Web platformy Azure (WAF). Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych ustawieniach sieciowych lub zasobach.
+**Wskazówki:** Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian ustawień sieciowych i zasobów związanych z wdrożeniami Azure Web Application Firewall (WAF). Utwórz alerty w Azure Monitor, które będą wyzwalane w przypadku zmiany kluczowych ustawień sieciowych lub zasobów sieciowych.
 
 - [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [Jak tworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy zabezpieczeń platformy Azure: rejestrowanie i monitorowanie.](../security/benchmarks/security-control-logging-monitoring.md)*
 
-### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
+### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Użyj zatwierdzonych źródeł synchronizacji czasu
 
-**Wskazówki**: Tworzenie reguły sieci dla zapory aplikacji sieci Web platformy Azure (WAF) w celu umożliwienia dostępu do serwera NTP przy użyciu odpowiedniego portu i protokołu, takiego jak port 123 za pośrednictwem protokołu UDP.
+**Wskazówki:** Utwórz regułę sieci dla usługi Azure Web Application Firewall (WAF), aby zezwolić na dostęp do serwera NTP przy użyciu odpowiedniego portu i protokołu, na przykład portu 123 za pośrednictwem protokołu UDP.
 
 **Odpowiedzialność**: Współużytkowane
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
+### <a name="22-configure-central-security-log-management"></a>2.2. Konfigurowanie centralnego zarządzania dziennikami zabezpieczeń
 
-**Wskazówki**: Skonfiguruj Dzienniki zapory aplikacji sieci Web platformy Azure (WAF), które mają być wysyłane do centralnego rozwiązania do zarządzania dziennikami zabezpieczeń, takiego jak Azure — wskaźnikiem, lub Siem innej firmy. Te dzienniki obejmują dzienniki aktywności, diagnostyki i WAF w czasie rzeczywistym. te dzienniki można następnie wyświetlić w różnych narzędziach, takich jak Azure Monitor, Excel i Power BI. Dzienniki zapory aplikacji internetowych platformy Azure zapewniają wgląd w dane, które usługa Azure WAF ocenia, dopasowuje i blokuje.
+**Wskazówki:** Konfigurowanie Azure Web Application Firewall (WAF) do wysłania do centralnego rozwiązania do zarządzania dziennikami zabezpieczeń, takiego jak Azure Sentinel, lub rozwiązania SIEM innej firmy. Dzienniki te obejmują dzienniki aktywności platformy Azure, diagnostyki i WAF w czasie rzeczywistym, które można następnie wyświetlać w różnych narzędziach, takich jak Azure Monitor, Excel i Power BI. Azure Web Application Firewall zapewniają wgląd w dane, które usługa Azure WAF ocenia, dopasowywa i blokuje.
 
-Wskaźnik platformy Azure ma wbudowany skoroszyt usługi Azure WAF, który zawiera omówienie zdarzeń zabezpieczeń w usłudze Azure WAF. Ten skoroszyt zawiera zdarzenia, dopasowane i zablokowane reguły oraz wszystkie inne, które są rejestrowane w dziennikach zapory. Te dane telemetryczne mogą służyć do uruchamiania usługi element PlayBook Automation do powiadamiania lub podejmowania akcji korygowania na podstawie zdarzeń WAF zbieranych przez wskaźnik platformy Azure.
+Azure Sentinel ma wbudowany skoroszyt usługi Azure WAF, który zawiera omówienie zdarzeń zabezpieczeń w usłudze Azure WAF. Ten skoroszyt zawiera zdarzenia, dopasowane i zablokowane reguły oraz wszystkie inne elementy, które są rejestrowane w dziennikach zapory. Ta telemetria może służyć do rozpoczynania automatyzacji podręcznika w celu powiadamiania lub podejmowania akcji naprawczych na podstawie zdarzeń WAF zebranych przez Azure Sentinel.
 
 - [Wyświetlanie dzienników aktywności](../azure-resource-manager/management/view-activity-logs.md)
 
 - [Dzienniki diagnostyczne dla Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 
-- [Łączenie danych z zapory aplikacji sieci Web firmy Microsoft z platformą Azure — wskaźnikiem](../sentinel/connect-azure-waf.md)
+- [Łączenie danych z zapory aplikacji internetowej firmy Microsoft z Azure Sentinel](../sentinel/connect-azure-waf.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
+### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3. Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
-**Wskazówki**: Włączanie rejestrowania zasobów zapory aplikacji sieci Web platformy Azure (WAF) w celu uzyskania dostępu do dzienników inspekcji, zabezpieczeń i diagnostyki. Zapora aplikacji sieci Web platformy Azure udostępnia szczegółowe raporty na temat wszystkich wykrytych zagrożeń, które są udostępniane w skonfigurowanych dziennikach diagnostycznych. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy.
+**Wskazówki:** Włączanie rejestrowania zasobów Azure Web Application Firewall (WAF) w celu uzyskania dostępu do dzienników inspekcji, zabezpieczeń i diagnostycznych. Azure Web Application Firewall udostępnia szczegółowe raporty dotyczące każdego z wykrytych zagrożeń, które są dostępne w skonfigurowanych dziennikach diagnostycznych. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, znacznik czasu, adresy źródłowe, adresy docelowe i inne przydatne elementy.
 
 - [Omówienie rejestrowania](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#logging)
 
-- [Przegląd zapytania dziennika Azure Monitor](../azure-monitor/logs/log-query-overview.md)
+- [Azure Monitor zapytania dziennika](../azure-monitor/logs/log-query-overview.md)
 
 - [Omówienie dzienników platformy Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
+### <a name="25-configure-security-log-storage-retention"></a>2.5. Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
-**Wskazówki**: wysyłanie dzienników zapory aplikacji sieci Web platformy Azure (WAF) do niestandardowego konta magazynu i definiowanie zasad przechowywania. Użyj Azure Monitor, aby ustawić okres przechowywania Log Analytics obszaru roboczego na podstawie wymagań dotyczących zgodności w organizacji.
+**Wskazówki:** wysyłanie dzienników Azure Web Application Firewall (WAF) do niestandardowego konta magazynu i definiowanie zasad przechowywania. Użyj Azure Monitor, aby ustawić okres przechowywania obszaru roboczego usługi Log Analytics na podstawie wymagań dotyczących zgodności w organizacji.
 - [Konfigurowanie monitorowania dla konta magazynu](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
+### <a name="26-monitor-and-review-logs"></a>2.6. Monitorowanie i przeglądanie dzienników
 
-**Wskazówki**: Zapora aplikacji sieci Web (WAF) platformy Azure udostępnia szczegółowe raporty dotyczące każdego wykrytego zagrożenia. Rejestrowanie jest zintegrowane z dziennikami Diagnostyka Azure, które zawierają bogate informacje o operacjach i błędach, które są ważne w przypadku inspekcji i rozwiązywania problemów. 
+**Wskazówki:** Azure Web Application Firewall (WAF) zawiera szczegółowe raporty dotyczące każdego wykrytego zagrożenia. Rejestrowanie jest zintegrowane z Diagnostyka Azure, które zawierają rozbudowane informacje o operacjach i błędach, które są ważne w przypadku inspekcji i rozwiązywania problemów. 
 
-Wystąpienia usługi Azure WAF są zintegrowane z Security Center w celu wysyłania alertów i informacji o kondycji związanych z raportowaniem. Użyj zaleceń Security Center do wykrywania niechronionych aplikacji sieci Web i ochrony tych zasobów. 
+Wystąpienia usługi Azure WAF są zintegrowane z Security Center do wysyłania alertów i informacji o kondycji na temat raportowania. Rekomendacje Security Center, aby wykrywać niechronione aplikacje internetowe i chronić te podatne na zagrożenia zasoby. 
 
-Wskaźnik platformy Azure ma wbudowany skoroszyt zdarzeń WAF-zapór, który zawiera omówienie zdarzeń zabezpieczeń w WAF. Obejmują one zdarzenia, dopasowane i zablokowane reguły oraz wszystkie inne, które są rejestrowane w dziennikach zapory.
+Azure Sentinel ma wbudowany skoroszyt Zapora aplikacji internetowej — zdarzenia zapory, który zawiera omówienie zdarzeń zabezpieczeń w zaporze aplikacji internetowej. Obejmują one zdarzenia, dopasowane i zablokowane reguły oraz wszystkie inne zdarzenia rejestrowane w dziennikach zapory.
 
 - [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log)
 
-- [Jak włączyć ustawienia diagnostyczne dla Application Gateway platformy Azure](../application-gateway/application-gateway-diagnostics.md)
+- [Jak włączyć ustawienia diagnostyczne dla Azure Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 
-- [Monitorowanie metryk i dzienników na platformie Azure — drzwiczki](../frontdoor/front-door-diagnostics.md)
+- [Monitorowanie metryk i dzienników w Azure Front Door](../frontdoor/front-door-diagnostics.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Włączanie alertów dla nietypowych działań
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7. Włącz alerty dla działań anomalii
 
-**Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure oraz ustawień diagnostycznych usługi Azure WAF oraz wysyłanie dzienników do obszaru roboczego log Analytics. Wykonuj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie zebranych danych. Tworzenie alertów dotyczących nietypowej aktywności opartej na metrykach WAF. Na przykład jeśli zablokowano liczbę żądań przekroczenia "X", "do" Y ".
+**Wskazówki:** włączanie ustawień diagnostycznych dziennika aktywności platformy Azure, a także ustawień diagnostycznych dla aplikacji internetowej platformy Azure i wysyłanie dzienników do obszaru roboczego usługi Log Analytics. Wykonywanie zapytań w u usługi Log Analytics w celu wyszukiwania terminów, identyfikowania trendów, analizowania wzorców i zapewnienia wielu innych szczegółowych informacji na podstawie zebranych danych. Tworzenie alertów dotyczących anomalii w oparciu o metryki aplikacji sieci Szkieletowej. Jeśli na przykład zablokowana liczba żądań przekracza liczbę "X", wykonaj "Y".
 
 - [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/essentials/diagnostic-settings-legacy)
 
@@ -203,27 +203,27 @@ Wskaźnik platformy Azure ma wbudowany skoroszyt zdarzeń WAF-zapór, który zaw
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
+### <a name="28-centralize-anti-malware-logging"></a>2.8. Scentralizowanie rejestrowania w poszukiwaniu złośliwego oprogramowania
 
-**Wskazówki**: Wdróż zaporę aplikacji sieci Web platformy Azure (WAF) przed krytycznymi aplikacjami sieci Web, aby uzyskać dodatkową inspekcję ruchu przychodzącego. 
+**Wskazówki:** Wdrażanie Azure Web Application Firewall (WAF) przed krytycznymi aplikacjami internetowymi w celu dodatkowej inspekcji ruchu przychodzącego. 
 
-Usługa Azure WAF zapewnia centralną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach i zabezpiecza aplikacje przez inspekcję ruchu przychodzącego sieci Web w taki sposób, aby blokowały ataki, takie jak iniekcje SQL, skrypty między lokacjami, operacje przekazywania złośliwego oprogramowania i ataki DDoS.
+Usługa Azure WAF zapewnia scentralizowaną ochronę aplikacji internetowych przed powszechnymi lukami w zabezpieczeniach i lukami w zabezpieczeniach oraz zabezpiecza aplikacje przez inspekcję przychodzącego ruchu internetowego w celu blokowania ataków, takich jak wstrzyknięcie kodu SQL, wykonywanie skryptów między witrynami, przekazywanie złośliwego oprogramowania i ataki DDoS.
 
 - [Jak wdrożyć usługę Azure WAF](ag/create-waf-policy-ag.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz informacje o [teście zabezpieczeń Azure: Identity i Access Control](../security/benchmarks/security-control-identity-access-control.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy zabezpieczeń platformy Azure: tożsamość i Access Control.](../security/benchmarks/security-control-identity-access-control.md)*
 
-### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
+### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1. Utrzymywanie spisu kont administracyjnych
 
-**Wskazówki**: Azure Active Directory (Azure AD) mają wbudowane role, które są dostępne dla zapytań i muszą być jawnie przypisane. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
+**Wskazówki:** Azure Active Directory (Azure AD) ma wbudowane role z możliwością wykonywania zapytań i muszą być jawnie przypisane. Moduł Azure AD PowerShell umożliwia wykonywanie zapytań ad hoc w celu odnajdywania kont, które są członkami grup administracyjnych.
 
 - [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
 
@@ -231,26 +231,26 @@ Usługa Azure WAF zapewnia centralną ochronę aplikacji sieci Web przed typowym
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Użyj dedykowanych kont administracyjnych
+### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Używanie dedykowanych kont administracyjnych
 
-**Wskazówki**: Brak dostępnych przypisań administratora lokalnego w ramach WAF. Mogą jednak istnieć role administratorów Azure Active Directory (Azure AD) w środowisku, które umożliwiają kontrolę nad zasobami usługi Azure WAF.
-Dobrym sposobem jest utworzenie standardowych procedur operacyjnych dotyczących używania dedykowanych kont administracyjnych, które mają dostęp do wystąpień zapory aplikacji sieci Web (WAF) platformy Azure. Użyj funkcji zarządzania tożsamościami i dostępem Security Center, aby monitorować liczbę kont administracyjnych.
+**Wskazówki:** w ramach aplikacji WAF nie są dostępne przypisania administratora lokalnego. W środowisku mogą jednak Azure Active Directory (Azure AD), które umożliwiają kontrolę zarządzania zasobami usługi Azure WAF.
+Dobrym rozwiązaniem jest utworzenie standardowych procedur operacyjnych dotyczących użycia dedykowanych kont administracyjnych, które mają dostęp do Azure Web Application Firewall (WAF). Użyj Security Center zarządzania tożsamościami i dostępem, aby monitorować liczbę kont administracyjnych.
 
-- [Informacje o tożsamości i dostępie Azure Security Center](../security-center/security-center-identity-access.md)
+- [Opis Azure Security Center tożsamości i dostępu](../security-center/security-center-identity-access.md)
 
-- [Informacje na temat tworzenia użytkowników administracyjnych w Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account)
+- [Dowiedz się, jak tworzyć administratorów w Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account)
 
 - [Jak używać Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego dla wszystkich Azure Active Directory dostępu opartego na usłudze
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Używaj uwierzytelniania wieloskładnikowego dla Azure Active Directory dostępu opartego na danych
 
-**Wskazówki**: Włączanie uwierzytelniania wieloskładnikowego Azure Active Directory (Azure AD) i przestrzeganie zaleceń dotyczących zarządzania tożsamościami i dostępem Security Center.
+**Wskazówki:** włącz Azure Active Directory wieloskładnikowego (Azure AD) i postępuj zgodnie Security Center z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem.
 
 - [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -258,23 +258,23 @@ Dobrym sposobem jest utworzenie standardowych procedur operacyjnych dotyczących
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
+### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6. Użyj dedykowanych maszyn (stacji roboczych z dostępem uprzywilejowanym) do wykonywania wszystkich zadań administracyjnych
 
-**Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z uwierzytelnianiem wieloskładnikowym skonfigurowanym do logowania się i konfigurowania zapory aplikacji sieci Web platformy Azure (WAF) i powiązanych zasobów.
+**Wskazówki:** Użyj stacji roboczej z dostępem uprzywilejowanym (PAW) z uwierzytelnianiem wieloskładnikowym skonfigurowanym do logowania się i konfigurowania Azure Web Application Firewall (WAF) i powiązanych zasobów.
 
-- [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [Dowiedz się więcej o stacjach roboczych z dostępem uprzywilejowanym](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: Rejestruj i Ostrzegaj o podejrzanych działaniach z kont administracyjnych
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Rejestrowanie i alerty dotyczące podejrzanych działań z kont administracyjnych
 
-**Wskazówki**: Użyj raportów zabezpieczeń usługi Azure Active Directory (Azure AD) na potrzeby generowania dzienników i alertów w przypadku wystąpienia podejrzanych lub niebezpiecznych działań w środowisku. Użyj Security Center, aby monitorować działania związane z tożsamościami i dostępem.
+**Wskazówki:** raporty Azure Active Directory (Azure AD) dotyczące generowania dzienników i alertów w przypadku wystąpienia podejrzanej lub niebezpiecznej aktywności w środowisku. Użyj Security Center, aby monitorować działania tożsamości i dostępu.
 
 - [Identyfikowanie użytkowników usługi Azure AD oflagowanych na skutek ryzykownego działania](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -282,209 +282,209 @@ Dobrym sposobem jest utworzenie standardowych procedur operacyjnych dotyczących
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3,8: zarządzanie zasobami platformy Azure tylko z zatwierdzonych lokalizacji
+### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Zarządzanie zasobami platformy Azure tylko z zatwierdzonych lokalizacji
 
-**Wskazówki**: Skonfiguruj warunek lokalizacji zasad dostępu warunkowego i Zarządzaj nazwanymi lokalizacjami.
+**Wskazówki:** Konfigurowanie warunku lokalizacji zasad dostępu warunkowego i zarządzanie nazwanych lokalizacji.
 
-Utwórz logiczne grupowanie zakresów adresów IP lub krajów i regionów z nazwanymi lokalizacjami. Ogranicz dostęp do poufnych zasobów, takich jak Azure Key Vault Secret, do skonfigurowanych nazwanych lokalizacji.
+Utwórz logiczne grupy zakresów adresów IP lub krajów i regionów z nazwanych lokalizacji. Ogranicz dostęp do poufnych zasobów, takich jak Azure Key Vault tajne, do skonfigurowanych nazwanych lokalizacji.
 
-- [Co to jest warunek lokalizacji w usłudze Azure Active Directory (Azure AD) dostęp warunkowy](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
+- [Jaki jest warunek lokalizacji w dostępie warunkowym Azure Active Directory (Azure AD)](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
+### <a name="39-use-azure-active-directory"></a>3.9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych, a także Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
+**Wskazówki:** Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych magazynowanego i podczas ich przesyłania, a także insygnia, skróty i bezpiecznie przechowuje poświadczenia użytkownika.
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
+### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Regularne przeglądanie i uzgadnianie dostępu użytkowników
 
-**Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające wykrywanie starych kont. Za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Regularnie Przeglądaj dostęp użytkowników, aby upewnić się, że tylko aktywni użytkownicy mają ciągły dostęp.
+**Wskazówki:** usługa Azure Active Directory (Azure AD) udostępnia dzienniki, które ułatwiają odnajdywanie nieaktywnego konta. Użyj przeglądów dostępu tożsamości platformy Azure, aby efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisań ról. Regularnie sprawdzaj dostęp użytkowników, aby upewnić się, że tylko aktywni użytkownicy nadal mają dostęp.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring)
+- [Informacje o raportowaniu w usłudze Azure AD](/azure/active-directory/reports-monitoring)
 
-- [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
+- [Jak używać przeglądów dostępu tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych poświadczeń
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Monitorowanie prób uzyskania dostępu do dezaktywowanych poświadczeń
 
-**Wskazówki**: Integrowanie działań związanych z logowaniem Azure Active Directory (Azure AD), inspekcją i ryzykiem dzienników zdarzeń ze źródłami przy użyciu dowolnego narzędzia Siem lub monitorowania, takiego jak Azure — wskaźnik.
+**Wskazówki:** integracja Azure Active Directory źródłach dzienników aktywności logowania, inspekcji i zdarzeń o ryzyku (Azure AD) z dowolnym narzędziem SIEM lub narzędziem do monitorowania, takim jak Azure Sentinel.
 
-Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Skonfiguruj żądane alerty w obszarze roboczym Log Analytics.
+Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i logowania do obszaru roboczego usługi Log Analytics. Skonfiguruj odpowiednie alerty w obszarze roboczym usługi Log Analytics.
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: odchylenia zachowania alertu dotyczącego logowania na koncie
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Odchylenie zachowania alertu podczas logowania na koncie
 
-**Wskazówki**: Aby skonfigurować automatyczne reagowanie na wykryte podejrzane działania związane z tożsamościami użytkowników, należy użyć funkcji ryzyka i ochrony tożsamości usługi Azure Active Directory (Azure AD). Pozyskiwanie danych na platformie Azure — Wskaźnikowanie do dalszej analizy.
+**Wskazówki:** użyj Azure Active Directory usługi Azure AD (Azure AD) risk and Identity Protection, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane akcje związane z tożsamościami użytkowników. Pozysuj dane do Azure Sentinel celu dalszego badania.
 
 - [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [Jak skonfigurować i włączyć zasady ryzyka usługi Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
+- [Jak do dołączać Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="data-protection"></a>Ochrona danych
 
 *Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ochrona danych](../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
+### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1. Utrzymywanie spisu informacji poufnych
 
-**Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zapory aplikacji sieci Web (WAF) platformy Azure i powiązanych zasobów, które przechowują lub przetwarzają informacje poufne.
+**Wskazówki:** używanie tagów do śledzenia Azure Web Application Firewall (WAF) i powiązanych zasobów, które przechowują lub przetwarzają poufne informacje.
 
-- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
+- [Jak tworzyć tagi i ich używać](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
+### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Odizoluj systemy przechowujące lub przetwarzające informacje poufne
 
-**Wskazówki**: Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych, na przykład programowanie, testowanie i środowiska produkcyjne. 
+**Wskazówki:** Implementowanie izolacji przy użyciu oddzielnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych, na przykład środowisk deweloperskich, testowych i produkcyjnych. 
 
-Kontroluj dostęp do zasobów platformy Azure za pomocą usługi Azure Active Directory (Azure AD) kontroli dostępu opartej na rolach (RBAC na platformie Azure).
+Kontrola dostępu do zasobów platformy Azure za Azure Active Directory kontroli dostępu na podstawie ról (RBAC) usługi Azure AD.
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
 - [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
+- [Jak tworzyć tagi i ich używać](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
-**Wskazówki**: Szyfruj wszystkie informacje poufne podczas przesyłania. Upewnij się, że wszyscy klienci łączący się z wystąpieniami zapory aplikacji sieci Web (WAF) platformy Azure i powiązanymi zasobami mogą negocjować protokół TLS 1,2 lub nowszy.
+**Wskazówki:** Szyfruj wszystkie poufne informacje podczas przesyłania. Upewnij się, że każdy klient łączący się Azure Web Application Firewall wystąpieniami usługi (WAF) i powiązanymi zasobami może negocjować TLS 1.2 lub nowszą.
 
-Postępuj zgodnie z zaleceniami Security Center na potrzeby szyfrowania w czasie spoczynku i szyfrowania w przypadku, gdy ma to zastosowanie.
+Postępuj Security Center dotyczące szyfrowania danych w spoczynku i szyfrowania podczas przesyłania, jeśli ma to zastosowanie.
 
-- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Opis szyfrowania podczas przesyłania za pomocą platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
 **Odpowiedzialność**: Współużytkowane
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Korzystaj z usługi Azure RBAC, aby zarządzać dostępem do zasobów 
+### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6. Zarządzanie dostępem do zasobów przy użyciu kontroli RBAC platformy Azure 
 
-**Wskazówki**: kontrolowanie dostępu do zasobów platformy Azure, takich jak Zapora aplikacji sieci Web, przy użyciu kontroli dostępu opartej na rolach (Azure RBAC).
+**Wskazówki:** Kontrolowanie dostępu do zasobów platformy Azure, takich Web Application Firewall pomocą kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 
-- [Jak skonfigurować usługę Azure RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+- [Jak skonfigurować RBAC platformy Azure na platformie Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
+### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8. Szyfrowanie poufnych informacji w spoczynku
 
-**Wskazówki**: Użyj szyfrowania w stanie spoczynku dla wszystkich zasobów platformy Azure, w tym zapory aplikacji sieci Web (WAF) platformy Azure i powiązanych zasobów. Firma Microsoft zaleca, aby platforma Azure mogła zarządzać kluczami szyfrowania, jednak istnieje możliwość zarządzania własnymi kluczami w niektórych wystąpieniach.
+**Wskazówki:** Używanie szyfrowania danych magazynowych dla wszystkich zasobów platformy Azure, w tym Azure Web Application Firewall (WAF) i powiązanych zasobów. Firma Microsoft zaleca umożliwienie platformie Azure zarządzania kluczami szyfrowania, jednak w niektórych przypadkach istnieje możliwość zarządzania własnymi kluczami.
 
 - [Informacje o szyfrowaniu danych magazynowanych na platformie Azure](../security/fundamentals/encryption-atrest.md)
 
-- [Jak skonfigurować zarządzane przez klienta klucze szyfrowania](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal)
+- [Jak skonfigurować klucze szyfrowania zarządzane przez klienta](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
+### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9. Rejestrowanie i alerty dotyczące zmian w krytycznych zasobach platformy Azure
 
-**Wskazówki**: Skonfiguruj zaporę aplikacji sieci Web platformy Azure (WAF) do uruchamiania w trybie zapobiegania po określania poziomu odniesienia ruchu sieciowego w trybie wykrywania przez ustalony czas. 
+**Wskazówki:** skonfiguruj Azure Web Application Firewall (WAF) do uruchamiania w trybie zapobiegania po wywnioskaniu ruchu sieciowego w trybie wykrywania przez wstępnie określony czas. 
 
-Usługa Azure WAF w trybie zapobiegania blokuje wtargnięcie i ataki wykryte przez zasady. Osoba atakująca otrzymuje wyjątek "403 nieautoryzowany dostęp", a połączenie jest zamknięte. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
+W trybie zapobiegania usługa Azure WAF blokuje włamań i ataki wykrywane przez reguły. Osoba atakująca otrzymuje wyjątek "403 brak autoryzacji dostępu" i połączenie jest zamykane. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
 
 - [Omówienie integracji między Application Gateway i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration#overview)
 
 - [Tryby WAF na Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
 
-- [Tryby WAF na przednich drzwiach](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
+- [Tryby WAF na Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-modes)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy zabezpieczeń platformy Azure: spis i zarządzanie zasobami.](../security/benchmarks/security-control-inventory-asset-management.md)*
 
-### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Użyj rozwiązania automatycznego odnajdywania zasobów
+### <a name="61-use-automated-asset-discovery-solution"></a>6.1. Korzystanie z rozwiązania do automatycznego odnajdywania zasobów
 
-**Wskazówki**: usługa Azure Resource Graph umożliwia wykonywanie zapytań lub odnajdywanie wszystkich zasobów, takich jak zasoby obliczeniowe, magazyn, Sieć, porty i protokoły, i tak dalej w ramach subskrypcji.
+**Wskazówki:** użyj Azure Resource Graph do wykonywania zapytań lub odnajdywania wszystkich zasobów, takich jak zasoby obliczeniowe, magazynowe, sieciowe, porty i protokoły itp. w ramach subskrypcji.
 
-Zapewnij odpowiednie uprawnienia (odczyt) w dzierżawie i Wylicz wszystkie subskrypcje platformy Azure oraz zasoby w ramach subskrypcji. Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośrednictwem grafu zasobów, zdecydowanie zaleca się tworzenie i używanie Azure Resource Manager zasobów do przodu.
+Upewnij się, że w dzierżawie są odpowiednie uprawnienia (odczyt) i wyliczenie wszystkich subskrypcji platformy Azure, a także zasobów w ramach twoich subskrypcji. Mimo że klasyczne zasoby platformy Azure można Resource Graph za pośrednictwem usługi , zdecydowanie zaleca się tworzenie i używanie Azure Resource Manager zasobów w przyszłości.
 
-- [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
+- [Jak tworzyć zapytania za pomocą Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 - [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
 
-- [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
+- [Opis kontroli RBAC na platformie Azure](../role-based-access-control/overview.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="62-maintain-asset-metadata"></a>6,2: Konserwowanie metadanych zasobów
+### <a name="62-maintain-asset-metadata"></a>6.2. Obsługa metadanych zasobów
 
-**Wskazówki**: używanie tagów w zasadach zapory aplikacji sieci Web platformy Azure (WAF). Tagi mogą być skojarzone z zasobami i stosowane logicznie w celu organizowania dostępu do tych zasobów w ramach subskrypcji klienta. 
+**Wskazówki:** Używanie tagów w Azure Web Application Firewall (WAF). Tagi mogą być kojarzone z zasobami i stosowane logicznie w celu zorganizowania dostępu do tych zasobów w ramach subskrypcji klienta. 
 
-- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
+- [Jak tworzyć tagi i ich używać](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="63-delete-unauthorized-azure-resources"></a>6,3: Usuń nieautoryzowane zasoby platformy Azure
+### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Usuwanie nieautoryzowanych zasobów platformy Azure
 
-**Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji, gdzie to konieczne, do organizowania i śledzenia usługi Azure WAF i powiązanych zasobów. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
+**Wskazówki:** używaj tagowania, grup zarządzania i oddzielnych subskrypcji, jeśli jest to odpowiednie, do organizowania i śledzenia usługi Azure WAF i powiązanych zasobów. Regularnie uzgadniaj spis i upewnij się, że nieautoryzowane zasoby są usuwane z subskrypcji w terminowy sposób.
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
 - [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
+- [Jak tworzyć tagi i ich używać](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: Definiowanie i konserwowanie spisu zatwierdzonych zasobów platformy Azure
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4. Definiowanie i utrzymywanie spisu zatwierdzonych zasobów platformy Azure
 
-**Wskazówki**: Tworzenie spisu zatwierdzonych zasobów, w tym konfiguracji w zależności od potrzeb organizacji.
+**Wskazówki:** utwórz spis zatwierdzonych zasobów, w tym konfigurację, na podstawie potrzeb organizacji.
 
-Użyj Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które mogą być tworzone w ramach subskrypcji. Usługa Azure Resource Graph umożliwia wykonywanie zapytań dotyczących zasobów i odnajdywanie ich w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku zostały zatwierdzone.
+Użyj Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które można utworzyć w subskrypcjach. Usługa Azure Resource Graph umożliwia wykonywanie zapytań dotyczących zasobów i odnajdywanie ich w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku zostały zatwierdzone.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
+- [Jak tworzyć zapytania za pomocą Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: Monitoruj niezatwierdzone zasoby platformy Azure
+### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitorowanie niezatwierdzonych zasobów platformy Azure
 
-**Wskazówki**: Użyj Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które mogą być tworzone w ramach subskrypcji.
-Użyj grafu zasobów platformy Azure do wykonywania zapytań lub odnajdywania zasobów usługi Azure Web Application Firewall (WAF) w ramach swoich subskrypcji. Upewnij się, że wszystkie usługi Azure WAF i powiązane zasoby obecne w środowisku są zatwierdzone.
+**Wskazówki:** użyj Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które mogą być tworzone w twoich subskrypcjach.
+Użyj Azure Resource Graph do wykonywania zapytań lub odnajdywania Azure Web Application Firewall (WAF) w ramach ich subskrypcji. Upewnij się, że wszystkie zasoby usługi Azure WAF i powiązane zasoby obecne w środowisku zostały zatwierdzone.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -492,19 +492,19 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań lub odnajdywania za
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6,7: Usuń niezatwierdzone zasoby platformy Azure i aplikacje oprogramowania
+### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7. Usuwanie niezatwierdzonych zasobów i aplikacji platformy Azure
 
-**Wskazówki**: Monitoruj i usuwaj niezatwierdzone zasoby platformy Azure WAF z Azure Policy, aby odmówić wdrożenia usługi Azure WAF lub określonego typu WAF, na przykład Azure WAF v1 vs v2.
+**Wskazówki:** Monitorowanie i usuwanie niezatwierdzonych zasobów usługi Azure WAF za pomocą usługi Azure Policy w celu odmowy wdrożenia usługi Azure WAF lub określonego typu aplikacji internetowych, na przykład Azure WAF v1 a V2.
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="69-use-only-approved-azure-services"></a>6,9: Używaj tylko zatwierdzonych usług platformy Azure
+### <a name="69-use-only-approved-azure-services"></a>6.9. Używaj tylko zatwierdzonych usług platformy Azure
 
-**Wskazówki**: Użyj Azure Policy, aby ograniczyć usługi, które możesz udostępnić w danym środowisku.
+**Wskazówki:** użyj Azure Policy, aby ograniczyć usługi, które można aprowizować w środowisku.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -512,21 +512,21 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań lub odnajdywania za
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: Ogranicz możliwość korzystania przez użytkowników z Azure Resource Manager
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Ograniczanie możliwości interakcji użytkowników z Azure Resource Manager
 
-**Wskazówki**: Użyj dostępu warunkowego platformy Azure, aby ograniczyć możliwość współdziałania z Menedżerem zasobów platformy Azure przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
+**Wskazówki:** Użyj dostępu warunkowego platformy Azure, aby ograniczyć użytkownikowi możliwość interakcji z usługą Azure Resources Manager, konfigurując opcję "Blokuj dostęp" dla aplikacji "Microsoft Azure Management".
 
-- [Jak skonfigurować dostęp warunkowy, aby blokować dostęp do usługi Azure Resources](../role-based-access-control/conditional-access-azure-management.md)
+- [Jak skonfigurować dostęp warunkowy, aby zablokować dostęp do usługi Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fizyczne lub logiczne rozdzielenie aplikacji wysokiego ryzyka
+### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Fizyczne lub logiczne rozdzielenie aplikacji wysokiego ryzyka
 
-**Wskazówki**: Zapora aplikacji sieci Web platformy Azure (WAF) może być skojarzona z różnymi środowiskami za pośrednictwem sieci, grup zasobów lub subskrypcji w celu rozdzielenia aplikacji o wysokim ryzyku.
+**Wskazówki:** Azure Web Application Firewall (WAF) można skojarzyć z różnymi środowiskami za pośrednictwem sieci, grup zasobów lub subskrypcji w celu segregowania aplikacji wysokiego ryzyka.
 
 - [Omówienie usługi Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 
@@ -536,59 +536,59 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań lub odnajdywania za
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: bezpieczna konfiguracja](../security/benchmarks/security-control-secure-configuration.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy zabezpieczeń platformy Azure: bezpieczna konfiguracja.](../security/benchmarks/security-control-secure-configuration.md)*
 
-### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
+### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1. Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla ustawień sieciowych związanych ze wdrożeniami zapory aplikacji sieci Web platformy Azure (WAF).
+**Wskazówki:** Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla ustawień sieciowych związanych Azure Web Application Firewall wdrożeniami aplikacji internetowej.
 
-Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci bram aplikacji platformy Azure, sieci wirtualnych, sieciowych grup zabezpieczeń i używania wbudowanych definicji zasad.
+Użyj Azure Policy w przestrzeni nazw "Microsoft.Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieci usługi Azure Application Gateway, sieci wirtualnych, sieciowych grup zabezpieczeń i używania wbudowanych definicji zasad.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić dostępne Azure Policy aliasy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: obsługa bezpiecznych konfiguracji zasobów platformy Azure
+### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Obsługa bezpiecznych konfiguracji zasobów platformy Azure
 
-**Wskazówki**: Użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje] efektów, aby wymusić bezpieczne ustawienia w ramach zapory aplikacji sieci Web (WAF) platformy Azure i powiązanych zasobów. 
+**Wskazówki:** użyj Azure Policy [odmów] i [wdoń, jeśli nie istnieje], aby wymusić bezpieczne ustawienia w Azure Web Application Firewall (WAF) i powiązanych zasobach. 
 
-Użyj szablonów Azure Resource Manager, aby zachować konfigurację zabezpieczeń platformy Azure WAF i powiązanych zasobów wymaganych przez organizację.
+Użyj Azure Resource Manager, aby zachować konfigurację zabezpieczeń usługi Azure WAF i powiązanych zasobów wymaganych przez organizację.
 
-- [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
+- [Zrozumienie Azure Policy danych](../governance/policy/concepts/effects.md)
 
 - [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](../governance/policy/tutorials/create-and-manage.md)
 
-- [Przegląd szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md)
+- [omówienie Azure Resource Manager szablonów](../azure-resource-manager/templates/overview.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
+### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Bezpieczne przechowywanie konfiguracji zasobów platformy Azure
 
-**Wskazówki**: Użyj usługi Azure DevOps, aby bezpiecznie przechowywać kod, taki jak niestandardowe zasady platformy Azure i szablony Azure Resource Manager.
+**Wskazówki:** używaj Azure DevOps do bezpiecznego przechowywania kodu, takiego jak niestandardowe zasady platformy Azure i szablony szablonów Azure Resource Manager zarządzać nimi.
 
-Przyznaj lub Odmów uprawnień do określonych użytkowników, wbudowanych grup zabezpieczeń lub grup zdefiniowanych w Azure Active Directory (Azure AD), jeśli są zintegrowane z usługą Azure DevOps lub z usługą Azure AD, jeśli są zintegrowane z usługą Team Foundation Server (TFS).
+Przyznawanie lub odmawianie uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w usłudze Azure Active Directory (Azure AD), jeśli są zintegrowane z usługą Azure DevOps lub Azure AD, jeśli są zintegrowane z programem Team Foundation Server (TFS).
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
 
-- [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
+- [Informacje o uprawnieniach i grupach w Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
 
-**Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Opracowywanie procesu i potoku w celu zarządzania wyjątkami zasad.
+**Wskazówki:** Użyj wbudowanych definicji Azure Policy, a także aliasów usługi Azure Policy w przestrzeni nazw "Microsoft.Network", aby utworzyć niestandardowe zasady służące do ostrzegania, inspekcji i wymuszania konfiguracji systemu. Opracowywanie procesu i potoku do zarządzania wyjątkami zasad.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -596,13 +596,13 @@ Przyznaj lub Odmów uprawnień do określonych użytkowników, wbudowanych grup 
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: Zaimplementuj automatyczne monitorowanie konfiguracji dla zasobów platformy Azure
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Implementowanie zautomatyzowanego monitorowania konfiguracji dla zasobów platformy Azure
 
-**Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. 
+**Wskazówki:** Użyj wbudowanych definicji Azure Policy, a także aliasów usługi Azure Policy w przestrzeni nazw "Microsoft.Network", aby utworzyć niestandardowe zasady służące do ostrzegania, inspekcji i wymuszania konfiguracji systemu. 
 
-Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje] powoduje automatyczne wymuszanie konfiguracji zasobów platformy Azure.
+Użyj Azure Policy [audit], [deny] i [deploy if not exist], aby automatycznie wymusić konfiguracje zasobów platformy Azure.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -610,92 +610,92 @@ Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje] powoduje a
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="711-manage-azure-secrets-securely"></a>7,11: bezpieczne zarządzanie wpisami tajnymi platformy Azure
+### <a name="711-manage-azure-secrets-securely"></a>7.11: Bezpieczne zarządzanie wpisami tajnymi platformy Azure
 
-**Wskazówki**: Użyj Azure Key Vault, aby bezpiecznie przechowywać certyfikaty. Azure Key Vault to magazyn tajny zarządzany przez platformę, którego można użyć do zabezpieczenia kluczy tajnych, klucze i certyfikatów SSL. 
+**Wskazówki:** używanie Azure Key Vault do bezpiecznego przechowywania certyfikatów. Azure Key Vault to zarządzany przez platformę magazyn wpisów tajnych, który umożliwia ochronę wpisów tajnych, kluczy i certyfikatów SSL. 
 
-Usługa Azure Application Gateway obsługuje integrację z Key Vault dla certyfikatów serwera, które są dołączone do odbiorników z włączonym protokołem HTTPS. 
+Azure Application Gateway obsługuje integrację z usługą Key Vault dla certyfikatów serwera dołączonych do odbiorników z włączoną obsługą protokołu HTTPS. 
 
-- [Jak skonfigurować kończenie połączeń SSL z certyfikatami Key Vault przy użyciu Azure PowerShell](../application-gateway/configure-keyvault-ps.md)
+- [How to configure SSL termination with Key Vault certificates by using Azure PowerShell](../application-gateway/configure-keyvault-ps.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
+### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminowanie niezamierzonego narażenia na poświadczenia
 
-**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie, co również pozwala na przeniesienie odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
+**Wskazówki:** Zaim implementuj skaner poświadczeń w celu identyfikowania poświadczeń w kodzie, co będzie również zachęcało do przenoszenia odnalezionych poświadczeń do bezpieczniejszych lokalizacji, takich jak Azure Key Vault.
 - [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: odzyskiwanie danych](../security/benchmarks/security-control-data-recovery.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy zabezpieczeń platformy Azure: odzyskiwanie danych.](../security/benchmarks/security-control-data-recovery.md)*
 
-### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
+### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4. Zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: Upewnij się, że dla Azure Key Vault jest włączona funkcja usuwania nietrwałego. Usuwanie nietrwałe umożliwia Odzyskiwanie usuniętych magazynów kluczy i obiektów magazynu, takich jak klucze, wpisy tajne i certyfikaty.
+**Wskazówki:** Upewnij się, że dla aplikacji włączono usuwanie Azure Key Vault. Usuwanie nie soft umożliwia odzyskiwanie usuniętych magazynów kluczy i obiektów magazynu, takich jak klucze, wpisy tajne i certyfikaty.
 
-- [Jak używać usuwania nietrwałego Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell&amp;preserve-view=true)
+- [Jak używać usuwania nie Azure Key Vault firmy](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell&amp;preserve-view=true)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
 *Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
 
-### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
+### <a name="101-create-an-incident-response-guide"></a>10.1. Tworzenie przewodnika po reagowaniu na zdarzenia
 
-**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją jednokierunkowe plany reagowania na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń i zarządzania z wykrywania na potrzeby przeglądu po zdarzeniu. 
+**Wskazówki:** Opracowywanie przewodnika reagowania na zdarzenia dla organizacji. Upewnij się, że istnieją zapisane plany reagowania na zdarzenia, które definiują wszystkie role personelu, a także fazy obsługi zdarzeń i zarządzania od wykrywania do przeglądu po zdarzeniu. 
 
 - [Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 
-- [Anatomia incydentu centrum Microsoft Security Response](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/) 
+- [Centrum zabezpieczeń firmy Microsoft Anatomy of an Incident (Anatomia zdarzenia)](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/) 
 
-- [Skorzystaj z przewodnika obsługi zdarzeń zabezpieczeń komputera NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
-
-**Odpowiedzialność**: Klient
-
-**Monitorowanie Azure Security Center**: brak
-
-### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: Tworzenie oceny incydentu i procedury priorytetyzacji
-
-**Wskazówki**: Security Center przypisuje ważność do każdego alertu, aby pomóc w ustaleniu, które alerty należy najpierw zbadać. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub metryki używanej do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które doprowadziło do alertu.
-
-Wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne) i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure.
+- [Użyj przewodnika obsługi zdarzeń zabezpieczeń komputera NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
+### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2. Tworzenie procedury oceniania i ustalania priorytetów zdarzeń
 
-**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy oraz popraw plan zgodnie z wymaganiami.
-- [Zapoznaj się z przewodnikiem dotyczącym publikacji NIST, aby przetestować, szkolenie i ćwiczenie programów dla planów i możliwości IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+**Wskazówki:** Security Center przypisuje ważność do każdego alertu, aby ułatwić priorytetyzowanie alertów, które należy badać w pierwszej kolejności. Ważność jest oparta na tym, jak pewna Security Center znajduje się w znajdowaniu lub metryki użytej do wystawienia alertu, a także na poziomie ufności, że za działaniem, które doprowadziło do tego alertu, znajduje się złośliwe intencje.
 
-**Odpowiedzialność**: Klient
-
-**Monitorowanie Azure Security Center**: brak
-
-### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Podaj szczegóły kontaktu dotyczącego zabezpieczeń i Skonfiguruj powiadomienia dotyczące alertów dotyczących zdarzeń związanych z zabezpieczeniami
-
-**Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
-- [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
+Wyraźnie oznaczaj subskrypcje (na przykład produkcyjne lub nieprodukcyjne) i utwórz system nazewnictwa, aby jasno identyfikować i kategoryzować zasoby platformy Azure.
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
+### <a name="103-test-security-response-procedures"></a>10.3: Testowanie procedur reagowania na zabezpieczenia
 
-**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Użyj łącznika danych Azure Security Center, aby przesyłać strumieniowo alerty do systemu Azure, zgodnie z wymaganiami organizacji.
+**Wskazówki:** Przećwiczyj ćwiczenia, aby regularnie testować możliwości reagowania na zdarzenia w systemach. Zidentyfikuj słabe punkty i przerwy oraz popraw plan zgodnie z wymaganiami.
+- [Zapoznaj się z publikacją NIST Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Przewodnik po programach testowych, szkoleniowych i szkoleniowych dla planów i możliwości IT)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+
+**Odpowiedzialność**: Klient
+
+**Azure Security Center monitorowania:** Brak
+
+### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4. Podaj szczegóły kontaktowe zdarzenia zabezpieczeń i skonfiguruj powiadomienia o alertach dla zdarzeń zabezpieczeń
+
+**Wskazówki:** informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do kontaktowania się z Tobą, jeśli użytkownik usługi Centrum zabezpieczeń firmy Microsoft (MSRC) odkryje, że dostęp do danych klienta został uzyskany przez nieupoważnioną lub niezgodną z prawem stronę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
+- [Jak ustawić kontakt Azure Security Center zabezpieczeń](../security-center/security-center-provide-security-contact-details.md)
+
+**Odpowiedzialność**: Klient
+
+**Azure Security Center monitorowania:** Brak
+
+### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5. Dołączanie alertów zabezpieczeń do systemu reagowania na zdarzenia
+
+**Wskazówki:** eksportowanie alertów Security Center i zaleceń przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia eksportowanie alertów i zaleceń ręcznie lub w sposób ciągły. Użyj łącznika Azure Security Center danych, aby przesyłać strumieniowo alerty do Azure Sentinel zgodnie z wymaganiami organizacji.
 
 - [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 
@@ -703,24 +703,24 @@ Wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne) i Utw�
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
-### <a name="106-automate-the-response-to-security-alerts"></a>10,6: Automatyzowanie odpowiedzi na alerty zabezpieczeń
+### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatyzowanie odpowiedzi na alerty zabezpieczeń
 
-**Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
+**Wskazówki:** Użyj funkcji automatyzacji przepływu pracy w Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem Logic Apps alertów zabezpieczeń i zaleceń.
 - [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](../security-center/workflow-automation.md)
 
 **Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
-*Aby uzyskać więcej informacji, zobacz test [porównawczy zabezpieczeń platformy Azure: testy penetracji i czerwone ćwiczenia zespołu](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Aby uzyskać więcej informacji, zobacz [test porównawczy zabezpieczeń platformy Azure: testy penetracyjne i ćwiczenia zespołu red team.](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Przeprowadzaj regularne testy penetrowania zasobów platformy Azure i zapewnij korygowanie wszystkich krytycznych ustaleń zabezpieczeń
 
-**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft. Korzystaj z strategii firmy Microsoft i wykonywania testów na żywo z obsługą tworzenia zespołu, usług i aplikacji w chmurze, które są zarządzane przez firmę Microsoft. 
+**Wskazówki:** postępuj zgodnie z regułami zaangażowania firmy Microsoft, aby upewnić się, że testy penetracyjne nie naruszały zasad firmy Microsoft. Użyj strategii firmy Microsoft i wykonania czerwonego zespołu oraz testów penetracyjnych na żywo w chmurze, które są zarządzane przez firmę Microsoft w zakresie infrastruktury, usług i aplikacji w chmurze. 
 
 - [Reguły testów penetracyjnych zaangażowania](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
@@ -728,7 +728,7 @@ Wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne) i Utw�
 
 **Odpowiedzialność**: Współużytkowane
 
-**Monitorowanie Azure Security Center**: brak
+**Azure Security Center monitorowania:** Brak
 
 ## <a name="next-steps"></a>Następne kroki
 

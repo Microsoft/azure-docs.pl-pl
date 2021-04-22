@@ -1,22 +1,22 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Spring Cloud
 description: Wyświetla Azure Policy kontroli zgodności z przepisami dostępne dla Azure Spring Cloud. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: ed5e31613d3ca1aa1bbe34f9fc30e3affcfd1726
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9ae1071fe5c01b404dfac7aea6d7f49ab3e68cf8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500871"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870173"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-spring-cloud"></a>Azure Policy kontroli zgodności z przepisami dla Azure Spring Cloud
 
-[Zgodność z przepisami w Azure Policy](../governance/policy/concepts/regulatory-compliance.md) udostępnia definicje inicjatyw utworzonych przez firmę  Microsoft i  zarządzanych, znane jako _wbudowane,_ dla domen zgodności i kontroli zabezpieczeń związanych z różnymi standardami zgodności. Na tej stronie **wymieniono domeny zgodności i** **mechanizmy kontroli zabezpieczeń** dla Azure Spring Cloud. Możesz przypisać wbudowane elementy kontroli  zabezpieczeń indywidualnie, aby ułatwić zgodność zasobów platformy Azure z określonym standardem.
+[Zgodność z przepisami](../governance/policy/concepts/regulatory-compliance.md) w Azure Policy udostępnia definicje inicjatyw utworzonych przez firmę  Microsoft i  zarządzanych, znane jako _wbudowane,_ dla domen zgodności i kontroli zabezpieczeń związanych z różnymi standardami zgodności. Na tej stronie **wymieniono domeny zgodności i** **mechanizmy kontroli zabezpieczeń** dla Azure Spring Cloud. Możesz przypisać wbudowane elementy kontroli  zabezpieczeń indywidualnie, aby ułatwić zgodność zasobów platformy Azure z określonym standardem.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

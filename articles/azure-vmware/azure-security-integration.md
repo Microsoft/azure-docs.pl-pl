@@ -1,161 +1,161 @@
 ---
-title: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
-description: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu natywnych narzędzi zabezpieczeń platformy Azure z poziomu pulpitu nawigacyjnego Azure Security Center.
+title: Ochrona maszyn Azure VMware Solution wirtualnych za pomocą Azure Security Center integracji
+description: Chroń swoje Azure VMware Solution wirtualne za pomocą natywnych narzędzi zabezpieczeń platformy Azure z pulpitu Azure Security Center nawigacyjnego.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d04f0ac3e3934442ce5b6d5fbf4b53e18b3dff18
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578261"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877520"
 ---
-# <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
+# <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Ochrona maszyn Azure VMware Solution wirtualnych za pomocą Azure Security Center integracji
 
-Natywne narzędzia zabezpieczeń platformy Azure zapewniają ochronę środowiska hybrydowego platformy Azure, rozwiązania VMware platformy Azure i lokalnych maszyn wirtualnych. W tym artykule opisano sposób konfigurowania zabezpieczeń środowiska hybrydowego dla narzędzi platformy Azure. Te narzędzia służą do identyfikowania i rozwiązywania różnych zagrożeń.
+Natywne narzędzia zabezpieczeń platformy Azure zapewniają ochronę środowiska hybrydowego platformy Azure, Azure VMware Solution i lokalnych maszyn wirtualnych. W tym artykule pokazano, jak skonfigurować narzędzia platformy Azure do zabezpieczeń środowiska hybrydowego. Użyjesz tych narzędzi, aby identyfikować różne zagrożenia i je identyfikować.
 
 ## <a name="azure-native-services"></a>Usługi natywne platformy Azure
 
-Oto krótkie podsumowanie usług Azure Native Services:
+Oto krótkie podsumowanie usług natywnych platformy Azure:
 
-- **Log Analytics obszar roboczy:** Obszar roboczy Log Analytics jest unikatowym środowiskiem do przechowywania danych dziennika. Każdy obszar roboczy ma własne repozytorium danych i konfigurację. Źródła danych i rozwiązania są skonfigurowane do przechowywania danych w określonym obszarze roboczym.
-- **Azure Security Center:** Azure Security Center to ujednolicony system zarządzania zabezpieczeniami infrastruktury. Zwiększa to bezpieczeństwo centrów danych i zapewnia zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych w chmurze lub lokalnie.
-- **Wskaźnik na platformie Azure:** Azure — Wskaźnikowanie to natywne rozwiązanie do zarządzania zdarzeniami zabezpieczeń (SIEM) w chmurze. Oferuje ona funkcje analizy zabezpieczeń, wykrywania alertów i automatycznej reakcji na zagrożenia w środowisku.
+- **Obszar roboczy usługi Log Analytics:** Obszar roboczy usługi Log Analytics to unikatowe środowisko do przechowywania danych dzienników. Każdy obszar roboczy ma własne repozytorium danych i konfigurację. Źródła danych i rozwiązania są skonfigurowane do przechowywania danych w określonym obszarze roboczym.
+- **Azure Security Center:** Azure Security Center to ujednolicony system zarządzania zabezpieczeniami infrastruktury. Zwiększa bezpieczeństwo centrów danych i zapewnia zaawansowaną ochronę przed zagrożeniami w obciążeniach hybrydowych w chmurze lub lokalnie.
+- **Azure Sentinel:** Azure Sentinel to natywne dla chmury rozwiązanie do zarządzania zdarzeniami informacji o zabezpieczeniach (SIEM). Zapewnia analizę zabezpieczeń, wykrywanie alertów i automatyczne reagowanie na zagrożenia w całym środowisku.
 
 ## <a name="topology"></a>Topologia
 
 ![Diagram przedstawiający architekturę zintegrowanych zabezpieczeń platformy Azure.](media/azure-security-integration/azure-integrated-security-architecture.png)
 
-Agent Log Analytics umożliwia zbieranie danych dziennika z platformy Azure, rozwiązania VMware platformy Azure i lokalnych maszyn wirtualnych. Dane dziennika są wysyłane do dzienników Azure Monitor i są przechowywane w Log Analytics obszarze roboczym. Agenta Log Analytics można wdrożyć przy użyciu serwerów z obsługą Arc [rozszerzeń maszyn wirtualnych z obsługą](../azure-arc/servers/manage-vm-extensions.md) nowych i istniejących maszyn wirtualnych. 
+Agent usługi Log Analytics umożliwia zbieranie danych dzienników z platformy Azure, Azure VMware Solution i lokalnych maszyn wirtualnych. Dane dziennika są wysyłane do usługi Azure Monitor i przechowywane w obszarze roboczym usługi Log Analytics. Agenta usługi Log Analytics można wdrożyć przy użyciu rozszerzeń maszyn wirtualnych z obsługą serwerów z [obsługą](../azure-arc/servers/manage-vm-extensions.md) usługi Arc dla nowych i istniejących maszyn wirtualnych. 
 
-Po zebraniu dzienników przez obszar roboczy Log Analytics można skonfigurować Log Analytics obszar roboczy przy użyciu Azure Security Center. Azure Security Center ocenia stan luk w zabezpieczeniach maszyn wirtualnych rozwiązań VMware platformy Azure i zgłasza alert dla każdej krytycznej luki w zabezpieczeniach. Na przykład ocenia brakujące poprawki systemu operacyjnego, nieprawidłowe konfiguracje zabezpieczeń i program [Endpoint Protection](../security-center/security-center-services.md).
+Po zebrania dzienników w obszarze roboczym usługi Log Analytics można skonfigurować obszar roboczy usługi Log Analytics przy użyciu Azure Security Center. Azure Security Center oceni stan luk w zabezpieczeniach maszyn wirtualnych Azure VMware Solution i zniesie alert o wszelkich krytycznych lukach w zabezpieczeniach. Na przykład ocenia brakujące poprawki systemu operacyjnego, błędy konfiguracji zabezpieczeń i ochronę [punktu końcowego.](../security-center/security-center-services.md)
 
-Obszar roboczy Log Analytics można skonfigurować przy użyciu funkcji wskaźnikowej platformy Azure na potrzeby wykrywania alertów, widoczności zagrożeń, łowiectwa i reagowania na zagrożenia. Na powyższym diagramie Azure Security Center jest połączony z punktem kontrolnym platformy Azure przy użyciu łącznika Azure Security Center. Azure Security Center przekaże luki w zabezpieczeniach środowiska do usługi Azure wskaźnikowej, aby utworzyć zdarzenie i zmapować inne zagrożenia. Możesz również utworzyć zapytanie o zaplanowane reguły, aby wykryć niechciane działanie i przekonwertować je na zdarzenia.
+Obszar roboczy usługi Log Analytics można skonfigurować przy użyciu Azure Sentinel wykrywania alertów, widoczności zagrożeń, zagrożeń i reagowania na nie. Na powyższym diagramie połączenie Azure Security Center z usługą Azure Sentinel użyciu Azure Security Center łącznika. Azure Security Center przekaże lukę w zabezpieczeniach środowiska do Azure Sentinel, aby utworzyć zdarzenie i zamapować je na inne zagrożenia. Można również utworzyć zapytanie zaplanowanych reguł, aby wykryć niepożądane działania i przekonwertować je na zdarzenia.
 
 ## <a name="benefits"></a>Korzyści
 
-- Natywnych usług platformy Azure można używać na potrzeby zabezpieczeń środowiska hybrydowego na platformie Azure, rozwiązań VMware platformy Azure i usług lokalnych.
-- Za pomocą obszaru roboczego Log Analytics można zebrać dane lub dzienniki do jednego punktu i przedstawić te same dane w różnych usługach macierzystych platformy Azure.
+- Usługi natywne platformy Azure mogą służyć do zabezpieczenia środowiska hybrydowego na platformie Azure, Azure VMware Solution i usług lokalnych.
+- Za pomocą obszaru roboczego usługi Log Analytics można zbierać dane lub dzienniki w jednym punkcie i prezentować te same dane różnym usługom natywnym platformy Azure.
 - Azure Security Center oferuje wiele funkcji, w tym:
     - Monitorowanie integralności plików
-    - Wykrywanie ataków bezplikowych
+    - Wykrywanie ataków bez plików
     - Ocena poprawek systemu operacyjnego 
-    - Ocena niezgodności konfiguracji zabezpieczeń
+    - Ocena błędnych konfiguracji zabezpieczeń
     - Ocena programu Endpoint Protection
-- System Azure — wskaźnik kontrolny umożliwia:
-    - Zbieraj dane w skali chmury między wszystkimi użytkownikami, urządzeniami, aplikacjami i infrastrukturą, zarówno lokalnie, jak i w wielu chmurach.
-    - Wykrywaj wcześniej wykryte zagrożenia.
-    - Zbadaj zagrożenia przy użyciu sztucznej analizy i Wyszukaj podejrzane działania na dużą skalę.
-    - Szybko reaguj na zdarzenia dzięki wbudowanej aranżacji i automatyzacji typowych zadań.
+- Azure Sentinel umożliwia:
+    - Zbieraj dane w skali chmury dla wszystkich użytkowników, urządzeń, aplikacji i infrastruktury, zarówno lokalnie, jak i w wielu chmurach.
+    - Wykrywanie wcześniej niewykrywanych zagrożeń.
+    - Badanie zagrożeń za pomocą sztucznej inteligencji i polunie podejrzanych działań na dużą skalę.
+    - Błyskawiczne reagowanie na zdarzenia dzięki wbudowanej orkiestracji i automatyzacji typowych zadań.
 
 ## <a name="create-a-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
 
-Do zbierania danych z różnych źródeł potrzebny jest obszar roboczy Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics przy użyciu Azure Portal](../azure-monitor/logs/quick-create-workspace.md). 
+Obszar roboczy usługi Log Analytics będzie potrzebny do zbierania danych z różnych źródeł. Aby uzyskać więcej informacji, [zobacz Tworzenie obszaru roboczego usługi Log Analytics na Azure Portal](../azure-monitor/logs/quick-create-workspace.md). 
 
-## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Wdrażanie Security Center i Konfigurowanie maszyn wirtualnych rozwiązań VMware platformy Azure
+## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Wdrażanie Security Center i konfigurowanie Azure VMware Solution wirtualnych
 
-Azure Security Center jest wstępnie skonfigurowanym narzędziem, które nie wymaga wdrożenia. W Azure Portal Wyszukaj **Security Center** i wybierz go.
+Azure Security Center to wstępnie skonfigurowane narzędzie, które nie wymaga wdrożenia. W Azure Portal wyszukaj pozycję **Security Center** i wybierz ją.
 
 ### <a name="enable-azure-defender"></a>Włączanie usługi Azure Defender
 
-Usługa Azure Defender Azure Security Center rozszerza zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych, zarówno lokalnych, jak i w chmurze. Aby chronić maszyny wirtualne rozwiązań VMware platformy Azure, należy włączyć usługę Azure Defender. 
+Azure Defender rozszerza Azure Security Center zaawansowaną ochronę przed zagrożeniami w obciążeniach hybrydowych, zarówno lokalnych, jak i w chmurze. Aby chronić maszyny Azure VMware Solution wirtualne, należy włączyć Azure Defender. 
 
-1. W Security Center wybierz opcję **wprowadzenie**.
+1. W Security Center wybierz pozycję **Wprowadzenie.**
 
-2. Wybierz kartę **Uaktualnij** , a następnie wybierz swoją subskrypcję lub obszar roboczy. 
+2. Wybierz **kartę Uaktualnienie,** a następnie wybierz swoją subskrypcję lub obszar roboczy. 
 
-3. Wybierz pozycję **Uaktualnij** , aby włączyć usługę Azure Defender.
+3. Wybierz **pozycję Uaktualnij,** aby włączyć Azure Defender.
 
-## <a name="add-azure-vmware-solution-vms-to-security-center"></a>Dodaj maszyny wirtualne rozwiązań VMware platformy Azure do Security Center
+## <a name="add-azure-vmware-solution-vms-to-security-center"></a>Dodawanie Azure VMware Solution wirtualnych do Security Center
 
-1. W Azure Portal Wyszukaj w **usłudze Azure Arc** i wybierz ją.
+1. W Azure Portal wyszukaj **pozycję** Azure Arc i wybierz ją.
 
-2. W obszarze Zasoby wybierz opcję **serwery** , a następnie pozycję **+ Dodaj**.
+2. W obszarze Zasoby wybierz pozycję **Serwery,** a następnie **pozycję +Dodaj.**
 
-    :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="Zrzut ekranu przedstawiający stronę serwery usługi Azure Arc służącą do dodawania maszyny wirtualnej rozwiązania VMware platformy Azure do platformy Azure.":::
+    :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="Zrzut ekranu przedstawiający Azure Arc serwerów dodawania maszyny Azure VMware Solution wirtualnej na platformie Azure.":::
 
-3. Wybierz pozycję **Generuj skrypt**.
+3. Wybierz **pozycję Generuj skrypt.**
  
-    :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="Zrzut ekranu przedstawiający stronę usługi Azure Arc pokazującą opcję dodawania serwera przy użyciu interakcyjnego skryptu."::: 
+    :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="Zrzut ekranu przedstawiający Azure Arc z opcją dodawania serwera przy użyciu skryptu interakcyjnego."::: 
  
-4. Na karcie **wymagania wstępne** wybierz pozycję **dalej**.
+4. Na karcie **Wymagania wstępne** wybierz pozycję **Dalej.**
 
-5. Na karcie **szczegóły zasobu** wypełnij następujące informacje: 
+5. Na karcie **Szczegóły zasobu** wprowadź następujące informacje: 
     - Subskrypcja
     - Grupa zasobów
     - Region (Region) 
     - System operacyjny
     - Szczegóły serwera proxy
     
-    Następnie wybierz kolejno pozycje **Dalej: Tagi**.
+    Następnie wybierz **pozycję Dalej: Tagi**.
 
-6. Na karcie **Tagi** wybierz pozycję **dalej**.
+6. Na karcie **Tagi** wybierz pozycję **Dalej.**
 
-7. Na karcie **Pobierz i uruchom skrypt** wybierz pozycję **Pobierz**.
+7. Na karcie **Pobieranie i uruchamianie skryptu** wybierz pozycję **Pobierz**.
 
-8. Określ swój system operacyjny i uruchom skrypt na maszynie wirtualnej rozwiązania VMware platformy Azure.
+8. Określ system operacyjny i uruchom skrypt na maszynie Azure VMware Solution wirtualnej.
 
-## <a name="view-recommendations-and-passed-assessments"></a>Wyświetlanie zaleceń i zakończonych ocen
+## <a name="view-recommendations-and-passed-assessments"></a>Wyświetlanie rekomendacji i pomyślnie przekazanych ocen
 
-1. W obszarze Azure Security Center wybierz pozycję **spis** w okienku po lewej stronie.
+1. W Azure Security Center wybierz pozycję **Spis** w okienku po lewej stronie.
 
-2. W obszarze Typ zasobu wybierz pozycję **serwery — Azure Arc**.
+2. W przypadku opcji Typ zasobu **wybierz pozycję Serwery — Azure Arc**.
  
-     :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Zrzut ekranu przedstawiający stronę Azure Security Center spisu przedstawiającą serwery — łuk platformy Azure wybrany w obszarze Typ zasobu.":::
+     :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Zrzut ekranu przedstawiający Azure Security Center Spis serwerów — Azure Arc w obszarze Typ zasobu.":::
 
-3. Wybierz nazwę zasobu. Zostanie wyświetlona strona zawierająca szczegóły kondycji zabezpieczeń zasobu.
+3. Wybierz nazwę zasobu. Zostanie otwarta strona przedstawiająca szczegóły kondycji zabezpieczeń zasobu.
 
-4. W obszarze **rekomendacja** wybierz pozycję **zalecenia**, przetestowane **oceny** i **niedostępne oceny** , aby wyświetlić te szczegóły.
+4. W **obszarze Lista zaleceń** wybierz karty **Zalecenia,** **Przekazane oceny** i Oceny **niedostępne,** aby wyświetlić te szczegóły.
 
-    :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Zrzut ekranu przedstawiający Azure Security Center pokazywać zalecenia dotyczące zabezpieczeń i oceny.":::
+    :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Zrzut ekranu przedstawiający Azure Security Center zalecenia i oceny zabezpieczeń.":::
 
-## <a name="deploy-an-azure-sentinel-workspace"></a>Wdrażanie obszaru roboczego wskaźnikowego platformy Azure
+## <a name="deploy-an-azure-sentinel-workspace"></a>Wdrażanie Azure Sentinel roboczego
 
-Platforma Azure — Wskaźnikowanie jest tworzona na podstawie obszaru roboczego Log Analytics. Pierwszym krokiem w celu dołączenia do platformy Azure wskaźnikowego jest wybranie obszaru roboczego Log Analytics, który ma być używany w tym celu.
+Azure Sentinel jest zbudowany na podstawie obszaru roboczego usługi Log Analytics. Pierwszym krokiem podczas dołączania Azure Sentinel jest wybranie obszaru roboczego usługi Log Analytics, który ma być do tego celu.
 
-1. W Azure Portal Wyszukaj pozycję **Azure**, a następnie wybierz ją.
+1. W polu Azure Portal wyszukaj pozycję **Azure Sentinel** i wybierz ją.
 
-2. Na stronie obszary robocze wskaźnikowe platformy Azure wybierz pozycję **+ Dodaj**.
+2. Na stronie Azure Sentinel obszarów roboczych wybierz pozycję **+Dodaj.**
 
-3. Wybierz obszar roboczy Log Analytics i wybierz pozycję **Dodaj**.
+3. Wybierz obszar roboczy usługi Log Analytics i wybierz pozycję **Dodaj**.
 
-## <a name="enable-data-collector-for-security-events-on-azure-vmware-solution-vms"></a>Włączanie modułu zbierającego dane dla zdarzeń zabezpieczeń na maszynach wirtualnych rozwiązań VMware platformy Azure
+## <a name="enable-data-collector-for-security-events-on-azure-vmware-solution-vms"></a>Włączanie modułu zbierającego dane dla zdarzeń zabezpieczeń na Azure VMware Solution wirtualnych
 
-Teraz możesz przystąpić do łączenia usługi Azure wskaźnikowej ze źródłami danych, w tym przypadku ze zdarzeniami zabezpieczeń.
+Teraz możesz nawiązać połączenie z Azure Sentinel źródłami danych, w tym przypadku zdarzeniami zabezpieczeń.
 
-1. Na stronie obszary robocze wskaźnikowe platformy Azure wybierz skonfigurowany obszar roboczy.
+1. Na stronie Azure Sentinel obszarów roboczych wybierz skonfigurowany obszar roboczy.
 
-2. W obszarze Konfiguracja wybierz pozycję **Łączniki danych**.
+2. W obszarze Konfiguracja wybierz pozycję **Łączniki danych.**
 
-3. W kolumnie Nazwa łącznika wybierz z listy pozycję **zdarzenia zabezpieczeń** , a następnie wybierz pozycję **Otwórz stronę łącznika**.
+3. W kolumnie Nazwa łącznika wybierz z listy pozycję **Zdarzenia** zabezpieczeń, a następnie wybierz **pozycję Otwórz stronę łącznika**.
 
-4. Na stronie łącznik wybierz zdarzenia, które chcesz przesyłać strumieniowo, a następnie wybierz pozycję **Zastosuj zmiany**.
+4. Na stronie łącznika wybierz zdarzenia, które chcesz przesyłać strumieniowo, a następnie wybierz **pozycję Zastosuj zmiany.**
 
-    :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Zrzut ekranu strony zdarzeń zabezpieczeń w obszarze wskaźnik platformy Azure, w którym można wybrać zdarzenia do przesyłania strumieniowego.":::
+    :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Zrzut ekranu przedstawiający stronę Zdarzeń zabezpieczeń Azure Sentinel, na której można wybrać zdarzenia do strumieniowego przesyłania strumieniowego.":::
 
-## <a name="connect-azure-sentinel-with-azure-security-center"></a>Połącz wskaźnik platformy Azure z usługą Azure Security Center  
+## <a name="connect-azure-sentinel-with-azure-security-center"></a>Łączenie Azure Sentinel z Azure Security Center  
 
-1. Na stronie obszaru roboczego wskaźnikowego platformy Azure wybierz skonfigurowany obszar roboczy.
+1. Na stronie Azure Sentinel obszaru roboczego wybierz skonfigurowany obszar roboczy.
 
-2. W obszarze Konfiguracja wybierz pozycję **Łączniki danych**.
+2. W obszarze Konfiguracja wybierz pozycję **Łączniki danych.**
 
-3. Z listy wybierz pozycję **Azure Security Center** a następnie wybierz pozycję **Otwórz stronę łącznika**.
+3. Wybierz **Azure Security Center** z listy, a następnie wybierz pozycję **Otwórz stronę łącznika.**
 
-    :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Zrzut ekranu przedstawiający stronę łączników danych w centrum kontrolnym platformy Azure z wyborem umożliwiającym łączenie Azure Security Center z platformą Azure.":::
+    :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Zrzut ekranu przedstawiający stronę Łączniki danych w Azure Sentinel z wyborem w celu nawiązania połączenia Azure Security Center z Azure Sentinel.":::
 
-4. Wybierz pozycję **Połącz** , aby połączyć Azure Security Center z platformą Azure — wskaźnikiem.
+4. Wybierz **pozycję Połącz,** aby połączyć Azure Security Center z Azure Sentinel.
 
-5. Włącz **Tworzenie zdarzenia** w celu wygenerowania zdarzenia dla Azure Security Center.
+5. Włącz **opcję Utwórz zdarzenie,** aby wygenerować zdarzenie dla Azure Security Center.
 
-## <a name="create-rules-to-identify-security-threats"></a>Tworzenie reguł do identyfikowania zagrożeń bezpieczeństwa
+## <a name="create-rules-to-identify-security-threats"></a>Tworzenie reguł w celu identyfikowania zagrożeń bezpieczeństwa
 
-Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzyć reguły generowania alertów dla wykrytych zagrożeń. W poniższym przykładzie utworzymy regułę służącą do próby zalogowania się do systemu Windows Server przy użyciu nieprawidłowego hasła.
+Po połączeniu źródeł danych z Azure Sentinel można utworzyć reguły generowania alertów dotyczących wykrytych zagrożeń. W poniższym przykładzie utworzymy regułę dla prób zalogowania się do systemu Windows Server przy użyciu nieprawidłowego hasła.
 
-1. Na stronie Przegląd wskaźnikowego platformy Azure w obszarze konfiguracje wybierz pozycję **Analiza**.
+1. Na stronie przeglądu Azure Sentinel w obszarze Konfiguracje wybierz pozycję **Analiza.**
 
-2. W obszarze konfiguracje wybierz pozycję **Analiza**.
+2. W obszarze Konfiguracje wybierz pozycję **Analiza.**
 
-3. Wybierz pozycję **+ Utwórz** i na liście rozwijanej wybierz pozycję **zaplanowana reguła zapytania**.
+3. Wybierz **pozycję +Utwórz,** a następnie z listy rozwijanej wybierz pozycję **Reguła zaplanowanego zapytania.**
 
 4. Na karcie **Ogólne** wprowadź wymagane informacje.
 
@@ -165,11 +165,11 @@ Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzy
     - Ważność
     - Stan
 
-    Wybierz pozycję **Dalej: ustaw >logiki reguł**.
+    Wybierz **pozycję Dalej: Ustaw logikę >**.
 
-5. Na karcie **Ustawianie logiki reguły** wprowadź wymagane informacje.
+5. Na karcie **Ustaw logikę reguły** wprowadź wymagane informacje.
 
-    - Zapytanie reguły (tutaj pokazując nasze przykładowe zapytanie)
+    - Zapytanie reguły (tutaj jest wyświetlane nasze przykładowe zapytanie)
     
         ```
         SecurityEvent
@@ -186,47 +186,47 @@ Po połączeniu źródeł danych z platformą Azure wskaźnikiem, można utworzy
 
     Wybierz opcję **Dalej**.
 
-6. Na karcie **Ustawienia zdarzenia** Włącz opcję **Utwórz zdarzenia na podstawie alertów wyzwalanych przez tę regułę analizy** , a następnie wybierz kolejno pozycje **Dalej: automatyczna odpowiedź >**.
+6. Na karcie Ustawienia zdarzenia  **włącz** opcję Utwórz zdarzenia na podstawie alertów wyzwalanych przez tę regułę analizy i wybierz pozycję **Dalej: Automatyczna odpowiedź >**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Zrzut ekranu kreatora reguły analitycznej służący do tworzenia nowej reguły na platformie Azure — wskaźnik. Pokazuje Tworzenie zdarzeń na podstawie alertów wyzwalanych przez tę regułę jako włączone.":::
+    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Zrzut ekranu przedstawiający kreatora reguły analitycznej służącego do tworzenia nowej reguły w Azure Sentinel. Pokazuje tworzenie zdarzeń z alertów wyzwalanych przez tę regułę jako włączone.":::
 
-7. Wybierz kolejno pozycje **Dalej: przegląd >**.
+7. Wybierz **pozycję Dalej: Przejrzyj >.**
 
-8. Na karcie **Przegląd i tworzenie** Przejrzyj informacje, a następnie wybierz pozycję **Utwórz**.
+8. Na karcie **Przeglądanie i tworzenie** przejrzyj informacje i wybierz pozycję **Utwórz.**
 
-Po trzecim nieudanej próbie zalogowania się do systemu Windows Server utworzona reguła wyzwala zdarzenie dla każdej nieudanej próby.
+Po trzeciej nieudanej próbie zalogowania się do systemu Windows Server utworzona reguła wyzwala zdarzenie dla każdej nieudanej próby.
 
 ## <a name="view-alerts"></a>Wyświetlanie alertów
 
-Wygenerowane zdarzenia można wyświetlić za pomocą platformy Azure — wskaźnik. Możesz również przypisywać zdarzenia i zamykać je po ich rozwiązaniu, a wszystko to w ramach platformy Azure.
+Wygenerowane zdarzenia można wyświetlić za pomocą Azure Sentinel. Możesz również przypisywać zdarzenia i zamykać je po ich rozwiązaniach, a wszystko to z poziomu Azure Sentinel.
 
-1. Przejdź do strony przeglądu wskaźnikowego platformy Azure.
+1. Przejdź do Azure Sentinel przeglądu aplikacji.
 
-2. W obszarze Zarządzanie zagrożeniami wybierz pozycję **zdarzenia**.
+2. W obszarze Zarządzanie zagrożeniami wybierz **pozycję Zdarzenia.**
 
-3. Wybierz zdarzenie. Następnie można przypisać zdarzenie do zespołu w celu rozwiązania problemu.
+3. Wybierz zdarzenie. Następnie możesz przypisać zdarzenie do zespołu w celu rozwiązania problemu.
 
-    :::image type="content" source="media/azure-security-integration/assign-incident.png" alt-text="Zrzut ekranu przedstawiający stronę zdarzenia wskaźnikowego platformy Azure z wybranym zdarzeniem i opcję przypisywania zdarzenia do rozwiązania.":::
+    :::image type="content" source="media/azure-security-integration/assign-incident.png" alt-text="Zrzut ekranu Azure Sentinel Zdarzenia z wybranym zdarzeniem i opcją przypisania zdarzenia do rozwiązania.":::
 
-    Po rozwiązaniu problemu można go zamknąć.
+    Po rozwiązaniu problemu możesz go zamknąć.
 
-## <a name="hunt-security-threats-with-queries"></a>Zapytanie dotyczące zagrożeń bezpieczeństwa z zapytaniami
+## <a name="hunt-security-threats-with-queries"></a>Wyszukiwania zagrożeń bezpieczeństwa za pomocą zapytań
 
-Możesz tworzyć zapytania lub użyć dostępnego wstępnie zdefiniowanego zapytania w wskaźniku kontrolnym platformy Azure, aby identyfikować zagrożenia w Twoim środowisku. Poniższe kroki uruchamiają wstępnie zdefiniowane zapytanie.
+Możesz tworzyć zapytania lub używać dostępnych wstępnie zdefiniowanych zapytań w Azure Sentinel, aby identyfikować zagrożenia w środowisku. Poniższe kroki uruchamiają wstępnie zdefiniowane zapytanie.
 
-1. Przejdź do strony przeglądu wskaźnikowego platformy Azure.
+1. Przejdź do Azure Sentinel przeglądu aplikacji.
 
-2. W obszarze Zarządzanie zagrożeniami wybierz pozycję **łowiectwo**. Zostanie wyświetlona lista wstępnie zdefiniowanych zapytań.
+2. W obszarze Zarządzanie zagrożeniami wybierz pozycję **Wykrywanie zagrożeń.** Zostanie wyświetlona lista wstępnie zdefiniowanych zapytań.
 
-3. Wybierz zapytanie, a następnie wybierz polecenie **Uruchom zapytanie**.
+3. Wybierz zapytanie, a następnie wybierz pozycję **Uruchom zapytanie.**
 
-4. Wybierz pozycję **Wyświetl wyniki** , aby sprawdzić wyniki.
+4. Wybierz **pozycję Wyświetl wyniki,** aby sprawdzić wyniki.
 
 ### <a name="create-a-new-query"></a>Tworzenie nowego zapytania
 
-1.  W obszarze Zarządzanie zagrożeniami wybierz pozycję **łowiectwo** , a następnie **+ nowe zapytanie**.
+1.  W obszarze Zarządzanie zagrożeniami wybierz pozycję **Wyszukiwania** zagrożeń, a następnie **pozycję +Nowe zapytanie.**
 
-    :::image type="content" source="media/azure-security-integration/create-new-query.png" alt-text="Zrzut ekranu przedstawiający stronę łowiectwa wskaźnikowego platformy Azure z wyróżnioną i nową kwerendą.":::
+    :::image type="content" source="media/azure-security-integration/create-new-query.png" alt-text="Zrzut ekranu Azure Sentinel wyszukiwania z wyróżnionem + Nowe zapytanie.":::
 
 2. Wypełnij poniższe informacje, aby utworzyć zapytanie niestandardowe.
 
@@ -236,12 +236,12 @@ Możesz tworzyć zapytania lub użyć dostępnego wstępnie zdefiniowanego zapyt
     - Wprowadź mapowanie
     - Taktyka
     
-3. Wybierz przycisk **Utwórz**. Następnie można wybrać utworzone zapytanie, **uruchomić zapytanie** i **wyświetlić wyniki**.
+3. Wybierz przycisk **Utwórz**. Następnie możesz wybrać utworzone zapytanie, uruchomić **zapytanie** i **wyświetlić wyniki.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy zawarto ochronę maszyn wirtualnych rozwiązań VMware platformy Azure, warto zapoznać się z tematem:
+Teraz, gdy już wiesz, jak chronić maszyny Azure VMware Solution wirtualne, możesz dowiedzieć się więcej na temat:
 
-- Korzystanie z [pulpitu nawigacyjnego usługi Azure Defender](../security-center/azure-defender-dashboard.md).
-- [Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik](../azure-monitor/logs/quick-create-workspace.md).
-- [Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure](lifecycle-management-of-azure-vmware-solution-vms.md).
+- Korzystanie z [pulpitu Azure Defender nawigacyjnego](../security-center/azure-defender-dashboard.md)
+- [Zaawansowane wieloetapowe wykrywanie ataków w Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
+- [Zarządzanie cyklem życia maszyn Azure VMware Solution wirtualnych](lifecycle-management-of-azure-vmware-solution-vms.md)
