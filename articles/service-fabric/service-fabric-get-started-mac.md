@@ -1,15 +1,15 @@
 ---
-title: Konfigurowanie środowiska deweloperskiego w systemie macOS
-description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji będziesz gotowy do kompilowania aplikacji w witrynie macOS.
+title: Konfigurowanie środowiska dewelopera w systemie macOS
+description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji wszystko będzie gotowe do tworzenia aplikacji w systemie macOS.
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fe551f8371322af8d955b5233e6d9d05741f3d9
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93086781"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868127"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
 > [!div class="op_single_selector"]
@@ -41,38 +41,38 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Możesz zaktualizować te ustawienia bezpośrednio w pliku daemon.json w ścieżce instalacji platformy Docker. Ustawienia konfiguracji demona można modyfikować bezpośrednio w programie Docker. Wybierz **ikonę platformy Docker**, a następnie wybierz pozycje **Preferencje** > **Demon** > **Zaawansowane**.
+    Możesz zaktualizować te ustawienia bezpośrednio w pliku daemon.json w ścieżce instalacji platformy Docker. Ustawienia konfiguracji demona można bezpośrednio zmodyfikować na platformy Docker. Wybierz **ikonę platformy Docker**, a następnie wybierz pozycje **Preferencje** > **Demon** > **Zaawansowane**.
     
     >[!NOTE]
     >
-    >Zaleca się modyfikowanie demona bezpośrednio w programie Docker, ponieważ lokalizacja daemon.jsw pliku może się różnić od maszyny do komputera. Przykład: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Modyfikowanie demona bezpośrednio na maszynie docker jest zalecane, ponieważ lokalizacja pliku daemon.jsmoże się różnić w zależności od komputera. Przykład: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
     >Zalecamy zwiększenie zasobów przydzielonych do platformy Docker podczas testowania dużych aplikacji. W tym celu można wybrać **ikonę platformy Docker**, a następnie wybrać pozycję **Zaawansowane**, aby dostosować liczbę rdzeni i ilość pamięci.
 
 2. Uruchom klaster.<br/>
-    <b>Ubuntu 18,04 LTS:</b>
+    <b>Ubuntu 18.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
-    <b>Ubuntu 16,04 LTS:</b>
+    <b>Ubuntu 16.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
     ```
 
     >[!TIP]
-    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek odwiedź stronę [Service Fabric jednopunktowy](https://hub.docker.com/_/microsoft-service-fabric-onebox) w usłudze Docker Hub.
+    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku konkretnych poprawek odwiedź stronę [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) w Docker Hub.
 
 
 
-3. Opcjonalne: Tworzenie obrazu rozszerzonego Service Fabric.
+3. Opcjonalnie: skompilowanie rozszerzonego Service Fabric obrazu.
 
-    W nowym katalogu Utwórz plik o nazwie `Dockerfile` do skompilowania niestandardowego obrazu:
+    W nowym katalogu utwórz plik o nazwie , `Dockerfile` aby skompilować dostosowany obraz:
 
     >[!NOTE]
-    >Możesz dostosować obraz powyżej za pomocą pliku dockerfile, aby dodać dodatkowe programy lub zależności do kontenera.
+    >Powyższy obraz można dostosować za pomocą pliku Dockerfile, aby dodać do kontenera dodatkowe programy lub zależności.
     >Na przykład dodanie elementu `RUN apt-get install nodejs -y` umożliwi obsługę aplikacji `nodejs` jako plików wykonywalnych gościa.
     ```Dockerfile
     FROM mcr.microsoft.com/service-fabric/onebox:u18
@@ -83,9 +83,9 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     ```
     
     >[!TIP]
-    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek odwiedź stronę usługi [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) .
+    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. Aby uzyskać informacje o konkretnych poprawkach, odwiedź [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) strony.
 
-    Aby skompilować obraz do wielokrotnego użytku z programu `Dockerfile` , Otwórz Terminal i `cd` bezpośrednio przytrzymując `Dockerfile` następnie uruchom następujące polecenie:
+    Aby skompilować obraz wielokrotnego użytku z pliku , otwórz terminal i bezpośrednio `Dockerfile` `cd` przytrzymujący `Dockerfile` go, a następnie uruchom:
 
     ```bash 
     docker build -t mysfcluster .
@@ -94,7 +94,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     >[!NOTE]
     >Ta operacja może zająć pewien czas, ale trzeba ją wykonać tylko raz.
 
-    Teraz można szybko uruchomić lokalną kopię Service Fabric, gdy będzie potrzebna, uruchamiając:
+    Teraz możesz szybko uruchomić lokalną kopię kopii Service Fabric gdy jest to potrzebne, uruchamiając:
 
     ```bash 
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
@@ -108,14 +108,14 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     >`docker run -itd -p 19000:19000 -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:u18`
     >
 
-4. Uruchomienie klastra zajmie trochę czasu. Gdy jest uruchomiony, można wyświetlić dzienniki przy użyciu poniższego polecenia lub przejść do pulpitu nawigacyjnego, aby wyświetlić kondycję klastrów: `http://localhost:19080`
+4. Uruchomienie klastra potrwa chwilę. Po uruchomieniu możesz wyświetlić dzienniki za pomocą następującego polecenia lub przejść do pulpitu nawigacyjnego, aby wyświetlić kondycję klastrów: `http://localhost:19080`
 
     ```bash 
     docker logs sftestcluster
     ```
 
 
-5. Aby zatrzymać i oczyścić kontener, użyj następującego polecenia. Jednak będziemy używać tego kontenera w następnym kroku.
+5. Aby zatrzymać i wyczyścić kontener, użyj następującego polecenia. Ten kontener będzie jednak używać w następnym kroku.
 
     ```bash 
     docker rm -f sftestcluster
@@ -125,8 +125,8 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
  
  Poniżej przedstawiono znane ograniczenia dotyczące klastrów lokalnych działających w kontenerze na komputerach Mac: 
  
- * Usługa DNS nie działa i nie jest obecnie obsługiwana w kontenerze. [#132 problemu](https://github.com/Microsoft/service-fabric/issues/132)
- * Uruchomione aplikacje oparte na kontenerach wymagają uruchomienia SF na hoście z systemem Linux. Zagnieżdżone aplikacje kontenera nie są obecnie obsługiwane.
+ * Usługa DNS nie jest uruchamiana i obecnie nie jest obsługiwana w kontenerze. [Problem #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * Uruchamianie aplikacji opartych na kontenerach wymaga uruchomienia sf na hoście z systemem Linux. Zagnieżdżone aplikacje kontenera nie są obecnie obsługiwane.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric (sfctl) na komputerze Mac
 
@@ -173,8 +173,8 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które u
     ```
 
     > [!IMPORTANT]
-    > Bieżące wersje programu `brew cask install java` mogą instalować nowszą wersję programu JDK.
-    > Pamiętaj, aby zainstalować program JDK 8.
+    > Bieżące wersje `brew cask install java` programu mogą instalować nowszą wersję JDK.
+    > Pamiętaj, aby zainstalować pakiet JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Wdrażanie aplikacji na komputerze Mac z poziomu terminalu
 
@@ -193,9 +193,9 @@ Po utworzenia i skompilowaniu aplikacji usługi Service Fabric możesz wdrożyć
     bash install.sh
     ```
 
-## <a name="set-up-net-core-31-development"></a>Skonfiguruj Programowanie na platformie .NET Core 3,1
+## <a name="set-up-net-core-31-development"></a>Konfigurowanie tworzenia aplikacji dla oprogramowania .NET Core 3.1
 
-Zainstaluj [zestaw SDK platformy .NET Core 3,1 dla komputerów Mac](https://www.microsoft.com/net/core#macos) , aby rozpocząć [Tworzenie aplikacji w języku C# Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md). Pakiety dla aplikacji .NET Core Service Fabric są hostowane w witrynie NuGet.org.
+Zainstaluj zestaw [SDK platformy .NET Core 3.1](https://dotnet.microsoft.com/download?initial-os=macos) dla komputerów Mac, aby rozpocząć tworzenie aplikacji w Service Fabric [C#.](service-fabric-create-your-first-linux-application-with-csharp.md) Pakiety dla aplikacji Service Fabric .NET Core są hostowane na NuGet.org.
 
 ## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Instalowanie wtyczki usługi Service Fabric dla środowiska Eclipse na komputerze Mac
 

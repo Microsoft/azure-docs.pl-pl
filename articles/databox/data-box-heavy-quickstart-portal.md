@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
-ms.translationtype: HT
+ms.openlocfilehash: 8c418f7cbeb56b94b7a85b12e833301b979bff32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347426"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871560"
 ---
 ::: zone target = "docs"
 
@@ -65,7 +65,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 Ten krok zajmuje około 5 minut.
 
 1. Utwórz nowy zasób usługi Azure Data Box w witrynie Azure Portal.
-2. Wybierz istniejącą subskrypcję, w której włączono tę usługę, a następnie wybierz typ transferu **Import**. Podaj **Kraj źródłowy** , w którym są przechowywane dane, oraz **Docelowy region platformy Azure** , do którego mają zostać przekazane dane.
+2. Wybierz istniejącą subskrypcję, w której włączono tę usługę, a następnie wybierz typ transferu **Import**. Podaj **Kraj źródłowy**, w którym są przechowywane dane, oraz **Docelowy region platformy Azure**, do którego mają zostać przekazane dane.
 3. Wybierz pozycję **Data Box Heavy**. Maksymalna dostępna do użycia pojemność tego rozwiązania to 770 TB. W przypadku większych ilości danych możesz utworzyć większą liczbę zamówień.
 4. Wprowadź szczegóły zamówienia i informacje dotyczące wysyłki. Jeśli ta usługa jest dostępna w Twoim regionie, podaj adresy e-mail na potrzeby powiadomień, zapoznaj się z podsumowaniem i utwórz zamówienie.
 
@@ -89,7 +89,7 @@ Skorzystaj z następujących poleceń interfejsu wiersza polecenia platformy Azu
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. Uruchom polecenie [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create), aby utworzyć zadanie urządzenia Data Box przy użyciu parametru **--sku** o wartości `DataBoxHeavy`:
+1. Uruchom polecenie [az databox job create](/cli/azure/databox/job#az_databox_job_create), aby utworzyć zadanie urządzenia Data Box przy użyciu parametru **--sku** o wartości `DataBoxHeavy`:
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxheavy-job \
@@ -102,37 +102,37 @@ Skorzystaj z następujących poleceń interfejsu wiersza polecenia platformy Azu
    > [!NOTE]
    > Upewnij się, że Twoja subskrypcja wspiera urządzenie Data Box Heavy.
 
-1. Uruchom polecenie [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update), aby zaktualizować zadanie. W tym przykładzie zmieniono nazwę i adres e-mail kontaktu:
+1. Uruchom polecenie [az databox job update](/cli/azure/databox/job#az_databox_job_update), aby zaktualizować zadanie. W tym przykładzie zmieniono nazwę i adres e-mail kontaktu:
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   Uruchom polecenie [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show), aby uzyskać informacje o zadaniu:
+   Uruchom polecenie [az databox job show](/cli/azure/databox/job#az_databox_job_show), aby uzyskać informacje o zadaniu:
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   Użyj polecenia [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list), aby wyświetlić wszystkie zadania urządzenia Data Box dla grupy zasobów:
+   Użyj polecenia [az databox job list]( /cli/azure/databox/job#az_databox_job_list), aby wyświetlić wszystkie zadania urządzenia Data Box dla grupy zasobów:
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   Uruchom polecenie [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel), aby anulować zadanie:
+   Uruchom polecenie [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel), aby anulować zadanie:
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   Uruchom polecenie [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete), aby usunąć zadanie:
+   Uruchom polecenie [az databox job delete](/cli/azure/databox/job#az_databox_job_delete), aby usunąć zadanie:
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. Użyj polecenia [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials), aby wyświetlić listę poświadczeń dla zadania urządzenia Data Box:
+1. Użyj polecenia [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials), aby wyświetlić listę poświadczeń dla zadania urządzenia Data Box:
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"

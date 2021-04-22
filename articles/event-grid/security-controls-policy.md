@@ -1,15 +1,15 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Event Grid
 description: Wyświetla Azure Policy kontroli zgodności z przepisami dostępnych dla Azure Event Grid. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 819f1178e6c63bafa070362f3c8f84743aa2426b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: bb52e3bee9c87a63a4fea772a32f7a60321adeed
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107504468"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864666"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-grid"></a>Azure Policy kontroli zgodności z przepisami dla Azure Event Grid
 

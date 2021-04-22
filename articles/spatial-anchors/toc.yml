@@ -83,7 +83,7 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: W języku C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
-    - name: Używanie bardzo dużej lokalizacji bez zakotwiczenia
+    - name: Używanie zgrubnej ponownej lokalizacji bez sesji zakotwiczenia
       href: how-tos/use-coarse-relocalization-without-anchor-session.md
     - name: Konfiguracja projektu
       items:
@@ -107,7 +107,7 @@
       href: concepts/logging-diagnostics.md
     - name: Zgrubna ponowna lokalizacja
       href: concepts/coarse-reloc.md
-    - name: Strategia lokalizowania kotwicy
+    - name: Strategia lokalizowania kotwic
       href: concepts/anchor-locate-strategy.md
 - name: Dokumentacja
   items:
@@ -122,7 +122,7 @@
     - name: SDK dla języka C++/WinRT (HoloLens)
       href: /cpp/api/spatial-anchors/winrt/
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/mixed-reality/spatial-anchors-account
+      href: /cli/azure/spatial-anchors-account
     - name: Azure PowerShell
       href: /powershell/module/az.mixedreality
 - name: Zasoby

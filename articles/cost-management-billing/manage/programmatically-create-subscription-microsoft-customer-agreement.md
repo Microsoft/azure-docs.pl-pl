@@ -1,6 +1,6 @@
 ---
 title: Programowe tworzenie subskrypcji platformy Azure dla Umowy z Klientem Microsoft przy użyciu najnowszych interfejsów API
-description: Dowiedz się, jak tworzyć subskrypcje platformy Azure dla umowy klienta firmy Microsoft programowo przy użyciu najnowszych wersji interfejsu API REST, wiersza polecenia platformy Azure, Azure PowerShell i szablonów Azure Resource Manager.
+description: Dowiedz się, jak programowo tworzyć subskrypcje platformy Azure dla usługi Umowa z Klientem Microsoft przy użyciu najnowszych wersji interfejsu API REST, interfejsu wiersza polecenia platformy Azure, interfejsu wiersza polecenia Azure PowerShell i Azure Resource Manager szablonów.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 5409c30020db2c8d7acf3c23df5a7d709d872341
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 324ca849e0f9c1282dc4b47ceba4654c76c07b35
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963278"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870827"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Programowe tworzenie subskrypcji platformy Azure dla Umowy z Klientem Microsoft przy użyciu najnowszych interfejsów API
 
@@ -28,9 +28,9 @@ Subskrypcja platformy Azure utworzona programowo podlega warunkom umowy, w ramac
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby tworzyć subskrypcje, musisz mieć rolę właściciela, współautora lub twórcy subskrypcji platformy Azure w sekcji faktury albo rolę właściciela lub współautora w profilu rozliczeniowym lub na koncie rozliczeniowym. Możesz również nadać tej samej roli nazwę główną usługi (SPN). Aby uzyskać więcej informacji na temat ról i przypisywania do nich uprawnień, zobacz [role i zadania dotyczące rozliczeń subskrypcji](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Aby tworzyć subskrypcje, musisz mieć rolę właściciela, współautora lub twórcy subskrypcji platformy Azure w sekcji faktury albo rolę właściciela lub współautora w profilu rozliczeniowym lub na koncie rozliczeniowym. Tę samą rolę można również nadać głównej nazwie usługi (SPN). Aby uzyskać więcej informacji na temat ról i przypisywania do nich uprawnień, zobacz Zadania i [role rozliczeniowe subskrypcji.](understand-mca-roles.md#subscription-billing-roles-and-tasks)
 
-Jeśli korzystasz z nazwy SPN do tworzenia subskrypcji, użyj identyfikatora ObjectId rejestracji aplikacji usługi Azure AD jako nazwy głównej identyfikatora polecenia przy użyciu [programu Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list). 
+Jeśli tworzysz subskrypcje przy użyciu głównej jednostki usługi, użyj identyfikatorów ObjectId rejestracji aplikacji usługi Azure AD jako jednostki usługi ObjectId przy użyciu programu [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) lub interfejsu wiersza [polecenia platformy Azure.](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list) 
 
 Jeśli nie wiesz, czy masz dostęp do konta Umowy z Klientem Microsoft, zobacz [Sprawdzanie dostępu do Umowy z Klientem Microsoft](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 
@@ -75,7 +75,7 @@ Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla któ
 ```azurepowershell
 Get-AzBillingAccount
 ```
-Otrzymasz listę wszystkich kont rozliczeniowych, do których masz dostęp. 
+Zostanie wyświetlona lista wszystkich kont rozliczeniowych, do których masz dostęp 
 
 ```json
 Name          : 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
@@ -93,7 +93,7 @@ Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla któ
 ```azurecli
 az billing account list
 ```
-Otrzymasz listę wszystkich kont rozliczeniowych, do których masz dostęp. 
+Zostanie wyświetlona lista wszystkich kont rozliczeniowych, do których masz dostęp 
 
 ```json
 [
@@ -126,7 +126,7 @@ Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla któ
 
 Opłaty za subskrypcję są wyświetlane w sekcji faktury profilu rozliczeniowego. Użyj poniższego interfejsu API, aby uzyskać listę profilów rozliczeniowych i sekcji faktury, w ramach których masz uprawnienie do tworzenia subskrypcji platformy Azure.
 
-Najpierw otrzymujesz listę profilów rozliczeń w ramach konta rozliczeniowego, do którego masz dostęp (Użyj `name` pobrana z poprzedniego kroku)
+Najpierw należy uzyskać listę profilów rozliczeniowych w ramach konta rozliczeniowego, do których masz dostęp (użyj profilu z `name` poprzedniego kroku).
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -216,7 +216,7 @@ Użyj właściwości `id`, aby określić sekcję faktury, dla której chcesz ut
 Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
-Otrzymasz listę profili rozliczeń w ramach tego konta jako część odpowiedzi.
+W ramach odpowiedzi zostanie wyświetlona lista profilów rozliczeniowych w ramach tego konta.
 
 ```json
 Name              : AW4F-xxxx-xxx-xxx
@@ -238,7 +238,7 @@ Country           : US
 PostalCode        : 98052
 ```
 
-Zanotuj `name` profil rozliczeń z powyższej odpowiedzi. Następnym krokiem jest uzyskanie sekcji faktury, do której masz dostęp, poniżej tego profilu rozliczania. Będziesz potrzebować `name` konta rozliczeniowego i profilu rozliczeń
+`name`Zanotuj adres profilu rozliczeniowego z powyższej odpowiedzi. Następnym krokiem jest uzyskanie sekcji faktury, do których masz dostęp, poniżej tego profilu rozliczeniowego. Będziesz potrzebować konta `name` rozliczeniowego i profilu rozliczeniowego
 
 ```azurepowershell
 Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
@@ -251,7 +251,7 @@ Name        : SH3V-xxxx-xxx-xxx
 DisplayName : Development
 ```
 
-`name`Powyżej znajduje się nazwa sekcji faktury, w której należy utworzyć subskrypcję. Utwórz zakres rozliczeń przy użyciu formatu "/providers/Microsoft.Billing/billingAccounts/ <BillingAccountName> /BillingProfiles/ <BillingProfileName> /invoiceSections/ <InvoiceSectionName> ". W tym przykładzie ta wartość będzie równa `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"` .
+Powyżej `name` znajduje się nazwa sekcji Faktury, w ramach których musisz utworzyć subskrypcję. Skonstruuj zakres rozliczeniowy przy użyciu formatu "/providers/Microsoft.Billing/billingAccounts/ <BillingAccountName> /billingProfiles/ <BillingProfileName> /invoiceSections/ <InvoiceSectionName> ". W tym przykładzie ta wartość będzie równa . `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -259,7 +259,7 @@ DisplayName : Development
 az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
 ```
 
-Ten interfejs API zwróci listę profilów rozliczeń i sekcji faktur pod podanym kontem rozliczeniowym.
+Ten interfejs API zwróci listę profilów rozliczeniowych i sekcji faktur w ramach podanego konta rozliczeniowego.
 
 ```json
 [
@@ -323,7 +323,7 @@ Ten interfejs API zwróci listę profilów rozliczeń i sekcji faktur pod podany
   }
 ]
 ```
-Użyj `id` właściwości w obiekcie sekcja faktury, aby zidentyfikować sekcję faktury, dla której chcesz utworzyć subskrypcje. Skopiuj cały ciąg. Na przykład/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-XX-XX/billingProfiles/AW4F-xxxx-XXX-XXX/invoiceSections/SH3V-xxxx-xxx-xxx.
+Użyj właściwości w obiekcie sekcji faktury, aby zidentyfikować sekcję faktury, dla której `id` chcesz utworzyć subskrypcje. Skopiuj cały ciąg. Na przykład /providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx.
 
 ---
 
@@ -416,7 +416,7 @@ W ramach odpowiedzi z polecenia otrzymasz wartość identyfikatora subscriptionI
 
 Najpierw zainstaluj to rozszerzenie, uruchamiając polecenia `az extension add --name account` i `az extension add --name alias`.
 
-Uruchom polecenie [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create).
+Uruchom polecenie [az account alias create](/cli/azure/account/alias#az_account_alias_create).
 
 ```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
@@ -440,9 +440,9 @@ W ramach odpowiedzi z polecenia otrzymasz wartość identyfikatora subscriptionI
 
 ## <a name="use-arm-template"></a>Korzystanie z szablonu usługi Resource Manager
 
-W poprzedniej sekcji pokazano, jak utworzyć subskrypcję za pomocą programu PowerShell, interfejsu wiersza polecenia lub API REST. Jeśli musisz zautomatyzować tworzenie subskrypcji, rozważ użycie szablonu Azure Resource Manager (szablon ARM).
+W poprzedniej sekcji popisano sposób tworzenia subskrypcji przy użyciu programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST. Jeśli musisz zautomatyzować tworzenie subskrypcji, rozważ użycie szablonu usługi Azure Resource Manager (szablonu USŁUGI ARM).
 
-Poniższy szablon tworzy subskrypcję. W `billingScope` polu podaj identyfikator sekcji faktury. W przypadku programu `targetManagementGroup` Podaj grupę zarządzania, w której chcesz utworzyć subskrypcję.
+Poniższy szablon tworzy subskrypcję. W `billingScope` przypadku usługi podaj identyfikator sekcji faktury. W `targetManagementGroup` przypadku usługi podaj grupę zarządzania, w której chcesz utworzyć subskrypcję.
 
 ```json
 {
@@ -486,7 +486,7 @@ Poniższy szablon tworzy subskrypcję. W `billingScope` polu podaj identyfikator
 }
 ```
 
-Wdróż szablon na [poziomie grupy zarządzania](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Wd wdrażaj szablon na [poziomie grupy zarządzania.](../../azure-resource-manager/templates/deploy-to-management-group.md)
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -549,4 +549,4 @@ az deployment mg create \
 
 * Po utworzeniu subskrypcji możesz przyznać tę możliwość innym użytkownikom i jednostkom usługi. Aby uzyskać więcej informacji, zobacz [Przyznawanie dostępu do tworzenia subskrypcji Enterprise platformy Azure (wersja zapoznawcza)](grant-access-to-create-subscription.md).
 * Aby dowiedzieć się więcej na temat zarządzania dużą liczbą subskrypcji za pomocą grup zarządzania, zobacz [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../../governance/management-groups/overview.md).
-* Aby zmienić grupę zarządzania dla subskrypcji, zobacz [przenoszenie subskrypcji](../../governance/management-groups/manage.md#move-subscriptions).
+* Aby zmienić grupę zarządzania dla subskrypcji, zobacz [Przenoszenie subskrypcji](../../governance/management-groups/manage.md#move-subscriptions).

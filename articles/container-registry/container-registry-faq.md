@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e5c855675990d6fd3ec97b839539acd843016a7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783903"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864707"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -24,8 +24,8 @@ Aby uzyskać wskazówki dotyczące rozwiązywania problemów z rejestrem, zobacz
 ## <a name="resource-management"></a>Zarządzanie zasobami
 
 - [Czy mogę utworzyć rejestr kontenerów platformy Azure przy użyciu Resource Manager szablonu?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
-- [Czy istnieje skanowanie luk w zabezpieczeniach w celu skanowania obrazów w uciece ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
-- [Jak mogę skonfigurować usługę Kubernetes przy użyciu Azure Container Registry?](#how-do-i-configure-kubernetes-with-azure-container-registry)
+- [Czy istnieje luka w zabezpieczeniach umożliwiająca skanowanie obrazów w uchucie ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
+- [Jak mogę kubernetes za pomocą Azure Container Registry?](#how-do-i-configure-kubernetes-with-azure-container-registry)
 - [Jak mogę uzyskać poświadczenia administratora dla rejestru kontenerów?](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [Jak mogę uzyskać poświadczenia administratora w szablonie Resource Manager szablonu?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Usuwanie replikacji kończy się niepowodzeniem ze stanem Zabronione, mimo że replikacja jest usuwana przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
@@ -35,18 +35,18 @@ Aby uzyskać wskazówki dotyczące rozwiązywania problemów z rejestrem, zobacz
 
 Tak. Oto [szablon,](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) który umożliwia utworzenie rejestru.
 
-### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Czy istnieje skanowanie luk w zabezpieczeniach w celu skanowania obrazów w uciece ACR?
+### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Czy istnieje luka w zabezpieczeniach umożliwiająca skanowanie obrazów w uchucie ACR?
 
-Tak. Zapoznaj się z [dokumentacją](../security-center/defender-for-container-registries-introduction.md)Azure Security Center , [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) i [Aqua.](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)
+Tak. Zapoznaj się z [dokumentacją](../security-center/defender-for-container-registries-introduction.md)Azure Security Center, [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) i [Aqua.](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)
 
-### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Jak mogę skonfigurować usługę Kubernetes przy użyciu Azure Container Registry?
+### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Jak mogę kubernetes za pomocą Azure Container Registry?
 
-Zapoznaj się z dokumentacją [dotyczącą systemu Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) i [instrukcjami](../aks/cluster-container-registry-integration.md)Azure Kubernetes Service .
+Zapoznaj się z dokumentacją [dotyczącą systemu Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) i [krokami](../aks/cluster-container-registry-integration.md)Azure Kubernetes Service .
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Jak mogę uzyskać poświadczenia administratora dla rejestru kontenerów?
 
 > [!IMPORTANT]
-> Konto użytkownika administratora jest przeznaczone dla jednego użytkownika w celu uzyskania dostępu do rejestru, głównie do celów testowych. Nie zalecamy udostępniania poświadczeń konta administratora wielu użytkownikom. W przypadku scenariuszy bezgłowych zaleca się używanie indywidualnej tożsamości dla użytkowników i jednostki usługi. Zobacz [Omówienie uwierzytelniania.](container-registry-authentication.md)
+> Konto użytkownika administratora jest przeznaczone dla jednego użytkownika w celu uzyskania dostępu do rejestru, głównie do celów testowych. Nie zalecamy udostępniania poświadczeń konta administratora wielu użytkownikom. Tożsamość indywidualna jest zalecana dla użytkowników i jednostki usługi w scenariuszach bez użycia głowy. Zobacz [Omówienie uwierzytelniania.](container-registry-authentication.md)
 
 Przed uzyskaniem poświadczeń administratora upewnij się, że administrator rejestru jest włączony.
 
@@ -65,7 +65,7 @@ Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.Con
 ### <a name="how-do-i-get-admin-credentials-in-a-resource-manager-template"></a>Jak mogę uzyskać poświadczenia administratora w szablonie Resource Manager szablonu?
 
 > [!IMPORTANT]
-> Konto użytkownika administratora jest przeznaczone dla jednego użytkownika w celu uzyskania dostępu do rejestru, głównie do celów testowych. Nie zalecamy udostępniania poświadczeń konta administratora wielu użytkownikom. W przypadku scenariuszy bezgłowych zaleca się używanie indywidualnej tożsamości dla użytkowników i jednostki usługi. Zobacz [Omówienie uwierzytelniania.](container-registry-authentication.md)
+> Konto użytkownika administratora jest przeznaczone dla jednego użytkownika w celu uzyskania dostępu do rejestru, głównie do celów testowych. Nie zalecamy udostępniania poświadczeń konta administratora wielu użytkownikom. Tożsamość indywidualna jest zalecana dla użytkowników i jednostki usługi w scenariuszach bez użycia głowy. Zobacz [Omówienie uwierzytelniania.](container-registry-authentication.md)
 
 Przed uzyskaniem poświadczeń administratora upewnij się, że administrator rejestru jest włączony.
 
@@ -108,7 +108,7 @@ Propagacja zmian reguł zapory zajmuje trochę czasu. Po zmianie ustawień zapor
 - [Jak mogę się za pomocą rejestru podczas uruchamiania interfejsu wiersza polecenia w kontenerze?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
 - [Jak włączyć obsługę TLS 1.2?](#how-to-enable-tls-12)
 - [Czy Azure Container Registry zaufanie do zawartości?](#does-azure-container-registry-support-content-trust)
-- [Jak mogę udzielić dostępu do ściągania lub wypychania obrazów bez uprawnień do zarządzania zasobem rejestru?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
+- [Jak mogę dostępu do ściągania lub wypychania obrazów bez uprawnień do zarządzania zasobem rejestru?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Jak mogę włączyć automatyczną kwarantannę obrazu dla rejestru?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [Jak mogę włączyć anonimowy dostęp do ściągania?](#how-do-i-enable-anonymous-pull-access)
 - [Jak mogę wypychać warstwy niedystrybuowalne do rejestru?](#how-do-i-push-non-distributable-layers-to-a-registry)
@@ -202,16 +202,16 @@ Tak, można używać zaufanych obrazów w Azure Container Registry, ponieważ no
 
 ####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Gdzie znajduje się plik odcisku palca?
 
-W `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata` obszarze :
+W obszarze `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata` :
 
 * Klucze publiczne i certyfikaty wszystkich ról (z wyjątkiem ról delegowania) są przechowywane w programie `root.json` .
-* Klucze publiczne i certyfikaty roli delegowania są przechowywane w pliku JSON roli nadrzędnej (na przykład `targets.json` `targets/releases` dla roli).
+* Klucze publiczne i certyfikaty roli delegowania są przechowywane w pliku JSON roli nadrzędnej (na przykład `targets.json` `targets/releases` roli).
 
-Zalecamy zweryfikowanie tych kluczy publicznych i certyfikatów po ogólnej weryfikacji TUF wykonanej przez klienta usług Docker i Notary.
+Zalecamy zweryfikowanie tych kluczy publicznych i certyfikatów po ogólnej weryfikacji tufów wykonanej przez klienta docker i notary.
 
-### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Jak mogę przyznać dostęp do ściągania lub wypychania obrazów bez uprawnień do zarządzania zasobem rejestru?
+### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Jak mogę udzielić dostępu do ściągania lub wypychania obrazów bez uprawnień do zarządzania zasobem rejestru?
 
-ACR obsługuje [role niestandardowe,](container-registry-roles.md) które zapewniają różne poziomy uprawnień. W szczególności `AcrPull` role i umożliwiają użytkownikom ściąganie i/lub wypychanie obrazów bez uprawnień do zarządzania zasobem `AcrPush` rejestru na platformie Azure.
+ACR obsługuje [role niestandardowe,](container-registry-roles.md) które zapewniają różne poziomy uprawnień. W szczególności `AcrPull` role i umożliwiają użytkownikom ściąganie i/lub wypychanie obrazów bez uprawnień do zarządzania `AcrPush` zasobem rejestru na platformie Azure.
 
 * Azure Portal: Twój rejestr -> Access Control (IAM) -> Dodaj (Wybierz lub `AcrPull` `AcrPush` dla roli).
 * Interfejs wiersza polecenia platformy Azure: znajdź identyfikator zasobu rejestru, uruchamiając następujące polecenie:
@@ -220,7 +220,7 @@ ACR obsługuje [role niestandardowe,](container-registry-roles.md) które zapewn
   az acr show -n myRegistry
   ```
   
-  Następnie możesz przypisać rolę `AcrPull` lub `AcrPush` do użytkownika (w poniższym przykładzie użyto wartości `AcrPull` ):
+  Następnie możesz przypisać rolę `AcrPull` lub `AcrPush` do użytkownika (w poniższym przykładzie użyto nazwy `AcrPull` ):
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
@@ -252,11 +252,11 @@ Następnie przypisany użytkownik może uwierzytelniać obrazy w rejestrze i uzy
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-W przypadku używania tylko roli lub przypisany użytkownik nie ma uprawnień do zarządzania zasobem `AcrPull` `AcrPush` rejestru na platformie Azure. Na przykład `az acr list` wartość lub nie spowoduje `az acr show -n myRegistry` pokazania rejestru.
+W przypadku używania tylko roli lub przypiszeni nie mają uprawnień do zarządzania zasobem `AcrPull` `AcrPush` rejestru na platformie Azure. Na przykład `az acr list` wartość lub nie spowoduje `az acr show -n myRegistry` pokazania rejestru.
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Jak mogę włączyć automatyczną kwarantannę obrazu dla rejestru?
 
-Kwarantanna obrazu jest obecnie funkcją w wersji zapoznawczej acr. Tryb kwarantanny rejestru można włączyć tak, aby tylko te obrazy, które pomyślnie przeszły skanowanie zabezpieczeń, były widoczne dla zwykłych użytkowników. Aby uzyskać szczegółowe informacje, zobacz [repozytorium GitHub usługi ACR](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+Kwarantanna obrazów jest obecnie funkcją WAN w wersji zapoznawczej. Tryb kwarantanny rejestru można włączyć tak, aby tylko te obrazy, które pomyślnie przeszły skanowanie zabezpieczeń, były widoczne dla zwykłych użytkowników. Aby uzyskać szczegółowe informacje, zobacz [repozytorium GitHub usługi ACR](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Jak mogę włączyć anonimowy dostęp do ściągania?
 
@@ -274,6 +274,7 @@ W dowolnym momencie możesz wyłączyć anonimowy dostęp do ściągania, ustawi
 > * Przed podjęciem próby anonimowej operacji ściągania uruchom operację , aby upewnić się, że wszystkie `docker logout` istniejące poświadczenia platformy Docker zostaną wyczyszkowane.
 > * Tylko operacje płaszczyzny danych są dostępne dla nieuwierzytanych klientów.
 > * Rejestr może ograniczać wysoką szybkość nieuwierzytanych żądań.
+> * Obecnie dostęp anonimowy do ściągania nie jest obsługiwany w regionach rejestru [replikowanych](container-registry-geo-replication.md) geograficznie.
 
 > [!WARNING]
 > Anonimowy dostęp do ściągania ma obecnie zastosowanie do wszystkich repozytoriów w rejestrze. Jeśli zarządzasz dostępem do repozytorium przy użyciu [tokenów](container-registry-repository-scoped-permissions.md)w zakresie repozytorium, należy pamiętać, że wszyscy użytkownicy mogą ściągać z tych repozytoriów w rejestrze, w których włączono anonimowe ściąganie. Zalecamy usuwanie tokenów, gdy jest włączony anonimowy dostęp do ściągania.
@@ -326,8 +327,8 @@ Aby rozwiązać typowe problemy ze środowiskiem i rejestrem, zobacz [Sprawdzani
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull kończy się niepowodzeniem z błędem: net/http: żądanie zostało anulowane podczas oczekiwania na połączenie (Przekroczono limit czasu Client.Timeout podczas oczekiwania na nagłówki)
 
- - Jeśli ten błąd jest przejściowym problemem, ponów próbę zakończy się powodzeniem.
- - Jeśli `docker pull` błąd będzie stale się kończyć niepowodzeniem, może to być problem z demonem platformy Docker. Ten problem można zwykle rozwiązać, uruchamiając ponownie demona platformy Docker. 
+ - Jeśli ten błąd jest problemem przejściowym, ponowna próba zakończy się powodzeniem.
+ - Jeśli `docker pull` w sposób ciągły ulegnie awarii, może to być problem z demonem platformy Docker. Ten problem można zwykle rozwiązać, uruchamiając ponownie demona platformy Docker. 
  - Jeśli ten problem będzie nadal pojawiać się po ponownym uruchomieniu demona platformy Docker, problem może dotyczyć niektórych problemów z łącznością sieciową z maszyną. Aby sprawdzić, czy ogólna sieć na maszynie jest w dobrej kondycji, uruchom następujące polecenie, aby przetestować łączność z punktem końcowym. Minimalna wersja `az acr` zawierająca to polecenie sprawdzania łączności to 2.2.9. Uaktualnij interfejs wiersza polecenia platformy Azure, jeśli używasz starszej wersji.
  
   ```azurecli
@@ -337,24 +338,24 @@ Aby rozwiązać typowe problemy ze środowiskiem i rejestrem, zobacz [Sprawdzani
  - Zawsze należy mieć mechanizm ponawiania prób dla wszystkich operacji klienta platformy Docker.
 
 ### <a name="docker-pull-is-slow"></a>Ściąganie platformy Docker jest powolne
-Użyj [tego](http://www.azurespeed.com/Azure/Download) narzędzia, aby przetestować szybkość pobierania sieci maszyny. Jeśli sieć maszynowa jest powolna, rozważ użycie maszyny wirtualnej platformy Azure w tym samym regionie co rejestr. Zwykle zapewnia to większą szybkość sieci.
+Użyj [tego narzędzia,](http://www.azurespeed.com/Azure/Download) aby przetestować szybkość pobierania sieci komputera. Jeśli sieć maszynowa jest powolna, rozważ użycie maszyny wirtualnej platformy Azure w tym samym regionie co rejestr. Zwykle zapewnia to szybszą szybkość sieci.
 
 ### <a name="docker-push-is-slow"></a>Wypychanie do platformy Docker jest powolne
-Użyj [tego narzędzia,](http://www.azurespeed.com/Azure/Upload) aby przetestować szybkość przekazywania danych do sieci maszyny. Jeśli sieć maszynowa jest powolna, rozważ użycie maszyny wirtualnej platformy Azure w tym samym regionie co rejestr. Zwykle zapewnia to większą szybkość sieci.
+Użyj [tego narzędzia,](http://www.azurespeed.com/Azure/Upload) aby przetestować szybkość przekazywania do sieci maszyny. Jeśli sieć maszynowa jest powolna, rozważ użycie maszyny wirtualnej platformy Azure w tym samym regionie co rejestr. Zwykle zapewnia to szybszą szybkość sieci.
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>Wypychanie do platformy Docker kończy się pomyślnie, docker pull kończy się niepowodzeniem z błędem: brak autoryzacji: wymagane uwierzytelnianie
 
-Ten błąd może wystąpić w przypadku wersji Red Hat demona platformy Docker, gdzie jest `--signature-verification` domyślnie włączona. Możesz sprawdzić opcje demona platformy Docker dla Red Hat Enterprise Linux (RHEL) lub Fedora, uruchamiając następujące polecenie:
+Ten błąd może wystąpić w przypadku wersji Red Hat demona platformy Docker, gdzie jest `--signature-verification` domyślnie włączona. Możesz sprawdzić opcje demona platformy Docker dla systemu Red Hat Enterprise Linux (RHEL) lub Fedora, uruchamiając następujące polecenie:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
 ```
 
-Na przykład serwer Fedora 28 ma następujące opcje demona platformy Docker:
+Na przykład program Fedora 28 Server ma następujące opcje demona platformy Docker:
 
 `OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
-Brakujący `--signature-verification=false` element `docker pull` kończy się niepowodzeniem z błędem podobnym do:
+W `--signature-verification=false` przypadku braku kończy się `docker pull` niepowodzeniem z błędem podobnym do:
 
 ```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
@@ -362,7 +363,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję do pliku konfiguracji demona platformy `--signature-verification=false` Docker `/etc/sysconfig/docker` . Na przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -376,7 +377,7 @@ Szczegóły można `--signature-verification` znaleźć, uruchamiając . `man do
 
 ### <a name="az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required"></a>Az acr login succeeds but docker fails with error: unauthorized: authentication required
 
-Upewnij się, że używasz tylko małych liter adresu URL serwera, na przykład , nawet jeśli nazwa zasobu rejestru zawiera wielkie lub mieszane `docker push myregistry.azurecr.io/myimage:latest` litery, takie jak `myRegistry` .
+Upewnij się, że używasz adresu URL serwera z małymi literami, na przykład , nawet jeśli nazwa zasobu rejestru zawiera wielkie lub mieszane `docker push myregistry.azurecr.io/myimage:latest` litery, takie jak `myRegistry` .
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Włączanie i uzyskiwanie dzienników debugowania demona platformy Docker    
 
@@ -388,7 +389,7 @@ Rozpocznij `dockerd` od `debug` opcji . Najpierw utwórz plik konfiguracji demon
 }
 ```
 
-Następnie uruchom ponownie demona. Na przykład w systemie Ubuntu 14.04:
+Następnie uruchom ponownie demona. Na przykład w przypadku systemu Ubuntu 14.04:
 
 ```bash
 sudo service docker restart
@@ -459,7 +460,7 @@ Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 
 Główną przyczyną jest to, że niektóre `curl` implementacje podążają przekierowaniami z nagłówkami z oryginalnego żądania.
 
-Aby rozwiązać ten problem, należy ręcznie wykonać przekierowania bez nagłówków. Wydrukuj nagłówki odpowiedzi z `-D -` opcją , a `curl` następnie wyodrębnij: `Location` nagłówek:
+Aby rozwiązać ten problem, należy wykonać przekierowania ręcznie bez nagłówków. Wydrukuj nagłówki odpowiedzi z opcją , a `-D -` `curl` następnie wyodrębnij: `Location` nagłówek:
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
@@ -491,7 +492,7 @@ Oto kilka scenariuszy, w których operacje mogą być niedozwolone:
 
 ### <a name="repository-format-is-invalid-or-unsupported"></a>Format repozytorium jest nieprawidłowy lub nieobsługiwany
 
-Jeśli podczas określania nazwy repozytorium w operacjach repozytorium zostanie wyświetlony błąd, taki jak "nieobsługiwany format repozytorium", "nieprawidłowy format" lub "żądane dane nie istnieją", sprawdź pisownię i literę nazwy. Prawidłowe nazwy repozytoriów mogą zawierać tylko małe litery alfanumeryczne, kropki, kreski, podkreślenia i ukośniki. 
+Jeśli podczas określania nazwy repozytorium w operacjach repozytorium jest wyświetlany błąd, taki jak "nieobsługiwany format repozytorium", "nieprawidłowy format" lub "żądane dane nie istnieją", sprawdź pisownię i przypadek nazwy. Prawidłowe nazwy repozytorium mogą zawierać tylko małe litery alfanumeryczne, kropki, kreski, podkreślenia i ukośniki. 
 
 Aby uzyskać pełne reguły nazewnictwa repozytorium, zobacz [Specyfikacja dystrybucji open container initiative distribution](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
@@ -505,7 +506,7 @@ Aby uzyskać pełne reguły nazewnictwa repozytorium, zobacz [Specyfikacja dystr
 
 #### <a name="windows-containers"></a>Kontenery systemu Windows
 
-Skonfiguruj serwer proxy platformy Docker na 127.0.0.1:8888
+Konfigurowanie serwera proxy platformy Docker na 127.0.0.1:8888
 
 #### <a name="linux-containers"></a>Kontenery systemu Linux
 

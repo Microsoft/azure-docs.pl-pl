@@ -1,115 +1,115 @@
 ---
-title: Tworzenie pamięci podręcznej platformy Azure HPC
-description: Jak utworzyć wystąpienie pamięci podręcznej platformy Azure HPC
+title: Tworzenie Azure HPC Cache
+description: Jak utworzyć wystąpienie Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 63a179f7123f088c9c60fbfb8996a5b21d1c704d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02934a1943ef37d282dd2a2e7862c5695bbd6ecb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773270"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862709"
 ---
-# <a name="create-an-azure-hpc-cache"></a>Tworzenie pamięci podręcznej platformy Azure HPC
+# <a name="create-an-azure-hpc-cache"></a>Tworzenie Azure HPC Cache
 
-Użyj Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby utworzyć pamięć podręczną.
+Użyj interfejsu Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby utworzyć pamięć podręczną.
 
-![zrzut ekranu przedstawiający przegląd pamięci podręcznej w Azure Portal z przyciskiem Utwórz u dołu](media/hpc-cache-home-page.png)
+![zrzut ekranu przedstawiający przegląd pamięci podręcznej w Azure Portal, z przyciskiem utwórz u dołu](media/hpc-cache-home-page.png)
 
-Kliknij poniższy obraz, aby obejrzeć [film wideo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) przedstawiający tworzenie pamięci podręcznej i Dodawanie miejsca docelowego magazynu.
+Kliknij poniższy obraz, aby obejrzeć [pokaz wideo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) z tworzeniem pamięci podręcznej i dodawaniem miejsca docelowego magazynu.
 
-[![Miniatura wideo: Azure HPC cache: Setup (kliknij, aby odwiedzić stronę wideo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![miniatura wideo: Azure HPC Cache: Instalator (kliknij, aby odwiedzić stronę wideo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="portal"></a>[Portal](#tab/azure-portal)
 
-## <a name="define-basic-details"></a>Definiuj podstawowe szczegóły
+## <a name="define-basic-details"></a>Definiowanie podstawowych szczegółów
 
-![zrzut ekranu strony szczegółów projektu w Azure Portal](media/hpc-cache-create-basics.png)
+![zrzut ekranu przedstawiający stronę szczegółów projektu w Azure Portal](media/hpc-cache-create-basics.png)
 
-W obszarze **szczegóły projektu** wybierz subskrypcję i grupę zasobów, w której będzie hostowana pamięć podręczna.
+W **skrypcie Project Details** wybierz subskrypcję i grupę zasobów, które będą hostować pamięć podręczną.
 
-W obszarze **Szczegóły usługi** Ustaw nazwę pamięci podręcznej i inne atrybuty:
+W **szczegółach usługi** ustaw nazwę pamięci podręcznej i inne atrybuty:
 
-* Lokalizacja — wybierz jeden z [obsługiwanych regionów](hpc-cache-overview.md#region-availability).
+* Lokalizacja — wybierz jeden z [obsługiwanych regionów.](hpc-cache-overview.md#region-availability)
 * Sieć wirtualna — możesz wybrać istniejącą lub utworzyć nową sieć wirtualną.
-* Podsieć — wybierz lub Utwórz podsieć z co najmniej 64 adresami IP (/24). Ta podsieć musi być używana tylko dla tego wystąpienia pamięci podręcznej platformy Azure HPC.
+* Podsieć — wybierz lub utwórz podsieć z co najmniej 64 adresami IP (/24). Ta podsieć musi być używana tylko dla tego Azure HPC Cache wystąpienia.
 
 ## <a name="set-cache-capacity"></a>Ustawianie pojemności pamięci podręcznej
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-Na stronie **pamięć podręczna** należy ustawić pojemność pamięci podręcznej. Wartości ustawione w tym miejscu określają ilość danych, które mogą być przechowywane w pamięci podręcznej i jak szybko mogą obsłużyć żądania klientów.
+Na stronie **Pamięć** podręczna należy ustawić pojemność pamięci podręcznej. Ustawione w tym miejscu wartości określają, ile danych może przechowywać pamięć podręczna i jak szybko może ona przetwarzać żądania klientów.
 
-Pojemność ma także wpływ na koszt pamięci podręcznej.
+Pojemność wpływa również na koszt pamięci podręcznej.
 
-Wybierz pojemność, ustawiając te dwie wartości:
+Wybierz pojemność, ustawiając następujące dwie wartości:
 
-* Maksymalna szybkość transferu danych w pamięci podręcznej (przepływność), w GB/s
-* Ilość miejsca do magazynowania przydzieloną dla danych w pamięci podręcznej w TB
+* Maksymalna szybkość transferu danych dla pamięci podręcznej (przepływność) w GB/sekundę
+* Ilość miejsca w magazynie przydzielonego dla danych w pamięci podręcznej w TB
 
-Wybierz jedną z dostępnych wartości przepływności i rozmiar pamięci podręcznej.
+Wybierz jedną z dostępnych wartości przepływności i rozmiary magazynu pamięci podręcznej.
 
-Należy pamiętać, że Rzeczywista szybkość transferu danych zależy od obciążenia, szybkości sieci i typu miejsca docelowego magazynu. Wybrane wartości ustawiają maksymalną przepływność dla całego systemu pamięci podręcznej, ale niektóre z nich są używane do zadań dodatkowych. Na przykład jeśli klient żąda pliku, który nie jest już przechowywany w pamięci podręcznej, lub jeśli plik jest oznaczony jako przestarzały, pamięć podręczna będzie używać niektórych przepływności do pobrania z magazynu zaplecza.
+Należy pamiętać, że rzeczywista szybkość transferu danych zależy od obciążenia, szybkości sieci i typu obiektów docelowych magazynu. Wybierane wartości ustawiają maksymalną przepływność dla całego systemu pamięci podręcznej, ale niektóre z nich są używane w przypadku zadań narzutu. Jeśli na przykład klient żąda pliku, który nie jest jeszcze przechowywany w pamięci podręcznej, lub jeśli plik jest oznaczony jako nieaktywne, pamięć podręczna używa części przepływności do pobrania go z magazynu na zabytce.
 
-Pamięć podręczna platformy Azure HPC zarządza, które pliki są buforowane i wstępnie załadowane, aby zmaksymalizować szybkość trafień pamięci podręcznej. Zawartość pamięci podręcznej jest stale oceniana, a pliki są przenoszone do magazynu długoterminowego, gdy są one rzadziej używane. Wybierz rozmiar pamięci podręcznej, który może wygodnie przechowywać aktywny zestaw plików roboczych, a także dodatkowe miejsce dla metadanych i innych obciążeń.
+Azure HPC Cache zarządza plikami, które są buforowane i wstępnie ładowane, aby zmaksymalizować liczbę trafień w pamięci podręcznej. Zawartość pamięci podręcznej jest stale oceniana, a pliki są przenoszone do magazynu długoterminowego, gdy są one rzadziej używane. Wybierz rozmiar magazynu pamięci podręcznej, który może pomieścić aktywny zestaw plików roboczych, a także dodatkowe miejsce na metadane i inne obciążenia.
 
-![zrzut ekranu strony zmiany wielkości pamięci podręcznej](media/hpc-cache-create-capacity.png)
+![zrzut ekranu przedstawiający stronę zmiany rozmiaru pamięci podręcznej](media/hpc-cache-create-capacity.png)
 
-## <a name="enable-azure-key-vault-encryption-optional"></a>Włącz szyfrowanie Azure Key Vault (opcjonalnie)
+## <a name="enable-azure-key-vault-encryption-optional"></a>Włączanie Azure Key Vault szyfrowania danych (opcjonalnie)
 
-Zostanie wyświetlona strona **klucze szyfrowania dysku** między kartami **pamięci podręcznej** a **tagami** .<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
+Między **kartami Pamięć podręczna** i Tagi zostanie wyświetlona **strona** Klucze **szyfrowania** dysków.<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
-Jeśli chcesz zarządzać kluczami szyfrowania używanymi w magazynie pamięci podręcznej, podaj informacje o Azure Key Vault na stronie **kluczy szyfrowania dysku** . Magazyn kluczy musi znajdować się w tym samym regionie i w tej samej subskrypcji co pamięć podręczna.
+Jeśli chcesz zarządzać kluczami szyfrowania używanymi dla magazynu pamięci podręcznej, Azure Key Vault informacje na stronie **Klucze szyfrowania** dysków. Magazyn kluczy musi znajdować się w tym samym regionie i w tej samej subskrypcji co pamięć podręczna.
 
-Możesz pominąć tę sekcję, jeśli nie są potrzebne klucze zarządzane przez klienta. Platforma Azure domyślnie szyfruje dane za pomocą kluczy zarządzanych przez firmę Microsoft. Aby dowiedzieć się więcej, przeczytaj artykuł [szyfrowanie usługi Azure Storage](../storage/common/storage-service-encryption.md) .
+Możesz pominąć tę sekcję, jeśli nie potrzebujesz kluczy zarządzanych przez klienta. Platforma Azure domyślnie szyfruje dane przy użyciu kluczy zarządzanych przez firmę Microsoft. Przeczytaj [szyfrowanie usługi Azure Storage,](../storage/common/storage-service-encryption.md) aby dowiedzieć się więcej.
 
 > [!NOTE]
 >
-> * Po utworzeniu pamięci podręcznej nie można zmienić między kluczami zarządzanymi przez firmę Microsoft i kluczami zarządzanymi przez klienta.
-> * Po utworzeniu pamięci podręcznej należy autoryzować ją w celu uzyskania dostępu do magazynu kluczy. Kliknij przycisk **Włącz szyfrowanie** na stronie **Przegląd** pamięci podręcznej, aby włączyć szyfrowanie. Wykonaj ten krok w ciągu 90 minut od utworzenia pamięci podręcznej.
-> * Dyski pamięci podręcznej są tworzone po tej autoryzacji. Oznacza to, że początkowa godzina tworzenia pamięci podręcznej jest krótka, ale pamięć podręczna nie będzie gotowa do użycia przez dziesięć minut lub dłużej po udzieleniu zgody na dostęp.
+> * Po utworzeniu pamięci podręcznej nie można zmienić kluczy zarządzanych przez firmę Microsoft na klucze zarządzane przez klienta.
+> * Po utworzeniu pamięci podręcznej należy autoryzować ją w celu uzyskania dostępu do magazynu kluczy. Kliknij przycisk **Włącz szyfrowanie** na stronie Przegląd pamięci podręcznej, aby włączyć szyfrowanie.  Ten krok należy podjąć w ciągu 90 minut od utworzenia pamięci podręcznej.
+> * Dyski pamięci podręcznej są tworzone po tej autoryzacji. Oznacza to, że początkowy czas tworzenia pamięci podręcznej jest krótki, ale pamięć podręczna nie będzie gotowa do użycia przez 10 minut lub dłużej po autoryzacji dostępu.
 
-Aby uzyskać pełny opis procesu szyfrowania klucza zarządzanego przez klienta, przeczytaj artykuł [Korzystanie z kluczy szyfrowania zarządzanych przez klienta dla pamięci podręcznej platformy Azure HPC](customer-keys.md).
+Aby uzyskać pełne wyjaśnienie procesu szyfrowania klucza zarządzanego przez klienta, zobacz [Używanie zarządzanych](customer-keys.md)przez klienta kluczy szyfrowania na potrzeby Azure HPC Cache .
 
-![zrzut ekranu strony kluczy szyfrowania z wybraną opcją "zarządzane przez klienta" i pola magazynu kluczy pokazujące](media/create-encryption.png)
+![zrzut ekranu przedstawiający stronę kluczy szyfrowania z wybranymi polami "Zarządzane przez klienta" i magazynem kluczy](media/create-encryption.png)
 
-Wybierz pozycję **zarządzane przez klienta** , aby wybrać szyfrowanie klucza zarządzanego przez klienta. Zostaną wyświetlone pola Specyfikacja magazynu kluczy. Wybierz Azure Key Vault, którego chcesz użyć, a następnie wybierz klucz i wersję, która ma być używana dla tej pamięci podręcznej. Klucz musi być 2048-bitowym kluczem RSA. Na tej stronie można utworzyć nowy magazyn kluczy, klucz lub wersję klucza.
+Wybierz **pozycję Klient zarządzany,** aby wybrać szyfrowanie kluczem zarządzanym przez klienta. Zostaną wyświetlone pola specyfikacji magazynu kluczy. Wybierz Azure Key Vault, a następnie wybierz klucz i wersję do użycia dla tej pamięci podręcznej. Klucz musi być 2048-bitowym kluczem RSA. Na tej stronie możesz utworzyć nowy magazyn kluczy, klucz lub wersję klucza.
 
-Po utworzeniu pamięci podręcznej należy autoryzować ją do korzystania z usługi magazynu kluczy. Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem autoryzuj Azure Key Vault szyfrowanie z pamięci podręcznej](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache)
+Po utworzeniu pamięci podręcznej należy autoryzować ją do korzystania z usługi magazynu kluczy. Przeczytaj [autoryzowanie Azure Key Vault szyfrowania danych z pamięci podręcznej, aby](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) uzyskać szczegółowe informacje.
 
-## <a name="add-resource-tags-optional"></a>Dodaj Tagi zasobów (opcjonalnie)
+## <a name="add-resource-tags-optional"></a>Dodawanie tagów zasobów (opcjonalnie)
 
-Na stronie **Tagi** można dodać [Tagi zasobów](../azure-resource-manager/management/tag-resources.md) do wystąpienia pamięci podręcznej platformy Azure HPC.
+Strona **Tagi** umożliwia dodawanie [tagów zasobów](../azure-resource-manager/management/tag-resources.md) do Azure HPC Cache wystąpienia.
 
-## <a name="finish-creating-the-cache"></a>Zakończ tworzenie pamięci podręcznej
+## <a name="finish-creating-the-cache"></a>Kończanie tworzenia pamięci podręcznej
 
-Po skonfigurowaniu nowej pamięci podręcznej kliknij kartę **Recenzja + tworzenie** . Portal sprawdza poprawność wybranych opcji i pozwala przejrzeć wybrane opcje. Jeśli wszystko jest poprawne, kliknij przycisk **Utwórz**.
+Po skonfigurowaniu nowej pamięci podręcznej kliknij **kartę Przeglądanie i tworzenie.** Portal weryfikuje wybrane opcje i umożliwia ich przejrzenie. Jeśli wszystko jest poprawne, kliknij pozycję **Utwórz**.
 
-Tworzenie pamięci podręcznej zajmie około 10 minut. Postęp można śledzić w panelu powiadomienia Azure Portal.
+Tworzenie pamięci podręcznej trwa około 10 minut. Postęp można śledzić w panelu powiadomień Azure Portal aplikacji.
 
-![zrzut ekranu przedstawiający tworzenie stron "wdrażanie" i "powiadomienia" w portalu](media/hpc-cache-deploy-status.png)
+![zrzut ekranu przedstawiający tworzenie pamięci podręcznej na stronach "wdrażanie w toku" i "powiadomienia" w portalu](media/hpc-cache-deploy-status.png)
 
-Po zakończeniu tworzenia zostanie wyświetlone powiadomienie z linkiem do nowego wystąpienia usługi Azure HPC cache, a pamięć podręczna zostanie wyświetlona na liście **zasobów** subskrypcji.
+Po zakończeniu tworzenia zostanie wyświetlone powiadomienie z linkiem do nowego Azure HPC Cache, a pamięć podręczna pojawi się na **liście Zasoby subskrypcji.**
 
-![zrzut ekranu wystąpienia pamięci podręcznej platformy Azure HPC w Azure Portal](media/hpc-cache-new-overview.png)
+![zrzut ekranu Azure HPC Cache wystąpienia w Azure Portal](media/hpc-cache-new-overview.png)
 
 > [!NOTE]
-> Jeśli pamięć podręczna korzysta z kluczy szyfrowania zarządzanych przez klienta, pamięć podręczna może pojawić się na liście zasobów, zanim stan wdrożenia zostanie zmieniony na ukończone. Gdy tylko stan pamięci podręcznej **oczekuje na klucz** , możesz [autoryzować go](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) do korzystania z magazynu kluczy.
+> Jeśli pamięć podręczna używa kluczy szyfrowania zarządzanych przez klienta, pamięć podręczna może pojawić się na liście zasobów, zanim stan wdrożenia zmieni się na ukończony. Gdy tylko stan pamięci podręcznej będzie mieć stan **Oczekiwanie na klucz,** [możesz](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) autoryzować go do korzystania z magazynu kluczy.
 
 ## <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 ## <a name="create-the-cache-with-azure-cli"></a>Tworzenie pamięci podręcznej przy użyciu interfejsu wiersza polecenia platformy Azure
 
-[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
+[Skonfiguruj interfejs wiersza polecenia platformy Azure dla Azure HPC Cache](./az-cli-prerequisites.md).
 
 > [!NOTE]
-> Interfejs wiersza polecenia platformy Azure aktualnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj witryny Azure Portal.
+> Interfejs wiersza polecenia platformy Azure obecnie nie obsługuje tworzenia pamięci podręcznej z kluczami szyfrowania zarządzanymi przez klienta. Użyj witryny Azure Portal.
 
-Użyj polecenia [AZ HPC-cache Create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) , aby utworzyć nową pamięć podręczną platformy Azure HPC.
+Użyj polecenia [az hpc-cache create,](/cli/azure/hpc-cache#az_hpc_cache_create) aby utworzyć nową Azure HPC Cache.
 
-Podaj następujące wartości:
+Należy podać następujące wartości:
 
 * Nazwa grupy zasobów pamięci podręcznej
 * Nazwa pamięci podręcznej
@@ -119,16 +119,16 @@ Podaj następujące wartości:
   ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
 nets/<cache_subnet_name>"``
 
-  Podsieć pamięci podręcznej wymaga co najmniej 64 adresów IP (/24) i nie może być żadnym z innych zasobów.
+  Podsieć pamięci podręcznej wymaga co najmniej 64 adresów IP (/24) i nie może mieć żadnych innych zasobów.
 
-* Pojemność pamięci podręcznej. Dwie wartości ustawiają maksymalną przepływność pamięci podręcznej platformy Azure HPC:
+* Pojemność pamięci podręcznej. Dwie wartości ustawiają maksymalną przepływność Azure HPC Cache:
 
   * Rozmiar pamięci podręcznej (w GB)
-  * Jednostka SKU maszyn wirtualnych używanych w infrastrukturze pamięci podręcznej
+  * SKU maszyn wirtualnych używanych w infrastrukturze pamięci podręcznej
 
-  [AZ HPC-cache SKU list](/cli/azure/ext/hpc-cache/hpc-cache/skus) zawiera dostępne jednostki SKU i prawidłowe opcje rozmiaru pamięci podręcznej dla każdego z nich. Opcje rozmiaru pamięci podręcznej mieszczą się w zakresie od 3 TB do 48 TB, ale obsługiwane są tylko niektóre wartości.
+  [Az hpc-cache skus list zawiera](/cli/azure/hpc-cache/skus) dostępne jednostki SKU i prawidłowe opcje rozmiaru pamięci podręcznej dla każdej z nich. Opcje rozmiaru pamięci podręcznej mogą mieć rozmiar od 3 TB do 48 TB, ale obsługiwane są tylko niektóre wartości.
 
-  Ten wykres pokazuje, który rozmiar pamięci podręcznej i kombinacje jednostek SKU są prawidłowe w momencie przygotowywania tego dokumentu (lipiec 2020).
+  Ten wykres pokazuje, które kombinacje rozmiaru pamięci podręcznej i jednostek SKU są prawidłowe w momencie przygotowania tego dokumentu (lipiec 2020 r.).
 
   | Rozmiar pamięci podręcznej | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
@@ -138,7 +138,7 @@ nets/<cache_subnet_name>"``
   | 24576 GB   | nie          | tak         | tak         |
   | 49152 GB   | nie          | nie          | tak         |
 
-  Zapoznaj się z sekcją **Ustawianie pojemności pamięci podręcznej** na karcie instrukcje portalu, aby uzyskać ważne informacje o cenach, przepływności i sposobie odpowiedniej wielkości pamięci podręcznej dla przepływu pracy.
+  Zapoznaj się **z sekcją** Ustawianie pojemności pamięci podręcznej na karcie instrukcji portalu, aby uzyskać ważne informacje na temat cen, przepływności i sposobu odpowiedniego rozmiaru pamięci podręcznej dla przepływu pracy.
 
 Przykład tworzenia pamięci podręcznej:
 
@@ -149,7 +149,7 @@ az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
     --sku-name "Standard_2G"
 ```
 
-Tworzenie pamięci podręcznej trwa kilka minut. Po powodzeniu polecenie Create zwraca dane wyjściowe podobne do następujących:
+Tworzenie pamięci podręcznej trwa kilka minut. W przypadku powodzenia polecenie create zwraca dane wyjściowe podobne do tych:
 
 ```azurecli
 {
@@ -184,22 +184,22 @@ Tworzenie pamięci podręcznej trwa kilka minut. Po powodzeniu polecenie Create 
 }
 ```
 
-Komunikat zawiera pewne przydatne informacje, w tym następujące elementy:
+Komunikat zawiera kilka przydatnych informacji, w tym następujące elementy:
 
-* Adresy instalacji klienta — Użyj tych adresów IP, gdy wszystko jest gotowe do łączenia klientów z pamięcią podręczną. Przeczytaj temat [Instalowanie pamięci podręcznej platformy Azure HPC,](hpc-cache-mount.md) aby dowiedzieć się więcej.
-* Stan uaktualnienia — po wydaniu aktualizacji oprogramowania ten komunikat zostanie zmieniony. [Oprogramowanie pamięci podręcznej można uaktualnić](hpc-cache-manage.md#upgrade-cache-software) ręcznie w dogodnym czasie lub będzie stosowane automatycznie po kilku dniach.
+* Adresy instalacji klienta — użyj tych adresów IP, gdy wszystko będzie gotowe do połączenia klientów z pamięcią podręczną. Przeczytaj [temat Mount the Azure HPC Cache](hpc-cache-mount.md) (Zainstaluj Azure HPC Cache), aby dowiedzieć się więcej.
+* Stan uaktualnienia — po zwolnieniu aktualizacji oprogramowania ten komunikat zmieni się. Oprogramowanie pamięci [podręcznej można](hpc-cache-manage.md#upgrade-cache-software) uaktualnić ręcznie w dogodnym czasie lub zostanie ono zastosowane automatycznie po kilku dniach.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 > [!CAUTION]
-> Moduł programu PowerShell AZ. HPCCache jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług. Nie jest ona zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Moduł Az.HPCCache programu PowerShell jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług. Nie jest ona zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Wymagania
 
-Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps). Jeśli zdecydujesz się używać Cloud Shell, zobacz [omówienie Azure Cloud Shell](../cloud-shell/overview.md) , aby uzyskać więcej informacji.
+Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł wymaga zainstalowania modułu Az programu PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Aby uzyskać więcej informacji na temat instalowania modułu Az programu PowerShell, zobacz [Instalowanie Azure PowerShell](/powershell/azure/install-az-ps). Jeśli zdecydujesz się używać Cloud Shell, zobacz [Omówienie Azure Cloud Shell,](../cloud-shell/overview.md) aby uzyskać więcej informacji.
 
 > [!IMPORTANT]
-> Mimo że moduł **AZ. HPCCache** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Po ogólnym udostępnieniu tego modułu programu PowerShell będzie on częścią przyszłych wydań modułu AZ PowerShell i dostępne natywnie z poziomu Azure Cloud Shell.
+> Gdy moduł **Az.HPCCache** programu PowerShell jest w wersji zapoznawczej, należy zainstalować go oddzielnie przy użyciu `Install-Module` polecenia cmdlet . Gdy ten moduł programu PowerShell stanie się ogólnie dostępny, będzie częścią przyszłych wersji modułu Az programu PowerShell i będzie dostępny natywnie z poziomu Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.HPCCache
@@ -208,9 +208,9 @@ Install-Module -Name Az.HPCCache
 ## <a name="create-the-cache-with-azure-powershell"></a>Tworzenie pamięci podręcznej za pomocą Azure PowerShell
 
 > [!NOTE]
-> Azure PowerShell obecnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj witryny Azure Portal.
+> Azure PowerShell obecnie nie obsługuje tworzenia pamięci podręcznej z kluczami szyfrowania zarządzanymi przez klienta. Użyj witryny Azure Portal.
 
-Użyj polecenia cmdlet [New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) , aby utworzyć nową pamięć podręczną platformy Azure HPC.
+Użyj polecenia cmdlet [New-AzHpcCache,](/powershell/module/az.hpccache/new-azhpccache) aby utworzyć nową Azure HPC Cache.
 
 Podaj następujące wartości:
 
@@ -222,16 +222,16 @@ Podaj następujące wartości:
   `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
 nets/<cache_subnet_name>"`
 
-  Podsieć pamięci podręcznej wymaga co najmniej 64 adresów IP (/24) i nie może być żadnym z innych zasobów.
+  Podsieć pamięci podręcznej wymaga co najmniej 64 adresów IP (/24) i nie może mieć żadnych innych zasobów.
 
-* Pojemność pamięci podręcznej. Dwie wartości ustawiają maksymalną przepływność pamięci podręcznej platformy Azure HPC:
+* Pojemność pamięci podręcznej. Dwie wartości ustawiają maksymalną przepływność Azure HPC Cache:
 
   * Rozmiar pamięci podręcznej (w GB)
-  * Jednostka SKU maszyn wirtualnych używanych w infrastrukturze pamięci podręcznej
+  * SKU maszyn wirtualnych używanych w infrastrukturze pamięci podręcznej
 
-  [Get-AzHpcCacheSku](/powershell/module/az.hpccache/get-azhpccachesku) wyświetla dostępne jednostki SKU i prawidłowe opcje rozmiaru pamięci podręcznej dla każdego z nich. Opcje rozmiaru pamięci podręcznej mieszczą się w zakresie od 3 TB do 48 TB, ale obsługiwane są tylko niektóre wartości.
+  [Get-AzHpcCacheSku](/powershell/module/az.hpccache/get-azhpccachesku) pokazuje dostępne jednostki SKU i prawidłowe opcje rozmiaru pamięci podręcznej dla każdej z nich. Opcje rozmiaru pamięci podręcznej mogą mieć rozmiar od 3 TB do 48 TB, ale obsługiwane są tylko niektóre wartości.
 
-  Ten wykres pokazuje, który rozmiar pamięci podręcznej i kombinacje jednostek SKU są prawidłowe w momencie przygotowywania tego dokumentu (lipiec 2020).
+  Ten wykres pokazuje, które kombinacje rozmiaru pamięci podręcznej i jednostek SKU są prawidłowe w momencie przygotowania tego dokumentu (lipiec 2020 r.).
 
   | Rozmiar pamięci podręcznej | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
@@ -241,7 +241,7 @@ nets/<cache_subnet_name>"`
   | 24 576 GB   | nie          | tak         | tak         |
   | 49 152 GB   | nie          | nie          | tak         |
 
-  Zapoznaj się z sekcją **Ustawianie pojemności pamięci podręcznej** na karcie instrukcje portalu, aby uzyskać ważne informacje o cenach, przepływności i sposobie odpowiedniej wielkości pamięci podręcznej dla przepływu pracy.
+  Zapoznaj się **z sekcją** Ustawianie pojemności pamięci podręcznej na karcie instrukcji portalu, aby uzyskać ważne informacje na temat cen, przepływności i sposobu odpowiedniego rozmiaru pamięci podręcznej dla przepływu pracy.
 
 Przykład tworzenia pamięci podręcznej:
 
@@ -257,7 +257,7 @@ $cacheParams = @{
 New-AzHpcCache @cacheParams
 ```
 
-Tworzenie pamięci podręcznej trwa kilka minut. Po powodzeniu polecenie CREATE zwróci następujące dane wyjściowe:
+Tworzenie pamięci podręcznej trwa kilka minut. W przypadku powodzenia polecenie create zwraca następujące dane wyjściowe:
 
 ```Output
 cacheSizeGb       : 3072
@@ -275,16 +275,16 @@ type              : Microsoft.StorageCache/caches
 upgradeStatus     : @{currentFirmwareVersion=5.3.42; firmwareUpdateDeadline=1/1/0001 12:00:00 AM; firmwareUpdateStatus=unavailable; lastFirmwareUpdate=4/1/2020 10:19:54 AM; pendingFirmwareVersion=}
 ```
 
-Komunikat zawiera pewne przydatne informacje, w tym następujące elementy:
+Komunikat zawiera kilka przydatnych informacji, w tym następujące elementy:
 
-* Adresy instalacji klienta — Użyj tych adresów IP, gdy wszystko jest gotowe do łączenia klientów z pamięcią podręczną. Przeczytaj temat [Instalowanie pamięci podręcznej platformy Azure HPC,](hpc-cache-mount.md) aby dowiedzieć się więcej.
-* Stan uaktualnienia — po wydaniu aktualizacji oprogramowania ten komunikat zostanie zmieniony. [Oprogramowanie pamięci podręcznej można uaktualnić](hpc-cache-manage.md#upgrade-cache-software) ręcznie w dogodnym czasie lub jest stosowane automatycznie po kilku dniach.
+* Adresy instalacji klienta — użyj tych adresów IP, gdy wszystko będzie gotowe do połączenia klientów z pamięcią podręczną. Przeczytaj [temat Mount the Azure HPC Cache](hpc-cache-mount.md) (Zainstaluj Azure HPC Cache), aby dowiedzieć się więcej.
+* Stan uaktualnienia — po zwolnieniu aktualizacji oprogramowania ten komunikat zmieni się. Oprogramowanie pamięci [podręcznej można](hpc-cache-manage.md#upgrade-cache-software) uaktualnić ręcznie w dogodnym czasie lub jest ono stosowane automatycznie po kilku dniach.
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-Gdy pamięć podręczna zostanie wyświetlona na liście **zasobów** , możesz przejść do następnego kroku.
+Gdy pamięć podręczna pojawi się na **liście Zasoby,** możesz przejść do następnego kroku.
 
-* [Zdefiniuj cele magazynu](hpc-cache-add-storage.md) , aby zapewnić dostęp do pamięci podręcznej do źródeł danych.
-* W przypadku korzystania z kluczy szyfrowania zarządzanych przez klienta należy [autoryzować Azure Key Vault szyfrowanie](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) z poziomu strony Przegląd pamięci podręcznej, aby ukończyć konfigurację pamięci podręcznej. Ten krok należy wykonać, aby można było dodać magazyn. Aby uzyskać szczegółowe informacje, przeczytaj artykuł [Używanie kluczy szyfrowania zarządzanych przez klienta](customer-keys.md) .
+* [Zdefiniuj obiekty docelowe](hpc-cache-add-storage.md) magazynu, aby zapewnić pamięci podręcznej dostęp do źródeł danych.
+* Jeśli używasz kluczy szyfrowania zarządzanych przez [](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) klienta, musisz autoryzować szyfrowanie Azure Key Vault na stronie przeglądu pamięci podręcznej, aby ukończyć konfigurację pamięci podręcznej. Ten krok należy wykonać przed dodaniu magazynu. Aby uzyskać szczegółowe informacje, zobacz Używanie [kluczy szyfrowania zarządzanych](customer-keys.md) przez klienta.

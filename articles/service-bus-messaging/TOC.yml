@@ -110,6 +110,8 @@
           href: message-transfers-locks-settlement.md
         - name: Kolejki utraconych wiadomości
           href: service-bus-dead-letter-queues.md
+        - name: Odraczanie komunikatów
+          href: message-deferral.md
         - name: Optymalizowanie wydajności
           href: service-bus-performance-improvements.md
         - name: Geograficzne odzyskiwanie po awarii i replikacja geograficzna
@@ -206,8 +208,6 @@
           items:
             - name: Komunikaty pobrane z wyprzedzeniem
               href: service-bus-prefetch.md
-            - name: Odraczanie komunikatów
-              href: message-deferral.md
             - name: Łączenie jednostek w łańcuchy z automatycznym przekazywaniem
               href: service-bus-auto-forwarding.md
             - name: Przetwarzanie transakcji

@@ -1,21 +1,21 @@
 ---
 title: Lista wbudowanych definicji zasad
 description: Lista wbudowanych definicji zasad dla Azure Policy. Kategorie obejmują tagi, zgodność z przepisami, Key Vault, Kubernetes, konfigurację gościa i inne.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 8110ee2539165dfd6daa243dca151578726d0d84
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 48eed2f33c31bc78e341a674948b23dc2aa99c43
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498897"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866664"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy wbudowane definicje zasad
 
 Ta strona jest indeksem Azure Policy wbudowanych definicji zasad.
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Source (Źródło),** aby wyświetlić źródło w [Azure Policy GitHub.](https://github.com/Azure/azure-policy) Wbudowane są pogrupowane według właściwości **kategorii** w **metadanych**. Aby przejść do określonej **kategorii,** użyj menu po prawej stronie. W przeciwnym razie użyj <kbd>klawisza Ctrl</kbd> - <kbd>F,</kbd> aby użyć funkcji wyszukiwania przeglądarki.
+Nazwy poszczególnych wbudowanych linków do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło,** aby wyświetlić źródło w [repozytorium Azure Policy GitHub.](https://github.com/Azure/azure-policy) Wbudowane są pogrupowane według właściwości **kategorii** w **metadanych**. Aby przejść do określonej **kategorii,** użyj menu w prawej części strony. W przeciwnym razie użyj <kbd>klawisza Ctrl</kbd> - <kbd>F,</kbd> aby użyć funkcji wyszukiwania przeglądarki.
 
 ## <a name="api-for-fhir"></a>Interfejs API dla standardu FHIR
 
@@ -48,6 +48,10 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 ## <a name="automation"></a>Automation
 
 [!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
+
+## <a name="azure-active-directory"></a>Azure Active Directory
+
+[!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
 
 ## <a name="azure-data-explorer"></a>Azure Data Explorer
 

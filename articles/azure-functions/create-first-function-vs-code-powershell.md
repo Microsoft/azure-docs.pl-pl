@@ -1,46 +1,46 @@
 ---
-title: Tworzenie funkcji programu PowerShell przy użyciu Visual Studio Code-Azure Functions
-description: Dowiedz się, jak utworzyć funkcję programu PowerShell, a następnie opublikować projekt lokalny do hostingu bezserwerowego w Azure Functions przy użyciu rozszerzenia Azure Functions w Visual Studio Code.
+title: Tworzenie funkcji programu PowerShell przy użyciu Visual Studio Code — Azure Functions
+description: Dowiedz się, jak utworzyć funkcję programu PowerShell, a następnie opublikować projekt lokalny w hostingu bez serwera w programie Azure Functions przy użyciu Azure Functions w Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 9833b154cdba24f8760e7e8d9040bfc72bbcd271
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58a2b8a5fb386603361afa9fc26b4d323c487691
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493599"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862547"
 ---
-# <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji programu PowerShell na platformie Azure przy użyciu Visual Studio Code
+# <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Szybki start: tworzenie funkcji programu PowerShell na platformie Azure przy użyciu Visual Studio Code
 
 [!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
-W tym artykule opisano tworzenie funkcji programu PowerShell reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions.
+W tym artykule użyjemy Visual Studio Code do utworzenia funkcji programu PowerShell, która odpowiada na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bez serwera Azure Functions.
 
-W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+Wykonanie kroków tego przewodnika Szybki start wiąże się z niewielkim kosztem konta platformy Azure w wysokości nie mniejszej niż kilka centów USD.
 
-Istnieje również wersja tego artykułu [oparta na interfejsie wiersza polecenia](create-first-function-cli-powershell.md) .
+Istnieje również wersja tego artykułu [oparta na interfejsie](create-first-function-cli-powershell.md) wiersza polecenia.
 
 ## <a name="configure-your-environment"></a>Konfigurowanie środowiska
 
 Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagania:
 
-+ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) w wersji 3. x.
++ Wersja [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 3.x.
 
-+ [Program PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ Środowisko [uruchomieniowe programu .net core 3,1](https://www.microsoft.com/net/download) i [.NET Core 2,1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
++ Zarówno [środowisko uruchomieniowe .NET Core 3.1,](https://dotnet.microsoft.com/download) [jak i środowisko uruchomieniowe .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1)  
 
 + [Program Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 
-+ [Rozszerzenie programu PowerShell dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
++ Rozszerzenie [programu PowerShell dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 
 + [Rozszerzenie obsługujące usługę Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) dla programu Visual Studio Code. 
 
-## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Utwórz projekt lokalny
+## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Tworzenie projektu lokalnego
 
-W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure Functions w programie PowerShell. W dalszej części tego artykułu opublikujesz kod funkcji na platformie Azure.
+W tej sekcji użyjemy Visual Studio Code, aby utworzyć lokalny projekt Azure Functions w programie PowerShell. W dalszej części tego artykułu opublikujesz kod funkcji na platformie Azure.
 
 1. Wybierz ikonę platformy Azure na pasku działań, a następnie w obszarze **Azure: Funkcje** wybierz ikonę **Utwórz nowy projekt...**.
 
@@ -59,15 +59,15 @@ W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure 
 
     + **Podaj nazwę funkcji**: Wpisz `HttpExample`.
 
-    + **Poziom autoryzacji**: Wybierz `Anonymous` , co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Poziom autoryzacji:** wybierz `Anonymous` pozycję , która umożliwia każdemu wywołanie punktu końcowego funkcji. Aby dowiedzieć się więcej na temat poziomu autoryzacji, zobacz [Klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     + **Wybierz, jak chcesz otworzyć projekt**: Wybierz plik `Add to workspace`.
 
-1. Korzystając z tych informacji, Visual Studio Code generuje projekt Azure Functions z wyzwalaczem HTTP. Pliki projektu lokalnego można wyświetlić w Eksploratorze. Aby dowiedzieć się więcej na temat tworzonych plików, zobacz [pliki wygenerowanego projektu](functions-develop-vs-code.md#generated-project-files). 
+1. Korzystając z tych informacji, Visual Studio Code generuje projekt Azure Functions z wyzwalaczem HTTP. Lokalne pliki projektu można wyświetlić w Eksploratorze. Aby dowiedzieć się więcej o utworzonych plikach, zobacz [Generated project files (Wygenerowane pliki projektu).](functions-develop-vs-code.md#generated-project-files) 
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-Po sprawdzeniu, że funkcja działa poprawnie na komputerze lokalnym, można użyć Visual Studio Code do opublikowania projektu bezpośrednio na platformie Azure. 
+Po sprawdzeniu, czy funkcja działa poprawnie na komputerze lokalnym, nas czas na użycie narzędzia Visual Studio Code publikowania projektu bezpośrednio na platformie Azure. 
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -79,10 +79,10 @@ Po sprawdzeniu, że funkcja działa poprawnie na komputerze lokalnym, można uż
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyto [Visual Studio Code](functions-develop-vs-code.md?tabs=powershell) , aby utworzyć aplikację funkcji z prostą funkcją wyzwalaną przez protokół http. W następnym artykule można rozszerzyć tę funkcję, łącząc się z usługą Azure Storage. Aby dowiedzieć się więcej na temat nawiązywania połączenia z innymi usługami platformy Azure, zobacz [Dodawanie powiązań do istniejącej funkcji w Azure Functions](add-bindings-existing-function.md?tabs=powershell).  
+Za pomocą [Visual Studio Code](functions-develop-vs-code.md?tabs=powershell) aplikacji funkcji z prostą funkcją wyzwalaną przez protokół HTTP. W następnym artykule rozszerzysz tę funkcję, łącząc się z usługą Azure Storage. Aby dowiedzieć się więcej na temat nawiązywania połączenia z innymi usługami platformy Azure, zobacz Dodawanie powiązań [do istniejącej funkcji](add-bindings-existing-function.md?tabs=powershell)w Azure Functions .  
 
 > [!div class="nextstepaction"]
-> [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell)
+> [Łączenie z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

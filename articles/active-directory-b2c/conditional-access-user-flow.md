@@ -1,6 +1,6 @@
 ---
 title: Dodawanie dostępu warunkowego do przepływu użytkownika w Azure AD B2C
-description: Dowiedz się, jak dodać dostęp warunkowy do przepływów użytkownika Azure AD B2C. Skonfiguruj ustawienia uwierzytelniania wieloskładnikowego (MFA) i zasady dostępu warunkowego w przepływie użytkownika, aby wymusić zasady i skorygować ryzykowne logowania.
+description: Dowiedz się, jak dodać dostęp warunkowy do przepływów Azure AD B2C użytkownika. Skonfiguruj ustawienia uwierzytelniania wieloskładnikowego (MFA) i zasady dostępu warunkowego w przepływach użytkownika, aby wymuszać zasady i korygować ryzykowne logowania.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,31 +11,31 @@ ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6325a890ea297a3aa2bdad76a1d95c10448a7b61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0e6a872891f09f60ea963fa783e6f49dc4e94a54
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033918"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861863"
 ---
-# <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Dodawanie dostępu warunkowego do przepływów użytkowników w Azure Active Directory B2C
+# <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Dodawanie dostępu warunkowego do przepływów użytkownika w Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Dostęp warunkowy można dodać do przepływów użytkownika Azure Active Directory B2C (Azure AD B2C) lub zasad niestandardowych w celu zarządzania ryzykownymi logowaniami do aplikacji. Azure Active Directory (Azure AD) dostęp warunkowy jest narzędziem używanym przez Azure AD B2C do przenoszenia sygnałów, podejmowania decyzji i wymuszania zasad organizacji.
+Dostęp warunkowy można dodać do przepływów Azure Active Directory B2C użytkownika (Azure AD B2C) lub zasad niestandardowych w celu zarządzania ryzykownych logować się do aplikacji. Azure Active Directory warunkowego (Azure AD) to narzędzie używane przez usługę Azure AD B2C do tworzenia sygnałów, podejmowania decyzji i wymuszania zasad organizacyjnych.
 
 ![Przepływ dostępu warunkowego](media/conditional-access-user-flow/conditional-access-flow.png)
 
-Automatyzacja oceny ryzyka z warunkami zasad oznacza, że ryzykowne logowania są identyfikowane natychmiast, a następnie korygowane lub blokowane.
+Automatyzacja oceny ryzyka przy użyciu warunków zasad oznacza, że ryzykowne logowania są identyfikowane natychmiast, a następnie korygowane lub blokowane.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="service-overview"></a>Omówienie usługi
 
-Azure AD B2C oblicza każde zdarzenie logowania i gwarantuje, że wszystkie wymagania dotyczące zasad są spełnione przed udzieleniem dostępu użytkownikowi. W trakcie tej fazy **oceny** usługa dostępu warunkowego ocenia sygnały zebrane przez wykrywanie ryzyka ochrony tożsamości podczas zdarzeń logowania. Wynikiem tego procesu oceny jest zestaw oświadczeń, który wskazuje, czy logowanie powinno być udzielone lub zablokowane. Zasady Azure AD B2C używają tych oświadczeń do podejmowania akcji w ramach przepływu użytkownika, takich jak blokowanie dostępu lub zajmowanie użytkownika z konkretnym korygowaniem, takim jak uwierzytelnianie wieloskładnikowe (MFA). "Blokuj dostęp" przesłania wszystkie inne ustawienia.
+Azure AD B2C ocenia każde zdarzenie logowania i upewnia się, że wszystkie wymagania dotyczące zasad zostały spełnione przed udzieleniem użytkownikowi dostępu. W tej **fazie oceny** usługa dostępu warunkowego ocenia sygnały zebrane przez wykrycia ryzyka usługi Identity Protection podczas zdarzeń logowania. Wynikiem tego procesu oceny jest zestaw oświadczeń, które wskazują, czy logowanie powinno zostać przyznane, czy zablokowane. Zasady Azure AD B2C wykorzystują te oświadczenia do podejmowania działań w ramach przepływu użytkownika, takich jak blokowanie dostępu lub wyzwanie użytkownikowi określonego korygowania, takiego jak uwierzytelnianie wieloskładnikowe (MFA). "Blokuj dostęp" zastępuje wszystkie inne ustawienia.
 
 ::: zone pivot="b2c-custom-policy"
-W poniższym przykładzie przedstawiono profil techniczny dostępu warunkowego, który jest używany do oszacowania zagrożenia związanego z logowaniem.
+W poniższym przykładzie pokazano profil techniczny dostępu warunkowego używany do oceny zagrożenia logowania.
 
 ```XML
 <TechnicalProfile Id="ConditionalAccessEvaluation">
@@ -50,11 +50,11 @@ W poniższym przykładzie przedstawiono profil techniczny dostępu warunkowego, 
 
 ::: zone-end
 
-W poniższej fazie **korygowania** użytkownik jest wzywany do uwierzytelniania wieloskładnikowego. Po zakończeniu Azure AD B2C informuje ochronę tożsamości, że zidentyfikowane zagrożenie logowania zostało skorygowane i według jakiej metody. W tym przykładzie Azure AD B2C informuje, że użytkownik pomyślnie ukończył wyzwanie usługi wieloskładnikowe uwierzytelnianie. 
+W **następującej fazie** korygowania użytkownik ma dostęp do uwierzytelniania wieloskładnikowego. Po zakończeniu Azure AD B2C identity protection informuje o tym, że zidentyfikowane zagrożenie logowania zostało skorygowane i za pomocą jakiej metody. W tym przykładzie Azure AD B2C, że użytkownik pomyślnie ukończył wyzwanie uwierzytelniania wieloskładnikowego. 
 
 ::: zone pivot="b2c-custom-policy"
 
-Poniższy przykład przedstawia profil techniczny dostępu warunkowego służący do korygowania zidentyfikowanego zagrożenia:
+W poniższym przykładzie przedstawiono profil techniczny dostępu warunkowego używany do korygowania zidentyfikowanych zagrożeń:
 
 ```XML
 <TechnicalProfile Id="ConditionalAccessRemediation">
@@ -73,17 +73,17 @@ Poniższy przykład przedstawia profil techniczny dostępu warunkowego służąc
 
 Są to składniki, które umożliwiają dostęp warunkowy w Azure AD B2C:
 
-- **Przepływ użytkownika** lub **zasady niestandardowe** , które przeprowadzi użytkownika przez proces logowania i tworzenia konta.
-- **Zasady dostępu warunkowego** , które łączą sygnały, aby podejmować decyzje i wymuszać zasady organizacyjne. Gdy użytkownik loguje się do aplikacji za pomocą zasad Azure AD B2C, zasady dostępu warunkowego używają sygnałów Azure AD Identity Protection do identyfikowania ryzykownych logowań i przedstawiają odpowiednie akcje naprawcze.
-- **Zarejestrowana aplikacja** , która kieruje użytkowników do odpowiedniego przepływu użytkownika Azure AD B2C lub zasad niestandardowych.
-- [Przeglądarka sieci Tor](https://www.torproject.org/download/) , która symuluje ryzykowne logowanie.
+- **Przepływ użytkownika** **lub zasady niestandardowe,** które przeprowadzi użytkownika przez proces logowania i rejestracji.
+- **Zasady dostępu warunkowego,** które łączy sygnały w celu podejmowania decyzji i wymuszania zasad organizacji. Gdy użytkownik loguje się do aplikacji za pomocą zasad Azure AD B2C, zasady dostępu warunkowego wykorzystują sygnały usługi Azure AD Identity Protection do identyfikowania ryzykownych logie i prezentują odpowiednie akcje korygowania.
+- **Zarejestrowana aplikacja,** która kieruje użytkowników do odpowiednich Azure AD B2C przepływu użytkownika lub zasad niestandardowych.
+- [Przeglądarka TOR](https://www.torproject.org/download/) do symulowania ryzykownego logowania.
 
-## <a name="service-limitations-and-considerations"></a>Ograniczenia dotyczące usługi i zagadnienia
+## <a name="service-limitations-and-considerations"></a>Ograniczenia i zagadnienia dotyczące usługi
 
 W przypadku korzystania z dostępu warunkowego usługi Azure AD należy wziąć pod uwagę następujące kwestie:
 
-- Usługi Identity Protection są dostępne zarówno dla tożsamości lokalnych, jak i społecznościowych, takich jak Google lub Facebook. W przypadku tożsamości społecznościowych należy ręcznie aktywować dostęp warunkowy. Wykrywanie jest ograniczone, ponieważ poświadczenia konta społecznościowego są zarządzane przez zewnętrznego dostawcę tożsamości.
-- W dzierżawach Azure AD B2C są dostępne tylko podzbiór zasad [dostępu warunkowego usługi Azure AD](../active-directory/conditional-access/overview.md) .
+- Usługa Identity Protection jest dostępna zarówno dla tożsamości lokalnych, jak i społecznościowych, takich jak Google lub Facebook. W przypadku tożsamości społecznościowych należy ręcznie aktywować dostęp warunkowy. Wykrywanie jest ograniczone, ponieważ poświadczenia konta społecznościowego są zarządzane przez zewnętrznego dostawcę tożsamości.
+- W Azure AD B2C dzierżawców dostępny jest tylko podzbiór zasad dostępu warunkowego usługi [Azure AD.](../active-directory/conditional-access/overview.md)
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -92,101 +92,166 @@ W przypadku korzystania z dostępu warunkowego usługi Azure AD należy wziąć 
 
 ## <a name="pricing-tier"></a>Warstwa cenowa
 
-Do utworzenia ryzykownych zasad logowania jest wymagany Azure AD B2C **Premium P2** . Dzierżawy w **warstwie Premium P1** mogą tworzyć zasady oparte na zasadach lokalizacji, aplikacji, użytkownika lub grupy. Aby uzyskać więcej informacji, zobacz [Zmienianie warstwy cenowej usługi Azure AD B2C](billing.md#change-your-azure-ad-pricing-tier)
+Azure AD B2C Premium **P2** jest wymagana do tworzenia ryzykownych zasad logowania. **Dzierżawy Premium P1** mogą tworzyć zasady oparte na lokalizacji, aplikacji, użytkownikach lub zasadach opartych na grupach. Aby uzyskać więcej informacji, zobacz [Zmienianie warstwy Azure AD B2C cenowej](billing.md#change-your-azure-ad-pricing-tier)
 
-## <a name="prepare-your-azure-ad-b2c-tenant"></a>Przygotowywanie dzierżawy Azure AD B2C
+## <a name="prepare-your-azure-ad-b2c-tenant"></a>Przygotowywanie dzierżawy Azure AD B2C dzierżawy
 
-Aby dodać zasady dostępu warunkowego, Wyłącz domyślne ustawienia zabezpieczeń:
+Aby dodać zasady dostępu warunkowego, wyłącz ustawienia domyślne zabezpieczeń:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
-3. W obszarze **usługi platformy Azure** wybierz pozycję **Azure AD B2C**. Lub użyj pola wyszukiwania, aby znaleźć i wybrać **Azure AD B2C**.
-4. Wybierz pozycję **Właściwości**, a następnie wybierz pozycję **Zarządzaj ustawieniami domyślnymi zabezpieczeń**.
+2. Wybierz **ikonę Katalog i subskrypcja** na pasku narzędzi portalu, a następnie wybierz katalog zawierający Azure AD B2C dzierżawy.
+3. W **obszarze Usługi platformy Azure** wybierz pozycję **Azure AD B2C**. Możesz też użyć pola wyszukiwania, aby znaleźć i **wybrać Azure AD B2C**.
+4. Wybierz **pozycję Właściwości**, a następnie wybierz pozycję Zarządzaj **ustawieniami domyślnymi zabezpieczeń.**
 
-   ![Wyłącz ustawienia domyślne zabezpieczeń](media/conditional-access-user-flow/disable-security-defaults.png)
+   ![Wyłączanie domyślnych ustawień zabezpieczeń](media/conditional-access-user-flow/disable-security-defaults.png)
 
-5. W obszarze **Włącz domyślne ustawienia zabezpieczeń** wybierz pozycję **nie**.
+5. W **obszarze Włącz domyślne ustawienia zabezpieczeń** wybierz pozycję **Nie.**
 
-   ![Ustawienie opcji Włącz ustawienia domyślne zabezpieczeń włącza wartość nie](media/conditional-access-user-flow/enable-security-defaults-toggle.png)
+   ![Ustaw przełącznik Włącz ustawienia domyślne zabezpieczeń na wartość Nie](media/conditional-access-user-flow/enable-security-defaults-toggle.png)
 
 ## <a name="add-a-conditional-access-policy"></a>Dodawanie zasad dostępu warunkowego
 
-Zasady dostępu warunkowego to instrukcja if-then przypisań i kontroli dostępu. Zasady dostępu warunkowego zapewniają sygnały ze sobą, aby podejmować decyzje i wymuszać zasady organizacyjne. Operator logiczny między przypisaniami jest *i*. Operator w każdym przypisaniu ma wartość *lub*.
+Zasady dostępu warunkowego to instrukcja przypisań i kontroli dostępu typu if-then. Zasady dostępu warunkowego łączy sygnały w celu podejmowania decyzji i wymuszania zasad organizacyjnych. Operator logiczny między przypisaniami to *And*. Operatorem w każdym przypisaniu jest *Lub*.
 
 ![Przypisania dostępu warunkowego](media/conditional-access-user-flow/conditional-access-assignments.png)
 
 Aby dodać zasady dostępu warunkowego:
 
-1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. W obszarze **zabezpieczenia** wybierz pozycję **dostęp warunkowy (wersja zapoznawcza)**. Zostanie otwarta strona **zasady dostępu warunkowego** .
-1. Wybierz pozycję **+ nowe zasady**.
-1. Wprowadź nazwę zasad, na przykład *Zablokuj ryzykowne logowanie*.
-1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**, a następnie wybierz jedną z następujących obsługiwanych konfiguracji:
+1. W Azure Portal wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. W **obszarze Zabezpieczenia** wybierz pozycję Dostęp **warunkowy (wersja zapoznawcza).** Zostanie **otwarta strona Zasady dostępu** warunkowego.
+1. Wybierz **pozycję + Nowe zasady.**
+1. Wprowadź nazwę zasad, na przykład Blokuj *ryzykowne logowanie.*
+1. W **obszarze Przypisania** wybierz pozycję Użytkownicy i **grupy,** a następnie wybierz jedną z następujących obsługiwanych konfiguracji:
 
     |Uwzględnij  |Licencja | Uwagi  |
     |---------|---------|---------|
-    |**Wszyscy użytkownicy** | P1, P2 |Jeśli zdecydujesz się na uwzględnienie **wszystkich użytkowników**, te zasady będą miały wpływ na wszystkich użytkowników. Aby upewnić się, że nie zablokujesz samodzielnie, Wyłącz konto administracyjne, wybierając opcję **Wyklucz**, wybierając pozycję **role katalogu**, a następnie wybierając pozycję **administrator globalny** na liście. Możesz również wybrać **użytkowników i grupy** , a następnie wybrać konto na liście **Wybierz wykluczonych użytkowników** .  | 
+    |**Wszyscy użytkownicy** | P1, P2 |Jeśli zdecydujesz się dołączyć **wszystkich użytkowników,** te zasady będą mieć wpływ na wszystkich użytkowników. Aby się nie zablokować, wyklucz konto administracyjne, wybierając pozycję Wyklucz, wybierając pozycję Role **katalogu,** a następnie wybierając pozycję **Administrator** globalny na liście. Możesz również wybrać pozycję **Użytkownicy i grupy,** a następnie wybrać swoje konto na liście **Wybierz wykluczonych** użytkowników.  | 
  
-1. Wybierz pozycję **aplikacje w chmurze lub akcje**, a następnie **Wybierz pozycję aplikacje**. Wyszukaj [aplikację jednostki uzależnionej](tutorial-register-applications.md).
+1. Wybierz **pozycję Aplikacje w chmurze lub akcje**, a następnie wybierz pozycję **Aplikacje.** Wyszukaj aplikację [jednostki zależnej.](tutorial-register-applications.md)
 
-1. Wybierz pozycję **warunki**, a następnie wybierz jedną z następujących warunków. Na przykład wybierz pozycję **ryzyko związane z logowaniem** i **wysoki**, **Średni** i **niski** poziom ryzyka.
+1. Wybierz **pozycję Warunki,** a następnie wybierz jeden z następujących warunków. Na przykład wybierz pozycję **Ryzyko logowania oraz** poziomy **wysokiego,** **średniego** **i** niskiego ryzyka.
     
     |Warunek  |Licencja  |Uwagi  |
     |---------|---------|---------|
-    |**Ryzyko związane z użytkownikiem**|P2|Ryzyko użytkownika reprezentuje prawdopodobieństwo naruszenia bezpieczeństwa tożsamości lub konta.|
-    |**Ryzyko związane z logowaniem**|P2|Ryzyko związane z logowaniem reprezentuje prawdopodobieństwo, że dane żądanie uwierzytelnienia nie jest autoryzowane przez właściciela tożsamości.|
-    |**Platformy urządzeń**|Nieobsługiwane| Scharakteryzowany przez system operacyjny uruchomiony na urządzeniu. Aby uzyskać więcej informacji, zobacz [platformę urządzeń](../active-directory/conditional-access/concept-conditional-access-conditions.md#device-platforms).|
-    |**Lokalizacje**|P1, P2|Nazwane lokalizacje mogą zawierać publiczne informacje o sieci IPv4, kraj lub region lub nieznane obszary, które nie są mapowane na określone kraje lub regiony. Aby uzyskać więcej informacji, zobacz [lokalizacje](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations). |
+    |**Ryzyko związane z użytkownikiem**|P2|Ryzyko związane z użytkownikiem reprezentuje prawdopodobieństwo naruszenia zabezpieczeń danej tożsamości lub konta.|
+    |**Ryzyko związane z logowaniem**|P2|Ryzyko związane z logowaniem reprezentuje prawdopodobieństwo, że dane żądanie uwierzytelnienia nie zostało autoryzowane przez właściciela tożsamości.|
+    |**Platformy urządzeń**|Nieobsługiwane| Scharakteryzowany przez system operacyjny działający na urządzeniu. Aby uzyskać więcej informacji, zobacz [Platformy urządzeń](../active-directory/conditional-access/concept-conditional-access-conditions.md#device-platforms).|
+    |**Lokalizacje**|P1, P2|Nazwane lokalizacje mogą zawierać informacje o publicznej sieci IPv4, kraju lub regionie albo nieznane obszary, które nie są mapowe na określone kraje lub regiony. Aby uzyskać więcej informacji, zobacz [Lokalizacje](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations). |
  
-1. W obszarze **Kontrole dostępu** wybierz pozycję **Udziel**. Następnie zdecyduj, czy dostęp ma być blokowany, czy udzielony:
+1. W obszarze **Kontrole dostępu** wybierz pozycję **Udziel**. Następnie wybierz, czy dostęp ma być blokowany, czy udzielany:
     
     |Opcja  |Licencja |Uwaga  |
     |---------|---------|---------|
     |**Blokuj dostęp**|P1, P2| Uniemożliwia dostęp na podstawie warunków określonych w tych zasadach dostępu warunkowego.|
-    |**Udzielanie dostępu** z **wymaganiem uwierzytelniania wieloskładnikowego**|P1, P2|Na podstawie warunków określonych w tych zasadach dostępu warunkowego użytkownik musi przejść przez Azure AD B2C uwierzytelnianie wieloskładnikowe.|
+    |**Udzielanie dostępu przy** użyciu **ustawienia Wymagaj uwierzytelniania wieloskładnikowego**|P1, P2|Na podstawie warunków określonych w tych zasadach dostępu warunkowego użytkownik musi przejść przez Azure AD B2C uwierzytelnianie wieloskładnikowe.|
 
-1. W obszarze **Włączanie zasad** wybierz jedną z następujących pozycji:
+1. W **obszarze Włącz** zasady wybierz jedną z następujących opcji:
     
     |Opcja  |Licencja |Uwaga  |
     |---------|---------|---------|
-    |**Tylko raporty**|P1, P2| Raport — umożliwia administratorom ocenę wpływu zasad dostępu warunkowego przed włączeniem ich w środowisku. Zalecamy sprawdzanie zasad w tym stanie i określanie wpływu na użytkowników końcowych bez konieczności uwierzytelniania wieloskładnikowego ani blokowania użytkowników. Aby uzyskać więcej informacji, zobacz sekcję [przegląd wyników dostępu warunkowego w raporcie inspekcji](#review-conditional-access-outcomes-in-the-audit-report)|
+    |**Tylko raport**|P1, P2| Tylko raport umożliwia administratorom ocenę wpływu zasad dostępu warunkowego przed włączeniem ich w ich środowisku. Zalecamy sprawdzenie zasad z tym stanem i określenie wpływu na użytkowników końcowych bez konieczności uwierzytelniania wieloskładnikowego ani blokowania użytkowników. Aby uzyskać więcej informacji, zobacz [Przeglądanie wyników dostępu warunkowego w raporcie inspekcji](#review-conditional-access-outcomes-in-the-audit-report)|
     | **Włączone**| P1, P2| Zasady dostępu są oceniane i nie są wymuszane. |
     | **Wyłączone** | P1, P2| Zasady dostępu nie są aktywowane i nie mają wpływu na użytkowników. |
 
-1. Włącz testowe zasady dostępu warunkowego, wybierając pozycję **Utwórz**.
+1. Włącz testowe zasady dostępu warunkowego, wybierając pozycję **Utwórz.**
 
 ## <a name="add-conditional-access-to-a-user-flow"></a>Dodawanie dostępu warunkowego do przepływu użytkownika
 
-Po dodaniu zasad dostępu warunkowego usługi Azure AD Włącz dostęp warunkowy w przepływie użytkownika lub w zasadach niestandardowych. Po włączeniu dostępu warunkowego nie trzeba określać nazwy zasad.
+Po dodaniu zasad dostępu warunkowego usługi Azure AD włącz dostęp warunkowy w przepływie użytkownika lub zasadach niestandardowych. Po włączeniu dostępu warunkowego nie trzeba określać nazwy zasad.
 
-Zasady dostępu warunkowego mogą być stosowane do poszczególnych użytkowników w dowolnym momencie. W takim przypadku pierwszeństwo ma najbardziej rygorystyczne zasady kontroli dostępu. Na przykład jeśli jedna zasada wymaga uwierzytelniania wieloskładnikowego (MFA), podczas gdy inne bloki dostępu, użytkownik zostanie zablokowany.
+W dowolnym momencie do poszczególnych użytkowników można zastosować wiele zasad dostępu warunkowego. W takim przypadku pierwszeństwo mają najbardziej rygorystyczne zasady kontroli dostępu. Na przykład jeśli jedna zasada wymaga uwierzytelniania wieloskładnikowego (MFA), podczas gdy inne blokują dostęp, użytkownik zostanie zablokowany.
 
-## <a name="enable-multi-factor-authentication-optional"></a>Włącz uwierzytelnianie wieloskładnikowe (opcjonalnie)
+## <a name="conditional-access-template-1-sign-in-risk-based-conditional-access"></a>Szablon dostępu warunkowego 1: dostęp warunkowy oparty na ryzyku logowania
 
-Podczas dodawania dostępu warunkowego do przepływu użytkownika należy rozważyć użycie **uwierzytelniania wieloskładnikowego (MFA)**. Użytkownicy mogą używać jednorazowego kodu za pośrednictwem wiadomości SMS lub głos lub hasła jednorazowego za pośrednictwem poczty e-mail na potrzeby uwierzytelniania wieloskładnikowego. Ustawienia usługi MFA są niezależne od ustawień dostępu warunkowego. Można ustawić usługę MFA na **zawsze włączone** , aby uwierzytelnianie wieloskładnikowe było zawsze wymagane niezależnie od konfiguracji dostępu warunkowego. Można też ustawić uwierzytelnianie wieloskładnikowe na **warunkowe** , aby usługa MFA była wymagana tylko wtedy, gdy wymaga tego zasady.
+Większości użytkowników dotyczy zachowanie normalne, które można śledzić. Gdy ta norma zostanie przekroczona, zezwolenie tym użytkownikom na zwykłe logowanie się może stanowić ryzyko. Możesz zablokować tego użytkownika lub po prostu poprosić go o przeprowadzenie uwierzytelniania wieloskładnikowego, aby udowodnić, że naprawdę jest tym, za kogo się podają.
+
+Ryzyko związane z logowaniem reprezentuje prawdopodobieństwo, że dane żądanie uwierzytelnienia nie zostało autoryzowane przez właściciela tożsamości. Organizacje z licencjami P2 mogą tworzyć zasady dostępu warunkowego [zawierające Azure AD Identity Protection wykrywania](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks#sign-in-risk)ryzyka logowania. Zwróć uwagę na [ograniczenia dotyczące wykrywania usługi Identity Protection dla usługi B2C.](https://docs.microsoft.com/azure/active-directory-b2c/identity-protection-investigate-risk?pivots=b2c-user-flow#service-limitations-and-considerations)
+
+W przypadku wykrycia ryzyka użytkownicy mogą przeprowadzić uwierzytelnianie wieloskładnikowe, aby samodzielnie skorygować i zamknąć ryzykowne zdarzenie logowania, aby zapobiec niepotrzebnemu szumowi dla administratorów.
+
+Organizacje powinny wybrać jedną z następujących opcji, aby włączyć zasady dostępu warunkowego opartego na ryzyku logowania wymagające uwierzytelniania wieloskładnikowego (MFA), gdy ryzyko logowania jest średnie LUB wysokie.
+
+### <a name="enable-with-conditional-access-policy"></a>Włączanie przy użyciu zasad dostępu warunkowego
+
+1. Zaloguj się w witrynie **Azure Portal**.
+2. Przejdź do **Azure AD B2C**  >  **dostępu**  >  **warunkowego zabezpieczeń.**
+3. Wybierz **pozycję Nowe zasady.**
+4. Nadaj nazwę zasadom. Zalecamy, aby organizacje tworzyły znaczący standard nazw swoich zasad.
+5. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
+   1. W **obszarze Uwzględnij** wybierz pozycję **Wszyscy użytkownicy.**
+   2. W **obszarze** Wyklucz wybierz pozycję **Użytkownicy** i grupy, a następnie wybierz konta dostępu awaryjnego lub włamań w organizacji. 
+   3. Kliknij **Gotowe**.
+6. W **obszarze Aplikacje w chmurze lub akcje**  >  **Uwzględnij** wybierz pozycję Wszystkie aplikacje w **chmurze.**
+7. W **obszarze Ryzyko** związane z  >  **logowaniem w obszarze Warunki** ustaw opcję Konfiguruj **na** **wartość Tak.** W **obszarze Wybierz poziom ryzyka logowania te zasady będą stosowane** 
+   1. Wybierz **pozycję Wysoki** i **Średni**.
+   2. Kliknij **Gotowe**.
+8. W **obszarze Kontrole dostępu**  >  **Wybierz** pozycję U **przyznaj dostęp,** **Wymagaj uwierzytelniania wieloskładnikowego** i wybierz **pozycję Wybierz.**
+9. Potwierdź ustawienia i ustaw **opcję Włącz zasady** na wartość **Wł.**.
+10. Wybierz **pozycję Utwórz,** aby utworzyć, aby włączyć zasady.
+
+### <a name="enable-with-conditional-access-apis"></a>Włączanie przy użyciu interfejsów API dostępu warunkowego
+
+Aby utworzyć zasady dostępu warunkowego opartego na ryzyku logowania za pomocą interfejsów API dostępu warunkowego, zapoznaj się z dokumentacją interfejsów [API dostępu warunkowego.](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api)
+
+Przy użyciu następującego szablonu można utworzyć zasady dostępu warunkowego o nazwie wyświetlanej "CA002: Require MFA for medium+ sign-in risk" (Ca002: Wymagaj uwierzytelniania wieloskładnikowego w przypadku ryzyka logowania na średnim lub średnim ryzyku logowania) w trybie tylko do raportu.
+
+```json
+{
+    "displayName": "Template 1: Require MFA for medium+ sign-in risk",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+        "signInRiskLevels": [ "high" ,
+            "medium"
+        ],
+        "applications": {
+            "includeApplications": [
+                "All"
+            ]
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "f753047e-de31-4c74-a6fb-c38589047723"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "mfa"
+        ]
+    }
+}
+```
+
+## <a name="enable-multi-factor-authentication-optional"></a>Włączanie uwierzytelniania wieloskładnikowego (opcjonalnie)
+
+Podczas dodawania dostępu warunkowego do przepływu użytkownika należy rozważyć użycie uwierzytelniania **wieloskładnikowego (MFA).** Użytkownicy mogą używać kodu wielokrotnego za pośrednictwem wiadomości SMS lub głosu albo hasła za pośrednictwem poczty e-mail w celu uwierzytelniania wieloskładnikowego. Ustawienia usługi MFA są niezależne od ustawień dostępu warunkowego. Usługę MFA można ustawić na **zawsze wł.,** aby uwierzytelniania wieloskładnikowego było zawsze wymagane niezależnie od konfiguracji dostępu warunkowego. Możesz też ustawić uwierzytelniania wieloskładnikowego na **wartość Warunkowe,** aby uwierzytelniania wieloskładnikowego było wymagane tylko wtedy, gdy wymagają tego aktywne zasady dostępu warunkowego.
 
 > [!IMPORTANT]
-> Jeśli zasady dostępu warunkowego przyznają dostęp za pomocą usługi MFA, ale użytkownik nie zarejestrował numeru telefonu, użytkownik może zostać zablokowany.
+> Jeśli zasady dostępu warunkowego udzielają dostępu za pomocą usługi MFA, ale użytkownik nie zaestrował numeru telefonu, może on zostać zablokowany.
 
 ::: zone pivot="b2c-user-flow"
 
-Aby włączyć dostęp warunkowy dla przepływu użytkownika, upewnij się, że wersja obsługuje dostęp warunkowy. Te wersje przepływu użytkownika mają etykietę **zalecane**.
+Aby włączyć dostęp warunkowy dla przepływu użytkownika, upewnij się, że wersja obsługuje dostęp warunkowy. Te wersje przepływu użytkownika mają etykietę **Zalecane.**
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
+1. Wybierz **ikonę Katalog i subskrypcja** na pasku narzędzi portalu, a następnie wybierz katalog zawierający Azure AD B2C dzierżawę.
 
-1. W obszarze **usługi platformy Azure** wybierz pozycję **Azure AD B2C**. Lub użyj pola wyszukiwania, aby znaleźć i wybrać **Azure AD B2C**.
+1. W **obszarze Usługi platformy Azure** wybierz pozycję **Azure AD B2C**. Możesz też użyć pola wyszukiwania, aby znaleźć i wybrać **Azure AD B2C**.
 
-1. W obszarze **zasady** wybierz pozycję **przepływy użytkownika**. Następnie wybierz przepływ użytkownika.
+1. W **obszarze Zasady** wybierz pozycję **Przepływy użytkownika.** Następnie wybierz przepływ użytkownika.
 
-1. Wybierz pozycję **Właściwości** i upewnij się, że przepływ użytkownika obsługuje dostęp warunkowy, szukając ustawienia etykieta **dostęp warunkowy**.
+1. Wybierz **pozycję Właściwości** i upewnij się, że przepływ użytkownika obsługuje dostęp warunkowy, szukając ustawienia z etykietą Dostęp **warunkowy.**
  
    ![Konfigurowanie uwierzytelniania wieloskładnikowego i dostępu warunkowego we właściwościach](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. W sekcji **uwierzytelnianie wieloskładnikowe** wybierz żądaną **metodę MFA**, a następnie w obszarze **wymuszania MFA** wybierz pozycję **warunkowe (zalecane)**.
+1. W sekcji **Multi-factor authentication** (Uwierzytelnianie wieloskładnikowe) wybierz żądaną metodę **MFA,** a następnie w obszarze **MFA enforcement**(Wymuszanie uwierzytelniania wieloskładnikowego) wybierz pozycję **Conditional (Recommended) (Warunkowe (zalecane).**
  
-1. W sekcji **dostęp warunkowy** zaznacz pole wyboru **Wymuszaj zasady dostępu warunkowego** .
+1. W sekcji **Dostęp warunkowy** zaznacz pole wyboru **Wymusz zasady dostępu** warunkowego.
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -197,18 +262,18 @@ Aby włączyć dostęp warunkowy dla przepływu użytkownika, upewnij się, że 
 
 ## <a name="add-conditional-access-to-your-policy"></a>Dodawanie dostępu warunkowego do zasad
 
-1. Zapoznaj się z przykładem zasad dostępu warunkowego w witrynie [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
-1. W każdym pliku Zastąp ciąg `yourtenant` nazwą dzierżawy Azure AD B2C. Na przykład jeśli nazwa dzierżawy usługi B2C jest *contosob2c*, wszystkie wystąpienia `yourtenant.onmicrosoft.com` stają się dostępne `contosob2c.onmicrosoft.com` .
+1. Przykład zasad dostępu warunkowego można uzyskać w witrynie [GitHub.](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access)
+1. W każdym pliku zastąp ciąg `yourtenant` nazwą swojej dzierżawy Azure AD B2C dzierżawy. Jeśli na przykład nazwa dzierżawy B2C to *contosob2c,* wszystkie wystąpienia obiektu stają `yourtenant.onmicrosoft.com` się `contosob2c.onmicrosoft.com` .
 1. Przekaż pliki zasad.
 
 ## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
 
-1. Wybierz `B2C_1A_signup_signin_with_ca` zasady lub, `B2C_1A_signup_signin_with_ca_whatif` Aby otworzyć jej stronę przeglądu. Następnie wybierz pozycję **Uruchom przepływ użytkownika**. W obszarze **aplikacja** wybierz pozycję *webapp1*. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Wybierz zasady `B2C_1A_signup_signin_with_ca` lub , aby otworzyć jej stronę `B2C_1A_signup_signin_with_ca_whatif` przeglądu. Następnie wybierz **pozycję Uruchom przepływ użytkownika.** W **obszarze Aplikacja** wybierz pozycję *webapp1.* Adres **URL odpowiedzi** powinien pokazywać . `https://jwt.ms`
 1. Skopiuj adres URL w obszarze **Uruchom punkt końcowy przepływu użytkownika**.
 
-1. Aby zasymulować ryzykowne logowanie, Otwórz [przeglądarkę tor](https://www.torproject.org/download/) i użyj adresu URL skopiowanego w poprzednim kroku, aby zalogować się do zarejestrowanej aplikacji.
+1. Aby symulować ryzykowne logowanie, otwórz przeglądarkę [Tor i](https://www.torproject.org/download/) użyj adresu URL skopiowanego w poprzednim kroku, aby zalogować się do zarejestrowanej aplikacji.
 
-1. Wprowadź żądane informacje na stronie logowania, a następnie spróbuj się zalogować. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony. W tokenie dekodowane jwt.ms należy sprawdzić, czy logowanie zostało zablokowane.
+1. Wprowadź żądane informacje na stronie logowania, a następnie spróbuj się zalogować. Token jest zwracany do usługi `https://jwt.ms` i powinien być wyświetlany. W jwt.ms zdekodowany token powinien być wyświetlony, że logowanie zostało zablokowane.
 
 ::: zone-end
 
@@ -216,41 +281,41 @@ Aby włączyć dostęp warunkowy dla przepływu użytkownika, upewnij się, że 
 
 ## <a name="test-your-user-flow"></a>Testowanie przepływu użytkownika
 
-1. Wybierz utworzony przepływ użytkownika, aby otworzyć jego stronę przeglądu, a następnie wybierz pozycję **Uruchom przepływ użytkownika**. W obszarze **aplikacja** wybierz pozycję *webapp1*. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Wybierz utworzony przepływ użytkownika, aby otworzyć jego stronę przeglądu, a następnie wybierz **pozycję Uruchom przepływ użytkownika.** W **obszarze Aplikacja** wybierz pozycję *webapp1.* Adres **URL odpowiedzi** powinien pokazywać . `https://jwt.ms`
 
 1. Skopiuj adres URL w obszarze **Uruchom punkt końcowy przepływu użytkownika**.
 
-1. Aby zasymulować ryzykowne logowanie, Otwórz [przeglądarkę tor](https://www.torproject.org/download/) i użyj adresu URL skopiowanego w poprzednim kroku, aby zalogować się do zarejestrowanej aplikacji.
+1. Aby symulować ryzykowne logowanie, otwórz przeglądarkę [Tor i](https://www.torproject.org/download/) użyj adresu URL skopiowanego w poprzednim kroku, aby zalogować się do zarejestrowanej aplikacji.
 
-1. Wprowadź żądane informacje na stronie logowania, a następnie spróbuj się zalogować. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony. W tokenie dekodowane jwt.ms należy sprawdzić, czy logowanie zostało zablokowane.
+1. Wprowadź żądane informacje na stronie logowania, a następnie spróbuj się zalogować. Token jest zwracany do i `https://jwt.ms` powinien być wyświetlany. W jwt.ms tokenu powinno być widać, że logowanie zostało zablokowane.
 
 ::: zone-end
 
-## <a name="review-conditional-access-outcomes-in-the-audit-report"></a>Przejrzyj wyniki dostępu warunkowego w raporcie inspekcji
+## <a name="review-conditional-access-outcomes-in-the-audit-report"></a>Przeglądanie wyników dostępu warunkowego w raporcie inspekcji
 
-Aby sprawdzić wynik zdarzenia dostępu warunkowego:
+Aby przejrzeć wynik zdarzenia dostępu warunkowego:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
+2. Wybierz **ikonę Katalog i subskrypcja** na pasku narzędzi portalu, a następnie wybierz katalog zawierający Azure AD B2C dzierżawę.
 
-3. W obszarze **usługi platformy Azure** wybierz pozycję **Azure AD B2C**. Lub użyj pola wyszukiwania, aby znaleźć i wybrać **Azure AD B2C**.
+3. W **obszarze Usługi platformy Azure** wybierz pozycję **Azure AD B2C**. Możesz też użyć pola wyszukiwania, aby znaleźć i **wybrać Azure AD B2C**.
 
-4. W obszarze **działania** wybierz pozycję **dzienniki inspekcji**.
+4. W **obszarze Działania** wybierz pozycję Dzienniki **inspekcji.**
 
-5. Przefiltruj dziennik inspekcji, ustawiając **kategorię** na **B2C** i ustawiając **Typ zasobu działania** na **IdentityProtection**. Następnie wybierz przycisk **Zastosuj**.
+5. Przefiltruj dziennik inspekcji, ustawiając **kategorię** **na B2C** i ustawiając typ zasobu **działania** na **IdentityProtection.** Następnie wybierz przycisk **Zastosuj**.
 
-6. Przeglądanie działania inspekcji przez maksymalnie siedem dni. Uwzględniane są następujące typy działań:
+6. Przejrzyj działania inspekcji z ostatnich siedmiu dni. Uwzględniane są następujące typy działań:
 
-   - **Oceń zasady dostępu warunkowego**: Ten wpis dziennika inspekcji wskazuje, że podczas uwierzytelniania wykonano ocenę dostępu warunkowego.
-   - **Koryguj użytkownika**: Ten wpis wskazuje, że udzielenie lub wymagania zasad dostępu warunkowego zostały spełnione przez użytkownika końcowego, a to działanie zostało zgłoszone do aparatu ryzyka w celu ograniczenia (zmniejszenie ryzyka).
+   - **Ocena zasad dostępu warunkowego:** ten wpis dziennika inspekcji wskazuje, że ocena dostępu warunkowego została wykonana podczas uwierzytelniania.
+   - **Korygowanie** użytkownika: ten wpis wskazuje, że użytkownik końcowy spełnił udzielenie lub wymagania zasad dostępu warunkowego, a to działanie zostało zgłoszone do aparatu ryzyka w celu ograniczenia (zmniejszenia ryzyka) użytkownika.
 
-7. Wybierz pozycję **Oceń dziennik zasad dostępu warunkowego** na liście, aby otworzyć stronę **szczegóły działania: dziennik inspekcji** , która zawiera identyfikatory dziennika inspekcji wraz z tymi informacjami w sekcji **dodatkowe szczegóły** :
+7. Wybierz wpis **dziennika** Ocena zasad dostępu warunkowego na liście, aby otworzyć stronę Szczegóły **aktywności: dziennik** inspekcji, na której są podane identyfikatory dziennika inspekcji wraz z informacjami w sekcji **Dodatkowe** szczegóły:
 
-   - **ConditionalAccessResult**: przyznanie wymagane przez ocenę zasad warunkowych.
-   - **AppliedPolicies**: Lista wszystkich zasad dostępu warunkowego, w których warunki zostały spełnione i zasady są włączone.
-   - **ReportingPolicies**: lista zasad dostępu warunkowego, które zostały ustawione na tryb "tylko raportowanie" i, w których warunki zostały spełnione.
+   - **ConditionalAccessResult:** przyznawanie wymagane przez ocenę zasad warunkowych.
+   - **AppliedPolicies:** lista wszystkich zasad dostępu warunkowego, w których warunki zostały spełnione, a zasady są WŁ.
+   - **ReportingPolicies:** lista zasad dostępu warunkowego, które zostały ustawione w trybie tylko do raportu i gdzie warunki zostały spełnione.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dostosowywanie interfejsu użytkownika w przepływie użytkownika Azure AD B2C](customize-ui-with-html.md)
+[Dostosowywanie interfejsu użytkownika w przepływie Azure AD B2C użytkownika](customize-ui-with-html.md)

@@ -1,17 +1,17 @@
 ---
 title: Przewodnik Szybki start — interfejs API REST usługi Azure SignalR Service
-description: Dowiedz się, jak korzystać z interfejsu API REST w usłudze Azure Signal Service. Znajdź szczegóły specyfikacji interfejsu API REST.
+description: Dowiedz się, jak używać interfejsu API REST Azure SignalR Service poniższych przykładach. Znajdź szczegóły specyfikacji interfejsu API REST.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 2613f91e8c7f1ad3a05792a9a165f4560c09a637
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfcbb00ec20797248f41cc1676809f3198d51527
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94874529"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866165"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Szybki start: tworzenie przekazów komunikatów w czasie rzeczywistym z poziomu aplikacji konsolowej
 
@@ -23,22 +23,22 @@ W tym przewodniku Szybki start dowiesz się, jak wysyłać komunikaty z aplikacj
 
 Czynności przedstawione w tym przewodniku Szybki start można wykonywać w systemie macOS, Windows lub Linux.
 
-* [Zestaw .NET Core SDK](https://www.microsoft.com/net/download/core)
+* [Zestaw .NET Core SDK](https://dotnet.microsoft.com/download)
 * Wybrany edytor tekstu lub edytor kodu.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> przy użyciu danych konta Azure.
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
@@ -51,7 +51,7 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do przygotowania kodu. Sklonuj 
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="build-and-run-the-sample"></a>Kompilowanie i uruchamianie przykładu
 
@@ -88,7 +88,7 @@ cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 Serverless server -c "<ConnectionString>" -h <HubName>
 ```
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="run-the-sample-without-publishing"></a>Uruchamianie aplikacji przykładowej bez publikowania
 
@@ -106,7 +106,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 Możesz uruchomić polecenie `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"` w katalogu głównym przykładu. Wtedy opcja `-c "<ConnectionString>"` nie jest już potrzebna.
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="usage"></a>Użycie
 
@@ -122,7 +122,7 @@ broadcast
 
 Możesz uruchomić wielu klientów o wielu nazwach.
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integracja z usługami innych firm
 
@@ -139,19 +139,19 @@ Wersja | Interfejs API stanu | Drzwi | Określona wersja
 
 Lista dostępnych interfejsów API dla każdej konkretnej wersji znajduje się na poniższej liście.
 
-Interfejs API | 1,0 — wersja zapoznawcza | 1.0
+Interfejs API | 1.0-preview | 1.0
 --- | --- | ---
 [Rozgłoś do wszystkich](#broadcast) | **&#x2713;** | **&#x2713;**
 [Rozgłoś do grupy](#broadcast-group) | **&#x2713;** | **&#x2713;**
 Rozgłoś do niektórych grup | **&#x2713;** (przestarzałe) | `N / A`
-[Wyślij do użytkownika](#send-user) | **&#x2713;** | **&#x2713;**
+[Wysyłanie do użytkownika](#send-user) | **&#x2713;** | **&#x2713;**
 Wyślij do niektórych użytkowników | **&#x2713;** (przestarzałe) | `N / A`
 [Dodawanie użytkownika do grupy](#add-user-to-group) | `N / A` | **&#x2713;**
 [Usuwanie użytkownika z grupy](#remove-user-from-group) | `N / A` | **&#x2713;**
 [Sprawdzanie istnienia użytkownika](#check-user-existence) | `N / A` | **&#x2713;**
 [Usuwanie użytkownika ze wszystkich grup](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
-[Wyślij do połączenia](#send-connection) | `N / A` | **&#x2713;**
-[Dodawanie połączenia z grupą](#add-connection-to-group) | `N / A` | **&#x2713;**
+[Wysyłanie do połączenia](#send-connection) | `N / A` | **&#x2713;**
+[Dodawanie połączenia do grupy](#add-connection-to-group) | `N / A` | **&#x2713;**
 [Usuwanie połączenia z grupy](#remove-connection-from-group) | `N / A` | **&#x2713;**
 [Zamykanie połączenia klienta](#close-connection) | `N / A` | **&#x2713;**
 [Kondycja usługi](#service-health) | `N / A` | **&#x2713;**
@@ -215,14 +215,14 @@ Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups`
 
 <a name="send-connection"> </a>
-### <a name="send-message-to-a-connection"></a>Wyślij wiadomość do połączenia
+### <a name="send-message-to-a-connection"></a>Wysyłanie komunikatu do połączenia
 
 Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania | Treść żądania
 ---|---|---|---
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
 
 <a name="add-connection-to-group"> </a>
-### <a name="add-a-connection-to-a-group"></a>Dodawanie połączenia z grupą
+### <a name="add-a-connection-to-a-group"></a>Dodawanie połączenia do grupy
 
 Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 ---|---|---
@@ -254,18 +254,18 @@ Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 
 Kod stanu odpowiedzi | Opis
 ---|---
-`200` | Dobre usługi
+`200` | Dobra usługa
 `5xx` | Błąd usługi
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qsapi).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób korzystania z interfejsu API REST w celu emitowania komunikatów w czasie rzeczywistym od usługi sygnalizującej do klientów. Następnie Dowiedz się więcej na temat tworzenia i wdrażania Azure Functions za pomocą powiązania usługi sygnalizującego, który jest oparty na interfejsie API REST.
+W tym przewodniku Szybki start opisano, jak za pomocą interfejsu API REST rozgłaszać wiadomości w czasie rzeczywistym z SignalR Service do klientów. Następnie dowiedz się więcej o tym, jak opracowywać i wdrażać Azure Functions za pomocą SignalR Service powiązania, które jest zbudowane na podstawie interfejsu API REST.
 
 > [!div class="nextstepaction"]
-> [Opracowywanie Azure Functions przy użyciu powiązań usługi platformy Azure](signalr-quickstart-azure-functions-csharp.md)
+> [Tworzenie Azure Functions przy użyciu Azure SignalR Service powiązań](signalr-quickstart-azure-functions-csharp.md)

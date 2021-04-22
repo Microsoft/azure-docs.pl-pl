@@ -4,12 +4,12 @@ description: Zainstaluj środowisko uruchomieniowe i zestaw SDK oraz utwórz lok
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcf0aeec27415d03c528e42ad5341a92bd299d88
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93086894"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869405"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Przygotowywanie środowiska projektowego w systemie Linux
 > [!div class="op_single_selector"]
@@ -19,16 +19,16 @@ ms.locfileid: "93086894"
 
 Aby wdrażać i uruchamiać [aplikacje usługi Azure Service Fabric](service-fabric-application-model.md) na maszynie deweloperskiej z systemem Linux, należy zainstalować środowisko uruchomieniowe i wspólny zestaw SDK. Można także zainstalować opcjonalne zestawy SDK na potrzeby programowania na platformach Java i .NET Core. 
 
-W krokach w tym artykule założono, że instalujesz natywnie w systemie Linux lub używasz [obrazu kontenera Service Fabric jednopunktowy](https://hub.docker.com/_/microsoft-service-fabric-onebox), np. `mcr.microsoft.com/service-fabric/onebox:u18` .
+W krokach w tym artykule założono, że instalujesz natywnie w systemie Linux lub używasz Service Fabric [kontenera OneBox,](https://hub.docker.com/_/microsoft-service-fabric-onebox) `mcr.microsoft.com/service-fabric/onebox:u18` tj. .
 
-Za pomocą interfejsu wiersza polecenia platformy Azure Service Fabric można zarządzać jednostkami Service Fabric hostowanymi w chmurze lub lokalnymi. Aby uzyskać informacje na temat instalowania interfejsu wiersza polecenia, zobacz [Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric](./service-fabric-cli.md).
+Jednostkami Service Fabric hostowaną w chmurze lub lokalnie można zarządzać za pomocą interfejsu wiersza polecenia (CLI) usługi Azure Service Fabric. Aby uzyskać informacje na temat instalowania interfejsu wiersza polecenia, zobacz [Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric](./service-fabric-cli.md).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Na potrzeby tworzenia aplikacji obsługiwane są poniższe wersje systemu operacyjnego.
 
-* Ubuntu 16,04 ( `Xenial Xerus` ), 18,04 ( `Bionic Beaver` )
+* Ubuntu 16.04 ( `Xenial Xerus` ), 18.04 ( `Bionic Beaver` )
 
     Upewnij się, że pakiet `apt-transport-https` został zainstalowany.
          
@@ -50,7 +50,7 @@ Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego pr
 
 ## <a name="script-installation"></a>Instalacja skryptu
 
-Dla wygody skrypt jest dostarczany w celu zainstalowania środowiska uruchomieniowego Service Fabric i Service Fabric wspólnego zestawu SDK wraz z [interfejsem wiersza polecenia **sfctl**](service-fabric-cli.md). Podczas uruchamiania skryptu jest przyjmowane założenie, że wyrażasz zgodę na warunki licencji wszystkich instalowanych programów. Alternatywnie można uruchomić kroki [instalacji ręcznej](#manual-installation) w następnej sekcji, w której będą obecne skojarzone licencje oraz instalowane składniki.
+Dla wygody jest dostarczany skrypt instalacyjny Service Fabric uruchomieniowy i Service Fabric ZESTAW SDK wraz z interfejsem wiersza polecenia [ **sfctl.**](service-fabric-cli.md) Podczas uruchamiania skryptu jest przyjmowane założenie, że wyrażasz zgodę na warunki licencji wszystkich instalowanych programów. Możesz też wykonać [](#manual-installation) kroki instalacji ręcznej w następnej sekcji, w której będą prezentować skojarzone licencje oraz instalowane składniki.
 
 Po pomyślnym uruchomieniu skryptu możesz przejść do części [Konfigurowanie klastra lokalnego](#set-up-a-local-cluster).
 
@@ -63,14 +63,14 @@ Aby przeprowadzić ręczną instalację środowiska uruchomieniowego usługi Ser
 
 1. Otwórz terminal.
 
-2. Dodaj `dotnet` repozytorium do listy źródeł odpowiadającej dystrybucji.
+2. Dodaj `dotnet` repo do listy źródeł odpowiadającej twojej dystrybucji.
 
     ```bash
     wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-3. Dodaj nowy klucz programu MS Open Tech Privacy Guard (GnuPG lub GPG) do pęku kluczy APT.
+3. Dodaj nowy klucz MS Open Tech Gnu Privacy Guard (GnuPG lub GPG) do swojego keyringu APT.
 
     ```bash
     sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
@@ -88,7 +88,7 @@ Aby przeprowadzić ręczną instalację środowiska uruchomieniowego usługi Ser
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-6. Dodaj klucz JDK Azul do pęku kluczy APT i skonfiguruj jego repozytorium.
+6. Dodaj klucz JDK Azul do swojego rejestru kluczy APT i skonfiguruj jego repozytorium.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
@@ -121,7 +121,7 @@ sudo apt-get install servicefabricsdkcommon
 # <a name="red-hat-enterprise-linux-74"></a>[Red Hat Enterprise Linux 7.4](#tab/sdksetuprhel74)
 
 ## <a name="update-your-yum-repositories"></a>Aktualizowanie repozytoriów Yum
-Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego za pomocą narzędzia wiersza polecenia Yum, należy najpierw zaktualizować źródła pakietów.
+Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego za pomocą narzędzia wiersza polecenia yum, należy najpierw zaktualizować źródła pakietów.
 
 ## <a name="manual-installation-rhel"></a>Instalacja ręczna (RHEL)
 Aby przeprowadzić ręczną instalację środowiska uruchomieniowego usługi Service Fabric i wspólnego zestawu SDK, wykonaj kroki z dalszej części tego przewodnika.
@@ -152,7 +152,7 @@ Aby przeprowadzić ręczną instalację środowiska uruchomieniowego usługi Ser
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster-rhel"></a>Instalowanie i Konfigurowanie zestawu SDK Service Fabric dla lokalnego klastra (RHEL)
+## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster-rhel"></a>Instalowanie i konfigurowanie zestawu SDK Service Fabric dla klastra lokalnego (RHEL)
 
 Po zaktualizowaniu źródeł można zainstalować zestaw SDK. Zainstaluj pakiet zestawu Service Fabric SDK, potwierdź instalację i zaakceptuj umowę licencyjną.
 
@@ -162,26 +162,26 @@ sudo yum install servicefabricsdkcommon
 
 ---
 
-## <a name="included-packages"></a>Uwzględnione pakiety
+## <a name="included-packages"></a>Dołączone pakiety
 Środowisko uruchomieniowe usługi Service Fabric, które uwzględnia instalację zestawu SDK, obejmuje pakiety przedstawione w poniższej tabeli. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-**Ubuntu** | 2.0.7 | AzulJDK 1,8 | Niejawne z rozwiązania npm | latest |
+**Ubuntu** | 2.0.7 | AzulJDK 1.8 | Niejawne z rozwiązania npm | latest |
 **RHEL** | - | OpenJDK 1.8 | Niejawne z rozwiązania npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Tworzenie klastra lokalnego
-1. Uruchom lokalny klaster Service Fabric na potrzeby programowania.
+1. Uruchom lokalny klaster Service Fabric na platformie dewelopera.
 
-# <a name="container-based-local-cluster"></a>[Lokalny klaster oparty na kontenerach](#tab/localclusteroneboxcontainer)
+# <a name="container-based-local-cluster"></a>[Klaster lokalny oparty na kontenerach](#tab/localclusteroneboxcontainer)
 
-Uruchom [Service Fabric klastra jednopunktowy](https://hub.docker.com/_/microsoft-service-fabric-onebox) .
+Uruchom klaster usługi [onebox oparty Service Fabric kontenerze.](https://hub.docker.com/_/microsoft-service-fabric-onebox)
 
-1. Zainstaluj program Moby, aby móc wdrażać kontenery platformy Docker.
+1. Zainstaluj aplikację Moby, aby móc wdrażać kontenery platformy Docker.
     ```bash
     sudo apt-get install moby-engine moby-cli -y
     ```
-2. Zaktualizuj konfigurację demona platformy Docker na swoim hoście przy użyciu następujących ustawień i ponownie uruchom demona platformy Docker. Szczegóły: [Włączanie obsługi protokołu IPv6](https://docs.docker.com/config/daemon/ipv6/)
+2. Zaktualizuj konfigurację demona platformy Docker na hoście przy użyciu następujących ustawień i uruchom ponownie demona platformy Docker. Szczegóły: [Włączanie obsługi protokołu IPv6](https://docs.docker.com/config/daemon/ipv6/)
 
     ```json
     {
@@ -191,18 +191,18 @@ Uruchom [Service Fabric klastra jednopunktowy](https://hub.docker.com/_/microsof
     ```
 
 3. Uruchom klaster.<br/>
-    <b>Ubuntu 18,04 LTS:</b>
+    <b>Ubuntu 18.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
-    <b>Ubuntu 16,04 LTS:</b>
+    <b>Ubuntu 16.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
     ```
 
     >[!TIP]
-    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek odwiedź stronę usługi [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) .
+    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku określonych poprawek odwiedź [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) strony.
 
 # <a name="local-cluster"></a>[Klaster lokalny](#tab/localcluster)
 
@@ -216,7 +216,7 @@ Po zainstalowaniu zestawu SDK przy użyciu powyższych kroków uruchom klaster l
 
 ---
 
-2. Otwórz przeglądarkę internetową i przejdź do **Service Fabric Explorer** ( `http://localhost:19080/Explorer` ). Po uruchomieniu klastra zostanie wyświetlony pulpit nawigacyjny narzędzia Service Fabric Explorer. Może upłynąć kilka minut, zanim klaster zostanie całkowicie skonfigurowany. Jeśli przeglądarka nie może otworzyć adresu URL lub narzędzie Service Fabric Explorer nie wyświetla informacji o gotowości systemu, zaczekaj kilka minut i spróbuj ponownie.
+2. Otwórz przeglądarkę internetową i przejdź do **witryny Service Fabric Explorer** ( `http://localhost:19080/Explorer` ). Po uruchomieniu klastra zostanie wyświetlony pulpit nawigacyjny narzędzia Service Fabric Explorer. Może upłynąć kilka minut, zanim klaster zostanie całkowicie skonfigurowany. Jeśli przeglądarka nie może otworzyć adresu URL lub narzędzie Service Fabric Explorer nie wyświetla informacji o gotowości systemu, zaczekaj kilka minut i spróbuj ponownie.
 
     ![Narzędzie Service Fabric Explorer w systemie Linux][sfx-linux]
 
@@ -259,13 +259,13 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które u
 
 Po zainstalowaniu generatorów utwórz plik wykonywalny gościa lub usługi kontenera, uruchamiając odpowiednio polecenie `yo azuresfguest` lub `yo azuresfcontainer`.
 
-## <a name="set-up-net-core-31-development"></a>Skonfiguruj Programowanie na platformie .NET Core 3,1
+## <a name="set-up-net-core-31-development"></a>Konfigurowanie tworzenia aplikacji dla oprogramowania .NET Core 3.1
 
-Zainstaluj [zestaw SDK platformy .NET Core 3,1 dla programu Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) , aby rozpocząć [Tworzenie aplikacji w języku C# Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md). Pakiety dla aplikacji .NET Core Service Fabric są hostowane w witrynie NuGet.org.
+Zainstaluj zestaw [.NET Core 3.1 SDK dla systemu Ubuntu,](/dotnet/core/install/linux-ubuntu) aby rozpocząć tworzenie aplikacji Service Fabric [C#.](service-fabric-create-your-first-linux-application-with-csharp.md) Pakiety dla aplikacji Service Fabric .NET Core są hostowane na NuGet.org.
 
 ## <a name="set-up-java-development"></a>Konfigurowanie środowiska programowania w języku Java
 
-Aby skompilować usługi Service Fabric przy użyciu języka Java, zainstaluj Gradle, aby uruchomić zadania kompilacji. Uruchom poniższe polecenie, aby zainstalować Gradle. Biblioteki Java usługi Service Fabric są ściągane z narzędzia Maven.
+Aby tworzyć Service Fabric przy użyciu języka Java, zainstaluj program Gradle, aby uruchamiać zadania kompilacji. Uruchom poniższe polecenie, aby zainstalować program Gradle. Biblioteki Java usługi Service Fabric są ściągane z narzędzia Maven.
 
 
 * Ubuntu
@@ -298,11 +298,11 @@ Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z p
 > 
 > W systemie Ubuntu zaleca się instalowanie bezpośrednio z witryny środowiska Eclipse, a nie za pomocą instalatora pakietu (`apt` lub `apt-get`). Gwarantuje to uzyskanie najnowszej wersji środowiska Eclipse. Można zainstalować środowisko Eclipse IDE for Java Developers lub Java EE Developers.
 
-1. W środowisku Eclipse upewnij się, że masz zainstalowaną wersję Eclipse Neon lub nowszą oraz zestaw Buildship 2.2.1 lub nowszy. Sprawdź wersje zainstalowanych składników, wybierając **Pomoc** dotyczącą  >  **przezaćmienia**  >  **szczegóły instalacji**. Zestaw Buildship można zaktualizować zgodnie z instrukcjami podanymi w artykule [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: wtyczka Eclipse dla narzędzia Gradle).
+1. W środowisku Eclipse upewnij się, że masz zainstalowaną wersję Eclipse Neon lub nowszą oraz zestaw Buildship 2.2.1 lub nowszy. Sprawdź wersje zainstalowanych składników, wybierając pozycję **Pomoc**  >  **o szczegółach**  >  **instalacji środowiska** Eclipse. Zestaw Buildship można zaktualizować zgodnie z instrukcjami podanymi w artykule [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: wtyczka Eclipse dla narzędzia Gradle).
 
-2. Aby zainstalować wtyczkę Service Fabric, wybierz pozycję **Pomoc**  >  **Instalowanie nowego oprogramowania**.
+2. Aby zainstalować wtyczkę Service Fabric, wybierz pozycję **Pomoc**  >  **w instalowaniu nowego oprogramowania.**
 
-3. W polu **Pracuj z** wprowadź wartość **https: \/ /DL.Microsoft.com/Eclipse**.
+3. W polu **Work with (Pracuj** z) **wprowadź https: \/ /dl.microsoft.com/eclipse**.
 
 4. Wybierz pozycję **Dodaj**.
 
@@ -312,7 +312,7 @@ Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z p
 
 6. Wykonaj kroki instalacji. Następnie zaakceptuj umowę licencyjną użytkownika oprogramowania.
 
-Jeśli wtyczka usługi Service Fabric Eclipse jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Zapoznaj się z tematem Wybieranie **pomocy**  >  **dotyczącej** przeszukania  >  **szczegółów instalacji**. Następnie wyszukaj Service Fabric na liście zainstalowanych wtyczek. Wybierz pozycję **Aktualizuj** , jeśli jest dostępna nowsza wersja.
+Jeśli wtyczka usługi Service Fabric Eclipse jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Sprawdź, wybierając pozycję **Pomoc o szczegółach**  >  instalacji środowiska **Eclipse.**  >   Następnie wyszukaj Service Fabric na liście zainstalowanych wtyczek. Wybierz **pozycję Aktualizuj,** jeśli jest dostępna nowsza wersja.
 
 Aby uzyskać więcej informacji, zobacz artykuł [Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse](service-fabric-get-started-eclipse.md).
 

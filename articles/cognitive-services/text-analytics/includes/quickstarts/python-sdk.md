@@ -5,18 +5,18 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: cee201c11d0415e1f63e7e6a9157b96a059503ba
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d36666ea35a4ce3fc894e35dd8ca3860900ecef6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765125"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107880048"
 ---
 <a name="HOLTop"></a>
 
-# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
 
-Dokumentacja referencyjna w wersji [3.1](/python/api/azure-ai-textanalytics/azure.ai.textanalytics)  |  [Kod źródłowy biblioteki w wersji](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics)  |  3.1 [Pakiet w wersji 3.1 (PiPy)](https://pypi.org/project/azure-ai-textanalytics/)  |  [Przykłady w wersji 3.1](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+Dokumentacja referencyjna w wersji [3.1](/python/api/azure-ai-textanalytics/azure.ai.textanalytics)  |  Kod źródłowy biblioteki w wersji [3.1](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics)  |  [Pakiet w wersji 3.1 (PiPy)](https://pypi.org/project/azure-ai-textanalytics/)  |  [Przykłady w wersji 3.1](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 
@@ -26,27 +26,27 @@ Dokumentacja referencyjna w wersji [3.1](/python/api/azure-ai-textanalytics/azur
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure [— tworzenie bezpłatnej subskrypcji](https://azure.microsoft.com/free/cognitive-services)
+* Subskrypcja platformy Azure [— utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Po utworzeniu subskrypcji platformy Azure utwórz zasób analiza tekstu utwórz zasób analiza tekstu w witrynie Azure Portal, aby uzyskać <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu kliknij pozycję **Przejdź do zasobu**.
-    * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z analiza tekstu API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
-    * Możesz użyć bezpłatnej warstwy cenowej ( ), aby wypróbować usługę, a następnie przejść na warstwę płatną w `F0` środowisku produkcyjnym.
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób usługi analiza tekstu zasób analiza tekstu w witrynie Azure Portal, aby uzyskać <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu kliknij pozycję **Przejdź do zasobu**.
+    * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z interfejsem API analiza tekstu API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
+    * Możesz użyć warstwy cenowej Bezpłatna ( ), aby wypróbować usługę, i przejść później na warstwę płatną `F0` na użytek produkcji.
 * Aby korzystać z funkcji Analizuj, musisz mieć zasób analiza tekstu z warstwą cenową Standardowa (S).
 
 ## <a name="setting-up"></a>Konfigurowanie
 
 ### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
 
-Po zainstalowaniu języka Python możesz zainstalować bibliotekę klienta za pomocą:
+Po zainstalowaniu języka Python bibliotekę klienta można zainstalować za pomocą:
 
-# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
 
 ```console
 pip install azure-ai-textanalytics --pre
 ```
 
 > [!TIP]
-> Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można go znaleźć w [witrynie GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py)która zawiera przykłady kodu w tym przewodniku Szybki start. 
+> Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Znajdziesz go w [witrynie GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py)która zawiera przykłady kodu z tego przewodnika Szybki start. 
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 
@@ -55,14 +55,14 @@ pip install --upgrade azure-ai-textanalytics
 ```
 
 > [!TIP]
-> Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można go znaleźć w [witrynie GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py)która zawiera przykłady kodu w tym przewodniku Szybki start. 
+> Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Znajdziesz go w [witrynie GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py)która zawiera przykłady kodu z tego przewodnika Szybki start. 
 
 
 ---
 
 ### <a name="create-a-new-python-application"></a>Tworzenie nowej aplikacji w języku Python
 
-Utwórz nowy plik w języku Python i utwórz zmienne dla punktu końcowego platformy Azure i klucza subskrypcji zasobu.
+Utwórz nowy plik w języku Python i utwórz zmienne dla punktu końcowego i klucza subskrypcji platformy Azure zasobu.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
@@ -72,23 +72,23 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 
-## <a name="object-model"></a>Model obiektów
+## <a name="object-model"></a>Model obiektu
 
-# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
 
 Klient analiza tekstu jest `TextAnalyticsClient` obiektem, który uwierzytelnia się na platformie Azure. Klient udostępnia kilka metod analizowania tekstu. 
 
-Podczas przetwarzania tekstu jest wysyłany do interfejsu API jako lista , która jest albo listą ciągów, listą reprezentacji podobnej do dyktowania, albo listą `documents` `TextDocumentInput/DetectLanguageInput` . Obiekt `dict-like` zawiera kombinację `id` elementów , `text` i `language/country_hint` . Atrybut `text` przechowuje tekst do przeanalizowania w pochodzeniu , a wartość może być `country_hint` `id` dowolną wartością. 
+Podczas przetwarzania tekstu jest wysyłany do interfejsu API jako lista , która jest albo listą ciągów, listą reprezentacji podobnej do dyktowania, albo `documents` listą `TextDocumentInput/DetectLanguageInput` . Obiekt `dict-like` zawiera kombinację `id` elementów , `text` i `language/country_hint` . Atrybut przechowuje tekst do przeanalizowania w pochodzeniu , a `text` atrybut może być `country_hint` `id` dowolną wartością. 
 
-Obiekt odpowiedzi jest listą zawierającą informacje o analizie dla każdego dokumentu. 
+Obiekt odpowiedzi to lista zawierająca informacje o analizie dla każdego dokumentu. 
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 
-Klient analiza tekstu to `TextAnalyticsClient` obiekt, który uwierzytelnia się na platformie Azure przy użyciu twojego klucza. Klient udostępnia kilka metod analizowania tekstu jako partii. 
+Klient analiza tekstu jest `TextAnalyticsClient` obiektem, który uwierzytelnia się na platformie Azure przy użyciu twojego klucza. Klient udostępnia kilka metod analizowania tekstu jako partii. 
 
-Gdy tekst przetwarzania wsadowego jest wysyłany do interfejsu API jako lista , które są obiektami zawierającymi kombinację atrybutów , i w zależności `documents` `dictionary` od `id` `text` `language` użytej metody. Atrybut `text` przechowuje tekst do przeanalizowania w pochodzeniu , a wartość może być `language` `id` dowolną wartością. 
+Gdy tekst przetwarzania wsadowego jest wysyłany do interfejsu API jako lista , które są obiektami zawierającymi kombinację atrybutów , i w zależności `documents` `dictionary` od `id` `text` `language` używanej metody. Atrybut przechowuje tekst do przeanalizowania w pochodzeniu , a `text` atrybut może być `language` `id` dowolną wartością. 
 
-Obiekt odpowiedzi jest listą zawierającą analizowane informacje dla każdego dokumentu. 
+Obiekt odpowiedzi to lista zawierająca analizowane informacje dla każdego dokumentu. 
 
 ---
 
@@ -96,7 +96,7 @@ Obiekt odpowiedzi jest listą zawierającą analizowane informacje dla każdego 
 
 Te fragmenty kodu pokazują, jak wykonać następujące zadania przy użyciu analiza tekstu klienta dla języka Python:
 
-# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Analiza tonacji](#sentiment-analysis)
@@ -113,7 +113,7 @@ Te fragmenty kodu pokazują, jak wykonać następujące zadania przy użyciu ana
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Analiza tonacji](#sentiment-analysis)
 * [Wykrywanie języka](#language-detection)
-* [Rozpoznawanie nazwanych jednostek](#named-entity-recognition-ner) 
+* [Rozpoznawanie jednostek nazwanych](#named-entity-recognition-ner) 
 * [Łączenie jednostek](#entity-linking)
 * [Wyodrębnianie kluczowych fraz](#key-phrase-extraction)
 
@@ -121,9 +121,9 @@ Te fragmenty kodu pokazują, jak wykonać następujące zadania przy użyciu ana
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
 
-Utwórz funkcję, aby utworzyć wystąpienia obiektu `TextAnalyticsClient` za pomocą funkcji AND `key` `endpoint` utworzonej powyżej. Następnie utwórz nowego klienta. 
+Utwórz funkcję, aby utworzyć wystąpienia obiektu z utworzonymi powyżej `TextAnalyticsClient` `key` obiektami `endpoint` AND. Następnie utwórz nowego klienta. 
 
 ```python
 from azure.ai.textanalytics import TextAnalyticsClient
@@ -141,7 +141,7 @@ client = authenticate_client()
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 
-Utwórz funkcję, aby utworzyć wystąpienia obiektu `TextAnalyticsClient` za pomocą funkcji AND `key` `endpoint` utworzonej powyżej. Następnie utwórz nowego klienta. Należy `api_version=TextAnalyticsApiVersion.V3_0` pamiętać, że należy zdefiniować program do używania wersji 3.0.
+Utwórz funkcję, aby utworzyć wystąpienia obiektu z utworzonymi powyżej `TextAnalyticsClient` `key` obiektami `endpoint` AND. Następnie utwórz nowego klienta. Należy `api_version=TextAnalyticsApiVersion.V3_0` pamiętać, że należy zdefiniować dla programu w wersji 3.0.
 
 ```python
 # use this code if you're using SDK version is 5.0.0
@@ -158,7 +158,7 @@ def authenticate_client():
 client = authenticate_client()
 ```
 
-Jeśli zainstalowano bibliotekę klienta w wersji 5.1.0 przy użyciu programu , można określić 3.0 interfejsu API usługi analiza tekstu za pomocą `pip install azure-ai-textanalytics --pre` parametru `api_version` klienta. Użyj następującej metody tylko wtedy, gdy klient `authenticate_client()` jest w wersji 5.1.0 lub nowszej.
+Jeśli zainstalowano bibliotekę klienta w wersji 5.1.0 przy użyciu programu , można określić interfejs API analiza tekstu w wersji `pip install azure-ai-textanalytics --pre` 3.0 za pomocą parametru `api_version` klienta. Użyj następującej metody tylko wtedy, gdy klient `authenticate_client()` jest w wersji 5.1.0 lub nowszej.
 
 ```python
 # Only use the following code sample if you're using v5.1.0 of the client library, 
@@ -180,7 +180,7 @@ client = authenticate_client()
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 
-# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
 
 Utwórz nową funkcję o nazwie `sentiment_analysis_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `analyze_sentiment()` . Zwrócony obiekt odpowiedzi będzie zawierać etykietę tonacji i wynik całego dokumentu wejściowego, a także analizę tonacji dla każdego zdania.
 
@@ -231,7 +231,7 @@ Negative=0.02
 
 ## <a name="opinion-mining"></a>Wyszukiwanie opinii
 
-Aby wykonać analizę tonacji przy użyciu wyszukiwania opinii, utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję z `sentiment_analysis_with_opinion_mining_example()` `analyze_sentiment()` flagą opcji `show_opinion_mining=True` . Zwrócony obiekt odpowiedzi będzie zawierać nie tylko etykietę tonacji i wynik całego dokumentu wejściowego z analizą tonacji dla każdego zdania, ale także analizę tonacji na poziomie aspektu i opinii.
+Aby wykonać analizę tonacji przy użyciu wyszukiwania opinii, utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję z `sentiment_analysis_with_opinion_mining_example()` `analyze_sentiment()` flagą opcji `show_opinion_mining=True` . Zwrócony obiekt odpowiedzi będzie zawierać nie tylko etykietę tonacji i wynik całego dokumentu wejściowego z analizą tonacji dla każdego zdania, ale także analizę aspektów i opinii na poziomie tonacji.
 
 
 ```python
@@ -389,9 +389,9 @@ Negative=0.02
 
 ## <a name="language-detection"></a>Wykrywanie języka
 
-# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
 
-Utwórz nową funkcję o nazwie `language_detection_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `detect_language()` . Zwrócony obiekt odpowiedzi będzie zawierać wykryty język w przypadku powodzenia, a jeśli nie, `primary_language` to `error` .
+Utwórz nową funkcję o nazwie `language_detection_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `detect_language()` . Zwrócony obiekt odpowiedzi będzie zawierać wykryty język w , jeśli zostanie `primary_language` pomyślnie zwrócony, a jeśli nie, to `error` .
 
 > [!Tip]
 > W niektórych przypadkach może być trudno odróżnić języki na podstawie danych wejściowych. Możesz użyć `country_hint` parametru , aby określić 2-literowy kod kraju. Domyślnie interfejs API używa wartości "US" jako domyślnej wartości countryHint, aby usunąć to zachowanie, można zresetować ten parametr, ustawiając tę wartość na pusty ciąg `country_hint : ""` . 
@@ -417,7 +417,7 @@ Language:  French
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 
-Utwórz nową funkcję o nazwie `language_detection_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `detect_language()` . Zwrócony obiekt odpowiedzi będzie zawierać wykryty język w przypadku powodzenia, a jeśli nie, `primary_language` to `error` .
+Utwórz nową funkcję o nazwie `language_detection_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `detect_language()` . Zwrócony obiekt odpowiedzi będzie zawierać wykryty język w , jeśli zostanie `primary_language` pomyślnie zwrócony, a jeśli nie, to `error` .
 
 > [!Tip]
 > W niektórych przypadkach może być trudno odróżnić języki na podstawie danych wejściowych. Możesz użyć `country_hint` parametru , aby określić 2-literowy kod kraju. Domyślnie interfejs API używa wartości "US" jako domyślnej wartości countryHint, aby usunąć to zachowanie, można zresetować ten parametr, ustawiając tę wartość na pusty ciąg `country_hint : ""` . 
@@ -446,13 +446,13 @@ Language:  French
 
 ## <a name="named-entity-recognition-ner"></a>Rozpoznawanie jednostek nazwanych (NER)
 
-# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
 
 > [!NOTE]
 > W wersji `3.1` : 
 > * Łączenie jednostek jest oddzielnym żądaniem niż NER.
 
-Utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję i `entity_recognition_example` `recognize_entities()` iteruje po wynikach. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w programie , jeśli to się powiedzie, a jeśli nie, to `entity` `error` . Dla każdej wykrytej jednostki wydrukuj jej kategorię i Sub-Category jeśli istnieje.
+Utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję i `entity_recognition_example` `recognize_entities()` iteruje po wynikach. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w programie , jeśli to się `entity` powiedzie, a jeśli nie, to `error` . Dla każdej wykrytej jednostki wydrukuj jej kategorię i Sub-Category jeśli istnieje.
 
 ```python
 def entity_recognition_example(client):
@@ -488,7 +488,7 @@ Named Entities:
 
 ### <a name="entity-linking"></a>Łączenie jednostek
 
-Utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję i `entity_linking_example()` `recognize_linked_entities()` iteruje po wynikach. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w programie , jeśli to się powiedzie, a jeśli nie, to `entities` `error` . Ponieważ połączone jednostki są jednoznacznie identyfikowane, wystąpienia tej samej jednostki są grupowane w obiekcie `entity` jako lista `match` obiektów.
+Utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję i `entity_linking_example()` `recognize_linked_entities()` iteruje po wynikach. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w programie , jeśli to się `entities` powiedzie, a jeśli nie, to `error` . Ponieważ połączone jednostki są jednoznacznie identyfikowane, wystąpienia tej samej jednostki są grupowane pod obiektem `entity` jako lista `match` obiektów.
 
 ```python
 def entity_linking_example(client):
@@ -620,7 +620,7 @@ Entity: 555-555-5555
 > W wersji `3.0` : 
 > * Łączenie jednostek jest oddzielnym żądaniem niż NER.
 
-Utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję i `entity_recognition_example` `recognize_entities()` iteruje po wynikach. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w programie , jeśli to się powiedzie, a jeśli nie, to `entity` `error` . Dla każdej wykrytej jednostki wydrukuj jej kategorię i Sub-Category jeśli istnieje.
+Utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję i `entity_recognition_example` `recognize_entities()` iteruje po wynikach. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w programie , jeśli to się `entity` powiedzie, a jeśli nie, to `error` . Dla każdej wykrytej jednostki wydrukuj jej kategorię i Sub-Category jeśli istnieje.
 
 ```python
 def entity_recognition_example(client):
@@ -656,7 +656,7 @@ Named Entities:
 
 ### <a name="entity-linking"></a>Łączenie jednostek
 
-Utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję i `entity_linking_example()` `recognize_linked_entities()` iteruje po wynikach. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w programie , jeśli to się `entities` powiedzie, a jeśli nie, to `error` . Ponieważ połączone jednostki są jednoznacznie identyfikowane, wystąpienia tej samej jednostki są grupowane pod obiektem `entity` jako lista `match` obiektów.
+Utwórz nową funkcję o nazwie , która przyjmuje klienta jako argument, a następnie wywołuje funkcję i `entity_linking_example()` `recognize_linked_entities()` iteruje po wynikach. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w programie , jeśli to się powiedzie, a jeśli nie, to `entities` `error` . Ponieważ połączone jednostki są jednoznacznie identyfikowane, wystąpienia tej samej jednostki są grupowane w obiekcie `entity` jako lista `match` obiektów.
 
 ```python
 def entity_linking_example(client):
@@ -728,9 +728,9 @@ Linked Entities:
 
 ### <a name="key-phrase-extraction"></a>Wyodrębnianie kluczowych fraz
 
-# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
 
-Utwórz nową funkcję o nazwie `key_phrase_extraction_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `extract_key_phrases()` . Wynik będzie zawierać listę wykrytych fraz kluczowych w przypadku powodzenia, a jeśli nie, to `key_phrases` `error` . Wydrukuj wszystkie wykryte frazy kluczowe.
+Utwórz nową funkcję o nazwie `key_phrase_extraction_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `extract_key_phrases()` . Wynik będzie zawierać listę wykrytych kluczowych fraz w programie , jeśli to się powiedzie, a jeśli nie, to `key_phrases` `error` . Wydrukuj wszystkie wykryte frazy kluczowe.
 
 ```python
 def key_phrase_extraction_example(client):
@@ -764,7 +764,7 @@ key_phrase_extraction_example(client)
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 
-Utwórz nową funkcję o nazwie `key_phrase_extraction_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `extract_key_phrases()` . Wynik będzie zawierać listę wykrytych fraz kluczowych w przypadku powodzenia, a jeśli nie, to `key_phrases` `error` . Wydrukuj wszystkie wykryte frazy kluczowe.
+Utwórz nową funkcję o nazwie `key_phrase_extraction_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `extract_key_phrases()` . Wynik będzie zawierać listę wykrytych kluczowych fraz w programie , jeśli to się powiedzie, a jeśli nie, to `key_phrases` `error` . Wydrukuj wszystkie wykryte frazy kluczowe.
 
 ```python
 def key_phrase_extraction_example(client):
@@ -801,11 +801,11 @@ key_phrase_extraction_example(client)
 
 ## <a name="use-the-api-asynchronously-with-the-batch-analyze-operation"></a>Asynchroniczne używanie interfejsu API z operacją analizy wsadowej
 
-# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja 3.1 (wersja zapoznawcza)](#tab/version-3-1)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Utwórz nową funkcję o nazwie `analyze_batch_actions_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `begin_analyze_batch_actions()` . Wynikiem będzie długotrwała operacja, która będzie sondowana w celu wyszukiwania wyników.
+Utwórz nową funkcję o nazwie `analyze_batch_example()` , która przyjmuje klienta jako argument, a następnie wywołuje funkcję `begin_analyze_batch_actions()` . Wynikiem będzie długotrwała operacja, która zostanie sondowana w celu wyszukiwania wyników.
 
 ```python
 from azure.ai.textanalytics import (
@@ -862,7 +862,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-Można również użyć operacji analizy wsadowej do wykrywania danych kluczowych i wyodrębniania kluczowych fraz. Zobacz przykład [batch analyze w witrynie](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) GitHub.
+Można również użyć operacji analizy wsadowej do wykrywania danych pii i wykonywania wyodrębniania kluczowych fraz. Zobacz przykład [analizy wsadowej w](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) witrynie GitHub.
 
 # <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 

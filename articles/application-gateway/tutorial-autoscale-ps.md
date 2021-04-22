@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: ulepszanie dostępu do aplikacji sieci Web — Application Gateway platformy Azure'
+title: 'Samouczek: ulepszanie dostępu do aplikacji internetowej — Azure Application Gateway'
 description: W tym samouczku dowiesz się, jak utworzyć automatycznie skalowaną, strefowo nadmiarową bramę aplikacji z zastrzeżonym adresem IP przy użyciu programu Azure PowerShell.
 services: application-gateway
 author: vhorne
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2a756313a4659dfc531289c2c86890371f700367
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8196267ff7a71fb3910848fd0fef11a40a3c1c32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452292"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869945"
 ---
-# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Samouczek: Tworzenie bramy aplikacji, która usprawnia dostęp do aplikacji sieci Web
+# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Samouczek: tworzenie bramy aplikacji, która usprawnia dostęp do aplikacji internetowej
 
 Jeśli jesteś administratorem IT i chcesz poprawić dostęp do aplikacji internetowych, możesz zoptymalizować bramę aplikacji, aby była skalowana na podstawie potrzeb klientów i obejmowała wiele stref dostępności. Ten samouczek pomoże Ci skonfigurować funkcje usługi Azure App Gateway pod kątem skalowania automatycznego, nadmiarowości stref i zastrzeżonych wirtualnych adresów IP (statycznych adresów IP). Aby rozwiązać problem, użyjesz poleceń cmdlet programu Azure PowerShell i modelu wdrażania usługi Azure Resource Manager.
 
@@ -36,7 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ten samouczek wymaga, aby lokalnie uruchomić sesję Azure PowerShell administracyjnego. Musisz mieć zainstalowany moduł Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Ten samouczek wymaga uruchomienia sesji administracyjnej Azure PowerShell lokalnie. Musisz mieć zainstalowany Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym samouczku utworzysz certyfikat z podpisem własnym przy użyciu polecenia [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
+Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym samouczku utworzysz certyfikat z podpisem własnym przy użyciu polecenia [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -76,7 +76,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Użyj odcisku palca, aby utworzyć plik PFX. Zamień na *\<password>* wybrane hasło:
+Użyj odcisku palca, aby utworzyć plik pfx. Zastąp *\<password>* zamień na wybrane hasło:
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "<password>" -Force -AsPlainText
@@ -120,9 +120,9 @@ $vnet = Get-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
 
-## <a name="create-web-apps"></a>Tworzenie aplikacji sieci Web
+## <a name="create-web-apps"></a>Tworzenie aplikacji internetowych
 
-Skonfiguruj dwie aplikacje sieci Web dla puli zaplecza. Zamień *\<site1-name>* i *\<site-2-name>* z unikatowymi nazwami w `azurewebsites.net` domenie.
+Skonfiguruj dwie aplikacje internetowe dla puli zaplecza. Zastąp *\<site1-name>* wartości *\<site-2-name>* i unikatowymi nazwami w `azurewebsites.net` domenie.
 
 ```azurepowershell
 New-AzAppServicePlan -ResourceGroupName $rg -Name "ASP-01"  -Location $location -Tier Basic `
@@ -135,7 +135,7 @@ New-AzWebApp -ResourceGroupName $rg -Name <site2-name> -Location $location -AppS
 
 Ustaw konfigurację adresu IP, konfigurację adresu IP frontonu, pulę zaplecza, ustawienia protokołu HTTP, certyfikat, port, odbiornik i regułę w formacie identycznym, jaki obowiązuje w istniejącej usłudze Application Gateway w warstwie Standardowa. W nowej jednostce SKU obowiązuje taki sam model obiektów jak w jednostce SKU w warstwie Standardowa.
 
-Zastąp dwie nazwy FQDN aplikacji sieci Web (na przykład: `mywebapp.azurewebsites.net` ) w definicji zmiennej $Pool.
+Zastąp dwie nazwy FQDN aplikacji internetowej (na przykład : ) w `mywebapp.azurewebsites.net` $pool definicji zmiennej internetowej.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet

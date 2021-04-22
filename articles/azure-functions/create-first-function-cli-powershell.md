@@ -7,18 +7,18 @@ ms.custom:
 - devx-track-powershell
 - devx-track-azurecli
 - devx-track-azurepowershell
-ms.openlocfilehash: 59532ce4dcc0c967777afd3080a2cb54dbaa6491
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 441cc17099379366755a6c1e41c7f544215dc19d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831964"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866183"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji programu PowerShell na platformie Azure z wiersza polecenia
 
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
-W tym artykule użyjemy narzędzi wiersza polecenia do utworzenia funkcji programu PowerShell, która odpowiada na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bez serwera Azure Functions.
+W tym artykule użyjemy narzędzi wiersza polecenia do utworzenia funkcji programu PowerShell, która odpowiada na żądania HTTP. Po przetestowaniu kodu lokalnie wdrożysz go w środowisku bez serwera Azure Functions.
 
 Wykonanie kroków tego przewodnika Szybki start wiąże się z niewielkim kosztem konta platformy Azure o wartości kilku centów lub mniej.
 
@@ -38,7 +38,7 @@ Przed rozpoczęciem musisz mieć następujące elementy:
 
     + [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2.4 lub nowszej.
 
-+ Program [zestaw .NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ Zestaw [SDK platformy .NET Core 3.1](https://dotnet.microsoft.com/download)
 
 ### <a name="prerequisite-check"></a>Sprawdzanie wymagań wstępnych
 
@@ -46,7 +46,7 @@ Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wi
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-+ W terminalu lub oknie polecenia uruchom polecenie , aby sprawdzić, `func --version` czy Azure Functions Core Tools są w wersji 3.x.
++ W terminalu lub oknie polecenia uruchom polecenie , aby sprawdzić, `func --version` Azure Functions Core Tools są w wersji 3.x.
 
 + Uruchom `az --version` , aby sprawdzić, czy interfejs wiersza polecenia platformy Azure jest w wersji 2.4 lub nowszej.
 

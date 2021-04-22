@@ -67,7 +67,7 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/blockchain/blockchain
+      href: /cli/azure/blockchain
 - name: Zasoby
   items:
     - name: Zestaw deweloperski usługi Azure Blockchain

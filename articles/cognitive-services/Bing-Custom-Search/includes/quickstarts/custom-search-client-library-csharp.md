@@ -1,5 +1,5 @@
 ---
-title: Wyszukiwanie niestandardowe Bing przewodniku szybki start dotyczącej biblioteki klienta C#
+title: wyszukiwanie niestandardowe Bing przewodnik Szybki start dla biblioteki klienta języka C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -8,29 +8,29 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: 70f97b73b5cc6a06caf8f1dac4dec61b6ad6de29
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 504057be85902307a121a57dd421254d94167341
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947643"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880540"
 ---
-Wprowadzenie do biblioteki klienta wyszukiwanie niestandardowe Bing dla języka C#. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Interfejs API wyszukiwania niestandardowego Bing umożliwia tworzenie dostosowanych, bezpłatnych funkcji wyszukiwania w usłudze AD dla interesujących Cię tematów. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
+Wprowadzenie do biblioteki wyszukiwanie niestandardowe Bing klienta dla języka C#. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Interfejs API wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych, bezpłatnych funkcji wyszukiwania dla owanych tematów. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
-Użyj biblioteki klienta wyszukiwanie niestandardowe Bing dla języka C#, aby:
-* Znajdź wyniki wyszukiwania w sieci Web w wystąpieniu wyszukiwanie niestandardowe Bing.
+Użyj biblioteki wyszukiwanie niestandardowe Bing klienta dla języka C#, aby:
+* Znajdowanie wyników wyszukiwania w Internecie z wyszukiwanie niestandardowe Bing wystąpienia.
 
-[Dokumentacja](/dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[Dokumentacja referencyjna](/dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme)  |  [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch)  |  [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wystąpienie wyszukiwania niestandardowego Bing. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie pierwszego wystąpienia wyszukiwanie niestandardowe Bing](../../quick-start.md) .
-- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://www.visualstudio.com/downloads/)
+- Wystąpienie wyszukiwania niestandardowego Bing. Zobacz [Szybki start: tworzenie pierwszego wystąpienia wyszukiwanie niestandardowe Bing,](../../quick-start.md) aby uzyskać więcej informacji.
+- Microsoft [.NET Core](https://dotnet.microsoft.com/download)
+- Dowolna wersja [programu Visual Studio 2017 lub nowszego](https://www.visualstudio.com/downloads/)
 - Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację przy użyciu środowiska [Mono](https://www.mono-project.com/).
-- Pakiet NuGet [wyszukiwanie niestandardowe Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  . 
-    - W **Eksplorator rozwiązań** w programie Visual Studio kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet** z menu. Zainstaluj pakiet `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Zainstalowanie pakietu NuGet Custom Search powoduje również zainstalowanie następujących zestawów:
+- Pakiet [Wyszukiwanie niestandardowe Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  NuGet. 
+    - W **Eksplorator rozwiązań** w Visual Studio kliknij prawym przyciskiem myszy projekt i wybierz pozycję Zarządzaj pakietami **NuGet** z menu. Zainstaluj pakiet `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Zainstalowanie pakietu NuGet Custom Search powoduje również zainstalowanie następujących zestawów:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json

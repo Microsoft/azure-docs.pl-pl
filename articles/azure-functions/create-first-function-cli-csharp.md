@@ -1,6 +1,6 @@
 ---
 title: Tworzenie funkcji języka C# z wiersza polecenia — Azure Functions
-description: Dowiedz się, jak utworzyć funkcję języka C# z wiersza polecenia, a następnie opublikować projekt lokalny w hostingu bez serwera w Azure Functions.
+description: Dowiedz się, jak utworzyć funkcję języka C# z wiersza polecenia, a następnie opublikować lokalny projekt w hostingu bez serwera w Azure Functions.
 ms.date: 10/03/2020
 ms.topic: quickstart
 ms.custom:
@@ -11,30 +11,30 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-ms.openlocfilehash: e5a8a0a32196d4f4b988083f22930829418fa1b8
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c2585fcef3133c1f07832b13fcae9973cdd8090a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832018"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866219"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Szybki start: tworzenie funkcji języka C# na platformie Azure z wiersza polecenia
 
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
-W tym artykule użyjemy narzędzi wiersza polecenia do utworzenia funkcji opartej na bibliotece klas języka C#, która odpowiada na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bez serwera Azure Functions.
+W tym artykule użyjemy narzędzi wiersza polecenia, aby utworzyć funkcję klasy języka C# opartą na bibliotece, która odpowiada na żądania HTTP. Po przetestowaniu kodu lokalnie wdrożysz go w środowisku bez serwera Azure Functions.
 
-Wykonanie kroków tego przewodnika Szybki start wiąże się z niewielkim kosztem konta platformy Azure w wysokości nie mniejszej niż kilka centów USD.
+Wykonanie kroków tego przewodnika Szybki start wiąże się z niewielkim kosztem konta platformy Azure o wartości kilku centów lub mniej.
 
-Istnieje również Visual Studio Code [tego artykułu.](create-first-function-vs-code-csharp.md)
+Istnieje również wersja [Visual Studio Code tego](create-first-function-vs-code-csharp.md) artykułu oparta na języku.
 
 ## <a name="configure-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
 Przed rozpoczęciem musisz mieć następujące elementy:
 
-+ Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ Program [zestaw .NET Core SDK 3.1](https://www.microsoft.com/net/download)
++ Zestaw [SDK platformy .NET Core 3.1](https://dotnet.microsoft.com/download)
 
 + Wersja [Azure Functions Core Tools](functions-run-local.md#v2) 3.x.
 
@@ -50,11 +50,11 @@ Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wi
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-+ W terminalu lub oknie polecenia uruchom polecenie , aby sprawdzić, `func --version` czy Azure Functions Core Tools są w wersji 3.x.
++ W terminalu lub oknie polecenia uruchom polecenie , aby sprawdzić, `func --version` Azure Functions Core Tools są w wersji 3.x.
 
-+ Uruchom `az --version` narzędzie , aby sprawdzić, czy interfejs wiersza polecenia platformy Azure jest w wersji 2.4 lub nowszej.
++ Uruchom `az --version` , aby sprawdzić, czy interfejs wiersza polecenia platformy Azure jest w wersji 2.4 lub nowszej.
 
-+ Uruchom, `az login` aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
++ Uruchom `az login` , aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
 
 + Uruchom `dotnet --list-sdks` , aby sprawdzić, zestaw .NET Core SDK zainstalowano wersję 3.1.x
 
@@ -86,7 +86,7 @@ W Azure Functions projekt funkcji jest kontenerem dla co najmniej jednej funkcji
     cd LocalFunctionProj
     ```
 
-    Ten folder zawiera różne pliki projektu, w tym pliki konfiguracji o [nazwachlocal.settings.jsi](functions-run-local.md#local-settings-file) [host.jsna .](functions-host-json.md) Ponieważ *local.settings.jsmoże zawierać* wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku *.gitignore.*
+    Ten folder zawiera różne pliki projektu, w tym pliki konfiguracji o [nazwachlocal.settings.jsi](functions-run-local.md#local-settings-file) [host.jsna .](functions-host-json.md) Ponieważ *local.settings.jsmoże* zawierać wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku *gitignore.*
 
 1. Dodaj funkcję do projektu przy użyciu następującego polecenia, gdzie argument jest unikatową nazwą funkcji (HttpExample), a argument określa wyzwalacz `--name` `--template` funkcji (HTTP).
 

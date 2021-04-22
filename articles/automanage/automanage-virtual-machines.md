@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 514f1af2a1b120254840986fc5ceb803dfc24345
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 42b469963761ae1ffc736c719487ee93c3a1c149
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363380"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863123"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage maszyn wirtualnych
 
@@ -22,7 +22,7 @@ W tym artykule o Azure Automanage maszyn wirtualnych, które mają następujące
 
 - Inteligentne dołączanie maszyn wirtualnych w celu wybrania najlepszych rozwiązań usług platformy Azure
 - Automatycznie konfiguruje każdą usługę według najlepszych rozwiązań platformy Azure
-- Monitoruje dryf i poprawia je po wykryciu
+- Monitoruje dryf i poprawia go po wykryciu
 - Zapewnia proste środowisko (wskaż, kliknij, ustaw, zapomnij)
 
 
@@ -30,9 +30,9 @@ W tym artykule o Azure Automanage maszyn wirtualnych, które mają następujące
 
 Azure Automanage dla maszyn wirtualnych to usługa, która eliminuje konieczność odnajdywania, wiedzieć, jak do nich dołączać i jak skonfigurować niektóre usługi na platformie Azure, które byłyby korzystne dla maszyny wirtualnej. Te usługi są uważane za usługi najlepszych rozwiązań platformy Azure i pomagają zwiększyć niezawodność, bezpieczeństwo i zarządzanie maszynami wirtualnymi. Przykładowe usługi to [Azure Update Management](../automation/update-management/overview.md) i [Azure Backup](../backup/backup-overview.md).
 
-Po dojecheniu maszyn wirtualnych do Azure Automanage, każda usługa najlepszych rozwiązań jest konfigurowana do zalecanych ustawień. Najlepsze rozwiązania są różne dla każdej z usług. Przykładem może być Azure Backup, gdzie najlepszym rozwiązaniem może być raz dziennie w celu przechowywania kopii zapasowej maszyny wirtualnej z okresem przechowywania przez sześć miesięcy.
+Po do dołączaniu maszyn wirtualnych do Azure Automanage, każda usługa najlepszych rozwiązań jest konfigurowana do zalecanych ustawień. Najlepsze rozwiązania są różne dla każdej z usług. Przykładem może być Azure Backup, gdzie najlepszym rozwiązaniem może być raz dziennie w celu przechowywania kopii zapasowej maszyny wirtualnej z okresem przechowywania przez sześć miesięcy.
 
-Azure Automanage automatycznie monitoruje dryf i poprawia go po wykryciu. Oznacza to, że jeśli maszyna wirtualna jest do usługi Azure Automanage, nie tylko skonfigurujemy ją zgodnie z najlepszymi rozwiązaniami platformy Azure, ale również będziemy monitorować maszynę, aby zapewnić jej zgodność z tymi najlepszymi rozwiązaniami w całym cyklu życia. Jeśli maszyna wirtualna oddala się lub odbiega od tych praktyk (na przykład jeśli usługa została odseczętowana), poprawimy ją i ściągniemy maszynę z powrotem do żądanego stanu.
+Azure Automanage automatycznie monitoruje dryf i poprawia go po wykryciu. Oznacza to, że jeśli maszyna wirtualna została do usługi Azure Automanage, nie tylko skonfigurujemy ją zgodnie z najlepszymi rozwiązaniami platformy Azure, ale również będziemy monitorować maszynę, aby zapewnić jej zgodność z tymi najlepszymi rozwiązaniami w całym cyklu życia. Jeśli maszyna wirtualna oddala się lub odbiega od tych praktyk (na przykład w przypadku odejścia usługi), poprawimy ją i ściągniemy maszynę z powrotem do żądanego stanu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,17 +64,17 @@ Automanage obsługuje tylko maszyny wirtualne znajdujące się w następujących
 ### <a name="required-rbac-permissions"></a>Wymagane uprawnienia RBAC
 Twoje konto będzie wymagać nieco innych ról kontroli dostępu na podstawie ról w zależności od tego, czy jest wł. Automatycznemanage przy użyciu nowego konta automatycznego.
 
-W przypadku włączania funkcji Automanage przy użyciu nowego konta automatycznegomanage:
+Jeśli w przypadku włączania funkcji Automanage przy użyciu nowego konta funkcji Automanage:
 * **Rola** właściciela w subskrypcjach zawierających maszyny wirtualne _**lub**_
 * **Role** **współautora i administratora dostępu** użytkowników w subskrypcjach zawierających maszyny wirtualne
 
-W przypadku włączania funkcji Automanage przy użyciu istniejącego konta automanage:
+Jeśli w przypadku włączania funkcji Automanage przy użyciu istniejącego konta automanage:
 * **Rola** współautora w grupie zasobów zawierającej maszyny wirtualne
 
 Konto Automatyczne zarządzanie będzie mieć uprawnienia **Współautor** i Współautor **zasad** zasobów do wykonywania akcji na maszynach automatycznie zarządzania.
 
 > [!NOTE]
-> Jeśli chcesz użyć funkcji Automatycznego wykonywania na maszynie wirtualnej, która jest połączona z obszarem roboczym w innej subskrypcji, musisz mieć uprawnienia opisane powyżej w każdej subskrypcji.
+> Jeśli chcesz używać funkcji Automatycznego wykonywania na maszynie wirtualnej, która jest połączona z obszarem roboczym w innej subskrypcji, musisz mieć uprawnienia opisane powyżej w każdej subskrypcji.
 
 ## <a name="participating-services"></a>Usługi biorące udział
 
@@ -98,7 +98,7 @@ Jeśli po raz pierwszy w celu włączenia automatycznego zarządzania maszyną w
 Jedyną koniecznością interakcji z tą maszyną wirtualną w celu zarządzania tymi usługami jest próba skorygowania maszyny wirtualnej, ale próba jej skorygowania zakończyła się niepowodzeniem. Jeśli pomyślnie naprawimy Twoją maszynę wirtualną, przywrócimy ją do zgodności bez nawet powiadamiania o tym. Aby uzyskać więcej informacji, [zobacz Status of VMs (Stan maszyn wirtualnych).](#status-of-vms)
 
 ## <a name="enabling-automanage-for-vms-using-azure-policy"></a>Włączanie automatycznegomanage dla maszyn wirtualnych przy użyciu Azure Policy
-Możesz również włączyć automatycznemanage na maszynach wirtualnych na dużą skalę przy użyciu wbudowanych Azure Policy. Zasady mają efekt DeployIfNotExists, co oznacza, że wszystkie kwalifikujące się maszyny wirtualne znajdujące się w zakresie zasad zostaną automatycznie dołączane do najlepszych rozwiązań w zakresie automatycznego blokowania maszyn wirtualnych.
+Możesz również włączyć automatycznemanage na maszyny wirtualne na dużą skalę przy użyciu wbudowanych Azure Policy. Zasady mają efekt DeployIfNotExists, co oznacza, że wszystkie kwalifikujące się maszyny wirtualne znajdujące się w zakresie zasad zostaną automatycznie dołączane do najlepszych rozwiązań w zakresie automatycznego blokowania maszyn wirtualnych.
 
 Bezpośredni link do zasad znajduje się [tutaj.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3)
 
@@ -113,7 +113,7 @@ Bezpośredni link do zasad znajduje się [tutaj.](https://portal.azure.com/#blad
 
 ## <a name="environment-configuration"></a>Konfiguracja środowiska
 
-W przypadku włączania funkcji Automanage dla maszyny wirtualnej wymagane jest środowisko. Środowiska są podstawą tej usługi. Definiują one usługi, do których dołączamy Twoje maszyny, i w pewnym stopniu określają konfigurację tych usług.
+W przypadku włączania funkcji Automanage dla maszyny wirtualnej wymagane jest środowisko. Środowiska są podstawą tej usługi. Określają one usługi, do których dołączamy Twoje maszyny, i do pewnego stopnia, jaka byłaby konfiguracja tych usług.
 
 ### <a name="default-environments"></a>Środowiska domyślne
 
@@ -122,14 +122,14 @@ Obecnie dostępne są dwa środowiska.
 - **Środowisko tworzenia i testowania** jest przeznaczone dla maszyn dewelopera/testowania.
 - **Środowisko** produkcyjne jest dla środowiska produkcyjnego.
 
-Przyczyną tego jest to, że niektóre usługi są zalecane na podstawie uruchomionego obciążenia. Na przykład na maszynie produkcyjnej automatycznie dołączamy Cię do Azure Backup. Jednak w przypadku maszyny tworzenia i testowania usługa tworzenia kopii zapasowej byłaby niepotrzebnym kosztem, ponieważ maszyny tworzenia i testowania mają zwykle mniejszy wpływ na działalność biznesową.
+Przyczyną tego jest to, że niektóre usługi są zalecane na podstawie uruchomionego obciążenia. Na przykład na maszynie produkcyjnej automatycznie dołączamy Cię do Azure Backup. Jednak w przypadku maszyny tworzenia i testowania usługa tworzenia kopii zapasowych byłaby niepotrzebnym kosztem, ponieważ maszyny dewelopera/testowania mają zwykle mniejszy wpływ na działalność biznesową.
 
 ### <a name="customizing-an-environment-using-preferences"></a>Dostosowywanie środowiska przy użyciu preferencji
 
-Oprócz standardowych usług, do których cię dołączamy, umożliwiamy skonfigurowanie określonego podzestawu preferencji. Te preferencje są dozwolone w ramach zakresu opcji konfiguracji. Na przykład w przypadku Azure Backup umożliwimy zdefiniowanie częstotliwości wykonywania kopii zapasowej oraz dnia tygodnia, w którym się ona odbywa.
+Oprócz standardowych usług, do których cię dołączamy, umożliwiamy skonfigurowanie określonego podzestawu preferencji. Te preferencje są dozwolone w ramach zakresu opcji konfiguracji. Na przykład w przypadku Azure Backup pozwolimy zdefiniować częstotliwość tworzenia kopii zapasowej i dzień tygodnia, w którym się ona odbywa.
 
 > [!NOTE]
-> W środowisku tworzenia i testowania w ogóle nie będziemy kopię zapasową maszyny wirtualnej.
+> W środowisku tworzenia i testowania nie będziemy w ogóle kopii zapasowej maszyny wirtualnej.
 
 Ustawienia środowiska domyślnego można dostosować za pomocą preferencji. Dowiedz się, jak utworzyć preferencję [tutaj.](virtual-machines-custom-preferences.md)
 
@@ -143,13 +143,13 @@ Pełną listę uczestniczących usług platformy Azure oraz informacje o tym, cz
 
 ## <a name="automanage-account"></a>Automanage Account
 
-Konto automatycznego zarządzania to kontekst zabezpieczeń lub tożsamość, w ramach której są wykonywane zautomatyzowane operacje. Zazwyczaj nie trzeba wybierać opcji Automatycznie zarządzanie kontem, ale jeśli istnieje scenariusz delegowania, w którym chcesz podzielić automatyczne zarządzanie zasobami (być może między dwoma administratorami systemu), opcja Automatycznie zarządzanie kontem w przepływie włączania umożliwia zdefiniowanie tożsamości platformy Azure dla każdego z tych administratorów.
+Konto automatycznego zarządzania to kontekst zabezpieczeń lub tożsamość, w ramach której są wykonywane zautomatyzowane operacje. Zazwyczaj nie trzeba wybierać opcji Automatycznie zarządzanie kontem, ale w przypadku scenariusza delegowania, w którym chcesz podzielić automatyczne zarządzanie zasobami (być może między dwoma administratorami systemu), opcja Automatycznie zarządzanie kontem w przepływie włączania umożliwia zdefiniowanie tożsamości platformy Azure dla każdego z tych administratorów.
 
 Aby dowiedzieć się więcej na temat konta automatycznego i sposobu jego tworzenia, zapoznaj się z dokumentem [Automanage Account (Automatyczne tworzenie konta).](./automanage-account.md)
 
 ## <a name="status-of-vms"></a>Stan maszyn wirtualnych
 
-W Azure Portal przejdź do strony Najlepszych rozwiązań dla maszyn wirtualnych **Automanage — Azure,** na której znajduje się lista wszystkich maszyn wirtualnych zarządzanych automatycznie. W tym miejscu zostanie wyświetlony ogólny stan każdej maszyny wirtualnej.
+W Azure Portal przejdź do strony Najlepsze rozwiązania dotyczące automatycznego zarządzania maszyną wirtualną platformy **Azure,** na której znajduje się lista wszystkich maszyn wirtualnych zarządzanych automatycznie. W tym miejscu zostanie wyświetlony ogólny stan każdej maszyny wirtualnej.
 
 :::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista skonfigurowanych maszyn wirtualnych.":::
 
@@ -166,29 +166,35 @@ Jeśli stan to **Niepowodzenie,** *możesz* rozwiązać problemy z wdrożeniem z
 
 ## <a name="disabling-automanage-for-vms"></a>Wyłączanie automatycznegomanage dla maszyn wirtualnych
 
-Możesz zdecydować, że pewnego dnia wyłączysz opcję Automatycznemanage na niektórych maszyn wirtualnych. Na przykład na maszynie jest uruchomione bardzo poufne bezpieczne obciążenie i musisz zablokować je jeszcze bardziej niż platforma Azure zrobiłaby to naturalnie, dlatego musisz skonfigurować maszynę poza najlepszymi rozwiązaniami platformy Azure.
+Możesz zdecydować, że pewnego dnia wyłączysz opcję Automatycznemanage na niektórych maszyn wirtualnych. Na przykład na twojej maszynie jest uruchomione bardzo poufne bezpieczne obciążenie i musisz zablokować je jeszcze bardziej niż platforma Azure w naturalny sposób, dlatego musisz skonfigurować maszynę poza najlepszymi rozwiązaniami platformy Azure.
 
-Aby to zrobić w Azure Portal, przejdź do strony Najlepszych rozwiązań w zakresie automatycznego zarządzania maszynami wirtualnymi platformy **Azure,** która zawiera listę wszystkich maszyn wirtualnych zarządzanych automatycznie. Zaznacz pole wyboru obok maszyny wirtualnej, którą chcesz wyłączyć za pomocą opcji Automatycznezazadanie, a następnie kliknij przycisk Wyłącz **automatycznemanagment.**
+Aby to zrobić w Azure Portal, przejdź do strony Najlepszych rozwiązań w zakresie automatycznego zarządzania maszynami wirtualnymi platformy **Azure,** która zawiera listę wszystkich maszyn wirtualnych zarządzanych automatycznie. Zaznacz pole wyboru obok maszyny wirtualnej, którą chcesz wyłączyć za pomocą opcji Automatycznemanage, a następnie kliknij przycisk Wyłącz **automatycznemanagment.**
 
 :::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Wyłączanie funkcji Automanage na maszynie wirtualnej.":::
 
 Przed wyrażeniem zgody na wyłączenie programu przeczytaj uważnie komunikaty w wyskakującym **oknie podręcznym.**
 
 > [!NOTE]
-> Wyłączenie automatycznegomanagementu na maszynie wirtualnej powoduje następujące zachowanie:
+> Wyłączenie automanagementu na maszynie wirtualnej powoduje następujące zachowanie:
 >
-> - Konfiguracja maszyny wirtualnej i usług, które do tej maszyny wirtualnej są dołączane, nie zmieniają się.
+> - Konfiguracja maszyny wirtualnej i usług, które jest do nich dołączana, nie zmieniają się.
 > - Wszelkie opłaty naliczane przez te usługi pozostają rozliczane i nadal naliczane.
-> - Automatyczne monitorowanie dryfu natychmiast zatrzymuje się.
+> - Automatyczne monitorowanie dryfu jest natychmiast zatrzymane.
 
 
-Przede wszystkim nie będziemy wyłączać maszyny wirtualnej z żadnych usług, do których została ona do niego doskonfigurowana i skonfigurowana. W związku z tym wszelkie opłaty naliczane przez te usługi będą nadal rozliczane. W razie potrzeby konieczne będzie odjęcie tablicy. Każde zachowanie funkcji Automatycznegomanage zostanie natychmiast zatrzymane. Na przykład nie będziemy już monitorować dryfu maszyny wirtualnej.
+Przede wszystkim nie będziemy wyłączać maszyny wirtualnej z żadnych usług, do których została ona do niego doskonfigurowana i skonfigurowana. W związku z tym wszelkie opłaty naliczane przez te usługi będą nadal rozliczane. W razie potrzeby konieczne będzie odjęcie tablicy. Wszelkie zachowanie automatycznegomanage zostanie zatrzymane natychmiast. Na przykład nie będziemy już monitorować dryfu maszyny wirtualnej.
+
+## <a name="automanage-and-azure-disk-encryption"></a>Automatyczne Azure Disk Encryption
+Automanage jest zgodne z maszynami Azure Disk Encryption (ADE).
+
+Jeśli używasz środowiska produkcyjnego, możesz również do nich do dołączać Azure Backup. Istnieje jedno wymaganie wstępne, aby pomyślnie korzystać z programu ADE i Azure Backup:
+* Przed dodaniem maszyny wirtualnej z obsługą programu ADE do środowiska produkcyjnego usługi  Automanage upewnij się, że zostały one opisane w sekcji Przed rozpoczęciem [tego dokumentu.](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#before-you-start)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono, że funkcja Automatycznego zarządzania maszynami wirtualnymi zapewnia środki, za pomocą których można wyeliminować konieczność poznawania, dołączania do i konfigurowania najlepszych rozwiązań usług platformy Azure. Ponadto, jeśli maszyna, która została do niego dowana do funkcji Automanage dla maszyn wirtualnych, oddala się od konfiguracji środowiska, automatycznie przywróci ją do zgodności.
+W tym artykule przedstawiono, że funkcja Automatycznego zarządzania maszynami wirtualnymi zapewnia środki, za pomocą których można wyeliminować potrzebę poznawania, dołączania i konfigurowania najlepszych rozwiązań usług platformy Azure. Ponadto, jeśli maszyna, która została dowana do funkcji Automatycznego konfigurowania maszyn wirtualnych, odsunie się od konfiguracji środowiska, automatycznie przywrócimy jej zgodność.
 
-Spróbuj w celu włączenia funkcji Automanage dla maszyn wirtualnych w Azure Portal.
+Spróbuj w trybie automanage dla maszyn wirtualnych w Azure Portal.
 
 > [!div class="nextstepaction"]
 > [Włącz automatycznemanage dla maszyn wirtualnych w Azure Portal](quick-create-virtual-machines-portal.md)

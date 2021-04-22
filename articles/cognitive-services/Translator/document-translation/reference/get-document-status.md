@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 36cd10a0b04be21e9f332832b4381662eeedd01d
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 4c6e82af46a012ad53dfa1cc1db1252ef2c0443e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833674"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864941"
 ---
 # <a name="get-document-status"></a>Uzyskiwanie stanu dokumentu
 
@@ -84,7 +84,7 @@ Poniżej przedstawiono możliwe kody stanu HTTP zwracane przez żądanie.
 |--- |--- |--- |
 |kod|ciąg|Wylinia zawierające kody błędów wysokiego poziomu. Możliwe wartości:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Brak autoryzacji</li></ul>|
 |message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
-|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera wymagane właściwości ErrorCode, komunikat i opcjonalny element docelowy właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
+|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera on wymagane właściwości ErrorCode, komunikat i opcjonalny element docelowy właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
 |innerError.code|ciąg|Pobiera ciąg błędu kodu.|
 |innerError.message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 

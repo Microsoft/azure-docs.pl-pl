@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/20/2020
-ms.openlocfilehash: fa0ec830bdd7cd15b2137f2937befe3892e62bc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c91007902f33bc3caf52bbf78eaf0348604eefc
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96183105"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107881343"
 ---
 > [!IMPORTANT]
-> Protokół TLS 1,2 jest teraz wymuszany dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, zobacz [Azure Cognitive Services Security](../articles/cognitive-services/cognitive-services-security.md).
+> [Transport Layer Security (TLS) 1.2](../articles/cognitive-services/cognitive-services-security.md?tabs=command-line%2Ccsharp#transport-layer-security-tls) jest teraz wymuszana dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, [zobacz Azure Cognitive Services zabezpieczeń](../articles/cognitive-services/cognitive-services-security.md).

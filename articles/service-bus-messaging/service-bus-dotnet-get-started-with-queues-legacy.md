@@ -1,34 +1,34 @@
 ---
 title: Wprowadzenie do kolejek usługi Azure Service Bus | Microsoft Docs
-description: W tym samouczku utworzysz aplikacje konsolowe platformy .NET Core umożliwiające wysyłanie komunikatów do i odbieranie komunikatów z kolejki Service Bus.
+description: W tym samouczku utworzysz aplikacje konsolowe .NET Core do wysyłania komunikatów do kolejki Service Bus odbierania komunikatów.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d92a5e0b0d1a6953d0043f85ff98f6740aaacebb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652993"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864018"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Wprowadzenie do kolejek usługi Service Bus
-W tym samouczku utworzysz aplikacje konsolowe platformy .NET Core umożliwiające wysyłanie komunikatów do i odbieranie komunikatów z kolejki Service Bus.
+W tym samouczku utworzysz aplikacje konsolowe .NET Core do wysyłania komunikatów do kolejki Service Bus odbierania komunikatów.
 
 > [!WARNING]
-> Ten przewodnik Szybki Start używa starego pakietu Microsoft. Azure. ServiceBus. Przewodnik Szybki Start, który używa najnowszego pakietu Azure. Messaging. ServiceBus, znajduje się w temacie [wysyłanie i odbieranie zdarzeń przy użyciu pakietu Azure. Messaging. ServiceBus](service-bus-dotnet-get-started-with-queues.md). 
+> W tym przewodniku Szybki start jest używany stary pakiet Microsoft.Azure.ServiceBus. Aby uzyskać przewodnik Szybki start korzystający z najnowszego pakietu Azure.Messaging.ServiceBus, zobacz Wysyłanie i odbieranie zdarzeń przy użyciu pakietu [Azure.Messaging.ServiceBus.](service-bus-dotnet-get-started-with-queues.md) 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Program Visual Studio 2019](https://www.visualstudio.com/vs).
-- [Zestaw NET Core SDK](https://www.microsoft.com/net/download/windows), wersja 2.0 lub nowsza.
-- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Jeśli nie masz kolejki do współpracy z programem, postępuj zgodnie z instrukcjami w temacie [Use Azure Portal, aby utworzyć](service-bus-quickstart-portal.md) kolejkę Service Bus w celu utworzenia kolejki.
+- [Visual Studio 2019](https://www.visualstudio.com/vs)r.
+- [Zestaw NET Core SDK](https://dotnet.microsoft.com/download), wersja 2.0 lub nowsza.
+- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści [dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć bezpłatne [konto.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+- Jeśli nie masz kolejki do pracy, wykonaj kroki opisane w artykule Use [Azure Portal to create a Service Bus queue to](service-bus-quickstart-portal.md) create a queue (Tworzenie kolejki przy użyciu usługi Azure Portal do tworzenia kolejki).
 
-  - Zapoznaj się z krótkim omówieniem kolejek Service Bus.
-  - Utwórz przestrzeń nazw Service Bus.
-  - Pobierz parametry połączenia.
-  - Utwórz kolejkę Service Bus.
+  - Zapoznaj się z szybkim omówieniem Service Bus kolejek.
+  - Utwórz nową Service Bus nazw.
+  - Pobierz ciąg połączenia.
+  - Utwórz kolejkę Service Bus kolejki.
 
 ## <a name="send-messages"></a>Wysyłanie komunikatów
 
@@ -36,19 +36,19 @@ Aby wysyłać komunikaty do kolejki, napisz aplikację konsolową w języku C# z
 
 ### <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
-Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET Core)** dla języka C#. Ten przykład nazywa nazwę aplikacji *CoreSenderApp*.
+Uruchom Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET Core)** dla języka C#. W tym przykładzie nazwa aplikacji *to CoreSenderApp.*
 
 ### <a name="add-the-service-bus-nuget-package"></a>Dodawanie pakietu NuGet usługi Service Bus
 
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
-1. Wybierz pozycję **Przeglądaj**. Wyszukaj i wybierz pozycję **[Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**.
-1. Wybierz pozycję **Zainstaluj** , aby ukończyć instalację, a następnie zamknij Menedżera pakietów NuGet.
+1. Wybierz pozycję **Przeglądaj**. Wyszukaj i wybierz **[pozycję Microsoft.Azure.ServiceBus.](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**
+1. Wybierz **pozycję Zainstaluj,** aby ukończyć instalację, a następnie zamknij Menedżer pakietów.
 
     ![Wybieranie pakietu NuGet][nuget-pkg]
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Pisanie kodu w celu wysyłania komunikatów do kolejki
 
-1. W programie *program. cs* Dodaj następujące `using` instrukcje w górnej części definicji przestrzeni nazw przed deklaracją klasy:
+1. W *programie Program.cs* dodaj następujące instrukcje na początku definicji przestrzeni nazw `using` przed deklaracją klasy:
 
     ```csharp
     using System.Text;
@@ -57,7 +57,7 @@ Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. W `Program` klasie należy zadeklarować następujące zmienne:
+1. W `Program` klasie zadeklaruj następujące zmienne:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -65,9 +65,9 @@ Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET
     static IQueueClient queueClient;
     ```
 
-    Wprowadź parametry połączenia dla przestrzeni nazw jako `ServiceBusConnectionString` zmienną. Wprowadź nazwę kolejki.
+    Wprowadź ciąg połączenia dla przestrzeni nazw jako `ServiceBusConnectionString` zmienną. Wprowadź nazwę kolejki.
 
-1. Zastąp `Main()` metodę następującą metodą **asynchroniczną** `Main` . Wywołuje `SendMessagesAsync()` metodę, która zostanie dodana w następnym kroku, aby wysyłać komunikaty do kolejki. 
+1. Zastąp `Main()` metodę następującą metodą  `Main` asynchroniczną. Wywołuje on metodę, która zostanie dodać w następnym kroku w celu `SendMessagesAsync()` wysyłania komunikatów do kolejki. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -87,7 +87,7 @@ Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET
         await queueClient.CloseAsync();
     }
     ```
-1. Bezpośrednio po `MainAsync()` metodzie Dodaj następującą metodę, `SendMessagesAsync()` która wykonuje zadania wysyłania liczby komunikatów określonych przez `numberOfMessagesToSend` (obecnie ustawiono 10):
+1. Bezpośrednio po metodzie dodaj następującą metodę, która umożliwia wysyłanie liczby komunikatów określonej przez metodę `MainAsync()` `SendMessagesAsync()` `numberOfMessagesToSend` (obecnie ustawioną na 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -114,7 +114,7 @@ Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET
     }
     ```
 
-Oto, jak powinien wyglądać plik *programu. cs* .
+Oto jak powinien wyglądać *plik Program.cs.*
 
 ```csharp
 namespace CoreSenderApp
@@ -178,23 +178,23 @@ namespace CoreSenderApp
 
 Uruchom program i sprawdź Azure Portal.
 
-Wybierz nazwę kolejki w oknie **Przegląd** przestrzeni nazw, aby wyświetlić **podstawy** kolejki.
+Wybierz nazwę kolejki w oknie Przegląd przestrzeni **nazw,** aby wyświetlić kolejkę **Podstawowe elementy**.
 
-![Odebrane komunikaty z liczbą i rozmiarem][queue-message]
+![Odebrane komunikaty z licznikiem i rozmiarem][queue-message]
 
-Wartość **liczby aktywnych komunikatów** dla kolejki wynosi teraz **10**. Za każdym razem, gdy uruchamiasz tę aplikację nadawcy bez pobierania komunikatów, ta wartość rośnie o 10.
+Wartość **liczba aktywnych komunikatów** dla kolejki wynosi teraz **10**. Za każdym razem, gdy uruchamiasz tę aplikację nadawcy bez pobierania komunikatów, ta wartość zwiększa się o 10.
 
-Bieżący rozmiar kolejki zwiększa **bieżącą** wartość w programie **Essentials**  za każdym razem, gdy aplikacja dodaje komunikaty do kolejki.
+Bieżący rozmiar kolejki zwiększa wartość **CURRENT** w **essentials**  za każdym razem, gdy aplikacja dodaje komunikaty do kolejki.
 
 W następnej sekcji opisano sposób pobierania tych komunikatów.
 
 ## <a name="receive-messages"></a>Odbieranie komunikatów
 
-Aby odebrać wysłane komunikaty, Utwórz kolejną aplikację **konsoli (.NET Core)** . Zainstaluj pakiet NuGet **Microsoft. Azure. ServiceBus** , jak w przypadku aplikacji nadawcy.
+Aby odbierać wysłane komunikaty, utwórz inną aplikację **konsoli (.NET Core).** Zainstaluj pakiet **NuGet Microsoft.Azure.ServiceBus,** tak jak w przypadku aplikacji nadawcy.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Pisanie kodu w celu odbierania komunikatów z kolejki
 
-1. W programie *program. cs* Dodaj następujące `using` instrukcje w górnej części definicji przestrzeni nazw przed deklaracją klasy:
+1. W *programie Program.cs* dodaj następujące instrukcje na początku definicji przestrzeni nazw `using` przed deklaracją klasy:
 
     ```csharp
     using System;
@@ -204,7 +204,7 @@ Aby odebrać wysłane komunikaty, Utwórz kolejną aplikację **konsoli (.NET Co
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. W `Program` klasie należy zadeklarować następujące zmienne:
+1. W `Program` klasie zadeklaruj następujące zmienne:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -212,7 +212,7 @@ Aby odebrać wysłane komunikaty, Utwórz kolejną aplikację **konsoli (.NET Co
     static IQueueClient queueClient;
     ```
 
-    Wprowadź parametry połączenia dla przestrzeni nazw jako `ServiceBusConnectionString` zmienną. Wprowadź nazwę kolejki.
+    Wprowadź ciąg połączenia dla przestrzeni nazw jako `ServiceBusConnectionString` zmienną. Wprowadź nazwę kolejki.
 
 1. Zastąp metodę `Main()` poniższym kodem:
 
@@ -239,7 +239,7 @@ Aby odebrać wysłane komunikaty, Utwórz kolejną aplikację **konsoli (.NET Co
     }
     ```
 
-1. Bezpośrednio po `MainAsync()` metodzie Dodaj następującą metodę, która rejestruje procedurę obsługi komunikatów i odbiera komunikaty wysyłane przez aplikację nadawcy:
+1. Bezpośrednio po metodzie dodaj następującą metodę, która rejestruje program obsługi komunikatów i odbiera komunikaty `MainAsync()` wysyłane przez aplikację nadawcy:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -295,7 +295,7 @@ Aby odebrać wysłane komunikaty, Utwórz kolejną aplikację **konsoli (.NET Co
     }
     ```
 
-Poniżej przedstawiono plik *programu* , który powinien wyglądać następująco:
+Oto jak powinien wyglądać *plik Program.cs:*
 
 ```csharp
 namespace CoreReceiverApp
@@ -381,14 +381,14 @@ namespace CoreReceiverApp
 }
 ```
 
-Uruchom program i ponownie sprawdź portal. **Liczba aktywnych komunikatów** i **bieżące** wartości to teraz **0**.
+Uruchom program i ponownie sprawdź portal. Wartości **Liczba aktywnych komunikatów** **i BIEŻĄCE** mają teraz **wartość 0**.
 
-![Kolejka po odebraniu komunikatów][queue-message-receive]
+![Kolejkowanie po otrzymaniu komunikatów][queue-message-receive]
 
-Gratulacje! Utworzono kolejkę, wysłano do niej zestaw komunikatów i odebrano te komunikaty z tej samej kolejki.
+Gratulacje! Utworzono kolejkę, wysłano do tej kolejki zestaw komunikatów i odebrano te komunikaty z tej samej kolejki.
 
 > [!NOTE]
-> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łatwe łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń.
+> Za pomocą Service Bus można zarządzać [zasobami Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Usługa Service Bus Explorer umożliwia użytkownikom łatwe łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów. Narzędzie udostępnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń.
 
 ## <a name="next-steps"></a>Następne kroki
 

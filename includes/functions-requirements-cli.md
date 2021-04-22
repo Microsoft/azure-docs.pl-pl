@@ -4,49 +4,49 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: f102a5dd5b7dccba6643176d06d17a2a65171c90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a390c0d19a37ea18f9eac8636683ec35ecbc844
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904088"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880218"
 ---
 ## <a name="configure-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
-Przed rozpoczęciem należy wykonać następujące czynności:
+Przed rozpoczęciem musisz mieć następujące elementy:
 
-+ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) w wersji 2.7.1846 lub nowszej.
++ Wersja [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) 2.7.1846 lub nowsza.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + Wersja Azure Functions Core Tools, która odpowiada zainstalowanej wersji języka Python:
 
-   | Wersja języka Python | Wersja podstawowych narzędzi |
+   | Wersja języka Python | Wersja narzędzi Core Tools |
    | -------------- | ------------------ |
-   | Python 3.8     | [Wersja 3. x](../articles/azure-functions/functions-run-local.md#v2) |
-   | Python 3,6<br/>Python 3.7 | [Wersja 2.7.1846 lub nowsza](../articles/azure-functions/functions-run-local.md#v2) |
+   | Python 3.8     | [wersja 3.x](../articles/azure-functions/functions-run-local.md#v2) |
+   | Python 3.6<br/>Python 3.7 | [Wersja 2.7.1846 lub nowsza](../articles/azure-functions/functions-run-local.md#v2) |
   
 ::: zone-end
 
-+ [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2,4 lub nowszej. 
++ Interfejs [wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2.4 lub nowszej. 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node.js](https://nodejs.org/), aktywne wersje LTS LTS i Maintenance (zalecane 8.11.1 i 10.14.1).
++ [Node.js](https://nodejs.org/), wersje Active LTS i Maintenance LTS (zalecane wersje 8.11.1 i 10.14.1).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ [Python 3,8 (64-bitowy)](https://www.python.org/downloads/release/python-382/), [python 3,7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3,6 (64-bit)](https://www.python.org/downloads/release/python-368/), które są obsługiwane przez Azure Functions. 
++ [Python 3.8 (64-bitowy),](https://www.python.org/downloads/release/python-382/) [Python 3.7 (64-bitowy),](https://www.python.org/downloads/release/python-375/) [Python 3.6 (64-bitowy),](https://www.python.org/downloads/release/python-368/)które są obsługiwane przez Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ [Zestaw .NET Core SDK 3,1](https://www.microsoft.com/net/download)
++ Zestaw [SDK platformy .NET Core 3.1](https://dotnet.microsoft.com/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ [Zestaw Java developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8 lub 11. 
++ Zestaw [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support)w wersji 8 lub 11. 
 
-+ [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
++ [Apache Maven,](https://maven.apache.org)wersja 3.0 lub nowsza.
 
 ::: zone-end
 ::: zone pivot="programming-language-other"
-+ Narzędzia programistyczne dla języka, którego używasz. Ten samouczek używa [języka programowania R](https://www.r-project.org/) jako przykładu.
++ Narzędzia programskie dla języka, z których korzystasz. W tym samouczku jako [przykładu używany jest](https://www.r-project.org/) język programowania R.
 ::: zone-end

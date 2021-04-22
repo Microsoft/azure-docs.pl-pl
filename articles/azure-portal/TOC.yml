@@ -79,7 +79,7 @@
     - name: Struktura pulpitów nawigacyjnych platformy Azure
       href: azure-portal-dashboards-structure.md
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/portal/portal
+      href: /cli/azure/portal
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

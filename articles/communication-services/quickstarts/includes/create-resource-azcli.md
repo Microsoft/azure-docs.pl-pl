@@ -4,42 +4,42 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 22a9cf3338f422341928a77f2bf14c497aa2ba31
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 69857915620eada94586754a6c934edaf0b294a9
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563784"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107880250"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/dotnet/).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/dotnet/)
 - Instalowanie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
 
-## <a name="create-azure-communication-resource"></a>Tworzenie zasobu komunikacyjnego platformy Azure
+## <a name="create-azure-communication-resource"></a>Tworzenie zasobu komunikacji platformy Azure
 
-Aby utworzyć zasób usługi Azure Communications Services, [Zaloguj się do interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli). Można to zrobić za pośrednictwem terminalu przy użyciu ```az login``` polecenia i podać swoje poświadczenia. Uruchom następujące polecenie, aby utworzyć zasób:
+Aby utworzyć zasób Azure Communication Services, [zaloguj się do interfejsu wiersza polecenia platformy Azure.](/cli/azure/authenticate-azure-cli) Możesz to zrobić za pośrednictwem terminalu, ```az login``` używając polecenia i podając swoje poświadczenia. Uruchom następujące polecenie, aby utworzyć zasób:
 
 ```azurecli
 az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
 ```
 
-Jeśli chcesz wybrać określoną subskrypcję, możesz także określić ```--subscription``` flagę i podać identyfikator subskrypcji.
+Jeśli chcesz wybrać określoną subskrypcję, możesz również określić ```--subscription``` flagę i podać identyfikator subskrypcji.
 ```
 az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup> --subscription "<subscriptionID>"
 ```
 
-Zasób usług komunikacyjnych można skonfigurować przy użyciu następujących opcji:
+Możesz skonfigurować zasób Communication Services za pomocą następujących opcji:
 
 * Grupa zasobów
-* Nazwa zasobu usług komunikacyjnych
-* Geografia, z którą zostanie skojarzony zasób
+* Nazwa zasobu Communication Services zasobów
+* Lokalizacja geograficzna, z która zostanie skojarzona zasób
 
-W następnym kroku można przypisać Tagi do zasobu. Tagi mogą służyć do organizowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat tagów, zobacz [dokumentację tagowania zasobów](../../../azure-resource-manager/management/tag-resources.md) .
+W następnym kroku możesz przypisać tagi do zasobu. Tagi mogą służyć do organizowania zasobów platformy Azure. Aby uzyskać [więcej informacji na temat tagów,](../../../azure-resource-manager/management/tag-resources.md) zobacz dokumentację tagowania zasobów.
 
-## <a name="manage-your-communication-services-resource"></a>Zarządzanie zasobem usług komunikacyjnych
+## <a name="manage-your-communication-services-resource"></a>Zarządzanie zasobem Communication Services zasobów
 
-Aby dodać tagi do zasobu usług komunikacyjnych, uruchom następujące polecenia. Możesz również wskazać konkretną subskrypcję.
+Aby dodać tagi do zasobu Communication Services, uruchom następujące polecenia. Można również określić docelową subskrypcję.
 
 ```azurecli
 az communication update --name "<communicationName>" --tags newTag="newVal1" --resource-group "<resourceGroup>"
@@ -51,4 +51,4 @@ az communication show --name "<communicationName>" --resource-group "<resourceGr
 az communication show --name "<communicationName>" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
 ```
 
-Aby uzyskać więcej informacji na temat dodatkowych poleceń, zobacz [AZ Communication](/cli/azure/ext/communication/communication).
+Aby uzyskać informacje na temat dodatkowych poleceń, zobacz [az communication](/cli/azure/communication).
