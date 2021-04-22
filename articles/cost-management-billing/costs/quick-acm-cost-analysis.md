@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 9b73eeccad6d17df8c711671c56fbb7cee20b17a
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4d0062258919de29750b644b2f8e12990e25098b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484731"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873217"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -68,7 +68,7 @@ Początkowy widok analizy kosztów zawiera poniższe obszary.
 
 ### <a name="understand-forecast"></a>Informacje o prognozie
 
-Na podstawie ostatniego użycia prognozy kosztów pokazują przewidywanie szacowanych kosztów dla wybranego okresu. Jeśli budżet jest ustawiony w analizie kosztów, możesz sprawdzić, kiedy prognozowane wydatki najprawdopodobniej przekroczą próg budżetu. Model prognozy może przewidywać przyszłe koszty przez maksymalnie rok. Wybierz filtry, aby wyświetlić szczegółowy prognozowany koszt dla wybranego wymiaru.
+Na podstawie ostatniego użycia prognozy kosztów pokazują przewidywanie szacowanych kosztów dla wybranego okresu. Jeśli budżet jest ustawiony w analizie kosztów, możesz sprawdzić, kiedy prognozowane wydatki prawdopodobnie przekroczą próg budżetu. Model prognozy może przewidywać przyszłe koszty przez maksymalnie rok. Wybierz filtry, aby wyświetlić szczegółowy prognozowany koszt dla wybranego wymiaru.
 
 Model prognozy jest oparty na modelu regresji szeregów czasu. Do dokładnego przewidywania kosztów wymagane są dane dotyczące kosztów i użycia z co najmniej 10 ostatnich dni. W przypadku danego okresu model prognozy wymaga takiej samej ilości danych treningowych jak dla prognozowanego okresu. Na przykład prognoza na trzy miesiące wymaga danych użycia i kosztów z co najmniej trzech ostatnich miesięcy.
 
@@ -169,7 +169,7 @@ Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platfor
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Po zalogowaniu użyj polecenia [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query), aby wykonać zapytanie dotyczące informacji o bieżącym miesięcznym użyciu dla subskrypcji:
+Po zalogowaniu użyj polecenia [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query), aby wykonać zapytanie dotyczące informacji o bieżącym miesięcznym użyciu dla subskrypcji:
 
 ```azurecli
 az costmanagement query --timeframe MonthToDate --type Usage \
@@ -186,7 +186,7 @@ az costmanagement query --timeframe MonthToDate --type Usage \
 
 Parametr **--dataset-filter** przyjmuje ciąg JSON lub `@json-file`.
 
-Istnieje również możliwość użycia poleceń [az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) w celu wyeksportowania danych użycia do konta usługi Azure Storage. Możesz pobrać stamtąd dane.
+Istnieje również możliwość użycia poleceń [az costmanagement export](/cli/azure/costmanagement/export) w celu wyeksportowania danych użycia do konta usługi Azure Storage. Możesz pobrać stamtąd dane.
 
 1. Utwórz grupę zasobów lub użyj istniejącej grupy zasobów. Aby utworzyć grupę zasobów, uruchom polecenie [az group create](/cli/azure/group#az_group_create):
 
@@ -200,7 +200,7 @@ Istnieje również możliwość użycia poleceń [az costmanagement export](/cli
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Uruchom polecenie [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create), aby utworzyć eksport:
+1. Uruchom polecenie [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create), aby utworzyć eksport:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type Usage \

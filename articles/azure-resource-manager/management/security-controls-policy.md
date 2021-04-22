@@ -1,22 +1,22 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Resource Manager
-description: Wyświetla Azure Policy kontroli zgodności z przepisami dostępne dla Azure Resource Manager. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 04/14/2021
+description: Wyświetla Azure Policy kontroli zgodności z przepisami dostępnych dla Azure Resource Manager. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
+ms.date: 04/21/2021
 ms.topic: sample
 author: tfitzmac
 ms.author: tomfitz
 ms.service: azure-resource-manager
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0168e81de945a1798a3cc744bed6a7ef184f0991
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: ee10e8a13858a16083702322b98c69587a9df56b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107504490"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878720"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-resource-manager"></a>Azure Policy kontroli zgodności z przepisami dla Azure Resource Manager
 
-[Zgodność z przepisami w Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) udostępnia definicje inicjatyw utworzonych przez firmę  Microsoft i  zarządzanych, znane jako _wbudowane,_ dla domen zgodności i kontroli zabezpieczeń związanych z różnymi standardami zgodności. Na tej stronie **wymieniono domeny zgodności i** **mechanizmy kontroli zabezpieczeń** dla Azure Resource Manager. Możesz przypisać wbudowane elementy kontroli  zabezpieczeń indywidualnie, aby ułatwić zgodność zasobów platformy Azure z określonym standardem.
+[Zgodność z przepisami](../../governance/policy/concepts/regulatory-compliance.md) w Azure Policy udostępnia definicje inicjatyw utworzonych przez firmę  Microsoft i  zarządzanych, znane jako _wbudowane,_ dla domen zgodności i kontroli zabezpieczeń związanych z różnymi standardami zgodności. Na tej stronie **wymieniono domeny zgodności i** **mechanizmy kontroli zabezpieczeń** dla Azure Resource Manager. Możesz indywidualnie przypisać wbudowane elementy  kontroli zabezpieczeń, aby zapewnić zgodność zasobów platformy Azure z określonym standardem.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 

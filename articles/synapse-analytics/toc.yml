@@ -177,7 +177,7 @@ items:
                   - name: Łączenie z obszarem roboczym usługi Azure Synapse za pomocą prywatnych punktów końcowych
                     href: security/how-to-connect-to-workspace-with-private-links.md
                     displayname: links
-                  - name: Aprowizowania i zabezpieczania połączonej usługi za pomocą zarządzanej sieci wirtualnej
+                  - name: Aprowizowania i zabezpieczania połączonej usługi przy użyciu zarządzanej sieci wirtualnej
                     href: ./data-integration/linked-service.md
                   - name: Łączenie z obszarem roboczym usługi Synapse z sieci z ograniczeniami
                     href: security/how-to-connect-to-workspace-from-restricted-network.md
@@ -354,9 +354,9 @@ items:
                     href: sql/develop-stored-procedures.md
                   - name: Transakcje
                     items:
-                      - name: Transakcje dedykowanej puli SQL
+                      - name: Dedykowane transakcje puli SQL
                         href: sql/develop-transactions.md
-                      - name: Transakcje najlepszych rozwiązań dla dedykowanej puli SQL
+                      - name: Transakcje dotyczące najlepszych rozwiązań dedykowanej puli SQL
                         displayname: 'Transaction, best, practices'
                         href: sql/develop-transaction-best-practices.md
                   - name: Schematy definiowane przez użytkownika
@@ -598,7 +598,7 @@ items:
             items:
               - name: Zarządzanie pakietami języka Python
                 href: ./spark/apache-spark-manage-python-packages.md
-              - name: Zarządzanie pakietami scala
+              - name: Zarządzanie pakietami Scala
                 href: ./spark/apache-spark-manage-scala-packages.md
               - name: Rozwiązywanie problemów z błędami instalacji pakietu języka Python
                 href: ./spark/apache-spark-troubleshoot-library-errors.md
@@ -1167,7 +1167,7 @@ items:
   - name: Dokumentacja
     items:
       - name: Interfejs wiersza polecenia platformy Azure
-        href: /cli/azure/ext/synapse/
+        href: /cli/azure/
       - name: Typy sortowania bazy danych
         href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Przejdź

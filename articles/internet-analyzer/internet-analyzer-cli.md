@@ -7,16 +7,16 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 46caae53ed81de335c2b9d5ddbd3fd7f89424fdd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4e200440bd37d3593d5fc096b3dd79eff25dc1d8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780419"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877231"
 ---
-# <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Tworzenie testu Internet Analyzer interfejsu wiersza polecenia (wersja zapoznawcza)
+# <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Tworzenie testu Internet Analyzer przy użyciu interfejsu wiersza polecenia (wersja zapoznawcza)
 
-Istnieją dwa sposoby tworzenia zasobu Internet Analyzer — za [pomocą interfejsu Azure Portal](internet-analyzer-create-test-portal.md) interfejsu wiersza polecenia. Ta sekcja ułatwia tworzenie nowego zasobu Azure Internet Analyzer interfejsu wiersza polecenia. 
+Istnieją dwa sposoby tworzenia zasobu usługi Internet Analyzer — za pomocą [interfejsu wiersza Azure Portal](internet-analyzer-create-test-portal.md) interfejsu wiersza polecenia. Ta sekcja ułatwia tworzenie nowego zasobu usługi Azure Internet Analyzer użyciu interfejsu wiersza polecenia. 
 
 
 > [!IMPORTANT]
@@ -25,18 +25,18 @@ Istnieją dwa sposoby tworzenia zasobu Internet Analyzer — za [pomocą interfe
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Publiczna wersja zapoznawcza jest dostępna do użycia globalnie; Jednak magazyn danych jest ograniczony do zachodnich stanów *USA 2* w okresie zapoznawczym.
+Publiczna wersja zapoznawcza jest dostępna do użycia globalnie. Jednak w okresie zapoznawczym magazyn danych jest ograniczony do zachodnie *stany USA 2.*
 
-## <a name="object-model"></a>Model obiektu
+## <a name="object-model"></a>Model obiektów
 Interfejs Internet Analyzer udostępnia następujące typy zasobów:
 * **Testy** — test porównuje wydajność użytkownika końcowego dwóch internetowych punktów końcowych (A i B) w czasie.
 * **Profile** — testy są tworzone w Internet Analyzer profilu. Profile umożliwiają grupowanie powiązanych testów; Jeden profil może zawierać jeden lub więcej testów.
-* **Wstępnie skonfigurowane punkty końcowe —** skonfigurowaliśmy punkty końcowe z różnymi konfiguracjami (regiony, technologie przyspieszania itp.). W testach możesz użyć dowolnego ze wstępnie skonfigurowanych punktów końcowych.
-* **Karty wyników —** karta wyników zawiera szybkie i znaczące podsumowania wyników pomiarów. Zapoznaj się z [tematem Interpreting your Scorecard (Interpretowanie karty wyników).](internet-analyzer-scorecard.md)
+* **Wstępnie skonfigurowane punkty końcowe** — skonfigurowaliśmy punkty końcowe z różnymi konfiguracjami (regionami, technologiami przyspieszania itp.). W testach możesz użyć dowolnego ze wstępnie skonfigurowanych punktów końcowych.
+* **Karty wyników —** karta wyników zawiera szybkie i znaczące podsumowania wyników pomiarów. Zapoznaj się [z tematem Interpreting your Scorecard (Interpretowanie karty wyników).](internet-analyzer-scorecard.md)
 * **Szereg czasowy** — szereg czasowy pokazuje, jak metryka zmienia się w czasie.
 
-## <a name="profile-and-test-creation"></a>Tworzenie profilu i testowania
-1. Uzyskaj Internet Analyzer w wersji zapoznawczej, korzystając z Jak mogę uczestniczyć w wersji **zapoznawczej?** instrukcje z artykułu [Azure Internet Analyzer CZĘSTO ZADAWANE PYTANIA.](internet-analyzer-faq.md)
+## <a name="profile-and-test-creation"></a>Tworzenie profilu i testu
+1. Uzyskaj Internet Analyzer dostęp do wersji zapoznawczej, Jak mogę **uczestniczyć** w wersji zapoznawczej? instrukcje z artykułu Azure Internet Analyzer faq (Często [zadawane pytania).](internet-analyzer-faq.md)
 2. [Zainstaluj interfejs wiersza polecenia platformy Azure.](/cli/azure/install-azure-cli)
 3. Uruchom polecenie `login` , aby uruchomić sesję interfejsu wiersza polecenia:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ Interfejs Internet Analyzer udostępnia następujące typy zasobów:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przejrzyj Internet Analyzer [wiersza polecenia,](/cli/azure/ext/internet-analyzer/internet-analyzer) aby uzyskać pełną listę obsługiwanych poleceń i przykładów użycia.
+* Przejrzyj informacje [Internet Analyzer wiersza polecenia,](/cli/azure/internet-analyzer) aby uzyskać pełną listę obsługiwanych poleceń i przykładów użycia.
 * Przeczytaj często [zadawane Internet Analyzer odpowiedzi.](internet-analyzer-faq.md)
 * Dowiedz się więcej o osadzaniu klienta [Internet Analyzer i](internet-analyzer-embed-client.md) tworzeniu [niestandardowego punktu końcowego.](internet-analyzer-custom-endpoint.md)

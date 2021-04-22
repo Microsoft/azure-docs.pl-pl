@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać tożsamości zarządzanych w Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 59da03985f0bc9248fdb498d7b0222158029e0d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7eb0ab6247e8afc27f938b8b4a25d1fb1ee723f4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777675"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876998"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Używanie tożsamości zarządzanych w Azure Kubernetes Service
 
@@ -142,7 +142,7 @@ az aks show -g <RGName> -n <ClusterName> --query "identity"
 
 
 ## <a name="bring-your-own-control-plane-mi"></a>Migrowanie do własnej płaszczyzny sterowania
-Tożsamość niestandardowej płaszczyzny sterowania umożliwia uzyskanie dostępu do istniejącej tożsamości przed utworzeniem klastra. Ta funkcja umożliwia korzystanie ze scenariuszy takich jak użycie niestandardowej sieci wirtualnej lub typu ruchu wychodzącego UDR ze wstępnie utworzoną tożsamością zarządzaną.
+Tożsamość niestandardowej płaszczyzny sterowania umożliwia uzyskanie dostępu do istniejącej tożsamości przed utworzeniem klastra. Ta funkcja umożliwia korzystanie ze scenariuszy, takich jak użycie niestandardowej sieci wirtualnej lub typu ruchu wychodzącego UDR ze wstępnie utworzoną tożsamością zarządzaną.
 
 Musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji 2.15.1 lub nowszej.
 
@@ -209,10 +209,144 @@ Pomyślne utworzenie klastra przy użyciu własnych tożsamości zarządzanych z
  },
 ```
 
+## <a name="bring-your-own-kubelet-mi-preview"></a>Bring your own kubelet MI (wersja zapoznawcza)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Tożsamość Kubelet umożliwia uzyskanie dostępu do istniejącej tożsamości przed utworzeniem klastra. Ta funkcja umożliwia korzystanie ze scenariuszy, takich jak połączenie z usługą ACR przy użyciu wstępnie utworzonej tożsamości zarządzanej.
+
+### <a name="prerequisites"></a>Wymagania wstępne
+
+- Musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji 2.21.1 lub nowszej.
+- Musisz mieć zainstalowaną wersję aks-preview w wersji 0.5.10 lub nowszej.
+
+### <a name="limitations"></a>Ograniczenia
+
+- Działa tylko z klastrem User-Assigned zarządzanym.
+- Azure Government nie jest obecnie obsługiwana.
+- Azure (Chiny) — 21Vianet nie jest obecnie obsługiwana.
+
+Najpierw zarejestruj flagę funkcji dla tożsamości kubeletu:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
+```
+
+Wyświetlanie stanu Zarejestrowane trwa kilka *minut.* Stan rejestracji można sprawdzić za pomocą [polecenia az feature list:][az-feature-list]
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomKubeletIdentityPreview')].{Name:name,State:properties.state}"
+```
+
+Gdy wszystko będzie gotowe, odśwież rejestrację dostawcy *zasobów Microsoft.ContainerService* za pomocą [polecenia az provider register:][az-provider-register]
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### <a name="create-or-obtain-managed-identities"></a>Tworzenie lub uzyskiwanie tożsamości zarządzanych
+
+Jeśli nie masz jeszcze tożsamości zarządzanej na płaszczyźnie kontroli, musisz utworzyć tożsamość. W poniższym przykładzie użyto [polecenia az identity create:][az-identity-create]
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+
+Wynik powinien wyglądać tak:
+
+```output
+{                                  
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+Jeśli nie masz jeszcze tożsamości zarządzanej kubelet, musisz utworzyć tożsamość. W poniższym przykładzie użyto [polecenia az identity create:][az-identity-create]
+
+```azurecli-interactive
+az identity create --name myKubeletIdentity --resource-group myResourceGroup
+```
+
+Wynik powinien wyglądać tak:
+
+```output
+{
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+  "location": "westus2",
+  "name": "myKubeletIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+Jeśli istniejąca tożsamość zarządzana jest częścią subskrypcji, możesz użyć polecenia [az identity list,][az-identity-list] aby ją odpytywać:
+
+```azurecli-interactive
+az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
+```
+
+### <a name="create-a-cluster-using-kubelet-identity"></a>Tworzenie klastra przy użyciu tożsamości kubelet
+
+Teraz możesz użyć następującego polecenia, aby utworzyć klaster z istniejącymi tożsamościami. Podaj identyfikator tożsamości płaszczyzny sterowania za pośrednictwem `assign-identity` i tożsamość zarządzaną kubelet za pośrednictwem : `assign-kublet-identity`
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 \
+    --enable-managed-identity \
+    --assign-identity <identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id> \
+```
+
+Pomyślne utworzenie klastra przy użyciu własnej tożsamości zarządzanej kubelet zawiera następujące dane wyjściowe:
+
+```output
+  "identity": {
+    "principalId": null,
+    "tenantId": null,
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+        "clientId": "<client-id>",
+        "principalId": "<principal-id>"
+      }
+    }
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "<client-id>",
+      "objectId": "<object-id>",
+      "resourceId": "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity"
+    }
+  },
+```
+
 ## <a name="next-steps"></a>Następne kroki
-* Tworzenie klastrów z włączoną [obsługą tożsamości zarządzanej przy ][aks-arm-template] użyciu szablonów usługi Azure Resource Manager (ARM).
+* Tworzenie [klastrów z włączoną ][aks-arm-template] obsługą tożsamości zarządzanej przy użyciu Azure Resource Manager szablonów.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+
+<!-- LINKS - internal -->
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-identity-list]: /cli/azure/identity#az_identity_list
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

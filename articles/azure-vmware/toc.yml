@@ -179,7 +179,7 @@
     - name: Interfejs API REST
       href: /rest/api/avs
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/vmware/vmware
+      href: /cli/azure/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
     - name: Dostawca programu Terraform na platformie Azure

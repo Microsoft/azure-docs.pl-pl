@@ -1,167 +1,167 @@
 ---
-title: Skonfiguruj zagregowaną przestrzeń nazw pamięci podręcznej platformy Azure HPC
-description: Jak utworzyć ścieżki związane z klientem dla magazynu zaplecza za pomocą pamięci podręcznej platformy Azure HPC
+title: Konfigurowanie zagregowanej Azure HPC Cache nazw
+description: Jak tworzyć ścieżki dla klientów dla magazynu za pomocą usługi Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5427389f007b7598274d35425a9b3e8e10a63e49
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2cb8db4e73a8f4fa299031070bffc15a2b754d7e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798531"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870377"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Konfigurowanie zagregowanej przestrzeni nazw
 
-Po utworzeniu obiektów docelowych magazynu należy również utworzyć dla nich ścieżki przestrzeni nazw. Maszyny klienckie używają tych ścieżek wirtualnych do uzyskiwania dostępu do plików za pomocą pamięci podręcznej zamiast bezpośredniego łączenia się z magazynem zaplecza. Ten system pozwala administratorom pamięci podręcznej zmieniać systemy przechowywania zaplecza bez konieczności ponownego zapisywania instrukcji klienta.
+Po utworzeniu obiektów docelowych magazynu należy również utworzyć dla nich ścieżki przestrzeni nazw. Maszyny klienckie używają tych ścieżek wirtualnych do uzyskiwania dostępu do plików za pośrednictwem pamięci podręcznej zamiast bezpośredniego nawiązywania połączenia z magazynem za pomocą serwera. Ten system umożliwia administratorom pamięci podręcznej zmianę systemów magazynowania na zakładzie bez konieczności ponownego pisali instrukcje klienta.
 
-Zapoznaj się z tematem [Planowanie zagregowanej przestrzeni nazw](hpc-cache-namespace.md) , aby dowiedzieć się więcej o tej funkcji.
+Przeczytaj [temat Planowanie zagregowanej przestrzeni nazw,](hpc-cache-namespace.md) aby dowiedzieć się więcej o tej funkcji.
 
-Na stronie **przestrzeń nazw** w Azure Portal są wyświetlane ścieżki używane przez klientów do uzyskiwania dostępu do danych za pomocą pamięci podręcznej. Ta strona służy do tworzenia, usuwania i zmieniania ścieżek przestrzeni nazw. Ścieżki przestrzeni nazw można również skonfigurować za pomocą interfejsu wiersza polecenia platformy Azure.
+Na **stronie Przestrzeń** nazw w Azure Portal ścieżki, których klienci używają do uzyskiwania dostępu do danych za pośrednictwem pamięci podręcznej. Ta strona umożliwia tworzenie, usuwanie lub zmienianie ścieżek przestrzeni nazw. Ścieżki przestrzeni nazw można również skonfigurować przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-Wszystkie ścieżki dotyczące klientów, które zostały zdefiniowane dla tej pamięci podręcznej, są wymienione na stronie **przestrzeni nazw** . Cele magazynu, które nie mają zdefiniowanych ścieżek przestrzeni nazw, nie są jeszcze wyświetlane w tabeli.
+Wszystkie ścieżki dostępne dla klienta, które zostały zdefiniowane dla tej pamięci podręcznej, są wyświetlane na **stronie Przestrzeń** nazw. Obiekty docelowe magazynu, które nie mają jeszcze zdefiniowanych ścieżek przestrzeni nazw, nie są wyświetlane w tabeli.
 
-Można sortować kolumny tabeli, aby lepiej zrozumieć zagregowaną przestrzeń nazw pamięci podręcznej. Kliknij strzałki w nagłówkach kolumn, aby posortować ścieżki.
+Kolumny tabeli można sortować, aby lepiej zrozumieć zagregowaną przestrzeń nazw pamięci podręcznej. Kliknij strzałki w nagłówkach kolumn, aby posortować ścieżki.
 
-[![zrzut ekranu przedstawiający stronę przestrzeni nazw portalu z dwiema ścieżkami w tabeli. Nagłówki kolumn: ścieżka przestrzeni nazw, miejsce docelowe magazynu, ścieżka eksportu i podkatalog eksportu oraz zasady dostępu klienta. Nazwy ścieżek w pierwszej kolumnie są łączami kliknięcia. Górne przyciski: Dodaj ścieżkę przestrzeni nazw, Odśwież, Usuń ](media/namespace-page.png)](media/namespace-page.png#lightbox)
+[![zrzut ekranu przedstawiający stronę przestrzeni nazw portalu z dwiema ścieżkami w tabeli. Nagłówki kolumn: ścieżka przestrzeni nazw, miejsce docelowe magazynu, ścieżka eksportu i podkatalog Eksportuj oraz zasady dostępu klienta. Nazwy ścieżek w pierwszej kolumnie są linkami, które można klikać. Najważniejsze przyciski: Dodawanie ścieżki przestrzeni nazw, odświeżanie, usuwanie ](media/namespace-page.png)](media/namespace-page.png#lightbox)
 
 ## <a name="add-or-edit-namespace-paths"></a>Dodawanie lub edytowanie ścieżek przestrzeni nazw
 
-Aby klienci mogli uzyskać dostęp do miejsca docelowego magazynu, należy utworzyć co najmniej jedną ścieżkę przestrzeni nazw. (Aby uzyskać więcej informacji o dostępie klientów, zobacz temat [Instalowanie pamięci podręcznej platformy Azure HPC](hpc-cache-mount.md) ).
+Zanim klienci będą mieć dostęp do miejsca docelowego magazynu, należy utworzyć co najmniej jedną ścieżkę przestrzeni nazw. (Przeczytaj [temat Mount the Azure HPC Cache](hpc-cache-mount.md) for more about client access (Zainstaluj Azure HPC Cache więcej informacji o dostępie klienta).
 
-Jeśli ostatnio dodano docelowy magazyn lub dostosowano zasady dostępu, może upłynąć minutę lub dwie, aby można było utworzyć ścieżkę przestrzeni nazw.
+Jeśli niedawno dodano miejsce docelowe magazynu lub dostosowano zasady dostępu, utworzenie ścieżki przestrzeni nazw może potrwać minutę lub dwie.
 
-### <a name="blob-namespace-paths"></a>Ścieżki przestrzeni nazw obiektów BLOB
+### <a name="blob-namespace-paths"></a>Ścieżki przestrzeni nazw obiektów blob
 
-Obiekt docelowy magazynu obiektów blob platformy Azure może mieć tylko jedną ścieżkę przestrzeni nazw.
+Obiekt docelowy usługi Azure Blob Storage może mieć tylko jedną ścieżkę przestrzeni nazw.
 
-Postępuj zgodnie z poniższymi instrukcjami, aby ustawić lub zmienić ścieżkę do Azure Portal lub interfejsu wiersza polecenia platformy Azure.
+Postępuj zgodnie z poniższymi instrukcjami, aby ustawić lub zmienić ścieżkę za pomocą interfejsu Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Na Azure Portal Załaduj stronę ustawienia **przestrzeni nazw** . Na tej stronie można dodawać, zmieniać i usuwać ścieżki przestrzeni nazw.
+Z poziomu Azure Portal załaduj stronę **Ustawienia** przestrzeni nazw. Na tej stronie możesz dodawać, zmieniać lub usuwać ścieżki przestrzeni nazw.
 
-* **Dodaj nową ścieżkę:** Kliknij przycisk **+ Dodaj** znajdujący się u góry i Wypełnij informacje w panelu Edycja.
+* **Dodaj nową ścieżkę:** Kliknij przycisk **+ Dodaj** u góry i wypełnij informacje w panelu edycji.
 
-  ![Zrzut ekranu przedstawiający pola edycji Dodaj przestrzeń nazw z wybranym obiektem docelowym magazynu obiektów BLOB. Ścieżki eksportu i podkatalogu są ustawione na/i nie można ich edytować.](media/namespace-add-blob.png)
+  ![Zrzut ekranu przedstawiający dodawanie pól edycji przestrzeni nazw z wybranym obiektem docelowym magazynu obiektów blob. Ścieżki eksportu i podkatalogu są ustawione na / i nie można ich edytować.](media/namespace-add-blob.png)
 
-  * Wprowadź ścieżkę, która będzie używana przez klientów w celu uzyskania dostępu do tego miejsca docelowego magazynu.
+  * Wprowadź ścieżkę używaną przez klientów do uzyskiwania dostępu do tego miejsca docelowego magazynu.
 
-  * Wybierz zasady dostępu, które mają być używane dla tej ścieżki. Dowiedz się więcej o dostosowywaniu dostępu klientów w temacie [Korzystanie z zasad dostępu klienta](access-policies.md).
+  * Wybierz zasady dostępu do użycia dla tej ścieżki. Aby dowiedzieć się więcej na temat dostosowywania dostępu klienta, [zobacz Korzystanie z zasad dostępu klienta.](access-policies.md)
 
-  * Wybierz miejsce docelowe magazynu z listy rozwijanej. Jeśli obiekt docelowy magazynu obiektów BLOB ma już ścieżkę przestrzeni nazw, nie można go wybrać.
+  * Wybierz miejsce docelowe magazynu z listy rozwijanej. Jeśli miejsce docelowe magazynu obiektów blob ma już ścieżkę przestrzeni nazw, nie można jej wybrać.
 
-  * W przypadku celu usługi Azure Blob Storage ścieżki eksportu i podkatalogu są automatycznie ustawiane na ``/`` .
+  * W przypadku obiektu docelowego usługi Azure Blob Storage ścieżki eksportu i podkatalogu są automatycznie ustawiane na ``/`` wartość .
 
-* **Zmień istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edycji. Można zmodyfikować ścieżkę i zasady dostępu, ale nie można zmienić innego miejsca docelowego magazynu.
+* **Zmień istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edycji. Można zmodyfikować ścieżkę i zasady dostępu, ale nie można zmienić na inny docelowy magazyn.
 
-* **Usuń ścieżkę przestrzeni nazw:** Zaznacz pole wyboru po lewej stronie ścieżki, a następnie kliknij przycisk **Usuń** .
+* **Usuń ścieżkę przestrzeni nazw:** Zaznacz pole wyboru po lewej stronie ścieżki i kliknij **przycisk** Usuń.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
+[Skonfiguruj interfejs wiersza polecenia platformy Azure dla Azure HPC Cache](./az-cli-prerequisites.md).
 
-W przypadku korzystania z interfejsu wiersza polecenia platformy Azure należy dodać ścieżkę przestrzeni nazw podczas tworzenia miejsca docelowego magazynu. Aby uzyskać szczegółowe informacje, przeczytaj artykuł [Dodawanie nowego miejsca docelowego usługi Azure Blob Storage](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) .
+W przypadku korzystania z interfejsu wiersza polecenia platformy Azure należy dodać ścieżkę przestrzeni nazw podczas tworzenia obiektu docelowego magazynu. Przeczytaj [temat Dodawanie nowego obiektu docelowego usługi Azure Blob Storage,](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) aby uzyskać szczegółowe informacje.
 
-Aby zaktualizować ścieżkę przestrzeni nazw obiektu docelowego, użyj polecenia [AZ HPC-cache BLOB-Storage-Target](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) . Argumenty polecenia Update są podobne do argumentów w poleceniu Create, z tą różnicą, że nie są przekazywane nazwy kontenera lub konta magazynu.
+Aby zaktualizować ścieżkę przestrzeni nazw obiektu docelowego, użyj [polecenia az hpc-cache blob-storage-target update.](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update) Argumenty polecenia update są podobne do argumentów w poleceniu create, z tą różnicą, że nazwa kontenera lub konto magazynu nie są przekazywać.
 
-Nie można usunąć ścieżki przestrzeni nazw z docelowego obiektu BLOB Storage za pomocą interfejsu wiersza polecenia platformy Azure, ale można zastąpić ścieżkę inną wartością.
+Nie można usunąć ścieżki przestrzeni nazw z obiektu docelowego magazynu obiektów blob za pomocą interfejsu wiersza polecenia platformy Azure, ale ścieżkę można zastąpić inną wartością.
 
 ---
 
 ### <a name="nfs-namespace-paths"></a>Ścieżki przestrzeni nazw NFS
 
-Obiekt docelowy magazynu NFS może mieć wiele ścieżek wirtualnych, o ile każda ścieżka reprezentuje inny eksport lub podkatalog w tym samym systemie magazynu.
+Obiekt docelowy magazynu NFS może mieć wiele ścieżek wirtualnych, o ile każda ścieżka reprezentuje inny eksport lub podkatalog w tym samym systemie magazynowania.
 
-Planując przestrzeń nazw dla miejsca docelowego magazynu NFS, należy pamiętać, że każda ścieżka musi być unikatowa i nie może być podkatalogiem innej ścieżki przestrzeni nazw. Na przykład jeśli masz ścieżkę przestrzeni nazw, która jest wywoływana ``/parent-a`` , nie można również tworzyć ścieżek przestrzeni nazw, takich jak ``/parent-a/user1`` i ``/parent-a/user2`` . Te ścieżki katalogów są już dostępne w przestrzeni nazw jako podkatalogi ``/parent-a`` .
+Podczas planowania przestrzeni nazw dla obiektu docelowego magazynu NFS należy pamiętać, że każda ścieżka musi być unikatowa i nie może być podkatalogami innej ścieżki przestrzeni nazw. Jeśli na przykład masz ścieżkę przestrzeni nazw o nazwie , nie możesz również tworzyć ścieżek ``/parent-a`` przestrzeni nazw, takich ``/parent-a/user1`` jak i ``/parent-a/user2`` . Te ścieżki katalogów są już dostępne w przestrzeni nazw jako podkatalogi ``/parent-a`` .
 
-Wszystkie ścieżki przestrzeni nazw dla systemu magazynu NFS są tworzone w jednym miejscu docelowym magazynu. Większość konfiguracji pamięci podręcznej może obsługiwać do dziesięciu ścieżek przestrzeni nazw na miejsce docelowe magazynu, ale większa konfiguracja może obsłużyć do 20.
+Wszystkie ścieżki przestrzeni nazw dla systemu magazynu NFS są tworzone na jednym docelowym magazynie. Większość konfiguracji pamięci podręcznej może obsługiwać maksymalnie dziesięć ścieżek przestrzeni nazw na obiekt docelowy magazynu, ale większe konfiguracje mogą obsługiwać do 20.
 
 Ta lista zawiera maksymalną liczbę ścieżek przestrzeni nazw na konfigurację.
 
-* Do 2 GB/s przepływności:
+* Przepływność do 2 GB/s:
 
   * 3 TB pamięci podręcznej — 10 ścieżek przestrzeni nazw
   * 6 TB pamięci podręcznej — 10 ścieżek przestrzeni nazw
-  * 12 TB pamięci podręcznej-20 ścieżek przestrzeni nazw
+  * 12 TB pamięci podręcznej — 20 ścieżek przestrzeni nazw
 
-* Do 4 GB/s przepływności:
+* Przepływność do 4 GB/s:
 
   * 6 TB pamięci podręcznej — 10 ścieżek przestrzeni nazw
   * 12 TB pamięci podręcznej — 10 ścieżek przestrzeni nazw
-  * 24 TB pamięci podręcznej-20 ścieżek przestrzeni nazw
+  * 24 TB pamięci podręcznej — 20 ścieżek przestrzeni nazw
 
-* Do 8 GB/s przepływności:
+* Przepływność do 8 GB/s:
 
   * 12 TB pamięci podręcznej — 10 ścieżek przestrzeni nazw
   * 24 TB pamięci podręcznej — 10 ścieżek przestrzeni nazw
-  * 48 TB pamięci podręcznej-20 ścieżek przestrzeni nazw
+  * 48 TB pamięci podręcznej — 20 ścieżek przestrzeni nazw
 
-Dla każdej ścieżki przestrzeni nazw systemu plików NFS podaj ścieżkę dostępną dla klienta, eksport systemu magazynu i opcjonalnie podkatalog eksportu.
+Dla każdej ścieżki przestrzeni nazw systemu plików NFS podaj ścieżkę klienta, eksport systemu magazynowania i opcjonalnie podkatalog eksportu.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Na Azure Portal Załaduj stronę ustawienia **przestrzeni nazw** . Na tej stronie można dodawać, edytować lub usuwać ścieżki przestrzeni nazw.
+Z poziomu Azure Portal załaduj stronę **Ustawienia** przestrzeni nazw. Na tej stronie możesz dodawać, edytować lub usuwać ścieżki przestrzeni nazw.
 
-* **Aby dodać nową ścieżkę:** Kliknij przycisk **+ Dodaj** znajdujący się u góry i Wypełnij informacje w panelu Edycja.
-* **Aby zmienić istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edycji i można zmodyfikować ścieżkę.
-* **Aby usunąć ścieżkę przestrzeni nazw:** Zaznacz pole wyboru po lewej stronie ścieżki, a następnie kliknij przycisk **Usuń** .
+* **Aby dodać nową ścieżkę:** Kliknij przycisk **+ Dodaj** u góry i wypełnij informacje w panelu edycji.
+* **Aby zmienić istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edytowania, w przypadku których można zmodyfikować ścieżkę.
+* **Aby usunąć ścieżkę przestrzeni nazw:** Zaznacz pole wyboru po lewej stronie ścieżki i kliknij **przycisk** Usuń.
 
-Wypełnij te wartości dla każdej ścieżki przestrzeni nazw:
+Wypełnij następujące wartości dla każdej ścieżki przestrzeni nazw:
 
-* **Ścieżka przestrzeni nazw** — ścieżka pliku po stronie klienta.
+* **Ścieżka przestrzeni** nazw — ścieżka pliku klienta.
 
-* **Zasady dostępu klienta** — wybierz zasady dostępu, które mają być używane dla tej ścieżki. Dowiedz się więcej o dostosowywaniu dostępu klientów w temacie [Korzystanie z zasad dostępu klienta](access-policies.md).
+* **Zasady dostępu klienta —** wybierz zasady dostępu do użycia dla tej ścieżki. Aby dowiedzieć się więcej na temat dostosowywania dostępu klienta, [zobacz Korzystanie z zasad dostępu klienta.](access-policies.md)
 
-* **Docelowy magazyn** — w przypadku tworzenia nowej ścieżki przestrzeni nazw wybierz miejsce docelowe magazynu z menu rozwijanego.
+* **Miejsce docelowe** magazynu — w przypadku tworzenia nowej ścieżki przestrzeni nazw wybierz miejsce docelowe magazynu z menu rozwijanego.
 
-* **Ścieżka eksportu** — wprowadź ścieżkę do eksportu systemu plików NFS. Upewnij się, że nazwa eksportu została prawidłowo wpisana — Portal sprawdza poprawność składni dla tego pola, ale nie sprawdza eksportu do momentu przesłania zmiany.
+* **Ścieżka eksportu** — wprowadź ścieżkę do eksportu systemu plików NFS. Pamiętaj o prawidłowym wpisaniu nazwy eksportu — portal weryfikuje składnię tego pola, ale nie sprawdza eksportu, dopóki nie zostanie przesłana zmiana.
 
-* **Wyeksportuj podkatalog** — Jeśli chcesz, aby ta ścieżka instalowała określony podkatalog eksportu, wprowadź ją w tym miejscu. Jeśli nie, pozostaw to pole puste.
+* **Podkatalog eksportu** — jeśli chcesz, aby ta ścieżka zainstaluje określony podkatalog eksportu, wprowadź go tutaj. Jeśli nie, pozostaw to pole puste.
 
-![zrzut ekranu strony przestrzeni nazw portalu z otwartą stroną Edytuj po prawej stronie. Formularz edycji pokazuje ustawienia ścieżki przestrzeni nazw docelowej magazynu NFS](media/namespace-edit-nfs.png)
+![zrzut ekranu przedstawiający stronę przestrzeni nazw portalu z otwartą stroną edycji po prawej stronie. Formularz edycji zawiera ustawienia ścieżki docelowej przestrzeni nazw magazynu nfs](media/namespace-edit-nfs.png)
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-[Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC](./az-cli-prerequisites.md).
+[Skonfiguruj interfejs wiersza polecenia platformy Azure dla Azure HPC Cache](./az-cli-prerequisites.md).
 
-W przypadku korzystania z interfejsu wiersza polecenia platformy Azure podczas tworzenia miejsca docelowego magazynu należy dodać co najmniej jedną ścieżkę przestrzeni nazw. Aby uzyskać szczegółowe informacje, przeczytaj temat [Dodawanie nowego miejsca docelowego magazynu NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) .
+W przypadku korzystania z interfejsu wiersza polecenia platformy Azure podczas tworzenia miejsca docelowego magazynu należy dodać co najmniej jedną ścieżkę przestrzeni nazw. Aby uzyskać szczegółowe informacje, zobacz Dodawanie nowego obiektu [docelowego magazynu NFS.](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target)
 
-Aby zaktualizować ścieżkę przestrzeni nazw obiektu docelowego lub dodać dodatkowe ścieżki, użyj polecenia [AZ HPC-cache NFS-Storage-Target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) . Użyj ``--junction`` opcji, aby określić wszystkie ścieżki przestrzeni nazw, które chcesz.
+Aby zaktualizować ścieżkę przestrzeni nazw obiektu docelowego lub dodać dodatkowe ścieżki, użyj [polecenia az hpc-cache nfs-storage-target update.](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update) Użyj opcji ``--junction`` , aby określić wszystkie ścieżki przestrzeni nazw.
 
-Opcje używane dla polecenia Update są podobne do polecenia "Create", z tą różnicą, że nie są przekazywane informacje o systemie magazynu (adres IP lub nazwa hosta), a model użycia jest opcjonalny. Aby uzyskać więcej informacji na temat składni opcji, przeczytaj artykuł [Dodawanie nowego miejsca docelowego magazynu NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) ``--junction`` .
+Opcje używane dla polecenia aktualizacji są podobne do polecenia "create", z tą różnicą, że nie są używane informacje o systemie magazynu (adres IP lub nazwa hosta), a model użycia jest opcjonalny. Przeczytaj temat Add a new NFS storage target (Dodawanie nowego obiektu docelowego magazynu [NFS),](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) aby uzyskać więcej informacji o składni ``--junction`` opcji .
 
 ---
 
 ### <a name="adls-nfs-namespace-paths-preview"></a>Ścieżki przestrzeni nazw ADLS-NFS (wersja zapoznawcza)
 
-Podobnie jak w przypadku zwykłego miejsca docelowego magazynu obiektów blob, magazyn ADLS systemu plików NFS ma tylko jeden eksport, więc może mieć tylko jedną ścieżkę przestrzeni nazw.
+Podobnie jak w przypadku zwykłego obiektu docelowego magazynu obiektów blob, obiekt docelowy magazynu ADLS-NFS ma tylko jeden eksport, więc może mieć tylko jedną ścieżkę przestrzeni nazw.
 
-Postępuj zgodnie z poniższymi instrukcjami, aby ustawić lub zmienić ścieżkę Azure Portal.
+Postępuj zgodnie z poniższymi instrukcjami, aby ustawić lub zmienić ścieżkę za pomocą Azure Portal.
 
-Załaduj stronę ustawienia **przestrzeni nazw** .
+Załaduj **stronę Ustawienia** przestrzeni nazw.
 
-* **Dodaj nową ścieżkę:** Kliknij przycisk **+ Dodaj** znajdujący się u góry i Wypełnij informacje w panelu Edycja.
+* **Dodaj nową ścieżkę:** Kliknij przycisk **+ Dodaj** u góry i wypełnij informacje w panelu edycji.
 
-  ![Zrzut ekranu przedstawiający pola edycji Dodawanie przestrzeni nazw z wybranym miejscem docelowym magazynu ADLS-NFS. Ścieżki eksportu i podkatalogu są ustawione na/i nie można ich edytować.](media/namespace-add-adls.png)
+  ![Zrzut ekranu przedstawiający dodawanie pól edycji przestrzeni nazw z wybranym obiektem docelowym magazynu ADLS-NFS. Ścieżki eksportu i podkatalogu są ustawione na / i nie można ich edytować.](media/namespace-add-adls.png)
 
-  * Wprowadź ścieżkę, która będzie używana przez klientów w celu uzyskania dostępu do tego miejsca docelowego magazynu.
+  * Wprowadź ścieżkę używaną przez klientów do uzyskiwania dostępu do tego miejsca docelowego magazynu.
 
-  * Wybierz zasady dostępu, które mają być używane dla tej ścieżki. Dowiedz się więcej o dostosowywaniu dostępu klientów w temacie [Korzystanie z zasad dostępu klienta](access-policies.md).
+  * Wybierz zasady dostępu do użycia dla tej ścieżki. Aby dowiedzieć się więcej na temat dostosowywania dostępu klienta, [zobacz Korzystanie z zasad dostępu klienta.](access-policies.md)
 
   * Wybierz miejsce docelowe magazynu z listy rozwijanej. Jeśli miejsce docelowe magazynu ADLS-NFS ma już ścieżkę przestrzeni nazw, nie można go wybrać.
 
-  * Dla obiektu docelowego magazynu ADLS-NFS ścieżki eksportu i podkatalogu są automatycznie ustawiane na ``/`` .
+  * W przypadku obiektu docelowego magazynu ADLS-NFS ścieżki eksportu i podkatalogu są automatycznie ustawiane na ``/`` wartość .
 
-* **Zmień istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edycji. Można zmodyfikować ścieżkę i zasady dostępu, ale nie można zmienić innego miejsca docelowego magazynu.
+* **Zmień istniejącą ścieżkę:** Kliknij ścieżkę przestrzeni nazw. Zostanie otwarty panel edycji. Można zmodyfikować ścieżkę i zasady dostępu, ale nie można zmienić na inny docelowy magazyn.
 
-* **Usuń ścieżkę przestrzeni nazw:** Zaznacz pole wyboru po lewej stronie ścieżki, a następnie kliknij przycisk **Usuń** .
+* **Usuń ścieżkę przestrzeni nazw:** Zaznacz pole wyboru po lewej stronie ścieżki i kliknij **przycisk** Usuń.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzeniu zagregowanej przestrzeni nazw dla obiektów docelowych magazynu można instalować klientów w pamięci podręcznej. Przeczytaj te artykuły, aby dowiedzieć się więcej.
+Po utworzeniu zagregowanej przestrzeni nazw dla obiektów docelowych magazynu można zainstalować klientów w pamięci podręcznej. Przeczytaj te artykuły, aby dowiedzieć się więcej.
 
 * [Instalowanie pamięci podręcznej usługi Azure HPC Cache](hpc-cache-mount.md)
 * [Przenoszenie danych do usługi Azure Blob Storage](hpc-cache-ingest.md)

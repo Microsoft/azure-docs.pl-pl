@@ -2,7 +2,7 @@
   href: index.yml
 - name: Omówienie
   href: overview.md
-- name: Co nowego w Azure Sentinel?
+- name: Co nowego w programie Azure Sentinel?
   href: whats-new.md
 - name: Przewodniki Szybki start
   expanded: true
@@ -53,7 +53,7 @@
       href: import-threat-intelligence.md
     - name: Korzystanie z własnej platformy uczenia maszynowego
       href: bring-your-own-ml.md
-    - name: Integrowanie usługi Microsoft 365 Defender z Azure Sentinel
+    - name: Integracja usługi Microsoft 365 Defender z Azure Sentinel
       href: microsoft-365-defender-sentinel-integration.md
     - name: Używanie danych zewnętrznych z listami obserwowanych
       href: watchlists.md
@@ -96,9 +96,11 @@
               href: connect-azure-kubernetes-service.md
             - name: Dzienniki bazy danych Azure SQL Database
               href: connect-azure-sql-logs.md
+            - name: Konta usługi Azure Storage
+              href: connect-azure-storage-account.md
             - name: Zapora aplikacji internetowej platformy Azure
               href: connect-azure-waf.md
-            - name: Defender dla IoT (wcześniej ASC for IoT)
+            - name: Defender dla IoT (dawniej ASC for IoT)
               href: connect-asc-iot.md
             - name: Serwer nazw domen
               href: connect-dns.md
@@ -180,7 +182,7 @@
               href: connect-qualys-vm.md
             - name: Salesforce Service Cloud
               href: connect-salesforce-service-cloud.md
-            - name: Sophos Cloud Dox
+            - name: Sophos Cloud Chmura
               href: connect-sophos-cloud-optix.md
             - name: Sophos XG Firewall
               href: connect-sophos-xg-firewall.md
@@ -238,7 +240,7 @@
                       href: connect-fortinet.md
                     - name: Illusive Networks AMS
                       href: connect-illusive-attack-management-system.md
-                    - name: Imperva WAF Gateway
+                    - name: Brama imperva WAF
                       href: connect-imperva-waf-gateway.md
                     - name: Łączenie z rozwiązaniem One Identity Safeguard
                       href: connect-one-identity.md
@@ -295,10 +297,10 @@
       href: offboard.md
 - name: Odwołanie
   items:
-    - name: Najważniejsze Azure Sentinel skoroszytów
+    - name: Najważniejsze Azure Sentinel skoroszyty
       href: top-workbooks.md
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/sentinel/sentinel
+      href: /cli/azure/sentinel
     - name: Role RBAC platformy Azure
       items:
         - name: Wszystkie role platformy Azure
@@ -327,7 +329,7 @@
           href: /azure/data-explorer/kusto/query/
         - name: Krótki przewodnik po języku zapytań Kusto
           href: /azure/data-explorer/kql-quick-reference
-        - name: Azure Monitor zapytań dziennika
+        - name: Azure Monitor optymalizacji zapytań dziennika
           href: ../azure-monitor/logs/query-optimization.md
     - name: Wzbogacanie z użyciem analizy behawioralnej użytkowników i jednostek
       href: ueba-enrichments.md

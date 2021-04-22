@@ -1,14 +1,14 @@
 ---
-title: 'Szybki Start: tworzenie centrum zdarzeń przy użyciu programu PowerShell — Event Hubs platformy Azure'
+title: 'Szybki start: tworzenie centrum zdarzeń przy użyciu programu PowerShell — Azure Event Hubs'
 description: Ten przewodnik Szybki start przedstawia tworzenie centrum zdarzeń za pomocą programu Azure PowerShell oraz wysyłanie i odbieranie zdarzeń za pomocą zestawu .NET Standard SDK.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c81024a9195e463eeaaf384d5cbbd1e0054c485
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be2761bedd3198d25cb279e6a8ff188db6a51de2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88933974"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873779"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Szybki start: tworzenie centrum zdarzeń za pomocą programu Azure PowerShell
 
@@ -22,13 +22,13 @@ W tym przewodniku Szybki start utworzysz centrum zdarzeń za pomocą programu Az
 
 Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następującymi elementami:
 
-- Subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [Utwórz bezpłatne konto][] .
-- [Program Visual Studio 2019](https://www.visualstudio.com/vs).
-- [Zestaw .NET Standard SDK](https://www.microsoft.com/net/download/windows) w wersji 2.0 lub nowszej.
+- Subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [utwórz][] bezpłatne konto.
+- [Visual Studio 2019 r.](https://www.visualstudio.com/vs)
+- [zestaw .NET Core SDK](https://dotnet.microsoft.com/download), wersja 2.0 lub nowsza.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli używasz programu PowerShell lokalnie, musisz uruchomić najnowszą wersję programu PowerShell, aby ukończyć ten przewodnik Szybki start. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/install-az-ps).
+Jeśli używasz programu PowerShell lokalnie, musisz uruchomić najnowszą wersję programu PowerShell, aby ukończyć ten przewodnik Szybki start. Jeśli musisz zainstalować lub uaktualnić program , zobacz [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -61,7 +61,7 @@ Gratulacje! Za pomocą programu Azure PowerShell utworzono przestrzeń nazw usł
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego artykułu utworzono przestrzeń nazw usługi Event Hubs oraz użyto aplikacji przykładowych do wysyłania zdarzeń do centrum zdarzeń i odbierania ich z niego. Aby uzyskać instrukcje krok po kroku dotyczące wysyłania zdarzeń do (lub) odbierania zdarzeń z centrum zdarzeń, zobacz samouczki **wysyłania i odbierania zdarzeń** : 
+W ramach tego artykułu utworzono przestrzeń nazw usługi Event Hubs oraz użyto aplikacji przykładowych do wysyłania zdarzeń do centrum zdarzeń i odbierania ich z niego. Aby uzyskać instrukcje krok po kroku dotyczące wysyłania zdarzeń do (lub) odbierania zdarzeń z centrum zdarzeń, zobacz samouczki Wysyłanie i odbieranie zdarzeń:  
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
@@ -72,7 +72,7 @@ W ramach tego artykułu utworzono przestrzeń nazw usługi Event Hubs oraz użyt
 - [Apache Storm (tylko odbieranie)](event-hubs-storm-getstarted-receive.md)
 
 
-[Utwórz bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[tworzenie bezpłatnego konta]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: /powershell/azure/install-az-ps
 [New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

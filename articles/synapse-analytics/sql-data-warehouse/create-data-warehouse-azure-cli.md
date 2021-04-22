@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: jrasnick
 ms.custom: azure-synapse, devx-track-azurecli
-ms.openlocfilehash: 532c06cc49f9fddab09c6678ee5fff9fe32347cb
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 712405ec7ba61e05bb587efc3e6393192d820e97
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565937"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865499"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>Szybki start: tworzenie puli Synapse SQL za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -77,43 +77,43 @@ Utwórz pulę SQL. W tym przykładzie użyto dw100c jako celu usługi, który je
 > [!NOTE]
 > Potrzebujesz wcześniej utworzonego obszaru roboczego. Aby uzyskać więcej informacji, zobacz Szybki start: tworzenie obszaru roboczego [usługi Azure Synapse przy użyciu interfejsu wiersza polecenia platformy Azure.](../quickstart-create-workspace-cli.md)
 
-Użyj polecenia [az synapse sql pool create,](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_create) aby utworzyć pulę SQL:
+Użyj polecenia [az synapse sql pool create,](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_create) aby utworzyć pulę SQL:
 
 ```azurecli
 az synapse sql pool create --resource-group myResourceGroup --name mySampleDataWarehouse \
    --performance-level "DW1000c" --workspace-name testsynapseworkspace
 ```
 
-Aby uzyskać więcej informacji na temat opcji parametrów, zobacz [az synapse sql pool](/cli/azure/ext/synapse/synapse/sql/pool).
+Aby uzyskać więcej informacji na temat opcji parametrów, zobacz [az synapse sql pool](/cli/azure/synapse/sql/pool).
 
-Pule SQL można wyświetlić za pomocą [polecenia az synapse sql pool list:](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_list)
+Pule SQL można wyświetlić za pomocą [polecenia az synapse sql pool list:](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_list)
 
 ```azurecli
 az synapse sql pool list --resource-group myResourceGroup --workspace-name testsynapseworkspace
 ```
 
-Użyj polecenia [az synapse sql pool update,](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_update) aby zaktualizować istniejącą pulę:
+Użyj polecenia [az synapse sql pool update,](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_update) aby zaktualizować istniejącą pulę:
 
 ```azurecli
 az synapse sql pool update --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Użyj polecenia [az synapse sql pool pause,](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_pause) aby wstrzymać pulę:
+Użyj polecenia [az synapse sql pool pause,](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_pause) aby wstrzymać pulę:
 
 ```azurecli
 az synapse sql pool pause --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Użyj polecenia [az synapse sql pool resume,](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_resume) aby uruchomić wstrzymaną pulę:
+Użyj polecenia [az synapse sql pool resume,](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_resume) aby uruchomić wstrzymaną pulę:
 
 ```azurecli
 az synapse sql pool resume --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Aby usunąć istniejącą pulę SQL, użyj [polecenia az synapse sql pool delete:](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_delete)
+Aby usunąć istniejącą pulę SQL, użyj [polecenia az synapse sql pool delete:](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_delete)
 
 ```azurecli
 az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataWarehouse \

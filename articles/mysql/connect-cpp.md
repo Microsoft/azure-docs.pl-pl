@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Łączenie przy użyciu języka C++ Azure Database for MySQL'
+title: 'Szybki start: nawiązywanie połączenia przy użyciu języka C++ — Azure Database for MySQL'
 description: Ten przewodnik Szybki start zawiera przykład kodu w języku C++, za pomocą którego można nawiązywać połączenie z danymi usługi Azure Database for MySQL i wykonywać zapytania względem nich.
 author: savjani
 ms.author: pariks
@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: e8b2842300e43a9de88cc0b9b3ae9ce6cd754612
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 723d3d3bfb36b17ebdacf9d5961b10071a12ab42
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94535847"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863465"
 ---
-# <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie łącznika/C++ do nawiązywania połączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
+# <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki start: używanie łącznika/języka C++ do nawiązywania połączeń z danymi i wykonywania na nich zapytań Azure Database for MySQL
 
-Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka C++. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak programować za pomocą języka C++, i dopiero zaczynasz pracę z Azure Database for MySQL.
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka C++. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak programować przy użyciu języka C++, i nie wiesz już, jak pracować z Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -26,27 +26,27 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Należy również:
-- Zainstalować program [.NET Framework](https://www.microsoft.com/net/download)
-- Zainstaluj [program Visual Studio](https://www.visualstudio.com/downloads/)
+- Zainstalować program [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)
+- Instalowanie [Visual Studio](https://www.visualstudio.com/downloads/)
 - Zainstalować [łącznik bazy danych MySQL/środowisko C++](https://dev.mysql.com/downloads/connector/cpp/) 
 - Zainstalować rozwiązanie [Boost](https://www.boost.org/)
 
 > [!IMPORTANT] 
-> Upewnij się, że adres IP, z którego nawiązywane jest połączenie, został dodany przy użyciu [Azure Portal](./howto-manage-firewall-using-portal.md) lub [interfejsu wiersza polecenia platformy Azure](./howto-manage-firewall-using-cli.md)
+> Upewnij się, że adres IP, z którego nawiązywane jest połączenie, został dodany do reguł zapory serwera przy użyciu interfejsu wiersza [Azure Portal](./howto-manage-firewall-using-portal.md) lub interfejsu wiersza [polecenia platformy Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-visual-studio-and-net"></a>Instalowanie programu Visual Studio i technologii .NET
-W krokach w tej sekcji założono, że wiesz już, jak programować za pomocą platformy .NET.
+W krokach w tej sekcji założono, że wiesz już, jak programuje się za pomocą programu .NET.
 
 ### <a name="windows"></a>**Windows**
-- Zainstaluj program Visual Studio 2019 Community. Program Visual Studio 2019 Community to w pełni funkcjonalne, rozszerzalne, bezpłatne środowisko IDE. Za pomocą tego środowiska IDE można tworzyć nowoczesne aplikacje dla aplikacji dla systemów Android, iOS, Windows, sieci Web i baz danych oraz usług w chmurze. Możesz zainstalować pełne środowisko .NET Framework lub tylko .NET Core: fragmenty kodu zamieszczone w podręczniku działają z obiema opcjami. Jeśli na komputerze masz już zainstalowany program Visual Studio, pomiń dwa następne kroki.
-   1. Pobierz [Instalatora programu Visual Studio 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
+- Zainstaluj Visual Studio 2019 Community. Visual Studio 2019 Community to bezpłatne, rozszerzalne, w pełni funkcjonalne, bezpłatne środowiska IDE. Za pomocą tego środowiska IDE można tworzyć nowoczesne aplikacje dla systemów Android, iOS, Windows, aplikacji internetowych i baz danych oraz usług w chmurze. Możesz zainstalować pełne środowisko .NET Framework lub tylko .NET Core: fragmenty kodu zamieszczone w podręczniku działają z obiema opcjami. Jeśli na komputerze masz już zainstalowany program Visual Studio, pomiń dwa następne kroki.
+   1. Pobierz [instalatora programu Visual Studio 2019.](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15) 
    2. Uruchom instalatora i postępuj zgodnie z wyświetlanymi monitami, aby ukończyć instalację.
 
 ### <a name="configure-visual-studio"></a>**Konfigurowanie programu Visual Studio**
-1. Z poziomu programu Visual Studio, właściwości > projektu-> konsolidator-> ogólne > dodatkowe katalogi biblioteki Dodaj katalog "\lib\opt" (na przykład: C:\Program Files (x86) \MySQL\MySQL Connector C++ 1.1.9 \ lib\opt) łącznika języka C++.
+1. W programie Visual Studio project -> Properties -> Linker -> General > Additional Library Directories (Właściwości projektu -> Linker -> General > Additional Library Directories) dodaj katalog "\lib\opt" (na przykład: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) łącznika języka C++.
 2. W programie Visual Studio w pozycji Projekt -> Właściwości -> C/C++ -> Ogólne -> Dodatkowe katalogi dyrektywy include:
-   - Dodaj katalog "\Include" łącznika języka c++ (na przykład: C:\Program Files (x86) \MySQL\MySQL łącznik C++ 1.1.9 \ include \) .
-   - Dodaj katalog główny biblioteki wzrostu (na przykład: C:\ boost_1_64_0 \) .
+   - Dodaj katalog "\include" łącznika języka C++ (na przykład: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include \) .
+   - Dodaj katalog główny biblioteki Boost (na przykład C:\boost_1_64_0 \) .
 3. W programie Visual Studio w lokalizacji Projekt -> Właściwości -> Konsolidator -> Wejście -> Dodatkowe zależności dodaj plik **mysqlcppconn.lib** w polu tekstowym.
 4. Skopiuj plik **mysqlcppconn.dll** z folderu biblioteki łącznika języka C++ utworzonego w kroku 3 do tego samego katalogu, w którym znajduje się plik wykonywalny aplikacji, albo dodaj go do zmiennej środowiskowej, aby aplikacja mogła go odnaleźć.
 
@@ -62,7 +62,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usług
 ## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
 Użyj poniższego kodu, aby nawiązać połączenie i załadować dane przy użyciu instrukcji **CREATE TABLE** i **INSERT INTO** języka SQL. Kod używa klasy sql::Driver z metodą connect() w celu ustanowienia połączenia z programem MySQL. Następnie kod używa metod createStatement() i execute(), aby uruchamiać polecenia bazy danych. 
 
-Zastąp parametry hosta, dbname, User i Password. Parametry można zastąpić wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zastąp parametry Host, DBName, User i Password. Parametry można zastąpić wartościami określonymi podczas tworzenia serwera i bazy danych. 
 
 ```c++
 #include <stdlib.h>
@@ -136,7 +136,7 @@ int main()
 
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL. Kod używa klasy sql::Driver z metodą connect() w celu ustanowienia połączenia z programem MySQL. Następnie kod używa metod prepareStatement() i executeQuery(), aby uruchamiać polecenia select. Następnie kod używa metody next() w celu przechodzenia do rekordów w wynikach. Na końcu kod używa metod getInt() i getString() w celu przeanalizowania wartości w rekordzie.
 
-Zastąp parametry hosta, dbname, User i Password. Parametry można zastąpić wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zastąp parametry Host, DBName, User i Password. Parametry można zastąpić wartościami określonymi podczas tworzenia serwera i bazy danych. 
 
 ```c++
 #include <stdlib.h>
@@ -195,7 +195,7 @@ int main()
 ## <a name="update-data"></a>Aktualizowanie danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **UPDATE** języka SQL. Kod używa klasy sql::Driver z metodą connect() w celu ustanowienia połączenia z programem MySQL. Następnie kod używa metod prepareStatement() i executeQuery(), aby uruchamiać polecenia update. 
 
-Zastąp parametry hosta, dbname, User i Password. Parametry można zastąpić wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zastąp parametry Host, DBName, User i Password. Parametry można zastąpić wartościami określonymi podczas tworzenia serwera i bazy danych. 
 
 ```c++
 #include <stdlib.h>
@@ -253,7 +253,7 @@ int main()
 ## <a name="delete-data"></a>Usuwanie danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **DELETE** języka SQL. Kod używa klasy sql::Driver z metodą connect() w celu ustanowienia połączenia z programem MySQL. Następnie kod używa metod prepareStatement() i executeQuery(), aby uruchamiać polecenia delete.
 
-Zastąp parametry hosta, dbname, User i Password. Parametry można zastąpić wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zastąp parametry Host, DBName, User i Password. Parametry można zastąpić wartościami określonymi podczas tworzenia serwera i bazy danych. 
 
 ```c++
 #include <stdlib.h>
@@ -310,7 +310,7 @@ int main()
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby wyczyścić wszystkie zasoby używane w ramach tego przewodnika Szybki Start, Usuń grupę zasobów przy użyciu następującego polecenia:
+Aby wyczyścić wszystkie zasoby używane w tym przewodniku Szybki start, usuń grupę zasobów przy użyciu następującego polecenia:
 
 ```azurecli
 az group delete \

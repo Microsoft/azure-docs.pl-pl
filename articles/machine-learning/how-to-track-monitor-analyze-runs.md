@@ -1,7 +1,7 @@
 ---
 title: Śledzenie, monitorowanie i analizowanie przebiegów
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak uruchamiać, monitorować i śledzić przebiegi eksperymentów uczenia maszynowego przy użyciu Azure Machine Learning SDK języka Python.
+description: Dowiedz się, jak uruchamiać, monitorować i śledzić przebiegi eksperymentu uczenia maszynowego przy użyciu Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,32 +11,32 @@ ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 01c3dacc2754a3df6afb87b160ca2feea81807ad
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: af591a5defcef1e8d043d54f08447324a34a10c4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820443"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876299"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Uruchamianie, monitorowanie i śledzenie historii uruchamiania
 
-Zestaw Azure Machine Learning SDK dla języka [Python,](/python/api/overview/azure/ml/intro) [interfejs Machine Learning](reference-azure-machine-learning-cli.md)wiersza polecenia i Azure Machine Learning studio [różne](https://ml.azure.com) metody monitorowania, organizowania i śledzenia przebiegów w celu trenowania i eksperymentowania. Historia przebiegów uczenia maszynowego jest ważną częścią objaśnianego i powtarzalnego procesu tworzenia uczenia maszynowego.
+Zestaw AZURE MACHINE LEARNING SDK dla języka [Python,](/python/api/overview/azure/ml/intro) [interfejs](reference-azure-machine-learning-cli.md) [](https://ml.azure.com) Machine Learning wiersza polecenia i Azure Machine Learning studio różne metody monitorowania, organizowania i śledzenia przebiegów w celu trenowania i eksperymentowania. Historia przebiegów uczenia maszynowego jest ważną częścią zrozumiałego i powtarzalnego procesu tworzenia uczenia maszynowego.
 
 W tym artykule pokazano, jak wykonywać następujące zadania:
 
 * Monitorowanie wydajności uruchamiania.
 * Utwórz widok niestandardowy. 
 * Dodaj opis uruchomienia. 
-* Oznaczanie tagami i znajdowanie przebiegów.
+* Oznaczanie i znajdowanie przebiegów.
 * Uruchom wyszukiwanie w historii uruchamiania. 
 * Anulowanie lub niepowodzenie przebiegów.
-* Utwórz podrzędne przebiegi.
+* Tworzenie przebiegów podrzędnych.
 * Monitoruj stan uruchomienia za pomocą powiadomień e-mail.
  
 
 > [!TIP]
-> Jeśli szukasz informacji na temat monitorowania usługi Azure Machine Learning service skojarzonych usług platformy Azure, zobacz [Jak monitorować](monitor-azure-machine-learning.md)Azure Machine Learning .
-> Jeśli szukasz informacji na temat modeli monitorowania wdrożonych jako usługi internetowe lub moduły IoT Edge, zobacz Temat Collect [model data](how-to-enable-data-collection.md) and Monitor with Application Insights (Zbieranie danych modelu i monitorowanie za pomocą [Application Insights).](how-to-enable-app-insights.md)
+> Jeśli szukasz informacji na temat monitorowania usługi azure Azure Machine Learning service skojarzonych usług platformy Azure, zobacz [Jak monitorować](monitor-azure-machine-learning.md)Azure Machine Learning .
+> Jeśli szukasz informacji na temat modeli monitorowania wdrożonych jako usługi internetowe lub moduły IoT Edge, zobacz Collect [model data](how-to-enable-data-collection.md) (Zbieranie danych modelu) i Monitor with Application Insights (Zbieranie danych modelu) i Monitor with Application Insights (Zbieranie danych modelu i Monitorowanie za pomocą [Application Insights).](how-to-enable-app-insights.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,9 +44,9 @@ Potrzebne będą następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) już dziś.
 
-* Obszar [Azure Machine Learning roboczy](how-to-manage-workspace.md).
+* Obszar [Azure Machine Learning obszaru roboczego.](how-to-manage-workspace.md)
 
-* Zestaw Azure Machine Learning SDK dla języka Python (wersja 1.0.21 lub nowsza). Aby zainstalować lub zaktualizować zestaw SDK do najnowszej wersji, zobacz [Instalowanie lub aktualizowanie zestawu SDK.](/python/api/overview/azure/ml/install)
+* Zestaw Azure Machine Learning SDK dla języka Python (wersja 1.0.21 lub nowsza). Aby zainstalować najnowszą wersję zestawu SDK lub zaktualizować go do najnowszej wersji, zobacz [Instalowanie lub aktualizowanie zestawu SDK.](/python/api/overview/azure/ml/install)
 
     Aby sprawdzić wersję zestawu AZURE MACHINE LEARNING SDK, użyj następującego kodu:
 
@@ -93,34 +93,34 @@ Potrzebne będą następujące elementy:
         
         [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
     
-    1. Dołącz konfigurację obszaru roboczego do folderu zawierającego skrypt trenowania. Zastąp `myworkspace` Azure Machine Learning obszarem roboczym. Zastąp `myresourcegroup` grupę zasobów platformy Azure zawierającą obszar roboczy:
+    1. Dołącz konfigurację obszaru roboczego do folderu, który zawiera skrypt trenowania. Zastąp `myworkspace` Azure Machine Learning obszarem roboczym. Zastąp `myresourcegroup` grupę zasobów platformy Azure zawierającą twój obszar roboczy:
     
         ```azurecli-interactive
         az ml folder attach -w myworkspace -g myresourcegroup
         ```
     
-        To polecenie tworzy `.azureml` podkatalog zawierający przykładowe pliki środowiska runconfig i conda. Zawiera on również `config.json` plik, który jest używany do komunikowania się z Azure Machine Learning roboczym.
+        To polecenie tworzy `.azureml` podkatalog zawierający przykładowe pliki środowiska runconfig i conda. Zawiera również plik, który jest używany do komunikowania się z twoim `config.json` Azure Machine Learning roboczym.
     
-        Aby uzyskać więcej informacji, zobacz [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+        Aby uzyskać więcej informacji, zobacz [az ml folder attach](/cli/azure/ml/folder?preserve-view=true&view=azure-cli-latest#az_ml_folder_attach).
     
-    2. Aby uruchomić uruchomienie, użyj następującego polecenia. W przypadku korzystania z tego polecenia określ nazwę pliku runconfig (tekst przed plikiem .runconfig, jeśli patrzysz na system plików) względem \* parametru -c.
+    2. Aby rozpocząć uruchomienie, użyj następującego polecenia. W przypadku korzystania z tego polecenia określ nazwę pliku runconfig (tekst przed rozszerzeniem .runconfig, jeśli patrzysz na system plików) względem \* parametru -c.
     
         ```azurecli-interactive
         az ml run submit-script -c sklearn -e testexperiment train.py
         ```
     
         > [!TIP]
-        > Polecenie `az ml folder attach` utworzyło `.azureml` podkatalog zawierający dwa przykładowe pliki runconfig.
+        > Polecenie `az ml folder attach` utworzyło `.azureml` podkatalog, który zawiera dwa przykładowe pliki runconfig.
         >
-        > Jeśli masz skrypt języka Python, który tworzy obiekt konfiguracji uruchamiania programowo, możesz użyć polecenia [RunConfig.save(),](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) aby zapisać go jako plik runconfig.
+        > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchamiania, możesz użyć polecenia [RunConfig.save(),](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) aby zapisać go jako plik runconfig.
         >
         > Aby uzyskać więcej przykładowych plików runconfig, zobacz [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
-        Aby uzyskać więcej informacji, zobacz [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+        Aby uzyskać więcej informacji, zobacz [az ml run submit-script](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_submit-script).
 
     # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-    Aby uzyskać przykład trenowania modelu w projektancie Azure Machine Learning, zobacz [Tutorial: Predict automobile price with the designer (Samouczek: przewidywanie](tutorial-designer-automobile-price-train-score.md)ceny samochodów przy użyciu projektanta ).
+    Aby uzyskać przykład trenowania modelu w projektancie Azure Machine Learning, zobacz [Samouczek: przewidywanie](tutorial-designer-automobile-price-train-score.md)ceny samochodów za pomocą projektanta .
 
     ---
 
@@ -140,7 +140,7 @@ Potrzebne będą następujące elementy:
         print(notebook_run.get_details())
         ```
     
-    * Po pomyślnym zakończeniu uruchomienia użyj metody , aby oznaczyć ją [`complete()`](/python/api/azureml-core/azureml.core.run%28class%29#complete--set-status-true-) jako ukończoną.
+    * Po pomyślnym zakończeniu uruchomienia użyj metody , [`complete()`](/python/api/azureml-core/azureml.core.run%28class%29#complete--set-status-true-) aby oznaczyć ją jako ukończoną.
     
         ```python
         notebook_run.complete()
@@ -165,9 +165,9 @@ Potrzebne będą następujące elementy:
         az ml run list --experiment-name experiment
         ```
     
-        To polecenie zwraca dokument JSON, który zawiera informacje o przebiegach dla tego eksperymentu.
+        To polecenie zwraca dokument JSON, który zawiera listę informacji o przebiegach dla tego eksperymentu.
     
-        Aby uzyskać więcej informacji, zobacz [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+        Aby uzyskać więcej informacji, zobacz [az ml experiment list](/cli/azure/ml/experiment?preserve-view=true&view=azure-cli-latest#az_ml_experiment_list).
     
     * Aby wyświetlić informacje dotyczące określonego uruchomienia, użyj następującego polecenia. Zastąp `runid` identyfikatorem uruchomienia:
     
@@ -177,7 +177,7 @@ Potrzebne będą następujące elementy:
     
         To polecenie zwraca dokument JSON, który zawiera listę informacji o uruchomieniu.
     
-        Aby uzyskać więcej informacji, zobacz [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
+        Aby uzyskać więcej informacji, zobacz [az ml run show](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_show).
     
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
@@ -189,11 +189,11 @@ Aby wyświetlić przebiegi w studio:
     
 1. Przejdź do karty **Experiments (Eksperymenty).**
     
-1. Wybierz pozycję **Wszystkie eksperymenty,** aby wyświetlić wszystkie przebiegi w eksperymencie, lub wybierz pozycję **Wszystkie** przebiegi, aby wyświetlić wszystkie przebiegi przesłane w obszarze roboczym.
+1. Wybierz pozycję **Wszystkie eksperymenty,** aby wyświetlić wszystkie przebiegi w eksperymencie, lub wybierz pozycję **Wszystkie przebiegi,** aby wyświetlić wszystkie przebiegi przesłane w obszarze roboczym.
     
-Na stronie **Wszystkie przebiegi** możesz filtrować listę przebiegów według tagów, eksperymentów, docelowego obiektu obliczeniowego i innych elementów, aby lepiej zorganizować i określić zakres pracy.  
+Na stronie **Wszystkie przebiegi** można filtrować listę przebiegów według tagów, eksperymentów, docelowego obiektu obliczeniowego i innych elementów, aby lepiej zorganizować i określić zakres pracy.  
     
-1. Dostosowywanie strony przez wybranie przebiegów do porównania, dodanie wykresów lub zastosowanie filtrów. Te zmiany można zapisać jako widok **niestandardowy,** aby można było łatwo wrócić do pracy. Użytkownicy z uprawnieniami obszaru roboczego mogą edytować lub wyświetlać widok niestandardowy. Ponadto udostępnij widok niestandardowy członkom zespołu w celu zwiększenia współpracy, wybierając pozycję **Widok udostępniania.**   
+1. Dostosowywanie strony przez wybranie przebiegów do porównania, dodanie wykresów lub zastosowanie filtrów. Te zmiany można zapisać jako widok **niestandardowy,** aby można było łatwo wrócić do pracy. Użytkownicy z uprawnieniami obszaru roboczego mogą edytować lub wyświetlać widok niestandardowy. Ponadto udostępnij widok niestandardowy członkom zespołu, aby ulepszyć współpracę, wybierając **pozycję Widok udostępniania.**   
     
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Zrzut ekranu: tworzenie widoku niestandardowego":::
     
@@ -203,19 +203,19 @@ Na stronie **Wszystkie przebiegi** możesz filtrować listę przebiegów według
 
 Opis uruchomienia można dodać do uruchomienia, aby zapewnić więcej kontekstu i informacji o uruchomieniu. Możesz również wyszukać te opisy na liście przebiegów i dodać opis uruchomienia jako kolumnę na liście przebiegów. 
 
-Przejdź do strony **Szczegóły uruchomienia** dla swojego uruchomienia i wybierz ikonę edycji lub ołówka, aby dodać, edytować lub usunąć opisy przebiegów. Aby utrwalić zmiany na liście przebiegów, zapisz zmiany w istniejącym widoku niestandardowym lub nowym widoku niestandardowym. Opisy przebiegów są obsługiwane w formacie Markdown, co umożliwia osadzoną i głęboką konsolidację obrazów, jak pokazano poniżej.
+Przejdź do strony **Szczegóły uruchomienia** dla swojego uruchomienia i wybierz ikonę edycji lub ołówka, aby dodać, edytować lub usunąć opisy przebiegów. Aby utrwalić zmiany na liście przebiegów, zapisz zmiany w istniejącym widoku niestandardowym lub nowym widoku niestandardowym. Opisy przebiegów są obsługiwane w formacie Markdown, który umożliwia osadzane obrazy i łączenie głębokie, jak pokazano poniżej.
 
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description.gif" alt-text="Zrzut ekranu: tworzenie opisu uruchomienia"::: 
 
 ## <a name="tag-and-find-runs"></a>Tagowanie i znajdowanie przebiegów
 
-W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić organizowanie przebiegów i wykonywanie zapytań o ważne informacje.
+W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić organizowanie przebiegów i wykonywanie zapytań dotyczących ważnych informacji.
 
 * Dodawanie właściwości i tagów
 
     # <a name="python"></a>[Python](#tab/python)
     
-    Aby dodać metadane z wyszukiwaniem do przebiegów, użyj [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) metody . Na przykład poniższy kod dodaje właściwość `"author"` do uruchomienia:
+    Aby dodać metadane z wyszukiwaniem do przebiegów, użyj [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) metody . Na przykład poniższy kod dodaje `"author"` właściwość do uruchomienia:
     
     ```Python
     local_run.add_properties({"author":"azureml-user"})
@@ -241,7 +241,7 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
     print(local_run.get_tags())
     ```
     
-    Można również dodać proste tagi ciągu. Gdy te tagi są wyświetlane w słowniku tagów jako klucze, mają wartość `None` .
+    Możesz również dodać proste tagi ciągów. Gdy te tagi są wyświetlane w słowniku tagów jako klucze, mają wartość `None` .
     
     ```Python
     local_run.tag("worth another look")
@@ -259,7 +259,7 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    Aby uzyskać więcej informacji, zobacz [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+    Aby uzyskać więcej informacji, zobacz [az ml run update](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_update).
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
@@ -269,9 +269,9 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
     
     ---
 
-* Właściwości i tagi zapytań
+* Właściwości i tagi zapytania
 
-    Zapytania dotyczące przebiegów w eksperymencie mogą zwracać listę przebiegów, które pasują do określonych właściwości i tagów.
+    Zapytania dotyczące przebiegów w ramach eksperymentu można zwrócić listę przebiegów, które pasują do określonych właściwości i tagów.
 
     # <a name="python"></a>[Python](#tab/python)
     
@@ -282,7 +282,7 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
     
     # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
     
-    Interfejs wiersza polecenia platformy Azure obsługuje [zapytania JMESPath,](http://jmespath.org) których można użyć do filtrowania przebiegów na podstawie właściwości i tagów. Aby użyć zapytania JMESPath z interfejsem wiersza polecenia platformy Azure, określ je za pomocą `--query` parametru . W poniższych przykładach przedstawiono niektóre zapytania korzystające z właściwości i tagów:
+    Interfejs wiersza polecenia platformy Azure obsługuje [zapytania JMESPath,](http://jmespath.org) których można użyć do filtrowania przebiegów na podstawie właściwości i tagów. Aby użyć zapytania JMESPath z interfejsem wiersza polecenia platformy Azure, określ je za pomocą `--query` parametru . W poniższych przykładach podano niektóre zapytania używające właściwości i tagów:
     
     ```azurecli-interactive
     # list runs where the author property = 'azureml-user'
@@ -293,11 +293,11 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących wyników interfejsu wiersza polecenia platformy Azure, zobacz Query Azure CLI command output (Wykonywanie [zapytań dotyczących danych wyjściowych polecenia interfejsu wiersza polecenia platformy Azure).](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest)
+    Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących wyników interfejsu wiersza polecenia platformy Azure, zobacz Query Azure CLI command output (Wykonywanie zapytań dotyczących danych wyjściowych polecenia [interfejsu wiersza polecenia platformy Azure).](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest)
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    Aby wyszukać określone przebiegi, przejdź do **listy Wszystkie przebiegi.** W tym miejscu masz dwie opcje:
+    Aby wyszukać określone przebiegi, przejdź do **listy Wszystkie przebiegi.** W tym miejscu dostępne są dwie opcje:
     
     1. Użyj **przycisku Dodaj filtr** i wybierz pozycję Filtruj według tagów, aby filtrować przebiegi według tagów przypisanych do przebiegów. <br><br>
     LUB
@@ -337,7 +337,7 @@ Aby anulować przebieg przy użyciu interfejsu wiersza polecenia, użyj następu
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-Aby uzyskać więcej informacji, zobacz [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+Aby uzyskać więcej informacji, zobacz [az ml run cancel](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_cancel).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -386,12 +386,12 @@ Przebiegi podrzędne można również przesłać z uruchomienia nadrzędnego. Dz
 Możesz chcieć, aby przebiegi podrzędne używały innej konfiguracji uruchamiania niż przebieg nadrzędny. Na przykład można użyć mniej wydajnej konfiguracji opartej na procesorze CPU dla elementu nadrzędnego, podczas gdy dla dzieci można użyć konfiguracji opartych na procesorze GPU. Innym często spotykaną chęć jest przekazania do każdego podrzędnego różnych argumentów i danych. Aby dostosować przebieg podrzędny, utwórz `ScriptRunConfig` obiekt dla podrzędnego uruchomienia. 
 
 > [!IMPORTANT]
-> Aby przesłać przebieg podrzędny z nadrzędnego uruchomienia w zdalnym obliczeniach, należy najpierw zalogować się do obszaru roboczego w kodzie uruchomienia nadrzędnego. Domyślnie obiekt kontekstu uruchomienia w zdalnym uruchomieniu nie ma poświadczeń do przesyłania przebiegów podrzędnych. Użyj jednostki usługi lub poświadczeń tożsamości zarządzanej, aby się zalogować. Aby uzyskać więcej informacji na temat uwierzytelniania, [zobacz Konfigurowanie uwierzytelniania](how-to-setup-authentication.md).
+> Aby przesłać przebieg podrzędny z nadrzędnego uruchomienia w zdalnym obliczeniach, należy najpierw zalogować się do obszaru roboczego w kodzie uruchomienia nadrzędnego. Domyślnie obiekt kontekstu uruchomienia w zdalnym uruchomieniu nie ma poświadczeń do przesyłania przebiegów podrzędnych. Użyj jednostki usługi lub poświadczeń tożsamości zarządzanej, aby się zalogować. Aby uzyskać więcej informacji na temat uwierzytelniania, [zobacz konfigurowanie uwierzytelniania](how-to-setup-authentication.md).
 
 Poniższy kod:
 
 - Pobiera zasób obliczeniowy o nazwie `"gpu-cluster"` z obszaru roboczego `ws`
-- Iteruje różne wartości argumentów, które mają zostać przekazane do obiektów `ScriptRunConfig` podrzędnych
+- Iteruje różne wartości argumentów, które mają być przekazywane do obiektów `ScriptRunConfig` podrzędnych
 - Tworzy i przesyła nowy przebieg podrzędny przy użyciu niestandardowego zasobu obliczeniowego i argumentu
 - Blokuje do momentu ukończenia wszystkich przebiegów podrzędnych
 

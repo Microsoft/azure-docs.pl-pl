@@ -36,7 +36,7 @@
           items:
             - name: Ocena maszyn wirtualnych VMware pod kątem migracji do maszyn wirtualnych platformy Azure
               href: tutorial-assess-vmware-azure-vm.md
-            - name: Ocena wystąpień SQL do migracji do Azure SQL
+            - name: Ocena wystąpień SQL pod Azure SQL
               href: tutorial-assess-sql.md
             - name: Ocena maszyn wirtualnych VMware pod kątem migracji do usługi AVS
               href: tutorial-assess-vmware-azure-vmware-solution.md
@@ -168,7 +168,7 @@
           href: how-to-create-a-group.md
         - name: Tworzenie oceny maszyny wirtualnej platformy Azure
           href: how-to-create-assessment.md
-        - name: Tworzenie oceny Azure SQL aplikacji
+        - name: Tworzenie Azure SQL aplikacji
           href: how-to-create-azure-sql-assessment.md
         - name: Tworzenie oceny w usłudze AVS
           href: how-to-create-azure-vmware-solution-assessment.md
@@ -237,7 +237,7 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/offazure/offazure
+      href: /cli/azure/offazure
     - name: Azure PowerShell
       href: /powershell/module/az.migrate/
     - name: Elementy wbudowane usługi Azure Policy

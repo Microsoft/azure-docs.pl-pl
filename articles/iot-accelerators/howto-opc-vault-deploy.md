@@ -1,6 +1,6 @@
 ---
 title: Jak wdrożyć usługę zarządzania certyfikatami magazynu OPC — Azure | Microsoft Docs
-description: Jak wdrożyć usługę zarządzania certyfikatami magazynu OPC od podstaw.
+description: Jak od podstaw wdrożyć usługę zarządzania certyfikatami magazynu OPC.
 author: mregen
 ms.author: mregen
 ms.date: 08/16/2019
@@ -8,59 +8,59 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b20f6318c2e6be701446e29ab93598752e93d287
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105646379"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870287"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Kompilowanie i wdrażanie usługi zarządzania certyfikatami magazynu OPC
 
 > [!IMPORTANT]
-> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
+> Podczas aktualizowania tego artykułu zobacz [Artykuł Azure Industrial IoT (Azure Industrial IoT)](https://azure.github.io/Industrial-IoT/) zawiera najbardziej aktualne informacje.
 
-W tym artykule opisano sposób wdrażania usługi zarządzania certyfikatami magazynu OPC na platformie Azure.
+W tym artykule wyjaśniono, jak wdrożyć usługę zarządzania certyfikatami magazynu OPC na platformie Azure.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji, zobacz [repozytorium magazynu OPC](https://github.com/Azure/azure-iiot-opc-vault-service)usługi GitHub.
+> Aby uzyskać więcej informacji, zobacz repozytorium usługi GitHub [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-### <a name="install-required-software"></a>Zainstaluj wymagane oprogramowanie
+### <a name="install-required-software"></a>Instalowanie wymaganego oprogramowania
 
-Obecnie operacja kompilowania i wdrażania jest ograniczona do systemu Windows.
-Przykłady są przeznaczone dla .NET Standard w języku C#, co jest potrzebne do utworzenia usługi i przykładów do wdrożenia.
-Wszystkie narzędzia potrzebne do .NET Standard są dostarczane z narzędziami programu .NET Core. Zobacz Rozpoczynanie [pracy z platformą .NET Core](/dotnet/articles/core/getting-started).
+Obecnie operacja kompilacji i wdrażania jest ograniczona do systemu Windows.
+Wszystkie przykłady są napisane dla języka C# .NET Standard, które są potrzebne do skompilowania usługi i przykładów na potrzeby wdrożenia.
+Wszystkie narzędzia potrzebne do .NET Standard są dostępne z narzędziami .NET Core. Zobacz [Rozpoczynanie pracy z programem .NET Core.](/dotnet/articles/core/getting-started)
 
-1. [Zainstaluj program .NET Core 2.1 +][dotnet-install].
-2. [Zainstaluj platformę Docker][docker-url] (opcjonalnie tylko wtedy, gdy wymagana jest lokalna kompilacja platformy Docker).
-4. Zainstaluj [narzędzia wiersza polecenia platformy Azure dla programu PowerShell][powershell-install].
-5. Zarejestruj się, aby uzyskać [subskrypcję platformy Azure][azure-free].
+1. [Zainstaluj program .NET Core 2.1+][dotnet-install].
+2. [Zainstaluj aplikację Docker][docker-url] (opcjonalnie tylko wtedy, gdy jest wymagana lokalna kompilacja platformy Docker).
+4. Zainstaluj narzędzia [wiersza polecenia platformy Azure dla programu PowerShell.][powershell-install]
+5. Zarejestruj się, aby uzyskać [subskrypcję platformy Azure.][azure-free]
 
 ### <a name="clone-the-repository"></a>Klonowanie repozytorium
 
-Jeśli jeszcze tego nie zrobiono, Sklonuj to repozytorium GitHub. Otwórz wiersz polecenia lub terminal i uruchom następujące polecenie:
+Jeśli jeszcze tego nie zrobiono, sklonuj to repozytorium GitHub. Otwórz wiersz polecenia lub terminal i uruchom następujące polecenie:
 
 ```bash
 git clone https://github.com/Azure/azure-iiot-opc-vault-service
 cd azure-iiot-opc-vault-service 
 ```
 
-Alternatywnie można sklonować repozytorium bezpośrednio w programie Visual Studio 2017.
+Możesz również sklonować to repo bezpośrednio w programie Visual Studio 2017.
 
 ### <a name="build-and-deploy-the-azure-service-on-windows"></a>Kompilowanie i wdrażanie usługi platformy Azure w systemie Windows
 
-Skrypt programu PowerShell zapewnia łatwy sposób wdrażania mikrousług magazynu OPC i aplikacji.
+Skrypt programu PowerShell umożliwia łatwe wdrożenie mikrousługi i aplikacji magazynu OPC.
 
-1. Otwórz okno programu PowerShell w katalogu głównym repozytorium. 
-3. Przejdź do folderu Wdróż `cd deploy` .
-3. Wybierz nazwę `myResourceGroup` , która prawdopodobnie nie spowoduje konfliktu z innymi wdrożonymi stronami sieci Web. Zobacz sekcję "Nazwa witryny sieci Web, która jest już używana" w dalszej części tego artykułu.
-5. Rozpocznij wdrażanie za pomocą `.\deploy.ps1` programu dla instalacji interaktywnej lub wprowadź pełny wiersz polecenia:  
+1. Otwórz okno programu PowerShell w katalogu głównym repo. 
+3. Przejdź do folderu deploy `cd deploy` .
+3. Wybierz nazwę, która prawdopodobnie nie spowoduje konfliktu `myResourceGroup` z innymi wdrożonymi stronami internetowymi. Zobacz sekcję "Nazwa witryny internetowej jest już w użyciu" w dalszej części tego artykułu.
+5. Rozpocznij wdrażanie za pomocą `.\deploy.ps1` polecenia w celu instalacji interakcyjnej lub wprowadź pełny wiersz polecenia:  
 `.\deploy.ps1  -subscriptionName "MySubscriptionName" -resourceGroupLocation "East US" -tenantId "myTenantId" -resourceGroupName "myResourceGroup"`
-7. Jeśli planujesz Programowanie przy użyciu tego wdrożenia, Dodaj, `-development 1` Aby włączyć interfejs użytkownika programu Swagger, i wdrożyć kompilacje debugowania.
+7. Jeśli planujesz programować przy użyciu tego wdrożenia, dodaj polecenie , aby włączyć interfejs użytkownika `-development 1` programu Swagger i wdrożyć kompilacje debugowania.
 6. Postępuj zgodnie z instrukcjami w skrypcie, aby zalogować się do subskrypcji i podać dodatkowe informacje.
-9. Po pomyślnym zakończeniu kompilacji i wdrożenia powinien zostać wyświetlony następujący komunikat:
+9. Po pomyślnej operacji kompilacji i wdrażania powinien zostać wyświetlony następujący komunikat:
    ```
    To access the web client go to:
    https://myResourceGroup.azurewebsites.net
@@ -76,51 +76,51 @@ Skrypt programu PowerShell zapewnia łatwy sposób wdrażania mikrousług magazy
    ```
 
    > [!NOTE]
-   > W razie problemów zapoznaj się z sekcją "Rozwiązywanie problemów z błędami wdrażania" w dalszej części artykułu.
+   > W przypadku problemów zobacz sekcję "Rozwiązywanie problemów z błędami wdrażania" w dalszej części artykułu.
 
-8. Otwórz ulubioną przeglądarkę i Otwórz stronę aplikacji: `https://myResourceGroup.azurewebsites.net`
-8. Nadajesz aplikacji sieci Web i mikrousługom magazynu OPC kilka minut, aby rozgrzać po wdrożeniu. Strona główna sieci Web może przestać odpowiadać przy pierwszym użyciu, przez maksymalnie minutę, aż do momentu otrzymania pierwszych odpowiedzi.
-11. Aby zapoznać się z interfejsem API struktury Swagger, Otwórz: `https://myResourceGroup-service.azurewebsites.net`
-13. Aby uruchomić lokalny serwer GDS z programem dotnet, uruchom polecenie `.\myResourceGroup-gds.cmd` . Przy użyciu platformy Docker Uruchom polecenie `.\myResourceGroup-dockergds.cmd` .
+8. Otwórz ulubioną przeglądarkę i otwórz stronę aplikacji: `https://myResourceGroup.azurewebsites.net`
+8. Nadaj aplikacji internetowej i mikrousługi magazynu OPC kilka minut rozgrzewki po wdrożeniu. Strona główna sieci Web może przestać odpowiadać przy pierwszym użyciu przez maksymalnie minutę, dopóki nie otrzymasz pierwszych odpowiedzi.
+11. Aby przyjrzeć się interfejsowi API swagger, otwórz: `https://myResourceGroup-service.azurewebsites.net`
+13. Aby uruchomić lokalny serwer GDS za pomocą programu dotnet, `.\myResourceGroup-gds.cmd` uruchom . Za pomocą platformy Docker `.\myResourceGroup-dockergds.cmd` uruchom .
 
-Można ponownie wdrożyć kompilację z dokładnie tymi samymi ustawieniami. Należy pamiętać, że taka operacja odnawia wszystkie wpisy tajne aplikacji i może zresetować niektóre ustawienia w rejestracjach aplikacji Azure Active Directory (Azure AD).
+Można ponownie wdedytować kompilację przy użyciu dokładnie tych samych ustawień. Należy pamiętać, że taka operacja odnawia wszystkie wpisy tajne aplikacji i może zresetować niektóre ustawienia w Azure Active Directory rejestracji aplikacji (Azure AD).
 
-Możliwe jest również ponowne wdrożenie tylko plików binarnych aplikacji sieci Web. Przy użyciu parametru `-onlyBuild 1` nowe pakiety zip usługi i aplikacji są wdrażane w aplikacjach sieci Web.
+Możliwe jest również ponowne wdanie tylko plików binarnych aplikacji internetowej. Za pomocą parametru nowe pakiety zip usługi i `-onlyBuild 1` aplikacji są wdrażane w aplikacjach internetowych.
 
-Po pomyślnym wdrożeniu można rozpocząć korzystanie z usług. Zobacz [Zarządzanie usługą zarządzania certyfikatami magazynu OPC](howto-opc-vault-manage.md).
+Po pomyślnym wdrożeniu możesz rozpocząć korzystanie z usług. Zobacz [Zarządzanie usługą zarządzania certyfikatami magazynu OPC.](howto-opc-vault-manage.md)
 
 ## <a name="delete-the-services-from-the-subscription"></a>Usuwanie usług z subskrypcji
 
 Oto kroki tej procedury:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Przejdź do grupy zasobów, w której została wdrożona usługa.
+2. Przejdź do grupy zasobów, w której wdrożono usługę.
 3. Wybierz pozycję **Usuń grupę zasobów** i potwierdź.
-4. Po krótkim czasie wszystkie wdrożone składniki usługi zostaną usunięte.
-5. Przejdź do   >  **rejestracje aplikacji** Azure Active Directory.
-6. Dla każdej wdrożonej grupy zasobów powinny być wymienione trzy rejestracje. Rejestracje mają następujące nazwy: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Usuń każdą rejestrację osobno.
+4. Po krótkiej chwili wszystkie wdrożone składniki usługi zostaną usunięte.
+5. Przejdź do **Azure Active Directory**  >  **Rejestracje aplikacji**.
+6. Dla każdej wdrożonej grupy zasobów powinny być wymienione trzy rejestracje. Rejestracje mają następujące nazwy: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Usuń każdą rejestrację oddzielnie.
 
 Teraz wszystkie wdrożone składniki są usuwane.
 
-## <a name="troubleshooting-deployment-failures"></a>Rozwiązywanie problemów z błędami wdrożenia
+## <a name="troubleshooting-deployment-failures"></a>Rozwiązywanie problemów z błędami wdrażania
 
 ### <a name="resource-group-name"></a>Nazwa grupy zasobów
 
-Użyj krótkiej i prostej nazwy grupy zasobów. Nazwa jest również używana do nazwy zasobów i prefiksu adresu URL usługi. W związku z tym musi być zgodna z wymaganiami dotyczącymi nazewnictwa zasobów.  
+Użyj krótkiej i prostej nazwy grupy zasobów. Nazwa jest również używana do nazywania zasobów i prefiksu adresu URL usługi. W związku z tym musi spełniać wymagania dotyczące nazewnictwa zasobów.  
 
-### <a name="website-name-already-in-use"></a>Nazwa witryny sieci Web jest już używana
+### <a name="website-name-already-in-use"></a>Nazwa witryny internetowej jest już w użyciu
 
-Istnieje możliwość, że nazwa witryny sieci Web jest już używana. Należy użyć innej nazwy grupy zasobów. Nazwy hostów używane przez skrypt wdrażania są następujące: https: \/ /ResourceGroupName.azurewebsites.NET i https: \/ /resourgroupname-Service.azurewebsites.NET.
-Inne nazwy usług są tworzone przez kombinację skrótów krótkich nazw i prawdopodobnie nie powodują konfliktu z innymi usługami.
+Istnieje możliwość, że nazwa witryny internetowej jest już w użyciu. Musisz użyć innej nazwy grupy zasobów. Nazwy hostów w użyciu przez skrypt wdrażania to: https: \/ /resourcegroupname.azurewebsites.net i https: \/ /resourgroupname-service.azurewebsites.net.
+Inne nazwy usług są budowane przez kombinację skrótów krótkich nazw i prawdopodobnie nie będą kolidować z innymi usługami.
 
 ### <a name="azure-ad-registration"></a>Rejestracja w usłudze Azure AD 
 
-Skrypt wdrażania próbuje zarejestrować trzy aplikacje usługi Azure AD w usłudze Azure AD. W zależności od uprawnień w wybranej dzierżawie usługi Azure AD ta operacja może zakończyć się niepowodzeniem. Dostępne są dwie opcje:
+Skrypt wdrażania próbuje zarejestrować trzy aplikacje usługi Azure AD w usłudze Azure AD. W zależności od uprawnień w wybranej dzierżawie usługi Azure AD ta operacja może się nie powieść. Dostępne są dwie opcje:
 
-- W przypadku wybrania dzierżawy usługi Azure AD z listy dzierżawców Uruchom ponownie skrypt i wybierz inny z listy.
-- Alternatywnie Wdróż prywatną dzierżawę usługi Azure AD w innej subskrypcji. Uruchom ponownie skrypt i wybierz, aby go użyć.
+- Jeśli wybrano dzierżawę usługi Azure AD z listy dzierżaw, uruchom ponownie skrypt i wybierz inny z listy.
+- Możesz też wdrożyć prywatną dzierżawę usługi Azure AD w innej subskrypcji. Uruchom ponownie skrypt i wybierz jego użycie.
 
-## <a name="deployment-script-options"></a>Opcje skryptu wdrożenia
+## <a name="deployment-script-options"></a>Opcje skryptu wdrażania
 
 Skrypt przyjmuje następujące parametry:
 
@@ -136,7 +136,7 @@ Może to być nazwa istniejącej lub nowej grupy zasobów.
 ```
 
 
-To jest Identyfikator subskrypcji, w której zostaną wdrożone zasoby. Jest to opcjonalne.
+Jest to identyfikator subskrypcji, w której zostaną wdrożone zasoby. Jest to opcjonalne.
 
 ```
 -subscriptionName
@@ -150,7 +150,7 @@ Alternatywnie możesz użyć nazwy subskrypcji.
 ```
 
 
-Jest to lokalizacja grupy zasobów. Jeśli ta wartość jest określona, ten parametr próbuje utworzyć nową grupę zasobów w tej lokalizacji. Ten parametr jest również opcjonalny.
+Jest to lokalizacja grupy zasobów. Jeśli zostanie określony, ten parametr próbuje utworzyć nową grupę zasobów w tej lokalizacji. Ten parametr jest również opcjonalny.
 
 
 ```
@@ -158,24 +158,24 @@ Jest to lokalizacja grupy zasobów. Jeśli ta wartość jest określona, ten par
 ```
 
 
-To jest dzierżawa usługi Azure AD do użycia. 
+Jest to dzierżawa usługi Azure AD do użycia. 
 
 ```
 -development 0|1
 ```
 
-Jest to wdrożenie na potrzeby programowania. Użyj opcji Kompilacja debugowania i ustaw środowisko ASP.NET na programowanie. Utwórz `.publishsettings` element do zaimportowania w programie Visual Studio 2017, aby umożliwić jego bezpośrednie wdrożenie aplikacji i usługi. Ten parametr jest również opcjonalny.
+Jest to wdrożenie na platformie dewelopera. Użyj kompilacji debugowania i ustaw środowisko ASP.NET na development. Utwórz `.publishsettings` do zaimportowania Visual Studio 2017 r., aby umożliwić jej bezpośrednie wdrożenie aplikacji i usługi. Ten parametr jest również opcjonalny.
 
 ```
 -onlyBuild 0|1
 ```
 
-Polega to na ponownym odbudowaniu i ponownym wdrożeniu tylko aplikacji sieci Web oraz w celu odbudowania kontenerów platformy Docker. Ten parametr jest również opcjonalny.
+Ma to na celu ponowne skompilowanie i ponowne wdanie tylko aplikacji internetowych oraz ponowne skompilowanie kontenerów platformy Docker. Ten parametr jest również opcjonalny.
 
 [azure-free]:https://azure.microsoft.com/free/
 [powershell-install]:https://azure.microsoft.com/downloads/#powershell
 [docker-url]: https://www.docker.com/
-[dotnet-install]: https://www.microsoft.com/net/learn/get-started
+[dotnet-install]: https://dotnet.microsoft.com/download
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -26,7 +26,7 @@
           items:
             - name: Wysyłanie powiadomień wypychanych do wszystkich rejestracji (bieżący zestaw SDK)
               href: android-sdk.md
-            - name: Wysyłanie powiadomień wypychanych do wszystkich rejestracji (starsza wersja zestawu SDK)
+            - name: Wysyłanie powiadomień wypychanych do wszystkich rejestracji (starszy zestaw SDK)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Wysyłanie powiadomień push do konkretnych urządzeń
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,9 +50,9 @@
           items:
             - name: Wymagania wstępne samouczków systemu iOS
               href: ios-sdk-get-started.md
-            - name: Cel-C (bieżący zestaw SDK)
+            - name: Objective-C (bieżący zestaw SDK)
               href: ios-sdk-current.md
-            - name: Cel-C (starsza wersja zestawu SDK)
+            - name: Objective-C (starszy zestaw SDK)
               href: ios-sdk-legacy.md
         - name: Wysyłanie powiadomień push do konkretnych urządzeń
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
@@ -158,7 +158,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.notificationhubs
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/notification-hub/notification-hub
+      href: /cli/azure/notification-hub
     - name: PowerShell
       href: /powershell/module/az.notificationhubs
     - name: REST

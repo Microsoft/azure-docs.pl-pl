@@ -12,16 +12,16 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: edb7ebc94d2706d1bf20db8ed9a869107163ff8d
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 0b2bb49863e07e6f06512e868ed12ecf00cc11c2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387993"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872393"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Szkolenie modeli przy użyciu Azure Machine Learning danych 
 
-Z tego artykułu dowiesz się, jak pracować z zestawami [danych Azure Machine Learning w](/python/api/azureml-core/azureml.core.dataset%28class%29) celu trenowania modeli uczenia maszynowego.  Zestawów danych można używać w lokalnym lub zdalnym docelowym obiektem obliczeniowym bez martwienia się o parametry połączenia lub ścieżki danych. 
+Z tego artykułu dowiesz się, jak pracować z zestawami danych [Azure Machine Learning w](/python/api/azureml-core/azureml.core.dataset%28class%29) celu trenowania modeli uczenia maszynowego.  Zestawów danych można używać w lokalnym lub zdalnym docelowym obiektem obliczeniowym bez martwienia się o parametry połączenia lub ścieżki danych. 
 
 Azure Machine Learning danych zapewniają bezproblemową integrację z Azure Machine Learning trenowania, takich jak [ScriptRunConfig,](/python/api/azureml-core/azureml.core.scriptrunconfig) [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive) [i Azure Machine Learning potoków.](./how-to-create-machine-learning-pipelines.md)
 
@@ -48,7 +48,7 @@ W tym przykładzie utworzysz niezarejestrowany element [TabularDataset](/python/
 
 ### <a name="create-a-tabulardataset"></a>Tworzenie zestawu tabularDataset
 
-Poniższy kod tworzy niezarejestrowany element TabularDataset z internetowego adresu URL.  
+Poniższy kod tworzy niezarejestrowany zestaw TabularDataset z internetowego adresu URL.  
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -61,10 +61,10 @@ Obiekty TabularDataset zapewniają możliwość załadowania danych z zestawu Ta
 
 ### <a name="access-dataset-in-training-script"></a>Uzyskiwanie dostępu do zestawu danych w skrypcie trenowania
 
-Poniższy kod konfiguruje argument skryptu, który określisz podczas konfigurowania `--input-data` uruchomienia trenowania (zobacz następną sekcję). Gdy tabelarowy zestaw danych zostanie przekazany jako wartość argumentu, usługa Azure ML rozpozna ten identyfikator zestawu danych, którego następnie można użyć w celu uzyskania dostępu do zestawu danych w skrypcie trenowania (bez konieczności kodowania nazwy lub identyfikatora zestawu danych w skrypcie). Następnie używa metody do załadowania tego zestawu danych do ramki danych pandas w celu dalszej eksploracji i przygotowania [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) danych przed rozpoczęciem trenowania.
+Poniższy kod konfiguruje argument skryptu, który określisz podczas konfigurowania `--input-data` uruchomienia trenowania (zobacz następną sekcję). Gdy tabelarowy zestaw danych zostanie przekazany jako wartość argumentu, usługa Azure ML rozpozna ją jako identyfikator zestawu danych, którego następnie można użyć w celu uzyskania dostępu do zestawu danych w skrypcie trenowania (bez konieczności kodowania nazwy lub identyfikatora zestawu danych w skrypcie). Następnie używa metody do załadowania tego zestawu danych do ramki danych pandas w celu dalszej eksploracji i przygotowania danych [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) przed rozpoczęciem trenowania.
 
 > [!Note]
-> Jeśli oryginalne źródło danych zawiera wartość NaN, puste ciągi lub puste wartości, podczas korzystania z funkcji te wartości są zastępowane `to_pandas_dataframe()` jako *wartość Null.*
+> Jeśli oryginalne źródło danych zawiera ciągi NaN, puste ciągi lub wartości puste, podczas korzystania z funkcji te wartości są zastępowane `to_pandas_dataframe()` jako *wartość Null.*
 
 Jeśli musisz załadować przygotowane dane do nowego zestawu danych z ramki danych pandas w pamięci, zapisz dane do pliku lokalnego, takiego jak parquet, i utwórz nowy zestaw danych na podstawie tego pliku. Dowiedz się więcej [na temat tworzenia zestawów danych.](how-to-create-register-datasets.md)
 
@@ -96,9 +96,9 @@ Ten kod tworzy obiekt ScriptRunConfig, `src` , który określa
 
 * Katalog skryptów dla skryptów. Wszystkie pliki w tym katalogu są przekazywane do węzłów klastra w celu wykonania.
 * Skrypt trenowania, *train_titanic.py.*
-* Wejściowy zestaw danych do `titanic_ds` trenowania, , jako argument skryptu. Usługa Azure ML rozpozna to jako odpowiedni identyfikator zestawu danych, gdy zostanie przekazany do skryptu.
+* Wejściowy zestaw danych do trenowania `titanic_ds` , jako argument skryptu. Usługa Azure ML rozpozna to jako odpowiedni identyfikator zestawu danych, gdy zostanie przekazany do skryptu.
 * Docelowy obiekt obliczeniowy dla uruchomienia.
-* Środowisko dla uruchomienia.
+* Środowisko uruchomienia.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -121,18 +121,18 @@ Jeśli masz dane bez struktury, utwórz zestaw [FileDataset](/python/api/azureml
 
 Poniższy przykład: 
 
-* Tworzy wejściowy zestaw FileDataset `mnist_ds` () dla danych szkoleniowych.
-* Określa, gdzie zapisać wyniki trenowania i podniesie te wyniki jako FileDataset.
-* Zainstaluje wejściowy zestaw danych do docelowego obiektu obliczeniowego.
+* Tworzy wejściowy zestaw Danych Pliku `mnist_ds` dla danych szkoleniowych.
+* Określa, gdzie zapisać wyniki trenowania i podniesieć te wyniki jako FileDataset.
+* Zainstaluje wejściowy zestaw danych w docelowym obiektach obliczeniowych.
 
 > [!Note]
-> Jeśli używasz niestandardowego obrazu podstawowego platformy Docker, musisz zainstalować aplikację Fuse za pośrednictwem programu jako zależność, aby instalacja zestawu danych `apt-get install -y fuse` działała. Dowiedz się, jak [utworzyć niestandardowy obraz kompilacji.](how-to-deploy-custom-docker-image.md#build-a-custom-base-image)
+> Jeśli używasz niestandardowego obrazu podstawowego platformy Docker, musisz zainstalować aplikację Fuse za pośrednictwem narzędzia jako zależność, aby instalacja zestawu `apt-get install -y fuse` danych działała. Dowiedz się, jak [utworzyć niestandardowy obraz kompilacji.](how-to-deploy-custom-docker-image.md#build-a-custom-base-image)
 
 Aby uzyskać przykładowy notes, zobacz How to configure a training run with data input and output (Jak [skonfigurować przebieg trenowania przy użyciu danych wejściowych i wyjściowych).](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb)
 
 ### <a name="create-a-filedataset"></a>Tworzenie zestawu danych FileDataset
 
-Poniższy przykład tworzy niezarejestrowany zestaw FileDataset z `mnist_data` internetowych adresów URL. Ten zestaw danych FileDataset to dane wejściowe dla przebiegów trenowania.
+Poniższy przykład tworzy wyrejestrowany zestaw FileDataset z `mnist_data` internetowych adresów URL. Ten zestaw FileDataset to dane wejściowe dla przebiegów trenowania.
 
 Dowiedz się więcej [na temat tworzenia zestawów danych z](how-to-create-register-datasets.md) innych źródeł.
 
@@ -150,20 +150,20 @@ web_paths = [
 mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ```
-### <a name="where-to-write-training-output"></a>Gdzie pisać dane wyjściowe trenowania
+### <a name="where-to-write-training-output"></a>Gdzie zapisywać dane wyjściowe trenowania
 
-Możesz określić, gdzie zapisać wyniki trenowania za pomocą obiektu [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). 
+Możesz określić miejsce zapisu wyników trenowania za pomocą obiektu [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). 
 
 Obiekty OutputFileDatasetConfig umożliwiają: 
 
 * Zainstaluj lub przekaż dane wyjściowe uruchomienia do magazynu w chmurze, który określisz.
-* Zapisz dane wyjściowe jako zestaw FileDataset w następujących obsługiwanych typach magazynów:
+* Zapisz dane wyjściowe jako zestaw FileDataset dla następujących obsługiwanych typów magazynu:
     * Obiekt blob platformy Azure
     * Udział plików platformy Azure
     * Azure Data Lake Storage generacji 1 i 2
 * Śledź pozyskane dane między przebiegami trenowania.
 
-Poniższy kod określa, że wyniki trenowania powinny być zapisywane jako FileDataset w `outputdataset` folderze w domyślnym magazynze danych obiektów blob, `def_blob_store` . 
+Poniższy kod określa, że wyniki trenowania powinny być zapisywane jako fileDataset w folderze w `outputdataset` domyślnym magazynze danych obiektów blob, `def_blob_store` . 
 
 ```python
 from azureml.core import Workspace
@@ -199,7 +199,7 @@ run.wait_for_completion(show_output=True)
 
 ### <a name="simple-training-script"></a>Prosty skrypt trenowania
 
-Poniższy skrypt jest przesłany za pośrednictwem skryptu ScriptRunConfig. Odczytuje zestaw danych jako dane wejściowe i zapisuje plik w `mnist_ds ` `outputdataset` folderze w domyślnym magazynze danych obiektów blob, `def_blob_store` .
+Poniższy skrypt jest przesłany za pośrednictwem skryptu ScriptRunConfig. Odczytuje zestaw danych jako dane wejściowe i zapisuje plik w `mnist_ds ` `outputdataset` folderze w domyślnym obiekcie blob datastore, `def_blob_store` .
 
 ```Python
 %%writefile $source_directory/dummy_train.py
@@ -228,7 +228,7 @@ with open(mounted_input_path, 'r') as f:
 
 Instalowanie lub pobieranie plików w dowolnym formacie jest obsługiwane w przypadku zestawów danych utworzonych na podstawie usług Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database i Azure Database for PostgreSQL. 
 
-Podczas **instalacji zestawu** danych dołączasz pliki, do których odwołuje się zestaw danych, do katalogu (punktu instalacji) i udostępnisz go w docelowym miejscu obliczeniowym. Instalowanie jest obsługiwane w przypadku obliczeń opartych na systemie Linux, w tym Azure Machine Learning obliczeniowych, maszyn wirtualnych i usługi HDInsight. 
+Podczas instalacji **zestawu** danych dołączasz pliki, do których odwołuje się zestaw danych, do katalogu (punktu instalacji) i udostępnisz go w docelowym miejscu obliczeniowym. Instalowanie jest obsługiwane w przypadku obliczeń opartych na systemie Linux, w tym Azure Machine Learning obliczeniowych, maszyn wirtualnych i usługi HDInsight. 
 
 Po **pobraniu** zestawu danych wszystkie pliki, do których odwołuje się zestaw danych, zostaną pobrane do docelowego obiektu obliczeniowego. Pobieranie jest obsługiwane dla wszystkich typów obliczeniowych. 
 
@@ -284,7 +284,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="notebook-examples"></a>Przykłady notesów
 
-+ Aby uzyskać dodatkowe przykłady i pojęcia dotyczące zestawów danych, zobacz [notesy zestawów danych.](https://aka.ms/dataset-tutorial)
++ Aby uzyskać dodatkowe przykłady i pojęcia dotyczące zestawów danych, zobacz [notesy zestawów danych](https://aka.ms/dataset-tutorial).
 + Zobacz, jak [parametryzować zestawy danych w potokach uczenia maszynowego.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
@@ -302,7 +302,7 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
 
 ### <a name="passing-data-as-input"></a>Przekazywanie danych jako danych wejściowych
 
-*  **TypeError: FileNotFound:** Nie ma takiego pliku lub katalogu: Ten błąd występuje, jeśli podano ścieżkę pliku nie znajduje się plik. Musisz upewnić się, że sposób, w jaki odwołasz się do pliku, jest spójny z tym, gdzie został zainstalowany zestaw danych na docelowym miejscu obliczeniowym. Aby zapewnić stan deterministyczny, zalecamy użycie ścieżki abstrakcyjnej podczas instalowanie zestawu danych do docelowego obiektu obliczeniowego. Na przykład w poniższym kodzie zainstalujemy zestaw danych w katalogu głównym systemu plików docelowego obiektu obliczeniowego, `/tmp` . 
+*  **TypeError: FileNotFound:** Nie ma takiego pliku lub katalogu: Ten błąd występuje, jeśli podano ścieżkę pliku nie znajduje się plik. Musisz upewnić się, że sposób, w jaki odwoływuje się do pliku, jest spójny z tym, gdzie został zainstalowany zestaw danych na docelowym miejscu obliczeniowym. Aby zapewnić stan deterministyczny, zalecamy użycie ścieżki abstrakcyjnej podczas instalowanie zestawu danych do docelowego obiektu obliczeniowego. Na przykład w poniższym kodzie zainstalujemy zestaw danych w katalogu głównym systemu plików docelowego obiektu obliczeniowego, `/tmp` . 
     
     ```python
     # Note the leading / in '/tmp/dataset'
@@ -316,7 +316,7 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Automatycznie trenuj modele uczenia maszynowego](how-to-auto-train-remote.md) przy użyciu zestawu Danych Tabelarównych.
+* [Automatycznie trenuj modele uczenia maszynowego](how-to-configure-auto-train.md#data-source-and-format) przy użyciu zestawu Danych Tabelarównych.
 
 * [Trenuj modele klasyfikacji obrazów](https://aka.ms/filedataset-samplenotebook) przy użyciu zestawu danych FileDataset.
 

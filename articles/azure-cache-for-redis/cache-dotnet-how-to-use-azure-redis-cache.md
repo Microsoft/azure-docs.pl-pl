@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 71e973e359c21c9ec6a77de93b8b56dfa16da342
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: effab14316c4a959f22467b9cc50984b6571da55
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739174"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872159"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Szybki start: używanie Azure Cache for Redis w .NET Framework
 
@@ -27,7 +27,7 @@ Jeśli chcesz przejść bezpośrednio do kodu, zobacz .NET Framework [Szybki](ht
 
 - Subskrypcja platformy Azure [— utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-- [.NET Framework 4 lub wyższą](https://www.microsoft.com/net/download/dotnet-framework-runtime), co jest wymagane przez klienta StackExchange.Redis.
+- [.NET Framework 4 lub wyższą](https://dotnet.microsoft.com/download/dotnet-framework), co jest wymagane przez klienta StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

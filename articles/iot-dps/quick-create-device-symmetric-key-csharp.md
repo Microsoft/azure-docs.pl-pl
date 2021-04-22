@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start — używanie klucza symetrycznego do aprowizacji urządzenia na platformie Azure IoT Hub przy użyciu języka C #'
-description: W tym przewodniku szybki start użyjesz zestawu SDK języka C# dla usługi Device Provisioning Service (DPS), aby udostępnić symetryczne urządzenie klucza do centrum IoT Hub
+title: 'Szybki start — używanie klucza symetrycznego do aprowizować urządzenie do Azure IoT Hub przy użyciu języka C #'
+description: W tym przewodniku Szybki start użyjemy zestawu SDK języka C# dla usługi Device Provisioning Service (DPS) do aprowizowania urządzenia z kluczem symetrycznym w centrum IoT
 author: wesmc7777
 ms.author: wesmc
 ms.date: 10/21/2020
@@ -9,24 +9,24 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: f97840a05115bf5659a6f7579b72786e890051a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a38d58eecd200ec312e7677a05531e27bf4ba6b0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92429368"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868703"
 ---
-# <a name="quickstart-provision-a-symmetric-key-device-using-c"></a>Szybki Start: Inicjowanie obsługi symetrycznego urządzenia klucza przy użyciu języka C #
+# <a name="quickstart-provision-a-symmetric-key-device-using-c"></a>Szybki start: aprowizuje urządzenie z kluczem symetrycznym przy użyciu języka C #
 
-W tym przewodniku szybki start dowiesz się, jak zainicjować obsługę maszyny deweloperskiej systemu Windows jako urządzenia w usłudze IoT Hub przy użyciu języka C#. To urządzenie użyje klucza symetrycznego i rejestracji indywidualnej w celu uwierzytelnienia w wystąpieniu usługi Device Provisioning Service (DPS) w celu przypisania do centrum IoT Hub. Przykładowy kod z [przykładów usługi Azure IoT dla języka C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) zostanie użyty do udostępnienia urządzenia. 
+W tym przewodniku Szybki start dowiesz się, jak aprowizować maszynę dewelopera z systemem Windows jako urządzenie w centrum IoT Przy użyciu języka C#. To urządzenie będzie używać klucza symetrycznego i indywidualnej rejestracji do uwierzytelniania za pomocą wystąpienia usługi Device Provisioning Service (DPS) w celu przypisania do centrum IoT. Przykładowy kod z [przykładów usługi Azure IoT dla języka C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) zostanie użyty do aprowizowania urządzenia. 
 
-Chociaż w tym artykule przedstawiono Inicjowanie obsługi przy użyciu rejestracji indywidualnej, można również użyć grup rejestracji. W przypadku korzystania z grup rejestracji istnieją pewne różnice. Na przykład należy użyć pochodnego klucza urządzenia z unikatowym IDENTYFIKATORem rejestracji dla urządzenia. [Udostępnianie urządzeń z kluczami symetrycznymi](how-to-legacy-device-symm-key.md) zapewnia przykład grupy rejestracji. Aby uzyskać więcej informacji na temat grup rejestracji, zobacz [rejestracje grup na potrzeby zaświadczania klucza symetrycznego](concepts-symmetric-key-attestation.md#group-enrollments).
+Chociaż w tym artykule pokazano aprowizowanie z rejestracją indywidualną, można również użyć grup rejestracji. Istnieją pewne różnice w przypadku korzystania z grup rejestracji. Na przykład należy użyć pochodnego klucza urządzenia z unikatowym identyfikatorem rejestracji dla urządzenia. [Przykładowa grupa rejestracji zawiera aprowizowanie](how-to-legacy-device-symm-key.md) urządzeń za pomocą kluczy symetrycznych. Aby uzyskać więcej informacji na temat grup rejestracji, zobacz [Rejestracje grupowe dla zaświadczenia klucza symetrycznego](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Jeśli nie znasz procesu inicjowania obsługi administracyjnej, zapoznaj się z omówieniem [aprowizacji](about-iot-dps.md#provisioning-process) . 
+Jeśli nie masz jeszcze informacji na temat procesu automatycznego aprowizowania, zapoznaj się z [omówieniem aprowacji.](about-iot-dps.md#provisioning-process) 
 
 Pamiętaj również, aby przed rozpoczęciem pracy z tym przewodnikiem Szybki start wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](./quick-setup-auto-provision.md). Ten przewodnik Szybki start wymaga utworzonego już wystąpienia usługi Device Provisioning Service.
 
-Ten artykuł został opracowany z myślą o stacjach roboczych z systemem Windows. Jednak opisane procedury można wykonać także w systemie Linux. Aby zapoznać się z przykładem dla systemu Linux, zobacz temat [Obsługa wielodostępności](how-to-provision-multitenant.md).
+Ten artykuł został opracowany z myślą o stacjach roboczych z systemem Windows. Jednak opisane procedury można wykonać także w systemie Linux. Aby uzyskać przykład dla systemu Linux, zobacz [Provision for multitenancy (Aprowizacja dla wielowątkości).](how-to-provision-multitenant.md)
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -34,7 +34,7 @@ Ten artykuł został opracowany z myślą o stacjach roboczych z systemem Window
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Upewnij się, że na komputerze z systemem Windows jest zainstalowany program [.NET Core 2,1 SDK](https://www.microsoft.com/net/download/windows) lub nowszy.
+* Upewnij się, że na maszynie z systemem Windows jest zainstalowany zestaw [SDK platformy .NET Core 2.1](https://dotnet.microsoft.com/download) lub nowszy.
 
 * Zainstalowana najnowsza wersja usługi[Git](https://git-scm.com/download/).
 
@@ -43,31 +43,31 @@ Ten artykuł został opracowany z myślą o stacjach roboczych z systemem Window
 
 ## <a name="create-a-device-enrollment"></a>Tworzenie rejestracji urządzeń
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz wystąpienie usługi Device Provisioning Service (DPS).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz przycisk **Wszystkie** zasoby w menu po lewej stronie i otwórz wystąpienie usługi Device Provisioning Service (DPS).
 
-2. Wybierz kartę **Zarządzanie rejestracjami** , a następnie wybierz przycisk **Dodaj rejestrację indywidualną** u góry. 
+2. Wybierz **kartę Zarządzanie rejestracjami,** a następnie wybierz przycisk **Dodaj rejestrację** indywidualną u góry strony. 
 
-3. W panelu **Dodaj rejestrację** Wprowadź poniższe informacje, a następnie naciśnij przycisk **Save (Zapisz** ).
+3. W **panelu Dodawanie** rejestracji wprowadź następujące informacje i naciśnij **przycisk** Zapisz.
 
    - **Mechanizm:** wybierz **Klucz symetryczny** jako *Mechanizm* poświadczania tożsamości.
 
-   - **Automatycznie Generuj klucze**: zaznacz to pole.
+   - **Automatycznie generuj klucze:** zaznacz to pole wyboru.
 
-   - **Identyfikator rejestracji**: wprowadź identyfikator rejestracji, aby zidentyfikować rejestrację. Użyj tylko małych znaków alfanumerycznych i kresek (-). Na przykład **Symm-Key-CSharp-Device-01**.
+   - **Identyfikator rejestracji**: wprowadź identyfikator rejestracji, aby zidentyfikować rejestrację. Użyj tylko małych znaków alfanumerycznych i kresek (-). Na przykład **symm-key-csharp-device-01.**
 
-   - **Identyfikator urządzenia usługi IoT Hub:** wprowadź identyfikator urządzenia. Na przykład **CSharp-Device-01**.
+   - **Identyfikator urządzenia usługi IoT Hub:** wprowadź identyfikator urządzenia. Na przykład **csharp-device-01**.
 
      ![Dodawanie indywidualnej rejestracji dla zaświadczenia klucza symetrycznego w portalu](./media/quick-create-device-symmetric-key-csharp/create-individual-enrollment-csharp.png)
 
-4. Po zapisaniu rejestracji **klucz podstawowy** i **klucz pomocniczy** zostaną wygenerowane i dodane do wpisu rejestracji. Rejestracja urządzenia klucza symetrycznego jest wyświetlana jako **Symm-Key-CSharp-Device-01** w kolumnie *Identyfikator rejestracji* na karcie *indywidualne rejestracje* . 
+4. Po zapisaniu rejestracji zostaną wygenerowane  **i** dodane do wpisu rejestracji klucz podstawowy i klucz pomocniczy. Rejestracja urządzenia klucza symetrycznego jest wyświetlana jako **symm-key-csharp-device-01** w kolumnie *Identyfikator* rejestracji na *karcie Indywidualne rejestracje.* 
 
-5. Otwórz rejestrację i skopiuj wartość wygenerowanego **klucza podstawowego** i **klucza pomocniczego**. Ta wartość klucza i **Identyfikator rejestracji** będą używane później, gdy dodasz zmienne środowiskowe do użycia z przykładowym kodem aprowizacji urządzenia.
+5. Otwórz rejestrację i skopiuj wartość wygenerowanego klucza **podstawowego i** **klucza pomocniczego.** Tej wartości klucza i  identyfikatora rejestracji użyjemy później, gdy dodasz zmienne środowiskowe do użycia z przykładowym kodem aprowizowania urządzeń.
 
 
 
-## <a name="prepare-the-c-environment"></a>Przygotowanie środowiska C# 
+## <a name="prepare-the-c-environment"></a>Przygotowywanie środowiska C# 
 
-1. Otwórz CMD Git lub środowisko wiersza polecenia git bash. Sklonuj [przykłady usługi Azure IoT dla repozytorium w](https://github.com/Azure-Samples/azure-iot-samples-csharp) serwisie GitHub w języku C# przy użyciu następującego polecenia:
+1. Otwórz środowisko wiersza polecenia Git CMD lub Git Bash. Sklonuj [repozytorium GitHub przykładów usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp) dla języka C# za pomocą następującego polecenia:
 
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -77,40 +77,40 @@ Ten artykuł został opracowany z myślą o stacjach roboczych z systemem Window
 
 <a id="firstbootsequence"></a>
 
-## <a name="prepare-the-device-provisioning-code"></a>Przygotuj kod aprowizacji urządzenia
+## <a name="prepare-the-device-provisioning-code"></a>Przygotowywanie kodu aprowizowania urządzenia
 
-W tej sekcji dodasz następujące cztery zmienne środowiskowe, które będą używane jako parametry dla przykładowego kodu aprowizacji urządzenia, aby udostępnić urządzenie klucza symetrycznego. 
+W tej sekcji dodasz następujące cztery zmienne środowiskowe, które będą używane jako parametry przykładowego kodu aprowowania urządzeń w celu aprowizowania urządzenia z kluczem symetrycznym. 
 
 * `DPS_IDSCOPE`
 * `PROVISIONING_REGISTRATION_ID`
 * `PRIMARY_SYMMETRIC_KEY`
 * `SECONDARY_SYMMETRIC_KEY`
 
-Kod aprowizacji będzie kontaktować się z wystąpieniem DPS na podstawie tych zmiennych w celu uwierzytelnienia urządzenia. Urządzenie zostanie następnie przypisane do centrum IoT, które jest już połączone z wystąpieniem DPS w oparciu o konfigurację rejestracji indywidualnej. Po zainicjowaniu obsługi przykładowego kodu wyśle kilka testów telemetrycznych do centrum IoT Hub.
+Kod aprowizowania skontaktuje się z wystąpieniem usługi DPS na podstawie tych zmiennych w celu uwierzytelnienia urządzenia. Następnie urządzenie zostanie przypisane do centrum IoT hub już połączonego z wystąpieniem usługi DPS na podstawie konfiguracji rejestracji indywidualnej. Po aprowizowania przykładowy kod wyśle dane telemetryczne testowe do centrum IoT.
 
-1. W [Azure Portal](https://portal.azure.com)w menu usługi Device Provisioning wybierz pozycję **Przegląd** i skopiuj swój _punkt końcowy usługi_ i _zakres identyfikatorów_. Te wartości będą używane dla `PROVISIONING_HOST` `DPS_IDSCOPE` zmiennych środowiskowych i.
+1. W menu [Azure Portal](https://portal.azure.com)device provisioning wybierz pozycję Przegląd, a następnie skopiuj punkt końcowy usługi _i_ _zakres identyfikatorów._  Użyjemy tych wartości dla zmiennych `PROVISIONING_HOST` `DPS_IDSCOPE` środowiskowych i .
 
     ![Informacje o usłudze](./media/quick-create-device-symmetric-key-csharp/extract-dps-endpoints.png)
 
-2. Otwórz wiersz polecenia i przejdź do *SymmetricKeySample* w repozytorium sklonowanych przykładów:
+2. Otwórz wiersz polecenia i przejdź do aplikacji *SymmetricKeySample* w sklonowanym repozytorium przykładów:
 
     ```cmd
     cd provisioning\Samples\device\SymmetricKeySample
     ```
 
-3. W folderze *SymmetricKeySample* Otwórz *program. cs* w edytorze tekstów i Znajdź wiersze kodu, które ustawiają `individualEnrollmentPrimaryKey` `individualEnrollmentSecondaryKey` ciągi i. Zaktualizuj te wiersze kodu w następujący sposób, aby zmienne środowiskowe były używane zamiast twardej kodowania kluczy.
+3. W *folderze SymmetricKeySample* otwórz *plik Program.cs* w edytorze tekstów i znajdź wiersze kodu, które ustawiają `individualEnrollmentPrimaryKey` ciągi `individualEnrollmentSecondaryKey` i . Zaktualizuj te wiersze kodu w następujący sposób, aby zamiast kodowania kluczy były używane zmienne środowiskowe.
  
     ```csharp
         //These are the two keys that belong to your individual enrollment. 
         // Leave them blank if you want to try this sample for an individual enrollment instead
-        //private const string individualEnrollmentPrimaryKey = "";
-        //private const string individualEnrollmentSecondaryKey = "";
+        //private const string individualEnrollmentPrimaryKey = "&quot;;
+        //private const string individualEnrollmentSecondaryKey = &quot;&quot;;
 
-        private static string individualEnrollmentPrimaryKey = Environment.GetEnvironmentVariable("PRIMARY_SYMMETRIC_KEY");;
+        private static string individualEnrollmentPrimaryKey = Environment.GetEnvironmentVariable(&quot;PRIMARY_SYMMETRIC_KEY");;
         private static string individualEnrollmentSecondaryKey = Environment.GetEnvironmentVariable("SECONDARY_SYMMETRIC_KEY");;
     ```
 
-    Ponadto Znajdź wiersz kodu, który ustawia `registrationId` ciąg i zaktualizuj go w następujący sposób, aby również użyć zmiennej środowiskowej w następujący sposób:
+    Ponadto znajdź wiersz kodu, który ustawia ciąg, i zaktualizuj go w następujący sposób, aby użyć `registrationId` zmiennej środowiskowej w następujący sposób:
 
     ```csharp
         //This field is mandatory to provide for this sample
@@ -119,11 +119,11 @@ Kod aprowizacji będzie kontaktować się z wystąpieniem DPS na podstawie tych 
         private static string registrationId = Environment.GetEnvironmentVariable("PROVISIONING_REGISTRATION_ID");;
     ```
 
-    Zapisz zmiany w *programie. cs*.
+    Zapisz zmiany w *programie Program.cs.*
 
-3. W wierszu polecenia Dodaj zmienne środowiskowe dla zakresu identyfikatorów, identyfikatora rejestracji, podstawowego i pomocniczych kluczy symetrycznych skopiowane z rejestracji indywidualnej w poprzedniej sekcji.  
+3. W wierszu polecenia dodaj zmienne środowiskowe dla zakresu identyfikatorów, identyfikatora rejestracji, podstawowych i pomocniczych kluczy symetrycznych skopiowanych z indywidualnej rejestracji w poprzedniej sekcji.  
 
-    Poniższe polecenia są przykładami, aby wyświetlić składnię polecenia. Upewnij się, że używasz prawidłowych wartości.
+    Następujące polecenia są przykładami, aby wyświetlić składnię polecenia. Upewnij się, że używasz prawidłowych wartości.
 
     ```console
     set DPS_IDSCOPE=0ne00000A0A
@@ -142,13 +142,13 @@ Kod aprowizacji będzie kontaktować się z wystąpieniem DPS na podstawie tych 
     ```
 
 
-4. Kompiluj i uruchamiaj przykładowy kod przy użyciu następującego polecenia.
+4. Skompilowanie i uruchomienie przykładowego kodu przy użyciu następującego polecenia.
 
     ```console
     dotnet run
     ```
 
-5. Oczekiwane dane wyjściowe powinny wyglądać podobnie do poniższego, który pokazuje połączone centrum IoT, do którego urządzenie zostało przypisane na podstawie ustawień rejestracji indywidualnej. Przykładowy ciąg "TestMessage" jest wysyłany do centrum jako test:
+5. Oczekiwane dane wyjściowe powinny wyglądać podobnie do poniższych, które pokazują połączone centrum IoT, do którego przypisano urządzenie, na podstawie indywidualnych ustawień rejestracji. Przykładowy ciąg "TestMessage" jest wysyłany do centrum jako test:
 
     ```output
     D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run
@@ -162,7 +162,7 @@ Kod aprowizacji będzie kontaktować się z wystąpieniem DPS na podstawie tych 
     Enter any key to exit
     ```
     
-6. W Azure Portal przejdź do centrum IoT połączonego z usługą aprowizacji, a następnie otwórz blok **urządzenia IoT** . Po pomyślnym zainicjowaniu obsługi urządzenia klucza symetrycznego w centrum zostanie wyświetlony identyfikator urządzenia z **włączonym** *stanem* . Może być konieczne naciśnięcie przycisku **Odśwież** w górnej części, jeśli blok został już otwarty przed uruchomieniem przykładowego kodu urządzenia. 
+6. W Azure Portal przejdź do centrum IoT połączonego z twoją usługą aprowiwizowania i otwórz blok **Urządzenia IoT.** Po pomyślnym aprowizowania urządzenia klucza symetrycznego w centrum identyfikator urządzenia jest wyświetlany z *włączonym* **stanem .** Może być konieczne naciśnięcie **przycisku Odśwież** u góry, jeśli blok został już otwarty przed uruchomieniem przykładowego kodu urządzenia. 
 
     ![Urządzenie jest rejestrowane w centrum IoT](./media/quick-create-device-symmetric-key-csharp/hub-registration-csharp.png) 
 
@@ -173,14 +173,14 @@ Kod aprowizacji będzie kontaktować się z wystąpieniem DPS na podstawie tych 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
+Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w tym przewodniku Szybki start.
 
-1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz usługę Device Provisioning. Otwórz pozycję **Zarządzanie rejestracjami** dla usługi, a następnie wybierz kartę **rejestracje indywidualne** . Zaznacz pole wyboru obok *identyfikatora rejestracji* urządzenia zarejestrowanego w ramach tego przewodnika Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka. 
-1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz swoje centrum IoT Hub. Otwórz **urządzenia IoT** dla swojego centrum, zaznacz pole wyboru obok *identyfikatora urządzenia* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka.
+1. W menu po lewej stronie w Azure Portal wybierz pozycję **Wszystkie zasoby,** a następnie wybierz swoją usługę Device Provisioning. Otwórz **okno Zarządzanie rejestracjami** dla usługi, a następnie wybierz **kartę Rejestracje** indywidualne. Zaznacz pole wyboru obok identyfikatora *REJESTRACJI* urządzenia zarejestrowanego w tym przewodniku Szybki start, a następnie naciśnij przycisk **Usuń** w górnej części okienka. 
+1. W menu po lewej stronie w Azure Portal wybierz pozycję **Wszystkie zasoby,** a następnie wybierz swoje centrum IoT. Otwórz **urządzenia IoT** dla centrum, zaznacz pole  wyboru obok identyfikatora urządzenia zarejestrowanego w tym przewodniku Szybki start, a następnie naciśnij przycisk Usuń w górnej części okienka. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start zostało zainicjowane urządzenie klucza symetrycznego opartego na systemie Windows w usłudze IoT Hub przy użyciu IoT Hub Device Provisioning Service. Aby dowiedzieć się, jak zainicjować obsługę administracyjną urządzeń z certyfikatem X. 509 przy użyciu języka C#, przejdź poniżej przewodnika Szybki Start dotyczącego urządzeń X. 509. 
+W tym przewodniku Szybki start aprowizowane zostało urządzenie z kluczem symetrycznym oparte na systemie Windows do centrum IoT przy użyciu IoT Hub Device Provisioning Service. Aby dowiedzieć się, jak aprowizować urządzenia z certyfikatami X.509 przy użyciu języka C#, przejdź do poniższego przewodnika Szybki start dla urządzeń X.509. 
 
 > [!div class="nextstepaction"]
-> [Przewodnik Szybki Start platformy Azure — Udostępnianie urządzeń X. 509 za pomocą usługi DPS i języka C #](quick-create-simulated-device-x509-csharp.md)
+> [Przewodnik Szybki start platformy Azure — aprowizuj urządzenia X.509 przy użyciu usług DPS i C #](quick-create-simulated-device-x509-csharp.md)

@@ -11,26 +11,26 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: 8775696a35bfccc363aa2c6ec06c6c44115916b9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 9b7b8fe9c05d0de64dcd0cf7c6c324e0d03cb1ac
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479274"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874157"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Obsługa o wysokiej wydajności za pomocą serwera Triton Inference Server (wersja zapoznawcza) 
 
-Dowiedz się, jak [używać serwera wnioskowania NVIDIA Triton w](https://aka.ms/nvidia-triton-docs) celu zwiększenia wydajności usługi internetowej używanej do wnioskowania modelu.
+Dowiedz się, jak używać [serwera wnioskowania NVIDIA Triton w](https://aka.ms/nvidia-triton-docs) celu zwiększenia wydajności usługi internetowej używanej do wnioskowania modelu.
 
-Jednym ze sposobów wdrażania modelu do wnioskowania jest usługa internetowa. Na przykład wdrożenie w Azure Kubernetes Service lub Azure Container Instances. Domyślnie program Azure Machine Learning jednowątkową, internetową  platformę ogólnego przeznaczenia na potrzeby wdrożeń usług internetowych.
+Jednym ze sposobów wdrażania modelu do wnioskowania jest usługa internetowa. Na przykład wdrożenie w Azure Kubernetes Service lub Azure Container Instances. Domyślnie program Azure Machine Learning jednowątkową *platformę* sieci Web ogólnego przeznaczenia na potrzeby wdrożeń usług internetowych.
 
-Triton to framework zoptymalizowany *pod kątem wnioskowania.* Zapewnia lepsze wykorzystanie procesorów GPU i bardziej ekonomiczne wnioskowanie. Po stronie serwera przesyła partie żądań przychodzących i przesyła je do wnioskowania. Przetwarzanie wsadowe lepiej wykorzystuje zasoby procesora GPU i jest kluczowym elementem wydajności tritona.
+Triton to framework zoptymalizowany pod kątem *wnioskowania.* Zapewnia lepsze wykorzystanie procesorów GPU i bardziej ekonomiczne wnioskowanie. Po stronie serwera przesyła partie żądań przychodzących i przesyła je do wnioskowania. Przetwarzanie wsadowe lepiej wykorzystuje zasoby procesora GPU i jest kluczowym elementem wydajności tritona.
 
 > [!IMPORTANT]
 > Korzystanie z rozwiązania Triton do wdrażania z Azure Machine Learning jest obecnie dostępne w wersji __zapoznawczej__. Funkcje w wersji zapoznawczej mogą nie być objęte pomocą techniczną dla klientów. Aby uzyskać więcej informacji, zobacz Dodatkowe warunki użytkowania dla wersji [Microsoft Azure zapoznawczych](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!TIP]
-> Fragmenty kodu w tym dokumencie mają charakter ilustracyjny i mogą nie pokazywać kompletnego rozwiązania. Aby uzyskać przykładowy kod roboczy, zobacz [end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/triton-aml-sample)(
+> Fragmenty kodu w tym dokumencie mają charakter ilustracyjny i mogą nie pokazywać kompletnego rozwiązania. Aby uzyskać przykładowy kod roboczy, zobacz [end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/triton-aml-sample).
 
 > [!NOTE]
 > [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) to oprogramowanie innych firm typu open source zintegrowane z Azure Machine Learning.
@@ -48,7 +48,7 @@ Przed podjęciem próby użycia rozwiązania Triton dla własnego modelu ważne 
 
 **Wdrożenie domyślne bez trytonu**
 
-* Wielu [pracowników serwera Gunicorn](https://gunicorn.org/) zaczyna współbieżnie obsługiwać żądania przychodzące.
+* Wielu [pracowników serwera Gunicorn](https://gunicorn.org/) rozpoczyna współbieżną obsługę żądań przychodzących.
 * Te pracownicy obsługują przetwarzanie wstępne, wywoływanie modelu i przetwarzanie po nim. 
 * Klienci korzystają z __URI oceniania usługi Azure ML.__ Na przykład `https://myservice.azureml.net/score`.
 
@@ -64,7 +64,7 @@ Przed podjęciem próby użycia rozwiązania Triton dla własnego modelu ważne 
 
 **Wdrażanie konfiguracji wnioskowania za pomocą rozwiązania Triton**
 
-* Wielu [pracowników serwera Gunicorn](https://gunicorn.org/) rozpoczyna współbieżną obsługę żądań przychodzących.
+* Wielu [pracowników serwera Gunicorn](https://gunicorn.org/) zaczyna współbieżnie obsługiwać żądania przychodzące.
 * Żądania są przekazywane do serwera **Triton**. 
 * Triton przetwarza żądania w partiach, aby zmaksymalizować wykorzystanie procesora GPU.
 * Klient wysyła żądania przy __użyciu URI oceniania__ usługi Azure ML. Na przykład `https://myservice.azureml.net/score`.
@@ -83,7 +83,7 @@ Najpierw wykonaj poniższe kroki, aby sprawdzić, czy serwer Triton Inference Se
 
 ### <a name="optional-define-a-model-config-file"></a>(Opcjonalnie) Definiowanie pliku konfiguracji modelu
 
-Plik konfiguracji modelu informuje Tritona, ilu danych wejściowych można oczekiwać i jakie wymiary będą to dane wejściowe. Aby uzyskać więcej informacji na temat tworzenia pliku konfiguracji, zobacz [Konfiguracja modelu](https://aka.ms/nvidia-triton-docs) w dokumentacji firmy NVIDIA.
+Plik konfiguracji modelu informuje Trytona, ilu danych wejściowych oczekujemy, oraz o wymiarach tych danych wejściowych. Aby uzyskać więcej informacji na temat tworzenia pliku konfiguracji, zobacz [Konfiguracja modelu](https://aka.ms/nvidia-triton-docs) w dokumentacji firmy NVIDIA.
 
 > [!TIP]
 > Używamy opcji podczas uruchamiania serwera Triton Inference Server, co oznacza, że nie trzeba dostarczać pliku dla modeli `--strict-model-config=false` `config.pbtxt` ONNX lub TensorFlow.
@@ -106,7 +106,7 @@ models
 ```
 
 > [!IMPORTANT]
-> Ta struktura katalogów jest repozytorium modelu Tryton i jest wymagana do współpracy modeli z usługą Triton. Aby uzyskać więcej informacji, zobacz [Repozytoria modelu Triton w](https://aka.ms/nvidia-triton-docs) dokumentacji firmy NVIDIA.
+> Ta struktura katalogów jest repozytorium modelu Triton i jest wymagana do współpracy modeli z usługą Triton. Aby uzyskać więcej informacji, zobacz [Repozytoria modelu Triton w](https://aka.ms/nvidia-triton-docs) dokumentacji firmy NVIDIA.
 
 ### <a name="register-your-triton-model"></a>Rejestrowanie modelu Triton
 
@@ -116,9 +116,9 @@ models
 az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
-Aby uzyskać więcej informacji na `az ml model register` temat programu , zapoznaj się z [dokumentacją referencyjną](/cli/azure/ext/azure-cli-ml/ml/model).
+Aby uzyskać więcej informacji na `az ml model register` temat programu , zapoznaj się z [dokumentacją referencyjną](/cli/azure/ml/model).
 
-Podczas rejestrowania modelu w Azure Machine Learning, wartość parametru musi być nazwą `--model-path  -p` folderu nadrzędnego Triton.  
+Podczas rejestrowania modelu w Azure Machine Learning, wartość parametru musi być nazwą folderu nadrzędnego `--model-path  -p` Triton.  
 W powyższym przykładzie  `--model-path` jest to "models".
 
 Wartość `--name  -n` parametru â€ ̃ my_triton_modelâ€™ w przykładzie będzie nazwą modelu znaną Obszar roboczy usługi Azure Machine Learning. 
@@ -232,7 +232,7 @@ Po wykonaniu kontroli kondycji możesz utworzyć klienta w celu wysyłania danyc
 
 Jeśli na tym etapie nie chcesz dodawać przetwarzania wstępnego i post w języku Python do wdrożonej usługi internetowej, możesz to zrobić. Jeśli chcesz dodać tę logikę przetwarzania wstępnego i po przetwarzaniu, przeczytaj dalej.
 
-## <a name="optional-re-deploy-with-a-python-entry-script-for-pre--and-post-processing"></a>(Opcjonalnie) Ponowne wdrażanie za pomocą skryptu wprowadzania w języku Python do przetwarzania wstępnego i post
+## <a name="optional-re-deploy-with-a-python-entry-script-for-pre--and-post-processing"></a>(Opcjonalnie) Ponowne wdrażanie za pomocą skryptu wprowadzania w języku Python do przetwarzania wstępnego i po nim
 
 Po sprawdzeniu, czy triton jest w stanie obsługiwać _model,_ możesz dodać kod przed i po przetworzeniu, definiując skrypt wejściowy . Ten plik ma nazwę `score.py` . Aby uzyskać więcej informacji na temat skryptów wejściowych, [zobacz Define an entry script (Definiowanie skryptu wprowadzania).](how-to-deploy-and-where.md#define-an-entry-script)
 
@@ -240,10 +240,10 @@ Dwa główne kroki to zainicjowanie klienta HTTP Triton w metodzie i wywołanie 
 
 ### <a name="initialize-the-triton-client"></a>Inicjowanie klienta Triton
 
-Dołącz do pliku kod podobny do poniższego `score.py` przykładu. Tryton w Azure Machine Learning oczekuje na adres localhost, port 8000. W takim przypadku localhost znajduje się wewnątrz obrazu platformy Docker dla tego wdrożenia, a nie na porcie na komputerze lokalnym:
+Dołącz do pliku kod podobny do poniższego `score.py` przykładu. Tryton w Azure Machine Learning będzie adresowany na porcie localhost, 8000. W takim przypadku localhost znajduje się wewnątrz obrazu platformy Docker dla tego wdrożenia, a nie na porcie na komputerze lokalnym:
 
 > [!TIP]
-> Pakiet pip jest zawarty w środowisku z możliwością curated, więc nie trzeba go określać `tritonhttpclient` `AzureML-Triton` jako zależności pip.
+> Pakiet pip jest uwzględniony w środowisku z możliwością curated, więc nie trzeba go określać `tritonhttpclient` `AzureML-Triton` jako zależności pip.
 
 ```python
 import tritonhttpclient
@@ -279,7 +279,7 @@ res = triton_client.infer(model_name,
 
 ### <a name="redeploy-with-an-inference-configuration"></a>Ponowne wdychaj przy użyciu konfiguracji wnioskowania
 
-Konfiguracja wnioskowania umożliwia użycie skryptu wejścia, a także Azure Machine Learning wdrażania przy użyciu zestawu SDK języka Python lub interfejsu wiersza polecenia platformy Azure.
+Konfiguracja wnioskowania umożliwia użycie skryptu wejścia, a także procesu wdrażania Azure Machine Learning przy użyciu zestawu SDK języka Python lub interfejsu wiersza polecenia platformy Azure.
 
 > [!IMPORTANT]
 > Należy określić środowisko `AzureML-Triton` [wsadowe](./resource-curated-environments.md).
@@ -339,9 +339,9 @@ print(local_service.scoring_uri)
 
 ---
 
-Po zakończeniu wdrażania zostanie wyświetlony URI oceniania. W przypadku tego wdrożenia lokalnego będzie to `http://localhost:6789/score` . Jeśli wdrażasz w chmurze, możesz użyć polecenia [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) CLI, aby uzyskać interfejs URI oceniania.
+Po zakończeniu wdrażania zostanie wyświetlony URI oceniania. W przypadku tego wdrożenia lokalnego będzie to `http://localhost:6789/score` . Jeśli wdrażasz w chmurze, możesz użyć polecenia [az ml service show](/cli/azure/ml/service#az_ml_service_show) CLI, aby uzyskać interfejs URI oceniania.
 
-Aby uzyskać informacje na temat tworzenia klienta, który wysyła żądania wnioskowania do URI oceniania, zobacz Consume a model deployed as a web service (Wykorzystanie [modelu wdrożonego jako usługa internetowa).](how-to-consume-web-service.md)
+Aby uzyskać informacje na temat tworzenia klienta, który wysyła żądania wnioskowania do interfejsu URI oceniania, zobacz Consume a model deployed as a web service (Wykorzystanie [modelu wdrożonego jako usługa internetowa).](how-to-consume-web-service.md)
 
 ### <a name="setting-the-number-of-workers"></a>Ustawianie liczby pracowników
 
@@ -351,7 +351,7 @@ Aby ustawić liczbę pracowników we wdrożeniu, ustaw zmienną środowiskową `
 env.environment_variables["WORKER_COUNT"] = "1"
 ```
 
-Spowoduje to, że usługa Azure ML będzie rozkręcać liczbę pracowników, które określisz.
+Dzięki temu usługa Azure ML będzie w stanie rozsyłać liczbę pracowników, które określisz.
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
@@ -376,11 +376,11 @@ local_service.delete()
 
 * [Rozwiązywanie problemów z nieudanym](how-to-troubleshoot-deployment.md)wdrożeniem . Dowiedz się, jak rozwiązywać typowe błędy, które mogą wystąpić podczas wdrażania modelu, oraz jak je rozwiązywać.
 
-* Jeśli dzienniki wdrażania wskazują, że uruchomienie rozwiązania **TritonServer** nie powiodło się, zapoznaj się z dokumentacją firmy [Nvidiaâ€™s open source technicznej.](https://github.com/triton-inference-server/server)
+* Jeśli dzienniki wdrażania wskazują, że uruchomienie rozwiązania **TritonServer** nie powiodło się, zapoznaj się z dokumentacją firmy [Nvidiaâ€™s open source.](https://github.com/triton-inference-server/server)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zobacz end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample)
+* [Zobacz szczegółowe przykłady tritonu w Azure Machine Learning](https://aka.ms/aml-triton-sample)
 * Zapoznaj się z [przykładami klientów Triton](https://aka.ms/nvidia-client-examples)
 * Przeczytaj dokumentację [serwera Triton Inference Server](https://aka.ms/nvidia-triton-docs)
 * [Wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)

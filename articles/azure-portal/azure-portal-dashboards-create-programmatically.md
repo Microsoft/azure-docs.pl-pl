@@ -3,32 +3,32 @@ title: Programowe tworzenie pulpitów nawigacyjnych platformy Azure
 description: Użyj pulpitu nawigacyjnego w Azure Portal jako szablonu, aby programowo tworzyć pulpity nawigacyjne platformy Azure. Zawiera odwołanie JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: 416eeb772e347b28fcb4a4dcc93c746562ea3571
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 92848ac238ff11a90afc82713639b8abebf076ec
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767063"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878798"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programowe tworzenie pulpitów nawigacyjnych platformy Azure
 
-Ten artykuł zawiera informacje o procesie programowego tworzenia i publikowania pulpitów nawigacyjnych platformy Azure. Pulpit nawigacyjny przedstawiony poniżej jest przywołyny w całym dokumencie.
+W tym artykule otworzymy programowe tworzenie i publikowanie pulpitów nawigacyjnych platformy Azure. Pulpit nawigacyjny przedstawiony poniżej jest przywołyny w całym dokumencie.
 
 ![przykładowy pulpit nawigacyjny](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
 ## <a name="overview"></a>Omówienie
 
-Udostępnione pulpity nawigacyjne w [Azure Portal](https://portal.azure.com) są [zasobami,](../azure-resource-manager/management/overview.md) podobnie jak maszyny wirtualne i konta magazynu. Zasobami można zarządzać programowo przy użyciu interfejsów [API REST](/rest/api/)Azure Resource Manager , interfejsu wiersza polecenia platformy [Azure](/cli/azure) [Azure PowerShell poleceń](/powershell/azure/get-started-azureps).
+Udostępnione pulpity nawigacyjne w [Azure Portal](https://portal.azure.com) są [zasobami,](../azure-resource-manager/management/overview.md) podobnie jak maszyny wirtualne i konta magazynu. Zasobami można zarządzać programowo przy użyciu interfejsów [API REST](/rest/api/)Azure Resource Manager , interfejsu wiersza polecenia platformy [Azure](/cli/azure) [Azure PowerShell polecenia](/powershell/azure/get-started-azureps).
 
-Wiele funkcji opiera się na tych interfejsach API, aby ułatwić zarządzanie zasobami. Każdy z tych interfejsów API i narzędzi oferuje sposoby tworzenia, tworzenia, pobierania, modyfikowania i usuwania zasobów. Ponieważ pulpity nawigacyjne są zasobami, możesz wybrać ulubiony interfejs API lub narzędzie do użycia.
+Wiele funkcji opiera się na tych interfejsach API, aby ułatwić zarządzanie zasobami. Każdy z tych interfejsów API i narzędzi oferuje sposoby tworzenia, pobierania, modyfikowania i usuwania zasobów. Ponieważ pulpity nawigacyjne są zasobami, możesz wybrać ulubiony interfejs API lub narzędzie do użycia.
 
-Niezależnie od tego, których narzędzi używasz do programowego tworzenia pulpitu nawigacyjnego, tworzysz reprezentację JSON obiektu pulpitu nawigacyjnego. Ten obiekt zawiera informacje o kafelkach na pulpicie nawigacyjnym. Obejmuje ona rozmiary, pozycje, zasoby, z które są powiązane, oraz wszelkie dostosowania użytkowników.
+Niezależnie od narzędzi, których używasz do programowego tworzenia pulpitu nawigacyjnego, tworzysz reprezentację JSON obiektu pulpitu nawigacyjnego. Ten obiekt zawiera informacje o kafelkach na pulpicie nawigacyjnym. Obejmuje ona rozmiary, pozycje, zasoby, z które są powiązane, oraz wszelkie dostosowania użytkowników.
 
 Najbardziej praktycznym sposobem tworzenia tego dokumentu JSON jest użycie Azure Portal. Kafelki można dodawać i pozycjonować interaktywnie. Następnie wyeksportuj dane JSON i utwórz szablon na podstawie wyniku do późniejszego użycia w skryptach, programach i narzędziach wdrażania.
 
 ## <a name="create-a-dashboard"></a>Tworzenie pulpitu nawigacyjnego
 
-Aby utworzyć pulpit nawigacyjny, wybierz pozycję **Pulpit nawigacyjny** z menu [Azure Portal,](https://portal.azure.com) a następnie wybierz **pozycję Nowy pulpit nawigacyjny.**
+Aby utworzyć pulpit nawigacyjny, wybierz pozycję **Pulpit nawigacyjny** z menu [Azure Portal, a](https://portal.azure.com) następnie wybierz pozycję Nowy pulpit **nawigacyjny.**
 
 ![polecenie nowego pulpitu nawigacyjnego](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
@@ -46,7 +46,7 @@ Po skonfigurowaniu pulpitu nawigacyjnego następnym krokiem jest opublikowanie p
 
 ![udostępnianie pulpitu nawigacyjnego](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Wybranie **opcji** Udostępnij monituje o wybranie subskrypcji i grupy zasobów do opublikowania. Musisz mieć dostęp do zapisu do subskrypcji i grupy zasobów, które wybierzesz. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Wybranie **opcji** Udostępnij monituje o wybranie subskrypcji i grupy zasobów do opublikowania. Musisz mieć dostęp do zapisu dla subskrypcji i grupy zasobów, które wybierzesz. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ![wprowadzać zmiany w udostępnianiu i dostępie](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -60,7 +60,7 @@ Publikowanie trwa tylko kilka sekund. Po zakończeniu następnym krokiem jest po
 
 Następnym krokiem jest utworzenie szablonu na podstawie tego pliku JSON. Tego szablonu należy używać programowo z odpowiednimi interfejsami API zarządzania zasobami, narzędziami wiersza polecenia lub w portalu.
 
-Nie musisz w pełni rozumieć struktury JSON pulpitu nawigacyjnego, aby utworzyć szablon. W większości przypadków chcesz zachować strukturę i konfigurację każdego kafelka. Następnie sparametryzuj zestaw zasobów platformy Azure, na które wskazują kafelki. Spójrz na wyeksportowany pulpit nawigacyjny JSON i znajdź wszystkie wystąpienia identyfikatorów zasobów platformy Azure. Nasz przykładowy pulpit nawigacyjny ma wiele kafelków, które wskazują jedną maszynę wirtualną platformy Azure. Wynika to z tego, że nasz pulpit nawigacyjny patrzy tylko na ten pojedynczy zasób. Jeśli wyszukasz przykładowy kod JSON dołączony na końcu dokumentu dla ciągu "/subscriptions", znajdziesz kilka wystąpień tego identyfikatora.
+Nie musisz w pełni rozumieć struktury JSON pulpitu nawigacyjnego, aby utworzyć szablon. W większości przypadków chcesz zachować strukturę i konfigurację każdego kafelka. Następnie sparametryzuj zestaw zasobów platformy Azure, na które wskazują kafelki. Spójrz na wyeksportowany pulpit nawigacyjny JSON i znajdź wszystkie wystąpienia identyfikatorów zasobów platformy Azure. Nasz przykładowy pulpit nawigacyjny zawiera wiele kafelków, które wskazują jedną maszynę wirtualną platformy Azure. Wynika to z tego, że nasz pulpit nawigacyjny patrzy tylko na ten pojedynczy zasób. Jeśli wyszukasz przykładowy kod JSON dołączony na końcu dokumentu dla ciągu "/subscriptions", znajdziesz kilka wystąpień tego identyfikatora.
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
@@ -68,18 +68,18 @@ Aby opublikować ten pulpit nawigacyjny dla dowolnej maszyny wirtualnej w przysz
 
 Istnieją dwa podejścia do interfejsów API, które tworzą zasoby na platformie Azure:
 
-* Imperatywne interfejsy API tworzą po jednym zasobie na raz. Aby uzyskać więcej informacji, zobacz [Zasoby](/rest/api/resources/resources).
+* Interfejsy API imperatywnych tworzą po jednym zasobie na raz. Aby uzyskać więcej informacji, zobacz [Zasoby](/rest/api/resources/resources).
 * System wdrażania oparty na szablonach, który tworzy wiele zasobów zależnych za pomocą jednego wywołania interfejsu API. Aby uzyskać więcej informacji, zobacz  [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)(Wdrażanie zasobów za pomocą szablonów Azure PowerShell ).
 
 Wdrożenie oparte na szablonach obsługuje parametryzację i szablony. W tym artykule używamy tego podejścia.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Programowe tworzenie pulpitu nawigacyjnego na podstawie szablonu przy użyciu wdrożenia szablonu
 
-Platforma Azure oferuje możliwość organizowania wdrożenia wielu zasobów. Tworzysz szablon wdrożenia, który wyraża zestaw zasobów do wdrożenia oraz relacje między nimi.  Format JSON każdego zasobu jest taki sam, jak w przypadku tworzenia ich jeden po drugiej. Różnica polega na tym, że język szablonów dodaje kilka pojęć, takich jak zmienne, parametry, podstawowe funkcje i nie tylko. Ta rozszerzona składnia jest obsługiwana tylko w kontekście wdrożenia szablonu. Nie działa, jeśli jest używana z interfejsami API imperatywnymi omówiony wcześniej. Aby uzyskać więcej informacji, zobacz [Understand the structure and syntax of Azure Resource Manager templates (Opis](../azure-resource-manager/templates/template-syntax.md)struktury i składni szablonów Azure Resource Manager szablonów).
+Platforma Azure oferuje możliwość organizowania wdrażania wielu zasobów. Tworzysz szablon wdrożenia, który wyraża zestaw zasobów do wdrożenia oraz relacje między nimi.  Format JSON każdego zasobu jest taki sam, jak w przypadku tworzenia ich jeden po drugiej. Różnica polega na tym, że język szablonów dodaje kilka pojęć, takich jak zmienne, parametry, podstawowe funkcje i nie tylko. Ta rozszerzona składnia jest obsługiwana tylko w kontekście wdrożenia szablonu. Nie działa, jeśli jest używana z interfejsami API imperatywnymi omówiony wcześniej. Aby uzyskać więcej informacji, [zobacz Understand the structure and syntax of Azure Resource Manager templates (Opis](../azure-resource-manager/templates/template-syntax.md)struktury i składni szablonów Azure Resource Manager szablonów).
 
-Parametryzację należy wykonać przy użyciu składni parametrów szablonu.  Zastąp wszystkie wystąpienia znalezionego wcześniej identyfikatora zasobu, jak pokazano poniżej.
+Parametryzacja powinna odbywać się przy użyciu składni parametrów szablonu.  Zastąp wszystkie wystąpienia identyfikatora zasobu, które znaleźliśmy wcześniej, jak pokazano poniżej.
 
-Przykładowa właściwość JSON z zakodowaną identyfikatorem zasobu:
+Przykładowa właściwość JSON z zakodowanym identyfikatorem zasobu:
 
 ```json
 id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
@@ -118,11 +118,11 @@ Po skonfigurowaniu szablonu należy wdrożyć go przy użyciu dowolnej z następ
 * [Interfejsy API REST](/rest/api/resources/deployments)
 * [Program PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/group/deployment#az_group_deployment_create)
-* [Strona Azure Portal wdrażania szablonu aplikacji](https://portal.azure.com/#create/Microsoft.Template)
+* [Strona Azure Portal wdrożenia szablonu aplikacji](https://portal.azure.com/#create/Microsoft.Template)
 
 Następnie zobaczysz dwie wersje przykładowego danych JSON pulpitu nawigacyjnego. Pierwsza to wersja wyeksportowana z portalu, która została już powiązana z zasobem. Druga to wersja szablonu, która może być programowo powiązana z dowolną maszyną wirtualną i wdrożona przy użyciu Azure Resource Manager.
 
-### <a name="json-representation-of-our-example-dashboard-before-templating"></a>Reprezentacja JSON przykładowego pulpitu nawigacyjnego przed rozpoczęciem szablonów
+### <a name="json-representation-of-our-example-dashboard-before-templating"></a>Reprezentacja przykładowego pulpitu nawigacyjnego w danych JSON przed rozpoczęciem szablonów
 
 W tym przykładzie pokazano, czego można oczekiwać, jeśli dzieje się to wraz z tym artykułem. Instrukcje wyeksportowały reprezentację JSON pulpitu nawigacyjnego, który został już wdrożony. Zakodowane identyfikatory zasobów pokazują, że ten pulpit nawigacyjny pokazuje określoną maszynę wirtualną platformy Azure.
 
@@ -378,7 +378,7 @@ W tym przykładzie pokazano, czego można oczekiwać, jeśli dzieje się to wraz
 
 ### <a name="template-representation-of-our-example-dashboard"></a>Reprezentacja szablonu przykładowego pulpitu nawigacyjnego
 
-W wersji szablonu pulpitu nawigacyjnego zdefiniowano trzy parametry o nazwach `virtualMachineName` , `virtualMachineResourceGroup` i `dashboardName` .  Parametry pozwalają wskazać ten pulpit nawigacyjny na innej maszynie wirtualnej platformy Azure przy każdym wdrożeniu. Ten pulpit nawigacyjny można programowo skonfigurować i wdrożyć, aby wskazać dowolną maszynę wirtualną platformy Azure. Aby przetestować tę funkcję, skopiuj następujący szablon i wklej go na Azure Portal [wdrażania szablonu.](https://portal.azure.com/#create/Microsoft.Template)
+Wersja szablonu pulpitu nawigacyjnego ma zdefiniowane trzy parametry o `virtualMachineName` nazwach `virtualMachineResourceGroup` , i `dashboardName` .  Parametry pozwalają wskazać ten pulpit nawigacyjny na innej maszynie wirtualnej platformy Azure przy każdym wdrożeniu. Ten pulpit nawigacyjny można programowo skonfigurować i wdrożyć, aby wskazać dowolną maszynę wirtualną platformy Azure. Aby przetestować tę funkcję, skopiuj następujący szablon i wklej go na Azure Portal [wdrażania szablonu.](https://portal.azure.com/#create/Microsoft.Template)
 
 W tym przykładzie pulpit nawigacyjny jest wdrażany samodzielnie, ale język szablonu umożliwia wdrażanie wielu zasobów i tworzenie pakietów obok nich co najmniej jednego pulpitu nawigacyjnego.
 
@@ -652,33 +652,33 @@ Teraz, gdy już wiesz, jak używać sparametryzowanego szablonu do wdrażania pu
 
 ## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Programowe tworzenie pulpitu nawigacyjnego przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure.
+Przygotowywanie środowiska dla interfejsu wiersza polecenia platformy Azure.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 - Te przykłady używają następującego pulpitu [ nawigacyjnego:portal-dashboard-template-testvm.jsna stronie](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Zastąp zawartość w nawiasach kątowych swoimi wartościami.
 
-Uruchom polecenie [az portal dashboard create,](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) aby utworzyć pulpit nawigacyjny:
+Uruchom polecenie [az portal dashboard create,](/cli/azure/portal/dashboard#az_portal_dashboard_create) aby utworzyć pulpit nawigacyjny:
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Pulpit nawigacyjny można zaktualizować za pomocą [polecenia az portal dashboard update:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update)
+Pulpit nawigacyjny można zaktualizować za pomocą [polecenia az portal dashboard update:](/cli/azure/portal/dashboard#az_portal_dashboard_update)
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
 --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Aby wyświetlić szczegóły pulpitu nawigacyjnego, należy uruchamiać [polecenie az portal dashboard show:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show)
+Aby wyświetlić szczegóły pulpitu nawigacyjnego, uruchamiając [polecenie az portal dashboard show:](/cli/azure/portal/dashboard#az_portal_dashboard_show)
 
 ```azurecli
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-Aby wyświetlić wszystkie pulpity nawigacyjne dla bieżącej subskrypcji, użyj [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Aby wyświetlić wszystkie pulpity nawigacyjne dla bieżącej subskrypcji, użyj [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -694,4 +694,4 @@ az portal dashboard list --resource-group myResourceGroup
 
 Aby uzyskać więcej informacji na temat komputerów stacjonarnych, zobacz [Zarządzanie Azure Portal ustawieniami i preferencjami.](set-preferences.md)
 
-Aby uzyskać więcej informacji na temat obsługi pulpitów nawigacyjnych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
+Aby uzyskać więcej informacji na temat obsługi pulpitów nawigacyjnych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [az portal dashboard](/cli/azure/portal/dashboard).

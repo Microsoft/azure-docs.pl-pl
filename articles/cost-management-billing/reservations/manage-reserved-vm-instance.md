@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: 1523ca77b06281b84ed57fbc0e2e49ffede85fb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e8a5e6d40b745efb7fcd50919cd27664b3406b7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934346"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862853"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Zarządzanie rezerwacjami zasobów platformy Azure
 
@@ -35,7 +35,7 @@ Aby wyświetlić zamówienie rezerwacji, przejdź do pozycji **Rezerwacje** > wy
 
 ![Przykład szczegółów zamówienia rezerwacji z wyróżnionym identyfikatorem zamówienia rezerwacji ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
-Rezerwacja dziedziczy uprawnienia z zamówienia rezerwacji. Aby wymienić lub zwrócić zastrzeżenie, użytkownik powinien zostać dodany do zamówienia rezerwacji.
+Rezerwacja dziedziczy uprawnienia z zamówienia rezerwacji. Aby wymienić rezerwację lub uzyskać zwrot jej kosztów, należy dodać użytkownika do zamówienia rezerwacji.
 
 ## <a name="change-the-reservation-scope"></a>Zmienianie zakresu rezerwacji
 
@@ -57,8 +57,8 @@ Zakres ma zastosowanie tylko do pojedynczych subskrypcji płatności zgodnie z r
 
 Domyślnie rezerwacje mogą wyświetlać i zarządzać nimi następujący użytkownicy:
 
-- Osoba, która zakupiła rezerwację i właściciel konta dla subskrypcji rozliczeń, uzyskuje dostęp do zamówienia usługi Azure RBAC.
--  Współautorzy rozliczeń Enterprise Agreement i umowy klienta Microsoft mogą zarządzać wszystkimi rezerwacjami z Cost Management i rozliczeń > transakcji rezerwacji > wybrać niebieski baner.
+- Osoba, która kupiła rezerwację, i właściciel konta subskrypcji rozliczeniowej uzyskają dostęp RBAC platformy Azure do zamówienia rezerwacji.
+-  Enterprise Agreement i Umowa z Klientem Microsoft współautorzy rozliczeń mogą zarządzać wszystkimi rezerwacjami z Cost Management + Billing > transakcji rezerwacji, > wybrać niebieski baner.
 
 Jeśli chcesz umożliwić innym osobom zarządzanie rezerwacjami, masz dwie możliwości:
 
@@ -177,23 +177,9 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
-
-- [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)
-
-Kup plan usługi:
-- [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity (Opłacanie zasobów obliczeniowych usługi SQL Database z góry przy użyciu zarezerwowanej pojemności usługi Azure SQL Database)](../../azure-sql/database/reserved-capacity-overview.md)
-- [Opłacanie zasobów usługi Azure Cosmos DB z góry za pomocą zarezerwowanej pojemności usługi Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-
-Kup plan oprogramowania:
-- [Opłacanie planów oprogramowania Red Hat z góry z poziomu usługi Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prepay for SUSE software plans from Azure Reservations (Opłacanie planów oprogramowania SUSE z góry z poziomu usługi Azure Reservations)](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Informacje o rabacie i użyciu:
-- [Understand how the reservation discount is applied (Jak jest stosowany rabat na rezerwacje maszyn wirtualnych)](../manage/understand-vm-reservation-charges.md)
-- [Understand how the Red Hat Enterprise Linux software plan discount is applied (Informacje na temat sposobu stosowania rabatu na plan oprogramowania Red Hat Enterprise Linux)](understand-rhel-reservation-charges.md)
-- [Understand how the SUSE Linux Enterprise software plan discount is applied (Informacje na temat sposobu stosowania rabatu na plan oprogramowania SUSE Linux Enterprise)](understand-suse-reservation-charges.md)
-- [Understand how other reservation discounts are applied (Informacje na temat sposobu stosowania innych rabatów przy rezerwacji)](understand-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](understand-reserved-instance-usage-ea.md)
-- [Windows software costs not included with Reservations (Koszty oprogramowania systemu Windows nieuwzględniane w przypadku rezerwacji)](reserved-instance-windows-software-costs.md)
+ - [Wyświetlanie wykorzystania rezerwacji](reservation-utilization.md)
+ - [Wymiana i zwrot](exchange-and-refund-azure-reservations.md)
+ - [Odnawianie rezerwacji](reservation-renew.md)
+ - [Transfery między dzierżawami](troubleshoot-reservation-transfers-between-tenants.md)
+ - [Znajdowanie nabywcy rezerwacji w dziennikach platformy Azure](find-reservation-purchaser-from-logs.md)
+ - [Odnawianie rezerwacji](reservation-renew.md)

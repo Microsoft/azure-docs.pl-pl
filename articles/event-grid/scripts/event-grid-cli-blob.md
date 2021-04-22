@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ab0995a49f944344b6914bd0e51f1d437dd28c69
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1bc1f67277741dfa12209451375301cec7a63e9f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766761"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871430"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Subskrybowanie do zdarzeń dla konta usługi Blob Storage przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -31,7 +31,7 @@ Ten skrypt używa następującego polecenia w celu utworzenia subskrypcji zdarze
 | Polecenie | Uwagi |
 |---|---|
 | [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) | Tworzy subskrypcję usługi Event Grid. |
-| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) — wersja rozszerzenia | Tworzy subskrypcję usługi Event Grid. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) — wersja rozszerzenia | Tworzy subskrypcję usługi Event Grid. |
 
 ## <a name="next-steps"></a>Następne kroki
 
