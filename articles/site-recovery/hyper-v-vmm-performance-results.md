@@ -101,14 +101,14 @@ Wyniki jasno pokazują, że Site Recovery, w połączeniu z funkcją Hyper-V Rep
 * Lokacja główna ma klaster zawierający pięć serwerów funkcji Hyper-V, na których działają maszyny wirtualne 470.
 * Maszyny wirtualne uruchamiają różne obciążenia, a wszystkie Site Recovery ochrony są włączone.
 * Magazyn dla węzła klastra jest udostępniany przez sieć SAN iSCSI. Model — Hitachi HUS130.
-* Każdy serwer klastra ma cztery karty sieciowe (nic) o jednej GB/s każdy.
+* Każdy serwer klastra ma cztery karty sieciowe (nic) o przepustowości 1 Gb/s każdy.
 * Dwie karty sieciowe są połączone z siecią prywatną iSCSI, a dwie są połączone z zewnętrzną siecią przedsiębiorstwa. Jedna z sieci zewnętrznych jest zarezerwowana tylko do komunikacji z klastrem.
 
 ![Podstawowe wymagania sprzętowe](./media/hyper-v-vmm-performance-results/IC744922.png)
 
 | Serwer | Pamięć RAM | Model | Procesor | Liczba procesorów | Karta sieciowa | Oprogramowanie |
 | --- | --- | --- | --- | --- | --- | --- |
-| Serwery funkcji Hyper-V w klastrze: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB – HOST25 ma 256 |Dell™ PowerEdge™ R820 |Procesor Intel (R) Xeon (R) E5-4620 0 \@ 2.20 GHz |4 |I GB/s x 4 |Windows Server Datacenter 2012 R2 (x64) + rola funkcji Hyper-V |
+| Serwery funkcji Hyper-V w klastrze: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB – HOST25 ma 256 |Dell™ PowerEdge™ R820 |Procesor Intel (R) Xeon (R) E5-4620 0 \@ 2.20 GHz |4 |1 Gb/s x 4 |Windows Server Datacenter 2012 R2 (x64) + rola funkcji Hyper-V |
 | Serwer VMM |2 | | |2 |1 Gb/s |Baza danych systemu Windows Server 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Lokacja dodatkowa
@@ -120,7 +120,7 @@ Wyniki jasno pokazują, że Site Recovery, w połączeniu z funkcją Hyper-V Rep
 
 | Serwer | Pamięć RAM | Model | Procesor | Liczba procesorów | Karta sieciowa | Oprogramowanie |
 | --- | --- | --- | --- | --- | --- | --- |
-| Serwery funkcji Hyper-V w klastrze: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Procesor Intel (R) Xeon (R) E5-2630 0 \@ 2.30 GHz |2 |I GB/s x 4 |Windows Server Datacenter 2012 R2 (x64) + rola funkcji Hyper-V |
+| Serwery funkcji Hyper-V w klastrze: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Procesor Intel (R) Xeon (R) E5-2630 0 \@ 2.30 GHz |2 |1 Gb/s x 4 |Windows Server Datacenter 2012 R2 (x64) + rola funkcji Hyper-V |
 | ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Procesor Intel (R) Xeon (R) E5-4620 0 \@ 2.20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + rola funkcji Hyper-V |
 | ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Procesor Intel (R) Xeon (R) E5-4620 0 \@ 2.20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + rola funkcji Hyper-V |
 | Serwer VMM |2 | | |2 |1 Gb/s |Baza danych systemu Windows Server 2012 R2 (x64) + VMM 2012 R2 |

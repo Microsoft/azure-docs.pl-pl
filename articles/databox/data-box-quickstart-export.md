@@ -40,7 +40,7 @@ Przed rozpoczęciem:
 * Należy zapewnić następujące kable w celu podłączenia urządzenia Data Box do komputera hosta.
   * Dwa kable miedziane SFP+ Twinax 10 GbE (do użytku z interfejsami sieciowymi DATA 1 i DATA 2)
   * Jeden kabel sieciowy RJ-45 CAT 6 (do użytku z interfejsem sieciowym zarządzania — MGMT)
-  * Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 GB/s lub 1 GB/s)
+  * Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 Gb/s lub 1 Gb/s)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -70,7 +70,7 @@ Po otrzymaniu urządzenia Data Box wykonaj następujące czynności w celu podł
    * Przewód zasilający z uziemieniem (dołączony) przeznaczony do prądu co najmniej 10 A ze złączem typu IEC60320 C-13 po jednej stronie umożliwiającym podłączenie do urządzenia.
    * Jeden kabel sieciowy RJ-45 CAT 6 (do użytku z interfejsem sieciowym zarządzania — MGMT)
    * Dwa kable miedziane SFP+ Twinax 10 GbE (do użytku z interfejsami sieciowymi DATA 1 i DATA 2 o przepustowości 10 Gb/s)
-   * Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 GB/s lub 1 GB/s)
+   * Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 Gb/s lub 1 Gb/s)
 
 3. Wyjmij urządzenie i umieść je na płaskiej powierzchni.
 

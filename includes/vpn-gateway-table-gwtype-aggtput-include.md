@@ -26,11 +26,11 @@ ms.locfileid: "96010827"
 |**Generation1**|**VpnGw3AZ**| Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 1000      | 1,25 Gb/s | Obsługiwane | Tak |
 |        |            |            |           |                |           |           |     |
 |**Generation2**|**VpnGw2**  | Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 500       | 1,25 Gb/s | Obsługiwane | Nie |
-|**Generation2**|**VpnGw3**  | Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 1000      | 2,5 GB/s  | Obsługiwane | Nie |
+|**Generation2**|**VpnGw3**  | Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 1000      | 2,5 Gb/s  | Obsługiwane | Nie |
 |**Generation2**|**VpnGw4**  | Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 5000      | 5 Gb/s    | Obsługiwane | Nie |
 |**Generation2**|**VpnGw5**  | Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 10 000      | 10 Gb/s   | Obsługiwane | Nie |
 |**Generation2**|**VpnGw2AZ**| Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 500       | 1,25 Gb/s | Obsługiwane | Tak |
-|**Generation2**|**VpnGw3AZ**| Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 1000      | 2,5 GB/s  | Obsługiwane | Tak |
+|**Generation2**|**VpnGw3AZ**| Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 1000      | 2,5 Gb/s  | Obsługiwane | Tak |
 |**Generation2**|**VpnGw4AZ**| Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 5000      | 5 Gb/s    | Obsługiwane | Tak |
 |**Generation2**|**VpnGw5AZ**| Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 10 000      | 10 Gb/s   | Obsługiwane | Tak |
 

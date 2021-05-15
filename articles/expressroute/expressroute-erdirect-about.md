@@ -73,7 +73,7 @@ Usługa ExpressRoute Direct obsługuje ogromne scenariusze pozyskiwania danych w
 
 | **100 – GB/s ExpressRoute Direct** | **10 GB/s ExpressRoute Direct** | 
 | --- | --- |
-| **Zasubskrybowana przepustowość**: 200 GB/s | **Zasubskrybowana przepustowość**: 20 GB/s |
+| **Zasubskrybowana przepustowość**: 200 Gb/s | **Zasubskrybowana przepustowość**: 20 Gb/s |
 | <ul><li>5 Gb/s</li><li>10 Gb/s</li><li>40 Gb/s</li><li>100 Gb/s</li></ul> | <ul><li>1 Gb/s</li><li>2 Gb/s</li><li>5 Gb/s</li><li>10 Gb/s</li></ul>
 
 ## <a name="technical-requirements"></a>Wymagania techniczne

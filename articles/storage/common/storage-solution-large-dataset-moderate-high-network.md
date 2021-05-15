@@ -23,7 +23,7 @@ Aby zapoznać się z omówieniem wszystkich dostępnych opcji transferu danych, 
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-Duże zbiory danych odnoszą się do rozmiarów, w kolejności od usług TBs do usługi książek telefonicznych. Średnia do wysoka przepustowość sieci to 100 MB/s do 10 GB/s.
+Duże zbiory danych odnoszą się do rozmiarów, w kolejności od usług TBs do usługi książek telefonicznych. Średnia do wysoka przepustowość sieci to 100 Mb/s do 10 Gb/s.
 
 ## <a name="recommended-options"></a>Zalecane opcje
 

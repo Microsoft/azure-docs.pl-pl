@@ -69,7 +69,7 @@ W poniższej tabeli przedstawiono Obliczanie czasu trwania przenoszenia danych. 
 
 &nbsp;
 
-| Rozmiar danych/ <br/> zużywa | 50 Mb/s    | 100 Mb/s  | 500 Mb/s  | 1 Gb/s   | 5 Gb/s   | 10 Gb/s  | 50 GB/s   |
+| Rozmiar danych/ <br/> zużywa | 50 Mb/s    | 100 Mb/s  | 500 Mb/s  | 1 Gb/s   | 5 Gb/s   | 10 Gb/s  | 50 Gb/s   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | 2,7 min    | 1,4 min   | 0,3 min   | 0,1 min  | 0,03 min | 0,01 min | 0,0 min   |
 | **10 GB**                   | 27,3 min   | 13,7 min  | 2,7 min   | 1,3 min  | 0,3 min  | 0,1 min  | 0,03 min  |
@@ -77,8 +77,8 @@ W poniższej tabeli przedstawiono Obliczanie czasu trwania przenoszenia danych. 
 | **1 TB**                    | 46,6 godz.   | 23,3 godz.  | 4,7 godz.   | 2,3 godz.  | 0,5 godz.  | 0,2 godz.  | 0,05 godz.  |
 | **10 TB**                   | 19,4 dni  | 9,7 dni  | 1,9 dni  | 0,9 dni | 0,2 dni | 0,1 dni | 0,02 dni |
 | **100 TB**                  | 194,2 dni | 97,1 dni | 19,4 dni | 9,7 dni | 1,9 dni | 1 dzień    | 0,2 dni  |
-| **1 PB**                    | 64,7 mo    | 32,4 mo   | 6,5 mo    | 3,2 mo   | 0,6 mo   | 0,3 mo   | 0,06 mo   |
-| **10 PB**                   | 647,3 mo   | 323,6 mo  | 64,7 mo   | 31,6 mo  | 6,5 mo   | 3,2 mo   | 0,6 mo    |
+| **1 PB**                    | 64,7 mies.    | 32,4 mies.   | 6,5 mies.    | 3,2 mies.   | 0,6 mies.   | 0,3 mies.   | 0,06 mies.   |
+| **10 PB**                   | 647,3 mies.   | 323,6 mies.  | 64,7 mies.   | 31,6 mies.  | 6,5 mies.   | 3,2 mies.   | 0,6 mies.    |
 | | |  | | |  | | |
 
 Kopiowanie na podajniku APD jest skalowalne na różnych poziomach:

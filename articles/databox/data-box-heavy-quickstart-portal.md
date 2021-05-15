@@ -195,7 +195,7 @@ Postępuj zgodnie z instrukcjami dotyczącymi pierwszego węzła, aby podłączy
 
 Czas wymagany do ukończenia tej operacji zależy od rozmiaru danych i szybkości połączenia sieciowego używanego do kopiowania danych.
  
-1. Skopiuj dane do obu węzłów urządzenia, korzystając jednocześnie z obu interfejsów danych 40 GB/s.
+1. Skopiuj dane do obu węzłów urządzenia, korzystając jednocześnie z obu interfejsów danych 40 Gb/s.
 
     - Jeśli używasz hosta z systemem Windows, skorzystaj z narzędzia do kopiowania plików zgodnego z protokołem SMB, na przykład [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
     - W przypadku hosta z systemem plików NFS skopiuj dane za pomocą polecenia `cp` lub `rsync`.
