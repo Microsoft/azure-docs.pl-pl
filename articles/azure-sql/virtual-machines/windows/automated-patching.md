@@ -37,9 +37,9 @@ Aby używać zautomatyzowanej poprawki, należy wziąć pod uwagę następujące
 
 **System operacyjny**:
 
-* Windows Server 2008 z dodatkiem R2
+* Windows Server 2008 R2
 * Windows Server 2012
-* Windows Server 2012 z dodatkiem R2
+* Windows Server 2012 R2
 * Windows Server 2016
 * Windows Server 2019
 
@@ -59,7 +59,7 @@ Aby używać zautomatyzowanej poprawki, należy wziąć pod uwagę następujące
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Automatyczne stosowanie poprawek polega na rozszerzeniu SQL Server IaaS Agent. Bieżące obrazy galerii maszyn wirtualnych SQL Domyślnie Dodaj to rozszerzenie. Aby uzyskać więcej informacji, zobacz [SQL Server rozszerzenia agenta IaaS](sql-server-iaas-agent-extension-automate-management.md).
+> Automatyczne stosowanie poprawek polega na rozszerzeniu SQL Server IaaS Agent. Bieżące obrazy galerii maszyn wirtualnych SQL dodają to rozszerzenie domyślnie. Aby uzyskać więcej informacji, zobacz [SQL Server rozszerzenia agenta IaaS](sql-server-iaas-agent-extension-automate-management.md).
 > 
 > 
 
@@ -69,7 +69,7 @@ W poniższej tabeli opisano opcje, które można skonfigurować do automatyczneg
 | Ustawienie | Możliwe wartości | Opis |
 | --- | --- | --- |
 | **Automatyczne stosowanie poprawek** |Włącz/Wyłącz (wyłączone) |Włącza lub wyłącza automatyczne stosowanie poprawek dla maszyny wirtualnej platformy Azure. |
-| **Harmonogram obsługi** |Codzienne, poniedziałek, wtorek, środa, czwartek, piątek, Sobota, niedziela |Harmonogram pobierania i instalowania aktualizacji systemu Windows, SQL Server i Microsoft dla maszyny wirtualnej. |
+| **Harmonogram obsługi** |Codzienne, poniedziałek, wtorek, środa, czwartek, piątek, sobota, niedziela |Harmonogram pobierania i instalowania aktualizacji systemu Windows, SQL Server i Microsoft dla maszyny wirtualnej. |
 | **Godzina rozpoczęcia konserwacji** |0-24 |Godzina rozpoczęcia aktualizowania maszyny wirtualnej. |
 | **Czas trwania okna obsługi** |30-180 |Liczba minut, przez jaką można ukończyć pobieranie i instalowanie aktualizacji. |
 | **Kategoria poprawek** |Ważne | Kategoria aktualizacji systemu Windows do pobrania i zainstalowania.|
@@ -97,7 +97,7 @@ W przypadku istniejących SQL Server maszyn wirtualnych Otwórz [zasób usługi 
 
 Po zakończeniu kliknij przycisk **OK** w dolnej części bloku **Konfiguracja SQL Server** , aby zapisać zmiany.
 
-Jeśli po raz pierwszy włączysz automatyczne stosowanie poprawek, platforma Azure skonfiguruje SQL Server agenta IaaS w tle. W tym czasie Azure Portal mogą nie być wyświetlane, że jest skonfigurowane automatyczne stosowanie poprawek. Poczekaj kilka minut, aż Agent zostanie zainstalowany i skonfigurowany. Po tym, Azure Portal odzwierciedla nowe ustawienia.
+Jeśli po raz pierwszy włączysz automatyczne stosowanie poprawek, platforma Azure skonfiguruje SQL Server agenta IaaS w tle. W tym czasie Azure Portal może nie wyświetlać, że jest skonfigurowane automatyczne stosowanie poprawek. Poczekaj kilka minut, aż Agent zostanie zainstalowany i skonfigurowany. Po tym, Azure Portal odzwierciedla nowe ustawienia.
 
 ## <a name="configure-with-powershell"></a>Konfigurowanie przy użyciu programu PowerShell
 Po zainicjowaniu obsługi administracyjnej maszyny wirtualnej SQL użyj programu PowerShell, aby skonfigurować automatyczne stosowanie poprawek.
@@ -113,13 +113,13 @@ Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceG
 ```
 
 > [!IMPORTANT]
-> Jeśli rozszerzenie nie zostało jeszcze zainstalowane, ponowne uruchomienie zostanie uruchomione SQL Server.
+> Jeśli rozszerzenie nie zostało jeszcze zainstalowane, zainstalowanie go spowoduje ponowne uruchomienie SQL Server.
 
 Na podstawie tego przykładu w poniższej tabeli opisano praktyczny wpływ na docelową maszynę wirtualną platformy Azure:
 
 | Parametr | Efekt |
 | --- | --- |
-| **DayOfWeek** |Poprawki są instalowane w każdym czwartek. |
+| **DayOfWeek** |Poprawki są instalowane w każdy czwartek. |
 | **MaintenanceWindowStartingHour** |Rozpocznij aktualizacje o 11:10:00. |
 | **MaintenanceWindowsDuration** |Poprawki muszą być zainstalowane w ciągu 120 minut. Na podstawie czasu rozpoczęcia muszą one zostać wykonane przez 1:13:00. |
 | **PatchCategory** |Jedynym możliwym ustawieniem dla tego parametru jest **Ważne**. Spowoduje to zainstalowanie aktualizacji Windows Update oznaczonej jako ważne; nie są instalowane żadne SQL Server aktualizacje, które nie są uwzględnione w tej kategorii. |
