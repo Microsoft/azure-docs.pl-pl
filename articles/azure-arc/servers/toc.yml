@@ -97,7 +97,7 @@
       href: /javascript/api/%40azure/arm-hybridcompute
     - name: Python
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html'
-    - name: Elementy wbudowane usługi Azure Policy
+    - name: Wbudowane definicje zasad Azure Policy dla serwerów z włączoną obsługą Azure Arc
       displayName: 'samples, policies, definitions'
       href: policy-reference.md
 - name: Zasoby
