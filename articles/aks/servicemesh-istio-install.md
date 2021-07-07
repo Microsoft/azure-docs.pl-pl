@@ -15,14 +15,14 @@ ms.locfileid: "94683832"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalowanie i używanie Istio w usłudze Azure Kubernetes Service (AKS)
 
-[Istio][istio-github] to siatka usługi typu "open source", która udostępnia kluczowy zestaw funkcji dla mikrousług w klastrze Kubernetes. Te funkcje obejmują zarządzanie ruchem, tożsamość usługi i zabezpieczenia, wymuszanie zasad oraz ich przestrzeganie. Aby uzyskać więcej informacji na temat Istio, zobacz oficjalny dokument dotyczący [Istio?][istio-docs-concepts] .
+[Istio][istio-github] to siatka usługi typu "open source", która udostępnia kluczowy zestaw funkcji dla mikrousług w klastrze Kubernetes. Te funkcje obejmują zarządzanie ruchem, tożsamość usługi i zabezpieczenia, wymuszanie zasad oraz ich przestrzeganie. Aby uzyskać więcej informacji na temat Istio, zobacz oficjalny dokument dotyczący [Istio][istio-docs-concepts] .
 
-W tym artykule opisano sposób instalowania programu Istio. `istioctl`Plik binarny klienta Istio jest instalowany na komputerze klienckim, a składniki Istio są instalowane w klastrze Kubernetes na AKS.
+W tym artykule opisano sposób instalowania programu Istio. Plik binarny klienta Istio `istioctl` jest instalowany na komputerze klienckim, a składniki Istio są instalowane w klastrze Kubernetes na AKS.
 
 > [!NOTE]
 > Następujące instrukcje odwołują się do wersji Istio `1.7.3` .
 >
-> Wersje Istio zostały `1.7.x` przetestowane przez zespół Istio w odniesieniu do wersji Kubernetes `1.16+` . Dodatkowe wersje Istio można znaleźć w artykułach usługi [GitHub-Istio][istio-github-releases], informacje o każdej z tych wersji w usłudze [Istio News][istio-release-notes] i obsługiwane wersje Kubernetes na [ogół często zadawane pytania][istio-faq]na temat Istio.
+> Wersje Istio `1.7.x` zostały przetestowane przez zespół Istio w odniesieniu do wersji Kubernetes `1.16+` . Dodatkowe wersje Istio można znaleźć w artykułach usługi [GitHub-Istio][istio-github-releases], informacje o każdej z tych wersji w usłudze [Istio News][istio-release-notes] i obsługiwane wersje Kubernetes na [często zadawane pytania][istio-faq] na temat Istio.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -39,7 +39,7 @@ W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono kl
 
 Upewnij się, że zapoznaj się z dokumentacją dotyczącą [wydajności i skalowalności Istio](https://istio.io/docs/concepts/performance-and-scalability/) , aby poznać dodatkowe wymagania dotyczące zasobów związanych z uruchamianiem Istio w klastrze AKS. Wymagania podstawowe i dotyczące pamięci będą się różnić w zależności od konkretnego obciążenia. Wybierz odpowiednią liczbę węzłów i rozmiar maszyny wirtualnej, które mają być przeznaczone do instalacji.
 
-Ten artykuł oddziela wskazówki dotyczące instalacji Istio do kilku dyskretnych kroków. Wynik końcowy ma taką samą strukturę jak oficjalne [wskazówki dotyczące][istio-install-istioctl]instalacji Istio.
+Ten artykuł oddziela wskazówki dotyczące instalacji Istio do kilku dyskretnych kroków. Wynik końcowy ma taką samą strukturę jak oficjalne [wskazówki dotyczące instalacji Istio][istio-install-istioctl].
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -104,16 +104,16 @@ Możesz dowiedzieć się więcej na temat wzorca operatora i sposobu, w jaki mo�
 
 Teraz, po pomyślnym zainstalowaniu operatora Istio w klastrze AKS, należy zainstalować składniki Istio. 
 
-`default`Do skompilowania [specyfikacji operatora Istio][istio-control-plane]zostanie wykorzystamy [profil konfiguracji Istio][istio-configuration-profiles] .
+`default`Do skompilowania [specyfikacji operatora Istio][istio-control-plane] zostanie wykorzystamy [profil konfiguracji Istio][istio-configuration-profiles] .
 
-Można uruchomić następujące polecenie, `istioctl` Aby wyświetlić konfigurację `default` profilu konfiguracji Istio.
+Można uruchomić następujące polecenie, `istioctl` aby wyświetlić konfigurację `default` profilu konfiguracji Istio.
 
 ```bash
 istioctl profile dump default
 ```
 
 > [!NOTE]
-> Istio obecnie muszą być zaplanowane do uruchomienia w węzłach systemu Linux. Jeśli w klastrze znajdują się węzły systemu Windows Server, musisz upewnić się, że Istio są zaplanowane do uruchomienia tylko w węzłach z systemem Linux. Użyjemy [selektorów węzłów][kubernetes-node-selectors] , aby upewnić się, że zasobniki są zaplanowane do poprawnego węzła.
+> Istio obecnie muszą być zaplanowane do uruchomienia w węzłach systemu Linux. Jeśli w klastrze znajdują się węzły systemu Windows Server, musisz upewnić się, że Istio są zaplanowane do uruchomienia tylko w węzłach z systemem Linux. Użyjemy [selektorów węzłów][kubernetes-node-selectors], aby upewnić się, że zasobniki są zaplanowane do poprawnego węzła.
 
 > [!CAUTION]
 > Funkcje [ISTIO CNI][istio-feature-cni] Istio są obecnie w [alfa][istio-feature-stages], dlatego należy je zapewnić przed ich włączeniem. 
@@ -151,7 +151,7 @@ spec:
           strategy: anonymous 
 ```
 
-Utwórz `istio-system` przestrzeń nazw i Wdróż specyfikację operatora Istio w tej przestrzeni nazw. Operator Istio będzie oglądany dla specyfikacji operatora Istio i będzie używać go do instalowania i konfigurowania Istio w klastrze AKS.
+Utwórz przestrzeń nazw `istio-system` i wdróż specyfikację operatora Istio w tej przestrzeni nazw. Operator Istio będzie oglądany dla specyfikacji operatora Istio i będzie używać go do instalowania i konfigurowania Istio w klastrze AKS.
 
 ```bash
 kubectl create ns istio-system
@@ -163,7 +163,7 @@ W tym momencie wdrożono Istio w klastrze AKS. Aby upewnić się, że mamy pomy�
 
 ## <a name="validate-the-istio-installation"></a>Weryfikowanie instalacji Istio
 
-Wykonaj zapytanie dotyczące `istio-system` przestrzeni nazw, gdzie Istio i składniki dodatku zostały zainstalowane przez operatora Istio:
+Wykonaj zapytanie dotyczące przestrzeni nazw `istio-system`, gdzie Istio i składniki dodatku zostały zainstalowane przez operatora Istio:
 
 ```bash
 kubectl get all -n istio-system
@@ -172,7 +172,7 @@ kubectl get all -n istio-system
 Powinny zostać wyświetlone następujące składniki:
 
 - `istio*` -składniki Istio
-- `jaeger-*`, `tracing` i `zipkin` — dodatek do śledzenia
+- `jaeger-*`, `tracing` i `zipkin` -dodatek do śledzenia
 - `prometheus` -dodatek metryk
 - `grafana` -analizowanie i monitorowanie pulpitu nawigacyjnego
 - `kiali` -dodatek pulpitu nawigacyjnego sieci usługi
@@ -226,9 +226,9 @@ Możesz również uzyskać dodatkowe informacje na temat instalacji, obserwując
 kubectl logs -n istio-operator -l name=istio-operator -f
 ```
 
-Jeśli zostanie `istio-ingressgateway` wyświetlony zewnętrzny adres IP `<pending>` , odczekaj kilka minut, aż adres IP nie zostanie przypisany przez sieć platformy Azure.
+Jeśli `istio-ingressgateway` wyświetli zewnętrzny adres IP `<pending>` , odczekaj kilka minut, aż adres IP nie zostanie przypisany przez sieć platformy Azure.
 
-Wszystkie z tych zasobników powinny zawierać stan `Running` . Jeśli Twoje zasobniki nie mają tych stanów, Zaczekaj chwilę lub dwa, aż do ich wykonania. Jeśli którykolwiek z raportów zawiera raport o problemie, użyj polecenia [polecenia kubectl opisz pod][kubectl-describe] , aby przejrzeć ich dane wyjściowe i stan.
+Wszystkie z tych zasobników powinny zawierać stan `Running` . Jeśli Twoje zasobniki nie mają tych stanów, zaczekaj minutę lub dwie, aż do ich wykonania. Jeśli którykolwiek z raportów zawiera raport o problemie, użyj polecenia [polecenia kubectl opisz pod][kubectl-describe], aby przejrzeć ich dane wyjściowe i stan.
 
 ## <a name="accessing-the-add-ons"></a>Uzyskiwanie dostępu do dodatków
 
@@ -270,7 +270,7 @@ istioctl dashboard kiali
 
 ### <a name="envoy"></a>Envoy
 
-Dostępny jest prosty interfejs do serwerów proxy [wysłannika][envoy] . Zawiera informacje o konfiguracji i metryki dla serwera proxy wysłannika uruchomionego w określonym pod. Należy bezpiecznie otworzyć interfejs wysłannika w następujący sposób:
+Dostępny jest prosty interfejs do serwerów proxy [wysłannika][envoy]. Zawiera informacje o konfiguracji i metryki dla serwera proxy wysłannika uruchomionego w określonym pod. Należy bezpiecznie otworzyć interfejs wysłannika w następujący sposób:
 
 ```console
 istioctl dashboard envoy <pod-name>.<namespace>
